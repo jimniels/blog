@@ -1,5 +1,6 @@
 # My Blog
 
-This ismy blog. I've followed instructions from [Github][1].
+This is my blog.
 
-[1]: https://help.github.com/articles/using-jekyll-with-pages
+## `gh-pages` Branch
+I only have the single branch `gh-pages` (master is deleted). I did this following instructions [here][http://oli.jp/2011/github-pages-workflow/#deleting-master].
