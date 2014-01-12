@@ -1,0 +1,64 @@
+//
+//
+//  Archive
+//  ==============================
+//
+.article-archive {
+
+    @include clearfix();
+
+    @media screen and (max-width: $media-query-s) {
+        margin: .5em 0;
+    }
+
+    &.divider {
+        border-top: 1px solid $color-border-light;
+        padding-top: 3em;
+        margin-top: 2.85em;
+    }
+
+    &.divider_0 {
+        margin-top: -1em;
+    }
+
+
+    .title {
+        float: right;
+        width: 75%;
+
+        @media screen and (max-width: $media-query-s) {
+            float: none;
+            width: 100%;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .time {
+        font-family: $font-stack-secondary;
+        font-size: .85em;
+        color: $color-text-lightest;
+        width: 20%;
+        float: left;
+        text-align: right;
+        margin-right: 5%;
+        letter-spacing: -1px;
+
+        @media screen and (max-width: $media-query-s) {
+            float: none;
+            width: 100%;
+        }
+    }
+
+    .divider-time {
+        float: right;
+        font-family: $font-stack-secondary;
+        color: $color-text-lightest;
+        font-size: .55em;
+        margin-top: -3em;
+    }
+
+    
+}

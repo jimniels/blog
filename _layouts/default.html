@@ -1,41 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+{% include header.html %}
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/assets/css/style.css">
+    <section class="articles">
 
-    </head>
-    <body>
+        {{ content }}
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
+    </section>
 
-          {{ content }}
+    <nav class="pagination">
+        <ul>
+            <li class="prev"><a href="http://scriptogr.am/jimniels/1">Prev</a></li>
+            <li><a href="http://scriptogr.am/jimniels/">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="http://scriptogr.am/jimniels/3">3</a></li>
+            <li class="next"><a href="http://scriptogr.am/jimniels/3">Next</a></li>
+        </ul>
+    </nav>
 
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
+    <footer class="footer">
+        <h2 class="footer-title">Recent Articles</h2>
+        <ul id="recent-articles">
+        </ul>
 
-    </body>
+          <script type="text/javascript">
+          html += '<li><time>'+date+'</time><a href="'+entry.link+'" title="'+entry.title+'">'+entry.title+'</a></li>';
+          </script>
+
+
+    </footer>
+
+</body>
 </html>
+

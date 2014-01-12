@@ -4,6 +4,23 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
-@import "syntax";           // http://jekyllrb.com/docs/templates/#code_snippet_highlighting
+@import "compass/utilities/general/clearfix";
+@import "compass/css3";
 
-@import "main";
+@import "syntax";       // http://jekyllrb.com/docs/templates/#code_snippet_highlighting
+
+@import "mixins";
+@import "variables";
+@import "general";
+
+//@import "icons";        // Icons mixins, depending on what we're using
+@import "typography";   // General Typography
+@import "article";      // Article copy
+@import "archive";
+@import "navigation";
+
+@import "tags";
+@import "footnotes";    // Footnote styles
+@import "header";       // Main <header id="header">
+@import "pagination";
+@import "footer";

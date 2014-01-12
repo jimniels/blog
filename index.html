@@ -1,13 +1,49 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: Jim Nielsen’s Blog
 ---
+    
+    
+    
+    
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
+    <!-- Archive
+    =================================== -->
+    {% comment %} 
+        Assign page to post, as that's what the post template uses 
+    {% endcomment %}
+    
     {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% assign page = post %}
+        {% assign content = post.content %}
+        {% include post.html currentPage="home" %}
     {% endfor %}
-  </ul>
-</div>
+
+
+<!--     
+    sort by month: http://stackoverflow.com/questions/9623719/only-return-jekyll-posts-that-match-specific-year
+<article class="article-archive divider">
+        <p class="divider-time">2013, July</p>
+        <time class="time">July 15, 2013</time>
+        <h2 class="title"><a href="#">Forget About What's Right with the Product and Figure</a></h2>
+    </article>
+    <article class="article-archive">
+        <time class="time">July 12, 2013</time>
+        <h2 class="title"><a href="#">Right and Figure Post</a></h2>
+    </article>
+    <article class="article-archive">
+        <time class="time">July 1, 2013</time>
+        <h2 class="title"><a href="#">Another Post Title Right Here and This Is a Really Long One</a></h2>
+    </article>
+    <article class="article-archive divider">
+        <p class="divider-time">2013, July</p>
+        <time class="time">June 28, 2013</time>
+        <h2 class="title"><a href="#">Post Simple Title</a></h2>
+    </article>
+    <article class="article-archive">
+        <time class="time">June 12, 2013</time>
+        <h2 class="title"><a href="#">Really Short One Post Here</a></h2>
+    </article>
+    <div style="margin-bottom: 10em;"></div> -->
+    
+

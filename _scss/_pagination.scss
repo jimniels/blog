@@ -1,0 +1,49 @@
+.pagination {
+	margin: 0 0 10em;
+
+	ul {
+		max-width: $max-width-base;
+        margin: 0 auto;
+        padding: .5em 0;
+		@include clearfix();
+		text-align: center;
+		font-family: $font-stack-secondary;
+		color: $color-text-light;
+
+		li {
+			@include inline-block();
+
+			&.active a,
+			a:hover {
+				background: $color-highlight;
+				color: white;
+				text-decoration: none;
+			}
+
+			a {
+				display: block;
+				padding: .125em .75em;
+				@include border-radius(2px);
+				margin: 0 .5em;
+				border: 1px solid $color-border-light;
+			}	
+
+			&.next,
+			&.prev {
+				margin: 0 1em;
+				font-size: .825em;
+			}
+
+
+			@media screen and (max-width: $media-query-s) {
+				display: none;
+
+				&.next,
+				&.prev {
+					@include inline-block();
+				}
+			}
+
+		}
+	}
+}

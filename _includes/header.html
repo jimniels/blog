@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <!-- Title
+    =================================== -->
+    <title>TEST {{ page.title }}</title>
+
+    <!-- Meta
+    =================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    =================================== -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+
+    <!-- Javascript
+    =================================== -->
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/js.js"></script>
+</head>
+<body>
+
+    <!-- Header
+    =================================== -->
+    <header class="header">
+        <a href="{{ site.url }}{{ site.baseurl }}/index.html">
+            <img src="{{ site.baseurl }}/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
+            <h1 class="site-title">Jim Nielsen, Designer</h1>
+        </a>
+    </header>
+
+    <!-- Navigation
+    =================================== -->
+    <nav class="navigation hide">
+        <ul class="navigation-list">
+            <li><strong class="navigation-item">Jim&#39;s Blog</strong></li>
+            <li><a href="{{ site.url }}{{ site.baseurl }}/index.html" class="navigation-item icon-cabinet">Blog Home</a></li>
+            <li><a href="#" class="navigation-item icon-cabinet">Blog Archive</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top of Page</a></li>
+        </ul>
+        <img src="{{ site.url }}{{ site.baseurl }}/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
+    </nav>

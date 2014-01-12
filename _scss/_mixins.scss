@@ -1,0 +1,14 @@
+//
+//
+//  Mixins
+//  ==============================
+//  Used by img caption, blog excerpts
+//
+
+@mixin secondaryText {
+    font-size: .75em;
+    font-style: italic;
+    line-height: 1.5em;
+    color: $color-text-light;
+    font-family: $font-stack-secondary;
+}

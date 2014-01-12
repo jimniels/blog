@@ -1,0 +1,65 @@
+//
+//
+//  General Classes
+//  ==============================
+//
+* {
+    @include box-sizing(border-box);
+}
+
+body {
+    -webkit-text-size-adjust:none;
+    font-size: $font-size-base;
+    line-height: 1.7em;
+    font-family: $font-stack-primary;
+    font-weight: 400;
+    color: $color-text-dark;
+
+    // 80% font size on mobile
+    @media screen and (max-width: 600px) {
+        font-size: (.80 * $font-size-base);
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($color-highlight, 8%);
+        text-decoration: underline;
+
+        &[class*="icon-"]:before {
+            text-decoration: none;
+        }
+    }
+
+    &:active {
+        color: darken($color-highlight, 14%);
+    }
+
+    .title & {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    img {
+        border: none; //fixes position:fixed on iphone flickr scroll
+    }
+}
+
+// 
+//  Remove page transitions on page load
+//  http://css-tricks.com/transitions-only-after-page-load/
+//  Remove this class on page load
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+// Hide this on page load
+.preload .navigation-list {
+    display: none;
+}

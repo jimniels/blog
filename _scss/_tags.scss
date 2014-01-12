@@ -1,0 +1,33 @@
+//
+//
+//  Tags
+//  ------------------------------
+.tags {
+    max-width: ($max-width-base);
+    margin: 0 auto;
+    color: $color-text-lightest;
+
+    li {
+    	@include inline-block();
+    	margin: 0 .5em .5em 0;
+    }
+
+    .tag {
+    	font-size: (18em / $font-size-base-px);
+    	display: block;
+
+    	&:hover:before {
+    		text-decoration: none;
+    		@include rotate(360deg);
+    	}
+    }
+}
+
+.icon-tag:before {
+	margin-right:.25em;
+	-webkit-transition: .25s ease -webkit-transform;
+	-moz-transition: .25s ease -moz-transform;
+	-o-transition: .25s ease -o-transform;
+	-ms-transition: .25s ease -ms-transform;
+	transition: .25s ease transform;
+}
