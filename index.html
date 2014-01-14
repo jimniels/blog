@@ -2,48 +2,18 @@
 layout: default
 title: Jim Nielsen’s Blog
 ---
-    
-    
-    
-    
 
-    <!-- Archive
-    =================================== -->
     {% comment %} 
         Assign page to post, as that's what the post template uses 
     {% endcomment %}
     
+
     {% for post in site.posts %}
         {% assign page = post %}
         {% assign content = post.content %}
         {% include post.html currentPage="home" %}
-    {% endfor %}
-
-
-<!--     
-    sort by month: http://stackoverflow.com/questions/9623719/only-return-jekyll-posts-that-match-specific-year
-<article class="article-archive divider">
-        <p class="divider-time">2013, July</p>
-        <time class="time">July 15, 2013</time>
-        <h2 class="title"><a href="#">Forget About What's Right with the Product and Figure</a></h2>
-    </article>
-    <article class="article-archive">
-        <time class="time">July 12, 2013</time>
-        <h2 class="title"><a href="#">Right and Figure Post</a></h2>
-    </article>
-    <article class="article-archive">
-        <time class="time">July 1, 2013</time>
-        <h2 class="title"><a href="#">Another Post Title Right Here and This Is a Really Long One</a></h2>
-    </article>
-    <article class="article-archive divider">
-        <p class="divider-time">2013, July</p>
-        <time class="time">June 28, 2013</time>
-        <h2 class="title"><a href="#">Post Simple Title</a></h2>
-    </article>
-    <article class="article-archive">
-        <time class="time">June 12, 2013</time>
-        <h2 class="title"><a href="#">Really Short One Post Here</a></h2>
-    </article>
-    <div style="margin-bottom: 10em;"></div> -->
     
-
+        {% capture month %}
+            {{post.date | date: "%B"}}
+        {% endcapture %}
+    {% endfor %}

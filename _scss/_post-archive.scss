@@ -1,0 +1,51 @@
+//
+//
+//  Archive
+//  ==============================
+//
+.post-archive {
+    position: relative;
+    text-align: center;
+
+    @media screen and (max-width: $media-query-s) {
+        margin: .5em 0;
+    } 
+}
+
+.post-archive__title {
+    //@include inline-block;
+    //font-size: .75em;
+    margin-bottom: .5em;
+    font-family: $font-stack-secondary;
+    color: $color-highlight;
+    background: #fff;
+}
+
+.post-archive__list {
+    @include clearfix();
+
+    li {
+        padding: 0.625em 0;
+        border-bottom: 1px solid $color-border-lightest;
+        overflow: hidden;
+
+        &:first-child {
+            border-top: 1px solid $color-border-lightest;
+        }
+    }
+
+    time {
+        font-family: $font-stack-secondary;
+        font-size: .625em;
+        color: $color-text-lightest;
+        letter-spacing: -0.0125em;
+        display: block;
+        line-height: 1;
+    }
+
+    a {
+        &:hover {
+            text-decoration: underline;
+        } 
+    }
+}

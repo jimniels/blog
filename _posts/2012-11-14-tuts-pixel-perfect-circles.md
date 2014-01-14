@@ -2,8 +2,7 @@
 layout: post
 title:  "Creating Crisp, Pixel Perfect Circles in Photoshop"
 date:   2012-11-14
-categories: web-design
-tags: published articles
+tags: published-articles web-design
 summary: This is something to just test the summary and see if it works.
 ---
 

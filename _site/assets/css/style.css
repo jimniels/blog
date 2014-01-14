@@ -824,68 +824,53 @@ a img {
   transform: rotate(360deg);
 }
 
-/* line 6, ../../_scss/_archive.scss */
-.article-archive {
-  overflow: hidden;
-  *zoom: 1;
+/* line 6, ../../_scss/_post-archive.scss */
+.post-archive {
+  position: relative;
+  text-align: center;
 }
 @media screen and (max-width: 34em) {
-  /* line 6, ../../_scss/_archive.scss */
-  .article-archive {
+  /* line 6, ../../_scss/_post-archive.scss */
+  .post-archive {
     margin: .5em 0;
   }
 }
-/* line 14, ../../_scss/_archive.scss */
-.article-archive.divider {
-  border-top: 1px solid #eeeeee;
-  padding-top: 3em;
-  margin-top: 2.85em;
+
+/* line 15, ../../_scss/_post-archive.scss */
+.post-archive__title {
+  margin-bottom: .5em;
+  font-family: Trebuchet MS, Gill sans, lucida grande, lucida sans, verdana, sans-serif;
+  color: #c02702;
+  background: #fff;
 }
-/* line 20, ../../_scss/_archive.scss */
-.article-archive.divider_0 {
-  margin-top: -1em;
+
+/* line 24, ../../_scss/_post-archive.scss */
+.post-archive__list {
+  overflow: hidden;
+  *zoom: 1;
 }
-/* line 25, ../../_scss/_archive.scss */
-.article-archive .title {
-  float: right;
-  width: 75%;
+/* line 27, ../../_scss/_post-archive.scss */
+.post-archive__list li {
+  padding: 0.625em 0;
+  border-bottom: 1px solid #f0f0f0;
+  overflow: hidden;
 }
-@media screen and (max-width: 34em) {
-  /* line 25, ../../_scss/_archive.scss */
-  .article-archive .title {
-    float: none;
-    width: 100%;
-  }
+/* line 32, ../../_scss/_post-archive.scss */
+.post-archive__list li:first-child {
+  border-top: 1px solid #f0f0f0;
 }
-/* line 34, ../../_scss/_archive.scss */
-.article-archive .title a:hover {
+/* line 37, ../../_scss/_post-archive.scss */
+.post-archive__list time {
+  font-family: Trebuchet MS, Gill sans, lucida grande, lucida sans, verdana, sans-serif;
+  font-size: .625em;
+  color: #bbbbbb;
+  letter-spacing: -0.0125em;
+  display: block;
+  line-height: 1;
+}
+/* line 47, ../../_scss/_post-archive.scss */
+.post-archive__list a:hover {
   text-decoration: underline;
-}
-/* line 39, ../../_scss/_archive.scss */
-.article-archive .time {
-  font-family: Trebuchet MS, Gill sans, lucida grande, lucida sans, verdana, sans-serif;
-  font-size: .85em;
-  color: #bbbbbb;
-  width: 20%;
-  float: left;
-  text-align: right;
-  margin-right: 5%;
-  letter-spacing: -1px;
-}
-@media screen and (max-width: 34em) {
-  /* line 39, ../../_scss/_archive.scss */
-  .article-archive .time {
-    float: none;
-    width: 100%;
-  }
-}
-/* line 55, ../../_scss/_archive.scss */
-.article-archive .divider-time {
-  float: right;
-  font-family: Trebuchet MS, Gill sans, lucida grande, lucida sans, verdana, sans-serif;
-  color: #bbbbbb;
-  font-size: .55em;
-  margin-top: -3em;
 }
 
 /* line 1, ../../_scss/_navigation.scss */
