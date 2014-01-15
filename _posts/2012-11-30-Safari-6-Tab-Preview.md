@@ -1,6 +1,9 @@
-Title: Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)
-Date: 2012-11-30
-Excerpt: The new tab preview experience in Safari 6 might be better if it *revealed more* of the tab previews as it grows horizontally rather than increasing the size of the tab previews. 
+---
+layout: post
+title: "Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)"
+date: 2012-11-30
+summary: "The new tab preview experience in Safari 6 might be better if it *revealed more* of the tab previews as it grows horizontally rather than increasing the size of the tab previews."
+---
 
 
 Apple's Safari 6 introduced a new tab switching experience. By activating the feature, Safari presents you with a bird's-eye view of open tabs. 100% of the active tab is previewable while only about 15% of it's left and right sibilings are previeweable.

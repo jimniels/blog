@@ -4,7 +4,7 @@
     
     <!-- Title
     =================================== -->
-    <title>Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)</title>
+    <title>Miscellaneous Unicode Symbols, Font Stacks, and You</title>
 
     <!-- Meta
     =================================== -->
@@ -51,10 +51,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">30 Nov 2012</time>
-        <h1 class="title"><a href="/blog/Safari-6-Tab-Preview/">Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)</a></h1>
-        
-            <p class="excerpt">The new tab preview experience in Safari 6 might be better if it *revealed more* of the tab previews as it grows horizontally rather than increasing the size of the tab previews.</p>
+        <time class="date">21 Jan 2013</time>
+        <h1 class="title"><a href="/blog/unicode-star-font-stack/">Miscellaneous Unicode Symbols, Font Stacks, and You</a></h1>
         
     </header>
 
@@ -62,19 +60,40 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Apple&#39;s Safari 6 introduced a new tab switching experience. By activating the feature, Safari presents you with a bird&#39;s-eye view of open tabs. 100% of the active tab is previewable while only about 15% of it&#39;s left and right sibilings are previeweable.</p>
+        <p>I needed a star symbol in my design. That&#39;s how this all started. I wanted to use something other than an image to display the star on screen for various reasons:</p>
 
-<p><img src="http://jim-nielsen.com/images/2012/safari6-tab-view.jpg" alt="Safari 6 tab preview"></p>
+<ol>
+<li>I wanted the star to be different colors in different contexts and I didn&#39;t want to create an image of the star for each variance. </li>
+<li>I wanted the star to be crisp and clear, which meant I&#39;d have to create multiple sizes of the image for retina screen support.</li>
+</ol>
 
-<p>This experience of previewing your tabs is consistent no matter the application&#39;s viewport size. You always see 100% of the active tab and about 15% of it&#39;s left and right siblings.</p>
+<p>So rather than create a handful of stars as images (in different colors and sizes) I decided to try using the black star symbol in Unicode (U+2605, &amp;#9733).</p>
 
-<p><img src="http://jim-nielsen.com/images/2012/safari6-tab-view-resolution-comparison.jpg" alt="Safari 6 tab preview at different resolutions"></p>
+<h2>Unicode and Font Stack Correlations</h2>
 
-<p>Wouldn&#39;t it be neat to see the preview of the active tab&#39;s sibilings grow as the viewport grows horizontally? Essentially, if I had a large monitor I would be able to <strong>see more</strong> of the sibling tabs&#39; previews.</p>
+<p>I began by simply inserting the character reference in my markup with the default CSS font-size of 1em and font stack of Helvetica. However, I stumbled on an inconsistency in modern browsers: the unicode star was rendering at different sizes in browsers that implement different rendering engines.</p>
 
-<p><img src="http://jim-nielsen.com/images/2012/safari6-tab-view-new-design.jpg" alt="New design of Safari 6 tab preview"></p>
+<p><img src="http://jim-nielsen.com/images/2013/black-star-unicode-arial-helvetica.png" alt="Black Star Unicode Using Helvetica and Arial Unicode MS"></p>
 
-<p>As you can see, as the window grows in size horizontally it would <strong>reveal more</strong> of the sibilng tabs&#39; previews <strong>rather than increase</strong> the tab preview sizes. Visually this would help form a more cohesive mental model of the spacial relationship between tabs. It would also help tremendously for any site-comparison a user might be doing.</p>
+<p>Notice the size difference? It appears the black star unicode symbol is not supported by my default stack of Helvetica. In order to display the character, each browser is resorting to a font of it&#39;s own choosing that <em>does</em> support it. In this case, each browsers is choosing a different font; hence the size discrepancy. </p>
+
+<p>By resorting to a font stack that supports the black star glyph (in this case Arial Unicode MS), I achieved consistent sizing across browsers. You can see the differences and similarities in this blown up photo:</p>
+
+<p><img src="http://jim-nielsen.com/images/2013/black-star-unicode-arial-helvetica-zoomed.png" alt="Zoomed in Photo of Black Star Unicode Glyph"></p>
+
+<h2>But Wait, There&#39;s Always IE</h2>
+
+<p>Of course, if you&#39;re trying to support IE, throw everything I just said out the window. The black star wasn&#39;t displaying in IE 7 &amp; 8 on Windows XP. This is because Windows XP, by default, didn&#39;t have a font that supports the black star glyph using standard Unicode. However, if the user had additional fonts installed, like the ones that come with MS Office, I&#39;m guessing this technique would probably work. I&#39;ll leave that up to someone else to test.</p>
+
+<h2>Conclusion</h2>
+
+<p>If you&#39;re going to use Unicode symbols, make sure you&#39;re using a font that supports them. If you don&#39;t, you&#39;ll find some strange inconsistencies across browsers. Here is Wikipedia&#39;s take:</p>
+
+<blockquote>
+<p>The Miscellaneous Symbols Unicode block (2600–26FF) contains various glyphs representing things from a variety of categories …  these [characters] may not display properly if your computer does not implement Unicode and have the proper fonts installed. Also, some browsers may not display certain symbols properly at all even if your computer has the required implemented Unicode and fonts. - <a href="http://en.wikipedia.org/wiki/Miscellaneous_Symbols">Wikipedia</a></p>
+</blockquote>
+
+<p>I started realizing consistent Unicode support across browsers and platforms was a rabbit&#39;s hole I didn&#39;t want to go down any further. So I switched my implementation technique to <a href="http://css-tricks.com/examples/IconFont/">icon fonts</a>, which was much more bullet-proof.</p>
 
     </div>
 
@@ -82,6 +101,8 @@
     =================================== -->
     
         <ul class="tags">
+            
+                <li><a href="#" class="tag icon-tag">tips</a></li>            
             
         </ul>
     

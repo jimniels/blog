@@ -3,33 +3,34 @@
     http://stackoverflow.com/questions/19086284/jekyll-liquid-templating-how-to-group-blog-posts-by-year
 {% endcomment %}
 
-
- <div class="post-archive" id="archive">
-    <h2 class="post-archive__title">Post Archive</h2>
+{% comment %}
+<aside class="post-archive" id="archive">
+    <h2 class="post-archive__title">Blog Archive</h2>
     <ul class="post-archive__list">
         {% for post in site.posts  %}
             <li>
                 <time>{{ post.date | date: "%-d %b, %Y" }}</time>
-                <a href="'+entry.link+'" title="'+entry.title+'">{{ post.title }}</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
         {% endfor %}
     </ul>
-</div>
+</aside>
+{% endcomment %}
 
+<aside class="post-archive" id="archive">
 
-{% comment %}
 {% for post in site.posts  %}
     {% capture thisYear %}{{ post.date | date: "%Y" }}{% endcapture %}
     {% capture nextYear %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
 
     {% if forloop.first %}
-    <ul class="post-list">
-        <li class="post-list__year" id="{{thisYear}}">{{thisYear}}
+    <ul class="post-archive__list">
+        <li id="{{thisYear}}"><span>{{thisYear}} Posts</span>
             <ul>
     {% endif %}
-            <li class="post-list__entry">
-                <time class="post-list__time">{{ post.date | date: "%-d %b" }}</time>
-                <a class="post-list__title" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            <li>
+                <time>{{ post.date | date: "%b %-d" }}</time>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
     {% if forloop.last %}
             </ul>
@@ -39,11 +40,13 @@
         {% if thisYear != nextYear %}
             </ul>
         </li>
-        <li class="post-list__year" id="{{nextYear}}">{{nextYear}}
+        <li><span>{{nextYear}} Posts</span>
         <ul>
         {% endif %}
     {% endif %}
 
 {% endfor %}
-{% endcomment %}
+
+</aside>
+
 

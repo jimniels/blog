@@ -23,14 +23,28 @@
 
 .post-archive__list {
     @include clearfix();
+    border-top: 1px solid $color-border-lightest;
 
-    li {
-        padding: 0.625em 0;
-        border-bottom: 1px solid $color-border-lightest;
-        overflow: hidden;
 
-        &:first-child {
+    // First level years
+    > li {
+        background: #f7f7f7;
+
+        span {
+            font-family: $font-stack-secondary;
+            font-size: .825em;
+            color: $color-highlight;
+        }
+        
+        // Second level posts
+        > ul {
             border-top: 1px solid $color-border-lightest;
+
+            > li {
+                background: #fff;
+                padding: 0.625em 0;
+                border-bottom: 1px solid $color-border-lightest; 
+            }
         }
     }
 

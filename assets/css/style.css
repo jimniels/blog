@@ -746,7 +746,6 @@ a img {
   font-weight: normal;
   line-height: 1.25em;
   padding: 0;
-  text-transform: capitalize;
 }
 @media screen and (max-width: 34em) {
   /* line 64, ../../_scss/_article.scss */
@@ -755,7 +754,7 @@ a img {
     margin-top: 0;
   }
 }
-/* line 80, ../../_scss/_article.scss */
+/* line 79, ../../_scss/_article.scss */
 .article-header .date {
   z-index: 10;
   font-family: Trebuchet MS, Gill sans, lucida grande, lucida sans, verdana, sans-serif;
@@ -766,7 +765,7 @@ a img {
   top: -2.7em;
   position: relative;
 }
-/* line 91, ../../_scss/_article.scss */
+/* line 90, ../../_scss/_article.scss */
 .article-header .excerpt {
   font-size: .75em;
   font-style: italic;
@@ -778,13 +777,13 @@ a img {
   padding: 0;
 }
 @media screen and (max-width: 34em) {
-  /* line 91, ../../_scss/_article.scss */
+  /* line 90, ../../_scss/_article.scss */
   .article-header .excerpt {
     width: 100%;
   }
 }
 
-/* line 108, ../../_scss/_article.scss */
+/* line 107, ../../_scss/_article.scss */
 .article-footer {
   padding: 1em;
   max-width: 35em;
@@ -798,16 +797,16 @@ a img {
   border-radius: 2px;
 }
 @media screen and (max-width: 34em) {
-  /* line 108, ../../_scss/_article.scss */
+  /* line 107, ../../_scss/_article.scss */
   .article-footer {
     text-align: left;
   }
 }
-/* line 120, ../../_scss/_article.scss */
+/* line 119, ../../_scss/_article.scss */
 .article-footer a {
   margin-left: 1em;
 }
-/* line 123, ../../_scss/_article.scss */
+/* line 122, ../../_scss/_article.scss */
 .article-footer a:before {
   margin-right: .25em;
   -webkit-transition: 0.25s ease all;
@@ -815,7 +814,7 @@ a img {
   -o-transition: 0.25s ease all;
   transition: 0.25s ease all;
 }
-/* line 129, ../../_scss/_article.scss */
+/* line 128, ../../_scss/_article.scss */
 .article-footer a:hover:before {
   -webkit-transform: rotate(360deg);
   -moz-transform: rotate(360deg);
@@ -848,18 +847,29 @@ a img {
 .post-archive__list {
   overflow: hidden;
   *zoom: 1;
-}
-/* line 27, ../../_scss/_post-archive.scss */
-.post-archive__list li {
-  padding: 0.625em 0;
-  border-bottom: 1px solid #f0f0f0;
-  overflow: hidden;
-}
-/* line 32, ../../_scss/_post-archive.scss */
-.post-archive__list li:first-child {
   border-top: 1px solid #f0f0f0;
 }
-/* line 37, ../../_scss/_post-archive.scss */
+/* line 30, ../../_scss/_post-archive.scss */
+.post-archive__list > li {
+  background: #f7f7f7;
+}
+/* line 33, ../../_scss/_post-archive.scss */
+.post-archive__list > li span {
+  font-family: Trebuchet MS, Gill sans, lucida grande, lucida sans, verdana, sans-serif;
+  font-size: .825em;
+  color: #c02702;
+}
+/* line 40, ../../_scss/_post-archive.scss */
+.post-archive__list > li > ul {
+  border-top: 1px solid #f0f0f0;
+}
+/* line 43, ../../_scss/_post-archive.scss */
+.post-archive__list > li > ul > li {
+  background: #fff;
+  padding: 0.625em 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+/* line 51, ../../_scss/_post-archive.scss */
 .post-archive__list time {
   font-family: Trebuchet MS, Gill sans, lucida grande, lucida sans, verdana, sans-serif;
   font-size: .625em;
@@ -868,7 +878,7 @@ a img {
   display: block;
   line-height: 1;
 }
-/* line 47, ../../_scss/_post-archive.scss */
+/* line 61, ../../_scss/_post-archive.scss */
 .post-archive__list a:hover {
   text-decoration: underline;
 }
@@ -941,12 +951,7 @@ a img {
     font-size: .85em;
   }
 }
-/* line 44, ../../_scss/_navigation.scss */
-.navigation .navigation-list li:first-child {
-  font-weight: 700;
-  color: #fff;
-}
-/* line 50, ../../_scss/_navigation.scss */
+/* line 43, ../../_scss/_navigation.scss */
 .navigation .navigation-list .navigation-item {
   line-height: 40px;
   height: 40px;
@@ -959,7 +964,7 @@ a img {
   transition: 0.35s ease all;
   overflow: hidden;
 }
-/* line 60, ../../_scss/_navigation.scss */
+/* line 53, ../../_scss/_navigation.scss */
 .navigation .navigation-list .navigation-item:before {
   font-size: 1em;
   margin-right: .5em;
@@ -968,12 +973,12 @@ a img {
   -o-transition: 0.25s ease -webkit-transform;
   transition: 0.25s ease -webkit-transform;
 }
-/* line 66, ../../_scss/_navigation.scss */
+/* line 59, ../../_scss/_navigation.scss */
 .navigation .navigation-list .navigation-item:hover {
   text-decoration: none;
   color: white;
 }
-/* line 70, ../../_scss/_navigation.scss */
+/* line 63, ../../_scss/_navigation.scss */
 .navigation .navigation-list .navigation-item:hover:before {
   text-decoration: none;
   -webkit-transform: scale(1.15) rotate(360deg);
@@ -983,7 +988,7 @@ a img {
   transform: scale(1.15) rotate(360deg);
 }
 
-/* line 83, ../../_scss/_navigation.scss */
+/* line 76, ../../_scss/_navigation.scss */
 .csstransforms .navigation.hide .navigation-list {
   -webkit-transform: scale(0, 0);
   -moz-transform: scale(0, 0);
@@ -991,7 +996,7 @@ a img {
   -o-transform: scale(0, 0);
   transform: scale(0, 0);
 }
-/* line 87, ../../_scss/_navigation.scss */
+/* line 80, ../../_scss/_navigation.scss */
 .csstransforms .navigation.hide .navigation-list li:first-child .navigation-item {
   -webkit-transform: translateX(200px);
   -moz-transform: translateX(200px);
@@ -999,7 +1004,7 @@ a img {
   -o-transform: translateX(200px);
   transform: translateX(200px);
 }
-/* line 90, ../../_scss/_navigation.scss */
+/* line 83, ../../_scss/_navigation.scss */
 .csstransforms .navigation.hide .navigation-list li:nth-child(2) .navigation-item {
   -webkit-transform: translateX(350px);
   -moz-transform: translateX(350px);
@@ -1007,7 +1012,7 @@ a img {
   -o-transform: translateX(350px);
   transform: translateX(350px);
 }
-/* line 93, ../../_scss/_navigation.scss */
+/* line 86, ../../_scss/_navigation.scss */
 .csstransforms .navigation.hide .navigation-list li:nth-child(3) .navigation-item {
   -webkit-transform: translateX(450px);
   -moz-transform: translateX(450px);
@@ -1015,7 +1020,7 @@ a img {
   -o-transform: translateX(450px);
   transform: translateX(450px);
 }
-/* line 96, ../../_scss/_navigation.scss */
+/* line 89, ../../_scss/_navigation.scss */
 .csstransforms .navigation.hide .navigation-list li:nth-child(4) .navigation-item {
   -webkit-transform: translateX(600px);
   -moz-transform: translateX(600px);
@@ -1023,7 +1028,7 @@ a img {
   -o-transform: translateX(600px);
   transform: translateX(600px);
 }
-/* line 99, ../../_scss/_navigation.scss */
+/* line 92, ../../_scss/_navigation.scss */
 .csstransforms .navigation.hide .navigation-list li:nth-child(5) .navigation-item {
   -webkit-transform: translateX(800px);
   -moz-transform: translateX(800px);
@@ -1031,7 +1036,7 @@ a img {
   -o-transform: translateX(800px);
   transform: translateX(800px);
 }
-/* line 105, ../../_scss/_navigation.scss */
+/* line 98, ../../_scss/_navigation.scss */
 .csstransforms .navigation.show .navigation-list {
   -webkit-transform: scale(1, 1);
   -moz-transform: scale(1, 1);
@@ -1039,7 +1044,7 @@ a img {
   -o-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 108, ../../_scss/_navigation.scss */
+/* line 101, ../../_scss/_navigation.scss */
 .csstransforms .navigation.show .avatar {
   -webkit-transform: rotate(-360deg);
   -moz-transform: rotate(-360deg);
@@ -1048,11 +1053,11 @@ a img {
   transform: rotate(-360deg);
 }
 
-/* line 117, ../../_scss/_navigation.scss */
+/* line 110, ../../_scss/_navigation.scss */
 .no-csstransforms .navigation.hide .navigation-list {
   display: none;
 }
-/* line 123, ../../_scss/_navigation.scss */
+/* line 116, ../../_scss/_navigation.scss */
 .no-csstransforms .navigation.show .navigation-list {
   display: block;
 }

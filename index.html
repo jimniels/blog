@@ -8,12 +8,9 @@ title: Jim Nielsen’s Blog
     {% endcomment %}
     
 
-    {% for post in site.posts %}
+    {% for post in site.posts limit:1 %}
         {% assign page = post %}
         {% assign content = post.content %}
-        {% include post.html currentPage="home" %}
-    
-        {% capture month %}
-            {{post.date | date: "%B"}}
-        {% endcapture %}
+        {% include post.html %}
+        <!-- <li><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li> -->
     {% endfor %}

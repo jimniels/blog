@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Science Speaks: Good Typography = Good Mood"
 date: 2013-1-8
 tags: typography

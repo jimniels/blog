@@ -14,3 +14,4 @@ I keep track of tags manually, as I know of no other way currently. So, in the f
 - insights
 - notes
 - tags
+- tips

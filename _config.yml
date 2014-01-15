@@ -2,5 +2,4 @@ name: Jim Nielsens Blog
 markdown: redcarpet
 pygments: true
 baseurl: /blog
-permalink: /:categories/:title/
-testSetting: This works
+permalink: /:categories/:title.html

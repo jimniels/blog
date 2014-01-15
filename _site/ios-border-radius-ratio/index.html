@@ -4,7 +4,7 @@
     
     <!-- Title
     =================================== -->
-    <title>Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)</title>
+    <title>Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio</title>
 
     <!-- Meta
     =================================== -->
@@ -51,10 +51,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">30 Nov 2012</time>
-        <h1 class="title"><a href="/blog/Safari-6-Tab-Preview/">Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)</a></h1>
-        
-            <p class="excerpt">The new tab preview experience in Safari 6 might be better if it *revealed more* of the tab previews as it grows horizontally rather than increasing the size of the tab previews.</p>
+        <time class="date">11 Dec 2012</time>
+        <h1 class="title"><a href="/blog/ios-border-radius-ratio/">Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio</a></h1>
         
     </header>
 
@@ -62,19 +60,62 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Apple&#39;s Safari 6 introduced a new tab switching experience. By activating the feature, Safari presents you with a bird&#39;s-eye view of open tabs. 100% of the active tab is previewable while only about 15% of it&#39;s left and right sibilings are previeweable.</p>
+        <p>So you&#39;ve got to create an icon for the iOS ecosystem, where do you start? You probably realized quickly you&#39;ll have to supply a couple different sizes for the various contexts in which the icon will be used. Apple details these requirements in their <a href="http://developer.apple.com/library/ios/#documentation/userexperience/conceptual/mobilehig/IconsImages/IconsImages.html">iOS Human Interface Guidelines</a>:</p>
 
-<p><img src="http://jim-nielsen.com/images/2012/safari6-tab-view.jpg" alt="Safari 6 tab preview"></p>
+<ul>
+<li><strong>1024x1024</strong> Recommended for iTunes Artwork</li>
+<li><strong>512x512</strong> Required for iTunes Artwork</li>
+<li><strong>144x144</strong> Retina iPad</li>
+<li><strong>114x114</strong> Retina iPhone/iPod Touch</li>
+<li><strong>72x72</strong> iPad</li>
+<li><strong>57x57</strong> iPhone/iPod Touch</li>
+</ul>
 
-<p>This experience of previewing your tabs is consistent no matter the application&#39;s viewport size. You always see 100% of the active tab and about 15% of it&#39;s left and right siblings.</p>
+<p>You don&#39;t actually have to create rounded corners for your icon artwork. Apple will do that for you automatically in all contexts, from iOS to the App Store. However, for other other uses outside of iOS (such as a marketing site) you&#39;re going to have to create an icon with rounded edges yourself.</p>
 
-<p><img src="http://jim-nielsen.com/images/2012/safari6-tab-view-resolution-comparison.jpg" alt="Safari 6 tab preview at different resolutions"></p>
+<h2>Creating the Icon</h2>
 
-<p>Wouldn&#39;t it be neat to see the preview of the active tab&#39;s sibilings grow as the viewport grows horizontally? Essentially, if I had a large monitor I would be able to <strong>see more</strong> of the sibling tabs&#39; previews.</p>
+<p>So how do you actually get started creating an icon? Well, the amazing icon designer <a href="http://www.pixelresort.com/">Michael Flarup</a> has created a great <a href="http://appicontemplate.com/">iOS icon starter template</a> with proper iOS-style proportions and radii. </p>
 
-<p><img src="http://jim-nielsen.com/images/2012/safari6-tab-view-new-design.jpg" alt="New design of Safari 6 tab preview"></p>
+<p>But what if you have to create an icon size that doesn&#39;t quite fall into Apple&#39;s predetermined sizes, say 175x175 pixels? How do you determine what size the border radius will be at any given size?</p>
 
-<p>As you can see, as the window grows in size horizontally it would <strong>reveal more</strong> of the sibilng tabs&#39; previews <strong>rather than increase</strong> the tab preview sizes. Visually this would help form a more cohesive mental model of the spacial relationship between tabs. It would also help tremendously for any site-comparison a user might be doing.</p>
+<p>Well, thanks to <a href="https://twitter.com/drbarnard">David Barnard</a>&#39;s <a href="http://stackoverflow.com/questions/2105289/iphone-app-icons-exact-radius/10239376#10239376">post over at stackoverflow</a>, we have insight into how the border radius for iOS icons is determined by Apple. According to Barnard, Apple calculates the border radius for icons starting at the 57px icon size (one can only assume that is because the size of icons on the original iPhone was 57px):</p>
+
+<blockquote>
+<p>Apple starts with the 57px icon and a radius of 10 then scales up or down from there. Thus you can calculate the radius for any icon size using 10/57 x new size</p>
+</blockquote>
+
+<p>Therefore, to achieve the correct iOS-style border radius on any square icon you simply multiply the icon&#39;s size by what I&#39;ll call the <strong>iOS icon ratio</strong>. This ratio is calculated from Barnard&#39;s insight: 57 / 10 = .175438596</p>
+
+<p>For simplicity, we can probably round this to about four or five decimal places: <strong>.17544</strong>. This ratio will help you calculate the border-radius for any size iOS style icon you&#39;re creating.</p>
+
+<h2>CSS Application</h2>
+
+<p>Using this logic, you could easily style any image to have an iOS icon feel by applying a CSS border radius with a value of the iOS icon ratio.</p>
+
+<p>Because the <code>border-radius</code> rule will accept a percentage value, we simply tranlate our ratio of .17544 to a percentage: <strong>17.544%</strong>. So our CSS would look something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">img {
+    border-radius: 17.544%;
+}
+</code></pre></div>
+<p><img src="http://jim-nielsen.com/images/2012/border-radius-ratio.png" alt="Border radius ratio example"></p>
+
+<p>Unfortunately, this technique only works in modern-browsers that accept the border-radius rule (no IE support). Also, it&#39;s worth note that some earlier versions of modern browsers didn&#39;t quite apply the border radius correctly when applied directly to an image (as they wouldn&#39;t mask out the edges). So proper browser testing is encouraged if you decide to implement this technique.</p>
+
+<h2>Update - July 31, 2013</h2>
+
+<p>Icon sizes and border radii in iOS7 have been changed by Apple. As outlined in their <a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/MobileHIG/IconMatrix.html#//apple_ref/doc/uid/TP40006556-CH27-SW1">documentation</a>, icon sizes are now as follows:</p>
+
+<ul>
+<li><strong>1024x1024</strong> Required for App Store</li>
+<li><strong>152x152</strong> Retina iPad</li>
+<li><strong>120x120</strong> Retina iPhone/iPod Touch</li>
+<li><strong>76x76</strong> iPad 2 &amp; iPad Mini</li>
+</ul>
+
+<p>You can reference a comparison table of iOS7 icon sizes and iOS 6 icons sizes in Apple’s <a href="https://developer.apple.com/library/prerelease/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/App-RelatedResources/App-RelatedResources.html#//apple_ref/doc/uid/TP40007072-CH6-SW1">developer library</a>.</p>
+
+<p>As for the border radius, the discussion surrounding the exact mathematical formula for how the border radius is drawn is <a href="http://www.mani.de/backstage/?p=483">still uncertain</a>. Until we know for sure, Michael Flarup’s <a href="http://www.pixelresort.com/blog/start-making-ios-7-icons-with-the-app-icon-template-3-0/">overview of iOS7 icons</a> is probably your best resource.</p>
 
     </div>
 
@@ -82,6 +123,8 @@
     =================================== -->
     
         <ul class="tags">
+            
+                <li><a href="#" class="tag icon-tag">tips</a></li>            
             
         </ul>
     
