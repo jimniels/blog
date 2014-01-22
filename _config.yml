@@ -3,3 +3,4 @@ markdown: redcarpet
 pygments: true
 baseurl: /blog
 permalink: /:categories/:title.html
+paginate: 3

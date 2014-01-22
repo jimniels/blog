@@ -15,3 +15,10 @@ I keep track of tags manually, as I know of no other way currently. So, in the f
 - notes
 - tags
 - tips
+- case-study
+- resources
+
+## To-Do
+- Icons
+- Tag pages
+- Post images

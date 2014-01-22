@@ -1,49 +1,60 @@
 .pagination {
-	margin: 0 0 10em;
+	text-align: center;
+	padding: 1em 0 .75em;
+	border-top: 1px solid $color-border-light;
+	position: relative;
 
-	ul {
-		max-width: $max-width-base;
-        margin: 0 auto;
-        padding: .5em 0;
-		@include clearfix();
-		text-align: center;
-		font-family: $font-stack-secondary;
-		color: $color-text-light;
+	.previous, .next {
+		color: $color-highlight;
+		line-height: 1;
+		position: relative;
 
-		li {
-			@include inline-block();
-
-			&.active a,
-			a:hover {
-				background: $color-highlight;
-				color: white;
-				text-decoration: none;
-			}
-
-			a {
-				display: block;
-				padding: .125em .75em;
-				@include border-radius(2px);
-				margin: 0 .5em;
-				border: 1px solid $color-border-light;
-			}	
-
-			&.next,
-			&.prev {
-				margin: 0 1em;
-				font-size: .825em;
-			}
-
-
-			@media screen and (max-width: $media-query-s) {
-				display: none;
-
-				&.next,
-				&.prev {
-					@include inline-block();
-				}
-			}
-
+		&:hover .arrow {
+			text-decoration: none;
 		}
+
+		&.disabled {
+			color: $color-text-lightest;
+		}
+	}
+
+	.arrow {
+		font-size: 2.5em;
+		position: absolute;
+		top: -.325em;
+	}
+
+	.previous {
+		margin-right: .5em;
+
+		.arrow {
+			left: -.625em	
+		}
+	}
+	
+	.next {
+		margin-left: .5em;
+
+		.arrow {
+			right: -.625em	
+		}
+	}
+
+	
+	
+	.page-number {
+		position: absolute;
+		width: 7em;
+		margin-left: -3.5em;
+		left: 50%;
+		top: -1.625em;
+		padding: .5em 0 0;
+		line-height: 1;
+		background: #fff;
+		border: 1px solid $color-border-light;
+		border-bottom: 1px solid white;
+		color: $color-text-lightest;
+		font-size: .65em;
+		//font-family: $font-stack-secondary;
 	}
 }

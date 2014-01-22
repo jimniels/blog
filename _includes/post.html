@@ -17,20 +17,23 @@
         {{ content }}
     </div>
 
-    <!-- Tags
-    =================================== -->
-    {% if page.tags %}
-        <ul class="tags">
-            {% for tag in page.tags %}
-                <li><a href="#" class="tag icon-tag">{{ tag }}</a></li>            
-            {% endfor %}
-        </ul>
-    {% endif %}
 
-    <!-- Comments
-    =================================== -->
     {% if include.currentPage != 'home' %}
-        <p class="article-footer content"><strong>Question? Comment? Suggestion? <a href="http://twitter.com/jimniels" class="icon-twitter">Tweet me</a></strong></p>
+        <!-- Tags
+        =================================== -->
+        <footer class="article-footer">
+            <ul>
+                {% if page.tags %}
+                    <li class="tags">Tags:
+                        {% for tag in page.tags %}
+                            <a href="{{ site.baseurl }}/tags/{{ tag }}/" class="tag">#{{ tag }}</a>
+                        {% endfor %}
+                    </li>
+                {% endif %}
+
+                <li class="tweet-link">Have something to say about this? <a href="http://twitter.com/jimniels">Tweet me &raquo;</a></li>
+            </ul>
+        </footer>
     {% endif %}
 
 </article>

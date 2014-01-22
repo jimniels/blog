@@ -1,57 +1,14 @@
 
 .footer {
     position: relative;
-    background: #fafafa;
+    background: $color-background-light;
     border-top: 1px solid $color-border-light;
     text-align: center;
-
-    ul {
-        max-width: $max-width-base + 6em;
-        margin: 0 auto;
-        padding: 1em 1em 3em;
-        text-align: left;
-        @include clearfix;
-
-        a {
-            display: block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: pre;
-            width: 75%;
-            margin: 1em 0;
-
-            @media screen and (max-width: $media-query-s) {
-                width: 100%;
-                margin: 0 0 2em;
-            }
-        }
-
-    }
-
-    time {
-        font-family: $font-stack-secondary;
-        font-size: .75em;
-        color: $color-text-lightest;
-        display: block;
-        float: right;
-        width: 20%;
-
-        @media screen and (max-width: $media-query-s) {
-            width: 100%;
-        }
-    }
-
-
-}
-
-.footer-title {
-    margin-top: -2em;
-    @include inline-block;
     font-size: .75em;
-    font-family: $font-stack-secondary;
-    color: $color-text-lightest;
-    border: 1px solid $color-border-light;
-    padding: 0 1em;
-    @include border-radius(2px);
-    background: #fff;
+    color: $color-text-light;
+    padding: 1em;
+
+    a {
+        text-decoration: underline;
+    }
 }

@@ -1,0 +1,47 @@
+//
+//
+//  Posts List
+//  ==============================
+//
+
+.archive {
+    font-size: .875em;
+    overflow: hidden;
+    border-top: 1px solid $color-border-light;
+    max-width: #{$max-width-base + 5};
+    margin: 0 auto;
+    padding: 2em 0;
+}
+
+.archive__title {
+    font-family: $font-stack-secondary;
+    font-size: .825em;
+    color: $color-highlight; 
+}
+
+.archive__list {
+    overflow: hidden;
+
+    time {
+        font-family: $font-stack-secondary;
+        font-size: .625em;
+        color: $color-text-lightest;
+        letter-spacing: -0.0125em;
+        float: left;
+        display: block;
+        width: 4em;
+
+        @media screen and (max-width: $media-query-s) {
+            float: none;
+            line-height: 1;
+        }
+    }
+
+    a {
+        @include truncate;
+
+        &:hover {
+            text-decoration: underline;
+        } 
+    }
+}

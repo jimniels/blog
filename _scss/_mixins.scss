@@ -12,3 +12,10 @@
     color: $color-text-light;
     font-family: $font-stack-secondary;
 }
+
+@mixin truncate {
+    display: block;
+    overflow: hidden;
+    white-space: pre;
+    text-overflow: ellipsis;
+}

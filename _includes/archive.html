@@ -1,52 +1,39 @@
-{% comment %}
-    A list of posts by month/year
-    http://stackoverflow.com/questions/19086284/jekyll-liquid-templating-how-to-group-blog-posts-by-year
-{% endcomment %}
 
-{% comment %}
-<aside class="post-archive" id="archive">
-    <h2 class="post-archive__title">Blog Archive</h2>
-    <ul class="post-archive__list">
-        {% for post in site.posts  %}
-            <li>
-                <time>{{ post.date | date: "%-d %b, %Y" }}</time>
-                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-</aside>
-{% endcomment %}
+{% assign count = 1 %}
 
-<aside class="post-archive" id="archive">
+<h3 class="archive__title">Posts Tagged <a href="{{ site.baseurl }}/tags/{{ include.currentTag }}">#{{ include.currentTag }}</a></h3>
+<ul class="archive__list">
+{% for post in site.posts %}
+    {% if post.tags contains include.currentTag %}
 
-{% for post in site.posts  %}
-    {% capture thisYear %}{{ post.date | date: "%Y" }}{% endcapture %}
-    {% capture nextYear %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-
-    {% if forloop.first %}
-    <ul class="post-archive__list">
-        <li id="{{thisYear}}"><span>{{thisYear}} Posts</span>
-            <ul>
-    {% endif %}
+        {% if count <= 5 and page.title != post.title %}
+            {% assign count = count|plus:1 %}
             <li>
                 <time>{{ post.date | date: "%b %-d" }}</time>
                 <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
-    {% if forloop.last %}
-            </ul>
-        </li>
-    </ul>
-    {% else %}
-        {% if thisYear != nextYear %}
-            </ul>
-        </li>
-        <li><span>{{nextYear}} Posts</span>
-        <ul>
         {% endif %}
+
     {% endif %}
-
-{% endfor %}
-
-</aside>
+{% endfor %}  
+</ul>
 
 
+
+{% if include.isPost %}
+<h3 class="archive__title">Most Recent Posts</h3>
+<ul class="archive__list">
+
+    {% assign count = 1 %}
+    {% for post in site.posts offset: 1 limit: 6  %}
+        {% if count <= 5 and page.title != post.title %}
+            {% assign count = count|plus:1 %}
+            <li>
+                <time>{{ post.date | date: "%b %-d" }}</time>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+
+</ul> 
+{% endif %}

@@ -17,8 +17,21 @@ body {
 
     // 80% font size on mobile
     @media screen and (max-width: 600px) {
-        font-size: (.80 * $font-size-base);
+        font-size: (.90 * $font-size-base);
     }
+}
+
+.wrapper {
+    width: 95%;
+    margin: 0 auto;
+
+    @media screen and (max-width: 800px) {
+        width: 85%;
+    }
+    @media screen and (max-width: 600px) {
+        width: 90%;
+    }
+    
 }
 
 a {
@@ -48,6 +61,7 @@ a {
         border: none; //fixes position:fixed on iphone flickr scroll
     }
 }
+
 
 // 
 //  Remove page transitions on page load

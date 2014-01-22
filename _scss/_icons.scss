@@ -1,21 +1,20 @@
  /* 
    * Font Custom: bare CSS
    */
-   $dev: false;
-@if $dev {
-    @font-face {
-        font-family: 'icons-jim';
-        src: url('../fonts/icons-jim.eot');
-    }
-    @debug "Local Icon Fonts";
-}
-@else {
+// @if $dev {
+//     @font-face {
+//         font-family: 'icons-jim';
+//         src: url('../fonts/icons-jim.eot');
+//     }
+//     @debug "Local Icon Fonts";
+// }
+// @else {
     @font-face {
         font-family: 'icons-jim';
         src: url('http://jim-nielsen.com/blog-assets/icons-jim.eot');
     }  
     @debug "Remote Icon Fonts";
-}
+// }
 
 
 @font-face {

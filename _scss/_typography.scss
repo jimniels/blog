@@ -26,9 +26,9 @@
     //
     h2, h3, h4, h5 {
         letter-spacing: -.03575em;
-        font-family: $font-stack-secondary;
-        line-height: 1.5em;
-        font-weight: bold;
+        //font-family: $font-stack-secondary;
+        line-height: 1.4em;
+        //font-weight: bold;
         margin-top: 2em;
     }
 
@@ -123,9 +123,9 @@
     blockquote {
         position: relative;
         color: #555;
-        border-left: 3px solid $color-highlight;
+        border-left: 3px solid $color-border-light;
         padding-left: 1em;
-        max-width: #{$max-width-base - 1};
+        max-width: #{$max-width-base - 3};
         //font-style: italic;
 
         strong,

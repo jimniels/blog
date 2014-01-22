@@ -85,6 +85,10 @@
         padding: .325em .875em;
         top: -2.7em;
         position: relative;
+
+        @media screen and (max-width: $media-query-s) {
+            padding-left: 0;
+        }
     }
 
     .excerpt {
@@ -105,29 +109,85 @@
 //  ==============================
 //  
 .article-footer {
-    padding: 1em;
-    max-width: $max-width-base;
-    margin: 2em auto 0;
-    background: #fafafa;
-    text-align: center;
-    @include border-radius(2px);
+    max-width: #{$max-width-base};
+    margin: 0 auto;
+    border-top: 1px solid $color-border-light;
 
-    @media screen and (max-width: $media-query-s) {
-        text-align: left;
+    
+    //
+    //
+    //  All
+    //  ----------
+    > ul {
+        position: relative;
+
+        // Caret
+        &:before {
+            content: '';
+            position: absolute;
+            top: -13px;
+            left: 1em;
+            width: 0; 
+            height: 0; 
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+
+            border-bottom: 12px solid lighten($color-border, 6%);
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 1em;
+            width: 0; 
+            height: 0; 
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+
+            border-bottom: 12px solid white;
+        }
+
+        > li {
+            padding: .75em 0;
+            border-bottom: 1px solid $color-border-light;
+            font-size: (18em / $font-size-base-px);
+            color: #777;
+        }
+    }
+
+
+    //
+    //
+    //  Tags
+    //  ----------
+    .tags {
+        a {
+            color: #c02702;
+        }
+        a:after {
+            content: ',';
+        }
+
+        a:last-child:after {
+            content: '';
+        }
+    }
+
+    //
+    //
+    //  Tweet Link
+    //  ----------
+    .tweet-link {
+        a {
+            color: $color-twitter;
+        }
+        a:hover {
+            color: darken($color-twitter, 10%);
+        }
+    }
+
+    .archive__list {
+        margin-left: 1.5em;
     }
     
-    a {
-        margin-left: 1em;
-
-        &:before {
-            margin-right: .25em;
-            @include transition(.25s ease all);
-        }
-
-        &:hover {
-            &:before {
-                @include rotate(360deg);
-            }
-        }
-    }
 }

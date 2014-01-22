@@ -12,14 +12,14 @@
 @import "mixins";
 @import "variables";
 @import "general";
+@import "icons";
 
 //@import "icons";        // Icons mixins, depending on what we're using
 @import "typography";   // General Typography
 @import "article";      // Article copy
-@import "post-archive";
+@import "archive";
 @import "navigation";
 
-@import "tags";
 @import "footnotes";    // Footnote styles
 @import "header";       // Main <header id="header">
 @import "pagination";
