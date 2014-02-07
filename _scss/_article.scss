@@ -50,11 +50,12 @@
         text-align: left;
     }
 
+    // Fleuron
     &:after {
         content: '\2767';
         position: relative;
         font-size: 1.5em;
-        top: 2em;
+        top: 1.5em;
 
         @media screen and (max-width: $media-query-s) {
             top: .5em;
