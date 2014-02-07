@@ -4,13 +4,14 @@
     
     <!-- Title
     =================================== -->
-    <title>Jim Nielsen’s Blog</title>
+    <title>Blog | Jim Nielsen, Designer</title>
 
     <!-- Meta
     =================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
 
     <!-- CSS
     =================================== -->
@@ -37,10 +38,12 @@
     =================================== -->
     <nav class="navigation hide">
         <ul class="navigation-list">
-            <li><a href="/blog/index.html" class="navigation-item icon-cabinet">Blog Home</a></li>
-            <li><a href="#archive" class="navigation-item icon-cabinet">Blog Archive</a></li>
-            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio</a></li>
-            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top of Page</a></li>
+            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
+            
         </ul>
         <img src="/blog/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
     </nav>
@@ -57,8 +60,108 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
+        <time class="date">8 Mar 2013</time>
+        <h1 class="title"><a href="/blog/posts/coming-to-appreciate-art">Coming to Appreciate Art</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>I have a confession: for some time now I&#39;ve been cynical of art. More specifically modern art. For example, here is a piece of art I encountered at the Museum of Modern Art in New York City: </p>
+
+<p><img src="https://pbs.twimg.com/media/A-wPHGACcAA7xOB.jpg" alt="Modern Art at the MoMA"></p>
+
+<p>I can&#39;t help but ask myself: how is this art? Even more puzzling: how does it have a place in the world-renowned MoMA? At first-glance, this piece seems on par with something my four-year-old nephew could create. Then, as a web designer, I am reminded most people think websites are something their nephews could create too. </p>
+
+<p>What&#39;s my point? I realize I don&#39;t understand or appreciate art because I am ignorant of it. People don&#39;t understand or appreciate web design because they are ignorant of it. As a general rule of thumb, the more you immerse yourself in something and learn its intricacies and rationales the more you come to appreciate and respect it. That goes for modern art or web design. Get to know the things you criticize. Generally, <strong>the more you know the less you will criticize</strong>.</p>
+
+<h2>So Is It Art or Not?</h2>
+
+<p>The question still remains, what is art? Is that scribbled piece of canvas art? Here&#39;s a tip from Milton Glaser, a celebrated graphic designer, on determining what is and is not art:</p>
+
+<blockquote>
+<p>you cannot tell art by virtue of medium, or function, or anything else except by the fact of its raising your consciousness to a degree that you are attentive. And so if something produces the state of attentiveness, whether it’s a drawing, or a guy making a cheese sandwich, we can call it art, at least by my description</p>
+</blockquote>
+
+<p>According to Glaser, if something &quot;produces a state of attentiveness&quot;, whether it&#39;s Van Gogh&#39;s <em>Starry Night</em> or this seemingly scribbled mess, you can call it art.</p>
+
+<p>As you may have noticed, that scribbled mess at the MoMA brought me an incredible amount of introspection and reflection. It raised my consciousness to a degree that I was attentive. I suppose that is why it has a place at the Museum of Modern &quot;Art&quot;.</p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">19 Feb 2013</time>
+        <h1 class="title"><a href="/blog/posts/teamcolors">Team Color Codes</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>I recently participated in the <a href="http://lab.arc90.com/hackathon/2012/">Arc90 Hackathon</a>. I originally volunteered for a different project as part of a team, but due to scheduling conflicts my team disbanded. I was left with the option to work on a solo project, which resulted in <a href="http://teamcolors.arc90.com/">Team Colors</a>: a single-page website that serves as a reference for HEX values for professional sport teams:</p>
+
+<p><img src="/blog/assets/img/2013/team-colors.png" alt="Screenshot of Team Colors, an Arc90 Hackathon Project"></p>
+
+<p>Unfortunately, the Hackathon took place while I was absent from the office (travelling to Utah for the Christmas break). So a lot of my work was done on a plane and working from home. I started Team Colors by sketching out some ideas for the page hierarchy and navigation:</p>
+
+<p><img src="/blog/assets/img/2013/team-colors-sketch.jpg" alt="Sketch of Team Colors"></p>
+
+<p>After thinking through and sketching out how to present each team and its corresponding brand colors in a responsive manner, I turned to writing some pseudocode that would power the interaction of the site:</p>
+
+<p><img src="/blog/assets/img/2013/team-colors-code.jpg" alt="Pseudocode for Team Colors"></p>
+
+<p>Once I got everything down on paper, the fun part of building began. The hardest part was  finding the actual HEX values for each team. There were some obscure, outdated forum posts scattered across the web. In the end Wikiepedia was my best reference, although it did not provide the brand colors in the user interface. I found them in the underlying HTML/CSS using Chrome developer tools.</p>
+
+<h2>Technical Overview</h2>
+
+<p>Here&#39;s a quick overview of the technology used:</p>
+
+<ul>
+<li>The page is responsive, built using HTML5, CSS, and the CSS preprocessor Compass</li>
+<li>All the data (team names, hex values) is stored in a single JSON file. This makes updating the page quite simple. You just add a new league with teams, or a new team in the appropriate league with its corresponding HEX values. Then add the team&#39;s logo into the images directory and you&#39;re done!</li>
+<li>Most team logos are SVGs, making them crisp on HiDPI devices. If a team logo isn&#39;t avaiable in SVG, a PNG fallback is used. </li>
+<li>Progressive enhancement is used thoroughly:
+
+<ul>
+<li>Images are served by javascript after page load to reduce HTTP requests on the initial page load</li>
+<li>All league/team data is loaded in a single page. Javasript is used to create a the drop-down control for sifting through teams by league and showing/hiding content.</li>
+</ul></li>
+</ul>
+
+<h2>Don&#39;t Forget</h2>
+
+<p>You can view <a href="http://teamcolors.arc90.com/">Team Colors here</a>. Don&#39;t forget to checkout some of the other amazing <a href="http://lab.arc90.com/hackathon/2012/">Arc90 Hackathon projects</a>, or <a href="hackathon-blog">read about the hackathon</a>.</p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
         <time class="date">14 Feb 2013</time>
-        <h1 class="title"><a href="/blog/single-page-website-tutspremium.html">Build a Responsive, Single Page Portfolio with Sass and Compass via Tuts+ Premium</a></h1>
+        <h1 class="title"><a href="/blog/posts/tuts-single-page-portfolio">Build a Responsive, Single Page Portfolio with Sass and Compass via Tuts+ Premium</a></h1>
         
     </header>
 
@@ -99,7 +202,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">12 Feb 2013</time>
-        <h1 class="title"><a href="/blog/freebie-corrections.html">Freebie Resources - Don’t Assume, Double Check</a></h1>
+        <h1 class="title"><a href="/blog/posts/freebie-resources">Freebie Resources - Don’t Assume, Double Check</a></h1>
         
     </header>
 
@@ -111,15 +214,15 @@
 
 <p>Here&#39;s a vector freebie I got online today. I imported the shape into Photoshop and noticed a 1px offset in symmetry:</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/freebie-offset.png" alt="Freebie 1px Offset"></p>
+<p><img src="/blog/assets/img/2013/freebie-offset.png" alt="Freebie 1px Offset"></p>
 
 <p>I know you might be thinking, &quot;1px offset? Nobody will even notice that.&quot; And you know what? You&#39;re right. One little 1px offset in an image that&#39;s 16x16 pixels probably won&#39;t be noticed by many people. However, the accumulation of many 1px offsets in your digital creations <strong>will</strong> be noticed! It&#39;s worth practicing some self discipline because it will help avoid sloppy work.</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/freebie-offset-select.png" alt="Freebie 1px Offset Shape Selection"></p>
+<p><img src="/blog/assets/img/2013/freebie-offset-select.png" alt="Freebie 1px Offset Shape Selection"></p>
 
 <p>Ahhh, isn&#39;t this much better?</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/freebie-offset-fix.png" alt="Freebie 1px Offset Correction"></p>
+<p><img src="/blog/assets/img/2013/freebie-offset-fix.png" alt="Freebie 1px Offset Correction"></p>
 
 <p>Don&#39;t assume the freebie is pixel-perfect, especially when transferring it between software applications. Keeping up your guard and not making assumptions will prevent slipshod work.</p>
 
@@ -138,7 +241,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">31 Jan 2013</time>
-        <h1 class="title"><a href="/blog/photoshop-embedd.html">Modularize Your PSDs by Embedding Them Inside Each Other</a></h1>
+        <h1 class="title"><a href="/blog/posts/modularize-your-psds">Modularize Your PSDs by Embedding Them Inside Each Other</a></h1>
         
     </header>
 
@@ -148,7 +251,7 @@
     <div class="content">
         <p>If you&#39;ve ever used InDesign you&#39;ve no doubt used the &quot;Links&quot; panel. It allows you to link and embedd files in your document layout. InDesign keeps track of all the files you&#39;ve embedded and where they live on your hard drive. This gives you the power to relink files, updated modified files, edit the original files, and so forth. For example, say you embedd a logo in InDesign but then you want to modify it. You can go to the Links panel and click &quot;edit original&quot;. Illustrator (or whatever logo editing software you&#39;ve used) will open the file. You make your changes, save it, and go back to InDesign and the logo&#39;s changes will automatically update in your layout.</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/links-panel-indesign.png" alt="Links Panel in InDesign"></p>
+<p><img src="/blog/assets/img/2013/links-panel-indesign.png" alt="Links Panel in InDesign"></p>
 
 <p>I found myself wanting this feature in Photoshop. It would be extremely useful for building websites because you could modularize your PSDs. For example, I could create one PSD called <code>header.psd</code> and another called <code>footer.psd</code>. When I want to create a PSD for a new page mockup, I can easily &quot;embedd&quot; the header and footer PSDs into my new document. This allows me to easily spin-off new page mockups based on single PSD files. </p>
 
@@ -175,7 +278,7 @@
 
     <!-- Pagination links -->
     <div class="pagination">
-        <span class="page-number ">page 4 / 8</span>
+        <span class="page-number ">page 4 / 7</span>
 
         
             <a href="/blog/page3" class="previous"><span class="arrow">&laquo;</span> prev</a>
@@ -188,9 +291,8 @@
     </main>
 
     <footer class="footer">
-        <p>This is my blog. You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
+        <p>This is my blog, <a href="/blog/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
     </footer>
 
 </body>
 </html>
-

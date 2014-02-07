@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <!-- Title
+    =================================== -->
+    <title>Preserving CSS Comments For Wordpress During Sass Compression</title>
+
+    <!-- Meta
+    =================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <!-- CSS
+    =================================== -->
+    <link rel="stylesheet" href="/blog/assets/css/style.css">
+
+    <!-- Javascript
+    =================================== -->
+    <script type="text/javascript" src="/blog/assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/blog/assets/js/js.js"></script>
+</head>
+<body>
+
+    <!-- Header
+    =================================== -->
+    <header class="header">
+        <a href="/blog/index.html">
+            <img src="/blog/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
+            <h1 class="site-title">Jim Nielsen, Designer</h1>
+        </a>
+    </header>
+
+    <!-- Navigation
+    =================================== -->
+    <nav class="navigation hide">
+        <ul class="navigation-list">
+            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
+            
+        </ul>
+        <img src="/blog/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
+    </nav>
+
+    <main class="wrapper">
+            <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">22 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/preserving-CSS-comments-during-compression">Preserving CSS Comments For Wordpress During Sass Compression</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Compressing your CSS for production websites is a best-practice, especially if you&#39;re using a CSS preprocessor like Compass. If you don&#39;t compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file. </p>
+
+<p>Here&#39;s an example CSS rule before compression:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+// Here&#39;s a comment I have on styling my CSS
+a:hover {
+        border: 0; // remove border from CSS
+}
+</code></pre></div>
+<p>Now here&#39;s that same rule compressed:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">a:hover{border:0}
+</code></pre></div>
+<p>You should already be commenting your code generously. Thus, your CSS file size will increase rather quickly. Here&#39;s a comparison example of CSS file sizes for a project I&#39;m currently working on:</p>
+
+<ul>
+<li>Prior to compression
+    - File size: 122.413kb 
+    - Lines of code: 4,601</li>
+<li>After compression:
+    - File size: 81kb
+    - Lines of code: 1</li>
+</ul>
+
+<p>To compress using Compass, simply run <code>compass compile -s compressed</code> to strip out all comments and other unnecessary content.</p>
+
+<h2>How Do You Preserve Selective Comments?</h2>
+
+<p>What if you want to preserve specific comments in your CSS? Suppose you want to include licensing information at the beginning of the file, or copyright information, or other required comments, how do you do it?</p>
+
+<h3>Wordpress Example</h3>
+
+<p>When creating a Wordpress theme, you <strong>must</strong> include CSS comments in <code>style.css</code> identifying your theme. It&#39;s usually something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/*
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+</code></pre></div>
+<p>Why? Wordpress uses that information in to identify themes. From the <a href="http://codex.wordpress.org/Theme_Development#Theme_Stylesheet">codex</a>:</p>
+
+<blockquote>
+<p>The stylesheet must provide details about the Theme in the form of comments. <strong>No two Themes are allowed to have the same details</strong> listed in their comment headers, as this will lead to problems in the Theme selection dialog.</p>
+</blockquote>
+
+<p>So if you&#39;re creating a Wordpress theme, it&#39;s imperative your theme-identifying CSS comments <strong>do not</strong> get stripped out during compression. </p>
+
+<h3>The Solution</h3>
+
+<p>To ensure specific CSS comments are included in a compressed file, make the first letter of a comment <code>!</code>. According to the <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#comments">SASS documentation</a>:</p>
+
+<blockquote>
+<p>When the first letter of a comment is !, the comment will be interpolated and always rendered into css output even in compressed output modes.</p>
+</blockquote>
+
+<p>Thus, in the example above, your Wordpress comments would go something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/*!
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+</code></pre></div>
+<p>Compass will now preserve that comment block when compressing your CSS. </p>
+
+    </div>
+
+
+    
+        <!-- Footer
+        =================================== -->
+        <footer class="article-footer">
+            <ul>
+                
+                    <li class="tags">Tags:
+                        
+                            <a href="/blog/tags/tips/" class="tag">#tips</a>
+                            
+                        
+                            <a href="/blog/tags/web-design/" class="tag">#web-design</a>
+                            
+                        
+                    </li>
+                
+
+                <li class="tweet-link">Have something to say about this? <a href="http://twitter.com/jimniels">Tweet me &raquo;</a></li>
+            </ul>
+        </footer>
+    
+
+</article>
+    
+    <aside class="archive">
+        
+        <div class="archive-wrapper">
+
+    
+
+
+    <h3 class="archive__title">Posts Tagged <a href="/blog/tags/tips">#tips</a></h3>
+    <ul class="archive__list">
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jul 15</time>
+                    <a href="/blog/posts/thoughts-from-on-writing-well">Thoughts from “On Writing Well”</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jul 8</time>
+                    <a href="/blog/posts/scriptogram-posts-in-JSON-with-php">Retrieving Recent Posts from Scriptogram in JSON Format Using PHP</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jun 11</time>
+                    <a href="/blog/posts/seemly-selectors">Seemly Selectors</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jun 10</time>
+                    <a href="/blog/posts/max-upload-filesize-restart-apache">Changes to max_upload_filesize not working in php.ini? Restart Apache!</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>May 22</time>
+                    <a href="/blog/posts/stop-direct-spam-comments-in-wordpress">Stop Direct Spam Comments in Wordpress</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </ul>
+
+    
+    
+
+</div>
+    </aside>
+
+    </main>
+
+    <footer class="footer">
+        <p>This is my blog, <a href="/blog/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
+    </footer>
+
+</body>
+</html>

@@ -19,6 +19,7 @@ I keep track of tags manually, as I know of no other way currently. So, in the f
 - resources
 
 ## To-Do
-- Icons
+- URL structure /posts/post-name ??
 - Tag pages
-- Post images
+- Migrate Scriptogram posts to match these
+- Feed images

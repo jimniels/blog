@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <!-- Title
+    =================================== -->
+    <title>Seemly Selectors</title>
+
+    <!-- Meta
+    =================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <!-- CSS
+    =================================== -->
+    <link rel="stylesheet" href="/blog/assets/css/style.css">
+
+    <!-- Javascript
+    =================================== -->
+    <script type="text/javascript" src="/blog/assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/blog/assets/js/js.js"></script>
+</head>
+<body>
+
+    <!-- Header
+    =================================== -->
+    <header class="header">
+        <a href="/blog/index.html">
+            <img src="/blog/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
+            <h1 class="site-title">Jim Nielsen, Designer</h1>
+        </a>
+    </header>
+
+    <!-- Navigation
+    =================================== -->
+    <nav class="navigation hide">
+        <ul class="navigation-list">
+            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
+            
+        </ul>
+        <img src="/blog/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
+    </nav>
+
+    <main class="wrapper">
+            <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">11 Jun 2013</time>
+        <h1 class="title"><a href="/blog/posts/seemly-selectors">Seemly Selectors</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Take a look at this:</p>
+
+<p><code>*</code></p>
+
+<p>In CSS terms, that&#39;s the universal selector. Are warning sirens relating to performance sounding in your head? Are you feeling emotions of avoidance, like you do when you see <code>!important</code>? It&#39;s possible you do. The universal selector carries a negative stigma of poor performance. But should it? <a href="http://paulirish.com/2012/box-sizing-border-box-ftw/">Paul Irish answers</a>:</p>
+
+<blockquote>
+<p>Apparently you’ve heard its slow. Firstly, it’s not. It is as fast as <code>h1</code> as a selector. It can be slow when you specifically use it like <code>.foo &gt;</code> , so don’t do that</p>
+</blockquote>
+
+<p>It can be slow, but mostly it&#39;s not. Still, that may seem like reason enough in your mind to avoid using (or misusing) it. Stop thinking that way. Turn those &quot;<a href="http://en.wikipedia.org/wiki/Danger,_Will_Robinson">Danger, Will Robison!</a>&quot; sirens off. Don&#39;t be afraid to use it. Why? Paul Irish continues:</p>
+
+<blockquote>
+<p>You are not allowed to care about the performance of <code>*</code> unless you concatenate all your javascript, have it at the bottom, minify your css and js, gzip all your assets, and losslessly compress all your images.</p>
+</blockquote>
+
+<p>It&#39;s important to remember that general rules of thumb, such as:</p>
+
+<ul>
+<li>don&#39;t use the <code>*</code> selector, it&#39;s slow</li>
+<li>don&#39;t use the <code>!important</code> rule</li>
+</ul>
+
+<p>are rules discovered and shared by developers working on immensely large scale applications and websites, like Google.com. Some rules just don&#39;t apply to your ten page Wordpress site. </p>
+
+<p>The <code>*</code> and <code>!important</code> rules were invented for a reason. If you find yourself needing them, use them. That&#39;s what they were made for. If page performance takes a hit, look into larger-scale optimization techniques first, such as image optimization and concatenation. After that, you can get down to the nit-picky. In general, <a href="http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/">optimization of selectors should be the job of the rendering engine</a>, not the designer.</p>
+
+    </div>
+
+
+    
+        <!-- Footer
+        =================================== -->
+        <footer class="article-footer">
+            <ul>
+                
+                    <li class="tags">Tags:
+                        
+                            <a href="/blog/tags/tips/" class="tag">#tips</a>
+                            
+                        
+                    </li>
+                
+
+                <li class="tweet-link">Have something to say about this? <a href="http://twitter.com/jimniels">Tweet me &raquo;</a></li>
+            </ul>
+        </footer>
+    
+
+</article>
+    
+    <aside class="archive">
+        
+        <div class="archive-wrapper">
+
+    
+
+
+    <h3 class="archive__title">Posts Tagged <a href="/blog/tags/tips">#tips</a></h3>
+    <ul class="archive__list">
+    
+        
+    
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jul 22</time>
+                    <a href="/blog/posts/preserving-CSS-comments-during-compression">Preserving CSS Comments For Wordpress During Sass Compression</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jul 15</time>
+                    <a href="/blog/posts/thoughts-from-on-writing-well">Thoughts from “On Writing Well”</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jul 8</time>
+                    <a href="/blog/posts/scriptogram-posts-in-JSON-with-php">Retrieving Recent Posts from Scriptogram in JSON Format Using PHP</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jun 10</time>
+                    <a href="/blog/posts/max-upload-filesize-restart-apache">Changes to max_upload_filesize not working in php.ini? Restart Apache!</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>May 22</time>
+                    <a href="/blog/posts/stop-direct-spam-comments-in-wordpress">Stop Direct Spam Comments in Wordpress</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </ul>
+
+    
+    
+
+</div>
+    </aside>
+
+    </main>
+
+    <footer class="footer">
+        <p>This is my blog, <a href="/blog/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
+    </footer>
+
+</body>
+</html>

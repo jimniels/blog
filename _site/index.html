@@ -4,13 +4,14 @@
     
     <!-- Title
     =================================== -->
-    <title>Jim Nielsen’s Blog</title>
+    <title>Blog | Jim Nielsen, Designer</title>
 
     <!-- Meta
     =================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
 
     <!-- CSS
     =================================== -->
@@ -37,10 +38,12 @@
     =================================== -->
     <nav class="navigation hide">
         <ul class="navigation-list">
-            <li><a href="/blog/index.html" class="navigation-item icon-cabinet">Blog Home</a></li>
-            <li><a href="#archive" class="navigation-item icon-cabinet">Blog Archive</a></li>
-            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio</a></li>
-            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top of Page</a></li>
+            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
+            
         </ul>
         <img src="/blog/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
     </nav>
@@ -57,8 +60,10 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">29 May 2013</time>
-        <h1 class="title"><a href="/blog/scriptogram-vector-logo.html">Scriptogram Logo in Vector Form (.svg)</a></h1>
+        <time class="date">29 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/sass-variable-interpolation-workarounds">Workarounds to Variable Interpolation in Sass</a></h1>
+        
+            <p class="excerpt">Variable interpolation is currently not supported in Sass. If you want to map key value pairs for something such as a brand to its color, you can create a lookup function to do the trick.</p>
         
     </header>
 
@@ -66,62 +71,101 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>While working on a recent design, I suddenly needed a vector version of the <a href="http://scriptogr.am/">scriptogram</a> logo. I couldn&#39;t find one on the web, so I made one myself.</p>
+        <p>Currently in Sass, interpolating list values in variable names is not supported (although maps are <a href="https://github.com/nex3/sass/issues/132#issuecomment-17581804">supposedly slated for Sass 3.3</a>). However, there is a workaround solution until maps come. Allow me to elaborate:</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/scriptogram-logo.png" alt="Scriptogram Logo"></p>
+<h2>How I Thought It Could Work</h2>
 
-<p>If you find yourself needing the <a href="http://jim-nielsen.com/images/2013/scriptogram-logo.svg">scriptogram logo in vector form</a>, you can download the version I created.</p>
+<p>A recent design project required I use a large variety of brand colors. To make things easy I wanted each brand name and it&#39;s corresponding brand color to be available for use at any time, both in HTML and CSS. Thus, for each brand color, I needed to create a CSS class (for use in HTML) and a Sass variable (for use in CSS output).</p>
 
-    </div>
+<p>Something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Variables for Sass usage
+$nike: #ffaadd;
+$facebook: #ff8811; 
+$yahoo: #aaddcc;
 
-
-    
-
-</article>
-    
-        
-        
-        <article class="article">
-
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
-        <time class="date">22 May 2013</time>
-        <h1 class="title"><a href="/blog/wordpress-spam-comments.html">Stop Direct Spam Comments in Wordpress</a></h1>
-        
-    </header>
-
-
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <p>I recently redesigned my wordpress theme for <a href="http://iosicongallery.com">iOS Icon Gallery</a> and <a href="http://macicongallery.com">Mac Icon Gallery</a>. </p>
-
-<p>The old themes provided the ability to comment through the interface. Due to a lack of real comments and a surplus in spam comments, I decided to entirely remove the ability to comment from the interface. </p>
-
-<h2>Removing the Ability to Comment From the Interface Is Not Enough to Keep Out Spam</h2>
-
-<p>Once my theme went live, I was still getting spam comments in the Wordpress backend. I asked myself, &quot;how are comments still appearing in the Wordpress backend when I don&#39;t have a single comment form on my website?&quot; After some Googling, I discovered this was due to spambots posting data directly using <code>wp-comments-post.php</code>. </p>
-
-<p><img src="http://jim-nielsen.com/images/2013/sneaky.gif" alt="Sneaky Gif"></p>
-
-<h2>Further Stopping Spambots</h2>
-
-<p>To prevent spambots from posting to Wordpress via a URL, you can block access to <code>wp-comments-post.php</code> via the <code>.htaccess</code> file. Simply include these rules in your <code>.htaccess</code> file (thanks to <a href="http://www.catswhocode.com/blog/snippets/blockreduce-wordpress-spam-comments-via-htaccess">catswhocode</a>)</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;IfModule mod_rewrite.c&gt;
-    RewriteEngine On
-    RewriteCond %{REQUEST_METHOD} POST
-    RewriteCond %{REQUEST_URI} .wp-comments-post.php*
-    RewriteCond %{HTTP_REFERER} !.*yourdomainname.* [OR]
-    RewriteCond %{HTTP_USER_AGENT} ^$
-    RewriteRule (.*) ^http://%{REMOTE_ADDR}/$ [R=301,L]
-&lt;/IfModule&gt;
+// CSS Classes for HTML usage
+.brand-nike { color: #ffaadd; }
+.brand-facebook { color: #ff8811; }
+.brand-yahoo { color: #aaddcc; }
 </code></pre></div>
-<p><strong>Note</strong>: Be sure to change the <code>yourdomainname</code> part!</p>
+<p>Initially, I thought I could create a variable for each brand and use the <code>@each</code> directive to interpolate the values of a list containing all my brand names for the variables names I created. Something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Brand Variables
+$nike: #ffaadd;
+$facebook: #ff8811; 
+$yahoo: #aaddcc;
 
-<h2>That Doesn&#39;t Help You?</h2>
+// List of Brand Names
+$brand-names: nike, facebook, yahoo;
 
-<p>If this doesn&#39;t seem like the best fix for you, try looking at this article from WP Tuts+ detailing <a href="http://wp.tutsplus.com/tutorials/security/6-easy-and-efficient-ways-to-combat-spam-comments/">easy and efficient ways to combat spam comments</a>.</p>
+// Output a class for each
+@each $brand-names in $brand-name {
+    .#{$brand-name}-color {
+        color: $#{brand-name};
+    }
+}
+</code></pre></div>
+<p>However, I soon discovered that variable interpolation is not currently supported in Sass. You can read more on the <a href="https://groups.google.com/forum/?fromgroups=#!topic/sass-lang/upr78cyrW1I">variable interpolation google group</a> or <a href="https://github.com/nex3/sass/issues/132">Sass Github issues</a>.</p>
+
+<h2>A Workaround to Variable Interpolation</h2>
+
+<p>User jonjaques put forward two <a href="https://github.com/nex3/sass/issues/132#issuecomment-4335097">interesting workarounds</a> for mapping values which I customized for my project. First I created two lists: <code>$brand-names</code> and <code>$brand-colors</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Brand names and colors
+$brand-names: nike, facebook, yahoo;
+$brand-colors: #ffaadd, #ff8811, #aaddcc;
+</code></pre></div>
+<p>The one caveat for my workaround is that the list indexes must correspond. For example, if &#39;facebook&#39; is the second name in the list <code>$brand-names</code>, Facebook’s color value must be second in the list  <code>$brand-colors</code>.</p>
+
+<p>To output a CSS class for each brand, I used a loop. To have on-demand access to brand colors in my Sass files, I created a lookup function.</p>
+
+<h3>CSS Classes: Loop Through Two Corresponding Lists</h3>
+
+<p>To output a CSS class for each brand and it’s corresponding color, I used the <code>@for</code> directive to loop through the two lists:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Create a CSS class for each brand
+@for $i from 1 through length($brand-names) {
+    .color-#{nth($brand-names, $i)} {
+        color: nth($brand-colors, $i);
+    }
+}
+</code></pre></div>
+<p>The CSS output of this loop would look something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">.color-nike {
+    color: #ffaadd;
+}
+.color-facebook {
+    color: #ff8811;
+}
+.color-yahoo {
+    color: #aaddcc;
+}
+</code></pre></div>
+<h3>On-Demand Solution: Create a Lookup Function</h3>
+
+<p>To have brand color values available on-demand while writing Sass code I created a lookup function. In my case, the function mapped a brand name in <code>$brand-names</code> to a brand color in <code>$brand-color</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Lookup function for a brand, returns a color
+@function get-brand-color($search) {
+    $index: index($brand-names, $search);
+    @return nth($brand-colors, $index);
+}
+</code></pre></div>
+<p>In the example above, <code>$search</code> is the brand name I’m looking for in <code>$brand-names</code>. The function returns the brand’s corresponding color. A simpler way of writing this would be to nest the list function <code>index()</code> like so:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Lookup function for a brand, returns a color
+@function get-brand-color($search) {
+    @return nth($brand-colors, index($brand-names, $search));
+}
+</code></pre></div>
+<p>As an example, if I needed <code>&lt;div class=&quot;facebook-box&quot;&gt;</code> to have the background color of Facebook, I could do:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">div.facebook-box {
+    background: get-brand-color(&quot;facebook&quot;);
+}
+</code></pre></div>
+<p>The <code>get-brand-color</code> function takes the value I passed to it (facebook) and searches the list <code>$brand-names</code> for that value, returning its index position in the list. Then, the function grabs the corresponding index in <code>$brand-colors</code>, which should be the brand name&#39;s color (if you’ve mapped your lists correctly). The CSS output would look like this: </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">div.facebook-box {
+    background: #ff8811;
+}
+</code></pre></div>
+<h2>Conclusion</h2>
+
+<p>There are some good work arounds to variable interpolation available. Hopefully these examples get you on the right track for your own projects until Sass 3.3 is stable for release. Happy coding! </p>
 
     </div>
 
@@ -137,8 +181,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">17 May 2013</time>
-        <h1 class="title"><a href="/blog/Google-Glass.html">The Incredible (Frustrating) Potential of Google Glass</a></h1>
+        <time class="date">24 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/things-to-be-informed-about">Things to Be Informed About in Life</a></h1>
         
     </header>
 
@@ -146,37 +190,233 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p><a href="http://www.youtube.com/embed/S80mE3kQTJ0">Here&#39;s a video</a> showcasing the potential of Google Glass.</p>
+        <p>Somewhat recently on Quora, someone asked &quot;<a href="http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life">What are the top 10 things that we should be informed about, in life?</a>&quot;</p>
 
-<p>All I could see in this video is Google Glass&#39; potential for frustration. My experience in paying for a coffee would most likely go something like this:</p>
+<p><a href="http://www.quora.com/Justin-Freeman">Justin Freeman</a>, self-described as someone who is &quot;great at stuff nobody pays for&quot;, gave an excellent response to this question. I know I&#39;m only 26, but I like to think I&#39;ve learned a few things in life. And those few things I have learned seem to align perfectly with these excerpts from Justin&#39;s response:</p>
 
-<p><strong>Me</strong>: [<em>me paying for coffee, speaking to glass</em>] Ok glass, pay for coffee, use my credit card<br>
-<strong>Glass</strong>: Using debit card ending in 4516<br>
-<strong>Me</strong>: No glass, I said <em>credit</em> card<br>
-<strong>Glass</strong>: Which credit card would you like to use?<br>
-<strong>Me</strong>: My American Express<br>
-<strong>Glass</strong>: Which American Express would you like to use?<br>
-<strong>Me</strong>: My gold card<br>
-<strong>Glass</strong>: Error. Sorry, you don&#39;t have a &quot;gold&quot; American Express card. Valid types are cards ending in: 4512 and 7483<br>
-<strong>Me</strong>: I don&#39;t know, use the card ending in 4512<br>
-<strong>Glass</strong>: Processing … transaction cancelled. Trying again … it appears you don&#39;t have any money on this card. Trying American Express card ending in 7483 … processing<br>
-<strong>Me</strong>: [<em>speaking to cashier</em>] Sorry, it will just take another second, my card isn&#39;t going through. I always have trouble with that card. American Express always stops transactions on it, I wonder if it&#39;s beca...<br>
-<strong>Glass</strong>: Stopping transaction...<br>
-<strong>Me</strong>: No Glass! I wasn&#39;t talking to you. Keep using that card.<br>
-<strong>Glass</strong>: Transaction stopped. What would you like to do now?<br>
-<strong>Me</strong>: Ok Glass, let&#39;s try this again. Pay for coffee.<br>
-<strong>Glass</strong>: You don&#39;t have any valid credit cards, but you can add a new one. What&#39;s the number?<br>
-<strong>Me</strong>: I don&#39;t&#39; want to say my credit card number out loud.<br>
-<strong>Glass</strong>: Error. What do you want to do now?<br>
-<strong>Me</strong>: Damnit glass. Ok pay for coffee. Use PayPal<br>
-<strong>Glass</strong>: Password please?<br>
-<strong>Me</strong>: Damnit I can&#39;t say my password here in front of everyone!<br>
-<strong>Glass</strong>: Password please?<br>
-<strong>Me</strong>: Ugh, damn you glass.<br>
-<strong>Me</strong>: [<em>speaking to cashier</em>] I&#39;m sorry, I&#39;m going to have to just not get this coffee<br>
-<strong>Me</strong>: [<em>walking out the door, speaking to glass</em>] How much does a used Google Glass go for on eBay?<br>
-<strong>Glass</strong>: Searching Google for used glass gophers on eBay  </p>
+<h2>Nobody Cares</h2>
 
+<blockquote>
+<p>Realize that nobody cares, and if they do, you shouldn&#39;t care that they care. Got a new car? Nobody cares. You&#39;ll get some gawkers for a couple of weeks—they don&#39;t care … Three weeks in it&#39;ll be just another shiny blob among all the thousands of others crawling down the freeway and sitting in garages and driveways up and down your street … Got a new gewgaw? New wardrobe? Went to a swanky restaurant? Exotic vacation? Nobody cares. <strong>Don&#39;t base your happiness on people caring, because they won&#39;t. And if they do, they either want your stuff or hate you for it.</strong> (emphasis added)</p>
+</blockquote>
+
+<h2>A Select Few Will Actually Care</h2>
+
+<p>You will encounter a few people in your life who will defy the odds and break the general rule that &quot;nobody cares&quot;. They won&#39;t care about your stuff, but they will care about you. As for the stuff you care about?</p>
+
+<blockquote>
+<p>… if they value you, they&#39;ll value that you value it, and they&#39;ll listen. When you talk about all of those things that nobody else cares about, they will look into your eyes and consume your words, and in that moment you will know that every part of them is there with you.</p>
+</blockquote>
+
+<p>I married one of these rule breakers, and it was the best thing that ever happened to me. But you don&#39;t have to marry them. You can befriend them, work with them, or spend time with them. No matter how much power you have, you cannot <strong>make</strong> other people sincerely care. So, as Freeman says, gather close the ones who do.</p>
+
+<h2>Money is Expensive</h2>
+
+<blockquote>
+<p>Money … it&#39;s difficult to get your hands on sometimes—and you never know when someone&#39;s going to pull the floorboards out from under you—so don&#39;t be stupid with it. Avoid debt on depreciating assets, and never incur debt in order to assuage your vanity. Debt has become normative, but don&#39;t blithely accept it as a rite of passage into adulthood—<strong>debt represents imbalance and, in some sense, often a resignation of control</strong>. Student loan debt isn&#39;t always unavoidable, but it isn&#39;t a given—my wife and I completed a combined ten years of college with zero debt between us. If you can&#39;t avoid it, though, make sure that your degree is an investment rather than a liability—I mourn a bit for all of the people going tens of thousands of dollars in debt in pursuit of vague liberal arts degrees with no idea of what they want out of life. If you&#39;re just dropping tuition dollars for lack of a better idea at the moment, just withdraw and go wander around Europe for a few weeks—I guarantee you&#39;ll spend less and learn more in the process. (<em>emphasis added</em>)</p>
+</blockquote>
+
+<p>Personally, I spent two years wandering around in Mexico before college. I learned more about the meaning and purpose of life there than I ever did in four years of college.</p>
+
+<h2>Read More</h2>
+
+<p>Freeman makes some other good points worth reading. You can <a href="http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life">check out the post on Quora</a>.</p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">22 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/preserving-CSS-comments-during-compression">Preserving CSS Comments For Wordpress During Sass Compression</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Compressing your CSS for production websites is a best-practice, especially if you&#39;re using a CSS preprocessor like Compass. If you don&#39;t compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file. </p>
+
+<p>Here&#39;s an example CSS rule before compression:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+// Here&#39;s a comment I have on styling my CSS
+a:hover {
+        border: 0; // remove border from CSS
+}
+</code></pre></div>
+<p>Now here&#39;s that same rule compressed:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">a:hover{border:0}
+</code></pre></div>
+<p>You should already be commenting your code generously. Thus, your CSS file size will increase rather quickly. Here&#39;s a comparison example of CSS file sizes for a project I&#39;m currently working on:</p>
+
+<ul>
+<li>Prior to compression
+    - File size: 122.413kb 
+    - Lines of code: 4,601</li>
+<li>After compression:
+    - File size: 81kb
+    - Lines of code: 1</li>
+</ul>
+
+<p>To compress using Compass, simply run <code>compass compile -s compressed</code> to strip out all comments and other unnecessary content.</p>
+
+<h2>How Do You Preserve Selective Comments?</h2>
+
+<p>What if you want to preserve specific comments in your CSS? Suppose you want to include licensing information at the beginning of the file, or copyright information, or other required comments, how do you do it?</p>
+
+<h3>Wordpress Example</h3>
+
+<p>When creating a Wordpress theme, you <strong>must</strong> include CSS comments in <code>style.css</code> identifying your theme. It&#39;s usually something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/*
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+</code></pre></div>
+<p>Why? Wordpress uses that information in to identify themes. From the <a href="http://codex.wordpress.org/Theme_Development#Theme_Stylesheet">codex</a>:</p>
+
+<blockquote>
+<p>The stylesheet must provide details about the Theme in the form of comments. <strong>No two Themes are allowed to have the same details</strong> listed in their comment headers, as this will lead to problems in the Theme selection dialog.</p>
+</blockquote>
+
+<p>So if you&#39;re creating a Wordpress theme, it&#39;s imperative your theme-identifying CSS comments <strong>do not</strong> get stripped out during compression. </p>
+
+<h3>The Solution</h3>
+
+<p>To ensure specific CSS comments are included in a compressed file, make the first letter of a comment <code>!</code>. According to the <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#comments">SASS documentation</a>:</p>
+
+<blockquote>
+<p>When the first letter of a comment is !, the comment will be interpolated and always rendered into css output even in compressed output modes.</p>
+</blockquote>
+
+<p>Thus, in the example above, your Wordpress comments would go something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/*!
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+</code></pre></div>
+<p>Compass will now preserve that comment block when compressing your CSS. </p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">15 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/thoughts-from-on-writing-well">Thoughts from “On Writing Well”</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Fact: the book <a href="http://www.amazon.com/dp/0060891548"><em>On Writing Well</em></a> by William Zinsser is simply stellar. His advice on writing is insightful and succinct. In addition, his thoughts on writing spill into other areas of life.</p>
+
+<p>Here&#39;s two thoughts I found relevant to design:</p>
+
+<h2>Designing is Not a Contest</h2>
+
+<blockquote>
+<p>Every writer is starting from a different point and is bound for a different destination. Yet many writers are paralyzed by the thought that they are competing with everybody else who is trying to write and presumably doing better.</p>
+</blockquote>
+
+<p>This feeling of competition is often fostered in designers who see the work of associates being displayed in galleries while their own work gets no recognition. </p>
+
+<p>Forget everyone else and go at your own pace. Nobody else is solving the exact design problem you are. Your problem is unique; hence your solution should be too. Your only contest is with yourself.</p>
+
+<h2>Just Get Rid of It</h2>
+
+<p>Have you ever tried adding a design element only to find it extremely frustrating to do so? You put the element through all kinds of exertions: you move it to various locations, you resize and reform its structure, you change its colors, you add supporting elements in hopes of clarify its purpose, only to find the overall design worse than where you started?</p>
+
+<p>Zinsser says writers often encounter a similar impasse in constructing sentences. The solution? Get rid of the problem element. Unfortunately, this is usually our solution of last resort:</p>
+
+<blockquote>
+<p>look at the troublesome element and ask, &quot;do I need it at all?&quot; Probably you don&#39;t. It was trying to do an unnecessary job all along - thats why it was giving you so much grief. Remove it and watch the afflicted sentence spring to life and breathe normally. It&#39;s the quickest cure and often the best. </p>
+</blockquote>
+
+<p>Sometimes, the best solution is to get rid of the design element you&#39;re trying so hard to include.</p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">8 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/scriptogram-posts-in-JSON-with-php">Retrieving Recent Posts from Scriptogram in JSON Format Using PHP</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Do you use <a href="http://scriptogr.am/">Scriptogr.am</a>? Do you want to programmatically retrieve your most recent posts from the service using PHP? It&#39;s not as simple as an API call, but it can be done.</p>
+
+<h2>Before We Begin: The Javascript Method</h2>
+
+<p>In case you&#39;re interested, <a href="http://sicanstudios.com/post/recent-posts-scriptogram/">Alex at sicanstudios</a> has a great tutorial on how to retrieve and display your most recent Scriptogr.am posts using javascript.</p>
+
+<h2>The PHP Method</h2>
+
+<p>Scriptogr.am does not have a publicly accessible API. It does, however, provide an XML feed for each user. You can access your feed URL using this format:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">http://scriptogr.am/USERNAME/feed/
+</code></pre></div>
+<p>If you use PHP&#39;s <code>file_get_contents()</code> and pass it your Scriptogr.am feed URL, you&#39;ll be returned your most recent posts and accompanying metadata in XML form. </p>
+
+<h3>Converting XML to JSON in PHP</h3>
+
+<p>Now that we have the data we want, we&#39;ve got to put it in the format we want (JSON). We can do that using the technique described in <a href="http://lostechies.com/seanbiefeld/2011/10/21/simple-xml-to-json-with-php/">this article from lostechies</a>.</p>
+
+<h2>Cut to the Chase: The Code</h2>
+
+<p>Here&#39;s the final PHP snippet that does everything we&#39;ve described above. Just change the <code>$username</code> value to your own Scriptogr.am username and you&#39;re good to go!</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">function get_scriptogram_JSON() {
+    $username = &#39;jimniels&#39;;
+    $url = &#39;http://scriptogr.am/&#39;. $username .&#39;/feed/&#39;;
+    $fileContents = file_get_contents($url);
+    $fileContents = str_replace(array(&quot;\n&quot;, &quot;\r&quot;, &quot;\t&quot;), &#39;&#39;, $fileContents);
+    $fileContents = trim(str_replace(&#39;&quot;&#39;, &quot;&#39;&quot;, $fileContents));
+    $simpleXml = simplexml_load_string($fileContents);
+    $json = json_encode($simpleXml);
+    return $json;
+}
+</code></pre></div>
     </div>
 
 
@@ -187,7 +427,7 @@
 
     <!-- Pagination links -->
     <div class="pagination">
-        <span class="page-number ">page 1 / 8</span>
+        <span class="page-number ">page 1 / 7</span>
 
         
             <span class="previous disabled"><span class="arrow">&laquo;</span> prev</span>
@@ -200,9 +440,8 @@
     </main>
 
     <footer class="footer">
-        <p>This is my blog. You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
+        <p>This is my blog, <a href="/blog/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
     </footer>
 
 </body>
 </html>
-

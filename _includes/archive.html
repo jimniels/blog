@@ -1,39 +1,9 @@
+<div class="archive-wrapper">
 
-{% assign count = 1 %}
-
-<h3 class="archive__title">Posts Tagged <a href="{{ site.baseurl }}/tags/{{ include.currentTag }}">#{{ include.currentTag }}</a></h3>
-<ul class="archive__list">
-{% for post in site.posts %}
-    {% if post.tags contains include.currentTag %}
-
-        {% if count <= 5 and page.title != post.title %}
-            {% assign count = count|plus:1 %}
-            <li>
-                <time>{{ post.date | date: "%b %-d" }}</time>
-                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            </li>
-        {% endif %}
-
+    {% include archive-tags.html %}
+    
+    {% if include.recentPosts %}
+        {% include archive-recent.html %}
     {% endif %}
-{% endfor %}  
-</ul>
 
-
-
-{% if include.isPost %}
-<h3 class="archive__title">Most Recent Posts</h3>
-<ul class="archive__list">
-
-    {% assign count = 1 %}
-    {% for post in site.posts offset: 1 limit: 6  %}
-        {% if count <= 5 and page.title != post.title %}
-            {% assign count = count|plus:1 %}
-            <li>
-                <time>{{ post.date | date: "%b %-d" }}</time>
-                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            </li>
-        {% endif %}
-    {% endfor %}
-
-</ul> 
-{% endif %}
+</div>

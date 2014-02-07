@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Blog | Jim Nielsen, Designer</title>
+        <description></description>                
+        <link>http://jim-nielsen.com/blog</link>
+        <atom:link href="http://jim-nielsen.com/blog/feed.xml" rel="self" type="application/rss+xml" />
+        
+                <item>
+                    <title>Workarounds to Variable Interpolation in Sass</title>
+                    <description>&lt;p&gt;Currently in Sass, interpolating list values in variable names is not supported (although maps are &lt;a href=&quot;https://github.com/nex3/sass/issues/132#issuecomment-17581804&quot;&gt;supposedly slated for Sass 3.3&lt;/a&gt;). However, there is a workaround solution until maps come. Allow me to elaborate:&lt;/p&gt;
+
+&lt;h2&gt;How I Thought It Could Work&lt;/h2&gt;
+
+&lt;p&gt;A recent design project required I use a large variety of brand colors. To make things easy I wanted each brand name and it&amp;#39;s corresponding brand color to be available for use at any time, both in HTML and CSS. Thus, for each brand color, I needed to create a CSS class (for use in HTML) and a Sass variable (for use in CSS output).&lt;/p&gt;
+
+&lt;p&gt;Something like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;// Variables for Sass usage
+$nike: #ffaadd;
+$facebook: #ff8811; 
+$yahoo: #aaddcc;
+
+// CSS Classes for HTML usage
+.brand-nike { color: #ffaadd; }
+.brand-facebook { color: #ff8811; }
+.brand-yahoo { color: #aaddcc; }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Initially, I thought I could create a variable for each brand and use the &lt;code&gt;@each&lt;/code&gt; directive to interpolate the values of a list containing all my brand names for the variables names I created. Something like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;// Brand Variables
+$nike: #ffaadd;
+$facebook: #ff8811; 
+$yahoo: #aaddcc;
+
+// List of Brand Names
+$brand-names: nike, facebook, yahoo;
+
+// Output a class for each
+@each $brand-names in $brand-name {
+    .#{$brand-name}-color {
+        color: $#{brand-name};
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;However, I soon discovered that variable interpolation is not currently supported in Sass. You can read more on the &lt;a href=&quot;https://groups.google.com/forum/?fromgroups=#!topic/sass-lang/upr78cyrW1I&quot;&gt;variable interpolation google group&lt;/a&gt; or &lt;a href=&quot;https://github.com/nex3/sass/issues/132&quot;&gt;Sass Github issues&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;A Workaround to Variable Interpolation&lt;/h2&gt;
+
+&lt;p&gt;User jonjaques put forward two &lt;a href=&quot;https://github.com/nex3/sass/issues/132#issuecomment-4335097&quot;&gt;interesting workarounds&lt;/a&gt; for mapping values which I customized for my project. First I created two lists: &lt;code&gt;$brand-names&lt;/code&gt; and &lt;code&gt;$brand-colors&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;// Brand names and colors
+$brand-names: nike, facebook, yahoo;
+$brand-colors: #ffaadd, #ff8811, #aaddcc;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The one caveat for my workaround is that the list indexes must correspond. For example, if &amp;#39;facebook&amp;#39; is the second name in the list &lt;code&gt;$brand-names&lt;/code&gt;, Facebook’s color value must be second in the list  &lt;code&gt;$brand-colors&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To output a CSS class for each brand, I used a loop. To have on-demand access to brand colors in my Sass files, I created a lookup function.&lt;/p&gt;
+
+&lt;h3&gt;CSS Classes: Loop Through Two Corresponding Lists&lt;/h3&gt;
+
+&lt;p&gt;To output a CSS class for each brand and it’s corresponding color, I used the &lt;code&gt;@for&lt;/code&gt; directive to loop through the two lists:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;// Create a CSS class for each brand
+@for $i from 1 through length($brand-names) {
+    .color-#{nth($brand-names, $i)} {
+        color: nth($brand-colors, $i);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The CSS output of this loop would look something like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;.color-nike {
+    color: #ffaadd;
+}
+.color-facebook {
+    color: #ff8811;
+}
+.color-yahoo {
+    color: #aaddcc;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;On-Demand Solution: Create a Lookup Function&lt;/h3&gt;
+
+&lt;p&gt;To have brand color values available on-demand while writing Sass code I created a lookup function. In my case, the function mapped a brand name in &lt;code&gt;$brand-names&lt;/code&gt; to a brand color in &lt;code&gt;$brand-color&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;// Lookup function for a brand, returns a color
+@function get-brand-color($search) {
+    $index: index($brand-names, $search);
+    @return nth($brand-colors, $index);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the example above, &lt;code&gt;$search&lt;/code&gt; is the brand name I’m looking for in &lt;code&gt;$brand-names&lt;/code&gt;. The function returns the brand’s corresponding color. A simpler way of writing this would be to nest the list function &lt;code&gt;index()&lt;/code&gt; like so:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;// Lookup function for a brand, returns a color
+@function get-brand-color($search) {
+    @return nth($brand-colors, index($brand-names, $search));
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As an example, if I needed &lt;code&gt;&amp;lt;div class=&amp;quot;facebook-box&amp;quot;&amp;gt;&lt;/code&gt; to have the background color of Facebook, I could do:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;div.facebook-box {
+    background: get-brand-color(&amp;quot;facebook&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;get-brand-color&lt;/code&gt; function takes the value I passed to it (facebook) and searches the list &lt;code&gt;$brand-names&lt;/code&gt; for that value, returning its index position in the list. Then, the function grabs the corresponding index in &lt;code&gt;$brand-colors&lt;/code&gt;, which should be the brand name&amp;#39;s color (if you’ve mapped your lists correctly). The CSS output would look like this: &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;div.facebook-box {
+    background: #ff8811;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;There are some good work arounds to variable interpolation available. Hopefully these examples get you on the right track for your own projects until Sass 3.3 is stable for release. Happy coding! &lt;/p&gt;
+</description>
+                    <pubDate>Mon, 29 Jul 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/sass-variable-interpolation-workarounds</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/sass-variable-interpolation-workarounds</guid>
+                </item>
+        
+                <item>
+                    <title>Things to Be Informed About in Life</title>
+                    <description>&lt;p&gt;Somewhat recently on Quora, someone asked &amp;quot;&lt;a href=&quot;http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life&quot;&gt;What are the top 10 things that we should be informed about, in life?&lt;/a&gt;&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.quora.com/Justin-Freeman&quot;&gt;Justin Freeman&lt;/a&gt;, self-described as someone who is &amp;quot;great at stuff nobody pays for&amp;quot;, gave an excellent response to this question. I know I&amp;#39;m only 26, but I like to think I&amp;#39;ve learned a few things in life. And those few things I have learned seem to align perfectly with these excerpts from Justin&amp;#39;s response:&lt;/p&gt;
+
+&lt;h2&gt;Nobody Cares&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Realize that nobody cares, and if they do, you shouldn&amp;#39;t care that they care. Got a new car? Nobody cares. You&amp;#39;ll get some gawkers for a couple of weeks—they don&amp;#39;t care … Three weeks in it&amp;#39;ll be just another shiny blob among all the thousands of others crawling down the freeway and sitting in garages and driveways up and down your street … Got a new gewgaw? New wardrobe? Went to a swanky restaurant? Exotic vacation? Nobody cares. &lt;strong&gt;Don&amp;#39;t base your happiness on people caring, because they won&amp;#39;t. And if they do, they either want your stuff or hate you for it.&lt;/strong&gt; (emphasis added)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;A Select Few Will Actually Care&lt;/h2&gt;
+
+&lt;p&gt;You will encounter a few people in your life who will defy the odds and break the general rule that &amp;quot;nobody cares&amp;quot;. They won&amp;#39;t care about your stuff, but they will care about you. As for the stuff you care about?&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;… if they value you, they&amp;#39;ll value that you value it, and they&amp;#39;ll listen. When you talk about all of those things that nobody else cares about, they will look into your eyes and consume your words, and in that moment you will know that every part of them is there with you.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I married one of these rule breakers, and it was the best thing that ever happened to me. But you don&amp;#39;t have to marry them. You can befriend them, work with them, or spend time with them. No matter how much power you have, you cannot &lt;strong&gt;make&lt;/strong&gt; other people sincerely care. So, as Freeman says, gather close the ones who do.&lt;/p&gt;
+
+&lt;h2&gt;Money is Expensive&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Money … it&amp;#39;s difficult to get your hands on sometimes—and you never know when someone&amp;#39;s going to pull the floorboards out from under you—so don&amp;#39;t be stupid with it. Avoid debt on depreciating assets, and never incur debt in order to assuage your vanity. Debt has become normative, but don&amp;#39;t blithely accept it as a rite of passage into adulthood—&lt;strong&gt;debt represents imbalance and, in some sense, often a resignation of control&lt;/strong&gt;. Student loan debt isn&amp;#39;t always unavoidable, but it isn&amp;#39;t a given—my wife and I completed a combined ten years of college with zero debt between us. If you can&amp;#39;t avoid it, though, make sure that your degree is an investment rather than a liability—I mourn a bit for all of the people going tens of thousands of dollars in debt in pursuit of vague liberal arts degrees with no idea of what they want out of life. If you&amp;#39;re just dropping tuition dollars for lack of a better idea at the moment, just withdraw and go wander around Europe for a few weeks—I guarantee you&amp;#39;ll spend less and learn more in the process. (&lt;em&gt;emphasis added&lt;/em&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Personally, I spent two years wandering around in Mexico before college. I learned more about the meaning and purpose of life there than I ever did in four years of college.&lt;/p&gt;
+
+&lt;h2&gt;Read More&lt;/h2&gt;
+
+&lt;p&gt;Freeman makes some other good points worth reading. You can &lt;a href=&quot;http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life&quot;&gt;check out the post on Quora&lt;/a&gt;.&lt;/p&gt;
+</description>
+                    <pubDate>Wed, 24 Jul 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/things-to-be-informed-about</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/things-to-be-informed-about</guid>
+                </item>
+        
+                <item>
+                    <title>Preserving CSS Comments For Wordpress During Sass Compression</title>
+                    <description>&lt;p&gt;Compressing your CSS for production websites is a best-practice, especially if you&amp;#39;re using a CSS preprocessor like Compass. If you don&amp;#39;t compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file. &lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s an example CSS rule before compression:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+// Here&amp;#39;s a comment I have on styling my CSS
+a:hover {
+        border: 0; // remove border from CSS
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now here&amp;#39;s that same rule compressed:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;a:hover{border:0}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You should already be commenting your code generously. Thus, your CSS file size will increase rather quickly. Here&amp;#39;s a comparison example of CSS file sizes for a project I&amp;#39;m currently working on:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Prior to compression
+    - File size: 122.413kb 
+    - Lines of code: 4,601&lt;/li&gt;
+&lt;li&gt;After compression:
+    - File size: 81kb
+    - Lines of code: 1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To compress using Compass, simply run &lt;code&gt;compass compile -s compressed&lt;/code&gt; to strip out all comments and other unnecessary content.&lt;/p&gt;
+
+&lt;h2&gt;How Do You Preserve Selective Comments?&lt;/h2&gt;
+
+&lt;p&gt;What if you want to preserve specific comments in your CSS? Suppose you want to include licensing information at the beginning of the file, or copyright information, or other required comments, how do you do it?&lt;/p&gt;
+
+&lt;h3&gt;Wordpress Example&lt;/h3&gt;
+
+&lt;p&gt;When creating a Wordpress theme, you &lt;strong&gt;must&lt;/strong&gt; include CSS comments in &lt;code&gt;style.css&lt;/code&gt; identifying your theme. It&amp;#39;s usually something like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;/*
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Why? Wordpress uses that information in to identify themes. From the &lt;a href=&quot;http://codex.wordpress.org/Theme_Development#Theme_Stylesheet&quot;&gt;codex&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The stylesheet must provide details about the Theme in the form of comments. &lt;strong&gt;No two Themes are allowed to have the same details&lt;/strong&gt; listed in their comment headers, as this will lead to problems in the Theme selection dialog.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So if you&amp;#39;re creating a Wordpress theme, it&amp;#39;s imperative your theme-identifying CSS comments &lt;strong&gt;do not&lt;/strong&gt; get stripped out during compression. &lt;/p&gt;
+
+&lt;h3&gt;The Solution&lt;/h3&gt;
+
+&lt;p&gt;To ensure specific CSS comments are included in a compressed file, make the first letter of a comment &lt;code&gt;!&lt;/code&gt;. According to the &lt;a href=&quot;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#comments&quot;&gt;SASS documentation&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;When the first letter of a comment is !, the comment will be interpolated and always rendered into css output even in compressed output modes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Thus, in the example above, your Wordpress comments would go something like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;/*!
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Compass will now preserve that comment block when compressing your CSS. &lt;/p&gt;
+</description>
+                    <pubDate>Mon, 22 Jul 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/preserving-CSS-comments-during-compression</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/preserving-CSS-comments-during-compression</guid>
+                </item>
+        
+                <item>
+                    <title>Thoughts from “On Writing Well”</title>
+                    <description>&lt;p&gt;Fact: the book &lt;a href=&quot;http://www.amazon.com/dp/0060891548&quot;&gt;&lt;em&gt;On Writing Well&lt;/em&gt;&lt;/a&gt; by William Zinsser is simply stellar. His advice on writing is insightful and succinct. In addition, his thoughts on writing spill into other areas of life.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s two thoughts I found relevant to design:&lt;/p&gt;
+
+&lt;h2&gt;Designing is Not a Contest&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Every writer is starting from a different point and is bound for a different destination. Yet many writers are paralyzed by the thought that they are competing with everybody else who is trying to write and presumably doing better.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This feeling of competition is often fostered in designers who see the work of associates being displayed in galleries while their own work gets no recognition. &lt;/p&gt;
+
+&lt;p&gt;Forget everyone else and go at your own pace. Nobody else is solving the exact design problem you are. Your problem is unique; hence your solution should be too. Your only contest is with yourself.&lt;/p&gt;
+
+&lt;h2&gt;Just Get Rid of It&lt;/h2&gt;
+
+&lt;p&gt;Have you ever tried adding a design element only to find it extremely frustrating to do so? You put the element through all kinds of exertions: you move it to various locations, you resize and reform its structure, you change its colors, you add supporting elements in hopes of clarify its purpose, only to find the overall design worse than where you started?&lt;/p&gt;
+
+&lt;p&gt;Zinsser says writers often encounter a similar impasse in constructing sentences. The solution? Get rid of the problem element. Unfortunately, this is usually our solution of last resort:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;look at the troublesome element and ask, &amp;quot;do I need it at all?&amp;quot; Probably you don&amp;#39;t. It was trying to do an unnecessary job all along - thats why it was giving you so much grief. Remove it and watch the afflicted sentence spring to life and breathe normally. It&amp;#39;s the quickest cure and often the best. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sometimes, the best solution is to get rid of the design element you&amp;#39;re trying so hard to include.&lt;/p&gt;
+</description>
+                    <pubDate>Mon, 15 Jul 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/thoughts-from-on-writing-well</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/thoughts-from-on-writing-well</guid>
+                </item>
+        
+                <item>
+                    <title>Retrieving Recent Posts from Scriptogram in JSON Format Using PHP</title>
+                    <description>&lt;p&gt;Do you use &lt;a href=&quot;http://scriptogr.am/&quot;&gt;Scriptogr.am&lt;/a&gt;? Do you want to programmatically retrieve your most recent posts from the service using PHP? It&amp;#39;s not as simple as an API call, but it can be done.&lt;/p&gt;
+
+&lt;h2&gt;Before We Begin: The Javascript Method&lt;/h2&gt;
+
+&lt;p&gt;In case you&amp;#39;re interested, &lt;a href=&quot;http://sicanstudios.com/post/recent-posts-scriptogram/&quot;&gt;Alex at sicanstudios&lt;/a&gt; has a great tutorial on how to retrieve and display your most recent Scriptogr.am posts using javascript.&lt;/p&gt;
+
+&lt;h2&gt;The PHP Method&lt;/h2&gt;
+
+&lt;p&gt;Scriptogr.am does not have a publicly accessible API. It does, however, provide an XML feed for each user. You can access your feed URL using this format:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;http://scriptogr.am/USERNAME/feed/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you use PHP&amp;#39;s &lt;code&gt;file_get_contents()&lt;/code&gt; and pass it your Scriptogr.am feed URL, you&amp;#39;ll be returned your most recent posts and accompanying metadata in XML form. &lt;/p&gt;
+
+&lt;h3&gt;Converting XML to JSON in PHP&lt;/h3&gt;
+
+&lt;p&gt;Now that we have the data we want, we&amp;#39;ve got to put it in the format we want (JSON). We can do that using the technique described in &lt;a href=&quot;http://lostechies.com/seanbiefeld/2011/10/21/simple-xml-to-json-with-php/&quot;&gt;this article from lostechies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Cut to the Chase: The Code&lt;/h2&gt;
+
+&lt;p&gt;Here&amp;#39;s the final PHP snippet that does everything we&amp;#39;ve described above. Just change the &lt;code&gt;$username&lt;/code&gt; value to your own Scriptogr.am username and you&amp;#39;re good to go!&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;function get_scriptogram_JSON() {
+    $username = &amp;#39;jimniels&amp;#39;;
+    $url = &amp;#39;http://scriptogr.am/&amp;#39;. $username .&amp;#39;/feed/&amp;#39;;
+    $fileContents = file_get_contents($url);
+    $fileContents = str_replace(array(&amp;quot;\n&amp;quot;, &amp;quot;\r&amp;quot;, &amp;quot;\t&amp;quot;), &amp;#39;&amp;#39;, $fileContents);
+    $fileContents = trim(str_replace(&amp;#39;&amp;quot;&amp;#39;, &amp;quot;&amp;#39;&amp;quot;, $fileContents));
+    $simpleXml = simplexml_load_string($fileContents);
+    $json = json_encode($simpleXml);
+    return $json;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+                    <pubDate>Mon, 08 Jul 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/scriptogram-posts-in-JSON-with-php</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/scriptogram-posts-in-JSON-with-php</guid>
+                </item>
+        
+                <item>
+                    <title>When Advertising Became About the Buyer, Not the Product</title>
+                    <description>&lt;p&gt;Neil Postman, in his book &lt;em&gt;&lt;a href=&quot;http://www.amazon.com/Technopoly-The-Surrender-Culture-Technology/dp/0679745408&quot;&gt;Technopoly: The Surrender of Culture to Technology&lt;/a&gt;&lt;/em&gt;, tells the story of how advertisers in the late 1800&amp;#39;s began to realize marketing products isn&amp;#39;t about extolling the benefits of the products themselves. Rather, effective advertising is, as Postman remarks, about using the persuasive power of language and photographs:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Advertising is most effective when it is irrational. By irrational, I do not, of course, mean crazy. I mean that products [can] best be sold by exploiting the magical and even poetical powers of language and pictures. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Postman uses the word &amp;quot;irrational&amp;quot; to reveal how advertisers previously employed logic and reason to sell products. However, they soon realized that compelling language and photographs were more powerful in consumers&amp;#39; minds than logic and reason; hence the irrationality of advertising:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;By the turn of the century, advertisers no longer assumed that reason was the best instrument for the communication of commercial products and ideas. Advertising became one part depth psychology, one part aesthetic theory. In the process, a fundamental principle of capitalist ideology was rejected: namely, that the producer and consumer were engaged in a rational enterprise in which consumers made choices on the basis of a careful consideration of the quality of a product and their own self-interest. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This rejection of rationality in consumer enterprise led to the type of advertising we have today, where commercials and ads aren&amp;#39;t about the products being sold but rather the character of the consumers viewing the ad:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Today, the television commercial, for example, is rarely about the character of the products. It is about the character of the consumers of products. Images of movie stars and famous athletes, of serene lakes and macho fishing trips, of elegant dinners and romantic interludes, of happy families packing their station wagons for a picnic in the country — these tell nothing about the products being sold. But they tell everything about the fears, fancies, and dreams of those who might buy them. &lt;strong&gt;What the advertiser needs to know is not what is right about the product but what is wrong about the buyer.&lt;/strong&gt; And so the balance of business expenditures shifts from product research to market research, &lt;strong&gt;which means orienting business away from making products of value and toward making consumers feel valuable.&lt;/strong&gt; The business of business becomes pseudo-therapy; the consumer, a patient reassured by psychodramas. (emphasis added)&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+                    <pubDate>Thu, 27 Jun 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/advertising-for-the-buyer</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/advertising-for-the-buyer</guid>
+                </item>
+        
+                <item>
+                    <title>Seemly Selectors</title>
+                    <description>&lt;p&gt;Take a look at this:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In CSS terms, that&amp;#39;s the universal selector. Are warning sirens relating to performance sounding in your head? Are you feeling emotions of avoidance, like you do when you see &lt;code&gt;!important&lt;/code&gt;? It&amp;#39;s possible you do. The universal selector carries a negative stigma of poor performance. But should it? &lt;a href=&quot;http://paulirish.com/2012/box-sizing-border-box-ftw/&quot;&gt;Paul Irish answers&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Apparently you’ve heard its slow. Firstly, it’s not. It is as fast as &lt;code&gt;h1&lt;/code&gt; as a selector. It can be slow when you specifically use it like &lt;code&gt;.foo &amp;gt;&lt;/code&gt; , so don’t do that&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It can be slow, but mostly it&amp;#39;s not. Still, that may seem like reason enough in your mind to avoid using (or misusing) it. Stop thinking that way. Turn those &amp;quot;&lt;a href=&quot;http://en.wikipedia.org/wiki/Danger,_Will_Robinson&quot;&gt;Danger, Will Robison!&lt;/a&gt;&amp;quot; sirens off. Don&amp;#39;t be afraid to use it. Why? Paul Irish continues:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You are not allowed to care about the performance of &lt;code&gt;*&lt;/code&gt; unless you concatenate all your javascript, have it at the bottom, minify your css and js, gzip all your assets, and losslessly compress all your images.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It&amp;#39;s important to remember that general rules of thumb, such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;don&amp;#39;t use the &lt;code&gt;*&lt;/code&gt; selector, it&amp;#39;s slow&lt;/li&gt;
+&lt;li&gt;don&amp;#39;t use the &lt;code&gt;!important&lt;/code&gt; rule&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;are rules discovered and shared by developers working on immensely large scale applications and websites, like Google.com. Some rules just don&amp;#39;t apply to your ten page Wordpress site. &lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;*&lt;/code&gt; and &lt;code&gt;!important&lt;/code&gt; rules were invented for a reason. If you find yourself needing them, use them. That&amp;#39;s what they were made for. If page performance takes a hit, look into larger-scale optimization techniques first, such as image optimization and concatenation. After that, you can get down to the nit-picky. In general, &lt;a href=&quot;http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/&quot;&gt;optimization of selectors should be the job of the rendering engine&lt;/a&gt;, not the designer.&lt;/p&gt;
+</description>
+                    <pubDate>Tue, 11 Jun 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/seemly-selectors</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/seemly-selectors</guid>
+                </item>
+        
+                <item>
+                    <title>Changes to max_upload_filesize not working in php.ini? Restart Apache!</title>
+                    <description>&lt;p&gt;I was trying to import a SQL database into a local copy of Wordpress. The SQL file was larger than the standard 2MB upload limit, so Wordpress wouldn&amp;#39;t let me upload it. &lt;/p&gt;
+
+&lt;p&gt;After some research, I realized I could change the &lt;code&gt;max_upload_filesize&lt;/code&gt; in the &lt;code&gt;php.ini&lt;/code&gt; file. However, after changing the value to 10MB, Wordpress was still indicating the prior upload limit of 2MB. After wasting time trying other fixes, I suddenly realized I had not restarted apache!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/duh.gif&quot; alt=&quot;Duh!&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;From the command line &lt;code&gt;sudo apachectl restart&lt;/code&gt; restarted my local apache server and changed my upload limit to 10MB in Wordpress.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lesson&lt;/strong&gt;: if you&amp;#39;re tinkering in configuration files, don&amp;#39;t forget to restart apache to see your changes!&lt;/p&gt;
+</description>
+                    <pubDate>Mon, 10 Jun 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/max-upload-filesize-restart-apache</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/max-upload-filesize-restart-apache</guid>
+                </item>
+        
+                <item>
+                    <title>Scriptogram Logo in Vector Form (.svg)</title>
+                    <description>&lt;p&gt;While working on a recent design, I suddenly needed a vector version of the &lt;a href=&quot;http://scriptogr.am/&quot;&gt;scriptogram&lt;/a&gt; logo. I couldn&amp;#39;t find one on the web, so I made one myself.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/scriptogram-logo.png&quot; alt=&quot;Scriptogram Logo&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;If you find yourself needing the &lt;a href=&quot;/blog/assets/img/2013/scriptogram-logo.svg&quot;&gt;scriptogram logo in vector form&lt;/a&gt;, you can download the version I created.&lt;/p&gt;
+</description>
+                    <pubDate>Wed, 29 May 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/scriptogram-vector-logo</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/scriptogram-vector-logo</guid>
+                </item>
+        
+                <item>
+                    <title>Stop Direct Spam Comments in Wordpress</title>
+                    <description>&lt;p&gt;I recently redesigned my wordpress theme for &lt;a href=&quot;http://iosicongallery.com&quot;&gt;iOS Icon Gallery&lt;/a&gt; and &lt;a href=&quot;http://macicongallery.com&quot;&gt;Mac Icon Gallery&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;The old themes provided the ability to comment through the interface. Due to a lack of real comments and a surplus in spam comments, I decided to entirely remove the ability to comment from the interface. &lt;/p&gt;
+
+&lt;h2&gt;Removing the Ability to Comment From the Interface Is Not Enough to Keep Out Spam&lt;/h2&gt;
+
+&lt;p&gt;Once my theme went live, I was still getting spam comments in the Wordpress backend. I asked myself, &amp;quot;how are comments still appearing in the Wordpress backend when I don&amp;#39;t have a single comment form on my website?&amp;quot; After some Googling, I discovered this was due to spambots posting data directly using &lt;code&gt;wp-comments-post.php&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/sneaky.gif&quot; alt=&quot;Sneaky Gif&quot;&gt;&lt;/p&gt;
+
+&lt;h2&gt;Further Stopping Spambots&lt;/h2&gt;
+
+&lt;p&gt;To prevent spambots from posting to Wordpress via a URL, you can block access to &lt;code&gt;wp-comments-post.php&lt;/code&gt; via the &lt;code&gt;.htaccess&lt;/code&gt; file. Simply include these rules in your &lt;code&gt;.htaccess&lt;/code&gt; file (thanks to &lt;a href=&quot;http://www.catswhocode.com/blog/snippets/blockreduce-wordpress-spam-comments-via-htaccess&quot;&gt;catswhocode&lt;/a&gt;)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;&amp;lt;IfModule mod_rewrite.c&amp;gt;
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} POST
+    RewriteCond %{REQUEST_URI} .wp-comments-post.php*
+    RewriteCond %{HTTP_REFERER} !.*yourdomainname.* [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^$
+    RewriteRule (.*) ^http://%{REMOTE_ADDR}/$ [R=301,L]
+&amp;lt;/IfModule&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Be sure to change the &lt;code&gt;yourdomainname&lt;/code&gt; part!&lt;/p&gt;
+
+&lt;h2&gt;That Doesn&amp;#39;t Help You?&lt;/h2&gt;
+
+&lt;p&gt;If this doesn&amp;#39;t seem like the best fix for you, try looking at this article from WP Tuts+ detailing &lt;a href=&quot;http://wp.tutsplus.com/tutorials/security/6-easy-and-efficient-ways-to-combat-spam-comments/&quot;&gt;easy and efficient ways to combat spam comments&lt;/a&gt;.&lt;/p&gt;
+</description>
+                    <pubDate>Wed, 22 May 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/stop-direct-spam-comments-in-wordpress</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/stop-direct-spam-comments-in-wordpress</guid>
+                </item>
+        
+    </channel>
+</rss>

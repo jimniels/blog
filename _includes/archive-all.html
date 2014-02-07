@@ -1,0 +1,9 @@
+<h3 class="archive__title">All Blog Posts</h3>
+<ul class="archive__list">
+    {% for post in site.posts %}
+        <li>
+            <time>{{ post.date | date: "%b %-d" }}</time>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        </li>
+    {% endfor %}
+</ul> 

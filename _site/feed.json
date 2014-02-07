@@ -1,0 +1,68 @@
+{
+    "name": "Blog | Jim Nielsen, Designer",
+    "description": "",
+    "url": "http://jim-nielsen.com/blog",
+    "posts": [
+        
+        {
+            "title":    "Workarounds to Variable Interpolation in Sass",
+            "date":     "29 Jul, 2013",
+            "url":      "http://jim-nielsen.com/blog/posts/sass-variable-interpolation-workarounds"
+        },
+        
+        {
+            "title":    "Things to Be Informed About in Life",
+            "date":     "24 Jul, 2013",
+            "url":      "http://jim-nielsen.com/blog/posts/things-to-be-informed-about"
+        },
+        
+        {
+            "title":    "Preserving CSS Comments For Wordpress During Sass Compression",
+            "date":     "22 Jul, 2013",
+            "url":      "http://jim-nielsen.com/blog/posts/preserving-CSS-comments-during-compression"
+        },
+        
+        {
+            "title":    "Thoughts from “On Writing Well”",
+            "date":     "15 Jul, 2013",
+            "url":      "http://jim-nielsen.com/blog/posts/thoughts-from-on-writing-well"
+        },
+        
+        {
+            "title":    "Retrieving Recent Posts from Scriptogram in JSON Format Using PHP",
+            "date":     "08 Jul, 2013",
+            "url":      "http://jim-nielsen.com/blog/posts/scriptogram-posts-in-JSON-with-php"
+        },
+        
+        {
+            "title":    "When Advertising Became About the Buyer, Not the Product",
+            "date":     "27 Jun, 2013",
+            "url":      "http://jim-nielsen.com/blog/posts/advertising-for-the-buyer"
+        },
+        
+        {
+            "title":    "Seemly Selectors",
+            "date":     "11 Jun, 2013",
+            "url":      "http://jim-nielsen.com/blog/posts/seemly-selectors"
+        },
+        
+        {
+            "title":    "Changes to max_upload_filesize not working in php.ini? Restart Apache!",
+            "date":     "10 Jun, 2013",
+            "url":      "http://jim-nielsen.com/blog/posts/max-upload-filesize-restart-apache"
+        },
+        
+        {
+            "title":    "Scriptogram Logo in Vector Form (.svg)",
+            "date":     "29 May, 2013",
+            "url":      "http://jim-nielsen.com/blog/posts/scriptogram-vector-logo"
+        },
+        
+        {
+            "title":    "Stop Direct Spam Comments in Wordpress",
+            "date":     "22 May, 2013",
+            "url":      "http://jim-nielsen.com/blog/posts/stop-direct-spam-comments-in-wordpress"
+        }
+        
+    ]    
+}

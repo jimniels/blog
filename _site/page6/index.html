@@ -4,13 +4,14 @@
     
     <!-- Title
     =================================== -->
-    <title>Jim Nielsen’s Blog</title>
+    <title>Blog | Jim Nielsen, Designer</title>
 
     <!-- Meta
     =================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
 
     <!-- CSS
     =================================== -->
@@ -37,10 +38,12 @@
     =================================== -->
     <nav class="navigation hide">
         <ul class="navigation-list">
-            <li><a href="/blog/index.html" class="navigation-item icon-cabinet">Blog Home</a></li>
-            <li><a href="#archive" class="navigation-item icon-cabinet">Blog Archive</a></li>
-            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio</a></li>
-            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top of Page</a></li>
+            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
+            
         </ul>
         <img src="/blog/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
     </nav>
@@ -57,70 +60,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">27 Dec 2012</time>
-        <h1 class="title"><a href="/blog/do-not-forget-the-optgroup-element.html">Don't Forget the ‘optgroup’ Element via Webdesign Tuts+</a></h1>
-        
-    </header>
-
-
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <p><a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-optgroup-element/"><img src="http://jim-nielsen.com/images/2012/dont-forget-the-optgroup-element.png" alt="Don&#39;t Forget the optgroup Element via Webdesign Tuts+"></a></p>
-
-<p>My most recent article over at <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-optgroup-element/">Webdesign Tuts+</a> is a quick overview of the rather useful but often forgotten <code>optgroup</code> HTML element. The <code>optgroup</code> element is very handy in responsive web design. It can be conveniently employed when condensing a complex hierarchical navigation links into a single menu.</p>
-
-    </div>
-
-
-    
-
-</article>
-    
-        
-        
-        <article class="article">
-
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
-        <time class="date">12 Dec 2012</time>
-        <h1 class="title"><a href="/blog/Said-no-user-ever.html">Said No Normal User, Ever.</a></h1>
-        
-    </header>
-
-
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <blockquote>
-<p>Remember that there are already too many things out there. We don&#39;t need more things, we need things that work well. </p>
-</blockquote>
-
-<p>I&#39;ve recently been reading Smashing Magazine&#39;s <a href="https://shop.smashingmagazine.com/smashing-book-3.html">Smashing Book #3</a> and found Aral Balkan&#39;s chapter <em><a href="http://mobile.smashingmagazine.com/2012/06/18/mobile-considerations-in-user-experience-design-web-or-native/">Mobile Considerations in User Experience Design: “Web or Native?”</a></em> quite intriguing. His arguments might even persuade you to believe the web isn&#39;t the platform of the future so many have predicted it to be, but I won&#39;t argue that point here.</p>
-
-<p>Balkan&#39;s article reminded me of our feverish platitudes in the tech world that often blind us to users&#39; needs, wants, and expectations. Talk of open vs. closed systems, why the web is better because of it&#39;s universal accessibility, and other arguments may influence why a <em>developer</em> chooses one system or platform over another. However, the rationale and justification that informs the choices we make as creators of technology rarely bears any weight with  incognizant users of technology.</p>
-
-<p>As Balkan points out, who cares what platform your application runs on if it runs badly? Ok some developers and tech evangelists probably care, but outside of them who cares? </p>
-
-<p>&quot;Crap, my widget crashed and lost all my form data, but that&#39;s ok. These guys built this app using open technology of the web so I&#39;m gonna give this product a break and keep using it.&quot; Said no normal user, ever.</p>
-
-    </div>
-
-
-    
-
-</article>
-    
-        
-        
-        <article class="article">
-
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
         <time class="date">11 Dec 2012</time>
-        <h1 class="title"><a href="/blog/ios-border-radius-ratio.html">Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio</a></h1>
+        <h1 class="title"><a href="/blog/posts/ios-border-radius-ratio">Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio</a></h1>
         
     </header>
 
@@ -166,7 +107,7 @@
     border-radius: 17.544%;
 }
 </code></pre></div>
-<p><img src="http://jim-nielsen.com/images/2012/border-radius-ratio.png" alt="Border radius ratio example"></p>
+<p><img src="/blog/assets/img/2012/border-radius-ratio.png" alt="Border radius ratio example"></p>
 
 <p>Unfortunately, this technique only works in modern-browsers that accept the border-radius rule (no IE support). Also, it&#39;s worth note that some earlier versions of modern browsers didn&#39;t quite apply the border radius correctly when applied directly to an image (as they wouldn&#39;t mask out the edges). So proper browser testing is encouraged if you decide to implement this technique.</p>
 
@@ -192,10 +133,201 @@
 
 </article>
     
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">9 Dec 2012</time>
+        <h1 class="title"><a href="/blog/posts/tuts-article-recap">Reminder of Webdesign Tuts+ Articles – By Me!</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>The other day I got an email from Webdesign Tuts+ recapping their latest tutorials. I realized that two out of the six articles were written by me! </p>
+
+<p><img src="/blog/assets/img/2012/email-recap-webdesign-tuts.png" alt="Webdesign Tuts+ Email Screenshot"></p>
+
+<p>So don&#39;t forget to give them a glance:</p>
+
+<ul>
+<li><a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/everything-you-need-to-know-about-the-css-cursor-rule/">Everything You Need to Know about the CSS Cursor Rule</a></li>
+<li><a href="http://webdesign.tutsplus.com/tutorials/applications/quick-tip-creating-crisp-pixel-perfect-circles-in-photoshop/">Creating Crisp, Pixel Perfect Circles in Photoshop</a></li>
+</ul>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">4 Dec 2012</time>
+        <h1 class="title"><a href="/blog/posts/reading-notes-november">Reading Notes, November 2012</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>These are just some excerpts from articles, posts, and books I&#39;ve read recently that stood out to me. Perhaps they&#39;ll grab your interest.</p>
+
+<h2><a href="http://rdd.me/qdjsnbxv">The Flight From Conversation</a></h2>
+
+<p>Article of interesting observations written by Sherry Turkel at the New York Times. It details, among other things, how we have &quot;sacrificed conversation for mere connection&quot;. </p>
+
+<h3>Curating our digital selves</h3>
+
+<p>Interesting parallel of the digital world to the real world of advertising in which, as we all know, famous faces on magazines are never quite as they appear:</p>
+
+<blockquote>
+<p>Texting and e-mail and posting let us present the self we want to be. This means we can edit. And if we wish to, we can delete. Or retouch: the voice, the flesh, the face, the body. Not too much, not too little — just right.</p>
+</blockquote>
+
+<h3>True self reflection requires trust</h3>
+
+<p>Why it&#39;s so hard to find (or post) anything of deep import amongst in the world of social statuses:</p>
+
+<blockquote>
+<p>These days, social media continually asks us what’s “on our mind,” but we have little motivation to say something truly self-reflective. Self-reflection in conversation requires trust. It’s hard to do anything with 3,000 Facebook friends except connect.</p>
+</blockquote>
+
+<h3>We expect more from tech and less from each other</h3>
+
+<blockquote>
+<p>We expect more from technology and less from one another and seem increasingly drawn to technologies that provide the illusion of companionship without the demands of relationship. Always-on/always-on-you devices provide three powerful fantasies: that we will always be heard; that we can put our attention wherever we want it to be; and that we never have to be alone.</p>
+</blockquote>
+
+<h3>Sharing proves existence, a la Shakespeare</h3>
+
+<blockquote>
+<p>I share, therefore I am.</p>
+</blockquote>
+
+<p>Unfortunately, our internet culture has led many to believe that if they don&#39;t share online they will be left out. They&#39;ll be forgotten. They&#39;ll cease to exist socially. </p>
+
+<p>On a related note - Paul Miller, a journalist at The Verge, has made some interesting observations about <a href="http://www.theverge.com/2012/10/26/3555640/offline-missing-out-paul-miller/in/2771566">our innate desire to not miss out</a>. He observes that, when we &#39;miss out&#39; on one thing (the internet), we get to spend our attention on something else (perhaps of greater import).</p>
+
+<h3>Ode to a time long gone</h3>
+
+<blockquote>
+<p>Not too long ago, people walked with their heads up, looking at the water, the sky, the sand and at one another, talking. Now they often walk with their heads down, typing. Even when they are with friends, partners, [and] children</p>
+</blockquote>
+
+<h2><a href="http://rdd.me/2r4jlwcs">Dear Business, I&#39;m scared for you</a></h2>
+
+<p>This article by Brian Hoff at The Design Cubicle is probably <strong>the best post</strong>  describing the web design field I&#39;ve read in a while. </p>
+
+<p>Businesses will spend $40,000 a year on an employee who works eight to five, five days a week. However, for lack of education they won&#39;t spend $1,000 on their hardest-working employee: their website. It works 24 hours a day, 365 days a year and interfaces with more clients than any other employee (perhaps even <em>all</em> their employees combined).</p>
+
+<blockquote>
+<p>Your website is not a feature that you can half-ass. Spend some money. Protect your future. A good website works hard for your business. Much harder than many employees can offer.</p>
+</blockquote>
+
+<h2><a href="http://blog.arc90.com/2012/11/19/creating-a-thriving-developer-culture/">Creating a Thriving Developer Culture</a></h2>
+
+<p>I&#39;ve worked at Arc90 (and technically still do) and I can verify Alex&#39;s observations. There truly is a thriving developer culture at Arc that exists because of the company traits he points out. </p>
+
+<blockquote>
+<p>When your employee gets up in the morning, you want the most exciting thing in her day to be related to your company ... When your employee discovers something cool, you want their second thought to be “how can I use this at work?”.</p>
+</blockquote>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">30 Nov 2012</time>
+        <h1 class="title"><a href="/blog/posts/safari-tab-preview">Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)</a></h1>
+        
+            <p class="excerpt">The new tab preview experience in Safari 6 might be better if it *revealed more* of the tab previews as it grows horizontally rather than increasing the size of the tab previews.</p>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Apple&#39;s Safari 6 introduced a new tab switching experience. By activating the feature, Safari presents you with a bird&#39;s-eye view of open tabs. 100% of the active tab is previewable while only about 15% of it&#39;s left and right sibilings are previeweable.</p>
+
+<p><img src="/blog/assets/img/2012/safari6-tab-view.jpg" alt="Safari 6 tab preview"></p>
+
+<p>This experience of previewing your tabs is consistent no matter the application&#39;s viewport size. You always see 100% of the active tab and about 15% of it&#39;s left and right siblings.</p>
+
+<p><img src="/blog/assets/img/2012/safari6-tab-view-resolution-comparison.jpg" alt="Safari 6 tab preview at different resolutions"></p>
+
+<p>Wouldn&#39;t it be neat to see the preview of the active tab&#39;s sibilings grow as the viewport grows horizontally? Essentially, if I had a large monitor I would be able to <strong>see more</strong> of the sibling tabs&#39; previews.</p>
+
+<p><img src="/blog/assets/img/2012/safari6-tab-view-new-design.jpg" alt="New design of Safari 6 tab preview"></p>
+
+<p>As you can see, as the window grows in size horizontally it would <strong>reveal more</strong> of the sibilng tabs&#39; previews <strong>rather than increase</strong> the tab preview sizes. Visually this would help form a more cohesive mental model of the spacial relationship between tabs. It would also help tremendously for any site-comparison a user might be doing.</p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">28 Nov 2012</time>
+        <h1 class="title"><a href="/blog/posts/understanding-comes-in-stages">Understanding Comes in Stages</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>In a radio series from the 1940’s, author E.M. Forster stated that the books which truly influence us are the ones we are prepared to read, namely those “which have gone a little further down our particular path than we have yet got ourselves.” [^1] Hence a truly moving reading experience is the culimnation of not just <em>what</em> you read but <em>when</em> you read it.</p>
+
+<p>Personally, I love reading with a pen or highlighter on hand. I’m sure I share this sentiment with many others. Navigating books I’ve annotated reminds me of what I learned while reading. Yet there have been countless times I’ve returned to a previously-read passage only to wonder why in the world I highlighted sentence seven and completely left all of paragraph four unmarked. However, now I realize that as I experience more of life (getting to know myself, my neighbors, my career, my friends, my world) I come to see and understand aspects of life very differently. </p>
+
+<p>As just one example, I used to gloss over snippets of javascript or terminal commands deeming them the writings of a foreign language. However, I now scrupulously inspect those snippets for nuggets of knowledge I have not yet discovered.</p>
+
+<p>Seeing, and its ensuing counterpart understanding, come in phases. What you fail to grasp and understand at this point in your development you may later find to be common sense. Be patient. Seeing and understanding come in stages through experience. </p>
+
+<p>[^1]: As quoted by Jill Carattini in her article <a href="http://www.rzim.org/a-slice-of-infinity/two-staged-miracles/"><em>Two-Staged Miracles</em></a> over at RZIM. </p>
+
+    </div>
+
+
+    
+
+</article>
+    
 
     <!-- Pagination links -->
     <div class="pagination">
-        <span class="page-number ">page 6 / 8</span>
+        <span class="page-number ">page 6 / 7</span>
 
         
             <a href="/blog/page5" class="previous"><span class="arrow">&laquo;</span> prev</a>
@@ -208,9 +340,8 @@
     </main>
 
     <footer class="footer">
-        <p>This is my blog. You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
+        <p>This is my blog, <a href="/blog/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
     </footer>
 
 </body>
 </html>
-

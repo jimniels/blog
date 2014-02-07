@@ -2,11 +2,10 @@
 layout: post
 title: "Creating Crisp, Pixel Perfect Circles in Photoshop"
 date: 2012-11-14
-tags: published-articles, web-design
-summary: "This is something to just test the summary and see if it works."
+tags: published-articles web-design
 ---
 
-[![Pixel Perfect Circles in Photoshop via Webdesign Tuts+](http://jim-nielsen.com/images/2012/pixel-perfect-circles-photoshop.png)](http://webdesign.tutsplus.com/tutorials/applications/quick-tip-creating-crisp-pixel-perfect-circles-in-photoshop/)
+[![Pixel Perfect Circles in Photoshop via Webdesign Tuts+]({{site.imageurl}}/2012/pixel-perfect-circles-photoshop.png)](http://webdesign.tutsplus.com/tutorials/applications/quick-tip-creating-crisp-pixel-perfect-circles-in-photoshop/)
 
 Here’s a preview of my most recent article via Webdesign Tuts:
 

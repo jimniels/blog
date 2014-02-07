@@ -1,0 +1,13 @@
+<h3 class="archive__title">Most Recent Posts</h3>
+<ul class="archive__list">
+    {% assign count = 1 %}
+    {% for post in site.posts offset: 1 limit: 6  %}
+        {% if count <= 5 and page.title != post.title %}
+            {% assign count = count|plus:1 %}
+            <li>
+                <time>{{ post.date | date: "%b %-d" }}</time>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul> 

@@ -4,23 +4,28 @@
 //  ==============================
 //
 
-.archive {
+aside.archive {
+    border-top: 4px double $color-border-light;
+}
+
+.archive-wrapper {
     font-size: .875em;
     overflow: hidden;
-    border-top: 1px solid $color-border-light;
     max-width: #{$max-width-base + 5};
     margin: 0 auto;
-    padding: 2em 0;
+    padding: 1em 0;  
 }
 
 .archive__title {
     font-family: $font-stack-secondary;
     font-size: .825em;
     color: $color-highlight; 
+    margin: 1em 0 0;
 }
 
 .archive__list {
     overflow: hidden;
+    margin: 0 0 1em;
 
     time {
         font-family: $font-stack-secondary;

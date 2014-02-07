@@ -11,6 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
 
     <!-- CSS
     =================================== -->
@@ -37,10 +38,12 @@
     =================================== -->
     <nav class="navigation hide">
         <ul class="navigation-list">
-            <li><a href="/blog/index.html" class="navigation-item icon-cabinet">Blog Home</a></li>
-            <li><a href="#archive" class="navigation-item icon-cabinet">Blog Archive</a></li>
-            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio</a></li>
-            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top of Page</a></li>
+            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
+            
         </ul>
         <img src="/blog/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
     </nav>
@@ -48,10 +51,6 @@
     <main class="wrapper">
         <article class="article">
 
-
-
-
-   
 
     
         
@@ -61,8 +60,519 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
+        <time class="date">29 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/sass-variable-interpolation-workarounds">Workarounds to Variable Interpolation in Sass</a></h1>
+        
+            <p class="excerpt">Variable interpolation is currently not supported in Sass. If you want to map key value pairs for something such as a brand to its color, you can create a lookup function to do the trick.</p>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Currently in Sass, interpolating list values in variable names is not supported (although maps are <a href="https://github.com/nex3/sass/issues/132#issuecomment-17581804">supposedly slated for Sass 3.3</a>). However, there is a workaround solution until maps come. Allow me to elaborate:</p>
+
+<h2>How I Thought It Could Work</h2>
+
+<p>A recent design project required I use a large variety of brand colors. To make things easy I wanted each brand name and it&#39;s corresponding brand color to be available for use at any time, both in HTML and CSS. Thus, for each brand color, I needed to create a CSS class (for use in HTML) and a Sass variable (for use in CSS output).</p>
+
+<p>Something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Variables for Sass usage
+$nike: #ffaadd;
+$facebook: #ff8811; 
+$yahoo: #aaddcc;
+
+// CSS Classes for HTML usage
+.brand-nike { color: #ffaadd; }
+.brand-facebook { color: #ff8811; }
+.brand-yahoo { color: #aaddcc; }
+</code></pre></div>
+<p>Initially, I thought I could create a variable for each brand and use the <code>@each</code> directive to interpolate the values of a list containing all my brand names for the variables names I created. Something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Brand Variables
+$nike: #ffaadd;
+$facebook: #ff8811; 
+$yahoo: #aaddcc;
+
+// List of Brand Names
+$brand-names: nike, facebook, yahoo;
+
+// Output a class for each
+@each $brand-names in $brand-name {
+    .#{$brand-name}-color {
+        color: $#{brand-name};
+    }
+}
+</code></pre></div>
+<p>However, I soon discovered that variable interpolation is not currently supported in Sass. You can read more on the <a href="https://groups.google.com/forum/?fromgroups=#!topic/sass-lang/upr78cyrW1I">variable interpolation google group</a> or <a href="https://github.com/nex3/sass/issues/132">Sass Github issues</a>.</p>
+
+<h2>A Workaround to Variable Interpolation</h2>
+
+<p>User jonjaques put forward two <a href="https://github.com/nex3/sass/issues/132#issuecomment-4335097">interesting workarounds</a> for mapping values which I customized for my project. First I created two lists: <code>$brand-names</code> and <code>$brand-colors</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Brand names and colors
+$brand-names: nike, facebook, yahoo;
+$brand-colors: #ffaadd, #ff8811, #aaddcc;
+</code></pre></div>
+<p>The one caveat for my workaround is that the list indexes must correspond. For example, if &#39;facebook&#39; is the second name in the list <code>$brand-names</code>, Facebook’s color value must be second in the list  <code>$brand-colors</code>.</p>
+
+<p>To output a CSS class for each brand, I used a loop. To have on-demand access to brand colors in my Sass files, I created a lookup function.</p>
+
+<h3>CSS Classes: Loop Through Two Corresponding Lists</h3>
+
+<p>To output a CSS class for each brand and it’s corresponding color, I used the <code>@for</code> directive to loop through the two lists:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Create a CSS class for each brand
+@for $i from 1 through length($brand-names) {
+    .color-#{nth($brand-names, $i)} {
+        color: nth($brand-colors, $i);
+    }
+}
+</code></pre></div>
+<p>The CSS output of this loop would look something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">.color-nike {
+    color: #ffaadd;
+}
+.color-facebook {
+    color: #ff8811;
+}
+.color-yahoo {
+    color: #aaddcc;
+}
+</code></pre></div>
+<h3>On-Demand Solution: Create a Lookup Function</h3>
+
+<p>To have brand color values available on-demand while writing Sass code I created a lookup function. In my case, the function mapped a brand name in <code>$brand-names</code> to a brand color in <code>$brand-color</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Lookup function for a brand, returns a color
+@function get-brand-color($search) {
+    $index: index($brand-names, $search);
+    @return nth($brand-colors, $index);
+}
+</code></pre></div>
+<p>In the example above, <code>$search</code> is the brand name I’m looking for in <code>$brand-names</code>. The function returns the brand’s corresponding color. A simpler way of writing this would be to nest the list function <code>index()</code> like so:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Lookup function for a brand, returns a color
+@function get-brand-color($search) {
+    @return nth($brand-colors, index($brand-names, $search));
+}
+</code></pre></div>
+<p>As an example, if I needed <code>&lt;div class=&quot;facebook-box&quot;&gt;</code> to have the background color of Facebook, I could do:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">div.facebook-box {
+    background: get-brand-color(&quot;facebook&quot;);
+}
+</code></pre></div>
+<p>The <code>get-brand-color</code> function takes the value I passed to it (facebook) and searches the list <code>$brand-names</code> for that value, returning its index position in the list. Then, the function grabs the corresponding index in <code>$brand-colors</code>, which should be the brand name&#39;s color (if you’ve mapped your lists correctly). The CSS output would look like this: </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">div.facebook-box {
+    background: #ff8811;
+}
+</code></pre></div>
+<h2>Conclusion</h2>
+
+<p>There are some good work arounds to variable interpolation available. Hopefully these examples get you on the right track for your own projects until Sass 3.3 is stable for release. Happy coding! </p>
+
+    </div>
+
+
+    
+
+</article>
+
+        
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">24 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/things-to-be-informed-about">Things to Be Informed About in Life</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Somewhat recently on Quora, someone asked &quot;<a href="http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life">What are the top 10 things that we should be informed about, in life?</a>&quot;</p>
+
+<p><a href="http://www.quora.com/Justin-Freeman">Justin Freeman</a>, self-described as someone who is &quot;great at stuff nobody pays for&quot;, gave an excellent response to this question. I know I&#39;m only 26, but I like to think I&#39;ve learned a few things in life. And those few things I have learned seem to align perfectly with these excerpts from Justin&#39;s response:</p>
+
+<h2>Nobody Cares</h2>
+
+<blockquote>
+<p>Realize that nobody cares, and if they do, you shouldn&#39;t care that they care. Got a new car? Nobody cares. You&#39;ll get some gawkers for a couple of weeks—they don&#39;t care … Three weeks in it&#39;ll be just another shiny blob among all the thousands of others crawling down the freeway and sitting in garages and driveways up and down your street … Got a new gewgaw? New wardrobe? Went to a swanky restaurant? Exotic vacation? Nobody cares. <strong>Don&#39;t base your happiness on people caring, because they won&#39;t. And if they do, they either want your stuff or hate you for it.</strong> (emphasis added)</p>
+</blockquote>
+
+<h2>A Select Few Will Actually Care</h2>
+
+<p>You will encounter a few people in your life who will defy the odds and break the general rule that &quot;nobody cares&quot;. They won&#39;t care about your stuff, but they will care about you. As for the stuff you care about?</p>
+
+<blockquote>
+<p>… if they value you, they&#39;ll value that you value it, and they&#39;ll listen. When you talk about all of those things that nobody else cares about, they will look into your eyes and consume your words, and in that moment you will know that every part of them is there with you.</p>
+</blockquote>
+
+<p>I married one of these rule breakers, and it was the best thing that ever happened to me. But you don&#39;t have to marry them. You can befriend them, work with them, or spend time with them. No matter how much power you have, you cannot <strong>make</strong> other people sincerely care. So, as Freeman says, gather close the ones who do.</p>
+
+<h2>Money is Expensive</h2>
+
+<blockquote>
+<p>Money … it&#39;s difficult to get your hands on sometimes—and you never know when someone&#39;s going to pull the floorboards out from under you—so don&#39;t be stupid with it. Avoid debt on depreciating assets, and never incur debt in order to assuage your vanity. Debt has become normative, but don&#39;t blithely accept it as a rite of passage into adulthood—<strong>debt represents imbalance and, in some sense, often a resignation of control</strong>. Student loan debt isn&#39;t always unavoidable, but it isn&#39;t a given—my wife and I completed a combined ten years of college with zero debt between us. If you can&#39;t avoid it, though, make sure that your degree is an investment rather than a liability—I mourn a bit for all of the people going tens of thousands of dollars in debt in pursuit of vague liberal arts degrees with no idea of what they want out of life. If you&#39;re just dropping tuition dollars for lack of a better idea at the moment, just withdraw and go wander around Europe for a few weeks—I guarantee you&#39;ll spend less and learn more in the process. (<em>emphasis added</em>)</p>
+</blockquote>
+
+<p>Personally, I spent two years wandering around in Mexico before college. I learned more about the meaning and purpose of life there than I ever did in four years of college.</p>
+
+<h2>Read More</h2>
+
+<p>Freeman makes some other good points worth reading. You can <a href="http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life">check out the post on Quora</a>.</p>
+
+    </div>
+
+
+    
+
+</article>
+
+        
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">22 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/preserving-CSS-comments-during-compression">Preserving CSS Comments For Wordpress During Sass Compression</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Compressing your CSS for production websites is a best-practice, especially if you&#39;re using a CSS preprocessor like Compass. If you don&#39;t compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file. </p>
+
+<p>Here&#39;s an example CSS rule before compression:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+// Here&#39;s a comment I have on styling my CSS
+a:hover {
+        border: 0; // remove border from CSS
+}
+</code></pre></div>
+<p>Now here&#39;s that same rule compressed:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">a:hover{border:0}
+</code></pre></div>
+<p>You should already be commenting your code generously. Thus, your CSS file size will increase rather quickly. Here&#39;s a comparison example of CSS file sizes for a project I&#39;m currently working on:</p>
+
+<ul>
+<li>Prior to compression
+    - File size: 122.413kb 
+    - Lines of code: 4,601</li>
+<li>After compression:
+    - File size: 81kb
+    - Lines of code: 1</li>
+</ul>
+
+<p>To compress using Compass, simply run <code>compass compile -s compressed</code> to strip out all comments and other unnecessary content.</p>
+
+<h2>How Do You Preserve Selective Comments?</h2>
+
+<p>What if you want to preserve specific comments in your CSS? Suppose you want to include licensing information at the beginning of the file, or copyright information, or other required comments, how do you do it?</p>
+
+<h3>Wordpress Example</h3>
+
+<p>When creating a Wordpress theme, you <strong>must</strong> include CSS comments in <code>style.css</code> identifying your theme. It&#39;s usually something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/*
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+</code></pre></div>
+<p>Why? Wordpress uses that information in to identify themes. From the <a href="http://codex.wordpress.org/Theme_Development#Theme_Stylesheet">codex</a>:</p>
+
+<blockquote>
+<p>The stylesheet must provide details about the Theme in the form of comments. <strong>No two Themes are allowed to have the same details</strong> listed in their comment headers, as this will lead to problems in the Theme selection dialog.</p>
+</blockquote>
+
+<p>So if you&#39;re creating a Wordpress theme, it&#39;s imperative your theme-identifying CSS comments <strong>do not</strong> get stripped out during compression. </p>
+
+<h3>The Solution</h3>
+
+<p>To ensure specific CSS comments are included in a compressed file, make the first letter of a comment <code>!</code>. According to the <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#comments">SASS documentation</a>:</p>
+
+<blockquote>
+<p>When the first letter of a comment is !, the comment will be interpolated and always rendered into css output even in compressed output modes.</p>
+</blockquote>
+
+<p>Thus, in the example above, your Wordpress comments would go something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/*!
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+</code></pre></div>
+<p>Compass will now preserve that comment block when compressing your CSS. </p>
+
+    </div>
+
+
+    
+
+</article>
+
+        
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">15 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/thoughts-from-on-writing-well">Thoughts from “On Writing Well”</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Fact: the book <a href="http://www.amazon.com/dp/0060891548"><em>On Writing Well</em></a> by William Zinsser is simply stellar. His advice on writing is insightful and succinct. In addition, his thoughts on writing spill into other areas of life.</p>
+
+<p>Here&#39;s two thoughts I found relevant to design:</p>
+
+<h2>Designing is Not a Contest</h2>
+
+<blockquote>
+<p>Every writer is starting from a different point and is bound for a different destination. Yet many writers are paralyzed by the thought that they are competing with everybody else who is trying to write and presumably doing better.</p>
+</blockquote>
+
+<p>This feeling of competition is often fostered in designers who see the work of associates being displayed in galleries while their own work gets no recognition. </p>
+
+<p>Forget everyone else and go at your own pace. Nobody else is solving the exact design problem you are. Your problem is unique; hence your solution should be too. Your only contest is with yourself.</p>
+
+<h2>Just Get Rid of It</h2>
+
+<p>Have you ever tried adding a design element only to find it extremely frustrating to do so? You put the element through all kinds of exertions: you move it to various locations, you resize and reform its structure, you change its colors, you add supporting elements in hopes of clarify its purpose, only to find the overall design worse than where you started?</p>
+
+<p>Zinsser says writers often encounter a similar impasse in constructing sentences. The solution? Get rid of the problem element. Unfortunately, this is usually our solution of last resort:</p>
+
+<blockquote>
+<p>look at the troublesome element and ask, &quot;do I need it at all?&quot; Probably you don&#39;t. It was trying to do an unnecessary job all along - thats why it was giving you so much grief. Remove it and watch the afflicted sentence spring to life and breathe normally. It&#39;s the quickest cure and often the best. </p>
+</blockquote>
+
+<p>Sometimes, the best solution is to get rid of the design element you&#39;re trying so hard to include.</p>
+
+    </div>
+
+
+    
+
+</article>
+
+        
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">8 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/scriptogram-posts-in-JSON-with-php">Retrieving Recent Posts from Scriptogram in JSON Format Using PHP</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Do you use <a href="http://scriptogr.am/">Scriptogr.am</a>? Do you want to programmatically retrieve your most recent posts from the service using PHP? It&#39;s not as simple as an API call, but it can be done.</p>
+
+<h2>Before We Begin: The Javascript Method</h2>
+
+<p>In case you&#39;re interested, <a href="http://sicanstudios.com/post/recent-posts-scriptogram/">Alex at sicanstudios</a> has a great tutorial on how to retrieve and display your most recent Scriptogr.am posts using javascript.</p>
+
+<h2>The PHP Method</h2>
+
+<p>Scriptogr.am does not have a publicly accessible API. It does, however, provide an XML feed for each user. You can access your feed URL using this format:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">http://scriptogr.am/USERNAME/feed/
+</code></pre></div>
+<p>If you use PHP&#39;s <code>file_get_contents()</code> and pass it your Scriptogr.am feed URL, you&#39;ll be returned your most recent posts and accompanying metadata in XML form. </p>
+
+<h3>Converting XML to JSON in PHP</h3>
+
+<p>Now that we have the data we want, we&#39;ve got to put it in the format we want (JSON). We can do that using the technique described in <a href="http://lostechies.com/seanbiefeld/2011/10/21/simple-xml-to-json-with-php/">this article from lostechies</a>.</p>
+
+<h2>Cut to the Chase: The Code</h2>
+
+<p>Here&#39;s the final PHP snippet that does everything we&#39;ve described above. Just change the <code>$username</code> value to your own Scriptogr.am username and you&#39;re good to go!</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">function get_scriptogram_JSON() {
+    $username = &#39;jimniels&#39;;
+    $url = &#39;http://scriptogr.am/&#39;. $username .&#39;/feed/&#39;;
+    $fileContents = file_get_contents($url);
+    $fileContents = str_replace(array(&quot;\n&quot;, &quot;\r&quot;, &quot;\t&quot;), &#39;&#39;, $fileContents);
+    $fileContents = trim(str_replace(&#39;&quot;&#39;, &quot;&#39;&quot;, $fileContents));
+    $simpleXml = simplexml_load_string($fileContents);
+    $json = json_encode($simpleXml);
+    return $json;
+}
+</code></pre></div>
+    </div>
+
+
+    
+
+</article>
+
+        
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">27 Jun 2013</time>
+        <h1 class="title"><a href="/blog/posts/advertising-for-the-buyer">When Advertising Became About the Buyer, Not the Product</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Neil Postman, in his book <em><a href="http://www.amazon.com/Technopoly-The-Surrender-Culture-Technology/dp/0679745408">Technopoly: The Surrender of Culture to Technology</a></em>, tells the story of how advertisers in the late 1800&#39;s began to realize marketing products isn&#39;t about extolling the benefits of the products themselves. Rather, effective advertising is, as Postman remarks, about using the persuasive power of language and photographs:</p>
+
+<blockquote>
+<p>Advertising is most effective when it is irrational. By irrational, I do not, of course, mean crazy. I mean that products [can] best be sold by exploiting the magical and even poetical powers of language and pictures. </p>
+</blockquote>
+
+<p>Postman uses the word &quot;irrational&quot; to reveal how advertisers previously employed logic and reason to sell products. However, they soon realized that compelling language and photographs were more powerful in consumers&#39; minds than logic and reason; hence the irrationality of advertising:</p>
+
+<blockquote>
+<p>By the turn of the century, advertisers no longer assumed that reason was the best instrument for the communication of commercial products and ideas. Advertising became one part depth psychology, one part aesthetic theory. In the process, a fundamental principle of capitalist ideology was rejected: namely, that the producer and consumer were engaged in a rational enterprise in which consumers made choices on the basis of a careful consideration of the quality of a product and their own self-interest. </p>
+</blockquote>
+
+<p>This rejection of rationality in consumer enterprise led to the type of advertising we have today, where commercials and ads aren&#39;t about the products being sold but rather the character of the consumers viewing the ad:</p>
+
+<blockquote>
+<p>Today, the television commercial, for example, is rarely about the character of the products. It is about the character of the consumers of products. Images of movie stars and famous athletes, of serene lakes and macho fishing trips, of elegant dinners and romantic interludes, of happy families packing their station wagons for a picnic in the country — these tell nothing about the products being sold. But they tell everything about the fears, fancies, and dreams of those who might buy them. <strong>What the advertiser needs to know is not what is right about the product but what is wrong about the buyer.</strong> And so the balance of business expenditures shifts from product research to market research, <strong>which means orienting business away from making products of value and toward making consumers feel valuable.</strong> The business of business becomes pseudo-therapy; the consumer, a patient reassured by psychodramas. (emphasis added)</p>
+</blockquote>
+
+    </div>
+
+
+    
+
+</article>
+
+        
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">11 Jun 2013</time>
+        <h1 class="title"><a href="/blog/posts/seemly-selectors">Seemly Selectors</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Take a look at this:</p>
+
+<p><code>*</code></p>
+
+<p>In CSS terms, that&#39;s the universal selector. Are warning sirens relating to performance sounding in your head? Are you feeling emotions of avoidance, like you do when you see <code>!important</code>? It&#39;s possible you do. The universal selector carries a negative stigma of poor performance. But should it? <a href="http://paulirish.com/2012/box-sizing-border-box-ftw/">Paul Irish answers</a>:</p>
+
+<blockquote>
+<p>Apparently you’ve heard its slow. Firstly, it’s not. It is as fast as <code>h1</code> as a selector. It can be slow when you specifically use it like <code>.foo &gt;</code> , so don’t do that</p>
+</blockquote>
+
+<p>It can be slow, but mostly it&#39;s not. Still, that may seem like reason enough in your mind to avoid using (or misusing) it. Stop thinking that way. Turn those &quot;<a href="http://en.wikipedia.org/wiki/Danger,_Will_Robinson">Danger, Will Robison!</a>&quot; sirens off. Don&#39;t be afraid to use it. Why? Paul Irish continues:</p>
+
+<blockquote>
+<p>You are not allowed to care about the performance of <code>*</code> unless you concatenate all your javascript, have it at the bottom, minify your css and js, gzip all your assets, and losslessly compress all your images.</p>
+</blockquote>
+
+<p>It&#39;s important to remember that general rules of thumb, such as:</p>
+
+<ul>
+<li>don&#39;t use the <code>*</code> selector, it&#39;s slow</li>
+<li>don&#39;t use the <code>!important</code> rule</li>
+</ul>
+
+<p>are rules discovered and shared by developers working on immensely large scale applications and websites, like Google.com. Some rules just don&#39;t apply to your ten page Wordpress site. </p>
+
+<p>The <code>*</code> and <code>!important</code> rules were invented for a reason. If you find yourself needing them, use them. That&#39;s what they were made for. If page performance takes a hit, look into larger-scale optimization techniques first, such as image optimization and concatenation. After that, you can get down to the nit-picky. In general, <a href="http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/">optimization of selectors should be the job of the rendering engine</a>, not the designer.</p>
+
+    </div>
+
+
+    
+
+</article>
+
+        
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">10 Jun 2013</time>
+        <h1 class="title"><a href="/blog/posts/max-upload-filesize-restart-apache">Changes to max_upload_filesize not working in php.ini? Restart Apache!</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>I was trying to import a SQL database into a local copy of Wordpress. The SQL file was larger than the standard 2MB upload limit, so Wordpress wouldn&#39;t let me upload it. </p>
+
+<p>After some research, I realized I could change the <code>max_upload_filesize</code> in the <code>php.ini</code> file. However, after changing the value to 10MB, Wordpress was still indicating the prior upload limit of 2MB. After wasting time trying other fixes, I suddenly realized I had not restarted apache!</p>
+
+<p><img src="/blog/assets/img/2013/duh.gif" alt="Duh!"></p>
+
+<p>From the command line <code>sudo apachectl restart</code> restarted my local apache server and changed my upload limit to 10MB in Wordpress.</p>
+
+<p><strong>Lesson</strong>: if you&#39;re tinkering in configuration files, don&#39;t forget to restart apache to see your changes!</p>
+
+    </div>
+
+
+    
+
+</article>
+
+        
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
         <time class="date">29 May 2013</time>
-        <h1 class="title"><a href="/blog/scriptogram-vector-logo.html">Scriptogram Logo in Vector Form (.svg)</a></h1>
+        <h1 class="title"><a href="/blog/posts/scriptogram-vector-logo">Scriptogram Logo in Vector Form (.svg)</a></h1>
         
     </header>
 
@@ -72,9 +582,9 @@
     <div class="content">
         <p>While working on a recent design, I suddenly needed a vector version of the <a href="http://scriptogr.am/">scriptogram</a> logo. I couldn&#39;t find one on the web, so I made one myself.</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/scriptogram-logo.png" alt="Scriptogram Logo"></p>
+<p><img src="/blog/assets/img/2013/scriptogram-logo.png" alt="Scriptogram Logo"></p>
 
-<p>If you find yourself needing the <a href="http://jim-nielsen.com/images/2013/scriptogram-logo.svg">scriptogram logo in vector form</a>, you can download the version I created.</p>
+<p>If you find yourself needing the <a href="/blog/assets/img/2013/scriptogram-logo.svg">scriptogram logo in vector form</a>, you can download the version I created.</p>
 
     </div>
 
@@ -93,7 +603,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">22 May 2013</time>
-        <h1 class="title"><a href="/blog/wordpress-spam-comments.html">Stop Direct Spam Comments in Wordpress</a></h1>
+        <h1 class="title"><a href="/blog/posts/stop-direct-spam-comments-in-wordpress">Stop Direct Spam Comments in Wordpress</a></h1>
         
     </header>
 
@@ -109,7 +619,7 @@
 
 <p>Once my theme went live, I was still getting spam comments in the Wordpress backend. I asked myself, &quot;how are comments still appearing in the Wordpress backend when I don&#39;t have a single comment form on my website?&quot; After some Googling, I discovered this was due to spambots posting data directly using <code>wp-comments-post.php</code>. </p>
 
-<p><img src="http://jim-nielsen.com/images/2013/sneaky.gif" alt="Sneaky Gif"></p>
+<p><img src="/blog/assets/img/2013/sneaky.gif" alt="Sneaky Gif"></p>
 
 <h2>Further Stopping Spambots</h2>
 
@@ -146,7 +656,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">17 May 2013</time>
-        <h1 class="title"><a href="/blog/Google-Glass.html">The Incredible (Frustrating) Potential of Google Glass</a></h1>
+        <h1 class="title"><a href="/blog/posts/the-frustration-of-google-glass">The Incredible (Frustrating) Potential of Google Glass</a></h1>
         
     </header>
 
@@ -202,7 +712,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">15 May 2013</time>
-        <h1 class="title"><a href="/blog/Sketching.html">Why Do We Sketch?</a></h1>
+        <h1 class="title"><a href="/blog/posts/why-do-we-sketch">Why Do We Sketch?</a></h1>
         
     </header>
 
@@ -237,7 +747,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">13 May 2013</time>
-        <h1 class="title"><a href="/blog/Webdesign-Tuts-Filler-Content.html">Filler Content Tools, Tips, and a Dynamic Example via Webdesign Tuts+</a></h1>
+        <h1 class="title"><a href="/blog/posts/tuts-filler-content">Filler Content Tools, Tips, and a Dynamic Example via Webdesign Tuts+</a></h1>
         
     </header>
 
@@ -245,7 +755,7 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p><img src="http://jim-nielsen.com/images/2013/filler-content-webdesign-tuts.jpg" alt="Filler Content: Tools, Tips and a Dynamic Example via Webdesign Tuts+"></p>
+        <p><img src="/blog/assets/img/2013/filler-content-webdesign-tuts.jpg" alt="Filler Content: Tools, Tips and a Dynamic Example via Webdesign Tuts+"></p>
 
 <p>Here’s <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/filler-content-tools-tips-and-a-dynamic-example/">a link</a> to my most recent article. I talk about how to leverage filler content in your design process.</p>
 
@@ -253,9 +763,7 @@
 <p>Because a lot of website design used to take place in Photoshop, manually copying/pasting text from the web was the best method for ‘filling in’ a design with dummy content. However, now that a lot of website design takes place in the browser, why not have the computer do all ‘filling in’ work for you?</p>
 </blockquote>
 
-<p>It&#39;s a new era for designing in the browser.</p>
-
-<p><a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/filler-content-tools-tips-and-a-dynamic-example/">Filler Content: Tools, Tips and a Dynamic Example</a></p>
+<p>It&#39;s a new era for designing in the browser. See how by reading <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/filler-content-tools-tips-and-a-dynamic-example/">Filler Content: Tools, Tips and a Dynamic Example</a>.</p>
 
     </div>
 
@@ -274,7 +782,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">5 May 2013</time>
-        <h1 class="title"><a href="/blog/infinite-scroll.html">An Analysis of Infinte Scrolling</a></h1>
+        <h1 class="title"><a href="/blog/posts/an-analysis-of-infinite-scroll">An Analysis of Infinte Scrolling</a></h1>
         
     </header>
 
@@ -309,7 +817,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">26 Mar 2013</time>
-        <h1 class="title"><a href="/blog/grid-relationships.html">Unintended Visual Relationships</a></h1>
+        <h1 class="title"><a href="/blog/posts/unintended-visual-relationships">Unintended Visual Relationships</a></h1>
         
     </header>
 
@@ -323,13 +831,13 @@
 
 <p>Recently I came across a subtle and often overlooked side-effect of grid-based design: unintended visual relationships. An example of this can be found in the Wordpress theme <a href="http://wpshower.com/themes/portfolium/">Portfolium</a> </p>
 
-<p><img src="http://jim-nielsen.com/images/2013/portfolium.jpg" alt="Portfolium Screenshot"></p>
+<p><img src="/blog/assets/img/2013/portfolium.jpg" alt="Portfolium Screenshot"></p>
 
 <p>Overall, it&#39;s a well executed grid-based design: organized and structured; however, the alignment of the navigation to the thumbnail grid suggests visual relationships that are nonexistent. </p>
 
 <p>For example, take a look at the words at the top of the page: they align to the thumbnail grid. This suggests a columnar relationship between each navigation item and the thumbnails  below them. However, no such relationship actually exists.</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/portfolium-grid-alignment.jpg" alt="Portfolium Grid Alignment"></p>
+<p><img src="/blog/assets/img/2013/portfolium-grid-alignment.jpg" alt="Portfolium Grid Alignment"></p>
 
 <h2>Rows, Columns, or Neither?</h2>
 
@@ -337,13 +845,13 @@
 
 <p>On the other hand, if you wanted to suggest a relationship between the navigation items and the thumbnails below them, the alignment of Portfolium would be ideal. For example, if you wanted to separate and categorize the thumbnails by column, this type of alignment would work very well:</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/portfolium-categories.jpg" alt="Portfolium Categories"></p>
+<p><img src="/blog/assets/img/2013/portfolium-categories.jpg" alt="Portfolium Categories"></p>
 
 <h2>A Better Alignment</h2>
 
 <p>In the example of Portfolium, not aligning the navigation to the thumbnail grid would break the grid and provide a visual separation between the sections of image thumbnails and navigation. In addition, making the light grey line at the top a solid, unbroken line helps visually separate the header from the content.</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/portfolium-new.jpg" alt="Altered Portfolium Screenshot"></p>
+<p><img src="/blog/assets/img/2013/portfolium-new.jpg" alt="Altered Portfolium Screenshot"></p>
 
 <p>It&#39;s possible that the creators of Portfolium had a purpose in mind when designing the theme the way they did. However, I don&#39;t see it. Take care to always be aware of how your grid elements are being aligned. In grid-based design, it&#39;s easy to unintentionally suggest visual relationship that don&#39;t exist.</p>
 
@@ -364,7 +872,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">8 Mar 2013</time>
-        <h1 class="title"><a href="/blog/appreciating-art.html">Coming to Appreciate Art</a></h1>
+        <h1 class="title"><a href="/blog/posts/coming-to-appreciate-art">Coming to Appreciate Art</a></h1>
         
     </header>
 
@@ -409,7 +917,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">19 Feb 2013</time>
-        <h1 class="title"><a href="/blog/teamcolors.html">Team Color Codes</a></h1>
+        <h1 class="title"><a href="/blog/posts/teamcolors">Team Color Codes</a></h1>
         
     </header>
 
@@ -419,15 +927,15 @@
     <div class="content">
         <p>I recently participated in the <a href="http://lab.arc90.com/hackathon/2012/">Arc90 Hackathon</a>. I originally volunteered for a different project as part of a team, but due to scheduling conflicts my team disbanded. I was left with the option to work on a solo project, which resulted in <a href="http://teamcolors.arc90.com/">Team Colors</a>: a single-page website that serves as a reference for HEX values for professional sport teams:</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/team-colors.png" alt="Screenshot of Team Colors, an Arc90 Hackathon Project"></p>
+<p><img src="/blog/assets/img/2013/team-colors.png" alt="Screenshot of Team Colors, an Arc90 Hackathon Project"></p>
 
 <p>Unfortunately, the Hackathon took place while I was absent from the office (travelling to Utah for the Christmas break). So a lot of my work was done on a plane and working from home. I started Team Colors by sketching out some ideas for the page hierarchy and navigation:</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/team-colors-sketch.jpg" alt="Sketch of Team Colors"></p>
+<p><img src="/blog/assets/img/2013/team-colors-sketch.jpg" alt="Sketch of Team Colors"></p>
 
 <p>After thinking through and sketching out how to present each team and its corresponding brand colors in a responsive manner, I turned to writing some pseudocode that would power the interaction of the site:</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/team-colors-code.jpg" alt="Pseudocode for Team Colors"></p>
+<p><img src="/blog/assets/img/2013/team-colors-code.jpg" alt="Pseudocode for Team Colors"></p>
 
 <p>Once I got everything down on paper, the fun part of building began. The hardest part was  finding the actual HEX values for each team. There were some obscure, outdated forum posts scattered across the web. In the end Wikiepedia was my best reference, although it did not provide the brand colors in the user interface. I found them in the underlying HTML/CSS using Chrome developer tools.</p>
 
@@ -468,7 +976,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">14 Feb 2013</time>
-        <h1 class="title"><a href="/blog/single-page-website-tutspremium.html">Build a Responsive, Single Page Portfolio with Sass and Compass via Tuts+ Premium</a></h1>
+        <h1 class="title"><a href="/blog/posts/tuts-single-page-portfolio">Build a Responsive, Single Page Portfolio with Sass and Compass via Tuts+ Premium</a></h1>
         
     </header>
 
@@ -511,7 +1019,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">12 Feb 2013</time>
-        <h1 class="title"><a href="/blog/freebie-corrections.html">Freebie Resources - Don’t Assume, Double Check</a></h1>
+        <h1 class="title"><a href="/blog/posts/freebie-resources">Freebie Resources - Don’t Assume, Double Check</a></h1>
         
     </header>
 
@@ -523,15 +1031,15 @@
 
 <p>Here&#39;s a vector freebie I got online today. I imported the shape into Photoshop and noticed a 1px offset in symmetry:</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/freebie-offset.png" alt="Freebie 1px Offset"></p>
+<p><img src="/blog/assets/img/2013/freebie-offset.png" alt="Freebie 1px Offset"></p>
 
 <p>I know you might be thinking, &quot;1px offset? Nobody will even notice that.&quot; And you know what? You&#39;re right. One little 1px offset in an image that&#39;s 16x16 pixels probably won&#39;t be noticed by many people. However, the accumulation of many 1px offsets in your digital creations <strong>will</strong> be noticed! It&#39;s worth practicing some self discipline because it will help avoid sloppy work.</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/freebie-offset-select.png" alt="Freebie 1px Offset Shape Selection"></p>
+<p><img src="/blog/assets/img/2013/freebie-offset-select.png" alt="Freebie 1px Offset Shape Selection"></p>
 
 <p>Ahhh, isn&#39;t this much better?</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/freebie-offset-fix.png" alt="Freebie 1px Offset Correction"></p>
+<p><img src="/blog/assets/img/2013/freebie-offset-fix.png" alt="Freebie 1px Offset Correction"></p>
 
 <p>Don&#39;t assume the freebie is pixel-perfect, especially when transferring it between software applications. Keeping up your guard and not making assumptions will prevent slipshod work.</p>
 
@@ -552,7 +1060,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">31 Jan 2013</time>
-        <h1 class="title"><a href="/blog/photoshop-embedd.html">Modularize Your PSDs by Embedding Them Inside Each Other</a></h1>
+        <h1 class="title"><a href="/blog/posts/modularize-your-psds">Modularize Your PSDs by Embedding Them Inside Each Other</a></h1>
         
     </header>
 
@@ -562,7 +1070,7 @@
     <div class="content">
         <p>If you&#39;ve ever used InDesign you&#39;ve no doubt used the &quot;Links&quot; panel. It allows you to link and embedd files in your document layout. InDesign keeps track of all the files you&#39;ve embedded and where they live on your hard drive. This gives you the power to relink files, updated modified files, edit the original files, and so forth. For example, say you embedd a logo in InDesign but then you want to modify it. You can go to the Links panel and click &quot;edit original&quot;. Illustrator (or whatever logo editing software you&#39;ve used) will open the file. You make your changes, save it, and go back to InDesign and the logo&#39;s changes will automatically update in your layout.</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/links-panel-indesign.png" alt="Links Panel in InDesign"></p>
+<p><img src="/blog/assets/img/2013/links-panel-indesign.png" alt="Links Panel in InDesign"></p>
 
 <p>I found myself wanting this feature in Photoshop. It would be extremely useful for building websites because you could modularize your PSDs. For example, I could create one PSD called <code>header.psd</code> and another called <code>footer.psd</code>. When I want to create a PSD for a new page mockup, I can easily &quot;embedd&quot; the header and footer PSDs into my new document. This allows me to easily spin-off new page mockups based on single PSD files. </p>
 
@@ -596,7 +1104,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">29 Jan 2013</time>
-        <h1 class="title"><a href="/blog/quick-change-and-the-web.html">Quick Change and the Web</a></h1>
+        <h1 class="title"><a href="/blog/posts/quick-change-and-the-web">Quick Change and the Web</a></h1>
         
     </header>
 
@@ -631,7 +1139,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">21 Jan 2013</time>
-        <h1 class="title"><a href="/blog/unicode-star-font-stack.html">Miscellaneous Unicode Symbols, Font Stacks, and You</a></h1>
+        <h1 class="title"><a href="/blog/posts/unicode-symbols-and-font-stacks">Miscellaneous Unicode Symbols, Font Stacks, and You</a></h1>
         
     </header>
 
@@ -652,13 +1160,13 @@
 
 <p>I began by simply inserting the character reference in my markup with the default CSS font-size of 1em and font stack of Helvetica. However, I stumbled on an inconsistency in modern browsers: the unicode star was rendering at different sizes in browsers that implement different rendering engines.</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/black-star-unicode-arial-helvetica.png" alt="Black Star Unicode Using Helvetica and Arial Unicode MS"></p>
+<p><img src="/blog/assets/img/2013/black-star-unicode-arial-helvetica.png" alt="Black Star Unicode Using Helvetica and Arial Unicode MS"></p>
 
 <p>Notice the size difference? It appears the black star unicode symbol is not supported by my default stack of Helvetica. In order to display the character, each browser is resorting to a font of it&#39;s own choosing that <em>does</em> support it. In this case, each browsers is choosing a different font; hence the size discrepancy. </p>
 
 <p>By resorting to a font stack that supports the black star glyph (in this case Arial Unicode MS), I achieved consistent sizing across browsers. You can see the differences and similarities in this blown up photo:</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/black-star-unicode-arial-helvetica-zoomed.png" alt="Zoomed in Photo of Black Star Unicode Glyph"></p>
+<p><img src="/blog/assets/img/2013/black-star-unicode-arial-helvetica-zoomed.png" alt="Zoomed in Photo of Black Star Unicode Glyph"></p>
 
 <h2>But Wait, There&#39;s Always IE</h2>
 
@@ -691,7 +1199,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">8 Jan 2013</time>
-        <h1 class="title"><a href="/blog/science-of-typography.html">Science Speaks: Good Typography = Good Mood</a></h1>
+        <h1 class="title"><a href="/blog/posts/science-of-typography">Science Speaks: Good Typography = Good Mood</a></h1>
         
     </header>
 
@@ -732,7 +1240,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">27 Dec 2012</time>
-        <h1 class="title"><a href="/blog/do-not-forget-the-optgroup-element.html">Don't Forget the ‘optgroup’ Element via Webdesign Tuts+</a></h1>
+        <h1 class="title"><a href="/blog/posts/tuts-dont-forget-the-optgroup-element">Don't Forget the ‘optgroup’ Element via Webdesign Tuts+</a></h1>
         
     </header>
 
@@ -740,7 +1248,7 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p><a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-optgroup-element/"><img src="http://jim-nielsen.com/images/2012/dont-forget-the-optgroup-element.png" alt="Don&#39;t Forget the optgroup Element via Webdesign Tuts+"></a></p>
+        <p><a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-optgroup-element/"><img src="/blog/assets/img/2012/dont-forget-the-optgroup-element.png" alt="Don&#39;t Forget the optgroup Element via Webdesign Tuts+"></a></p>
 
 <p>My most recent article over at <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-optgroup-element/">Webdesign Tuts+</a> is a quick overview of the rather useful but often forgotten <code>optgroup</code> HTML element. The <code>optgroup</code> element is very handy in responsive web design. It can be conveniently employed when condensing a complex hierarchical navigation links into a single menu.</p>
 
@@ -761,7 +1269,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">12 Dec 2012</time>
-        <h1 class="title"><a href="/blog/Said-no-user-ever.html">Said No Normal User, Ever.</a></h1>
+        <h1 class="title"><a href="/blog/posts/said-no-user-ever">Said No Normal User, Ever.</a></h1>
         
     </header>
 
@@ -798,7 +1306,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">11 Dec 2012</time>
-        <h1 class="title"><a href="/blog/ios-border-radius-ratio.html">Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio</a></h1>
+        <h1 class="title"><a href="/blog/posts/ios-border-radius-ratio">Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio</a></h1>
         
     </header>
 
@@ -844,7 +1352,7 @@
     border-radius: 17.544%;
 }
 </code></pre></div>
-<p><img src="http://jim-nielsen.com/images/2012/border-radius-ratio.png" alt="Border radius ratio example"></p>
+<p><img src="/blog/assets/img/2012/border-radius-ratio.png" alt="Border radius ratio example"></p>
 
 <p>Unfortunately, this technique only works in modern-browsers that accept the border-radius rule (no IE support). Also, it&#39;s worth note that some earlier versions of modern browsers didn&#39;t quite apply the border radius correctly when applied directly to an image (as they wouldn&#39;t mask out the edges). So proper browser testing is encouraged if you decide to implement this technique.</p>
 
@@ -880,7 +1388,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">9 Dec 2012</time>
-        <h1 class="title"><a href="/blog/Email-Recap.html">Reminder of Webdesign Tuts+ Articles – By Me!</a></h1>
+        <h1 class="title"><a href="/blog/posts/tuts-article-recap">Reminder of Webdesign Tuts+ Articles – By Me!</a></h1>
         
     </header>
 
@@ -890,7 +1398,7 @@
     <div class="content">
         <p>The other day I got an email from Webdesign Tuts+ recapping their latest tutorials. I realized that two out of the six articles were written by me! </p>
 
-<p><img src="http://jim-nielsen.com/images/2012/email-recap-webdesign-tuts.png" alt="Webdesign Tuts+ Email Screenshot"></p>
+<p><img src="/blog/assets/img/2012/email-recap-webdesign-tuts.png" alt="Webdesign Tuts+ Email Screenshot"></p>
 
 <p>So don&#39;t forget to give them a glance:</p>
 
@@ -916,7 +1424,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">4 Dec 2012</time>
-        <h1 class="title"><a href="/blog/Monthly-Notes-November.html">Reading Notes, November 2012</a></h1>
+        <h1 class="title"><a href="/blog/posts/reading-notes-november">Reading Notes, November 2012</a></h1>
         
     </header>
 
@@ -1003,7 +1511,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">30 Nov 2012</time>
-        <h1 class="title"><a href="/blog/Safari-6-Tab-Preview.html">Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)</a></h1>
+        <h1 class="title"><a href="/blog/posts/safari-tab-preview">Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)</a></h1>
         
             <p class="excerpt">The new tab preview experience in Safari 6 might be better if it *revealed more* of the tab previews as it grows horizontally rather than increasing the size of the tab previews.</p>
         
@@ -1015,15 +1523,15 @@
     <div class="content">
         <p>Apple&#39;s Safari 6 introduced a new tab switching experience. By activating the feature, Safari presents you with a bird&#39;s-eye view of open tabs. 100% of the active tab is previewable while only about 15% of it&#39;s left and right sibilings are previeweable.</p>
 
-<p><img src="http://jim-nielsen.com/images/2012/safari6-tab-view.jpg" alt="Safari 6 tab preview"></p>
+<p><img src="/blog/assets/img/2012/safari6-tab-view.jpg" alt="Safari 6 tab preview"></p>
 
 <p>This experience of previewing your tabs is consistent no matter the application&#39;s viewport size. You always see 100% of the active tab and about 15% of it&#39;s left and right siblings.</p>
 
-<p><img src="http://jim-nielsen.com/images/2012/safari6-tab-view-resolution-comparison.jpg" alt="Safari 6 tab preview at different resolutions"></p>
+<p><img src="/blog/assets/img/2012/safari6-tab-view-resolution-comparison.jpg" alt="Safari 6 tab preview at different resolutions"></p>
 
 <p>Wouldn&#39;t it be neat to see the preview of the active tab&#39;s sibilings grow as the viewport grows horizontally? Essentially, if I had a large monitor I would be able to <strong>see more</strong> of the sibling tabs&#39; previews.</p>
 
-<p><img src="http://jim-nielsen.com/images/2012/safari6-tab-view-new-design.jpg" alt="New design of Safari 6 tab preview"></p>
+<p><img src="/blog/assets/img/2012/safari6-tab-view-new-design.jpg" alt="New design of Safari 6 tab preview"></p>
 
 <p>As you can see, as the window grows in size horizontally it would <strong>reveal more</strong> of the sibilng tabs&#39; previews <strong>rather than increase</strong> the tab preview sizes. Visually this would help form a more cohesive mental model of the spacial relationship between tabs. It would also help tremendously for any site-comparison a user might be doing.</p>
 
@@ -1044,7 +1552,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">28 Nov 2012</time>
-        <h1 class="title"><a href="/blog/Understanding-comes-in-stages.html">Understanding Comes in Stages</a></h1>
+        <h1 class="title"><a href="/blog/posts/understanding-comes-in-stages">Understanding Comes in Stages</a></h1>
         
     </header>
 
@@ -1079,7 +1587,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">15 Nov 2012</time>
-        <h1 class="title"><a href="/blog/tuts-CSS-cursor.html">Everything You Need to Know About the CSS Cursor Rule</a></h1>
+        <h1 class="title"><a href="/blog/posts/tuts-all-about-css-cursor">Everything You Need to Know About the CSS Cursor Rule</a></h1>
         
     </header>
 
@@ -1116,9 +1624,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">14 Nov 2012</time>
-        <h1 class="title"><a href="/blog/tuts-pixel-perfect-circles.html">Creating Crisp, Pixel Perfect Circles in Photoshop</a></h1>
-        
-            <p class="excerpt">This is something to just test the summary and see if it works.</p>
+        <h1 class="title"><a href="/blog/posts/tuts-pixel-perfect-circles">Creating Crisp, Pixel Perfect Circles in Photoshop</a></h1>
         
     </header>
 
@@ -1126,7 +1632,7 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p><a href="http://webdesign.tutsplus.com/tutorials/applications/quick-tip-creating-crisp-pixel-perfect-circles-in-photoshop/"><img src="http://jim-nielsen.com/images/2012/pixel-perfect-circles-photoshop.png" alt="Pixel Perfect Circles in Photoshop via Webdesign Tuts+"></a></p>
+        <p><a href="http://webdesign.tutsplus.com/tutorials/applications/quick-tip-creating-crisp-pixel-perfect-circles-in-photoshop/"><img src="/blog/assets/img/2012/pixel-perfect-circles-photoshop.png" alt="Pixel Perfect Circles in Photoshop via Webdesign Tuts+"></a></p>
 
 <p>Here’s a preview of my most recent article via Webdesign Tuts:</p>
 
@@ -1152,9 +1658,8 @@
     </main>
 
     <footer class="footer">
-        <p>This is my blog. You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
+        <p>This is my blog, <a href="/blog/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
     </footer>
 
 </body>
 </html>
-

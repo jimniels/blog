@@ -3,10 +3,12 @@
     position: relative;
     background: $color-background-light;
     border-top: 1px solid $color-border-light;
+    border-bottom: 1px solid $color-border-light;
     text-align: center;
     font-size: .75em;
     color: $color-text-light;
     padding: 1em;
+    line-height: 1.5;
 
     a {
         text-decoration: underline;

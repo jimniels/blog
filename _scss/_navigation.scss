@@ -40,11 +40,21 @@
             font-size: .85em;
         }
 
+        li:first-child {
+
+            a {
+                color: white
+            }
+        }
+        li:last-child {
+            background: #333;
+        }
+
         .navigation-item {
             line-height: 40px;
             height: 40px;
             vertical-align: middle;
-            padding: 0 1em;
+            padding: .075em 1em 0;
             display: block;
             @include transition(.35s ease all);
             overflow: hidden;

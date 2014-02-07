@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <!-- Title
+    =================================== -->
+    <title>Workarounds to Variable Interpolation in Sass</title>
+
+    <!-- Meta
+    =================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <!-- CSS
+    =================================== -->
+    <link rel="stylesheet" href="/blog/assets/css/style.css">
+
+    <!-- Javascript
+    =================================== -->
+    <script type="text/javascript" src="/blog/assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/blog/assets/js/js.js"></script>
+</head>
+<body>
+
+    <!-- Header
+    =================================== -->
+    <header class="header">
+        <a href="/blog/index.html">
+            <img src="/blog/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
+            <h1 class="site-title">Jim Nielsen, Designer</h1>
+        </a>
+    </header>
+
+    <!-- Navigation
+    =================================== -->
+    <nav class="navigation hide">
+        <ul class="navigation-list">
+            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
+            
+        </ul>
+        <img src="/blog/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
+    </nav>
+
+    <main class="wrapper">
+            <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">29 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/sass-variable-interpolation-workarounds">Workarounds to Variable Interpolation in Sass</a></h1>
+        
+            <p class="excerpt">Variable interpolation is currently not supported in Sass. If you want to map key value pairs for something such as a brand to its color, you can create a lookup function to do the trick.</p>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Currently in Sass, interpolating list values in variable names is not supported (although maps are <a href="https://github.com/nex3/sass/issues/132#issuecomment-17581804">supposedly slated for Sass 3.3</a>). However, there is a workaround solution until maps come. Allow me to elaborate:</p>
+
+<h2>How I Thought It Could Work</h2>
+
+<p>A recent design project required I use a large variety of brand colors. To make things easy I wanted each brand name and it&#39;s corresponding brand color to be available for use at any time, both in HTML and CSS. Thus, for each brand color, I needed to create a CSS class (for use in HTML) and a Sass variable (for use in CSS output).</p>
+
+<p>Something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Variables for Sass usage
+$nike: #ffaadd;
+$facebook: #ff8811; 
+$yahoo: #aaddcc;
+
+// CSS Classes for HTML usage
+.brand-nike { color: #ffaadd; }
+.brand-facebook { color: #ff8811; }
+.brand-yahoo { color: #aaddcc; }
+</code></pre></div>
+<p>Initially, I thought I could create a variable for each brand and use the <code>@each</code> directive to interpolate the values of a list containing all my brand names for the variables names I created. Something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Brand Variables
+$nike: #ffaadd;
+$facebook: #ff8811; 
+$yahoo: #aaddcc;
+
+// List of Brand Names
+$brand-names: nike, facebook, yahoo;
+
+// Output a class for each
+@each $brand-names in $brand-name {
+    .#{$brand-name}-color {
+        color: $#{brand-name};
+    }
+}
+</code></pre></div>
+<p>However, I soon discovered that variable interpolation is not currently supported in Sass. You can read more on the <a href="https://groups.google.com/forum/?fromgroups=#!topic/sass-lang/upr78cyrW1I">variable interpolation google group</a> or <a href="https://github.com/nex3/sass/issues/132">Sass Github issues</a>.</p>
+
+<h2>A Workaround to Variable Interpolation</h2>
+
+<p>User jonjaques put forward two <a href="https://github.com/nex3/sass/issues/132#issuecomment-4335097">interesting workarounds</a> for mapping values which I customized for my project. First I created two lists: <code>$brand-names</code> and <code>$brand-colors</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Brand names and colors
+$brand-names: nike, facebook, yahoo;
+$brand-colors: #ffaadd, #ff8811, #aaddcc;
+</code></pre></div>
+<p>The one caveat for my workaround is that the list indexes must correspond. For example, if &#39;facebook&#39; is the second name in the list <code>$brand-names</code>, Facebook’s color value must be second in the list  <code>$brand-colors</code>.</p>
+
+<p>To output a CSS class for each brand, I used a loop. To have on-demand access to brand colors in my Sass files, I created a lookup function.</p>
+
+<h3>CSS Classes: Loop Through Two Corresponding Lists</h3>
+
+<p>To output a CSS class for each brand and it’s corresponding color, I used the <code>@for</code> directive to loop through the two lists:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Create a CSS class for each brand
+@for $i from 1 through length($brand-names) {
+    .color-#{nth($brand-names, $i)} {
+        color: nth($brand-colors, $i);
+    }
+}
+</code></pre></div>
+<p>The CSS output of this loop would look something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">.color-nike {
+    color: #ffaadd;
+}
+.color-facebook {
+    color: #ff8811;
+}
+.color-yahoo {
+    color: #aaddcc;
+}
+</code></pre></div>
+<h3>On-Demand Solution: Create a Lookup Function</h3>
+
+<p>To have brand color values available on-demand while writing Sass code I created a lookup function. In my case, the function mapped a brand name in <code>$brand-names</code> to a brand color in <code>$brand-color</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Lookup function for a brand, returns a color
+@function get-brand-color($search) {
+    $index: index($brand-names, $search);
+    @return nth($brand-colors, $index);
+}
+</code></pre></div>
+<p>In the example above, <code>$search</code> is the brand name I’m looking for in <code>$brand-names</code>. The function returns the brand’s corresponding color. A simpler way of writing this would be to nest the list function <code>index()</code> like so:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Lookup function for a brand, returns a color
+@function get-brand-color($search) {
+    @return nth($brand-colors, index($brand-names, $search));
+}
+</code></pre></div>
+<p>As an example, if I needed <code>&lt;div class=&quot;facebook-box&quot;&gt;</code> to have the background color of Facebook, I could do:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">div.facebook-box {
+    background: get-brand-color(&quot;facebook&quot;);
+}
+</code></pre></div>
+<p>The <code>get-brand-color</code> function takes the value I passed to it (facebook) and searches the list <code>$brand-names</code> for that value, returning its index position in the list. Then, the function grabs the corresponding index in <code>$brand-colors</code>, which should be the brand name&#39;s color (if you’ve mapped your lists correctly). The CSS output would look like this: </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">div.facebook-box {
+    background: #ff8811;
+}
+</code></pre></div>
+<h2>Conclusion</h2>
+
+<p>There are some good work arounds to variable interpolation available. Hopefully these examples get you on the right track for your own projects until Sass 3.3 is stable for release. Happy coding! </p>
+
+    </div>
+
+
+    
+        <!-- Footer
+        =================================== -->
+        <footer class="article-footer">
+            <ul>
+                
+                    <li class="tags">Tags:
+                        
+                            <a href="/blog/tags/insights/" class="tag">#insights</a>
+                            
+                        
+                    </li>
+                
+
+                <li class="tweet-link">Have something to say about this? <a href="http://twitter.com/jimniels">Tweet me &raquo;</a></li>
+            </ul>
+        </footer>
+    
+
+</article>
+    
+    <aside class="archive">
+        
+        <div class="archive-wrapper">
+
+    
+
+
+    <h3 class="archive__title">Posts Tagged <a href="/blog/tags/insights">#insights</a></h3>
+    <ul class="archive__list">
+    
+        
+            
+            
+
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jul 24</time>
+                    <a href="/blog/posts/things-to-be-informed-about">Things to Be Informed About in Life</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jul 15</time>
+                    <a href="/blog/posts/thoughts-from-on-writing-well">Thoughts from “On Writing Well”</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jun 27</time>
+                    <a href="/blog/posts/advertising-for-the-buyer">When Advertising Became About the Buyer, Not the Product</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>May 5</time>
+                    <a href="/blog/posts/an-analysis-of-infinite-scroll">An Analysis of Infinte Scrolling</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Mar 8</time>
+                    <a href="/blog/posts/coming-to-appreciate-art">Coming to Appreciate Art</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+    </ul>
+
+    
+    
+
+</div>
+    </aside>
+
+    </main>
+
+    <footer class="footer">
+        <p>This is my blog, <a href="/blog/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
+    </footer>
+
+</body>
+</html>

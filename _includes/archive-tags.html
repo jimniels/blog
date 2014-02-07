@@ -1,0 +1,20 @@
+{% assign count = 1 %}
+
+{% if include.currentTag %}
+    <h3 class="archive__title">Posts Tagged <a href="{{ site.baseurl }}/tags/{{ include.currentTag }}">#{{ include.currentTag }}</a></h3>
+    <ul class="archive__list">
+    {% for post in site.posts %}
+        {% if post.tags contains include.currentTag %}
+            
+            {% if count <= 5 and page.title != post.title %}
+                {% assign count = count|plus:1 %}
+                <li>
+                    <time>{{ post.date | date: "%b %-d" }}</time>
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endif %}
+
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endif %}

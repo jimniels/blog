@@ -4,13 +4,14 @@
     
     <!-- Title
     =================================== -->
-    <title>Jim Nielsen’s Blog</title>
+    <title>Blog | Jim Nielsen, Designer</title>
 
     <!-- Meta
     =================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
 
     <!-- CSS
     =================================== -->
@@ -37,10 +38,12 @@
     =================================== -->
     <nav class="navigation hide">
         <ul class="navigation-list">
-            <li><a href="/blog/index.html" class="navigation-item icon-cabinet">Blog Home</a></li>
-            <li><a href="#archive" class="navigation-item icon-cabinet">Blog Archive</a></li>
-            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio</a></li>
-            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top of Page</a></li>
+            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
+            
         </ul>
         <img src="/blog/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
     </nav>
@@ -58,7 +61,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">29 Jan 2013</time>
-        <h1 class="title"><a href="/blog/quick-change-and-the-web.html">Quick Change and the Web</a></h1>
+        <h1 class="title"><a href="/blog/posts/quick-change-and-the-web">Quick Change and the Web</a></h1>
         
     </header>
 
@@ -91,7 +94,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">21 Jan 2013</time>
-        <h1 class="title"><a href="/blog/unicode-star-font-stack.html">Miscellaneous Unicode Symbols, Font Stacks, and You</a></h1>
+        <h1 class="title"><a href="/blog/posts/unicode-symbols-and-font-stacks">Miscellaneous Unicode Symbols, Font Stacks, and You</a></h1>
         
     </header>
 
@@ -112,13 +115,13 @@
 
 <p>I began by simply inserting the character reference in my markup with the default CSS font-size of 1em and font stack of Helvetica. However, I stumbled on an inconsistency in modern browsers: the unicode star was rendering at different sizes in browsers that implement different rendering engines.</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/black-star-unicode-arial-helvetica.png" alt="Black Star Unicode Using Helvetica and Arial Unicode MS"></p>
+<p><img src="/blog/assets/img/2013/black-star-unicode-arial-helvetica.png" alt="Black Star Unicode Using Helvetica and Arial Unicode MS"></p>
 
 <p>Notice the size difference? It appears the black star unicode symbol is not supported by my default stack of Helvetica. In order to display the character, each browser is resorting to a font of it&#39;s own choosing that <em>does</em> support it. In this case, each browsers is choosing a different font; hence the size discrepancy. </p>
 
 <p>By resorting to a font stack that supports the black star glyph (in this case Arial Unicode MS), I achieved consistent sizing across browsers. You can see the differences and similarities in this blown up photo:</p>
 
-<p><img src="http://jim-nielsen.com/images/2013/black-star-unicode-arial-helvetica-zoomed.png" alt="Zoomed in Photo of Black Star Unicode Glyph"></p>
+<p><img src="/blog/assets/img/2013/black-star-unicode-arial-helvetica-zoomed.png" alt="Zoomed in Photo of Black Star Unicode Glyph"></p>
 
 <h2>But Wait, There&#39;s Always IE</h2>
 
@@ -149,7 +152,7 @@
     =================================== -->
     <header class="article-header">
         <time class="date">8 Jan 2013</time>
-        <h1 class="title"><a href="/blog/science-of-typography.html">Science Speaks: Good Typography = Good Mood</a></h1>
+        <h1 class="title"><a href="/blog/posts/science-of-typography">Science Speaks: Good Typography = Good Mood</a></h1>
         
     </header>
 
@@ -180,10 +183,72 @@
 
 </article>
     
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">27 Dec 2012</time>
+        <h1 class="title"><a href="/blog/posts/tuts-dont-forget-the-optgroup-element">Don't Forget the ‘optgroup’ Element via Webdesign Tuts+</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p><a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-optgroup-element/"><img src="/blog/assets/img/2012/dont-forget-the-optgroup-element.png" alt="Don&#39;t Forget the optgroup Element via Webdesign Tuts+"></a></p>
+
+<p>My most recent article over at <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-optgroup-element/">Webdesign Tuts+</a> is a quick overview of the rather useful but often forgotten <code>optgroup</code> HTML element. The <code>optgroup</code> element is very handy in responsive web design. It can be conveniently employed when condensing a complex hierarchical navigation links into a single menu.</p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">12 Dec 2012</time>
+        <h1 class="title"><a href="/blog/posts/said-no-user-ever">Said No Normal User, Ever.</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <blockquote>
+<p>Remember that there are already too many things out there. We don&#39;t need more things, we need things that work well. </p>
+</blockquote>
+
+<p>I&#39;ve recently been reading Smashing Magazine&#39;s <a href="https://shop.smashingmagazine.com/smashing-book-3.html">Smashing Book #3</a> and found Aral Balkan&#39;s chapter <em><a href="http://mobile.smashingmagazine.com/2012/06/18/mobile-considerations-in-user-experience-design-web-or-native/">Mobile Considerations in User Experience Design: “Web or Native?”</a></em> quite intriguing. His arguments might even persuade you to believe the web isn&#39;t the platform of the future so many have predicted it to be, but I won&#39;t argue that point here.</p>
+
+<p>Balkan&#39;s article reminded me of our feverish platitudes in the tech world that often blind us to users&#39; needs, wants, and expectations. Talk of open vs. closed systems, why the web is better because of it&#39;s universal accessibility, and other arguments may influence why a <em>developer</em> chooses one system or platform over another. However, the rationale and justification that informs the choices we make as creators of technology rarely bears any weight with  incognizant users of technology.</p>
+
+<p>As Balkan points out, who cares what platform your application runs on if it runs badly? Ok some developers and tech evangelists probably care, but outside of them who cares? </p>
+
+<p>&quot;Crap, my widget crashed and lost all my form data, but that&#39;s ok. These guys built this app using open technology of the web so I&#39;m gonna give this product a break and keep using it.&quot; Said no normal user, ever.</p>
+
+    </div>
+
+
+    
+
+</article>
+    
 
     <!-- Pagination links -->
     <div class="pagination">
-        <span class="page-number ">page 5 / 8</span>
+        <span class="page-number ">page 5 / 7</span>
 
         
             <a href="/blog/page4" class="previous"><span class="arrow">&laquo;</span> prev</a>
@@ -196,9 +261,8 @@
     </main>
 
     <footer class="footer">
-        <p>This is my blog. You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
+        <p>This is my blog, <a href="/blog/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
     </footer>
 
 </body>
 </html>
-

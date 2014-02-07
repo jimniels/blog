@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <!-- Title
+    =================================== -->
+    <title>Modularize Your PSDs by Embedding Them Inside Each Other</title>
+
+    <!-- Meta
+    =================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <!-- CSS
+    =================================== -->
+    <link rel="stylesheet" href="/blog/assets/css/style.css">
+
+    <!-- Javascript
+    =================================== -->
+    <script type="text/javascript" src="/blog/assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/blog/assets/js/js.js"></script>
+</head>
+<body>
+
+    <!-- Header
+    =================================== -->
+    <header class="header">
+        <a href="/blog/index.html">
+            <img src="/blog/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
+            <h1 class="site-title">Jim Nielsen, Designer</h1>
+        </a>
+    </header>
+
+    <!-- Navigation
+    =================================== -->
+    <nav class="navigation hide">
+        <ul class="navigation-list">
+            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
+            
+        </ul>
+        <img src="/blog/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
+    </nav>
+
+    <main class="wrapper">
+            <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">31 Jan 2013</time>
+        <h1 class="title"><a href="/blog/posts/modularize-your-psds">Modularize Your PSDs by Embedding Them Inside Each Other</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>If you&#39;ve ever used InDesign you&#39;ve no doubt used the &quot;Links&quot; panel. It allows you to link and embedd files in your document layout. InDesign keeps track of all the files you&#39;ve embedded and where they live on your hard drive. This gives you the power to relink files, updated modified files, edit the original files, and so forth. For example, say you embedd a logo in InDesign but then you want to modify it. You can go to the Links panel and click &quot;edit original&quot;. Illustrator (or whatever logo editing software you&#39;ve used) will open the file. You make your changes, save it, and go back to InDesign and the logo&#39;s changes will automatically update in your layout.</p>
+
+<p><img src="/blog/assets/img/2013/links-panel-indesign.png" alt="Links Panel in InDesign"></p>
+
+<p>I found myself wanting this feature in Photoshop. It would be extremely useful for building websites because you could modularize your PSDs. For example, I could create one PSD called <code>header.psd</code> and another called <code>footer.psd</code>. When I want to create a PSD for a new page mockup, I can easily &quot;embedd&quot; the header and footer PSDs into my new document. This allows me to easily spin-off new page mockups based on single PSD files. </p>
+
+<p>So, for example, if I want to change a design element in the header of my website, I only have to change it in one file and it would be replicated in all the PSDs where I&#39;ve embedded <code>header.psd</code>. This is essentially the same thing as creating a file called <code>header.php</code> that has all my main navigation and is called into every page template.</p>
+
+<p>Although InDesign supports this feature, Photoshop does not. However, a Google search led me to these two extensions which have become quite useful.</p>
+
+<ol>
+<li><a href="http://www.ps-scripts.com/bb/viewtopic.php?f=27&amp;t=3045&amp;sid=90f57aa35b85d5d38fe52ea551ac4a4c">Smart Object Links Panel</a></li>
+<li><a href="http://www.canlinkit.com/">CanLinkIt</a></li>
+</ol>
+
+<p>I&#39;m not sure what the development status of these are anymore, but they worked for me. Try them out! I think they will save you a lot of time. </p>
+
+<p>Now with PSDs you can edit once and change everywhere!</p>
+
+    </div>
+
+
+    
+        <!-- Footer
+        =================================== -->
+        <footer class="article-footer">
+            <ul>
+                
+                    <li class="tags">Tags:
+                        
+                            <a href="/blog/tags/tips/" class="tag">#tips</a>
+                            
+                        
+                    </li>
+                
+
+                <li class="tweet-link">Have something to say about this? <a href="http://twitter.com/jimniels">Tweet me &raquo;</a></li>
+            </ul>
+        </footer>
+    
+
+</article>
+    
+    <aside class="archive">
+        
+        <div class="archive-wrapper">
+
+    
+
+
+    <h3 class="archive__title">Posts Tagged <a href="/blog/tags/tips">#tips</a></h3>
+    <ul class="archive__list">
+    
+        
+    
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jul 22</time>
+                    <a href="/blog/posts/preserving-CSS-comments-during-compression">Preserving CSS Comments For Wordpress During Sass Compression</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jul 15</time>
+                    <a href="/blog/posts/thoughts-from-on-writing-well">Thoughts from “On Writing Well”</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jul 8</time>
+                    <a href="/blog/posts/scriptogram-posts-in-JSON-with-php">Retrieving Recent Posts from Scriptogram in JSON Format Using PHP</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jun 11</time>
+                    <a href="/blog/posts/seemly-selectors">Seemly Selectors</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+                
+                <li>
+                    <time>Jun 10</time>
+                    <a href="/blog/posts/max-upload-filesize-restart-apache">Changes to max_upload_filesize not working in php.ini? Restart Apache!</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </ul>
+
+    
+    
+
+</div>
+    </aside>
+
+    </main>
+
+    <footer class="footer">
+        <p>This is my blog, <a href="/blog/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
+    </footer>
+
+</body>
+</html>
