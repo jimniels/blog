@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <!-- Title
+    =================================== -->
+    <title>Once Again, It’s About Putting the User First</title>
+
+    <!-- Meta
+    =================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <!-- CSS
+    =================================== -->
+    <link rel="stylesheet" href="/blog/assets/css/style.css">
+
+    <!-- Javascript
+    =================================== -->
+    <script type="text/javascript" src="/blog/assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/blog/assets/js/js.js"></script>
+</head>
+<body>
+
+    <!-- Header
+    =================================== -->
+    <header class="header">
+        <a href="/blog/">
+            <img src="/blog/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
+            <h1 class="site-title">Jim Nielsen, Designer</h1>
+        </a>
+    </header>
+
+    <!-- Navigation
+    =================================== -->
+    <nav class="navigation hide">
+        <ul class="navigation-list">
+            <li><a href="/blog/" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive/" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/tags/" class="navigation-item">Tags</a></li>
+            <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+            <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
+            
+        </ul>
+        <img src="/blog/assets/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
+    </nav>
+
+    <main class="wrapper">
+            <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">12 Aug 2013</time>
+        <h1 class="title"><a href="/blog/posts/putting-the-user-first">Once Again, It’s About Putting the User First</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Drew Crawford recently wrote a lengthy, in-depth article titled “<a href="http://sealedabstract.com/rants/why-mobile-web-apps-are-slow/">Why mobile web apps are slow</a>”. A lot of it was over my head; nevertheless, I enjoyed his exhaustive, heavily-cited exposition on managed languages and their performance (especially on mobile) vs. compiled languages. </p>
+
+<h2>Change the whole way you think about mobile software development</h2>
+
+<p>Towards the latter half of the article, Crawford asserts, “What you are about to read should change the whole way you think about mobile software development.” That’s a pretty big assertion. Even though I couldn’t completely grasp everything he had written up to that point, I had to continue reading.</p>
+
+<p>Crawford explains how, in 2012, Apple pulled garbage collection from OSX. If you come from writing Ruby, Python, Javascript, Java, or really any language since 1990 this should seem odd because, after all, garbage collection has been proven…right? Well, what makes this even more strange is that when Apple announced Automatic Reference Counting (or ARC) as their approach to memory management and deprecated Garbage Collection (GC) in OSX, the audience broke out into applause! “Okay … this is really freaking weird,” Crawford states, “You mean to tell me that there’s a room full of developers applauding the return to the pre-garbage collection chaos?” Why?</p>
+
+<p>The answer to that question is the reason I am writing this article. Here’s what Apple had to say about ARC vs. GC:</p>
+
+<blockquote>
+<p>At the top of your wish list of things we could do for you is bringing garbage collection to iOS. And that is exactly what we are not going to do… Unfortunately garbage collection has a suboptimal impact on performance. Garbage can build up in your applications and increase the high water mark of your memory usage. And the collector tends to kick in at undeterministic times which can lead to very high CPU usage and stutters in the user experience. And that’s why GC has not been acceptable to us on our mobile platforms. In comparison, manual memory management with retain/release is harder to learn, and quite frankly it’s a bit of a pain in the ass. But it produces better and more predictable performance, and that’s why we have chosen it as the basis of our memory management strategy. <strong>Because out there in the real world, high performance and stutter-free user experiences are what matters to our users.</strong> ~Session 300, Developer Tools Kickoff, 2011, 00:47:49</p>
+</blockquote>
+
+<p>Did you catch that? Apple asserts that garbage collection kicks in at unexpected times leading to high CPU usage which will hamper the user experience. In comparison, ARC “produces better and more predictable performance” which will not hamper the user experience at unexpected times. Apple chose manual memory management not for themselves (after all, it’s a “pain in the ass”) but for their users.  They chose the hard way, the long-way round, because “out there in the real world, stutter-free user experiences are what matters to users.”</p>
+
+<p>Apple chose to put users first rather than developers, marketers, pundits, and many others. Judging by their success, would you say it has paid off?</p>
+
+    </div>
+
+
+    
+        <!-- Footer
+        =================================== -->
+        <footer class="article-footer">
+            <ul>
+                
+                    <li class="tags">Tags:
+                        
+                            <a href="/blog/tags/insights/" class="tag">#insights</a>
+                            
+                        
+                    </li>
+                
+
+                <li class="tweet-link">Have something to say about this? <a href="http://twitter.com/jimniels">Tweet me &raquo;</a></li>
+            </ul>
+        </footer>
+    
+
+</article>
+    
+    <aside class="archive">
+        
+        <div class="archive-wrapper">
+
+    
+
+
+    <h3 class="archive__title">Posts Tagged <a href="/blog/tags/insights">#insights</a></h3>
+    <ul class="archive__list">
+    
+        
+            
+            
+            
+                
+                <li>
+                    <time>Dec 18</time>
+                    <a href="/blog/posts/ben-franklin-open-source-contributor">Benjamin Franklin, an Open Source Contributor?</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+            
+                
+                <li>
+                    <time>Nov 6</time>
+                    <a href="/blog/posts/evolution-of-creativity">The Evolution of Creativity</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+            
+                
+                <li>
+                    <time>Oct 21</time>
+                    <a href="/blog/posts/wireframes-and-gravity">Wireframes and Gravite</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+            
+                
+                <li>
+                    <time>Oct 14</time>
+                    <a href="/blog/posts/ostentatious-design-and-profanity">Ostentatious Design & Profanity</a>
+                </li>
+            
+
+        
+    
+        
+    
+        
+            
+            
+            
+                
+                <li>
+                    <time>Sep 26</time>
+                    <a href="/blog/posts/kinda-sorta-looks-like-the-internet">The “Kinda-Sorta Looks Like the Internet” Internet</a>
+                </li>
+            
+
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+            
+            
+
+        
+    
+        
+    
+        
+    
+    </ul>
+
+    
+    
+
+</div>
+    </aside>
+
+    </main>
+
+    <footer class="footer">
+        <p>This is my blog, <a href="/blog/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
+    </footer>
+
+</body>
+</html>

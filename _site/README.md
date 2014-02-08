@@ -9,17 +9,19 @@ I only have the single branch `gh-pages` (master is deleted). I did this followi
 
 I keep track of tags manually, as I know of no other way currently. So, in the folder `/tags` I just need to keep track of what tags I'm using on the site. I want to restrict myself for easy search/find. Currently, these are the tags in the system:
 
-- published-articles
-- web-design
-- insights
-- notes
-- tags
-- tips
-- case-study
-- resources
+1. published-articles
+2. web-design
+3. insights
+4. notes
+5. tips
+6. case-study
+7. resources
+8. typography
+
+published articles
 
 ## To-Do
 - URL structure /posts/post-name ??
-- Tag pages
-- Migrate Scriptogram posts to match these
+- Tag pages being limited by counts in page footer/all tag index
 - Feed images
+- Update scriptogram theme to point to new blog

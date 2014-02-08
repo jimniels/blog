@@ -6,6 +6,7 @@
     {% for post in site.posts %}
         {% if post.tags contains include.currentTag %}
             
+            
             {% if count <= 5 and page.title != post.title %}
                 {% assign count = count|plus:1 %}
                 <li>

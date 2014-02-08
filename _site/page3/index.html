@@ -28,7 +28,7 @@
     <!-- Header
     =================================== -->
     <header class="header">
-        <a href="/blog/index.html">
+        <a href="/blog/">
             <img src="/blog/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
             <h1 class="site-title">Jim Nielsen, Designer</h1>
         </a>
@@ -38,8 +38,9 @@
     =================================== -->
     <nav class="navigation hide">
         <ul class="navigation-list">
-            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
-            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive/" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/tags/" class="navigation-item">Tags</a></li>
             <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
             <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
             <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
@@ -60,8 +61,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">17 May 2013</time>
-        <h1 class="title"><a href="/blog/posts/the-frustration-of-google-glass">The Incredible (Frustrating) Potential of Google Glass</a></h1>
+        <time class="date">22 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/preserving-CSS-comments-during-compression">Preserving CSS Comments For Wordpress During Sass Compression</a></h1>
         
     </header>
 
@@ -69,102 +70,74 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p><a href="http://www.youtube.com/embed/S80mE3kQTJ0">Here&#39;s a video</a> showcasing the potential of Google Glass.</p>
+        <p>Compressing your CSS for production websites is a best-practice, especially if you&#39;re using a CSS preprocessor like Compass. If you don&#39;t compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file. </p>
 
-<p>All I could see in this video is Google Glass&#39; potential for frustration. My experience in paying for a coffee would most likely go something like this:</p>
+<p>Here&#39;s an example CSS rule before compression:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+// Here&#39;s a comment I have on styling my CSS
+a:hover {
+        border: 0; // remove border from CSS
+}
+</code></pre></div>
+<p>Now here&#39;s that same rule compressed:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">a:hover{border:0}
+</code></pre></div>
+<p>You should already be commenting your code generously. Thus, your CSS file size will increase rather quickly. Here&#39;s a comparison example of CSS file sizes for a project I&#39;m currently working on:</p>
 
-<p><strong>Me</strong>: [<em>me paying for coffee, speaking to glass</em>] Ok glass, pay for coffee, use my credit card<br>
-<strong>Glass</strong>: Using debit card ending in 4516<br>
-<strong>Me</strong>: No glass, I said <em>credit</em> card<br>
-<strong>Glass</strong>: Which credit card would you like to use?<br>
-<strong>Me</strong>: My American Express<br>
-<strong>Glass</strong>: Which American Express would you like to use?<br>
-<strong>Me</strong>: My gold card<br>
-<strong>Glass</strong>: Error. Sorry, you don&#39;t have a &quot;gold&quot; American Express card. Valid types are cards ending in: 4512 and 7483<br>
-<strong>Me</strong>: I don&#39;t know, use the card ending in 4512<br>
-<strong>Glass</strong>: Processing … transaction cancelled. Trying again … it appears you don&#39;t have any money on this card. Trying American Express card ending in 7483 … processing<br>
-<strong>Me</strong>: [<em>speaking to cashier</em>] Sorry, it will just take another second, my card isn&#39;t going through. I always have trouble with that card. American Express always stops transactions on it, I wonder if it&#39;s beca...<br>
-<strong>Glass</strong>: Stopping transaction...<br>
-<strong>Me</strong>: No Glass! I wasn&#39;t talking to you. Keep using that card.<br>
-<strong>Glass</strong>: Transaction stopped. What would you like to do now?<br>
-<strong>Me</strong>: Ok Glass, let&#39;s try this again. Pay for coffee.<br>
-<strong>Glass</strong>: You don&#39;t have any valid credit cards, but you can add a new one. What&#39;s the number?<br>
-<strong>Me</strong>: I don&#39;t&#39; want to say my credit card number out loud.<br>
-<strong>Glass</strong>: Error. What do you want to do now?<br>
-<strong>Me</strong>: Damnit glass. Ok pay for coffee. Use PayPal<br>
-<strong>Glass</strong>: Password please?<br>
-<strong>Me</strong>: Damnit I can&#39;t say my password here in front of everyone!<br>
-<strong>Glass</strong>: Password please?<br>
-<strong>Me</strong>: Ugh, damn you glass.<br>
-<strong>Me</strong>: [<em>speaking to cashier</em>] I&#39;m sorry, I&#39;m going to have to just not get this coffee<br>
-<strong>Me</strong>: [<em>walking out the door, speaking to glass</em>] How much does a used Google Glass go for on eBay?<br>
-<strong>Glass</strong>: Searching Google for used glass gophers on eBay  </p>
+<ul>
+<li>Prior to compression
+    - File size: 122.413kb 
+    - Lines of code: 4,601</li>
+<li>After compression:
+    - File size: 81kb
+    - Lines of code: 1</li>
+</ul>
 
-    </div>
+<p>To compress using Compass, simply run <code>compass compile -s compressed</code> to strip out all comments and other unnecessary content.</p>
 
+<h2>How Do You Preserve Selective Comments?</h2>
 
-    
+<p>What if you want to preserve specific comments in your CSS? Suppose you want to include licensing information at the beginning of the file, or copyright information, or other required comments, how do you do it?</p>
 
-</article>
-    
-        
-        
-        <article class="article">
+<h3>Wordpress Example</h3>
 
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
-        <time class="date">15 May 2013</time>
-        <h1 class="title"><a href="/blog/posts/why-do-we-sketch">Why Do We Sketch?</a></h1>
-        
-    </header>
-
-
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <p>When an idea strikes, what do you do with it? The commonly-held belief is that you sketch the idea on paper, as a sort of refinement process. Why? Because ideas, especially visual ones, are conceptually rough and difficult to articulate. Sketching an idea on paper can be a process of refinement. Through sketching, an idea becomes sufficiently polished to warrant actual implementation.</p>
-
-<p>However, there is another purpose to sketching that is often overlooked. Sketching isn&#39;t always about slowly shaping and fine-tuning a single idea. In Smashing Magazine&#39;s recent publication <em><a href="http://www.the-mobile-book.com/">The Mobile Book</a></em>, Dennis Kardys writes a chapter called “Hands on Design for Mobile” in which he points out this disparate purpose to ideation and sketching:</p>
+<p>When creating a Wordpress theme, you <strong>must</strong> include CSS comments in <code>style.css</code> identifying your theme. It&#39;s usually something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/*
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+</code></pre></div>
+<p>Why? Wordpress uses that information in to identify themes. From the <a href="http://codex.wordpress.org/Theme_Development#Theme_Stylesheet">codex</a>:</p>
 
 <blockquote>
-<p>We often think of sketching as a way to generate and communicate ideas, but it can also be a weapon to dismantle them. The goal of sketching ... isn’t to produce drawings that inform the final design ... The goal is to drive out those stubborn, thorny ideas and make room for new ones. Only then can we look anew and achieve a deeper understanding of what we’re designing.</p>
+<p>The stylesheet must provide details about the Theme in the form of comments. <strong>No two Themes are allowed to have the same details</strong> listed in their comment headers, as this will lead to problems in the Theme selection dialog.</p>
 </blockquote>
 
-<p>Sometimes you work with ideas like a mason works with stone. You start with a large, unformed block of stone and slowly chip away at it until you arrive at the finished product. However, sometimes you work with ideas like a farmer doing a controlled burn. You burn everything down to make room for new growth. Only then do you see anew things hidden beforehand. </p>
+<p>So if you&#39;re creating a Wordpress theme, it&#39;s imperative your theme-identifying CSS comments <strong>do not</strong> get stripped out during compression. </p>
 
-    </div>
+<h3>The Solution</h3>
 
-
-    
-
-</article>
-    
-        
-        
-        <article class="article">
-
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
-        <time class="date">13 May 2013</time>
-        <h1 class="title"><a href="/blog/posts/tuts-filler-content">Filler Content Tools, Tips, and a Dynamic Example via Webdesign Tuts+</a></h1>
-        
-    </header>
-
-
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <p><img src="/blog/assets/img/2013/filler-content-webdesign-tuts.jpg" alt="Filler Content: Tools, Tips and a Dynamic Example via Webdesign Tuts+"></p>
-
-<p>Here’s <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/filler-content-tools-tips-and-a-dynamic-example/">a link</a> to my most recent article. I talk about how to leverage filler content in your design process.</p>
+<p>To ensure specific CSS comments are included in a compressed file, make the first letter of a comment <code>!</code>. According to the <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#comments">SASS documentation</a>:</p>
 
 <blockquote>
-<p>Because a lot of website design used to take place in Photoshop, manually copying/pasting text from the web was the best method for ‘filling in’ a design with dummy content. However, now that a lot of website design takes place in the browser, why not have the computer do all ‘filling in’ work for you?</p>
+<p>When the first letter of a comment is !, the comment will be interpolated and always rendered into css output even in compressed output modes.</p>
 </blockquote>
 
-<p>It&#39;s a new era for designing in the browser. See how by reading <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/filler-content-tools-tips-and-a-dynamic-example/">Filler Content: Tools, Tips and a Dynamic Example</a>.</p>
+<p>Thus, in the example above, your Wordpress comments would go something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/*!
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+</code></pre></div>
+<p>Compass will now preserve that comment block when compressing your CSS. </p>
 
     </div>
 
@@ -180,8 +153,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">5 May 2013</time>
-        <h1 class="title"><a href="/blog/posts/an-analysis-of-infinite-scroll">An Analysis of Infinte Scrolling</a></h1>
+        <time class="date">15 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/thoughts-from-on-writing-well">Thoughts from “On Writing Well”</a></h1>
         
     </header>
 
@@ -189,15 +162,31 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Have you ever felt exhausted by infinite scrolling?</p>
+        <p>Fact: the book <a href="http://www.amazon.com/dp/0060891548"><em>On Writing Well</em></a> by William Zinsser is simply stellar. His advice on writing is insightful and succinct. In addition, his thoughts on writing spill into other areas of life.</p>
+
+<p>Here&#39;s two thoughts I found relevant to design:</p>
+
+<h2>Designing is Not a Contest</h2>
 
 <blockquote>
-<p>Infinite scrolling merely tempts you to continue reading, wasting time and decreasing productivity in the process ... Even more annoying is that scroll bars do not reflect the actual amount of data available. You’ll scroll down happily assuming you are close to the bottom, which by itself tempts you to scroll that little bit more, only to find that the results have just doubled by the time you get there. </p>
+<p>Every writer is starting from a different point and is bound for a different destination. Yet many writers are paralyzed by the thought that they are competing with everybody else who is trying to write and presumably doing better.</p>
 </blockquote>
 
-<p>I&#39;ve encountered this many times. It&#39;s exhausting. The worst part is that you keep telling yourself “just a little further” because you perpetually see the scroll bar two-thirds of the way down the page and don&#39;t want to feel as though you&#39;re missing out on any information.</p>
+<p>This feeling of competition is often fostered in designers who see the work of associates being displayed in galleries while their own work gets no recognition. </p>
 
-<p>Yogev Ahuvia wrote <a href="http://uxdesign.smashingmagazine.com/2013/05/03/infinite-scrolling-get-bottom/">a great article over at Smashing Magazine</a> that analyzes the benefits and drawbacks of using infinite scrolling. It&#39;s worth a read. </p>
+<p>Forget everyone else and go at your own pace. Nobody else is solving the exact design problem you are. Your problem is unique; hence your solution should be too. Your only contest is with yourself.</p>
+
+<h2>Just Get Rid of It</h2>
+
+<p>Have you ever tried adding a design element only to find it extremely frustrating to do so? You put the element through all kinds of exertions: you move it to various locations, you resize and reform its structure, you change its colors, you add supporting elements in hopes of clarify its purpose, only to find the overall design worse than where you started?</p>
+
+<p>Zinsser says writers often encounter a similar impasse in constructing sentences. The solution? Get rid of the problem element. Unfortunately, this is usually our solution of last resort:</p>
+
+<blockquote>
+<p>look at the troublesome element and ask, &quot;do I need it at all?&quot; Probably you don&#39;t. It was trying to do an unnecessary job all along - thats why it was giving you so much grief. Remove it and watch the afflicted sentence spring to life and breathe normally. It&#39;s the quickest cure and often the best. </p>
+</blockquote>
+
+<p>Sometimes, the best solution is to get rid of the design element you&#39;re trying so hard to include.</p>
 
     </div>
 
@@ -213,8 +202,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">26 Mar 2013</time>
-        <h1 class="title"><a href="/blog/posts/unintended-visual-relationships">Unintended Visual Relationships</a></h1>
+        <time class="date">8 Jul 2013</time>
+        <h1 class="title"><a href="/blog/posts/scriptogram-posts-in-JSON-with-php">Retrieving Recent Posts from Scriptogram in JSON Format Using PHP</a></h1>
         
     </header>
 
@@ -222,35 +211,127 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Establishing a grid is a great way to organize and structure design elements. In addition, by breaking the organization and structure of the grid you can emphasize visual relationships between design elements.</p>
+        <p>Do you use <a href="http://scriptogr.am/">Scriptogr.am</a>? Do you want to programmatically retrieve your most recent posts from the service using PHP? It&#39;s not as simple as an API call, but it can be done.</p>
 
-<h2>Drawbacks to Grids</h2>
+<h2>Before We Begin: The Javascript Method</h2>
 
-<p>Recently I came across a subtle and often overlooked side-effect of grid-based design: unintended visual relationships. An example of this can be found in the Wordpress theme <a href="http://wpshower.com/themes/portfolium/">Portfolium</a> </p>
+<p>In case you&#39;re interested, <a href="http://sicanstudios.com/post/recent-posts-scriptogram/">Alex at sicanstudios</a> has a great tutorial on how to retrieve and display your most recent Scriptogr.am posts using javascript.</p>
 
-<p><img src="/blog/assets/img/2013/portfolium.jpg" alt="Portfolium Screenshot"></p>
+<h2>The PHP Method</h2>
 
-<p>Overall, it&#39;s a well executed grid-based design: organized and structured; however, the alignment of the navigation to the thumbnail grid suggests visual relationships that are nonexistent. </p>
+<p>Scriptogr.am does not have a publicly accessible API. It does, however, provide an XML feed for each user. You can access your feed URL using this format:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">http://scriptogr.am/USERNAME/feed/
+</code></pre></div>
+<p>If you use PHP&#39;s <code>file_get_contents()</code> and pass it your Scriptogr.am feed URL, you&#39;ll be returned your most recent posts and accompanying metadata in XML form. </p>
 
-<p>For example, take a look at the words at the top of the page: they align to the thumbnail grid. This suggests a columnar relationship between each navigation item and the thumbnails  below them. However, no such relationship actually exists.</p>
+<h3>Converting XML to JSON in PHP</h3>
 
-<p><img src="/blog/assets/img/2013/portfolium-grid-alignment.jpg" alt="Portfolium Grid Alignment"></p>
+<p>Now that we have the data we want, we&#39;ve got to put it in the format we want (JSON). We can do that using the technique described in <a href="http://lostechies.com/seanbiefeld/2011/10/21/simple-xml-to-json-with-php/">this article from lostechies</a>.</p>
 
-<h2>Rows, Columns, or Neither?</h2>
+<h2>Cut to the Chase: The Code</h2>
 
-<p>This type of unintended visual alignment is confusing. The words in the navigation align with the columns below them, suggesting some type of organization or categorization. Even the light grey lines below navigation item are visually separated which helps reinforce the idea of a column layout. Even so, there is no relationship between the navigation items and the thumbnails below them.</p>
+<p>Here&#39;s the final PHP snippet that does everything we&#39;ve described above. Just change the <code>$username</code> value to your own Scriptogr.am username and you&#39;re good to go!</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">function get_scriptogram_JSON() {
+    $username = &#39;jimniels&#39;;
+    $url = &#39;http://scriptogr.am/&#39;. $username .&#39;/feed/&#39;;
+    $fileContents = file_get_contents($url);
+    $fileContents = str_replace(array(&quot;\n&quot;, &quot;\r&quot;, &quot;\t&quot;), &#39;&#39;, $fileContents);
+    $fileContents = trim(str_replace(&#39;&quot;&#39;, &quot;&#39;&quot;, $fileContents));
+    $simpleXml = simplexml_load_string($fileContents);
+    $json = json_encode($simpleXml);
+    return $json;
+}
+</code></pre></div>
+    </div>
 
-<p>On the other hand, if you wanted to suggest a relationship between the navigation items and the thumbnails below them, the alignment of Portfolium would be ideal. For example, if you wanted to separate and categorize the thumbnails by column, this type of alignment would work very well:</p>
 
-<p><img src="/blog/assets/img/2013/portfolium-categories.jpg" alt="Portfolium Categories"></p>
+    
 
-<h2>A Better Alignment</h2>
+</article>
+    
+        
+        
+        <article class="article">
 
-<p>In the example of Portfolium, not aligning the navigation to the thumbnail grid would break the grid and provide a visual separation between the sections of image thumbnails and navigation. In addition, making the light grey line at the top a solid, unbroken line helps visually separate the header from the content.</p>
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">27 Jun 2013</time>
+        <h1 class="title"><a href="/blog/posts/advertising-for-the-buyer">When Advertising Became About the Buyer, Not the Product</a></h1>
+        
+    </header>
 
-<p><img src="/blog/assets/img/2013/portfolium-new.jpg" alt="Altered Portfolium Screenshot"></p>
 
-<p>It&#39;s possible that the creators of Portfolium had a purpose in mind when designing the theme the way they did. However, I don&#39;t see it. Take care to always be aware of how your grid elements are being aligned. In grid-based design, it&#39;s easy to unintentionally suggest visual relationship that don&#39;t exist.</p>
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Neil Postman, in his book <em><a href="http://www.amazon.com/Technopoly-The-Surrender-Culture-Technology/dp/0679745408">Technopoly: The Surrender of Culture to Technology</a></em>, tells the story of how advertisers in the late 1800&#39;s began to realize marketing products isn&#39;t about extolling the benefits of the products themselves. Rather, effective advertising is, as Postman remarks, about using the persuasive power of language and photographs:</p>
+
+<blockquote>
+<p>Advertising is most effective when it is irrational. By irrational, I do not, of course, mean crazy. I mean that products [can] best be sold by exploiting the magical and even poetical powers of language and pictures. </p>
+</blockquote>
+
+<p>Postman uses the word &quot;irrational&quot; to reveal how advertisers previously employed logic and reason to sell products. However, they soon realized that compelling language and photographs were more powerful in consumers&#39; minds than logic and reason; hence the irrationality of advertising:</p>
+
+<blockquote>
+<p>By the turn of the century, advertisers no longer assumed that reason was the best instrument for the communication of commercial products and ideas. Advertising became one part depth psychology, one part aesthetic theory. In the process, a fundamental principle of capitalist ideology was rejected: namely, that the producer and consumer were engaged in a rational enterprise in which consumers made choices on the basis of a careful consideration of the quality of a product and their own self-interest. </p>
+</blockquote>
+
+<p>This rejection of rationality in consumer enterprise led to the type of advertising we have today, where commercials and ads aren&#39;t about the products being sold but rather the character of the consumers viewing the ad:</p>
+
+<blockquote>
+<p>Today, the television commercial, for example, is rarely about the character of the products. It is about the character of the consumers of products. Images of movie stars and famous athletes, of serene lakes and macho fishing trips, of elegant dinners and romantic interludes, of happy families packing their station wagons for a picnic in the country — these tell nothing about the products being sold. But they tell everything about the fears, fancies, and dreams of those who might buy them. <strong>What the advertiser needs to know is not what is right about the product but what is wrong about the buyer.</strong> And so the balance of business expenditures shifts from product research to market research, <strong>which means orienting business away from making products of value and toward making consumers feel valuable.</strong> The business of business becomes pseudo-therapy; the consumer, a patient reassured by psychodramas. (emphasis added)</p>
+</blockquote>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">11 Jun 2013</time>
+        <h1 class="title"><a href="/blog/posts/seemly-selectors">Seemly Selectors</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>Take a look at this:</p>
+
+<p><code>*</code></p>
+
+<p>In CSS terms, that&#39;s the universal selector. Are warning sirens relating to performance sounding in your head? Are you feeling emotions of avoidance, like you do when you see <code>!important</code>? It&#39;s possible you do. The universal selector carries a negative stigma of poor performance. But should it? <a href="http://paulirish.com/2012/box-sizing-border-box-ftw/">Paul Irish answers</a>:</p>
+
+<blockquote>
+<p>Apparently you’ve heard its slow. Firstly, it’s not. It is as fast as <code>h1</code> as a selector. It can be slow when you specifically use it like <code>.foo &gt;</code> , so don’t do that</p>
+</blockquote>
+
+<p>It can be slow, but mostly it&#39;s not. Still, that may seem like reason enough in your mind to avoid using (or misusing) it. Stop thinking that way. Turn those &quot;<a href="http://en.wikipedia.org/wiki/Danger,_Will_Robinson">Danger, Will Robison!</a>&quot; sirens off. Don&#39;t be afraid to use it. Why? Paul Irish continues:</p>
+
+<blockquote>
+<p>You are not allowed to care about the performance of <code>*</code> unless you concatenate all your javascript, have it at the bottom, minify your css and js, gzip all your assets, and losslessly compress all your images.</p>
+</blockquote>
+
+<p>It&#39;s important to remember that general rules of thumb, such as:</p>
+
+<ul>
+<li>don&#39;t use the <code>*</code> selector, it&#39;s slow</li>
+<li>don&#39;t use the <code>!important</code> rule</li>
+</ul>
+
+<p>are rules discovered and shared by developers working on immensely large scale applications and websites, like Google.com. Some rules just don&#39;t apply to your ten page Wordpress site. </p>
+
+<p>The <code>*</code> and <code>!important</code> rules were invented for a reason. If you find yourself needing them, use them. That&#39;s what they were made for. If page performance takes a hit, look into larger-scale optimization techniques first, such as image optimization and concatenation. After that, you can get down to the nit-picky. In general, <a href="http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/">optimization of selectors should be the job of the rendering engine</a>, not the designer.</p>
 
     </div>
 
@@ -262,7 +343,7 @@
 
     <!-- Pagination links -->
     <div class="pagination">
-        <span class="page-number ">page 3 / 7</span>
+        <span class="page-number ">page 3 / 8</span>
 
         
             <a href="/blog/page2" class="previous"><span class="arrow">&laquo;</span> prev</a>

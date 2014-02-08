@@ -28,7 +28,7 @@
     <!-- Header
     =================================== -->
     <header class="header">
-        <a href="/blog/index.html">
+        <a href="/blog/">
             <img src="/blog/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
             <h1 class="site-title">Jim Nielsen, Designer</h1>
         </a>
@@ -38,8 +38,9 @@
     =================================== -->
     <nav class="navigation hide">
         <ul class="navigation-list">
-            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
-            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive/" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/tags/" class="navigation-item">Tags</a></li>
             <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
             <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
             <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
@@ -60,8 +61,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">11 Dec 2012</time>
-        <h1 class="title"><a href="/blog/posts/ios-border-radius-ratio">Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio</a></h1>
+        <time class="date">14 Feb 2013</time>
+        <h1 class="title"><a href="/blog/posts/tuts-single-page-portfolio">Build a Responsive, Single Page Portfolio with Sass and Compass via Tuts+ Premium</a></h1>
         
     </header>
 
@@ -69,62 +70,23 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>So you&#39;ve got to create an icon for the iOS ecosystem, where do you start? You probably realized quickly you&#39;ll have to supply a couple different sizes for the various contexts in which the icon will be used. Apple details these requirements in their <a href="http://developer.apple.com/library/ios/#documentation/userexperience/conceptual/mobilehig/IconsImages/IconsImages.html">iOS Human Interface Guidelines</a>:</p>
+        <p><img src="http://tutsplus-media.s3.amazonaws.com/tutsplus.com/uploads/2013/02/screenshot.png" alt="Screenshot of a Responsive, Single Page Portfolio via Tuts+ Premium"></p>
+
+<p>My latest tutorial teachs how to build a responsive, single page portfolio with Sass and Compass. </p>
+
+<p>The tutorial incorporates modern web development techniques such as:</p>
 
 <ul>
-<li><strong>1024x1024</strong> Recommended for iTunes Artwork</li>
-<li><strong>512x512</strong> Required for iTunes Artwork</li>
-<li><strong>144x144</strong> Retina iPad</li>
-<li><strong>114x114</strong> Retina iPhone/iPod Touch</li>
-<li><strong>72x72</strong> iPad</li>
-<li><strong>57x57</strong> iPhone/iPod Touch</li>
+<li>Responsive design</li>
+<li>HTML5</li>
+<li>CSS using Sass and Compass</li>
+<li>Typography via Google&#39;s Web Fonts service</li>
+<li>API calls using jQuery</li>
+<li>Pure CSS horizontally-scrolling carousel supporting touch interactions</li>
+<li>HiDPI support via icon font usage</li>
 </ul>
 
-<p>You don&#39;t actually have to create rounded corners for your icon artwork. Apple will do that for you automatically in all contexts, from iOS to the App Store. However, for other other uses outside of iOS (such as a marketing site) you&#39;re going to have to create an icon with rounded edges yourself.</p>
-
-<h2>Creating the Icon</h2>
-
-<p>So how do you actually get started creating an icon? Well, the amazing icon designer <a href="http://www.pixelresort.com/">Michael Flarup</a> has created a great <a href="http://appicontemplate.com/">iOS icon starter template</a> with proper iOS-style proportions and radii. </p>
-
-<p>But what if you have to create an icon size that doesn&#39;t quite fall into Apple&#39;s predetermined sizes, say 175x175 pixels? How do you determine what size the border radius will be at any given size?</p>
-
-<p>Well, thanks to <a href="https://twitter.com/drbarnard">David Barnard</a>&#39;s <a href="http://stackoverflow.com/questions/2105289/iphone-app-icons-exact-radius/10239376#10239376">post over at stackoverflow</a>, we have insight into how the border radius for iOS icons is determined by Apple. According to Barnard, Apple calculates the border radius for icons starting at the 57px icon size (one can only assume that is because the size of icons on the original iPhone was 57px):</p>
-
-<blockquote>
-<p>Apple starts with the 57px icon and a radius of 10 then scales up or down from there. Thus you can calculate the radius for any icon size using 10/57 x new size</p>
-</blockquote>
-
-<p>Therefore, to achieve the correct iOS-style border radius on any square icon you simply multiply the icon&#39;s size by what I&#39;ll call the <strong>iOS icon ratio</strong>. This ratio is calculated from Barnard&#39;s insight: 57 / 10 = .175438596</p>
-
-<p>For simplicity, we can probably round this to about four or five decimal places: <strong>.17544</strong>. This ratio will help you calculate the border-radius for any size iOS style icon you&#39;re creating.</p>
-
-<h2>CSS Application</h2>
-
-<p>Using this logic, you could easily style any image to have an iOS icon feel by applying a CSS border radius with a value of the iOS icon ratio.</p>
-
-<p>Because the <code>border-radius</code> rule will accept a percentage value, we simply tranlate our ratio of .17544 to a percentage: <strong>17.544%</strong>. So our CSS would look something like this:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">img {
-    border-radius: 17.544%;
-}
-</code></pre></div>
-<p><img src="/blog/assets/img/2012/border-radius-ratio.png" alt="Border radius ratio example"></p>
-
-<p>Unfortunately, this technique only works in modern-browsers that accept the border-radius rule (no IE support). Also, it&#39;s worth note that some earlier versions of modern browsers didn&#39;t quite apply the border radius correctly when applied directly to an image (as they wouldn&#39;t mask out the edges). So proper browser testing is encouraged if you decide to implement this technique.</p>
-
-<h2>Update - July 31, 2013</h2>
-
-<p>Icon sizes and border radii in iOS7 have been changed by Apple. As outlined in their <a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/MobileHIG/IconMatrix.html#//apple_ref/doc/uid/TP40006556-CH27-SW1">documentation</a>, icon sizes are now as follows:</p>
-
-<ul>
-<li><strong>1024x1024</strong> Required for App Store</li>
-<li><strong>152x152</strong> Retina iPad</li>
-<li><strong>120x120</strong> Retina iPhone/iPod Touch</li>
-<li><strong>76x76</strong> iPad 2 &amp; iPad Mini</li>
-</ul>
-
-<p>You can reference a comparison table of iOS7 icon sizes and iOS 6 icons sizes in Apple’s <a href="https://developer.apple.com/library/prerelease/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/App-RelatedResources/App-RelatedResources.html#//apple_ref/doc/uid/TP40007072-CH6-SW1">developer library</a>.</p>
-
-<p>As for the border radius, the discussion surrounding the exact mathematical formula for how the border radius is drawn is <a href="http://www.mani.de/backstage/?p=483">still uncertain</a>. Until we know for sure, Michael Flarup’s <a href="http://www.pixelresort.com/blog/start-making-ios-7-icons-with-the-app-icon-template-3-0/">overview of iOS7 icons</a> is probably your best resource.</p>
+<p>You have to be a premium subscriber to see the entire tutorial. However, you can check out a preview on <a href="https://tutsplus.com/tutorial/build-a-responsive-single-page-portfolio-with-sass-and-compass/">Tuts+ Premium</a>. Or, there&#39;s an alternative preview along with a working demo at <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/build-a-responsive-single-page-portfolio-with-sass-and-compass-new-on-premium/">Webdesign Tuts+</a>.</p>
 
     </div>
 
@@ -140,8 +102,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">9 Dec 2012</time>
-        <h1 class="title"><a href="/blog/posts/tuts-article-recap">Reminder of Webdesign Tuts+ Articles – By Me!</a></h1>
+        <time class="date">12 Feb 2013</time>
+        <h1 class="title"><a href="/blog/posts/freebie-resources">Freebie Resources - Don’t Assume, Double Check</a></h1>
         
     </header>
 
@@ -149,16 +111,21 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>The other day I got an email from Webdesign Tuts+ recapping their latest tutorials. I realized that two out of the six articles were written by me! </p>
+        <p>Seemingly high-quality freebies, who doesn&#39;t love them? They save lots of time. However, be careful to double check and properly adjust any small details that may be misaligned. As they say, design is in the details, and sometimes you can&#39;t always rely on someone else having invested in those details.</p>
 
-<p><img src="/blog/assets/img/2012/email-recap-webdesign-tuts.png" alt="Webdesign Tuts+ Email Screenshot"></p>
+<p>Here&#39;s a vector freebie I got online today. I imported the shape into Photoshop and noticed a 1px offset in symmetry:</p>
 
-<p>So don&#39;t forget to give them a glance:</p>
+<p><img src="/blog/assets/img/2013/freebie-offset.png" alt="Freebie 1px Offset"></p>
 
-<ul>
-<li><a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/everything-you-need-to-know-about-the-css-cursor-rule/">Everything You Need to Know about the CSS Cursor Rule</a></li>
-<li><a href="http://webdesign.tutsplus.com/tutorials/applications/quick-tip-creating-crisp-pixel-perfect-circles-in-photoshop/">Creating Crisp, Pixel Perfect Circles in Photoshop</a></li>
-</ul>
+<p>I know you might be thinking, &quot;1px offset? Nobody will even notice that.&quot; And you know what? You&#39;re right. One little 1px offset in an image that&#39;s 16x16 pixels probably won&#39;t be noticed by many people. However, the accumulation of many 1px offsets in your digital creations <strong>will</strong> be noticed! It&#39;s worth practicing some self discipline because it will help avoid sloppy work.</p>
+
+<p><img src="/blog/assets/img/2013/freebie-offset-select.png" alt="Freebie 1px Offset Shape Selection"></p>
+
+<p>Ahhh, isn&#39;t this much better?</p>
+
+<p><img src="/blog/assets/img/2013/freebie-offset-fix.png" alt="Freebie 1px Offset Correction"></p>
+
+<p>Don&#39;t assume the freebie is pixel-perfect, especially when transferring it between software applications. Keeping up your guard and not making assumptions will prevent slipshod work.</p>
 
     </div>
 
@@ -174,8 +141,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">4 Dec 2012</time>
-        <h1 class="title"><a href="/blog/posts/reading-notes-november">Reading Notes, November 2012</a></h1>
+        <time class="date">31 Jan 2013</time>
+        <h1 class="title"><a href="/blog/posts/modularize-your-psds">Modularize Your PSDs by Embedding Them Inside Each Other</a></h1>
         
     </header>
 
@@ -183,67 +150,24 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>These are just some excerpts from articles, posts, and books I&#39;ve read recently that stood out to me. Perhaps they&#39;ll grab your interest.</p>
+        <p>If you&#39;ve ever used InDesign you&#39;ve no doubt used the &quot;Links&quot; panel. It allows you to link and embedd files in your document layout. InDesign keeps track of all the files you&#39;ve embedded and where they live on your hard drive. This gives you the power to relink files, updated modified files, edit the original files, and so forth. For example, say you embedd a logo in InDesign but then you want to modify it. You can go to the Links panel and click &quot;edit original&quot;. Illustrator (or whatever logo editing software you&#39;ve used) will open the file. You make your changes, save it, and go back to InDesign and the logo&#39;s changes will automatically update in your layout.</p>
 
-<h2><a href="http://rdd.me/qdjsnbxv">The Flight From Conversation</a></h2>
+<p><img src="/blog/assets/img/2013/links-panel-indesign.png" alt="Links Panel in InDesign"></p>
 
-<p>Article of interesting observations written by Sherry Turkel at the New York Times. It details, among other things, how we have &quot;sacrificed conversation for mere connection&quot;. </p>
+<p>I found myself wanting this feature in Photoshop. It would be extremely useful for building websites because you could modularize your PSDs. For example, I could create one PSD called <code>header.psd</code> and another called <code>footer.psd</code>. When I want to create a PSD for a new page mockup, I can easily &quot;embedd&quot; the header and footer PSDs into my new document. This allows me to easily spin-off new page mockups based on single PSD files. </p>
 
-<h3>Curating our digital selves</h3>
+<p>So, for example, if I want to change a design element in the header of my website, I only have to change it in one file and it would be replicated in all the PSDs where I&#39;ve embedded <code>header.psd</code>. This is essentially the same thing as creating a file called <code>header.php</code> that has all my main navigation and is called into every page template.</p>
 
-<p>Interesting parallel of the digital world to the real world of advertising in which, as we all know, famous faces on magazines are never quite as they appear:</p>
+<p>Although InDesign supports this feature, Photoshop does not. However, a Google search led me to these two extensions which have become quite useful.</p>
 
-<blockquote>
-<p>Texting and e-mail and posting let us present the self we want to be. This means we can edit. And if we wish to, we can delete. Or retouch: the voice, the flesh, the face, the body. Not too much, not too little — just right.</p>
-</blockquote>
+<ol>
+<li><a href="http://www.ps-scripts.com/bb/viewtopic.php?f=27&amp;t=3045&amp;sid=90f57aa35b85d5d38fe52ea551ac4a4c">Smart Object Links Panel</a></li>
+<li><a href="http://www.canlinkit.com/">CanLinkIt</a></li>
+</ol>
 
-<h3>True self reflection requires trust</h3>
+<p>I&#39;m not sure what the development status of these are anymore, but they worked for me. Try them out! I think they will save you a lot of time. </p>
 
-<p>Why it&#39;s so hard to find (or post) anything of deep import amongst in the world of social statuses:</p>
-
-<blockquote>
-<p>These days, social media continually asks us what’s “on our mind,” but we have little motivation to say something truly self-reflective. Self-reflection in conversation requires trust. It’s hard to do anything with 3,000 Facebook friends except connect.</p>
-</blockquote>
-
-<h3>We expect more from tech and less from each other</h3>
-
-<blockquote>
-<p>We expect more from technology and less from one another and seem increasingly drawn to technologies that provide the illusion of companionship without the demands of relationship. Always-on/always-on-you devices provide three powerful fantasies: that we will always be heard; that we can put our attention wherever we want it to be; and that we never have to be alone.</p>
-</blockquote>
-
-<h3>Sharing proves existence, a la Shakespeare</h3>
-
-<blockquote>
-<p>I share, therefore I am.</p>
-</blockquote>
-
-<p>Unfortunately, our internet culture has led many to believe that if they don&#39;t share online they will be left out. They&#39;ll be forgotten. They&#39;ll cease to exist socially. </p>
-
-<p>On a related note - Paul Miller, a journalist at The Verge, has made some interesting observations about <a href="http://www.theverge.com/2012/10/26/3555640/offline-missing-out-paul-miller/in/2771566">our innate desire to not miss out</a>. He observes that, when we &#39;miss out&#39; on one thing (the internet), we get to spend our attention on something else (perhaps of greater import).</p>
-
-<h3>Ode to a time long gone</h3>
-
-<blockquote>
-<p>Not too long ago, people walked with their heads up, looking at the water, the sky, the sand and at one another, talking. Now they often walk with their heads down, typing. Even when they are with friends, partners, [and] children</p>
-</blockquote>
-
-<h2><a href="http://rdd.me/2r4jlwcs">Dear Business, I&#39;m scared for you</a></h2>
-
-<p>This article by Brian Hoff at The Design Cubicle is probably <strong>the best post</strong>  describing the web design field I&#39;ve read in a while. </p>
-
-<p>Businesses will spend $40,000 a year on an employee who works eight to five, five days a week. However, for lack of education they won&#39;t spend $1,000 on their hardest-working employee: their website. It works 24 hours a day, 365 days a year and interfaces with more clients than any other employee (perhaps even <em>all</em> their employees combined).</p>
-
-<blockquote>
-<p>Your website is not a feature that you can half-ass. Spend some money. Protect your future. A good website works hard for your business. Much harder than many employees can offer.</p>
-</blockquote>
-
-<h2><a href="http://blog.arc90.com/2012/11/19/creating-a-thriving-developer-culture/">Creating a Thriving Developer Culture</a></h2>
-
-<p>I&#39;ve worked at Arc90 (and technically still do) and I can verify Alex&#39;s observations. There truly is a thriving developer culture at Arc that exists because of the company traits he points out. </p>
-
-<blockquote>
-<p>When your employee gets up in the morning, you want the most exciting thing in her day to be related to your company ... When your employee discovers something cool, you want their second thought to be “how can I use this at work?”.</p>
-</blockquote>
+<p>Now with PSDs you can edit once and change everywhere!</p>
 
     </div>
 
@@ -259,10 +183,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">30 Nov 2012</time>
-        <h1 class="title"><a href="/blog/posts/safari-tab-preview">Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)</a></h1>
-        
-            <p class="excerpt">The new tab preview experience in Safari 6 might be better if it *revealed more* of the tab previews as it grows horizontally rather than increasing the size of the tab previews.</p>
+        <time class="date">29 Jan 2013</time>
+        <h1 class="title"><a href="/blog/posts/quick-change-and-the-web">Quick Change and the Web</a></h1>
         
     </header>
 
@@ -270,19 +192,15 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Apple&#39;s Safari 6 introduced a new tab switching experience. By activating the feature, Safari presents you with a bird&#39;s-eye view of open tabs. 100% of the active tab is previewable while only about 15% of it&#39;s left and right sibilings are previeweable.</p>
+        <p>Can you really change the world over night?</p>
 
-<p><img src="/blog/assets/img/2012/safari6-tab-view.jpg" alt="Safari 6 tab preview"></p>
+<blockquote>
+<p>In both the web and in our greater community, I see people despair that change doesn’t happen more quickly. That we can’t make the world better overnight. But if this year has taught me anything, it is that we can’t ignore the hard work that needs to be done. And that we all must take up the charge to make the world better than it we found it — both on the web and in our society. - <a href="http://alistapart.com/article/what-we-learned-in-2012">Jason Grigsby</a></p>
+</blockquote>
 
-<p>This experience of previewing your tabs is consistent no matter the application&#39;s viewport size. You always see 100% of the active tab and about 15% of it&#39;s left and right siblings.</p>
+<p>What is so great about the web is that , with a single great idea, you <strong>can</strong> often build it overnight. Or at least in a few days. No bureaucracy. No paperwork. No meetings. No board approval.The <a href="http://lab.arc90.com/hackathon/2012/">Arc90 Hackathon</a> was a good example of this to me.  Get a good idea, start a conversation, excite others, build it, release it to the community, and if its great, you&#39;ll begin sowing the seeds of change. </p>
 
-<p><img src="/blog/assets/img/2012/safari6-tab-view-resolution-comparison.jpg" alt="Safari 6 tab preview at different resolutions"></p>
-
-<p>Wouldn&#39;t it be neat to see the preview of the active tab&#39;s sibilings grow as the viewport grows horizontally? Essentially, if I had a large monitor I would be able to <strong>see more</strong> of the sibling tabs&#39; previews.</p>
-
-<p><img src="/blog/assets/img/2012/safari6-tab-view-new-design.jpg" alt="New design of Safari 6 tab preview"></p>
-
-<p>As you can see, as the window grows in size horizontally it would <strong>reveal more</strong> of the sibilng tabs&#39; previews <strong>rather than increase</strong> the tab preview sizes. Visually this would help form a more cohesive mental model of the spacial relationship between tabs. It would also help tremendously for any site-comparison a user might be doing.</p>
+<p>From there you just iterate.  </p>
 
     </div>
 
@@ -298,8 +216,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">28 Nov 2012</time>
-        <h1 class="title"><a href="/blog/posts/understanding-comes-in-stages">Understanding Comes in Stages</a></h1>
+        <time class="date">21 Jan 2013</time>
+        <h1 class="title"><a href="/blog/posts/unicode-symbols-and-font-stacks">Miscellaneous Unicode Symbols, Font Stacks, and You</a></h1>
         
     </header>
 
@@ -307,15 +225,40 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>In a radio series from the 1940’s, author E.M. Forster stated that the books which truly influence us are the ones we are prepared to read, namely those “which have gone a little further down our particular path than we have yet got ourselves.” [^1] Hence a truly moving reading experience is the culimnation of not just <em>what</em> you read but <em>when</em> you read it.</p>
+        <p>I needed a star symbol in my design. That&#39;s how this all started. I wanted to use something other than an image to display the star on screen for various reasons:</p>
 
-<p>Personally, I love reading with a pen or highlighter on hand. I’m sure I share this sentiment with many others. Navigating books I’ve annotated reminds me of what I learned while reading. Yet there have been countless times I’ve returned to a previously-read passage only to wonder why in the world I highlighted sentence seven and completely left all of paragraph four unmarked. However, now I realize that as I experience more of life (getting to know myself, my neighbors, my career, my friends, my world) I come to see and understand aspects of life very differently. </p>
+<ol>
+<li>I wanted the star to be different colors in different contexts and I didn&#39;t want to create an image of the star for each variance. </li>
+<li>I wanted the star to be crisp and clear, which meant I&#39;d have to create multiple sizes of the image for retina screen support.</li>
+</ol>
 
-<p>As just one example, I used to gloss over snippets of javascript or terminal commands deeming them the writings of a foreign language. However, I now scrupulously inspect those snippets for nuggets of knowledge I have not yet discovered.</p>
+<p>So rather than create a handful of stars as images (in different colors and sizes) I decided to try using the black star symbol in Unicode (U+2605, &amp;#9733).</p>
 
-<p>Seeing, and its ensuing counterpart understanding, come in phases. What you fail to grasp and understand at this point in your development you may later find to be common sense. Be patient. Seeing and understanding come in stages through experience. </p>
+<h2>Unicode and Font Stack Correlations</h2>
 
-<p>[^1]: As quoted by Jill Carattini in her article <a href="http://www.rzim.org/a-slice-of-infinity/two-staged-miracles/"><em>Two-Staged Miracles</em></a> over at RZIM. </p>
+<p>I began by simply inserting the character reference in my markup with the default CSS font-size of 1em and font stack of Helvetica. However, I stumbled on an inconsistency in modern browsers: the unicode star was rendering at different sizes in browsers that implement different rendering engines.</p>
+
+<p><img src="/blog/assets/img/2013/black-star-unicode-arial-helvetica.png" alt="Black Star Unicode Using Helvetica and Arial Unicode MS"></p>
+
+<p>Notice the size difference? It appears the black star unicode symbol is not supported by my default stack of Helvetica. In order to display the character, each browser is resorting to a font of it&#39;s own choosing that <em>does</em> support it. In this case, each browsers is choosing a different font; hence the size discrepancy. </p>
+
+<p>By resorting to a font stack that supports the black star glyph (in this case Arial Unicode MS), I achieved consistent sizing across browsers. You can see the differences and similarities in this blown up photo:</p>
+
+<p><img src="/blog/assets/img/2013/black-star-unicode-arial-helvetica-zoomed.png" alt="Zoomed in Photo of Black Star Unicode Glyph"></p>
+
+<h2>But Wait, There&#39;s Always IE</h2>
+
+<p>Of course, if you&#39;re trying to support IE, throw everything I just said out the window. The black star wasn&#39;t displaying in IE 7 &amp; 8 on Windows XP. This is because Windows XP, by default, didn&#39;t have a font that supports the black star glyph using standard Unicode. However, if the user had additional fonts installed, like the ones that come with MS Office, I&#39;m guessing this technique would probably work. I&#39;ll leave that up to someone else to test.</p>
+
+<h2>Conclusion</h2>
+
+<p>If you&#39;re going to use Unicode symbols, make sure you&#39;re using a font that supports them. If you don&#39;t, you&#39;ll find some strange inconsistencies across browsers. Here is Wikipedia&#39;s take:</p>
+
+<blockquote>
+<p>The Miscellaneous Symbols Unicode block (2600–26FF) contains various glyphs representing things from a variety of categories …  these [characters] may not display properly if your computer does not implement Unicode and have the proper fonts installed. Also, some browsers may not display certain symbols properly at all even if your computer has the required implemented Unicode and fonts. - <a href="http://en.wikipedia.org/wiki/Miscellaneous_Symbols">Wikipedia</a></p>
+</blockquote>
+
+<p>I started realizing consistent Unicode support across browsers and platforms was a rabbit&#39;s hole I didn&#39;t want to go down any further. So I switched my implementation technique to <a href="http://css-tricks.com/examples/IconFont/">icon fonts</a>, which was much more bullet-proof.</p>
 
     </div>
 
@@ -327,7 +270,7 @@
 
     <!-- Pagination links -->
     <div class="pagination">
-        <span class="page-number ">page 6 / 7</span>
+        <span class="page-number ">page 6 / 8</span>
 
         
             <a href="/blog/page5" class="previous"><span class="arrow">&laquo;</span> prev</a>

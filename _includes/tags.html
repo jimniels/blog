@@ -1,14 +1,13 @@
-{{page.url}}
-{% for post in site.posts %}
+<div class="archive-wrapper">
+    <h3 class="archive__title">Posts per Tag ({{site.tags | size}} total)</h3>
+    <ul class="archive__list">
     
-
-    {% for tag in post.tags %}
-        {% if tag == include.currentTag %}
-            <article class="article-archive">
-                <time class="time">{{ post.date }}</time>
-                <h2 class="title"><a href="#">{{ post.title }}</a></h2>
-            </article>
-        {% endif %} 
+    {% for tag in site.tags %}
+        <li>
+            <time>{{tag[1] | size}}</time>
+            <a href="{{ site.baseurl }}/tags/{{tag.first}}">#{{tag.first}}</a>
+        </li>
     {% endfor %}
 
-{% endfor %}
+    </ul>
+</div>

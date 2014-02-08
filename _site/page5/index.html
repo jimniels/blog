@@ -28,7 +28,7 @@
     <!-- Header
     =================================== -->
     <header class="header">
-        <a href="/blog/index.html">
+        <a href="/blog/">
             <img src="/blog/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
             <h1 class="site-title">Jim Nielsen, Designer</h1>
         </a>
@@ -38,8 +38,9 @@
     =================================== -->
     <nav class="navigation hide">
         <ul class="navigation-list">
-            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
-            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive/" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/tags/" class="navigation-item">Tags</a></li>
             <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
             <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
             <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
@@ -60,8 +61,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">29 Jan 2013</time>
-        <h1 class="title"><a href="/blog/posts/quick-change-and-the-web">Quick Change and the Web</a></h1>
+        <time class="date">13 May 2013</time>
+        <h1 class="title"><a href="/blog/posts/tuts-filler-content">Filler Content Tools, Tips, and a Dynamic Example via Webdesign Tuts+</a></h1>
         
     </header>
 
@@ -69,15 +70,15 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Can you really change the world over night?</p>
+        <p><img src="/blog/assets/img/2013/filler-content-webdesign-tuts.jpg" alt="Filler Content: Tools, Tips and a Dynamic Example via Webdesign Tuts+"></p>
+
+<p>Here’s <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/filler-content-tools-tips-and-a-dynamic-example/">a link</a> to my most recent article. I talk about how to leverage filler content in your design process.</p>
 
 <blockquote>
-<p>In both the web and in our greater community, I see people despair that change doesn’t happen more quickly. That we can’t make the world better overnight. But if this year has taught me anything, it is that we can’t ignore the hard work that needs to be done. And that we all must take up the charge to make the world better than it we found it — both on the web and in our society. - <a href="http://alistapart.com/article/what-we-learned-in-2012">Jason Grigsby</a></p>
+<p>Because a lot of website design used to take place in Photoshop, manually copying/pasting text from the web was the best method for ‘filling in’ a design with dummy content. However, now that a lot of website design takes place in the browser, why not have the computer do all ‘filling in’ work for you?</p>
 </blockquote>
 
-<p>What is so great about the web is that , with a single great idea, you <strong>can</strong> often build it overnight. Or at least in a few days. No bureaucracy. No paperwork. No meetings. No board approval.The <a href="http://lab.arc90.com/hackathon/2012/">Arc90 Hackathon</a> was a good example of this to me.  Get a good idea, start a conversation, excite others, build it, release it to the community, and if its great, you&#39;ll begin sowing the seeds of change. </p>
-
-<p>From there you just iterate.  </p>
+<p>It&#39;s a new era for designing in the browser. See how by reading <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/filler-content-tools-tips-and-a-dynamic-example/">Filler Content: Tools, Tips and a Dynamic Example</a>.</p>
 
     </div>
 
@@ -93,8 +94,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">21 Jan 2013</time>
-        <h1 class="title"><a href="/blog/posts/unicode-symbols-and-font-stacks">Miscellaneous Unicode Symbols, Font Stacks, and You</a></h1>
+        <time class="date">5 May 2013</time>
+        <h1 class="title"><a href="/blog/posts/an-analysis-of-infinite-scroll">An Analysis of Infinte Scrolling</a></h1>
         
     </header>
 
@@ -102,40 +103,15 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>I needed a star symbol in my design. That&#39;s how this all started. I wanted to use something other than an image to display the star on screen for various reasons:</p>
-
-<ol>
-<li>I wanted the star to be different colors in different contexts and I didn&#39;t want to create an image of the star for each variance. </li>
-<li>I wanted the star to be crisp and clear, which meant I&#39;d have to create multiple sizes of the image for retina screen support.</li>
-</ol>
-
-<p>So rather than create a handful of stars as images (in different colors and sizes) I decided to try using the black star symbol in Unicode (U+2605, &amp;#9733).</p>
-
-<h2>Unicode and Font Stack Correlations</h2>
-
-<p>I began by simply inserting the character reference in my markup with the default CSS font-size of 1em and font stack of Helvetica. However, I stumbled on an inconsistency in modern browsers: the unicode star was rendering at different sizes in browsers that implement different rendering engines.</p>
-
-<p><img src="/blog/assets/img/2013/black-star-unicode-arial-helvetica.png" alt="Black Star Unicode Using Helvetica and Arial Unicode MS"></p>
-
-<p>Notice the size difference? It appears the black star unicode symbol is not supported by my default stack of Helvetica. In order to display the character, each browser is resorting to a font of it&#39;s own choosing that <em>does</em> support it. In this case, each browsers is choosing a different font; hence the size discrepancy. </p>
-
-<p>By resorting to a font stack that supports the black star glyph (in this case Arial Unicode MS), I achieved consistent sizing across browsers. You can see the differences and similarities in this blown up photo:</p>
-
-<p><img src="/blog/assets/img/2013/black-star-unicode-arial-helvetica-zoomed.png" alt="Zoomed in Photo of Black Star Unicode Glyph"></p>
-
-<h2>But Wait, There&#39;s Always IE</h2>
-
-<p>Of course, if you&#39;re trying to support IE, throw everything I just said out the window. The black star wasn&#39;t displaying in IE 7 &amp; 8 on Windows XP. This is because Windows XP, by default, didn&#39;t have a font that supports the black star glyph using standard Unicode. However, if the user had additional fonts installed, like the ones that come with MS Office, I&#39;m guessing this technique would probably work. I&#39;ll leave that up to someone else to test.</p>
-
-<h2>Conclusion</h2>
-
-<p>If you&#39;re going to use Unicode symbols, make sure you&#39;re using a font that supports them. If you don&#39;t, you&#39;ll find some strange inconsistencies across browsers. Here is Wikipedia&#39;s take:</p>
+        <p>Have you ever felt exhausted by infinite scrolling?</p>
 
 <blockquote>
-<p>The Miscellaneous Symbols Unicode block (2600–26FF) contains various glyphs representing things from a variety of categories …  these [characters] may not display properly if your computer does not implement Unicode and have the proper fonts installed. Also, some browsers may not display certain symbols properly at all even if your computer has the required implemented Unicode and fonts. - <a href="http://en.wikipedia.org/wiki/Miscellaneous_Symbols">Wikipedia</a></p>
+<p>Infinite scrolling merely tempts you to continue reading, wasting time and decreasing productivity in the process ... Even more annoying is that scroll bars do not reflect the actual amount of data available. You’ll scroll down happily assuming you are close to the bottom, which by itself tempts you to scroll that little bit more, only to find that the results have just doubled by the time you get there. </p>
 </blockquote>
 
-<p>I started realizing consistent Unicode support across browsers and platforms was a rabbit&#39;s hole I didn&#39;t want to go down any further. So I switched my implementation technique to <a href="http://css-tricks.com/examples/IconFont/">icon fonts</a>, which was much more bullet-proof.</p>
+<p>I&#39;ve encountered this many times. It&#39;s exhausting. The worst part is that you keep telling yourself “just a little further” because you perpetually see the scroll bar two-thirds of the way down the page and don&#39;t want to feel as though you&#39;re missing out on any information.</p>
+
+<p>Yogev Ahuvia wrote <a href="http://uxdesign.smashingmagazine.com/2013/05/03/infinite-scrolling-get-bottom/">a great article over at Smashing Magazine</a> that analyzes the benefits and drawbacks of using infinite scrolling. It&#39;s worth a read. </p>
 
     </div>
 
@@ -151,8 +127,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">8 Jan 2013</time>
-        <h1 class="title"><a href="/blog/posts/science-of-typography">Science Speaks: Good Typography = Good Mood</a></h1>
+        <time class="date">26 Mar 2013</time>
+        <h1 class="title"><a href="/blog/posts/unintended-visual-relationships">Unintended Visual Relationships</a></h1>
         
     </header>
 
@@ -160,21 +136,78 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Jon Tan, in a <a href="http://24ways.org/2012/science/">recent article at 24 Ways</a>, talks about the science behind the positive effects of good typography. In his article, he references a study by Dr Kevin Larson of Microsoft and Dr Rosalind Picard of MIT that explored the effects of good typography on mood: </p>
+        <p>Establishing a grid is a great way to organize and structure design elements. In addition, by breaking the organization and structure of the grid you can emphasize visual relationships between design elements.</p>
+
+<h2>Drawbacks to Grids</h2>
+
+<p>Recently I came across a subtle and often overlooked side-effect of grid-based design: unintended visual relationships. An example of this can be found in the Wordpress theme <a href="http://wpshower.com/themes/portfolium/">Portfolium</a> </p>
+
+<p><img src="/blog/assets/img/2013/portfolium.jpg" alt="Portfolium Screenshot"></p>
+
+<p>Overall, it&#39;s a well executed grid-based design: organized and structured; however, the alignment of the navigation to the thumbnail grid suggests visual relationships that are nonexistent. </p>
+
+<p>For example, take a look at the words at the top of the page: they align to the thumbnail grid. This suggests a columnar relationship between each navigation item and the thumbnails  below them. However, no such relationship actually exists.</p>
+
+<p><img src="/blog/assets/img/2013/portfolium-grid-alignment.jpg" alt="Portfolium Grid Alignment"></p>
+
+<h2>Rows, Columns, or Neither?</h2>
+
+<p>This type of unintended visual alignment is confusing. The words in the navigation align with the columns below them, suggesting some type of organization or categorization. Even the light grey lines below navigation item are visually separated which helps reinforce the idea of a column layout. Even so, there is no relationship between the navigation items and the thumbnails below them.</p>
+
+<p>On the other hand, if you wanted to suggest a relationship between the navigation items and the thumbnails below them, the alignment of Portfolium would be ideal. For example, if you wanted to separate and categorize the thumbnails by column, this type of alignment would work very well:</p>
+
+<p><img src="/blog/assets/img/2013/portfolium-categories.jpg" alt="Portfolium Categories"></p>
+
+<h2>A Better Alignment</h2>
+
+<p>In the example of Portfolium, not aligning the navigation to the thumbnail grid would break the grid and provide a visual separation between the sections of image thumbnails and navigation. In addition, making the light grey line at the top a solid, unbroken line helps visually separate the header from the content.</p>
+
+<p><img src="/blog/assets/img/2013/portfolium-new.jpg" alt="Altered Portfolium Screenshot"></p>
+
+<p>It&#39;s possible that the creators of Portfolium had a purpose in mind when designing the theme the way they did. However, I don&#39;t see it. Take care to always be aware of how your grid elements are being aligned. In grid-based design, it&#39;s easy to unintentionally suggest visual relationship that don&#39;t exist.</p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">8 Mar 2013</time>
+        <h1 class="title"><a href="/blog/posts/coming-to-appreciate-art">Coming to Appreciate Art</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>I have a confession: for some time now I&#39;ve been cynical of art. More specifically modern art. For example, here is a piece of art I encountered at the Museum of Modern Art in New York City: </p>
+
+<p><img src="https://pbs.twimg.com/media/A-wPHGACcAA7xOB.jpg" alt="Modern Art at the MoMA"></p>
+
+<p>I can&#39;t help but ask myself: how is this art? Even more puzzling: how does it have a place in the world-renowned MoMA? At first-glance, this piece seems on par with something my four-year-old nephew could create. Then, as a web designer, I am reminded most people think websites are something their nephews could create too. </p>
+
+<p>What&#39;s my point? I realize I don&#39;t understand or appreciate art because I am ignorant of it. People don&#39;t understand or appreciate web design because they are ignorant of it. As a general rule of thumb, the more you immerse yourself in something and learn its intricacies and rationales the more you come to appreciate and respect it. That goes for modern art or web design. Get to know the things you criticize. Generally, <strong>the more you know the less you will criticize</strong>.</p>
+
+<h2>So Is It Art or Not?</h2>
+
+<p>The question still remains, what is art? Is that scribbled piece of canvas art? Here&#39;s a tip from Milton Glaser, a celebrated graphic designer, on determining what is and is not art:</p>
 
 <blockquote>
-<p>Two versions of the New Yorker ePeriodical were created. One was typeset well and the other poorly … [the doctors] engaged twenty volunteers — half male, half female — and showed the good version to half of the participants. The other half saw the poor version. The doctors found that, “there are important differences between good and poor typography that appear to have little effect on common performance measures such as reading speed and comprehension.” In short, good typography didn’t help people read faster or comprehend better … [the doctors] also found that “the participants who received the good typography performed better on relative subjective duration and on certain cognitive tasks”, and that “good typography induces a good mood.”</p>
+<p>you cannot tell art by virtue of medium, or function, or anything else except by the fact of its raising your consciousness to a degree that you are attentive. And so if something produces the state of attentiveness, whether it’s a drawing, or a guy making a cheese sandwich, we can call it art, at least by my description</p>
 </blockquote>
 
-<p>In summary, between the volunteers who read the bad typographyical layout and those that read the good typographographical layout, there were no differences in reading speed or comprehension. However, those volunteers who read the good typographical layout <em>perceived</em> it as an easier task and were induced to a good mood.</p>
+<p>According to Glaser, if something &quot;produces a state of attentiveness&quot;, whether it&#39;s Van Gogh&#39;s <em>Starry Night</em> or this seemingly scribbled mess, you can call it art.</p>
 
-<p>It can thus be inferred that setting type without regard to contrast, font size, kearning, leading, and so forth, is still functional. It still works. People can still read bad typographic layouts without much difference in &quot;reading speed and comprehension&quot;.</p>
-
-<p>Hence, taking the time to incorporate principles of good typography in your designs won&#39;t necessarily improve readers&#39; comprehension. It will, however, leave people feeling good (though they may not know why). And as web designers, that is a goal worth striving for! We are not creating software. We are not making things beautiful. <strong>We are designing experiences.</strong> Expereinces that leave people feeling good.</p>
-
-<p>And if inducing a good mood isn&#39;t reason enough to invest in good typography, the study also proved that good typography made people &quot;more capable of completeing creative tasks faster&quot;. </p>
-
-<p>So if your app helps people accomplish tasks, especially creative ones, you had better consider the positive effects of great typography!</p>
+<p>As you may have noticed, that scribbled mess at the MoMA brought me an incredible amount of introspection and reflection. It raised my consciousness to a degree that I was attentive. I suppose that is why it has a place at the Museum of Modern &quot;Art&quot;.</p>
 
     </div>
 
@@ -190,8 +223,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">27 Dec 2012</time>
-        <h1 class="title"><a href="/blog/posts/tuts-dont-forget-the-optgroup-element">Don't Forget the ‘optgroup’ Element via Webdesign Tuts+</a></h1>
+        <time class="date">19 Feb 2013</time>
+        <h1 class="title"><a href="/blog/posts/teamcolors">Team Color Codes</a></h1>
         
     </header>
 
@@ -199,44 +232,39 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p><a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-optgroup-element/"><img src="/blog/assets/img/2012/dont-forget-the-optgroup-element.png" alt="Don&#39;t Forget the optgroup Element via Webdesign Tuts+"></a></p>
+        <p>I recently participated in the <a href="http://lab.arc90.com/hackathon/2012/">Arc90 Hackathon</a>. I originally volunteered for a different project as part of a team, but due to scheduling conflicts my team disbanded. I was left with the option to work on a solo project, which resulted in <a href="http://teamcolors.arc90.com/">Team Colors</a>: a single-page website that serves as a reference for HEX values for professional sport teams:</p>
 
-<p>My most recent article over at <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-optgroup-element/">Webdesign Tuts+</a> is a quick overview of the rather useful but often forgotten <code>optgroup</code> HTML element. The <code>optgroup</code> element is very handy in responsive web design. It can be conveniently employed when condensing a complex hierarchical navigation links into a single menu.</p>
+<p><img src="/blog/assets/img/2013/team-colors.png" alt="Screenshot of Team Colors, an Arc90 Hackathon Project"></p>
 
-    </div>
+<p>Unfortunately, the Hackathon took place while I was absent from the office (travelling to Utah for the Christmas break). So a lot of my work was done on a plane and working from home. I started Team Colors by sketching out some ideas for the page hierarchy and navigation:</p>
 
+<p><img src="/blog/assets/img/2013/team-colors-sketch.jpg" alt="Sketch of Team Colors"></p>
 
-    
+<p>After thinking through and sketching out how to present each team and its corresponding brand colors in a responsive manner, I turned to writing some pseudocode that would power the interaction of the site:</p>
 
-</article>
-    
-        
-        
-        <article class="article">
+<p><img src="/blog/assets/img/2013/team-colors-code.jpg" alt="Pseudocode for Team Colors"></p>
 
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
-        <time class="date">12 Dec 2012</time>
-        <h1 class="title"><a href="/blog/posts/said-no-user-ever">Said No Normal User, Ever.</a></h1>
-        
-    </header>
+<p>Once I got everything down on paper, the fun part of building began. The hardest part was  finding the actual HEX values for each team. There were some obscure, outdated forum posts scattered across the web. In the end Wikiepedia was my best reference, although it did not provide the brand colors in the user interface. I found them in the underlying HTML/CSS using Chrome developer tools.</p>
 
+<h2>Technical Overview</h2>
 
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <blockquote>
-<p>Remember that there are already too many things out there. We don&#39;t need more things, we need things that work well. </p>
-</blockquote>
+<p>Here&#39;s a quick overview of the technology used:</p>
 
-<p>I&#39;ve recently been reading Smashing Magazine&#39;s <a href="https://shop.smashingmagazine.com/smashing-book-3.html">Smashing Book #3</a> and found Aral Balkan&#39;s chapter <em><a href="http://mobile.smashingmagazine.com/2012/06/18/mobile-considerations-in-user-experience-design-web-or-native/">Mobile Considerations in User Experience Design: “Web or Native?”</a></em> quite intriguing. His arguments might even persuade you to believe the web isn&#39;t the platform of the future so many have predicted it to be, but I won&#39;t argue that point here.</p>
+<ul>
+<li>The page is responsive, built using HTML5, CSS, and the CSS preprocessor Compass</li>
+<li>All the data (team names, hex values) is stored in a single JSON file. This makes updating the page quite simple. You just add a new league with teams, or a new team in the appropriate league with its corresponding HEX values. Then add the team&#39;s logo into the images directory and you&#39;re done!</li>
+<li>Most team logos are SVGs, making them crisp on HiDPI devices. If a team logo isn&#39;t avaiable in SVG, a PNG fallback is used. </li>
+<li>Progressive enhancement is used thoroughly:
 
-<p>Balkan&#39;s article reminded me of our feverish platitudes in the tech world that often blind us to users&#39; needs, wants, and expectations. Talk of open vs. closed systems, why the web is better because of it&#39;s universal accessibility, and other arguments may influence why a <em>developer</em> chooses one system or platform over another. However, the rationale and justification that informs the choices we make as creators of technology rarely bears any weight with  incognizant users of technology.</p>
+<ul>
+<li>Images are served by javascript after page load to reduce HTTP requests on the initial page load</li>
+<li>All league/team data is loaded in a single page. Javasript is used to create a the drop-down control for sifting through teams by league and showing/hiding content.</li>
+</ul></li>
+</ul>
 
-<p>As Balkan points out, who cares what platform your application runs on if it runs badly? Ok some developers and tech evangelists probably care, but outside of them who cares? </p>
+<h2>Don&#39;t Forget</h2>
 
-<p>&quot;Crap, my widget crashed and lost all my form data, but that&#39;s ok. These guys built this app using open technology of the web so I&#39;m gonna give this product a break and keep using it.&quot; Said no normal user, ever.</p>
+<p>You can view <a href="http://teamcolors.arc90.com/">Team Colors here</a>. Don&#39;t forget to checkout some of the other amazing <a href="http://lab.arc90.com/hackathon/2012/">Arc90 Hackathon projects</a>, or <a href="hackathon-blog">read about the hackathon</a>.</p>
 
     </div>
 
@@ -248,7 +276,7 @@
 
     <!-- Pagination links -->
     <div class="pagination">
-        <span class="page-number ">page 5 / 7</span>
+        <span class="page-number ">page 5 / 8</span>
 
         
             <a href="/blog/page4" class="previous"><span class="arrow">&laquo;</span> prev</a>

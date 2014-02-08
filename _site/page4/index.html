@@ -28,7 +28,7 @@
     <!-- Header
     =================================== -->
     <header class="header">
-        <a href="/blog/index.html">
+        <a href="/blog/">
             <img src="/blog/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
             <h1 class="site-title">Jim Nielsen, Designer</h1>
         </a>
@@ -38,8 +38,9 @@
     =================================== -->
     <nav class="navigation hide">
         <ul class="navigation-list">
-            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
-            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive/" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/tags/" class="navigation-item">Tags</a></li>
             <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
             <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
             <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
@@ -60,8 +61,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">8 Mar 2013</time>
-        <h1 class="title"><a href="/blog/posts/coming-to-appreciate-art">Coming to Appreciate Art</a></h1>
+        <time class="date">10 Jun 2013</time>
+        <h1 class="title"><a href="/blog/posts/max-upload-filesize-restart-apache">Changes to max_upload_filesize not working in php.ini? Restart Apache!</a></h1>
         
     </header>
 
@@ -69,204 +70,182 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>I have a confession: for some time now I&#39;ve been cynical of art. More specifically modern art. For example, here is a piece of art I encountered at the Museum of Modern Art in New York City: </p>
+        <p>I was trying to import a SQL database into a local copy of Wordpress. The SQL file was larger than the standard 2MB upload limit, so Wordpress wouldn&#39;t let me upload it. </p>
 
-<p><img src="https://pbs.twimg.com/media/A-wPHGACcAA7xOB.jpg" alt="Modern Art at the MoMA"></p>
+<p>After some research, I realized I could change the <code>max_upload_filesize</code> in the <code>php.ini</code> file. However, after changing the value to 10MB, Wordpress was still indicating the prior upload limit of 2MB. After wasting time trying other fixes, I suddenly realized I had not restarted apache!</p>
 
-<p>I can&#39;t help but ask myself: how is this art? Even more puzzling: how does it have a place in the world-renowned MoMA? At first-glance, this piece seems on par with something my four-year-old nephew could create. Then, as a web designer, I am reminded most people think websites are something their nephews could create too. </p>
+<p><img src="/blog/assets/img/2013/duh.gif" alt="Duh!"></p>
 
-<p>What&#39;s my point? I realize I don&#39;t understand or appreciate art because I am ignorant of it. People don&#39;t understand or appreciate web design because they are ignorant of it. As a general rule of thumb, the more you immerse yourself in something and learn its intricacies and rationales the more you come to appreciate and respect it. That goes for modern art or web design. Get to know the things you criticize. Generally, <strong>the more you know the less you will criticize</strong>.</p>
+<p>From the command line <code>sudo apachectl restart</code> restarted my local apache server and changed my upload limit to 10MB in Wordpress.</p>
 
-<h2>So Is It Art or Not?</h2>
+<p><strong>Lesson</strong>: if you&#39;re tinkering in configuration files, don&#39;t forget to restart apache to see your changes!</p>
 
-<p>The question still remains, what is art? Is that scribbled piece of canvas art? Here&#39;s a tip from Milton Glaser, a celebrated graphic designer, on determining what is and is not art:</p>
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">29 May 2013</time>
+        <h1 class="title"><a href="/blog/posts/scriptogram-vector-logo">Scriptogram Logo in Vector Form (.svg)</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>While working on a recent design, I suddenly needed a vector version of the <a href="http://scriptogr.am/">scriptogram</a> logo. I couldn&#39;t find one on the web, so I made one myself.</p>
+
+<p><img src="/blog/assets/img/2013/scriptogram-logo.png" alt="Scriptogram Logo"></p>
+
+<p>If you find yourself needing the <a href="/blog/assets/img/2013/scriptogram-logo.svg">scriptogram logo in vector form</a>, you can download the version I created.</p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">22 May 2013</time>
+        <h1 class="title"><a href="/blog/posts/stop-direct-spam-comments-in-wordpress">Stop Direct Spam Comments in Wordpress</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>I recently redesigned my wordpress theme for <a href="http://iosicongallery.com">iOS Icon Gallery</a> and <a href="http://macicongallery.com">Mac Icon Gallery</a>. </p>
+
+<p>The old themes provided the ability to comment through the interface. Due to a lack of real comments and a surplus in spam comments, I decided to entirely remove the ability to comment from the interface. </p>
+
+<h2>Removing the Ability to Comment From the Interface Is Not Enough to Keep Out Spam</h2>
+
+<p>Once my theme went live, I was still getting spam comments in the Wordpress backend. I asked myself, &quot;how are comments still appearing in the Wordpress backend when I don&#39;t have a single comment form on my website?&quot; After some Googling, I discovered this was due to spambots posting data directly using <code>wp-comments-post.php</code>. </p>
+
+<p><img src="/blog/assets/img/2013/sneaky.gif" alt="Sneaky Gif"></p>
+
+<h2>Further Stopping Spambots</h2>
+
+<p>To prevent spambots from posting to Wordpress via a URL, you can block access to <code>wp-comments-post.php</code> via the <code>.htaccess</code> file. Simply include these rules in your <code>.htaccess</code> file (thanks to <a href="http://www.catswhocode.com/blog/snippets/blockreduce-wordpress-spam-comments-via-htaccess">catswhocode</a>)</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;IfModule mod_rewrite.c&gt;
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} POST
+    RewriteCond %{REQUEST_URI} .wp-comments-post.php*
+    RewriteCond %{HTTP_REFERER} !.*yourdomainname.* [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^$
+    RewriteRule (.*) ^http://%{REMOTE_ADDR}/$ [R=301,L]
+&lt;/IfModule&gt;
+</code></pre></div>
+<p><strong>Note</strong>: Be sure to change the <code>yourdomainname</code> part!</p>
+
+<h2>That Doesn&#39;t Help You?</h2>
+
+<p>If this doesn&#39;t seem like the best fix for you, try looking at this article from WP Tuts+ detailing <a href="http://wp.tutsplus.com/tutorials/security/6-easy-and-efficient-ways-to-combat-spam-comments/">easy and efficient ways to combat spam comments</a>.</p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">17 May 2013</time>
+        <h1 class="title"><a href="/blog/posts/the-frustration-of-google-glass">The Incredible (Frustrating) Potential of Google Glass</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p><a href="http://www.youtube.com/embed/S80mE3kQTJ0">Here&#39;s a video</a> showcasing the potential of Google Glass.</p>
+
+<p>All I could see in this video is Google Glass&#39; potential for frustration. My experience in paying for a coffee would most likely go something like this:</p>
+
+<p><strong>Me</strong>: [<em>me paying for coffee, speaking to glass</em>] Ok glass, pay for coffee, use my credit card<br>
+<strong>Glass</strong>: Using debit card ending in 4516<br>
+<strong>Me</strong>: No glass, I said <em>credit</em> card<br>
+<strong>Glass</strong>: Which credit card would you like to use?<br>
+<strong>Me</strong>: My American Express<br>
+<strong>Glass</strong>: Which American Express would you like to use?<br>
+<strong>Me</strong>: My gold card<br>
+<strong>Glass</strong>: Error. Sorry, you don&#39;t have a &quot;gold&quot; American Express card. Valid types are cards ending in: 4512 and 7483<br>
+<strong>Me</strong>: I don&#39;t know, use the card ending in 4512<br>
+<strong>Glass</strong>: Processing … transaction cancelled. Trying again … it appears you don&#39;t have any money on this card. Trying American Express card ending in 7483 … processing<br>
+<strong>Me</strong>: [<em>speaking to cashier</em>] Sorry, it will just take another second, my card isn&#39;t going through. I always have trouble with that card. American Express always stops transactions on it, I wonder if it&#39;s beca...<br>
+<strong>Glass</strong>: Stopping transaction...<br>
+<strong>Me</strong>: No Glass! I wasn&#39;t talking to you. Keep using that card.<br>
+<strong>Glass</strong>: Transaction stopped. What would you like to do now?<br>
+<strong>Me</strong>: Ok Glass, let&#39;s try this again. Pay for coffee.<br>
+<strong>Glass</strong>: You don&#39;t have any valid credit cards, but you can add a new one. What&#39;s the number?<br>
+<strong>Me</strong>: I don&#39;t&#39; want to say my credit card number out loud.<br>
+<strong>Glass</strong>: Error. What do you want to do now?<br>
+<strong>Me</strong>: Damnit glass. Ok pay for coffee. Use PayPal<br>
+<strong>Glass</strong>: Password please?<br>
+<strong>Me</strong>: Damnit I can&#39;t say my password here in front of everyone!<br>
+<strong>Glass</strong>: Password please?<br>
+<strong>Me</strong>: Ugh, damn you glass.<br>
+<strong>Me</strong>: [<em>speaking to cashier</em>] I&#39;m sorry, I&#39;m going to have to just not get this coffee<br>
+<strong>Me</strong>: [<em>walking out the door, speaking to glass</em>] How much does a used Google Glass go for on eBay?<br>
+<strong>Glass</strong>: Searching Google for used glass gophers on eBay  </p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">15 May 2013</time>
+        <h1 class="title"><a href="/blog/posts/why-do-we-sketch">Why Do We Sketch?</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>When an idea strikes, what do you do with it? The commonly-held belief is that you sketch the idea on paper, as a sort of refinement process. Why? Because ideas, especially visual ones, are conceptually rough and difficult to articulate. Sketching an idea on paper can be a process of refinement. Through sketching, an idea becomes sufficiently polished to warrant actual implementation.</p>
+
+<p>However, there is another purpose to sketching that is often overlooked. Sketching isn&#39;t always about slowly shaping and fine-tuning a single idea. In Smashing Magazine&#39;s recent publication <em><a href="http://www.the-mobile-book.com/">The Mobile Book</a></em>, Dennis Kardys writes a chapter called “Hands on Design for Mobile” in which he points out this disparate purpose to ideation and sketching:</p>
 
 <blockquote>
-<p>you cannot tell art by virtue of medium, or function, or anything else except by the fact of its raising your consciousness to a degree that you are attentive. And so if something produces the state of attentiveness, whether it’s a drawing, or a guy making a cheese sandwich, we can call it art, at least by my description</p>
+<p>We often think of sketching as a way to generate and communicate ideas, but it can also be a weapon to dismantle them. The goal of sketching ... isn’t to produce drawings that inform the final design ... The goal is to drive out those stubborn, thorny ideas and make room for new ones. Only then can we look anew and achieve a deeper understanding of what we’re designing.</p>
 </blockquote>
 
-<p>According to Glaser, if something &quot;produces a state of attentiveness&quot;, whether it&#39;s Van Gogh&#39;s <em>Starry Night</em> or this seemingly scribbled mess, you can call it art.</p>
-
-<p>As you may have noticed, that scribbled mess at the MoMA brought me an incredible amount of introspection and reflection. It raised my consciousness to a degree that I was attentive. I suppose that is why it has a place at the Museum of Modern &quot;Art&quot;.</p>
-
-    </div>
-
-
-    
-
-</article>
-    
-        
-        
-        <article class="article">
-
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
-        <time class="date">19 Feb 2013</time>
-        <h1 class="title"><a href="/blog/posts/teamcolors">Team Color Codes</a></h1>
-        
-    </header>
-
-
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <p>I recently participated in the <a href="http://lab.arc90.com/hackathon/2012/">Arc90 Hackathon</a>. I originally volunteered for a different project as part of a team, but due to scheduling conflicts my team disbanded. I was left with the option to work on a solo project, which resulted in <a href="http://teamcolors.arc90.com/">Team Colors</a>: a single-page website that serves as a reference for HEX values for professional sport teams:</p>
-
-<p><img src="/blog/assets/img/2013/team-colors.png" alt="Screenshot of Team Colors, an Arc90 Hackathon Project"></p>
-
-<p>Unfortunately, the Hackathon took place while I was absent from the office (travelling to Utah for the Christmas break). So a lot of my work was done on a plane and working from home. I started Team Colors by sketching out some ideas for the page hierarchy and navigation:</p>
-
-<p><img src="/blog/assets/img/2013/team-colors-sketch.jpg" alt="Sketch of Team Colors"></p>
-
-<p>After thinking through and sketching out how to present each team and its corresponding brand colors in a responsive manner, I turned to writing some pseudocode that would power the interaction of the site:</p>
-
-<p><img src="/blog/assets/img/2013/team-colors-code.jpg" alt="Pseudocode for Team Colors"></p>
-
-<p>Once I got everything down on paper, the fun part of building began. The hardest part was  finding the actual HEX values for each team. There were some obscure, outdated forum posts scattered across the web. In the end Wikiepedia was my best reference, although it did not provide the brand colors in the user interface. I found them in the underlying HTML/CSS using Chrome developer tools.</p>
-
-<h2>Technical Overview</h2>
-
-<p>Here&#39;s a quick overview of the technology used:</p>
-
-<ul>
-<li>The page is responsive, built using HTML5, CSS, and the CSS preprocessor Compass</li>
-<li>All the data (team names, hex values) is stored in a single JSON file. This makes updating the page quite simple. You just add a new league with teams, or a new team in the appropriate league with its corresponding HEX values. Then add the team&#39;s logo into the images directory and you&#39;re done!</li>
-<li>Most team logos are SVGs, making them crisp on HiDPI devices. If a team logo isn&#39;t avaiable in SVG, a PNG fallback is used. </li>
-<li>Progressive enhancement is used thoroughly:
-
-<ul>
-<li>Images are served by javascript after page load to reduce HTTP requests on the initial page load</li>
-<li>All league/team data is loaded in a single page. Javasript is used to create a the drop-down control for sifting through teams by league and showing/hiding content.</li>
-</ul></li>
-</ul>
-
-<h2>Don&#39;t Forget</h2>
-
-<p>You can view <a href="http://teamcolors.arc90.com/">Team Colors here</a>. Don&#39;t forget to checkout some of the other amazing <a href="http://lab.arc90.com/hackathon/2012/">Arc90 Hackathon projects</a>, or <a href="hackathon-blog">read about the hackathon</a>.</p>
-
-    </div>
-
-
-    
-
-</article>
-    
-        
-        
-        <article class="article">
-
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
-        <time class="date">14 Feb 2013</time>
-        <h1 class="title"><a href="/blog/posts/tuts-single-page-portfolio">Build a Responsive, Single Page Portfolio with Sass and Compass via Tuts+ Premium</a></h1>
-        
-    </header>
-
-
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <p><img src="http://tutsplus-media.s3.amazonaws.com/tutsplus.com/uploads/2013/02/screenshot.png" alt="Screenshot of a Responsive, Single Page Portfolio via Tuts+ Premium"></p>
-
-<p>My latest tutorial teachs how to build a responsive, single page portfolio with Sass and Compass. </p>
-
-<p>The tutorial incorporates modern web development techniques such as:</p>
-
-<ul>
-<li>Responsive design</li>
-<li>HTML5</li>
-<li>CSS using Sass and Compass</li>
-<li>Typography via Google&#39;s Web Fonts service</li>
-<li>API calls using jQuery</li>
-<li>Pure CSS horizontally-scrolling carousel supporting touch interactions</li>
-<li>HiDPI support via icon font usage</li>
-</ul>
-
-<p>You have to be a premium subscriber to see the entire tutorial. However, you can check out a preview on <a href="https://tutsplus.com/tutorial/build-a-responsive-single-page-portfolio-with-sass-and-compass/">Tuts+ Premium</a>. Or, there&#39;s an alternative preview along with a working demo at <a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/build-a-responsive-single-page-portfolio-with-sass-and-compass-new-on-premium/">Webdesign Tuts+</a>.</p>
-
-    </div>
-
-
-    
-
-</article>
-    
-        
-        
-        <article class="article">
-
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
-        <time class="date">12 Feb 2013</time>
-        <h1 class="title"><a href="/blog/posts/freebie-resources">Freebie Resources - Don’t Assume, Double Check</a></h1>
-        
-    </header>
-
-
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <p>Seemingly high-quality freebies, who doesn&#39;t love them? They save lots of time. However, be careful to double check and properly adjust any small details that may be misaligned. As they say, design is in the details, and sometimes you can&#39;t always rely on someone else having invested in those details.</p>
-
-<p>Here&#39;s a vector freebie I got online today. I imported the shape into Photoshop and noticed a 1px offset in symmetry:</p>
-
-<p><img src="/blog/assets/img/2013/freebie-offset.png" alt="Freebie 1px Offset"></p>
-
-<p>I know you might be thinking, &quot;1px offset? Nobody will even notice that.&quot; And you know what? You&#39;re right. One little 1px offset in an image that&#39;s 16x16 pixels probably won&#39;t be noticed by many people. However, the accumulation of many 1px offsets in your digital creations <strong>will</strong> be noticed! It&#39;s worth practicing some self discipline because it will help avoid sloppy work.</p>
-
-<p><img src="/blog/assets/img/2013/freebie-offset-select.png" alt="Freebie 1px Offset Shape Selection"></p>
-
-<p>Ahhh, isn&#39;t this much better?</p>
-
-<p><img src="/blog/assets/img/2013/freebie-offset-fix.png" alt="Freebie 1px Offset Correction"></p>
-
-<p>Don&#39;t assume the freebie is pixel-perfect, especially when transferring it between software applications. Keeping up your guard and not making assumptions will prevent slipshod work.</p>
-
-    </div>
-
-
-    
-
-</article>
-    
-        
-        
-        <article class="article">
-
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
-        <time class="date">31 Jan 2013</time>
-        <h1 class="title"><a href="/blog/posts/modularize-your-psds">Modularize Your PSDs by Embedding Them Inside Each Other</a></h1>
-        
-    </header>
-
-
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <p>If you&#39;ve ever used InDesign you&#39;ve no doubt used the &quot;Links&quot; panel. It allows you to link and embedd files in your document layout. InDesign keeps track of all the files you&#39;ve embedded and where they live on your hard drive. This gives you the power to relink files, updated modified files, edit the original files, and so forth. For example, say you embedd a logo in InDesign but then you want to modify it. You can go to the Links panel and click &quot;edit original&quot;. Illustrator (or whatever logo editing software you&#39;ve used) will open the file. You make your changes, save it, and go back to InDesign and the logo&#39;s changes will automatically update in your layout.</p>
-
-<p><img src="/blog/assets/img/2013/links-panel-indesign.png" alt="Links Panel in InDesign"></p>
-
-<p>I found myself wanting this feature in Photoshop. It would be extremely useful for building websites because you could modularize your PSDs. For example, I could create one PSD called <code>header.psd</code> and another called <code>footer.psd</code>. When I want to create a PSD for a new page mockup, I can easily &quot;embedd&quot; the header and footer PSDs into my new document. This allows me to easily spin-off new page mockups based on single PSD files. </p>
-
-<p>So, for example, if I want to change a design element in the header of my website, I only have to change it in one file and it would be replicated in all the PSDs where I&#39;ve embedded <code>header.psd</code>. This is essentially the same thing as creating a file called <code>header.php</code> that has all my main navigation and is called into every page template.</p>
-
-<p>Although InDesign supports this feature, Photoshop does not. However, a Google search led me to these two extensions which have become quite useful.</p>
-
-<ol>
-<li><a href="http://www.ps-scripts.com/bb/viewtopic.php?f=27&amp;t=3045&amp;sid=90f57aa35b85d5d38fe52ea551ac4a4c">Smart Object Links Panel</a></li>
-<li><a href="http://www.canlinkit.com/">CanLinkIt</a></li>
-</ol>
-
-<p>I&#39;m not sure what the development status of these are anymore, but they worked for me. Try them out! I think they will save you a lot of time. </p>
-
-<p>Now with PSDs you can edit once and change everywhere!</p>
+<p>Sometimes you work with ideas like a mason works with stone. You start with a large, unformed block of stone and slowly chip away at it until you arrive at the finished product. However, sometimes you work with ideas like a farmer doing a controlled burn. You burn everything down to make room for new growth. Only then do you see anew things hidden beforehand. </p>
 
     </div>
 
@@ -278,7 +257,7 @@
 
     <!-- Pagination links -->
     <div class="pagination">
-        <span class="page-number ">page 4 / 7</span>
+        <span class="page-number ">page 4 / 8</span>
 
         
             <a href="/blog/page3" class="previous"><span class="arrow">&laquo;</span> prev</a>

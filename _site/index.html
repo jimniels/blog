@@ -28,7 +28,7 @@
     <!-- Header
     =================================== -->
     <header class="header">
-        <a href="/blog/index.html">
+        <a href="/blog/">
             <img src="/blog/assets/img/logo.png" alt="Jim Nielsen" title="Jim Nielsen, Designer" class="site-logo" />
             <h1 class="site-title">Jim Nielsen, Designer</h1>
         </a>
@@ -38,8 +38,9 @@
     =================================== -->
     <nav class="navigation hide">
         <ul class="navigation-list">
-            <li><a href="/blog/index.html" class="navigation-item">Jim’s Blog</a></li>
-            <li><a href="/blog/archive.html" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/" class="navigation-item">Jim’s Blog</a></li>
+            <li><a href="/blog/archive/" class="navigation-item">Archive</a></li>
+            <li><a href="/blog/tags/" class="navigation-item">Tags</a></li>
             <li><a href="/blog/feed.xml" class="navigation-item">RSS</a></li>
             <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
             <li><a href="http://jim-nielsen.com/"  class="navigation-item icon-home">Jim’s Portfolio &raquo;</a></li>
@@ -60,10 +61,8 @@
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">29 Jul 2013</time>
-        <h1 class="title"><a href="/blog/posts/sass-variable-interpolation-workarounds">Workarounds to Variable Interpolation in Sass</a></h1>
-        
-            <p class="excerpt">Variable interpolation is currently not supported in Sass. If you want to map key value pairs for something such as a brand to its color, you can create a lookup function to do the trick.</p>
+        <time class="date">18 Dec 2013</time>
+        <h1 class="title"><a href="/blog/posts/ben-franklin-open-source-contributor">Benjamin Franklin, an Open Source Contributor?</a></h1>
         
     </header>
 
@@ -71,101 +70,15 @@
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Currently in Sass, interpolating list values in variable names is not supported (although maps are <a href="https://github.com/nex3/sass/issues/132#issuecomment-17581804">supposedly slated for Sass 3.3</a>). However, there is a workaround solution until maps come. Allow me to elaborate:</p>
+        <p>I was recently reading “The Autobiography of Benjamin Franklin” and came across an interesting little story that made me think of Benjamin Franklin as a believer in open source.</p>
 
-<h2>How I Thought It Could Work</h2>
+<p>Back in the 1700’s, Franklin invented an open stove that vastly improved the warming of rooms while simultaneously saving more fuel. He presented the model to friends and wrote a pamphlet about it which garnered him a lot of attention and positive publicity. His invention and writing had such a good effect that even the governor of Philadelphia used his stove and loved it. Here’s what happened next:</p>
 
-<p>A recent design project required I use a large variety of brand colors. To make things easy I wanted each brand name and it&#39;s corresponding brand color to be available for use at any time, both in HTML and CSS. Thus, for each brand color, I needed to create a CSS class (for use in HTML) and a Sass variable (for use in CSS output).</p>
+<blockquote>
+<p>Gov’r Thomas was so pleas’d with the construction of this stove ... that he offered to give me a patent for the sole vending of them for a term of years; but I declin’d it from a principle which has ever weighed with me on such occasions, viz., That, as we enjoy great advantages from the inventions of others, we should be glad of an opportunity to serve others by any invention of ours; and this we should do freely and generously.</p>
+</blockquote>
 
-<p>Something like this:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// Variables for Sass usage
-$nike: #ffaadd;
-$facebook: #ff8811; 
-$yahoo: #aaddcc;
-
-// CSS Classes for HTML usage
-.brand-nike { color: #ffaadd; }
-.brand-facebook { color: #ff8811; }
-.brand-yahoo { color: #aaddcc; }
-</code></pre></div>
-<p>Initially, I thought I could create a variable for each brand and use the <code>@each</code> directive to interpolate the values of a list containing all my brand names for the variables names I created. Something like this:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// Brand Variables
-$nike: #ffaadd;
-$facebook: #ff8811; 
-$yahoo: #aaddcc;
-
-// List of Brand Names
-$brand-names: nike, facebook, yahoo;
-
-// Output a class for each
-@each $brand-names in $brand-name {
-    .#{$brand-name}-color {
-        color: $#{brand-name};
-    }
-}
-</code></pre></div>
-<p>However, I soon discovered that variable interpolation is not currently supported in Sass. You can read more on the <a href="https://groups.google.com/forum/?fromgroups=#!topic/sass-lang/upr78cyrW1I">variable interpolation google group</a> or <a href="https://github.com/nex3/sass/issues/132">Sass Github issues</a>.</p>
-
-<h2>A Workaround to Variable Interpolation</h2>
-
-<p>User jonjaques put forward two <a href="https://github.com/nex3/sass/issues/132#issuecomment-4335097">interesting workarounds</a> for mapping values which I customized for my project. First I created two lists: <code>$brand-names</code> and <code>$brand-colors</code>:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// Brand names and colors
-$brand-names: nike, facebook, yahoo;
-$brand-colors: #ffaadd, #ff8811, #aaddcc;
-</code></pre></div>
-<p>The one caveat for my workaround is that the list indexes must correspond. For example, if &#39;facebook&#39; is the second name in the list <code>$brand-names</code>, Facebook’s color value must be second in the list  <code>$brand-colors</code>.</p>
-
-<p>To output a CSS class for each brand, I used a loop. To have on-demand access to brand colors in my Sass files, I created a lookup function.</p>
-
-<h3>CSS Classes: Loop Through Two Corresponding Lists</h3>
-
-<p>To output a CSS class for each brand and it’s corresponding color, I used the <code>@for</code> directive to loop through the two lists:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// Create a CSS class for each brand
-@for $i from 1 through length($brand-names) {
-    .color-#{nth($brand-names, $i)} {
-        color: nth($brand-colors, $i);
-    }
-}
-</code></pre></div>
-<p>The CSS output of this loop would look something like this:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">.color-nike {
-    color: #ffaadd;
-}
-.color-facebook {
-    color: #ff8811;
-}
-.color-yahoo {
-    color: #aaddcc;
-}
-</code></pre></div>
-<h3>On-Demand Solution: Create a Lookup Function</h3>
-
-<p>To have brand color values available on-demand while writing Sass code I created a lookup function. In my case, the function mapped a brand name in <code>$brand-names</code> to a brand color in <code>$brand-color</code>:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// Lookup function for a brand, returns a color
-@function get-brand-color($search) {
-    $index: index($brand-names, $search);
-    @return nth($brand-colors, $index);
-}
-</code></pre></div>
-<p>In the example above, <code>$search</code> is the brand name I’m looking for in <code>$brand-names</code>. The function returns the brand’s corresponding color. A simpler way of writing this would be to nest the list function <code>index()</code> like so:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// Lookup function for a brand, returns a color
-@function get-brand-color($search) {
-    @return nth($brand-colors, index($brand-names, $search));
-}
-</code></pre></div>
-<p>As an example, if I needed <code>&lt;div class=&quot;facebook-box&quot;&gt;</code> to have the background color of Facebook, I could do:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">div.facebook-box {
-    background: get-brand-color(&quot;facebook&quot;);
-}
-</code></pre></div>
-<p>The <code>get-brand-color</code> function takes the value I passed to it (facebook) and searches the list <code>$brand-names</code> for that value, returning its index position in the list. Then, the function grabs the corresponding index in <code>$brand-colors</code>, which should be the brand name&#39;s color (if you’ve mapped your lists correctly). The CSS output would look like this: </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">div.facebook-box {
-    background: #ff8811;
-}
-</code></pre></div>
-<h2>Conclusion</h2>
-
-<p>There are some good work arounds to variable interpolation available. Hopefully these examples get you on the right track for your own projects until Sass 3.3 is stable for release. Happy coding! </p>
+<p>I think we could all do to forget the monetary incentives behind innovative inventions and put human beings and their benefit back at the center of our daily purposes. As Paul Rand says, “It is only when man is not accepted as the centre of human concern that it becomes feasible to create a system of production which values profit out of proportion to responsible public service”.</p>
 
     </div>
 
@@ -181,8 +94,8 @@ $brand-colors: #ffaadd, #ff8811, #aaddcc;
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">24 Jul 2013</time>
-        <h1 class="title"><a href="/blog/posts/things-to-be-informed-about">Things to Be Informed About in Life</a></h1>
+        <time class="date">6 Nov 2013</time>
+        <h1 class="title"><a href="/blog/posts/evolution-of-creativity">The Evolution of Creativity</a></h1>
         
     </header>
 
@@ -190,129 +103,21 @@ $brand-colors: #ffaadd, #ff8811, #aaddcc;
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Somewhat recently on Quora, someone asked &quot;<a href="http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life">What are the top 10 things that we should be informed about, in life?</a>&quot;</p>
-
-<p><a href="http://www.quora.com/Justin-Freeman">Justin Freeman</a>, self-described as someone who is &quot;great at stuff nobody pays for&quot;, gave an excellent response to this question. I know I&#39;m only 26, but I like to think I&#39;ve learned a few things in life. And those few things I have learned seem to align perfectly with these excerpts from Justin&#39;s response:</p>
-
-<h2>Nobody Cares</h2>
-
-<blockquote>
-<p>Realize that nobody cares, and if they do, you shouldn&#39;t care that they care. Got a new car? Nobody cares. You&#39;ll get some gawkers for a couple of weeks—they don&#39;t care … Three weeks in it&#39;ll be just another shiny blob among all the thousands of others crawling down the freeway and sitting in garages and driveways up and down your street … Got a new gewgaw? New wardrobe? Went to a swanky restaurant? Exotic vacation? Nobody cares. <strong>Don&#39;t base your happiness on people caring, because they won&#39;t. And if they do, they either want your stuff or hate you for it.</strong> (emphasis added)</p>
-</blockquote>
-
-<h2>A Select Few Will Actually Care</h2>
-
-<p>You will encounter a few people in your life who will defy the odds and break the general rule that &quot;nobody cares&quot;. They won&#39;t care about your stuff, but they will care about you. As for the stuff you care about?</p>
-
-<blockquote>
-<p>… if they value you, they&#39;ll value that you value it, and they&#39;ll listen. When you talk about all of those things that nobody else cares about, they will look into your eyes and consume your words, and in that moment you will know that every part of them is there with you.</p>
-</blockquote>
-
-<p>I married one of these rule breakers, and it was the best thing that ever happened to me. But you don&#39;t have to marry them. You can befriend them, work with them, or spend time with them. No matter how much power you have, you cannot <strong>make</strong> other people sincerely care. So, as Freeman says, gather close the ones who do.</p>
-
-<h2>Money is Expensive</h2>
-
-<blockquote>
-<p>Money … it&#39;s difficult to get your hands on sometimes—and you never know when someone&#39;s going to pull the floorboards out from under you—so don&#39;t be stupid with it. Avoid debt on depreciating assets, and never incur debt in order to assuage your vanity. Debt has become normative, but don&#39;t blithely accept it as a rite of passage into adulthood—<strong>debt represents imbalance and, in some sense, often a resignation of control</strong>. Student loan debt isn&#39;t always unavoidable, but it isn&#39;t a given—my wife and I completed a combined ten years of college with zero debt between us. If you can&#39;t avoid it, though, make sure that your degree is an investment rather than a liability—I mourn a bit for all of the people going tens of thousands of dollars in debt in pursuit of vague liberal arts degrees with no idea of what they want out of life. If you&#39;re just dropping tuition dollars for lack of a better idea at the moment, just withdraw and go wander around Europe for a few weeks—I guarantee you&#39;ll spend less and learn more in the process. (<em>emphasis added</em>)</p>
-</blockquote>
-
-<p>Personally, I spent two years wandering around in Mexico before college. I learned more about the meaning and purpose of life there than I ever did in four years of college.</p>
-
-<h2>Read More</h2>
-
-<p>Freeman makes some other good points worth reading. You can <a href="http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life">check out the post on Quora</a>.</p>
-
-    </div>
-
-
-    
-
-</article>
-    
-        
-        
-        <article class="article">
-
-    <!-- Article Header
-    =================================== -->
-    <header class="article-header">
-        <time class="date">22 Jul 2013</time>
-        <h1 class="title"><a href="/blog/posts/preserving-CSS-comments-during-compression">Preserving CSS Comments For Wordpress During Sass Compression</a></h1>
-        
-    </header>
-
-
-    <!-- Article Content
-    =================================== -->
-    <div class="content">
-        <p>Compressing your CSS for production websites is a best-practice, especially if you&#39;re using a CSS preprocessor like Compass. If you don&#39;t compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file. </p>
-
-<p>Here&#39;s an example CSS rule before compression:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-// Here&#39;s a comment I have on styling my CSS
-a:hover {
-        border: 0; // remove border from CSS
-}
-</code></pre></div>
-<p>Now here&#39;s that same rule compressed:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">a:hover{border:0}
-</code></pre></div>
-<p>You should already be commenting your code generously. Thus, your CSS file size will increase rather quickly. Here&#39;s a comparison example of CSS file sizes for a project I&#39;m currently working on:</p>
+        <p>John Mayer, an incredibly influential and accomplished guitarist, speaks about the evolution of his personal skill set in <a href="http://www.youtube.com/watch?v=mm8G5-pug_w">this recording at Abbey Road</a>. These were a few points I found fascinating is his commentary on creativity:</p>
 
 <ul>
-<li>Prior to compression
-    - File size: 122.413kb 
-    - Lines of code: 4,601</li>
-<li>After compression:
-    - File size: 81kb
-    - Lines of code: 1</li>
+<li>Personal development comes about through failure, often times in the failure to imitate someone else’s success.</li>
+<li>Exponential development of any skill is easy at the outset, but that type of rapid improvement doesn’t last forever.</li>
+<li>It takes a lot of time — years — to develop your own creative style.</li>
+<li>Whatever you’re producing changes over the years. The work of year one is different than the work of year ten which is different than the work of year fifteen.</li>
+<li>Learning the technical side of creativity is the easy part. You spend the rest of your life learning how to employ those technical skills.</li>
 </ul>
 
-<p>To compress using Compass, simply run <code>compass compile -s compressed</code> to strip out all comments and other unnecessary content.</p>
-
-<h2>How Do You Preserve Selective Comments?</h2>
-
-<p>What if you want to preserve specific comments in your CSS? Suppose you want to include licensing information at the beginning of the file, or copyright information, or other required comments, how do you do it?</p>
-
-<h3>Wordpress Example</h3>
-
-<p>When creating a Wordpress theme, you <strong>must</strong> include CSS comments in <code>style.css</code> identifying your theme. It&#39;s usually something like this:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/*
-Theme Name: Twenty Ten
-Theme URI: http://wordpress.org/
-Description: The 2010 default theme for WordPress.
-Author: wordpressdotorg
-Author URI: http://wordpress.org/
-Version: 1.0
-*/
-</code></pre></div>
-<p>Why? Wordpress uses that information in to identify themes. From the <a href="http://codex.wordpress.org/Theme_Development#Theme_Stylesheet">codex</a>:</p>
+<p>Here’s my transcript of the video:</p>
 
 <blockquote>
-<p>The stylesheet must provide details about the Theme in the form of comments. <strong>No two Themes are allowed to have the same details</strong> listed in their comment headers, as this will lead to problems in the Theme selection dialog.</p>
+<p>Well when you&#39;re first starting out with something like guitar, like an instrument, like anything really, you can just keep doubling your capacity by the week. You’re 100% better next month, then 100% better the next month compared to the beginning. So I was completely enamored with that and wasn&#39;t into singing or writing or doing anything I was just in a kind of hands-on bootcamp for playing guitar. <br><br> About 17 years old I wanted to start writing songs and I realized I didn’t know anyone who could sing them. So I just started right in trying to sing and it was … [shakes head in disgust]. It took a lot of years to develop a more boiled-down vocal sound. You develop a style when you fail to sound exactly like the person you’re trying to sound like. Even in the songs I try to cover sometimes I’ll be really afraid that it’s a facsimile of the original song and then I go back and listen to the original song and I realize how many of my own instincts have made their way into there. So a lot of it is accidental, you know? What’s really interesting in the growth of all this is that I have gotten to be a better singer within the arc of my records. The way I sang in my first record is completely different from the way I’ve been singing in the last couple. I think now I’ve kinda found my way. Singing is a sticky and kind of hard-to-manage thing sometimes.<br><br> I don’t get twice as good on the guitar these days, you know, I haven’t for a while. But what I’m picking up now are the kind of like zen things, just in terms of thinking, because I have the technical side down now. It’s just a matter of ‘how does that implant itself in my mind’. And that’s kind of the ultimate - that you spend the rest of your life figuring out.</p>
 </blockquote>
-
-<p>So if you&#39;re creating a Wordpress theme, it&#39;s imperative your theme-identifying CSS comments <strong>do not</strong> get stripped out during compression. </p>
-
-<h3>The Solution</h3>
-
-<p>To ensure specific CSS comments are included in a compressed file, make the first letter of a comment <code>!</code>. According to the <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#comments">SASS documentation</a>:</p>
-
-<blockquote>
-<p>When the first letter of a comment is !, the comment will be interpolated and always rendered into css output even in compressed output modes.</p>
-</blockquote>
-
-<p>Thus, in the example above, your Wordpress comments would go something like this:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/*!
-Theme Name: Twenty Ten
-Theme URI: http://wordpress.org/
-Description: The 2010 default theme for WordPress.
-Author: wordpressdotorg
-Author URI: http://wordpress.org/
-Version: 1.0
-*/
-</code></pre></div>
-<p>Compass will now preserve that comment block when compressing your CSS. </p>
 
     </div>
 
@@ -328,8 +133,8 @@ Version: 1.0
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">15 Jul 2013</time>
-        <h1 class="title"><a href="/blog/posts/thoughts-from-on-writing-well">Thoughts from “On Writing Well”</a></h1>
+        <time class="date">21 Oct 2013</time>
+        <h1 class="title"><a href="/blog/posts/wireframes-and-gravity">Wireframes and Gravite</a></h1>
         
     </header>
 
@@ -337,31 +142,17 @@ Version: 1.0
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Fact: the book <a href="http://www.amazon.com/dp/0060891548"><em>On Writing Well</em></a> by William Zinsser is simply stellar. His advice on writing is insightful and succinct. In addition, his thoughts on writing spill into other areas of life.</p>
-
-<p>Here&#39;s two thoughts I found relevant to design:</p>
-
-<h2>Designing is Not a Contest</h2>
+        <p>Wired recently did <a href="http://www.wired.com/underwire/2013/10/center_of_gravity/">an interview with Alfonso Cuarón</a>, the director of the film <em>Gravity</em>. Cuarón relates how making the film took four and a half years. When asked why it was so difficult, he responded:</p>
 
 <blockquote>
-<p>Every writer is starting from a different point and is bound for a different destination. Yet many writers are paralyzed by the thought that they are competing with everybody else who is trying to write and presumably doing better.</p>
+<p>We had to do the whole film as an animation first. We edited that animation, even with sound, just to make sure the timing worked with the sound effects and music. And once we were happy with it, we had to do the lighting in the animation as well. Then all that animation translated to actual camera moves and positions for the lighting and actors. <strong>We did a whole exploration of the screenplay, every single moment; we made judgments about everything.</strong> Once we began shooting, we were constrained by the limitations of that programming. (emphasis added)</p>
 </blockquote>
 
-<p>This feeling of competition is often fostered in designers who see the work of associates being displayed in galleries while their own work gets no recognition. </p>
+<p>Did you catch that? Before it was filmed the entire movie was, in the terms of web designers, wireframed. </p>
 
-<p>Forget everyone else and go at your own pace. Nobody else is solving the exact design problem you are. Your problem is unique; hence your solution should be too. Your only contest is with yourself.</p>
+<p>Now I am not familiar with the world of film production, but I can see “wireframing movies” becoming an extremely popular practice based solely on the explorative, iterative nature of wireframes. This would allow directors to explore timing, camera angles, plot development, and other valuable components that constitute great film making.</p>
 
-<h2>Just Get Rid of It</h2>
-
-<p>Have you ever tried adding a design element only to find it extremely frustrating to do so? You put the element through all kinds of exertions: you move it to various locations, you resize and reform its structure, you change its colors, you add supporting elements in hopes of clarify its purpose, only to find the overall design worse than where you started?</p>
-
-<p>Zinsser says writers often encounter a similar impasse in constructing sentences. The solution? Get rid of the problem element. Unfortunately, this is usually our solution of last resort:</p>
-
-<blockquote>
-<p>look at the troublesome element and ask, &quot;do I need it at all?&quot; Probably you don&#39;t. It was trying to do an unnecessary job all along - thats why it was giving you so much grief. Remove it and watch the afflicted sentence spring to life and breathe normally. It&#39;s the quickest cure and often the best. </p>
-</blockquote>
-
-<p>Sometimes, the best solution is to get rid of the design element you&#39;re trying so hard to include.</p>
+<p>Similarly, as web designers, I think we would do well to imitate this same exploratory process in designing online experiences. Wireframing an entire website or experience can help explore every single moment of interaction and allow you (the designer) to make better, more informed decisions on molding the components of your website, like information architecture, URL design, animatable interactions, and so forth.</p>
 
     </div>
 
@@ -377,8 +168,8 @@ Version: 1.0
     <!-- Article Header
     =================================== -->
     <header class="article-header">
-        <time class="date">8 Jul 2013</time>
-        <h1 class="title"><a href="/blog/posts/scriptogram-posts-in-JSON-with-php">Retrieving Recent Posts from Scriptogram in JSON Format Using PHP</a></h1>
+        <time class="date">14 Oct 2013</time>
+        <h1 class="title"><a href="/blog/posts/ostentatious-design-and-profanity">Ostentatious Design & Profanity</a></h1>
         
     </header>
 
@@ -386,37 +177,104 @@ Version: 1.0
     <!-- Article Content
     =================================== -->
     <div class="content">
-        <p>Do you use <a href="http://scriptogr.am/">Scriptogr.am</a>? Do you want to programmatically retrieve your most recent posts from the service using PHP? It&#39;s not as simple as an API call, but it can be done.</p>
+        <p>I’m not sure why, but people love to curse. In fact, curse words are losing their potency and becoming increasingly banal because of overuse.</p>
 
-<h2>Before We Begin: The Javascript Method</h2>
+<p>For example, my Dad rarely cursed. When he did, it was never anything more than ‘damn’ or ‘hell’. However, when he used those words you knew he was mad. And if by some chance he said ‘shit’, well then you had better get as far away as possible because he was mad as a hornet (most likely from striking his thumb with a hammer). Now-a-days, it seems as though the use of profanity really gives no intimation into someone’s mood.</p>
 
-<p>In case you&#39;re interested, <a href="http://sicanstudios.com/post/recent-posts-scriptogram/">Alex at sicanstudios</a> has a great tutorial on how to retrieve and display your most recent Scriptogr.am posts using javascript.</p>
+<h2>Profanity in Human Language</h2>
 
-<h2>The PHP Method</h2>
+<p>Profanity is the part of language that many consider impolite, offensive, or vulgar. Its use is to either <strong>a)</strong> show crude debasement of someone or something, or <strong>b)</strong> show strong or intense emotions. Excessive vulgarity is quite detrimental to character, it:</p>
 
-<p>Scriptogr.am does not have a publicly accessible API. It does, however, provide an XML feed for each user. You can access your feed URL using this format:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">http://scriptogr.am/USERNAME/feed/
-</code></pre></div>
-<p>If you use PHP&#39;s <code>file_get_contents()</code> and pass it your Scriptogr.am feed URL, you&#39;ll be returned your most recent posts and accompanying metadata in XML form. </p>
+<ul>
+<li>Gives a bad impression</li>
+<li>Makes for unpleasant company</li>
+<li>Is a tool for whiners and complainers</li>
+<li>Is disrespectful</li>
+<li>Reveals lack of self-control and character</li>
+<li>Is immature, uneducated, and unsophisticated</li>
+<li>Sets a bad example</li>
+<li>Contributes to a decline in civility</li>
+<li>Is offensive and abrasive</li>
+<li>Can easily be interpreted as a gesture of hostility</li>
+<li>Corrosive to human language</li>
+<li>Is not effectively expressive; neglects better word choices and lacks imagination</li>
+</ul>
 
-<h3>Converting XML to JSON in PHP</h3>
+<h2>An Example of Ostentatious Design</h2>
 
-<p>Now that we have the data we want, we&#39;ve got to put it in the format we want (JSON). We can do that using the technique described in <a href="http://lostechies.com/seanbiefeld/2011/10/21/simple-xml-to-json-with-php/">this article from lostechies</a>.</p>
+<p>This app is called <a href="http://www.authenticweather.com/">Authentic Weather</a> and it’s censored by Apple’s app store for vulgarity:</p>
 
-<h2>Cut to the Chase: The Code</h2>
+<p><a href="http://www.behance.net/gallery/Authentic-Weather-for-iOS/10324571"><img src="http://a5.mzstatic.com/us/r30/Purple6/v4/93/b3/da/93b3da38-9daf-fd31-fd1e-b8cdf10183f1/screen568x568.jpeg" alt="Authentic Weather screenshot from iTunes"></a></p>
 
-<p>Here&#39;s the final PHP snippet that does everything we&#39;ve described above. Just change the <code>$username</code> value to your own Scriptogr.am username and you&#39;re good to go!</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">function get_scriptogram_JSON() {
-    $username = &#39;jimniels&#39;;
-    $url = &#39;http://scriptogr.am/&#39;. $username .&#39;/feed/&#39;;
-    $fileContents = file_get_contents($url);
-    $fileContents = str_replace(array(&quot;\n&quot;, &quot;\r&quot;, &quot;\t&quot;), &#39;&#39;, $fileContents);
-    $fileContents = trim(str_replace(&#39;&quot;&#39;, &quot;&#39;&quot;, $fileContents));
-    $simpleXml = simplexml_load_string($fileContents);
-    $json = json_encode($simpleXml);
-    return $json;
-}
-</code></pre></div>
+<p>Why do we need that? Why do we need to say, “It&#39;s f---ing cloudy now”? The point of the app, according to <a href="http://www.behance.net/gallery/Authentic-Weather-for-iOS/10324571">this gallery</a>, is to be authentic, honest, and get to the point. If you want to get to the point, leave out the superfluous words. Simply say “it’s cloudy”. You don&#39;t need the expletive “f---ing”. It’s unwarranted and crude. In addition, you don’t need the word “now” because of the present tense conjugation “it’s”.  If you want to “get to the point”, as the app’s proclamation states, “it’s raining” is more succinct.</p>
+
+<p>Some might argue, “but the cursing adds personality”. The dictionary defines personality as “the combination of characteristics or qualities that form an individual’s distinct character”. So if you want to hang out with someone (or something, in this case an app) whose character is formed by an unrefined, debased lexicon full or superfluous crudities then by all means.</p>
+
+<h2>Conclusion</h2>
+
+<p>As designers (and human beings) let’s ennoble people. Eliciting emotion through vulgarity is a lot easier than doing it through nobility (or at least decency). And that applies to everything be it design, humor, education, or anything else. </p>
+
+<p>You want to be good? Elicit human emotion (like the book 50 Shades of Grey). You want to be great? Ennoble the human spirit and intellect (like the timeless book Les Miserables).</p>
+
+    </div>
+
+
+    
+
+</article>
+    
+        
+        
+        <article class="article">
+
+    <!-- Article Header
+    =================================== -->
+    <header class="article-header">
+        <time class="date">26 Sep 2013</time>
+        <h1 class="title"><a href="/blog/posts/kindlingapp-home-page-redesign">Home Page Redesign of kindlingapp.com</a></h1>
+        
+    </header>
+
+
+    <!-- Article Content
+    =================================== -->
+    <div class="content">
+        <p>I recently redesigned the <a href="http://kindlingapp.com">kindlingapp.com</a> home page. The old home page jumped right into talking about APIs and security features without ever describing what the software was actually for. In contrast, the new design strives to more clearly and succinctly articulate what Kindling is and what real-life problems it solves.</p>
+
+<h2>Communicating Clearly</h2>
+
+<p>There’s an article stating how <a href="http://qz.com/132070/the-simple-reason-products-fail-consumers-dont-understand-what-they-do/">the simple reason products fail is because consumers don’t understand what they do</a>. To create a new, successful product you have to be able to communicate to customers what it is your product does and how it can solve their problems.</p>
+
+<p>Upon first impression that may sound easy, but it’s harder than you might think. Genuinely original and innovative products don’t fall into existing product categories. As a result, these innovations are often difficult to describe because there is no current framework for understanding them. Things that are difficult to describe will be even more difficult to understand, and that’s where the problem begins for businesses: when consumers don’t understand a product’s purpose they immediately lose interest.</p>
+
+<p>One of the best places to communicate what your business is all about is your website. Communicating an entire product’s purpose on the homepage requires lots of focus and discipline. </p>
+
+<p>The new disciplined design for <a href="http://kindlingapp.com">kindlingapp.com</a> focuses on narrating how Kindling is useful in discovering, sharing, and realizing ideas within an organization. My wife, after seeing the new page, said, &quot;oh, I actually know what the company you work for does now&quot;. </p>
+
+<h2>The Design</h2>
+
+<p>The design started with a collaborative Google doc for the page’s copy. Though not visual, creating and crafting the copy was one of the most difficult tasks of the design. After innumerable edits the copy provided enough substance to get started on devising visuals for the narrative. I started with various sketches to determine how and where the visuals could aid in communicating Kindling’s purpose.</p>
+
+<p><img src="/blog/assets/img/2013/kindling-home-sketch.jpg" alt="Kindling home page sketches"></p>
+
+<p>The artwork was then created in Photoshop. I dribbled a few previews of the work for historical sake:</p>
+
+<p><a href="http://dribbble.com/shots/1233555-Narrative-and-artwork-concepts"><img src="http://dribbble.s3.amazonaws.com/users/44352/screenshots/1233555/home-artwork.png" alt="Narrative and artwork concepts"></a></p>
+
+<p><a href="http://dribbble.com/shots/1237949-People-graphic"><img src="http://dribbble.s3.amazonaws.com/users/44352/screenshots/1237949/people.png" alt="People Artwork"></a></p>
+
+<p>After drawing up the graphics and reviewing them with stakeholders, it was time to turn the design elements into markup and responsively test the designs across devices:</p>
+
+<p><a href="http://dribbble.com/shots/1242191-Testing-responsively-now"><img src="http://dribbble.s3.amazonaws.com/users/44352/screenshots/1242191/drib.jpg" alt="Testing responsively now"></a></p>
+
+<h2>Final Product</h2>
+
+<p><img src="/blog/assets/img/2013/kindling-home-preview.jpg" alt="Kindling home page screenshot"></p>
+
+<p>It seems rather simple but forming the narrative and accompanying graphics took a lot of work. It is difficult to take everything an entire company stands for and distill it into a page that’s clear and simple enough for an anyone to understand. </p>
+
+<p>Iteration on the narrative will continue to take place, but this new home page was a great leap forward in explaining the problems Kindling’s software can solve.</p>
+
     </div>
 
 
@@ -427,7 +285,7 @@ Version: 1.0
 
     <!-- Pagination links -->
     <div class="pagination">
-        <span class="page-number ">page 1 / 7</span>
+        <span class="page-number ">page 1 / 8</span>
 
         
             <span class="previous disabled"><span class="arrow">&laquo;</span> prev</span>

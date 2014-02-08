@@ -7,6 +7,221 @@
         <atom:link href="http://jim-nielsen.com/blog/feed.xml" rel="self" type="application/rss+xml" />
         
                 <item>
+                    <title>Benjamin Franklin, an Open Source Contributor?</title>
+                    <description>&lt;p&gt;I was recently reading “The Autobiography of Benjamin Franklin” and came across an interesting little story that made me think of Benjamin Franklin as a believer in open source.&lt;/p&gt;
+
+&lt;p&gt;Back in the 1700’s, Franklin invented an open stove that vastly improved the warming of rooms while simultaneously saving more fuel. He presented the model to friends and wrote a pamphlet about it which garnered him a lot of attention and positive publicity. His invention and writing had such a good effect that even the governor of Philadelphia used his stove and loved it. Here’s what happened next:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Gov’r Thomas was so pleas’d with the construction of this stove ... that he offered to give me a patent for the sole vending of them for a term of years; but I declin’d it from a principle which has ever weighed with me on such occasions, viz., That, as we enjoy great advantages from the inventions of others, we should be glad of an opportunity to serve others by any invention of ours; and this we should do freely and generously.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I think we could all do to forget the monetary incentives behind innovative inventions and put human beings and their benefit back at the center of our daily purposes. As Paul Rand says, “It is only when man is not accepted as the centre of human concern that it becomes feasible to create a system of production which values profit out of proportion to responsible public service”.&lt;/p&gt;
+</description>
+                    <pubDate>Wed, 18 Dec 2013 00:00:00 -0500</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/ben-franklin-open-source-contributor</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/ben-franklin-open-source-contributor</guid>
+                </item>
+        
+                <item>
+                    <title>The Evolution of Creativity</title>
+                    <description>&lt;p&gt;John Mayer, an incredibly influential and accomplished guitarist, speaks about the evolution of his personal skill set in &lt;a href=&quot;http://www.youtube.com/watch?v=mm8G5-pug_w&quot;&gt;this recording at Abbey Road&lt;/a&gt;. These were a few points I found fascinating is his commentary on creativity:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Personal development comes about through failure, often times in the failure to imitate someone else’s success.&lt;/li&gt;
+&lt;li&gt;Exponential development of any skill is easy at the outset, but that type of rapid improvement doesn’t last forever.&lt;/li&gt;
+&lt;li&gt;It takes a lot of time — years — to develop your own creative style.&lt;/li&gt;
+&lt;li&gt;Whatever you’re producing changes over the years. The work of year one is different than the work of year ten which is different than the work of year fifteen.&lt;/li&gt;
+&lt;li&gt;Learning the technical side of creativity is the easy part. You spend the rest of your life learning how to employ those technical skills.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here’s my transcript of the video:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Well when you&amp;#39;re first starting out with something like guitar, like an instrument, like anything really, you can just keep doubling your capacity by the week. You’re 100% better next month, then 100% better the next month compared to the beginning. So I was completely enamored with that and wasn&amp;#39;t into singing or writing or doing anything I was just in a kind of hands-on bootcamp for playing guitar. &lt;br&gt;&lt;br&gt; About 17 years old I wanted to start writing songs and I realized I didn’t know anyone who could sing them. So I just started right in trying to sing and it was … [shakes head in disgust]. It took a lot of years to develop a more boiled-down vocal sound. You develop a style when you fail to sound exactly like the person you’re trying to sound like. Even in the songs I try to cover sometimes I’ll be really afraid that it’s a facsimile of the original song and then I go back and listen to the original song and I realize how many of my own instincts have made their way into there. So a lot of it is accidental, you know? What’s really interesting in the growth of all this is that I have gotten to be a better singer within the arc of my records. The way I sang in my first record is completely different from the way I’ve been singing in the last couple. I think now I’ve kinda found my way. Singing is a sticky and kind of hard-to-manage thing sometimes.&lt;br&gt;&lt;br&gt; I don’t get twice as good on the guitar these days, you know, I haven’t for a while. But what I’m picking up now are the kind of like zen things, just in terms of thinking, because I have the technical side down now. It’s just a matter of ‘how does that implant itself in my mind’. And that’s kind of the ultimate - that you spend the rest of your life figuring out.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+                    <pubDate>Wed, 06 Nov 2013 00:00:00 -0500</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/evolution-of-creativity</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/evolution-of-creativity</guid>
+                </item>
+        
+                <item>
+                    <title>Wireframes and Gravite</title>
+                    <description>&lt;p&gt;Wired recently did &lt;a href=&quot;http://www.wired.com/underwire/2013/10/center_of_gravity/&quot;&gt;an interview with Alfonso Cuarón&lt;/a&gt;, the director of the film &lt;em&gt;Gravity&lt;/em&gt;. Cuarón relates how making the film took four and a half years. When asked why it was so difficult, he responded:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We had to do the whole film as an animation first. We edited that animation, even with sound, just to make sure the timing worked with the sound effects and music. And once we were happy with it, we had to do the lighting in the animation as well. Then all that animation translated to actual camera moves and positions for the lighting and actors. &lt;strong&gt;We did a whole exploration of the screenplay, every single moment; we made judgments about everything.&lt;/strong&gt; Once we began shooting, we were constrained by the limitations of that programming. (emphasis added)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Did you catch that? Before it was filmed the entire movie was, in the terms of web designers, wireframed. &lt;/p&gt;
+
+&lt;p&gt;Now I am not familiar with the world of film production, but I can see “wireframing movies” becoming an extremely popular practice based solely on the explorative, iterative nature of wireframes. This would allow directors to explore timing, camera angles, plot development, and other valuable components that constitute great film making.&lt;/p&gt;
+
+&lt;p&gt;Similarly, as web designers, I think we would do well to imitate this same exploratory process in designing online experiences. Wireframing an entire website or experience can help explore every single moment of interaction and allow you (the designer) to make better, more informed decisions on molding the components of your website, like information architecture, URL design, animatable interactions, and so forth.&lt;/p&gt;
+</description>
+                    <pubDate>Mon, 21 Oct 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/wireframes-and-gravity</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/wireframes-and-gravity</guid>
+                </item>
+        
+                <item>
+                    <title>Ostentatious Design &amp; Profanity</title>
+                    <description>&lt;p&gt;I’m not sure why, but people love to curse. In fact, curse words are losing their potency and becoming increasingly banal because of overuse.&lt;/p&gt;
+
+&lt;p&gt;For example, my Dad rarely cursed. When he did, it was never anything more than ‘damn’ or ‘hell’. However, when he used those words you knew he was mad. And if by some chance he said ‘shit’, well then you had better get as far away as possible because he was mad as a hornet (most likely from striking his thumb with a hammer). Now-a-days, it seems as though the use of profanity really gives no intimation into someone’s mood.&lt;/p&gt;
+
+&lt;h2&gt;Profanity in Human Language&lt;/h2&gt;
+
+&lt;p&gt;Profanity is the part of language that many consider impolite, offensive, or vulgar. Its use is to either &lt;strong&gt;a)&lt;/strong&gt; show crude debasement of someone or something, or &lt;strong&gt;b)&lt;/strong&gt; show strong or intense emotions. Excessive vulgarity is quite detrimental to character, it:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Gives a bad impression&lt;/li&gt;
+&lt;li&gt;Makes for unpleasant company&lt;/li&gt;
+&lt;li&gt;Is a tool for whiners and complainers&lt;/li&gt;
+&lt;li&gt;Is disrespectful&lt;/li&gt;
+&lt;li&gt;Reveals lack of self-control and character&lt;/li&gt;
+&lt;li&gt;Is immature, uneducated, and unsophisticated&lt;/li&gt;
+&lt;li&gt;Sets a bad example&lt;/li&gt;
+&lt;li&gt;Contributes to a decline in civility&lt;/li&gt;
+&lt;li&gt;Is offensive and abrasive&lt;/li&gt;
+&lt;li&gt;Can easily be interpreted as a gesture of hostility&lt;/li&gt;
+&lt;li&gt;Corrosive to human language&lt;/li&gt;
+&lt;li&gt;Is not effectively expressive; neglects better word choices and lacks imagination&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;An Example of Ostentatious Design&lt;/h2&gt;
+
+&lt;p&gt;This app is called &lt;a href=&quot;http://www.authenticweather.com/&quot;&gt;Authentic Weather&lt;/a&gt; and it’s censored by Apple’s app store for vulgarity:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.behance.net/gallery/Authentic-Weather-for-iOS/10324571&quot;&gt;&lt;img src=&quot;http://a5.mzstatic.com/us/r30/Purple6/v4/93/b3/da/93b3da38-9daf-fd31-fd1e-b8cdf10183f1/screen568x568.jpeg&quot; alt=&quot;Authentic Weather screenshot from iTunes&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Why do we need that? Why do we need to say, “It&amp;#39;s f---ing cloudy now”? The point of the app, according to &lt;a href=&quot;http://www.behance.net/gallery/Authentic-Weather-for-iOS/10324571&quot;&gt;this gallery&lt;/a&gt;, is to be authentic, honest, and get to the point. If you want to get to the point, leave out the superfluous words. Simply say “it’s cloudy”. You don&amp;#39;t need the expletive “f---ing”. It’s unwarranted and crude. In addition, you don’t need the word “now” because of the present tense conjugation “it’s”.  If you want to “get to the point”, as the app’s proclamation states, “it’s raining” is more succinct.&lt;/p&gt;
+
+&lt;p&gt;Some might argue, “but the cursing adds personality”. The dictionary defines personality as “the combination of characteristics or qualities that form an individual’s distinct character”. So if you want to hang out with someone (or something, in this case an app) whose character is formed by an unrefined, debased lexicon full or superfluous crudities then by all means.&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;As designers (and human beings) let’s ennoble people. Eliciting emotion through vulgarity is a lot easier than doing it through nobility (or at least decency). And that applies to everything be it design, humor, education, or anything else. &lt;/p&gt;
+
+&lt;p&gt;You want to be good? Elicit human emotion (like the book 50 Shades of Grey). You want to be great? Ennoble the human spirit and intellect (like the timeless book Les Miserables).&lt;/p&gt;
+</description>
+                    <pubDate>Mon, 14 Oct 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/ostentatious-design-and-profanity</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/ostentatious-design-and-profanity</guid>
+                </item>
+        
+                <item>
+                    <title>Home Page Redesign of kindlingapp.com</title>
+                    <description>&lt;p&gt;I recently redesigned the &lt;a href=&quot;http://kindlingapp.com&quot;&gt;kindlingapp.com&lt;/a&gt; home page. The old home page jumped right into talking about APIs and security features without ever describing what the software was actually for. In contrast, the new design strives to more clearly and succinctly articulate what Kindling is and what real-life problems it solves.&lt;/p&gt;
+
+&lt;h2&gt;Communicating Clearly&lt;/h2&gt;
+
+&lt;p&gt;There’s an article stating how &lt;a href=&quot;http://qz.com/132070/the-simple-reason-products-fail-consumers-dont-understand-what-they-do/&quot;&gt;the simple reason products fail is because consumers don’t understand what they do&lt;/a&gt;. To create a new, successful product you have to be able to communicate to customers what it is your product does and how it can solve their problems.&lt;/p&gt;
+
+&lt;p&gt;Upon first impression that may sound easy, but it’s harder than you might think. Genuinely original and innovative products don’t fall into existing product categories. As a result, these innovations are often difficult to describe because there is no current framework for understanding them. Things that are difficult to describe will be even more difficult to understand, and that’s where the problem begins for businesses: when consumers don’t understand a product’s purpose they immediately lose interest.&lt;/p&gt;
+
+&lt;p&gt;One of the best places to communicate what your business is all about is your website. Communicating an entire product’s purpose on the homepage requires lots of focus and discipline. &lt;/p&gt;
+
+&lt;p&gt;The new disciplined design for &lt;a href=&quot;http://kindlingapp.com&quot;&gt;kindlingapp.com&lt;/a&gt; focuses on narrating how Kindling is useful in discovering, sharing, and realizing ideas within an organization. My wife, after seeing the new page, said, &amp;quot;oh, I actually know what the company you work for does now&amp;quot;. &lt;/p&gt;
+
+&lt;h2&gt;The Design&lt;/h2&gt;
+
+&lt;p&gt;The design started with a collaborative Google doc for the page’s copy. Though not visual, creating and crafting the copy was one of the most difficult tasks of the design. After innumerable edits the copy provided enough substance to get started on devising visuals for the narrative. I started with various sketches to determine how and where the visuals could aid in communicating Kindling’s purpose.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/kindling-home-sketch.jpg&quot; alt=&quot;Kindling home page sketches&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;The artwork was then created in Photoshop. I dribbled a few previews of the work for historical sake:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dribbble.com/shots/1233555-Narrative-and-artwork-concepts&quot;&gt;&lt;img src=&quot;http://dribbble.s3.amazonaws.com/users/44352/screenshots/1233555/home-artwork.png&quot; alt=&quot;Narrative and artwork concepts&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dribbble.com/shots/1237949-People-graphic&quot;&gt;&lt;img src=&quot;http://dribbble.s3.amazonaws.com/users/44352/screenshots/1237949/people.png&quot; alt=&quot;People Artwork&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After drawing up the graphics and reviewing them with stakeholders, it was time to turn the design elements into markup and responsively test the designs across devices:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dribbble.com/shots/1242191-Testing-responsively-now&quot;&gt;&lt;img src=&quot;http://dribbble.s3.amazonaws.com/users/44352/screenshots/1242191/drib.jpg&quot; alt=&quot;Testing responsively now&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Final Product&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/kindling-home-preview.jpg&quot; alt=&quot;Kindling home page screenshot&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;It seems rather simple but forming the narrative and accompanying graphics took a lot of work. It is difficult to take everything an entire company stands for and distill it into a page that’s clear and simple enough for an anyone to understand. &lt;/p&gt;
+
+&lt;p&gt;Iteration on the narrative will continue to take place, but this new home page was a great leap forward in explaining the problems Kindling’s software can solve.&lt;/p&gt;
+</description>
+                    <pubDate>Thu, 26 Sep 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/kindlingapp-home-page-redesign</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/kindlingapp-home-page-redesign</guid>
+                </item>
+        
+                <item>
+                    <title>The “Kinda-Sorta Looks Like the Internet” Internet</title>
+                    <description>&lt;blockquote&gt;
+&lt;p&gt;This is not a watered down version of the internet. Or the “mobile” version of the internet. Or the “kinda-sorta looks like the internet” internet. It’s just the internet. On your phone.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/iphone-commercial.jpg&quot; alt=&quot;iPhone internet TV ad screenshot&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Those are the words from a &lt;a href=&quot;http://www.youtube.com/watch?v=ldjHqHC6szA&quot;&gt;2007 TV ad&lt;/a&gt; showcasing the capabilities of Apple’s new iPhone which allowed you to browse the internet. Not the stripped-down version so many PDAs and other mobile devices were accessing at the time, but the real internet. The same internet you saw on your desktop computer. That was revolutionary.&lt;/p&gt;
+
+&lt;p&gt;Why? People want the web to be universal. They want the same internet they use everywhere else. They want to see and do the same things on their mobile device that they see and do on their desktop at home. So next time you think about stripping a feature from your responsive website or creating an entirely different “mobile-optimized” version of it remember this ad. &lt;/p&gt;
+
+&lt;p&gt;I‘d venture to say that most people would rather double tap and two-finger pinch their way around the “desktop” web than be short-changed on content or capabilities for a “mobile-optimized” web.&lt;/p&gt;
+</description>
+                    <pubDate>Thu, 26 Sep 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/kinda-sorta-looks-like-the-internet</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/kinda-sorta-looks-like-the-internet</guid>
+                </item>
+        
+                <item>
+                    <title>Automating Feelings</title>
+                    <description>&lt;blockquote&gt;
+&lt;p&gt;It’s been hard not to feel a deepening of the soul as the palette of online emotion signifiers has expanded from sparse typographic emoticons to colorful and animated emoji. (Nicolas Carr, “&lt;a href=&quot;http://www.roughtype.com/?p=3693&quot;&gt;Automating the feels&lt;/a&gt;”)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/emoji-transformation.png&quot; alt=&quot;Emoji Transformation&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Social networks (and digital products) are now focusing on providing tools to help users express how they feel. Structuring human emotion into a machine-readable format might possibly be the next holy grail of the digital world. &lt;/p&gt;
+
+&lt;p&gt;However, these seemingly innocuous tools have the power to change us by changing the way we express ourselves. If you have have an emotion that cannot be encapsulated in any available emoji, did you really feel it? At least by putting &lt;em&gt;some&lt;/em&gt; type of graphically-expressible emotional symbol in a post you (and your friends) will know you felt &lt;em&gt;something&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The problem is human emotion is so heterogeneous, nuanced, and penetrating that language itself often falls short of describing it. How many times have you heard, “There are no words to describe this”? &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The more we rely on finishing ideas with the same limited words (feeling happy) and images (smiley face) available to everyone on a platform, the more those pre-fabricated symbols structure and limit the ideas we express … these expression makes us one-dimensional, living caricatures of G-mail’s canned responses — a style of speech better suited to emotionless computers than flesh-and-blood humans. As Marshall McLuhan observed, just as we shape our tools, they shape us too. It’s a two-way street. - &lt;a href=&quot;http://www.wired.com/opinion/2013/08/move-over-social-graph-its-time-for-the-mood-graph-and-that-might-not-be-a-good-thing/&quot;&gt;Evan Selinger&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+                    <pubDate>Mon, 23 Sep 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/automating-feelings</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/automating-feelings</guid>
+                </item>
+        
+                <item>
+                    <title>Once Again, It’s About Putting the User First</title>
+                    <description>&lt;p&gt;Drew Crawford recently wrote a lengthy, in-depth article titled “&lt;a href=&quot;http://sealedabstract.com/rants/why-mobile-web-apps-are-slow/&quot;&gt;Why mobile web apps are slow&lt;/a&gt;”. A lot of it was over my head; nevertheless, I enjoyed his exhaustive, heavily-cited exposition on managed languages and their performance (especially on mobile) vs. compiled languages. &lt;/p&gt;
+
+&lt;h2&gt;Change the whole way you think about mobile software development&lt;/h2&gt;
+
+&lt;p&gt;Towards the latter half of the article, Crawford asserts, “What you are about to read should change the whole way you think about mobile software development.” That’s a pretty big assertion. Even though I couldn’t completely grasp everything he had written up to that point, I had to continue reading.&lt;/p&gt;
+
+&lt;p&gt;Crawford explains how, in 2012, Apple pulled garbage collection from OSX. If you come from writing Ruby, Python, Javascript, Java, or really any language since 1990 this should seem odd because, after all, garbage collection has been proven…right? Well, what makes this even more strange is that when Apple announced Automatic Reference Counting (or ARC) as their approach to memory management and deprecated Garbage Collection (GC) in OSX, the audience broke out into applause! “Okay … this is really freaking weird,” Crawford states, “You mean to tell me that there’s a room full of developers applauding the return to the pre-garbage collection chaos?” Why?&lt;/p&gt;
+
+&lt;p&gt;The answer to that question is the reason I am writing this article. Here’s what Apple had to say about ARC vs. GC:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;At the top of your wish list of things we could do for you is bringing garbage collection to iOS. And that is exactly what we are not going to do… Unfortunately garbage collection has a suboptimal impact on performance. Garbage can build up in your applications and increase the high water mark of your memory usage. And the collector tends to kick in at undeterministic times which can lead to very high CPU usage and stutters in the user experience. And that’s why GC has not been acceptable to us on our mobile platforms. In comparison, manual memory management with retain/release is harder to learn, and quite frankly it’s a bit of a pain in the ass. But it produces better and more predictable performance, and that’s why we have chosen it as the basis of our memory management strategy. &lt;strong&gt;Because out there in the real world, high performance and stutter-free user experiences are what matters to our users.&lt;/strong&gt; ~Session 300, Developer Tools Kickoff, 2011, 00:47:49&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Did you catch that? Apple asserts that garbage collection kicks in at unexpected times leading to high CPU usage which will hamper the user experience. In comparison, ARC “produces better and more predictable performance” which will not hamper the user experience at unexpected times. Apple chose manual memory management not for themselves (after all, it’s a “pain in the ass”) but for their users.  They chose the hard way, the long-way round, because “out there in the real world, stutter-free user experiences are what matters to users.”&lt;/p&gt;
+
+&lt;p&gt;Apple chose to put users first rather than developers, marketers, pundits, and many others. Judging by their success, would you say it has paid off?&lt;/p&gt;
+</description>
+                    <pubDate>Mon, 12 Aug 2013 00:00:00 -0400</pubDate>
+                    <link>http://jim-nielsen.com/blog/posts/putting-the-user-first</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/putting-the-user-first</guid>
+                </item>
+        
+                <item>
                     <title>Workarounds to Variable Interpolation in Sass</title>
                     <description>&lt;p&gt;Currently in Sass, interpolating list values in variable names is not supported (although maps are &lt;a href=&quot;https://github.com/nex3/sass/issues/132#issuecomment-17581804&quot;&gt;supposedly slated for Sass 3.3&lt;/a&gt;). However, there is a workaround solution until maps come. Allow me to elaborate:&lt;/p&gt;
 
@@ -146,277 +361,6 @@ $brand-colors: #ffaadd, #ff8811, #aaddcc;
                     <pubDate>Wed, 24 Jul 2013 00:00:00 -0400</pubDate>
                     <link>http://jim-nielsen.com/blog/posts/things-to-be-informed-about</link>
                     <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/things-to-be-informed-about</guid>
-                </item>
-        
-                <item>
-                    <title>Preserving CSS Comments For Wordpress During Sass Compression</title>
-                    <description>&lt;p&gt;Compressing your CSS for production websites is a best-practice, especially if you&amp;#39;re using a CSS preprocessor like Compass. If you don&amp;#39;t compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file. &lt;/p&gt;
-
-&lt;p&gt;Here&amp;#39;s an example CSS rule before compression:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-// Here&amp;#39;s a comment I have on styling my CSS
-a:hover {
-        border: 0; // remove border from CSS
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now here&amp;#39;s that same rule compressed:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;a:hover{border:0}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You should already be commenting your code generously. Thus, your CSS file size will increase rather quickly. Here&amp;#39;s a comparison example of CSS file sizes for a project I&amp;#39;m currently working on:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Prior to compression
-    - File size: 122.413kb 
-    - Lines of code: 4,601&lt;/li&gt;
-&lt;li&gt;After compression:
-    - File size: 81kb
-    - Lines of code: 1&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;To compress using Compass, simply run &lt;code&gt;compass compile -s compressed&lt;/code&gt; to strip out all comments and other unnecessary content.&lt;/p&gt;
-
-&lt;h2&gt;How Do You Preserve Selective Comments?&lt;/h2&gt;
-
-&lt;p&gt;What if you want to preserve specific comments in your CSS? Suppose you want to include licensing information at the beginning of the file, or copyright information, or other required comments, how do you do it?&lt;/p&gt;
-
-&lt;h3&gt;Wordpress Example&lt;/h3&gt;
-
-&lt;p&gt;When creating a Wordpress theme, you &lt;strong&gt;must&lt;/strong&gt; include CSS comments in &lt;code&gt;style.css&lt;/code&gt; identifying your theme. It&amp;#39;s usually something like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;/*
-Theme Name: Twenty Ten
-Theme URI: http://wordpress.org/
-Description: The 2010 default theme for WordPress.
-Author: wordpressdotorg
-Author URI: http://wordpress.org/
-Version: 1.0
-*/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Why? Wordpress uses that information in to identify themes. From the &lt;a href=&quot;http://codex.wordpress.org/Theme_Development#Theme_Stylesheet&quot;&gt;codex&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;The stylesheet must provide details about the Theme in the form of comments. &lt;strong&gt;No two Themes are allowed to have the same details&lt;/strong&gt; listed in their comment headers, as this will lead to problems in the Theme selection dialog.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;So if you&amp;#39;re creating a Wordpress theme, it&amp;#39;s imperative your theme-identifying CSS comments &lt;strong&gt;do not&lt;/strong&gt; get stripped out during compression. &lt;/p&gt;
-
-&lt;h3&gt;The Solution&lt;/h3&gt;
-
-&lt;p&gt;To ensure specific CSS comments are included in a compressed file, make the first letter of a comment &lt;code&gt;!&lt;/code&gt;. According to the &lt;a href=&quot;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#comments&quot;&gt;SASS documentation&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;When the first letter of a comment is !, the comment will be interpolated and always rendered into css output even in compressed output modes.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Thus, in the example above, your Wordpress comments would go something like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;/*!
-Theme Name: Twenty Ten
-Theme URI: http://wordpress.org/
-Description: The 2010 default theme for WordPress.
-Author: wordpressdotorg
-Author URI: http://wordpress.org/
-Version: 1.0
-*/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Compass will now preserve that comment block when compressing your CSS. &lt;/p&gt;
-</description>
-                    <pubDate>Mon, 22 Jul 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/preserving-CSS-comments-during-compression</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/preserving-CSS-comments-during-compression</guid>
-                </item>
-        
-                <item>
-                    <title>Thoughts from “On Writing Well”</title>
-                    <description>&lt;p&gt;Fact: the book &lt;a href=&quot;http://www.amazon.com/dp/0060891548&quot;&gt;&lt;em&gt;On Writing Well&lt;/em&gt;&lt;/a&gt; by William Zinsser is simply stellar. His advice on writing is insightful and succinct. In addition, his thoughts on writing spill into other areas of life.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;#39;s two thoughts I found relevant to design:&lt;/p&gt;
-
-&lt;h2&gt;Designing is Not a Contest&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Every writer is starting from a different point and is bound for a different destination. Yet many writers are paralyzed by the thought that they are competing with everybody else who is trying to write and presumably doing better.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This feeling of competition is often fostered in designers who see the work of associates being displayed in galleries while their own work gets no recognition. &lt;/p&gt;
-
-&lt;p&gt;Forget everyone else and go at your own pace. Nobody else is solving the exact design problem you are. Your problem is unique; hence your solution should be too. Your only contest is with yourself.&lt;/p&gt;
-
-&lt;h2&gt;Just Get Rid of It&lt;/h2&gt;
-
-&lt;p&gt;Have you ever tried adding a design element only to find it extremely frustrating to do so? You put the element through all kinds of exertions: you move it to various locations, you resize and reform its structure, you change its colors, you add supporting elements in hopes of clarify its purpose, only to find the overall design worse than where you started?&lt;/p&gt;
-
-&lt;p&gt;Zinsser says writers often encounter a similar impasse in constructing sentences. The solution? Get rid of the problem element. Unfortunately, this is usually our solution of last resort:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;look at the troublesome element and ask, &amp;quot;do I need it at all?&amp;quot; Probably you don&amp;#39;t. It was trying to do an unnecessary job all along - thats why it was giving you so much grief. Remove it and watch the afflicted sentence spring to life and breathe normally. It&amp;#39;s the quickest cure and often the best. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Sometimes, the best solution is to get rid of the design element you&amp;#39;re trying so hard to include.&lt;/p&gt;
-</description>
-                    <pubDate>Mon, 15 Jul 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/thoughts-from-on-writing-well</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/thoughts-from-on-writing-well</guid>
-                </item>
-        
-                <item>
-                    <title>Retrieving Recent Posts from Scriptogram in JSON Format Using PHP</title>
-                    <description>&lt;p&gt;Do you use &lt;a href=&quot;http://scriptogr.am/&quot;&gt;Scriptogr.am&lt;/a&gt;? Do you want to programmatically retrieve your most recent posts from the service using PHP? It&amp;#39;s not as simple as an API call, but it can be done.&lt;/p&gt;
-
-&lt;h2&gt;Before We Begin: The Javascript Method&lt;/h2&gt;
-
-&lt;p&gt;In case you&amp;#39;re interested, &lt;a href=&quot;http://sicanstudios.com/post/recent-posts-scriptogram/&quot;&gt;Alex at sicanstudios&lt;/a&gt; has a great tutorial on how to retrieve and display your most recent Scriptogr.am posts using javascript.&lt;/p&gt;
-
-&lt;h2&gt;The PHP Method&lt;/h2&gt;
-
-&lt;p&gt;Scriptogr.am does not have a publicly accessible API. It does, however, provide an XML feed for each user. You can access your feed URL using this format:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;http://scriptogr.am/USERNAME/feed/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;If you use PHP&amp;#39;s &lt;code&gt;file_get_contents()&lt;/code&gt; and pass it your Scriptogr.am feed URL, you&amp;#39;ll be returned your most recent posts and accompanying metadata in XML form. &lt;/p&gt;
-
-&lt;h3&gt;Converting XML to JSON in PHP&lt;/h3&gt;
-
-&lt;p&gt;Now that we have the data we want, we&amp;#39;ve got to put it in the format we want (JSON). We can do that using the technique described in &lt;a href=&quot;http://lostechies.com/seanbiefeld/2011/10/21/simple-xml-to-json-with-php/&quot;&gt;this article from lostechies&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2&gt;Cut to the Chase: The Code&lt;/h2&gt;
-
-&lt;p&gt;Here&amp;#39;s the final PHP snippet that does everything we&amp;#39;ve described above. Just change the &lt;code&gt;$username&lt;/code&gt; value to your own Scriptogr.am username and you&amp;#39;re good to go!&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;function get_scriptogram_JSON() {
-    $username = &amp;#39;jimniels&amp;#39;;
-    $url = &amp;#39;http://scriptogr.am/&amp;#39;. $username .&amp;#39;/feed/&amp;#39;;
-    $fileContents = file_get_contents($url);
-    $fileContents = str_replace(array(&amp;quot;\n&amp;quot;, &amp;quot;\r&amp;quot;, &amp;quot;\t&amp;quot;), &amp;#39;&amp;#39;, $fileContents);
-    $fileContents = trim(str_replace(&amp;#39;&amp;quot;&amp;#39;, &amp;quot;&amp;#39;&amp;quot;, $fileContents));
-    $simpleXml = simplexml_load_string($fileContents);
-    $json = json_encode($simpleXml);
-    return $json;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-                    <pubDate>Mon, 08 Jul 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/scriptogram-posts-in-JSON-with-php</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/scriptogram-posts-in-JSON-with-php</guid>
-                </item>
-        
-                <item>
-                    <title>When Advertising Became About the Buyer, Not the Product</title>
-                    <description>&lt;p&gt;Neil Postman, in his book &lt;em&gt;&lt;a href=&quot;http://www.amazon.com/Technopoly-The-Surrender-Culture-Technology/dp/0679745408&quot;&gt;Technopoly: The Surrender of Culture to Technology&lt;/a&gt;&lt;/em&gt;, tells the story of how advertisers in the late 1800&amp;#39;s began to realize marketing products isn&amp;#39;t about extolling the benefits of the products themselves. Rather, effective advertising is, as Postman remarks, about using the persuasive power of language and photographs:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Advertising is most effective when it is irrational. By irrational, I do not, of course, mean crazy. I mean that products [can] best be sold by exploiting the magical and even poetical powers of language and pictures. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Postman uses the word &amp;quot;irrational&amp;quot; to reveal how advertisers previously employed logic and reason to sell products. However, they soon realized that compelling language and photographs were more powerful in consumers&amp;#39; minds than logic and reason; hence the irrationality of advertising:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;By the turn of the century, advertisers no longer assumed that reason was the best instrument for the communication of commercial products and ideas. Advertising became one part depth psychology, one part aesthetic theory. In the process, a fundamental principle of capitalist ideology was rejected: namely, that the producer and consumer were engaged in a rational enterprise in which consumers made choices on the basis of a careful consideration of the quality of a product and their own self-interest. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This rejection of rationality in consumer enterprise led to the type of advertising we have today, where commercials and ads aren&amp;#39;t about the products being sold but rather the character of the consumers viewing the ad:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Today, the television commercial, for example, is rarely about the character of the products. It is about the character of the consumers of products. Images of movie stars and famous athletes, of serene lakes and macho fishing trips, of elegant dinners and romantic interludes, of happy families packing their station wagons for a picnic in the country — these tell nothing about the products being sold. But they tell everything about the fears, fancies, and dreams of those who might buy them. &lt;strong&gt;What the advertiser needs to know is not what is right about the product but what is wrong about the buyer.&lt;/strong&gt; And so the balance of business expenditures shifts from product research to market research, &lt;strong&gt;which means orienting business away from making products of value and toward making consumers feel valuable.&lt;/strong&gt; The business of business becomes pseudo-therapy; the consumer, a patient reassured by psychodramas. (emphasis added)&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-                    <pubDate>Thu, 27 Jun 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/advertising-for-the-buyer</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/advertising-for-the-buyer</guid>
-                </item>
-        
-                <item>
-                    <title>Seemly Selectors</title>
-                    <description>&lt;p&gt;Take a look at this:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;*&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;In CSS terms, that&amp;#39;s the universal selector. Are warning sirens relating to performance sounding in your head? Are you feeling emotions of avoidance, like you do when you see &lt;code&gt;!important&lt;/code&gt;? It&amp;#39;s possible you do. The universal selector carries a negative stigma of poor performance. But should it? &lt;a href=&quot;http://paulirish.com/2012/box-sizing-border-box-ftw/&quot;&gt;Paul Irish answers&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Apparently you’ve heard its slow. Firstly, it’s not. It is as fast as &lt;code&gt;h1&lt;/code&gt; as a selector. It can be slow when you specifically use it like &lt;code&gt;.foo &amp;gt;&lt;/code&gt; , so don’t do that&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;It can be slow, but mostly it&amp;#39;s not. Still, that may seem like reason enough in your mind to avoid using (or misusing) it. Stop thinking that way. Turn those &amp;quot;&lt;a href=&quot;http://en.wikipedia.org/wiki/Danger,_Will_Robinson&quot;&gt;Danger, Will Robison!&lt;/a&gt;&amp;quot; sirens off. Don&amp;#39;t be afraid to use it. Why? Paul Irish continues:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;You are not allowed to care about the performance of &lt;code&gt;*&lt;/code&gt; unless you concatenate all your javascript, have it at the bottom, minify your css and js, gzip all your assets, and losslessly compress all your images.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;It&amp;#39;s important to remember that general rules of thumb, such as:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;don&amp;#39;t use the &lt;code&gt;*&lt;/code&gt; selector, it&amp;#39;s slow&lt;/li&gt;
-&lt;li&gt;don&amp;#39;t use the &lt;code&gt;!important&lt;/code&gt; rule&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;are rules discovered and shared by developers working on immensely large scale applications and websites, like Google.com. Some rules just don&amp;#39;t apply to your ten page Wordpress site. &lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;*&lt;/code&gt; and &lt;code&gt;!important&lt;/code&gt; rules were invented for a reason. If you find yourself needing them, use them. That&amp;#39;s what they were made for. If page performance takes a hit, look into larger-scale optimization techniques first, such as image optimization and concatenation. After that, you can get down to the nit-picky. In general, &lt;a href=&quot;http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/&quot;&gt;optimization of selectors should be the job of the rendering engine&lt;/a&gt;, not the designer.&lt;/p&gt;
-</description>
-                    <pubDate>Tue, 11 Jun 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/seemly-selectors</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/seemly-selectors</guid>
-                </item>
-        
-                <item>
-                    <title>Changes to max_upload_filesize not working in php.ini? Restart Apache!</title>
-                    <description>&lt;p&gt;I was trying to import a SQL database into a local copy of Wordpress. The SQL file was larger than the standard 2MB upload limit, so Wordpress wouldn&amp;#39;t let me upload it. &lt;/p&gt;
-
-&lt;p&gt;After some research, I realized I could change the &lt;code&gt;max_upload_filesize&lt;/code&gt; in the &lt;code&gt;php.ini&lt;/code&gt; file. However, after changing the value to 10MB, Wordpress was still indicating the prior upload limit of 2MB. After wasting time trying other fixes, I suddenly realized I had not restarted apache!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/duh.gif&quot; alt=&quot;Duh!&quot;&gt;&lt;/p&gt;
-
-&lt;p&gt;From the command line &lt;code&gt;sudo apachectl restart&lt;/code&gt; restarted my local apache server and changed my upload limit to 10MB in Wordpress.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Lesson&lt;/strong&gt;: if you&amp;#39;re tinkering in configuration files, don&amp;#39;t forget to restart apache to see your changes!&lt;/p&gt;
-</description>
-                    <pubDate>Mon, 10 Jun 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/max-upload-filesize-restart-apache</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/max-upload-filesize-restart-apache</guid>
-                </item>
-        
-                <item>
-                    <title>Scriptogram Logo in Vector Form (.svg)</title>
-                    <description>&lt;p&gt;While working on a recent design, I suddenly needed a vector version of the &lt;a href=&quot;http://scriptogr.am/&quot;&gt;scriptogram&lt;/a&gt; logo. I couldn&amp;#39;t find one on the web, so I made one myself.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/scriptogram-logo.png&quot; alt=&quot;Scriptogram Logo&quot;&gt;&lt;/p&gt;
-
-&lt;p&gt;If you find yourself needing the &lt;a href=&quot;/blog/assets/img/2013/scriptogram-logo.svg&quot;&gt;scriptogram logo in vector form&lt;/a&gt;, you can download the version I created.&lt;/p&gt;
-</description>
-                    <pubDate>Wed, 29 May 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/scriptogram-vector-logo</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/scriptogram-vector-logo</guid>
-                </item>
-        
-                <item>
-                    <title>Stop Direct Spam Comments in Wordpress</title>
-                    <description>&lt;p&gt;I recently redesigned my wordpress theme for &lt;a href=&quot;http://iosicongallery.com&quot;&gt;iOS Icon Gallery&lt;/a&gt; and &lt;a href=&quot;http://macicongallery.com&quot;&gt;Mac Icon Gallery&lt;/a&gt;. &lt;/p&gt;
-
-&lt;p&gt;The old themes provided the ability to comment through the interface. Due to a lack of real comments and a surplus in spam comments, I decided to entirely remove the ability to comment from the interface. &lt;/p&gt;
-
-&lt;h2&gt;Removing the Ability to Comment From the Interface Is Not Enough to Keep Out Spam&lt;/h2&gt;
-
-&lt;p&gt;Once my theme went live, I was still getting spam comments in the Wordpress backend. I asked myself, &amp;quot;how are comments still appearing in the Wordpress backend when I don&amp;#39;t have a single comment form on my website?&amp;quot; After some Googling, I discovered this was due to spambots posting data directly using &lt;code&gt;wp-comments-post.php&lt;/code&gt;. &lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/sneaky.gif&quot; alt=&quot;Sneaky Gif&quot;&gt;&lt;/p&gt;
-
-&lt;h2&gt;Further Stopping Spambots&lt;/h2&gt;
-
-&lt;p&gt;To prevent spambots from posting to Wordpress via a URL, you can block access to &lt;code&gt;wp-comments-post.php&lt;/code&gt; via the &lt;code&gt;.htaccess&lt;/code&gt; file. Simply include these rules in your &lt;code&gt;.htaccess&lt;/code&gt; file (thanks to &lt;a href=&quot;http://www.catswhocode.com/blog/snippets/blockreduce-wordpress-spam-comments-via-htaccess&quot;&gt;catswhocode&lt;/a&gt;)&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;&amp;lt;IfModule mod_rewrite.c&amp;gt;
-    RewriteEngine On
-    RewriteCond %{REQUEST_METHOD} POST
-    RewriteCond %{REQUEST_URI} .wp-comments-post.php*
-    RewriteCond %{HTTP_REFERER} !.*yourdomainname.* [OR]
-    RewriteCond %{HTTP_USER_AGENT} ^$
-    RewriteRule (.*) ^http://%{REMOTE_ADDR}/$ [R=301,L]
-&amp;lt;/IfModule&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Be sure to change the &lt;code&gt;yourdomainname&lt;/code&gt; part!&lt;/p&gt;
-
-&lt;h2&gt;That Doesn&amp;#39;t Help You?&lt;/h2&gt;
-
-&lt;p&gt;If this doesn&amp;#39;t seem like the best fix for you, try looking at this article from WP Tuts+ detailing &lt;a href=&quot;http://wp.tutsplus.com/tutorials/security/6-easy-and-efficient-ways-to-combat-spam-comments/&quot;&gt;easy and efficient ways to combat spam comments&lt;/a&gt;.&lt;/p&gt;
-</description>
-                    <pubDate>Wed, 22 May 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/stop-direct-spam-comments-in-wordpress</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/stop-direct-spam-comments-in-wordpress</guid>
                 </item>
         
     </channel>
