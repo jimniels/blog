@@ -27,6 +27,7 @@ aside.archive {
     overflow: hidden;
     margin: 0 0 1em;
 
+    // Date
     time {
         font-family: $font-stack-secondary;
         font-size: .625em;
@@ -34,14 +35,36 @@ aside.archive {
         letter-spacing: -0.0125em;
         float: left;
         display: block;
-        width: 4em;
+        width: 7em;
+        padding-right: 1em;
+        text-align: right;
 
         @media screen and (max-width: $media-query-s) {
             float: none;
             line-height: 1;
+            padding-right: 0;
+            text-align: left;
         }
     }
 
+    // Tag count
+    span {
+        float: left;
+        width: 1.825em;
+        text-align: center;
+        padding-right: 1em;
+        font-size: .8em;
+        background: #f7f7f7;
+        border-radius: .35em;
+        line-height: 1;
+        padding: .25em;
+        margin-right: 1em;
+        font-family: Georgia, sans-serif;
+        margin-top: .325em;
+        color: #777;
+    }
+
+    // Link
     a {
         @include truncate;
 

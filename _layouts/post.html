@@ -1,10 +1,4 @@
 ---
 layout: default
 ---
-
-    {% include post.html %}
-    
-    <aside class="archive">
-        {% assign firstTag = page.tags | first %}
-        {% include archive.html currentTag=firstTag RecentPosts=true %}
-    </aside>
+{% include post.html %}

@@ -94,10 +94,7 @@
     ul, 
     ol {
         list-style-position: outside;
-
-        @media screen and (max-width: $media-query-s) {
-            padding-left: 1em;
-        }
+        padding-left: 1em;
     }
     ol ol, 
     ol ol ol,

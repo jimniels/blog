@@ -18,10 +18,6 @@ I keep track of tags manually, as I know of no other way currently. So, in the f
 7. resources
 8. typography
 
-published articles
-
 ## To-Do
-- URL structure /posts/post-name ??
-- Tag pages being limited by counts in page footer/all tag index
 - Feed images
 - Update scriptogram theme to point to new blog

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Wireframes and Gravite
+title: Wireframes and Gravity
 date: 2013-10-21
 tags: insights
 ---

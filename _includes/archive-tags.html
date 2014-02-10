@@ -1,21 +1,33 @@
-{% assign count = 1 %}
+<div class="archive-wrapper">
+    
+    
+    {% if include.currentTag %}
 
-{% if include.currentTag %}
-    <h3 class="archive__title">Posts Tagged <a href="{{ site.baseurl }}/tags/{{ include.currentTag }}">#{{ include.currentTag }}</a></h3>
-    <ul class="archive__list">
-    {% for post in site.posts %}
-        {% if post.tags contains include.currentTag %}
-            
-            
-            {% if count <= 5 and page.title != post.title %}
-                {% assign count = count|plus:1 %}
+        {% comment %} List of Posts Tagged X {% endcomment %}
+        <h3 class="archive__title">Posts Tagged <a href="{{ site.baseurl }}/tags/{{ include.currentTag }}">#{{ include.currentTag }}</a></h3>
+        <ul class="archive__list">
+        {% for post in site.posts %}
+            {% if post.tags contains include.currentTag %}
                 <li>
-                    <time>{{ post.date | date: "%b %-d" }}</time>
+                    <time>{{ post.date | date: "%b %-d, %Y" }}</time>
                     <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                 </li>
             {% endif %}
+        {% endfor %}
+        </ul>
+        
+    {% else %}
 
-        {% endif %}
-    {% endfor %}
-    </ul>
-{% endif %}
+        {% comment %} List of All Posts {% endcomment %}
+        <h3 class="archive__title">All Blog Posts</h3>
+        <ul class="archive__list">
+            {% for post in site.posts %}
+                <li>
+                    <time>{{ post.date | date: "%b %-d, %Y" }}</time>
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+        </ul> 
+
+    {% endif %}
+</div>

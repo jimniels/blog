@@ -2,4 +2,16 @@
 layout: default
 title: Web Design Category | Jim Nielsen’s Blog
 ---
-{% include tags.html %}
+<div class="archive-wrapper">
+    <h3 class="archive__title">Tags</h3>
+    <ul class="archive__list">
+    
+    {% for tag in site.tags %}
+        <li>   
+            <span>{{tag[1] | size}}</span>
+            <a href="{{ site.baseurl }}/tags/{{tag.first}}">#{{tag.first}}</a>
+        </li>
+    {% endfor %}
+
+    </ul>
+</div>
