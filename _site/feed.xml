@@ -3,8 +3,8 @@
     <channel>
         <title>Blog | Jim Nielsen, Designer</title>
         <description></description>                
-        <link>http://jim-nielsen.com/blog</link>
-        <atom:link href="http://jim-nielsen.com/blog/feed.xml" rel="self" type="application/rss+xml" />
+        <link>http://jim-nielsen.com/jim-nielsen.com/blog</link>
+        <atom:link href="http://jim-nielsen.com/jim-nielsen.com/blog/feed.xml" rel="self" type="application/rss+xml" />
         
                 <item>
                     <title>Benjamin Franklin, an Open Source Contributor?</title>
@@ -19,8 +19,8 @@
 &lt;p&gt;I think we could all do to forget the monetary incentives behind innovative inventions and put human beings and their benefit back at the center of our daily purposes. As Paul Rand says, “It is only when man is not accepted as the centre of human concern that it becomes feasible to create a system of production which values profit out of proportion to responsible public service”.&lt;/p&gt;
 </description>
                     <pubDate>Wed, 18 Dec 2013 00:00:00 -0500</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/ben-franklin-open-source-contributor</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/ben-franklin-open-source-contributor</guid>
+                    <link>http://jim-nielsen.com/jim-nielsen.com/blog/posts/ben-franklin-open-source-contributor</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/jim-nielsen.com/blog/posts/ben-franklin-open-source-contributor</guid>
                 </item>
         
                 <item>
@@ -42,8 +42,8 @@
 &lt;/blockquote&gt;
 </description>
                     <pubDate>Wed, 06 Nov 2013 00:00:00 -0500</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/evolution-of-creativity</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/evolution-of-creativity</guid>
+                    <link>http://jim-nielsen.com/jim-nielsen.com/blog/posts/evolution-of-creativity</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/jim-nielsen.com/blog/posts/evolution-of-creativity</guid>
                 </item>
         
                 <item>
@@ -61,8 +61,8 @@
 &lt;p&gt;Similarly, as web designers, I think we would do well to imitate this same exploratory process in designing online experiences. Wireframing an entire website or experience can help explore every single moment of interaction and allow you (the designer) to make better, more informed decisions on molding the components of your website, like information architecture, URL design, animatable interactions, and so forth.&lt;/p&gt;
 </description>
                     <pubDate>Mon, 21 Oct 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/wireframes-and-gravity</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/wireframes-and-gravity</guid>
+                    <link>http://jim-nielsen.com/jim-nielsen.com/blog/posts/wireframes-and-gravity</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/jim-nielsen.com/blog/posts/wireframes-and-gravity</guid>
                 </item>
         
                 <item>
@@ -107,8 +107,8 @@
 &lt;p&gt;You want to be good? Elicit human emotion (like the book 50 Shades of Grey). You want to be great? Ennoble the human spirit and intellect (like the timeless book Les Miserables).&lt;/p&gt;
 </description>
                     <pubDate>Mon, 14 Oct 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/ostentatious-design-and-profanity</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/ostentatious-design-and-profanity</guid>
+                    <link>http://jim-nielsen.com/jim-nielsen.com/blog/posts/ostentatious-design-and-profanity</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/jim-nielsen.com/blog/posts/ostentatious-design-and-profanity</guid>
                 </item>
         
                 <item>
@@ -129,7 +129,7 @@
 
 &lt;p&gt;The design started with a collaborative Google doc for the page’s copy. Though not visual, creating and crafting the copy was one of the most difficult tasks of the design. After innumerable edits the copy provided enough substance to get started on devising visuals for the narrative. I started with various sketches to determine how and where the visuals could aid in communicating Kindling’s purpose.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/kindling-home-sketch.jpg&quot; alt=&quot;Kindling home page sketches&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;blog/assets/img/2013/kindling-home-sketch.jpg&quot; alt=&quot;Kindling home page sketches&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;The artwork was then created in Photoshop. I dribbled a few previews of the work for historical sake:&lt;/p&gt;
 
@@ -143,15 +143,15 @@
 
 &lt;h2&gt;Final Product&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/kindling-home-preview.jpg&quot; alt=&quot;Kindling home page screenshot&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;blog/assets/img/2013/kindling-home-preview.jpg&quot; alt=&quot;Kindling home page screenshot&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;It seems rather simple but forming the narrative and accompanying graphics took a lot of work. It is difficult to take everything an entire company stands for and distill it into a page that’s clear and simple enough for an anyone to understand. &lt;/p&gt;
 
 &lt;p&gt;Iteration on the narrative will continue to take place, but this new home page was a great leap forward in explaining the problems Kindling’s software can solve.&lt;/p&gt;
 </description>
                     <pubDate>Thu, 26 Sep 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/kindlingapp-home-page-redesign</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/kindlingapp-home-page-redesign</guid>
+                    <link>http://jim-nielsen.com/jim-nielsen.com/blog/posts/kindlingapp-home-page-redesign</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/jim-nielsen.com/blog/posts/kindlingapp-home-page-redesign</guid>
                 </item>
         
                 <item>
@@ -160,7 +160,7 @@
 &lt;p&gt;This is not a watered down version of the internet. Or the “mobile” version of the internet. Or the “kinda-sorta looks like the internet” internet. It’s just the internet. On your phone.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/iphone-commercial.jpg&quot; alt=&quot;iPhone internet TV ad screenshot&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;blog/assets/img/2013/iphone-commercial.jpg&quot; alt=&quot;iPhone internet TV ad screenshot&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;Those are the words from a &lt;a href=&quot;http://www.youtube.com/watch?v=ldjHqHC6szA&quot;&gt;2007 TV ad&lt;/a&gt; showcasing the capabilities of Apple’s new iPhone which allowed you to browse the internet. Not the stripped-down version so many PDAs and other mobile devices were accessing at the time, but the real internet. The same internet you saw on your desktop computer. That was revolutionary.&lt;/p&gt;
 
@@ -169,8 +169,8 @@
 &lt;p&gt;I‘d venture to say that most people would rather double tap and two-finger pinch their way around the “desktop” web than be short-changed on content or capabilities for a “mobile-optimized” web.&lt;/p&gt;
 </description>
                     <pubDate>Thu, 26 Sep 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/kinda-sorta-looks-like-the-internet</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/kinda-sorta-looks-like-the-internet</guid>
+                    <link>http://jim-nielsen.com/jim-nielsen.com/blog/posts/kinda-sorta-looks-like-the-internet</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/jim-nielsen.com/blog/posts/kinda-sorta-looks-like-the-internet</guid>
                 </item>
         
                 <item>
@@ -179,7 +179,7 @@
 &lt;p&gt;It’s been hard not to feel a deepening of the soul as the palette of online emotion signifiers has expanded from sparse typographic emoticons to colorful and animated emoji. (Nicolas Carr, “&lt;a href=&quot;http://www.roughtype.com/?p=3693&quot;&gt;Automating the feels&lt;/a&gt;”)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/2013/emoji-transformation.png&quot; alt=&quot;Emoji Transformation&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;blog/assets/img/2013/emoji-transformation.png&quot; alt=&quot;Emoji Transformation&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;Social networks (and digital products) are now focusing on providing tools to help users express how they feel. Structuring human emotion into a machine-readable format might possibly be the next holy grail of the digital world. &lt;/p&gt;
 
@@ -192,8 +192,8 @@
 &lt;/blockquote&gt;
 </description>
                     <pubDate>Mon, 23 Sep 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/automating-feelings</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/automating-feelings</guid>
+                    <link>http://jim-nielsen.com/jim-nielsen.com/blog/posts/automating-feelings</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/jim-nielsen.com/blog/posts/automating-feelings</guid>
                 </item>
         
                 <item>
@@ -217,8 +217,8 @@
 &lt;p&gt;Apple chose to put users first rather than developers, marketers, pundits, and many others. Judging by their success, would you say it has paid off?&lt;/p&gt;
 </description>
                     <pubDate>Mon, 12 Aug 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/putting-the-user-first</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/putting-the-user-first</guid>
+                    <link>http://jim-nielsen.com/jim-nielsen.com/blog/posts/putting-the-user-first</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/jim-nielsen.com/blog/posts/putting-the-user-first</guid>
                 </item>
         
                 <item>
@@ -320,8 +320,8 @@ $brand-colors: #ffaadd, #ff8811, #aaddcc;
 &lt;p&gt;There are some good work arounds to variable interpolation available. Hopefully these examples get you on the right track for your own projects until Sass 3.3 is stable for release. Happy coding! &lt;/p&gt;
 </description>
                     <pubDate>Mon, 29 Jul 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/sass-variable-interpolation-workarounds</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/sass-variable-interpolation-workarounds</guid>
+                    <link>http://jim-nielsen.com/jim-nielsen.com/blog/posts/sass-variable-interpolation-workarounds</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/jim-nielsen.com/blog/posts/sass-variable-interpolation-workarounds</guid>
                 </item>
         
                 <item>
@@ -359,8 +359,8 @@ $brand-colors: #ffaadd, #ff8811, #aaddcc;
 &lt;p&gt;Freeman makes some other good points worth reading. You can &lt;a href=&quot;http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life&quot;&gt;check out the post on Quora&lt;/a&gt;.&lt;/p&gt;
 </description>
                     <pubDate>Wed, 24 Jul 2013 00:00:00 -0400</pubDate>
-                    <link>http://jim-nielsen.com/blog/posts/things-to-be-informed-about</link>
-                    <guid isPermaLink="true">http://jim-nielsen.com/blog/posts/things-to-be-informed-about</guid>
+                    <link>http://jim-nielsen.com/jim-nielsen.com/blog/posts/things-to-be-informed-about</link>
+                    <guid isPermaLink="true">http://jim-nielsen.com/jim-nielsen.com/blog/posts/things-to-be-informed-about</guid>
                 </item>
         
     </channel>

@@ -1,8 +1,8 @@
 name: Blog | Jim Nielsen, Designer
 markdown: redcarpet
 pygments: true
-baseurl:
-imageurl: /assets/img
-domain: http://blog.jim-nielsen.com
+baseurl: blog
+imageurl: blog/assets/img
+domain: http://jim-nielsen.com
 permalink: /posts/:title
 paginate: 5
