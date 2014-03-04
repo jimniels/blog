@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A Logo Is an Image, The Image of a Company
-date: 2014-01-01
+date: 2014-03-03
 tags: insights
 ---
 
