@@ -21,3 +21,4 @@ I keep track of tags manually, as I know of no other way currently. So, in the f
 ## To-Do
 - Feed images
 - Update scriptogram theme to point to new blog
+- Next / Prev Posts at the end of a post
