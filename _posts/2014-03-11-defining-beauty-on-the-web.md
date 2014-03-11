@@ -1,7 +1,8 @@
 ---
-Title: Defining Beauty on the Web
-Date: 2014-03-11
-Tags: insights
+layout: post
+title: Defining Beauty on the Web
+date: 2014-03-11
+tags: insights
 summary: "A talk from Ethan and a post from Trent reminded me what true beauty is on the web. It’s found through a fulfillment of the essence and mission of the medium itself."
 ---
 
