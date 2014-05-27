@@ -5,9 +5,7 @@ date: 2014-05-27
 tags: insights
 ---
 
-“You know what happens when you assume? It makes an A-S-S out of U and ME”.
-
-Perhaps you’ve heard that saying before. I think it remains true for design assumptions. Allow me to explain.
+Have you ever heard this saying before, “You know what happens when you assume? It makes an A-S-S out of U and ME”? Well, it remains true for assumptions in design. Allow me to explain.
 
 Occasionally I receive emails from friends sharing content from a website or app. Generally the email follows this pattern:
 
