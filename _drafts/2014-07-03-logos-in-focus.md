@@ -59,27 +59,27 @@ For those of you who decided to venture on, I welcome you. Let me start by telli
 
 ### Iterations Leading the Current Design 
 
-**Phase 1**: At first, I thought I would just experiment by doing a gaussian blur in Photoshop on 2 or 3 different logos, write a blog post about it, and call it a day. So I ended up with some static images like this:
+**Phase 1**: At first, I thought I would just experiment by doing a gaussian blur in Photoshop on a couple different logos, write a blog post about it, and call it a day. So I ended up with a PSD with sliced up logos like this:
 
-![Logos in Photoshop]({{site.imageurl}}/2014/logos-in-photoshop.png)
+![Logos in Photoshop](http://jim-nielsen.com/blog/assets/img/2014/logos-plain-logos.png)
 
 **Phase 2:**: Once I got into Photoshop and blurred a few logos at different rates, I realized it would be way cooler to dynamically blur logos in the browser and see the point at which each logo loses its recognizability. So I mocked out an interface like this:
 
-![First mock]({{site.imageurl}}/2014/logos-interface-mock.jpg)
+![First mock](http://jim-nielsen.com/blog/assets/img/2014/logos-interface-mock.jpg)
 
-The different blurs would serve as controls to easily switch back and forth between heavy and light blurs. This would allow dynamic comparison between each logo, making it very easy to see which logos stood up to the test best.
+The integers in the UI would serve as controls to easily switch back and forth between heavy and light blurs. This allowed dynamic comparison between each logo, making it very easy to see which logos best retained their recognizability.
 
-At this point, I had the thought cross my mind, "what if it were a game where you could try and guess what the blurred logo was?" After showing the working prototype to a few people, the feedback was the same: this should be a game!
+At this point, the thought crossed my mind, “what if it were a game where you could try and guess what the blurred logo was?” After showing the working prototype to a few people, the feedback was the same: this should be a game!
 
-**Phase 3**: My final phase led me to make what you see today: a guessing game. I explored a few more UI changes in Photoshop and then tweaked my working HTML/CSS/Javascript prototype to match the mock I had created. As is my style, my mock wasn’t set in stone. I left myself room for making flexible design choices in the “building in the browser” stage:
+**Phase 3**: My final phase led me to create the guessing game you see today. I explored a few more UI changes in Photoshop and then tweaked my working HTML/CSS/Javascript prototype to match the mock I had created. As is my style, my mock wasn’t set in stone. I left myself room for making flexible design choices while building the page in the browser:
 
-![Final mock that matches finished version]({{site.imageurl}}/2014/logos-interface-final.png)
+![Final mock that matches finished version](http://jim-nielsen.com/blog/assets/img/2014/logos-interface-final.png)
 
 ### Implementation Choice: <SVG> or <IMG>
 
-I kind of just naturally started using images in the prototyping stage, especially because I wanted this site to be accessible and what's more accessible than a simple <img> tag? This led me to think, "I'll just create two big sprites (normal and retina) of all the logos and their respective blurred representations." However, in doing so, I ran into an issue I had not previously encountered: on iOS you can only load images that are below a certain dimension 1000x1000 (link to stackoverflow). Because I was planning on having lots of logos, this resulted in a *gigantic* sprite which loaded fine on desktop but broke when I tested it on my phone. Then, of course, it hit me: why not use SVGs!
+I kind of just naturally started using images in the prototyping stage, especially because I wanted this site to be accessible and what's more accessible than a simple <img> tag? This led me to think, “I'll just create two big sprites (normal and retina) of all the logos and their respective blurred representations.” However, in doing so, I ran into an issue I had not previously encountered: on iOS there is an image size limit because the iPhone/iPad only have so much working memory. Because I was planning on having lots of logos, this resulted in a *gigantic* sprite which loaded fine on desktop but broke when I tested it on my phone. Then it hit me: why not use SVGs!
 
-A great advantage to using SVGs is that you can blur them on the fly in the browser using SVG filters. For older browsers that don't support SVG filters, I would just load an image for each logo and its blurred variations. To do this, I check the browser’s support for SVG filters using Modernizr and then display the logo by loading the supported file type as a background image using CSS. For example:
+A great advantage to using SVGs is that you can blur them on the fly in the browser using SVG filters. For older browsers that don’t support SVG filters, I would just load an image for each logo and its blurred variations. To do this, I check the browser’s support for SVG filters using Modernizr and then display the logo by loading the supported file type as a background image using CSS. For example:
 
     .svg-filters .logo {
         background-image: url(nike-logo.svg);
@@ -88,7 +88,7 @@ A great advantage to using SVGs is that you can blur them on the fly in the brow
         background-image: url(nike-logo.png)
     }
 
-Because I decided to take this approach, that means the logos are not loaded into the page’s HTML by default. They are only visible depending on the HTML class applied by `modernizr.js` which means users with Javascript disabled won’t see any images, and that’s ok. The page’s markup still allows those users to access the images if they want because each logo is linked to the PNG version of the image (which shows the logo and its blurred variants):
+Because I decided to take this approach, that means the logos are not loaded into the page’s HTML by default. They are only visible depending on the HTML class applied by `modernizr.js` which means users with Javascript disabled won’t see any images, and that’s ok. The page’s markup still allows them to access the images if they want because each logo is linked to the PNG version of the image (which shows the logo and its blurred variants):
 
     <li class="brand">
         <h2 class="brand-name">
@@ -103,30 +103,33 @@ As you can see, I tried to progressively enhance this page as I went along. For 
 
 ![Page appearance with CSS loaded but no Javascript](http://jim-nielsen.com/blog/assets/img/2014/logos-no-js.png "No Javascript or CSS support")
 
-Users with javascript, however, received the enhanced ability to directly manipulate the logos' blur values right in the browser, while simultaneously comparing those results across brands.
+Users with javascript, however, received the enhanced ability to directly manipulate the logos’ blur values right in the browser, while simultaneously comparing those results across brands.
 
 ![Page appearance with both CSS and Javascript loaded](http://jim-nielsen.com/blog/assets/img/2014/logos-js-css.png "No Javascript or CSS support")
 
-### Programatically Creating Each Logo Variation With Imagemagick
+### Programmatically Creating Each Logo Variation With ImageMagick
 
-At first, in the prototyping stage, I started creating each logo and it's blurred variants in Photoshop. I sliced and diced them for easy exporting, but as the number of brands increased my Photoshop file became unmanagaeabmle.
+In the prototyping stage, I started creating each logo and it's blurred variants in Photoshop. I sliced and diced them for easy exporting, but as the number of brands increased my Photoshop file became unmanageable.
 
-![Photoshop screenshot of all the brands]()
+![Photoshop screenshot of all the brands](http://jim-nielsen.com/blog/assets/img/2014/logos-in-photoshop.png)
 
-The biggest downside to this approach was: what happened when I decided I didn't want to do gaussian blurs at 5, 10, and 15 pixels, but rather at 7, 14, and 21 pixels? Or some other measure? All that work would be wasted. Wasn't there an easier way to do this? As a designer, I rarely do  image manipulation programatically. However, I'd vaguely heard of this command line tool called "imagemagick" which I thought might let me do this kind of batch image manipulation / processing. I already needed the SVG versions of each logo. Why couldn't I just automatically create the all image assests I needed from each SVG logo?
+The biggest downside to this approach was the it all had to be done by hand. What happened when I decided I didn't want to do gaussian blurs at 5, 10, and 15 pixels, but rather at 7, 14, and 21 pixels? Or some other measure? All that work would be wasted. Wasn’t there an easier way to do this? As a designer, I rarely do  image manipulation programatically. However, I'd vaguely heard of this command line tool called [ImageMagick](http://www.imagemagick.org/) which I thought might let me do this kind of batch image manipulation / processing. I already needed the SVG versions of each logo. Why couldn’t I just automatically create the all image assets I needed from each SVG logo?
 
-After a little research, I discovered imagemagick was just the tool I needed. After quite a bit of trial and error, along with research into imagemagick's documentation(LINK), I figured out just the commands I needed to prgorammtically create a single image for each logo and its blurred variations.
+After a little research, I discovered ImageMagick was just the tool I needed. After quite a bit of trial and error, along with research into [ImageMagick’s documentation](http://www.imagemagick.org/script/command-line-tools.php), I figured out just the commands I needed to programmatically create a single image for each logo and its blurred variations.
 
 The final process looks something like this:
 
-1. I have a master `.ai` file with appropriately-sized vector version of each logo on matching canvas sizes.
-![Illustrator master file]()
-2. These get exported as individual .svg files to a single directory `assets/images/src/SVG`
-![Export image of some kind]()
-3. I process each SVG file using a small bash script of commands. This script uses imagemagick to take each SVG, create individual .JPG file for each blurred variant, then recombine all the variants into a single image which will be used as that brand's sprite (if the browser doesn't support SVG).
-![How this works]() 
-The script here ....
+1. I have a master `.ai` file with appropriately-sized vector version of each logo on matching canvas sizes, which allows me to easily create a proportionally-sized set of logos.
+![Illustrator master file](http://jim-nielsen.com/blog/assets/img/2014/logos-illustrator-file.png)
+2. These get exported as individual SVG files to a single directory `assets/images/src/svgs`
+![Export image of some kind](http://jim-nielsen.com/blog/assets/img/2014/logos-exported-files.png)
+3. I process all SVG files in the folder using a small bash script of commands. This script uses ImageMagick and ImageOptim to convert, stitch, and compress all the necessary images I need. For example, it takes the file `nike.svg` and: 1) Converts it from SVG to PNG, 2) Creates PNG versions of all the blur variations, 3) Stiches all those individual PNGs back into a single file, 4) Compresses the image and sticks it in the build directory.
 
+Essentially, each brand gets its own sprite which consists of the logo in original form along with each blurred variation. These serve as fallbacks in the event that someone’s browser does not support SVG files. They also serve as the linked images for those without javascript.
+
+![Exported JPG files](http://jim-nielsen.com/blog/assets/img/2014/logos-exported-jpgs.png) 
+
+This approach allows easy image regeneration in the future. All I would have to do is modify my image manipulation script and regenerate all the necessary images using the original SVG files.
 
 ### One Master List of Logos
 
