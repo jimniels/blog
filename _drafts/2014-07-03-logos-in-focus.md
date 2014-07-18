@@ -26,18 +26,18 @@ Logos which shared the same visual form fared the worst. For example, circular l
 
 ![Blurred circular logos](http://jim-nielsen.com/blog/assets/img/2014/logos-circular.jpg "From left to right: ABC, GE, PBS, Pepsi, CBS, Target")
 
-This is not to say that circular shapes are necessarily a poor choice when design a logo. However, upon being brought out of focus they do lose their visual distinctness and, thus, recognizability.
+This is not to say that circular shapes are necessarily a poor choice when design a logo. However, upon being brought significantly out of focus they do lose their visual distinctness and, thus, recognizability.
 
 ### The Best Performers
 
-The logos of Nike and Puma seemed to fare the best. As you can see, towards the blurriest end of the spectrum the logos seem *almost* unrecognizable. 
+In contrast, the unique shapes of logos like Nike and Puma seemed to fare the best. As you can see, towards the blurriest end of the spectrum the logos seem *almost* unrecognizable: 
 
 ![Nike Logo blurred](http://jim-nielsen.com/logos/assets/images/build/logos/jpgs/nike.jpg "Nike Logo")
 ![Puma Logo blurred](http://jim-nielsen.com/logos/assets/images/build/logos/jpgs/puma.jpg "Puma Logo")
 
-However, these two marks remain somewhat recognizable due to their distinctive forms which retain at least some degree of visual integrity (as opposed to other more symmetrical logo designs which start all look the same when heavily blurred). 
+However, these two marks remain somewhat recognizable due to their distinctive forms which retain at least some degree of visual integrity (as opposed to other more symmetrical logo designs which begin to all look the same when heavily blurred). 
 
-Nike, for example, holds up rather well when heavily blurred due to it’s horizontal elongation and scaling visual weight from left to right. Similarly, the perpendicularity of the tail on Puma’s mark helps to retain its visual form and discernability.
+Nike, for example, holds up rather well when heavily blurred due to it’s horizontal elongation and scaling visual weight from left to right. Similarly, the perpendicularity of the tail on Puma’s mark helps to retain its visual form and unique discernability.
 
 ### Experiment Conclusions: What I Learned
 
