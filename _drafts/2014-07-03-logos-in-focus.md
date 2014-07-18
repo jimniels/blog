@@ -12,25 +12,21 @@ In contrast, today’s digital technology ensures 100% exact reproducibility. Be
 
 I decided to try a simple experiment: take some of today’s most iconic, ubiquitous logos and see how well they hold to being distorted.
 
-## Experiment Details
+## The Experiment
 
 I decided I would test each logo’s visual stamina by bringing each one out of focus incrementally with a gaussian blur. At what point would each logo become unrecognizable? Would some of them lose their integrity after a small 5 pixel blur? What about a 10 pixel blur? Which iconic brand logos could go the furthest out of focus while still retaining their visual integrity and recognizability?
 
 Additionally, I wanted to remove color from each logo because it can be a vital ingredient in brand recognition. For example, perhaps all you see is a blur, but if that blur is the color magenta you might more easily guess “T-Mobile” as opposed to some other brand. Boiling all the logos down to their essence — their shapes and forms in single color — helps establish and verify how well the mark can stand on its own.
 
-Here are a few examples of how well some of the logos fared:
-
-So how did they fare?
+So how did each logo fare?
 
 ### The Worst Performers
 
-Logos which shared the same visual form fared the worst. For example, circular logos like ABC, General Electric, and PBS all consist primarily of a circle with a distinctive mark cut out of it. When heavily blurred, these logos begin to all look alike and become indistinguishable from each other.
+Logos which shared the same visual form fared the worst. For example, circular logos like ABC, General Electric, PBS, and CBS all consist primarily of a circle with a distinctive mark cut out of it. When heavily blurred, all of these logos begin to look alike and become indistinguishable from one another:
 
-![ABC logo blurred](http://jim-nielsen.com/logos/assets/images/build/logos/jpgs/abc.jpg "ABC Logo")
-![GE logo blurred](http://jim-nielsen.com/logos/assets/images/build/logos/jpgs/general-electric.jpg "General Electric Logo")
-![PBS logo blurred](http://jim-nielsen.com/logos/assets/images/build/logos/jpgs/pbs.jpg "PBS Logo")
+![Blurred circular logos](http://jim-nielsen.com/blog/assets/img/2014/logos-circular.jpg "From left to right: ABC, GE, PBS, Pepsi, CBS, Target")
 
-This is not to say that circular logos are necessarily bad. However, upon being brought out of focus they do lose their visual distinctness and, thus, recognizability.
+This is not to say that circular shapes are necessarily a poor choice when design a logo. However, upon being brought out of focus they do lose their visual distinctness and, thus, recognizability.
 
 ### The Best Performers
 
@@ -119,13 +115,17 @@ After a little research, I discovered ImageMagick was just the tool I needed. Af
 
 The final process looks something like this:
 
-1. I have a master `.ai` file with appropriately-sized vector version of each logo on matching canvas sizes, which allows me to easily create a proportionally-sized set of logos.
-![Illustrator master file](http://jim-nielsen.com/blog/assets/img/2014/logos-illustrator-file.png)
-2. These get exported as individual SVG files to a single directory `assets/images/src/svgs`
-![Export image of some kind](http://jim-nielsen.com/blog/assets/img/2014/logos-exported-files.png)
-3. I process all SVG files in the folder using a small bash script of commands. This script uses ImageMagick and ImageOptim to convert, stitch, and compress all the necessary images I need. For example, it takes the file `nike.svg` and: 1) Converts it from SVG to PNG, 2) Creates PNG versions of all the blur variations, 3) Stiches all those individual PNGs back into a single file, 4) Compresses the image and sticks it in the build directory.
+I have a master `.ai` file with appropriately-sized vector version of each logo on matching canvas sizes, which allows me to easily create a proportionally-sized set of logos.
 
-Essentially, each brand gets its own sprite which consists of the logo in original form along with each blurred variation. These serve as fallbacks in the event that someone’s browser does not support SVG files. They also serve as the linked images for those without javascript.
+![Illustrator master file](http://jim-nielsen.com/blog/assets/img/2014/logos-illustrator-file.png)
+
+Each logo gets exported as an individual SVG file to a single directory `assets/images/src/svgs`
+
+![Export image of some kind](http://jim-nielsen.com/blog/assets/img/2014/logos-exported-files.png)
+
+I process all SVG files in the folder using a small bash script of commands. This script uses ImageMagick and ImageOptim to dynamically create, convert, stitch, and compress all images required for the site. For example, it takes the file `nike.svg` and: 1) Converts it from SVG to PNG, 2) Creates PNG versions of all the blur variations, 3) Stiches all those individual PNGs back into a single file, 4) Compresses the image and sticks it into the build directory.
+
+This results in each brand getting its own sprite which consists of the logo in original form along with each blur variation. These serve as fallbacks in the event that someone’s browser does not support SVG files. They also serve as the linked images for those without javascript.
 
 ![Exported JPG files](http://jim-nielsen.com/blog/assets/img/2014/logos-exported-jpgs.png) 
 
@@ -133,12 +133,52 @@ This approach allows easy image regeneration in the future. All I would have to 
 
 ### One Master List of Logos
 
-.json file with all the logos, their spellings, etc. expoert to .scss file etc.
+In creating this site, I had a collection of logos. The problem, however, was that I was maintaining separate lists of logos in HTML and CSS. If I removed, added, or changed a logo in one list I’d have to change it in the other as well. This became a headache. My solution? Create a “master” JSON file with the information I needed. Here’s an example:
+
+    "abc": [
+        "ABC",
+        "American Broadcasting Company"
+    ],
+    "addidas": [
+        "Addidas"
+    ] 
+
+Because my development version of the site is written in PHP, I read in the JSON file and looped over it to create each logo’s HTML list node and corresponding information. For example, my rendered HTML looked something like this:
+
+    <li id="nike" data-answer="[Nike]"> ... Nike ... </li>
+		<li id="bps" data-answer="[PBS, Public Broadcasting Service]"> ... PBS ... </li>
+
+The `data-answer` attribute held an array of possible answer values. I used javascript to leverage these multiple values in determining whether the user had entered the correct name of the brand (if you saw the logo for “PBS” and entered “Public Broadcasting Service” as your answer, it would be correct).
+
+As for the CSS, I also used PHP to parse the JSON file and create a `.scss` partial which contained a list variable of all the logos being used. I could then use that list in SASS to create selectors for all the logos I was using in my project. Here’s an example:
+
+    // SVG filters supported
+    .svgfilters {
+        @each $logo in $logos {
+            ##{$logo} {
+                .logo {
+                    background-image: image-url('#{$svg-directory}/#{$logo}.svg');
+                    background-repeat: none; 
+                }
+            }
+        }
+    }
+    // SVG filters not supported
+    .no-svgfilters {
+        @each $logo in $logos {
+            ##{$logo} {
+                .logo {
+                    background-image: image-url('logos/jpgs/#{$logo}.jpg');
+                    background-repeat: none;
+                }
+            }
+        }
+    }
+
+As you can see, having this “master” JSON file allowed me to easily add, remove, and modify logos in the project. Those modifications would then propagate to my various files. Adding a logo to the project was as simple as: 1) add the SVG file and run the image generation script, 2) add the logo’s name(s) to the JSON file, 3) drink some lemonade (this step was optional).
 
 ### End Results
 
-These tactics of progressive enhancement, including a responsive design, make this site quite accessible. On a mobile device? It works. On a tablet? It works. Have javascript disabled? You can still access the individual
+These tactics of progressive enhancement, including a responsive design, make this site quite accessible. On a mobile device? It works. On a tablet? It works. Have javascript disabled? You can still access the individual logo variations. CSS doesn’t load? All the content is still accessible. No SVG support? You get served regular images. 
 
-- No SVG support? You get served images.
-- CSS and/or Javascript don't load? It's just plain ole' HTML. You can still access each brands' blurred logo variations.
-- On a mobile device or tablet? Responsive design adapts to the screen type.
+
