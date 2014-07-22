@@ -30,10 +30,9 @@ This is not to say that circular shapes are necessarily a poor choice when desig
 
 ### The Best Performers
 
-In contrast, the unique shapes of logos like Nike and Puma seemed to fare the best. As you can see, towards the blurriest end of the spectrum the logos seem *almost* unrecognizable: 
+In contrast, the unique shapes logo shapes of Nike and Puma seemed to fare the best. As you can see, towards the blurriest end of the spectrum the logos seem *almost* unrecognizable: 
 
-![Nike Logo blurred](http://jim-nielsen.com/logos/assets/images/build/logos/jpgs/nike.jpg "Nike Logo")
-![Puma Logo blurred](http://jim-nielsen.com/logos/assets/images/build/logos/jpgs/puma.jpg "Puma Logo")
+![Blurred logos with unique shapes](http://jim-nielsen.com/blog/assets/img/2014/logos-unique-shapes.jpg "From left to right: Puma, Nike")
 
 However, these two marks remain somewhat recognizable due to their distinctive forms which retain at least some degree of visual integrity (as opposed to other more symmetrical logo designs which begin to all look the same when heavily blurred). 
 
@@ -179,6 +178,8 @@ As you can see, having this “master” JSON file allowed me to easily add, rem
 
 ### End Results
 
-These tactics of progressive enhancement, including a responsive design, make this site quite accessible. On a mobile device? It works. On a tablet? It works. Have javascript disabled? You can still access the individual logo variations. CSS doesn’t load? All the content is still accessible. No SVG support? You get served regular images. 
+These tactics of progressive enhancement, including a responsive design, make this site quite accessible. On a mobile device? It works. On a tablet? It works. Have javascript disabled of the CSS doesn’t load? You can still access each individual logo and its blurred variations. No SVG support? You get served regular images. It just works. 
+
+It was a fun experiment to build and test. What I learned will inform many of the projects I work on in the future.
 
 
