@@ -17,3 +17,11 @@ Math can serve as a solid foundation for design, but allowing it to overtake the
 
 
 Pure math, and by extension data and statistics, can only get you so far. I know they say, “the numbers don’t lie,” and that’s probably true. But they also don’t tell the whole story. Intuition informed by trained optical judgement is what makes good designers great. They use intuition to make decisions based on the nuances of humans. When it comes to design, pure faith in mathematical decision making leaves no room for the designer. It exalts math, rules, operations, and computation as the ultimate source of authority. “We’d love to make the button blue, but the numbers don’t lie." [A dystopia where computers make my decisions](http://jackilby.files.wordpress.com/2013/12/wall-e-humans.jpg) is a world I’d rather avoid.
+
+
+---
+
+Math in logo design
+https://www.behance.net/gallery/18743663/Google-in-my-opinion
+
+Where's the optical?
