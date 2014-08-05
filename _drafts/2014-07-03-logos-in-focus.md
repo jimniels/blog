@@ -20,7 +20,7 @@ Additionally, I wanted to remove color from each logo because it can be a vital 
 
 Furthermore, I wanted to test logos that were marks rather than type. For example, Google’s logo is a logotype, because the logo itself is the name of the company. Whereas Nike’s “swoosh” is an abstract logo mark. Logo marks really test the recognizability of a brand because they do not spell out the company’s name and instead rely on a mental association between the mark and the company.
 
-![Logo Types, courtesy of logodesignsource.com](http://jim-nielsen.com/blog/assets/img/2014/logos-circular.jpg)
+[![Logo Types, courtesy of logodesignsource.com](http://jim-nielsen.com/blog/assets/img/2014/logos-types.png)](http://www.logodesignsource.com/types.html)
 
 So how did each logo fare?
 
@@ -34,13 +34,13 @@ This is not to say that circular shapes are necessarily a poor choice when desig
 
 ### The Best Performers
 
-In contrast, the unique shapes logo shapes of Nike and Puma seemed to fare the best. As you can see, towards the blurriest end of the spectrum the logos seem *almost* unrecognizable: 
+In contrast, the unique logo shapes of Nike and Puma seemed to fare the best. As you can see, towards the blurriest end of the spectrum the logos seem *almost* unrecognizable: 
 
 ![Blurred logos with unique shapes](http://jim-nielsen.com/blog/assets/img/2014/logos-unique-shapes.jpg "From left to right: Puma, Nike")
 
-However, these two marks remain somewhat recognizable due to their distinctive forms which retain at least some degree of visual integrity (as opposed to other more symmetrical logo designs which begin to all look the same when heavily blurred). 
+However, these two marks retain a portion of their recognizability due to their distinctive forms which maintain at least some degree of visual integrity (as opposed to other more symmetrical logo designs which begin to all look the same when heavily blurred). 
 
-Nike, for example, holds up rather well when heavily blurred due to it’s horizontal elongation and scaling visual weight from left to right. Similarly, the perpendicularity of the tail on Puma’s mark helps to retain its visual form and unique discernability.
+Nike, for example, holds up rather well when heavily blurred due to it’s horizontal elongation and scaling visual weight from left to right. Similarly, the perpendicularity of the tail on Puma’s mark helps to retain its unique visual discernibility.
 
 ### Experiment Conclusions: What I Learned
 
@@ -50,7 +50,7 @@ Some might think this means there is no substance to logo design, that one need 
 
 Lastly, this specific test of a logo’s recognizability when out of focus has shown that a logo’s form can go a long way in strengthening its recognizability. Circular forms are very common and when heavily blurred tend to all look the same with no unique visual identifier. More abstract shapes however, like Nike and Puma, tend to retain their recognizability due to unique and stark contrasts in form which lead to easier recognizability.
 
-## Implementing My Experiment
+## Implementing the Experiment: Technical Details
 
 Disclaimer: The remainder of this post will touch on the technical side and story of how I built this experiment. If you're not interested in that, feel free to stop reading now. Or check out one of my other experiments/blog posts.
 
@@ -78,7 +78,7 @@ At this point, the thought crossed my mind, “what if it were a game where you 
 
 I kind of just naturally started using images in the prototyping stage, especially because I wanted this site to be accessible and what's more accessible than a simple <img> tag? This led me to think, “I'll just create two big sprites (normal and retina) of all the logos and their respective blurred representations.” However, in doing so, I ran into an issue I had not previously encountered: on iOS there is an image size limit because the iPhone/iPad only have so much working memory. Because I was planning on having lots of logos, this resulted in a *gigantic* sprite which loaded fine on desktop but broke when I tested it on my phone. Then it hit me: why not use SVGs!
 
-A great advantage to using SVGs is that you can blur them on the fly in the browser using SVG filters. For older browsers that don’t support SVG filters, I would just load an image for each logo and its blurred variations. To do this, I check the browser’s support for SVG filters using Modernizr and then display the logo by loading the supported file type as a background image using CSS. For example:
+A great advantage to using SVGs is that you can blur them on the fly in the browser using SVG filters. For older browsers that don’t support SVG filters, I would just load an image for each logo and its blurred variations. Initially I though this would be simple. I could check the browser’s support for SVG filters using Modernizr and then display the logo by loading the supported file type as a background image using CSS, like this:
 
     .svg-filters .logo {
         background-image: url(nike-logo.svg);
@@ -87,13 +87,18 @@ A great advantage to using SVGs is that you can blur them on the fly in the brow
         background-image: url(nike-logo.png)
     }
 
-Because I decided to take this approach, that means the logos are not loaded into the page’s HTML by default. They are only visible depending on the HTML class applied by `modernizr.js` which means users with Javascript disabled won’t see any images, and that’s ok. The page’s markup still allows them to access the images if they want because each logo is linked to the PNG version of the image (which shows the logo and its blurred variants):
+Simple and elegant no? Unfortunately, it’s not that simple. Even though browsers may support SVG filters, they don’t all support them in the same way. Some allow SVGs as `<img>` elements, others allow SVG elements directly inline with the HTML, while others allow SVG as background elements in CSS (as shown above). I found that the only truly cross-browser method for displaying SVG elements while simultaneously being able to apply filters to them was by embedding the SVG directly inline with the HTML. To accomplish this, I used javascript to load the element `<div class="logo"></div>`. If SVGs are not supported, the following CSS works for a static image fallback:
+
+    .no-svg-filters .logo {
+        background-image: url(nike-logo.png)
+    }
+
+If SVGs are supported, however, then I directly inject the SVG element inside the `.logo` element using javascript. Because of this approach, the logos are not loaded into the page’s HTML by default. They are only visible depending on the HTML class applied by `modernizr.js` which means users with Javascript disabled won’t see any images, and that’s ok. The page’s markup still allows them to access the images if they want because each logo is linked to the PNG version of the image (which shows the logo and its blurred variants):
 
     <li class="brand">
         <h2 class="brand-name">
             <a href="assets/images/build/logos/jpgs/nike-logo.jpg">Nike Logo</a>
         </h2>
-        <div class="logo"></div> <!-- This is the background image -->
     </li>
 
 As you can see, I tried to progressively enhance this page as I went along. For users who didn't have javascript turned on, they could still access the blurred logo results of the experiment by clicking on each brand. 
@@ -155,17 +160,6 @@ The `data-answer` attribute held an array of possible answer values. I used java
 
 As for the CSS, I also used PHP to parse the JSON file and create a `.scss` partial which contained a list variable of all the logos being used. I could then use that list in SASS to create selectors for all the logos I was using in my project. Here’s an example:
 
-    // SVG filters supported
-    .svgfilters {
-        @each $logo in $logos {
-            ##{$logo} {
-                .logo {
-                    background-image: image-url('#{$svg-directory}/#{$logo}.svg');
-                    background-repeat: none; 
-                }
-            }
-        }
-    }
     // SVG filters not supported
     .no-svgfilters {
         @each $logo in $logos {
