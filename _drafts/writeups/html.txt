@@ -1,0 +1,69 @@
+ORIGINAL
+
+Blog Posts
+<h2><a>Title</a></h2>
+<p><time class="meta">Jul 2, 2013</time></p>
+
+Published ARticles
+<li>
+<h2><a>Title</a></h2>
+<p><span class="meta">Publisher</span> &middot; <time class="meta">Jul 30, 2013</time></p>
+</li>
+
+Projects
+<li>
+    <a href="{{link}}" class="l-col">
+        <img src="resources/images/{{id}}.png" width="400" height="300" />
+    </a>
+    <div class="l-col">
+        <a href="{{link}}">
+            <h2 class="bold">{{title}}</h2>
+            <span class="meta">{{link-pretty}}</span>
+        </a>
+        <p>{{description}}</p>
+        {{#cta}}
+            <p><a href="{{cta}}" class="highlight">Project overview &raquo;</a></p>
+        {{/cta}}
+    </a>
+</li>
+
+
+SCREENTHOST
+
+
+
+
+REVISED
+Make it all lists!
+
+Blog Post
+<li>
+    <a>Title</a>
+    <ul class="meta">
+        <li><time>Jul 2, 2013</time></li>
+    </ul>
+</li>
+
+Published Article
+<li>
+    <a>Title</a>
+    <ul class="meta">
+        <li>webdesign tuts+</li>
+        <li><time>Jul 2, 2013</time></li>
+        <li>readers' fav</li>
+    </ul>
+</li>
+
+Projects
+<li>
+    <a href="{{link}}" class="l-col">
+        <img src="resources/images/{{id}}.png" width="400" height="300" />
+    </a>
+
+    <ul class="meta l-col">
+        <li><a>Title</a></li>
+        <li>link pretty</li>
+        <li>description</li>
+        <li><a>Project overview &raquo;</a></li>
+    </ul>
+</li>
