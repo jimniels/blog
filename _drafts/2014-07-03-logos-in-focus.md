@@ -18,6 +18,10 @@ I decided I would test each logo’s visual stamina by bringing each one out of 
 
 Additionally, I wanted to remove color from each logo because it can be a vital ingredient in brand recognition. For example, perhaps all you see is a blur, but if that blur is the color magenta you might more easily guess “T-Mobile” as opposed to some other brand. Boiling all the logos down to their essence — their shapes and forms in single color — helps establish and verify how well the mark can stand on its own.
 
+Furthermore, I wanted to test logos that were marks rather than type. For example, Google’s logo is a logotype, because the logo itself is the name of the company. Whereas Nike’s “swoosh” is an abstract logo mark. Logo marks really test the recognizability of a brand because they do not spell out the company’s name and instead rely on a mental association between the mark and the company.
+
+![Logo Types, courtesy of logodesignsource.com](http://jim-nielsen.com/blog/assets/img/2014/logos-circular.jpg)
+
 So how did each logo fare?
 
 ### The Worst Performers
