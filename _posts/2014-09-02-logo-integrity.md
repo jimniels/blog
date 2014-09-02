@@ -78,7 +78,7 @@ At this point, the thought crossed my mind, “what if it were a game where you 
 
 ![Final mock that matches finished version](http://jim-nielsen.com/blog/assets/img/2014/logos-interface-final.png)
 
-### Implementation Choice: <SVG> or <IMG>
+### Implementation Choice: SVG or IMG
 
 I kind of just naturally started using images in the prototyping stage, especially because I wanted this site to be accessible and what's more accessible than a simple <img> tag? This led me to think, “I'll just create two big sprites (normal and retina) of all the logos and their respective blurred representations.” However, in doing so, I ran into an issue I had not previously encountered: on iOS there is an image size limit because the iPhone/iPad only have so much working memory. Because I was planning on having lots of logos, this resulted in a *gigantic* sprite which loaded fine on desktop but broke when I tested it on my phone. Then it hit me: why not use SVGs!
 
