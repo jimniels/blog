@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Logo Integrity Brought into Focus
-date: 09-02-2014
+date: 2014-09-02
 tags: case-study
 summary: "An analysis of my experiment ([http://jim-nielsen.com/logo-integrity](http://jim-nielsen.com/logo-integrity)) in testing iconic logos and their visual integrity against a gaussian blur. Additionally, a technical behind-the-scenes breakdown of how I built the experiment."
 ---
