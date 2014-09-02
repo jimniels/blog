@@ -1,12 +1,13 @@
-Title: Famous Logos in Focus
-Date: 07-03-2014
-Tags: 
+title: Logo Integrity Brought into Focus
+date: 09-02-2014
+tags: case-study
+summary: "An analysis of my experiment ([http://jim-nielsen.com/logo-integrity](http://jim-nielsen.com/logo-integrity)) in testing iconic logos and their visual integrity against a gaussian blur. Additionally, a technical behind-the-scenes breakdown of how I built the experiment."
 
 I was reading Paul Rand’s *A Designers Art* and stumbled across this quote:
 
 > How far out of focus can an image be and still be recognized? A [logo] which is subject to an infinite number of uses, abuses, and variations whether for competitive purposes or for reasons of “self-expression,” cannot survive unless it is designed with utmost simplicity and restraint—keeping in mind that seldom is a trademark favored with more than a glance. Simplicity implies not only an aesthetic ideal, but a meaningful idea, either of content or form, that can be easily recalled (Paul Rand, *A Designers Art* 31).
 
-I found this a rather intriguing concept. Prior to our current world of 100% pure digital reproducibility, one test of a logo was to see how well it could endure visual entropy in real world use. For example, how well could a logo on letterhead maintain its visual integrity and recognizability after being faxed multiple times? Each time a letter was faxed it slightly lost its visual integrity to the point of becoming unrecognizable or unreadable. Thus, a well-designed logo would maintain it’s readability and recognizability through the stages of visual entropy that result from real-world use.
+I found this a rather intriguing concept. Prior to our current digital world of 100% pure reproducibility, one significant test of a logo's effectiveness was to see how well it could endure visual entropy in real world use. For example, how well could a logo on letterhead maintain its visual integrity and recognizability after being faxed multiple times? Each time a letter was faxed it slightly lost its visual integrity to the point of becoming unrecognizable or unreadable. Thus, a well-designed logo would maintain it’s readability and recognizability through the stages of visual entropy that result from real-world use.
 
 In contrast, today’s digital technology ensures 100% exact reproducibility. Because digital files are a 1:1 mirrored copy of their original, they do not lose any visual integrity and are dependent solely on the integrity of the original file. Due to this, many designers today might not fret over a logo’s resistance to visual entropy. Sure, things like higher pixel density in 72ppi or 144ppi screens may cause slight blur issues when displaying a logo, but those issues have more to do with sharpening an image than avoiding the its complete demise into  unrecognizability. 
 
@@ -18,7 +19,7 @@ I decided I would test each logo’s visual stamina by bringing each one out of 
 
 Additionally, I wanted to remove color from each logo because it can be a vital ingredient in brand recognition. For example, perhaps all you see is a blur, but if that blur is the color magenta you might more easily guess “T-Mobile” as opposed to some other brand. Boiling all the logos down to their essence — their shapes and forms in single color — helps establish and verify how well the mark can stand on its own.
 
-Furthermore, I wanted to test logos that were marks rather than type. For example, Google’s logo is a logotype, because the logo itself is the name of the company. Whereas Nike’s “swoosh” is an abstract logo mark. Logo marks really test the recognizability of a brand because they do not spell out the company’s name and instead rely on a mental association between the mark and the company.
+Furthermore, I wanted to test logos that were abstract symbols rather than typographic represenations of the brand name. For example, Google’s logo is a logotype because the logo itself is the name of the company. Whereas Nike’s “swoosh” is an abstract logo mark. Logo marks really test the recognizability of a brand because they do not spell out the company’s name and instead rely on a mental association between the mark and the company.
 
 [![Logo Types, courtesy of logodesignsource.com](http://jim-nielsen.com/blog/assets/img/2014/logos-types.png)](http://www.logodesignsource.com/types.html)
 
@@ -30,7 +31,7 @@ Logos which shared the same visual form fared the worst. For example, circular l
 
 ![Blurred circular logos](http://jim-nielsen.com/blog/assets/img/2014/logos-circular.jpg "From left to right: ABC, GE, PBS, Pepsi, CBS, Target")
 
-This is not to say that circular shapes are necessarily a poor choice when design a logo. However, upon being brought significantly out of focus they do lose their visual distinctness and, thus, recognizability.
+This is not to say that circular shapes are necessarily a poor choice when designing a logo. However, upon being brought significantly out of focus they do lose their visual distinctness and, thus, recognizability.
 
 ### The Best Performers
 
@@ -44,9 +45,9 @@ Nike, for example, holds up rather well when heavily blurred due to it’s horiz
 
 ### Experiment Conclusions: What I Learned
 
-Part of how easily you recognize a logo not only has to do with its design, but also its ubiquity. The more recognizable a mark is and the more you’ve been exposed to it often dictates how easily you’ll recognize it. For example, you might see one mark that is significantly out of focus and guess it is as "McDonalds" rather than "Dodge Ram" because you've been exposed to the McDonalds mark more and thus make that connection. Repetitious exposure to a brand’s mark leads to higher recognition. Thus, it can be inferred that the efficacy of a brand’s mark is often less dependent on its design than on its consistent, repetitious exposure to the public eye.
+A significant ingredient in determining how easily you recognize a logo not only has to do with its design but also its ubiquity. The more recognizable a mark is and the more you’ve been exposed to it often dictates how easily you’ll recognize it. For example, you might see one mark that is significantly out of focus and guess it is as "McDonalds" rather than "Dodge Ram" because you've been exposed to the McDonalds mark more and thus make that connection. Repetitious exposure to a brand’s mark leads to higher recognition. Thus, it can be inferred that the efficacy of a brand’s mark is often less dependent on its design than on its consistent, repetitious exposure to the public eye.
 
-Some might think this means there is no substance to logo design, that one need only create a logo, any logo, and then just expose it as much as possible to the public view. This assumption, however, is false. Certain shapes and forms lend themselves to be more easily remembered. Additionally, shapes, forms, and colors all have inherent societal meanings which cannot be overlooked when designing a logo. For example, if you were in the funeral business, you wouldn't want to use a logo that looks like the skull and cross bones, no matter how much exposure you give it. 
+Some might think this means there is no substance to logo design, that one need only create a logo, any logo, and then just expose it as much as possible to the public view. This assumption, however, is not entirely true. Certain shapes and forms lend themselves to be more easily remembered. Additionally, shapes, forms, and colors all have inherent societal meanings which cannot be overlooked when designing a logo. For example, if you were in the funeral business, you wouldn't want to use a logo that looks like the skull and cross bones, no matter how much exposure you give it. 
 
 Lastly, this specific test of a logo’s recognizability when out of focus has shown that a logo’s form can go a long way in strengthening its recognizability. Circular forms are very common and when heavily blurred tend to all look the same with no unique visual identifier. More abstract shapes however, like Nike and Puma, tend to retain their recognizability due to unique and stark contrasts in form which lead to easier recognizability.
 
@@ -123,7 +124,7 @@ After a little research, I discovered ImageMagick was just the tool I needed. Af
 
 The final process looks something like this:
 
-I have a master `.ai` file with appropriately-sized vector version of each logo on matching canvas sizes, which allows me to easily create a proportionally-sized set of logos.
+I have a master `.ai` file with vector versions of each logo on matching canvas sizes, which allows me to easily create a set of logos which are proportionally sized in relation to one another.
 
 ![Illustrator master file](http://jim-nielsen.com/blog/assets/img/2014/logos-illustrator-file.png)
 
@@ -176,8 +177,10 @@ As you can see, having this “master” JSON file allowed me to easily add, rem
 
 ### End Results
 
-These tactics of progressive enhancement, including a responsive design, make this site quite accessible. On a mobile device? It works. On a tablet? It works. Have javascript disabled of the CSS doesn’t load? You can still access each individual logo and its blurred variations. No SVG support? You get served regular images. It just works. 
+This progressively-enhanced, responsive design makes this site quite accessible. On a mobile device? It works. On a tablet? It works. Have javascript disabled of the CSS doesn’t load? You can still access each individual logo and its blurred variations. No SVG support? You get served regular images. It just works. 
 
 It was a fun experiment to build and test. What I learned will inform many of the projects I work on in the future.
+
+Have questions or what to know more? Find me on twitter [@jimniels](http://twitter.com/jimniels).
 
 
