@@ -72,7 +72,7 @@ For those of you who decided to venture on, I welcome you. Let me start by telli
 
 The integers in the UI would serve as controls to easily switch back and forth between heavy and light blurs. This allowed dynamic comparison between each logo, making it very easy to see which logos best retained their recognizability.
 
-At this point, the thought crossed my mind, “what if it were a game where you could try and guess what the blurred logo was?” After showing the working prototype to a few people, the feedback was the same: this should be a game!
+At this point, the thought crossed my mind, “what if it were a game where you could try and guess what the blurred logo was?” After showing the working prototype to a few people, the feedback was the same: this should be a game! (Thanks to [@thegaw](https://twitter.com/thegaw) for his patient, supportive feedback in this process).
 
 **Phase 3**: My final phase led me to create the guessing game you see today. I explored a few more UI changes in Photoshop and then tweaked my working HTML/CSS/Javascript prototype to match the mock I had created. As is my style, my mock wasn’t set in stone. I left myself room for making flexible design choices while building the page in the browser:
 
