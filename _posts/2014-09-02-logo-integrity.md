@@ -107,13 +107,13 @@ If SVGs are supported, however, then I directly inject the SVG element inside th
 
 As you can see, I tried to progressively enhance this page as I went along. For users who didn't have javascript turned on, they could still access the blurred logo results of the experiment by clicking on each brand. 
 
-![Page appearance without Javascript or CSS loaded](http://jim-nielsen.com/blog/assets/img/2014/logos-no-js-css.png "No Javascript or CSS support")
+![Page appearance without Javascript or CSS loaded](http://jim-nielsen.com/blog/assets/img/2014/logos-no-js-css.png "CSS and Javascript both don't load")
 
-![Page appearance with CSS loaded but no Javascript](http://jim-nielsen.com/blog/assets/img/2014/logos-no-js.png "No Javascript or CSS support")
+![Page appearance with CSS loaded but no Javascript](http://jim-nielsen.com/blog/assets/img/2014/logos-no-js.png "CSS loads but no Javascript")
 
 Users with javascript, however, received the enhanced ability to directly manipulate the logos’ blur values right in the browser, while simultaneously comparing those results across brands.
 
-![Page appearance with both CSS and Javascript loaded](http://jim-nielsen.com/blog/assets/img/2014/logos-js-css.png "No Javascript or CSS support")
+![Page appearance with both CSS and Javascript loaded](http://jim-nielsen.com/blog/assets/img/2014/logos-js-css.png "CSS and Javascript both load")
 
 ### Programmatically Creating Each Logo Variation With ImageMagick
 
