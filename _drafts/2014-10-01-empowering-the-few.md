@@ -14,6 +14,8 @@ However, occasionally I get small insights into how my projects are received and
 
 ![Screenshot of teamcolors.arc90.com](http://jim-nielsen.com/blog/assets/img/2014/teamcolors-screenshot.png)
 
+The project launched  
+
 https://github.com/arc90/teamcolors/pulls
 
 https://github.com/arc90/teamcolors/issues/28
