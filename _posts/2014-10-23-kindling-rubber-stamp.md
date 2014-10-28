@@ -2,7 +2,7 @@
 layout: post
 title: "Kindling Rubber Stamp"
 date: 2014-10-23
-tags: case-study
+tags: design-process
 summary: "A quick look at the design process for creating branded a rubber stamp for Kindling."
 ---
 

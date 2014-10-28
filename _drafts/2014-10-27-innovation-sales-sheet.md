@@ -2,7 +2,7 @@
 layout: post
 title: Innovation Sales Sheet
 date: 2014-10-23
-tags: case-study
+tags: design-process
 summary: "summary..."
 ---
 

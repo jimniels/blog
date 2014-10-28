@@ -2,7 +2,7 @@
 layout: post
 title: Team Color Codes
 date: 2013-2-19
-tags: case-study
+tags: design-process
 ---
 
 I recently participated in the [Arc90 Hackathon][hackathon]. I originally volunteered for a different project as part of a team, but due to scheduling conflicts my team disbanded. I was left with the option to work on a solo project, which resulted in [Team Colors][team-colors]: a single-page website that serves as a reference for HEX values for professional sport teams:

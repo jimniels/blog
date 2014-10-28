@@ -14,7 +14,7 @@ I keep track of tags manually, as I know of no other way currently. So, in the f
 3. insights
 4. notes
 5. tips
-6. case-study
+6. design-process
 7. resources
 8. typography
 

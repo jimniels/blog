@@ -2,7 +2,7 @@
 layout: post
 title: Home Page Redesign of kindlingapp.com
 date: 2013-09-26
-tags: case-study
+tags: design-process
 ---
 
 I recently redesigned the [kindlingapp.com](http://kindlingapp.com) home page. The old home page jumped right into talking about APIs and security features without ever describing what the software was actually for. In contrast, the new design strives to more clearly and succinctly articulate what Kindling is and what real-life problems it solves.
