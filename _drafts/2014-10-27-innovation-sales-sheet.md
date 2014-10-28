@@ -25,3 +25,8 @@ To do this, I started making my ideas a little more concrete by wireframing my s
 The reaction from the stakeholders was positive and they were on board with my direction and interpretation of the initial text.
 
 ![Side by side screenshot of the initial text and the wireframe](http://jim-nielsen.com/blog/assets/img/2014/sales-sheet-text-to-wireframe.jpg "Side-by-side view of the text transformed into a wireframed visual narrative")
+
+With all the stakeholders, a solid visual prototype, and the text edited to lend itself to visual aids, I started getting into more fine-tuned visual details.
+
+Rather than use concrete screenshots of the product altered to fit our “theoretical” new feature, I instead created a looser visual interpretation as to what the feature might look like. Because the details of the feature had not been worked out yet, actual screenshots of the product wouldn't serve as an accurate representations or descriptions of what the feature could be. By using a more open-ended visual solution, exisiting clients could more easily understand the functions and goals of the new feature without getting hung up on the details of implementation (this held true for empoloyees of the company as well). The idea of the feature was still very much in its infancy, so tying it down to a rigid visual interpetation at such an early, conceptual stage didn’t make very much sense (though it was the stakeholders initial conception of the document).
+
