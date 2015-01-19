@@ -2,7 +2,7 @@ name: Blog | Jim Nielsen, Designer
 markdown: redcarpet
 highlighter: pygments
 baseurl: /blog
-imageurl: http://jim-nielsen.com/blog/assets/img
+imageurl: assets/img
 domain: http://jim-nielsen.com
 permalink: /posts/:title
 paginate: 5

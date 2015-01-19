@@ -5,6 +5,8 @@ date: 2013-2-19
 tags: design-process
 ---
 
+**Update:** Team Colors 2.0 is out! You can see it live at it’s original url [teamcolors.ar90.com](team-colors) or read the blog post about it “[Team Colors 2.0](http://jim-nielsen.com/blog/posts/teamcolors-2-0)”.
+
 I recently participated in the [Arc90 Hackathon][hackathon]. I originally volunteered for a different project as part of a team, but due to scheduling conflicts my team disbanded. I was left with the option to work on a solo project, which resulted in [Team Colors][team-colors]: a single-page website that serves as a reference for HEX values for professional sport teams:
 
 ![Screenshot of Team Colors, an Arc90 Hackathon Project]({{ site.imageurl }}/2013/team-colors.png)
