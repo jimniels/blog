@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Everything Before (Visual) Design
+title: Everything Before Visual Design
 date: 2015-02-05
 tags: design-process
 ---
