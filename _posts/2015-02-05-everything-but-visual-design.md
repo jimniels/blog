@@ -11,7 +11,11 @@ This realization started as a discussion amongst two or three of us internally. 
 
 Once we had a loose rubric to follow you might think I jumped right into the visual design of the new site, but I didn’t. Don’t get me wrong, I wanted to because that’s the exciting part. But experience has taught me that putting any work into high fidelity  visuals this early would prove an inefficient use of time. The next hurdle was getting buy-in from stakeholders in the marketing site, which meant basically every major head in the company.
 
-As a design team we had a common, unspoken, un-written-down understanding amongst ourselves as to why this “redesign” was necessary. But we realized we needed to formalize our argument to get buy-in from other stakeholders in the company. Simply saying, “the marketing site needs a redesign” wouldn’t cut it. So we put together a slide show with our arguments (backed by the data which impelled us to even begin this project) along with some low-fidelty mocks to help tell a story as to why we’re doing what we’re doing, how we plan on executing it, and how it will benefit all stakeholders involved, including current and future customers. 
+As a design team we had a common, unspoken, un-written-down understanding amongst ourselves as to why this “redesign” was necessary. But we realized we needed to formalize our argument to get buy-in from other stakeholders in the company. Simply saying, “the marketing site needs a redesign” wouldn’t cut it. So I started to think about what this “redesign” would entail by sketching out some of our ideas as they related to the site’s information architecture, user flows, etc. 
+
+![Picture of sketches]({{ site.imageurl }}/2015/marketing-sketches.jpg)
+
+After we had a basic conception of what the new site could be, we put together a slide show with our arguments (backed by the data which impelled us to even begin this project) along with some low-fidelty wireframes I had created to help tell a story as to why we’re doing what we’re doing, how we plan on executing it, and how it will benefit all stakeholders involved, including current and future customers. 
 
 ![Screenshot of mock in Sketch]({{ site.imageurl }}/2015/marketing-mock.png)
 
