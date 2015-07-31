@@ -2,15 +2,16 @@
 layout: post
 title: Creating Apple Touch Icons
 date: 2014-10-28
-tags: design-process
+tags: designProcess
 summary: "Upon closer inspection, sometimes “flat” icons or graphics aren’t quite so flat. Introducing a few subtleties can go a long way."
+redirect_from: /posts/creating-apple-touch-icons/
 ---
 
 With Yosemite and iOS8 having just been released, I decided it was time to update the [`apple-touch-icon`](https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) for the Kindling web app. FYI: these icons are now being used not just on the springboard for iOS devices, but also as bookmarklet icons for Safari on iOS *and* Mac.
 
 ![Screenshot of bookmarklet icons in Safari on iOS and Mac](http://jim-nielsen.com/blog/assets/img/2014/apple-touch-icon-safari-ios.png)
 
-For this task I jumped right into Illustrator and started drawing. Before too long I had just what I wanted: a solid color with the Kindling glyph. I played around with the sizing a little bit and then I sat back and thought, “that was easy”. 
+For this task I jumped right into Illustrator and started drawing. Before too long I had just what I wanted: a solid color with the Kindling glyph. I played around with the sizing a little bit and then I sat back and thought, “that was easy”.
 
 ![Screenshot of touch icon graphic in Illustrator](http://jim-nielsen.com/blog/assets/img/2014/apple-touch-icon-unfinished.png "A solid color background and a white logo, easy ... right?")
 

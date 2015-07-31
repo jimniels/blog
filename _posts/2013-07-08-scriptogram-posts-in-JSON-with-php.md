@@ -1,8 +1,8 @@
 ---
-layout: post
 title: Retrieving Recent Posts from Scriptogram in JSON Format Using PHP
 date: 2013-07-08
 tags: tips
+redirect_from: /posts/scriptogram-posts-in-JSON-with-php/
 ---
 
 Do you use [Scriptogr.am](http://scriptogr.am/)? Do you want to programmatically retrieve your most recent posts from the service using PHP? It's not as simple as an API call, but it can be done.
@@ -15,7 +15,7 @@ Scriptogr.am does not have a publicly accessible API. It does, however, provide 
 
 	http://scriptogr.am/USERNAME/feed/
 
-If you use PHP's `file_get_contents()` and pass it your Scriptogr.am feed URL, you'll be returned your most recent posts and accompanying metadata in XML form. 
+If you use PHP's `file_get_contents()` and pass it your Scriptogr.am feed URL, you'll be returned your most recent posts and accompanying metadata in XML form.
 
 ### Converting XML to JSON in PHP
 Now that we have the data we want, we've got to put it in the format we want (JSON). We can do that using the technique described in [this article from lostechies](http://lostechies.com/seanbiefeld/2011/10/21/simple-xml-to-json-with-php/).

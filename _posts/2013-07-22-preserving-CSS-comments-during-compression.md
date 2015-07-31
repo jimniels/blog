@@ -1,11 +1,11 @@
 ---
-layout: post
 title: Preserving CSS Comments For Wordpress During Sass Compression
 date: 2013-07-22
-tags: tips web-design
+tags: tips webDesign
+redirect_from: /posts/preserving-CSS-comments-during-compression/
 ---
 
-Compressing your CSS for production websites is a best-practice, especially if you're using a CSS preprocessor like Compass. If you don't compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file. 
+Compressing your CSS for production websites is a best-practice, especially if you're using a CSS preprocessor like Compass. If you don't compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file.
 
 Here's an example CSS rule before compression:
 
@@ -22,7 +22,7 @@ Now here's that same rule compressed:
 You should already be commenting your code generously. Thus, your CSS file size will increase rather quickly. Here's a comparison example of CSS file sizes for a project I'm currently working on:
 
 - Prior to compression
-		- File size: 122.413kb 
+		- File size: 122.413kb
 		- Lines of code: 4,601
 - After compression:
 		- File size: 81kb
@@ -51,7 +51,7 @@ Why? Wordpress uses that information in to identify themes. From the [codex](htt
 
 > The stylesheet must provide details about the Theme in the form of comments. **No two Themes are allowed to have the same details** listed in their comment headers, as this will lead to problems in the Theme selection dialog.
 
-So if you're creating a Wordpress theme, it's imperative your theme-identifying CSS comments **do not** get stripped out during compression. 
+So if you're creating a Wordpress theme, it's imperative your theme-identifying CSS comments **do not** get stripped out during compression.
 
 ### The Solution
 
@@ -70,6 +70,6 @@ Thus, in the example above, your Wordpress comments would go something like this
 	Version: 1.0
 	*/
 
-Compass will now preserve that comment block when compressing your CSS. 
+Compass will now preserve that comment block when compressing your CSS.
 
 

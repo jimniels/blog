@@ -3,8 +3,14 @@
 //  General Classes
 //  ==============================
 //
-* {
-    @include box-sizing(border-box);
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 body {
@@ -31,7 +37,7 @@ body {
     @media screen and (max-width: 600px) {
         width: 90%;
     }
-    
+
 }
 
 a {
@@ -62,8 +68,12 @@ a {
     }
 }
 
+:target {
+    background: lightyellow;
+}
 
-// 
+
+//
 //  Remove page transitions on page load
 //  http://css-tricks.com/transitions-only-after-page-load/
 //  Remove this class on page load

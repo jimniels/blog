@@ -1,8 +1,8 @@
 ---
-layout: post
 title: Team Color Codes
 date: 2013-2-19
-tags: design-process
+tags: designProcess
+redirect_from: /posts/teamcolors/
 ---
 
 **Update:** Team Colors 2.0 is out! You can see it live at it’s original url [teamcolors.ar90.com](team-colors) or read the blog post about it “[Team Colors 2.0](http://jim-nielsen.com/blog/posts/teamcolors-2-0)”.
@@ -26,11 +26,11 @@ Here's a quick overview of the technology used:
 
 - The page is responsive, built using HTML5, CSS, and the CSS preprocessor Compass
 - All the data (team names, hex values) is stored in a single JSON file. This makes updating the page quite simple. You just add a new league with teams, or a new team in the appropriate league with its corresponding HEX values. Then add the team's logo into the images directory and you're done!
-- Most team logos are SVGs, making them crisp on HiDPI devices. If a team logo isn't avaiable in SVG, a PNG fallback is used. 
+- Most team logos are SVGs, making them crisp on HiDPI devices. If a team logo isn't avaiable in SVG, a PNG fallback is used.
 - Progressive enhancement is used thoroughly:
 	- Images are served by javascript after page load to reduce HTTP requests on the initial page load
 	- All league/team data is loaded in a single page. Javasript is used to create a the drop-down control for sifting through teams by league and showing/hiding content.
-	
+
 ## Don't Forget
 You can view [Team Colors here][team-colors]. Don't forget to checkout some of the other amazing [Arc90 Hackathon projects][hackathon], or [read about the hackathon](hackathon-blog).
 

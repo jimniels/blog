@@ -1,8 +1,8 @@
 ---
-layout: post
 title: Filler Content Tools, Tips, and a Dynamic Example via Webdesign Tuts+
 date: 2013-5-13
-tags: published-articles
+tags: publishedArticles
+redirect_from: /posts/tuts-filler-content/
 ---
 
 ![Filler Content: Tools, Tips and a Dynamic Example via Webdesign Tuts+]({{ site.imageurl }}/2013/filler-content-webdesign-tuts.jpg)

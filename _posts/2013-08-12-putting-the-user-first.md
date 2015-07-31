@@ -1,11 +1,11 @@
 ---
-layout: post
 title: "Once Again, It’s About Putting the User First"
 date: 2013-08-12
 tags: insights
+redirect_from: /posts/putting-the-user-first/
 ---
 
-Drew Crawford recently wrote a lengthy, in-depth article titled “[Why mobile web apps are slow](http://sealedabstract.com/rants/why-mobile-web-apps-are-slow/)”. A lot of it was over my head; nevertheless, I enjoyed his exhaustive, heavily-cited exposition on managed languages and their performance (especially on mobile) vs. compiled languages. 
+Drew Crawford recently wrote a lengthy, in-depth article titled “[Why mobile web apps are slow](http://sealedabstract.com/rants/why-mobile-web-apps-are-slow/)”. A lot of it was over my head; nevertheless, I enjoyed his exhaustive, heavily-cited exposition on managed languages and their performance (especially on mobile) vs. compiled languages.
 
 ## Change the whole way you think about mobile software development
 Towards the latter half of the article, Crawford asserts, “What you are about to read should change the whole way you think about mobile software development.” That’s a pretty big assertion. Even though I couldn’t completely grasp everything he had written up to that point, I had to continue reading.

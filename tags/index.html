@@ -1,16 +1,31 @@
 ---
 layout: default
-title: Web Design Category | Jim Nielsen’s Blog
+title: Tags | Jim Nielsen’s Blog
 ---
-<div class="archive-wrapper">
+<div class="archive">
     <h3 class="archive__title">Tags</h3>
-    <ul class="archive__list">
-    
+    <ul class="archive__toc">
+        {% for tag in site.tags %}
+            <li>
+                <a href="#{{tag.first}}">#{{tag.first}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
     {% for tag in site.tags %}
-        <li>   
-            <span>{{tag[1] | size}}</span>
-            <a href="{{ site.baseurl }}/tags/{{tag.first}}">#{{tag.first}}</a>
-        </li>
+        <h2 id="{{tag.first}}" class="archive__title">
+            #{{tag.first}} <span>({{tag[1] | size}})</span>
+        </h2>
+        <ul class="archive__list">
+            {% for post in site.posts %}
+                {% if post.tags contains tag.first %}
+                    <li>
+                        <time class="date">{{ post.date | date: "%-d %b, %Y" }}</time>
+                        <a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
     {% endfor %}
 
     </ul>

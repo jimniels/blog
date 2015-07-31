@@ -1,9 +1,9 @@
 ---
-layout: post
 title: Workarounds to Variable Interpolation in Sass
 date: 2013-07-29
 tags: insights
 summary: "Variable interpolation is currently not supported in Sass. If you want to map key value pairs for something such as a brand to its color, you can create a lookup function to do the trick."
+redirect_from: /posts/sass-variable-interpolation-workarounds/
 ---
 
 Currently in Sass, interpolating list values in variable names is not supported (although maps are [supposedly slated for Sass 3.3](https://github.com/nex3/sass/issues/132#issuecomment-17581804)). However, there is a workaround solution until maps come. Allow me to elaborate:
@@ -16,7 +16,7 @@ Something like this:
 
     // Variables for Sass usage
     $nike: #ffaadd;
-    $facebook: #ff8811; 
+    $facebook: #ff8811;
     $yahoo: #aaddcc;
 
     // CSS Classes for HTML usage
@@ -28,7 +28,7 @@ Initially, I thought I could create a variable for each brand and use the `@each
 
 	// Brand Variables
 	$nike: #ffaadd;
-	$facebook: #ff8811; 
+	$facebook: #ff8811;
 	$yahoo: #aaddcc;
 
 	// List of Brand Names
@@ -77,10 +77,10 @@ The CSS output of this loop would look something like this:
         color: #aaddcc;
     }
 
-### On-Demand Solution: Create a Lookup Function 
+### On-Demand Solution: Create a Lookup Function
 
 To have brand color values available on-demand while writing Sass code I created a lookup function. In my case, the function mapped a brand name in `$brand-names` to a brand color in `$brand-color`:
-    
+
     // Lookup function for a brand, returns a color
     @function get-brand-color($search) {
         $index: index($brand-names, $search);
@@ -100,7 +100,7 @@ As an example, if I needed `<div class="facebook-box">` to have the background c
         background: get-brand-color("facebook");
     }
 
-The `get-brand-color` function takes the value I passed to it (facebook) and searches the list `$brand-names` for that value, returning its index position in the list. Then, the function grabs the corresponding index in `$brand-colors`, which should be the brand name's color (if you’ve mapped your lists correctly). The CSS output would look like this: 
+The `get-brand-color` function takes the value I passed to it (facebook) and searches the list `$brand-names` for that value, returning its index position in the list. Then, the function grabs the corresponding index in `$brand-colors`, which should be the brand name's color (if you’ve mapped your lists correctly). The CSS output would look like this:
 
     div.facebook-box {
         background: #ff8811;
@@ -108,4 +108,4 @@ The `get-brand-color` function takes the value I passed to it (facebook) and sea
 
 ## Conclusion
 
-There are some good work arounds to variable interpolation available. Hopefully these examples get you on the right track for your own projects until Sass 3.3 is stable for release. Happy coding! 
+There are some good work arounds to variable interpolation available. Hopefully these examples get you on the right track for your own projects until Sass 3.3 is stable for release. Happy coding!

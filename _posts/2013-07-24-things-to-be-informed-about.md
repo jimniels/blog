@@ -1,8 +1,8 @@
 ---
-layout: post
 title: Things to Be Informed About in Life
 date: 2013-07-24
 tags: insights
+redirect_from: /posts/things-to-be-informed-about/
 ---
 
 Somewhat recently on Quora, someone asked "[What are the top 10 things that we should be informed about, in life?](http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life)"

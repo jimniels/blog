@@ -1,15 +1,15 @@
 ---
-layout: post
 title: Coming to Appreciate Art
 date: 2013-03-08
 tags: insights
+redirect_from: /posts/coming-to-appreciate-art/
 ---
 
-I have a confession: for some time now I've been cynical of art. More specifically modern art. For example, here is a piece of art I encountered at the Museum of Modern Art in New York City: 
+I have a confession: for some time now I've been cynical of art. More specifically modern art. For example, here is a piece of art I encountered at the Museum of Modern Art in New York City:
 
 ![Modern Art at the MoMA](https://pbs.twimg.com/media/A-wPHGACcAA7xOB.jpg)
 
-I can't help but ask myself: how is this art? Even more puzzling: how does it have a place in the world-renowned MoMA? At first-glance, this piece seems on par with something my four-year-old nephew could create. Then, as a web designer, I am reminded most people think websites are something their nephews could create too. 
+I can't help but ask myself: how is this art? Even more puzzling: how does it have a place in the world-renowned MoMA? At first-glance, this piece seems on par with something my four-year-old nephew could create. Then, as a web designer, I am reminded most people think websites are something their nephews could create too.
 
 What's my point? I realize I don't understand or appreciate art because I am ignorant of it. People don't understand or appreciate web design because they are ignorant of it. As a general rule of thumb, the more you immerse yourself in something and learn its intricacies and rationales the more you come to appreciate and respect it. That goes for modern art or web design. Get to know the things you criticize. Generally, **the more you know the less you will criticize**.
 

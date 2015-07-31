@@ -28,7 +28,17 @@
 		left: 0px;
 		height: 1px;
 		width: 100%;
-		@include background-image(linear-gradient(left, white 0%, $color-border-light 25%, $color-border-light 75%, white 100%));
+
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,eeeeee+25,eeeeee+75,ffffff+100 */
+        background: rgb(255,255,255); /* Old browsers */
+        background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(238,238,238,1) 25%, rgba(238,238,238,1) 75%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(25%,rgba(238,238,238,1)), color-stop(75%,rgba(238,238,238,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(238,238,238,1) 25%,rgba(238,238,238,1) 75%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(238,238,238,1) 25%,rgba(238,238,238,1) 75%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(238,238,238,1) 25%,rgba(238,238,238,1) 75%,rgba(255,255,255,1) 100%); /* IE10+ */
+        background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(238,238,238,1) 25%,rgba(238,238,238,1) 75%,rgba(255,255,255,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+
 	}
 }
 
@@ -43,7 +53,7 @@
     margin: 0 auto 5em;
     position: relative;
     background-size: 20px;
-    max-width: #{$max-width-base + 10}; 
+    max-width: #{$max-width-base + 10};
 
     @media screen and (max-width: $media-query-s) {
         margin-bottom: 2em;
@@ -101,18 +111,18 @@
         @media screen and (max-width: $media-query-s) {
             width: 100%
         }
-    }     
+    }
 }
 
 //
 //
 //  Article Footer
 //  ==============================
-//  
+//
 .article-footer {
     max-width: #{$max-width-base};
     margin: 0 auto;
-    
+
     &:before {
         content: ' ';
         position: absolute;
@@ -152,5 +162,5 @@
     .archive__list {
         margin-left: 1.5em;
     }
-    
+
 }

@@ -1,8 +1,8 @@
 ---
-layout: post
 title: Don't Forget the ‘optgroup’ Element via Webdesign Tuts+
 date: 2012-12-27
-tags: published-articles
+tags: publishedArticles
+redirect_from: /posts/tuts-dont-forget-the-optgroup-element/
 ---
 
 [![Don't Forget the optgroup Element via Webdesign Tuts+]({{ site.imageurl }}/2012/dont-forget-the-optgroup-element.png)][1]

@@ -1,21 +1,21 @@
 ---
-layout: post
 title: Everything But Visual Design
 date: 2015-02-05
-tags: design-process
+tags: designProcess
+redirect_from: /posts/everything-but-visual-design/
 ---
 
-As our product has matured, our team has expanded, and our marketing site’s information has evolved, we’ve discovered a need to holistically re-approach [our public facing marketing site](http://kindlingapp.com). So I’ve recently been doing some initial design thinking around what we’re internally calling “Marketing Site 2.0”. 
+As our product has matured, our team has expanded, and our marketing site’s information has evolved, we’ve discovered a need to holistically re-approach [our public facing marketing site](http://kindlingapp.com). So I’ve recently been doing some initial design thinking around what we’re internally calling “Marketing Site 2.0”.
 
 This realization started as a discussion amongst two or three of us internally. That discussion evolved into a formal meeting where we tossed ideas around the room, sketched them out on a white board, and took notes. Those notes were jotted down as  guidelines for further guidance in developing the hazy idea of “Marketing Site 2.0” (it is worth noting that all of this happened over the course of a few weeks, in and out of other more pressing meetings and projects).
 
 Once we had a loose rubric to follow you might think I jumped right into the visual design of the new site, but I didn’t. Don’t get me wrong, I wanted to because that’s the exciting part. But experience has taught me that putting any work into high fidelity  visuals this early would prove an inefficient use of time. The next hurdle was getting buy-in from stakeholders in the marketing site, which meant basically every major head in the company.
 
-As a design team we had a common, unspoken, un-written-down understanding amongst ourselves as to why this “redesign” was necessary. But we realized we needed to formalize our argument to get buy-in from other stakeholders in the company. Simply saying, “the marketing site needs a redesign” wouldn’t cut it. So I started to think about what this “redesign” would entail by sketching out some of our ideas as they related to the site’s information architecture, user flows, etc. 
+As a design team we had a common, unspoken, un-written-down understanding amongst ourselves as to why this “redesign” was necessary. But we realized we needed to formalize our argument to get buy-in from other stakeholders in the company. Simply saying, “the marketing site needs a redesign” wouldn’t cut it. So I started to think about what this “redesign” would entail by sketching out some of our ideas as they related to the site’s information architecture, user flows, etc.
 
 ![Picture of sketches]({{ site.imageurl }}/2015/marketing-sketches.jpg)
 
-After we had a basic conception of what the new site could be, we put together a slide show with our arguments (backed by the data which impelled us to even begin this project) along with some low-fidelty wireframes I had created to help tell a story as to why we’re doing what we’re doing, how we plan on executing it, and how it will benefit all stakeholders involved, including current and future customers. 
+After we had a basic conception of what the new site could be, we put together a slide show with our arguments (backed by the data which impelled us to even begin this project) along with some low-fidelty wireframes I had created to help tell a story as to why we’re doing what we’re doing, how we plan on executing it, and how it will benefit all stakeholders involved, including current and future customers.
 
 ![Screenshot of mock in Sketch]({{ site.imageurl }}/2015/marketing-mock.png)
 

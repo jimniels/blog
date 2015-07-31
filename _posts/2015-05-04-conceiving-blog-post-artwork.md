@@ -1,8 +1,8 @@
 ---
-layout: post
 title: Conceiving Blog Post Artwork
 date: 2015-05-04
-tags: design-process
+tags: designProcess
+redirect_from: /posts/conceiving-blog-post-artwork/
 ---
 
 At [Kindling](http://www.kindlingapp.com/) I’ve recently been experimenting with an aesthetic that mixes hand-drawn imagery with digital typography, illustration, and photography. It has been going rather well thus far, even though the last thing in the world I would consider myself is an “illustrator”. We decided our blog would be a good place to begin playing with, testing, and possibly introducing this aesthetic into our brand because it allows us to easily abandon the idea in the future.
@@ -23,7 +23,7 @@ However, not all blog posts lend themselves to artwork so easily. As an example,
 
 ![Flux design pattern]({{ site.imageurl }}/2015/drawing-flux-design-pattern.jpg "A sketch of the flux design pattern leveraged in react.js")
 
-Of course, I never get these visuals right the first time. Usually I have to start with simple point-to-point sketches and then expand on details and color as I go. For example, a blog post is being written right now about the essential parts of an innovation program. The author is leveraging the metaphor of a barstool with three supporting legs throughout his writing and requested a visual to go along with it. So, to accommodate this request, I started by sketching simple lines. From there I tried expanding those into shapes, then looked at possible shadowing, and finally redrew the stool more precisely with colors and what not. 
+Of course, I never get these visuals right the first time. Usually I have to start with simple point-to-point sketches and then expand on details and color as I go. For example, a blog post is being written right now about the essential parts of an innovation program. The author is leveraging the metaphor of a barstool with three supporting legs throughout his writing and requested a visual to go along with it. So, to accommodate this request, I started by sketching simple lines. From there I tried expanding those into shapes, then looked at possible shadowing, and finally redrew the stool more precisely with colors and what not.
 
 ![Stool drawings]({{ site.imageurl }}/2015/drawing-stool.jpg "Rough to refined sketches of the artwork for a blog post using the metaphor of a stool with supporting legs")
 

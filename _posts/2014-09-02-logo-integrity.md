@@ -1,9 +1,9 @@
 ---
-layout: post
 title: Logo Integrity Brought into Focus
 date: 2014-09-02
-tags: design-process
+tags: designProcess
 summary: 'An analysis of my experiment (<a href="http://jim-nielsen.com/logo-integrity">http://jim-nielsen.com/logo-integrity</a>) in testing iconic logos and their visual integrity against a gaussian blur. Additionally, a technical behind-the-scenes breakdown of how I built the experiment.'
+redirect_from: /posts/logo-integrity/
 ---
 
 I was reading Paul Rand’s *A Designers Art* and stumbled across this quote:
@@ -12,7 +12,7 @@ I was reading Paul Rand’s *A Designers Art* and stumbled across this quote:
 
 I found this a rather intriguing concept. Prior to our current digital world of 100% pure reproducibility, one significant test of a logo's effectiveness was to see how well it could endure visual entropy in real world use. For example, how well could a logo on letterhead maintain its visual integrity and recognizability after being faxed multiple times? Each time a letter was faxed it slightly lost its visual integrity to the point of becoming unrecognizable or unreadable. Thus, a well-designed logo would maintain it’s readability and recognizability through the stages of visual entropy that result from real-world use.
 
-In contrast, today’s digital technology ensures 100% exact reproducibility. Because digital files are a 1:1 mirrored copy of their original, they do not lose any visual integrity and are dependent solely on the integrity of the original file. Due to this, many designers today might not fret over a logo’s resistance to visual entropy. Sure, things like higher pixel density in 72ppi or 144ppi screens may cause slight blur issues when displaying a logo, but those issues have more to do with sharpening an image than avoiding the its complete demise into  unrecognizability. 
+In contrast, today’s digital technology ensures 100% exact reproducibility. Because digital files are a 1:1 mirrored copy of their original, they do not lose any visual integrity and are dependent solely on the integrity of the original file. Due to this, many designers today might not fret over a logo’s resistance to visual entropy. Sure, things like higher pixel density in 72ppi or 144ppi screens may cause slight blur issues when displaying a logo, but those issues have more to do with sharpening an image than avoiding the its complete demise into  unrecognizability.
 
 I decided to try a simple experiment: take some of today’s most iconic, ubiquitous logos and see how well they hold to being distorted.
 
@@ -38,11 +38,11 @@ This is not to say that circular shapes are necessarily a poor choice when desig
 
 ### The Best Performers
 
-In contrast, the unique logo shapes of Nike and Puma seemed to fare the best. As you can see, towards the blurriest end of the spectrum the logos seem *almost* unrecognizable: 
+In contrast, the unique logo shapes of Nike and Puma seemed to fare the best. As you can see, towards the blurriest end of the spectrum the logos seem *almost* unrecognizable:
 
 ![Blurred logos with unique shapes](http://jim-nielsen.com/blog/assets/img/2014/logos-unique-shapes.jpg "From left to right: Puma, Nike")
 
-However, these two marks retain a portion of their recognizability due to their distinctive forms which maintain at least some degree of visual integrity (as opposed to other more symmetrical logo designs which begin to all look the same when heavily blurred). 
+However, these two marks retain a portion of their recognizability due to their distinctive forms which maintain at least some degree of visual integrity (as opposed to other more symmetrical logo designs which begin to all look the same when heavily blurred).
 
 Nike, for example, holds up rather well when heavily blurred due to it’s horizontal elongation and scaling visual weight from left to right. Similarly, the perpendicularity of the tail on Puma’s mark helps to retain its unique visual discernibility.
 
@@ -50,7 +50,7 @@ Nike, for example, holds up rather well when heavily blurred due to it’s horiz
 
 A significant ingredient in determining how easily you recognize a logo not only has to do with its design but also its ubiquity. The more recognizable a mark is and the more you’ve been exposed to it often dictates how easily you’ll recognize it. For example, you might see one mark that is significantly out of focus and guess it is as "McDonalds" rather than "Dodge Ram" because you've been exposed to the McDonalds mark more and thus make that connection. Repetitious exposure to a brand’s mark leads to higher recognition. Thus, it can be inferred that the efficacy of a brand’s mark is often less dependent on its design than on its consistent, repetitious exposure to the public eye.
 
-Some might think this means there is no substance to logo design, that one need only create a logo, any logo, and then just expose it as much as possible to the public view. This assumption, however, is not entirely true. Certain shapes and forms lend themselves to be more easily remembered. Additionally, shapes, forms, and colors all have inherent societal meanings which cannot be overlooked when designing a logo. For example, if you were in the funeral business, you wouldn't want to use a logo that looks like the skull and cross bones, no matter how much exposure you give it. 
+Some might think this means there is no substance to logo design, that one need only create a logo, any logo, and then just expose it as much as possible to the public view. This assumption, however, is not entirely true. Certain shapes and forms lend themselves to be more easily remembered. Additionally, shapes, forms, and colors all have inherent societal meanings which cannot be overlooked when designing a logo. For example, if you were in the funeral business, you wouldn't want to use a logo that looks like the skull and cross bones, no matter how much exposure you give it.
 
 Lastly, this specific test of a logo’s recognizability when out of focus has shown that a logo’s form can go a long way in strengthening its recognizability. Circular forms are very common and when heavily blurred tend to all look the same with no unique visual identifier. More abstract shapes however, like Nike and Puma, tend to retain their recognizability due to unique and stark contrasts in form which lead to easier recognizability.
 
@@ -60,7 +60,7 @@ Disclaimer: The remainder of this post will touch on the technical side and stor
 
 For those of you who decided to venture on, I welcome you. Let me start by telling you that this experiment all began with a single thought, spurred by Rand Paul's quote. ... What follows is a quick overview of the iterations I went through in order to arrive at the current design and implementation you see today.
 
-### Iterations Leading the Current Design 
+### Iterations Leading the Current Design
 
 **Phase 1**: At first, I thought I would just experiment by doing a gaussian blur in Photoshop on a couple different logos, write a blog post about it, and call it a day. So I ended up with a PSD with sliced up logos like this:
 
@@ -105,7 +105,7 @@ If SVGs are supported, however, then I directly inject the SVG element inside th
         </h2>
     </li>
 
-As you can see, I tried to progressively enhance this page as I went along. For users who didn't have javascript turned on, they could still access the blurred logo results of the experiment by clicking on each brand. 
+As you can see, I tried to progressively enhance this page as I went along. For users who didn't have javascript turned on, they could still access the blurred logo results of the experiment by clicking on each brand.
 
 ![Page appearance without Javascript or CSS loaded](http://jim-nielsen.com/blog/assets/img/2014/logos-no-js-css.png "CSS and Javascript both don't load")
 
@@ -139,7 +139,7 @@ I process all SVG files in the folder using a small bash script of commands. Thi
 
 This results in each brand getting its own sprite which consists of the logo in original form along with each blur variation. These serve as fallbacks in the event that someone’s browser does not support SVG files. They also serve as the linked images for those without javascript.
 
-![Exported JPG files](http://jim-nielsen.com/blog/assets/img/2014/logos-exported-jpgs.png) 
+![Exported JPG files](http://jim-nielsen.com/blog/assets/img/2014/logos-exported-jpgs.png)
 
 This approach allows easy image regeneration in the future. All I would have to do is modify my image manipulation script and regenerate all the necessary images using the original SVG files.
 
@@ -153,7 +153,7 @@ In creating this site, I had a collection of logos. The problem, however, was th
     ],
     "addidas": [
         "Addidas"
-    ] 
+    ]
 
 Because my development version of the site is written in PHP, I read in the JSON file and looped over it to create each logo’s HTML list node and corresponding information. For example, my rendered HTML looked something like this:
 
@@ -180,7 +180,7 @@ As you can see, having this “master” JSON file allowed me to easily add, rem
 
 ### End Results
 
-This progressively-enhanced, responsive design makes this site quite accessible. On a mobile device? It works. On a tablet? It works. Have javascript disabled of the CSS doesn’t load? You can still access each individual logo and its blurred variations. No SVG support? You get served regular images. It just works. 
+This progressively-enhanced, responsive design makes this site quite accessible. On a mobile device? It works. On a tablet? It works. Have javascript disabled of the CSS doesn’t load? You can still access each individual logo and its blurred variations. No SVG support? You get served regular images. It just works.
 
 It was a fun experiment to build and test. What I learned will inform many of the projects I work on in the future.
 

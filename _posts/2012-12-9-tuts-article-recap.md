@@ -1,11 +1,11 @@
 ---
-layout: post
 title: Reminder of Webdesign Tuts+ Articles – By Me!
 date: 2012-12-9
-tags: published-articles
+tags: publishedArticles
+redirect_from: /posts/tuts-article-recap/
 ---
 
-The other day I got an email from Webdesign Tuts+ recapping their latest tutorials. I realized that two out of the six articles were written by me! 
+The other day I got an email from Webdesign Tuts+ recapping their latest tutorials. I realized that two out of the six articles were written by me!
 
 ![Webdesign Tuts+ Email Screenshot]({{ site.imageurl }}/2012/email-recap-webdesign-tuts.png)
 

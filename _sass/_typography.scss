@@ -92,20 +92,20 @@
     ol {
         list-style-type: decimal;
     }
-    ul, 
+    ul,
     ol {
         list-style-position: outside;
         padding-left: 1em;
     }
-    ol ol, 
+    ol ol,
     ol ol ol,
-    ul ul, 
+    ul ul,
     ul ul ul {
         margin: 0;
         margin-left: 1.5em;
-    } 
+    }
 
-    // 
+    //
     //  Texts
     //
     strong {
@@ -139,7 +139,7 @@
     //
     //  Code
     //
-    pre, 
+    pre,
     code {
         font-family: $font-stack-monospace;
     }
@@ -147,23 +147,21 @@
     code {
         padding: .2em .325em;
         margin: 0 .325em;
-        //background: $color-background-light;
-        //border: 1px solid $color-border;
-        @include border-radius(.166667em);
+        border-radius: .166667em;
         background: lightYellow;
         font-size: .85em;
-    }  
+    }
 
     pre {
-        
+
         padding: 1em;
         text-overflow: ellipsis;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
         background: lightYellow;
-        @include border-radius(.166667em);
+        border-radius: .166667em;
 
-        
+
         code {
             line-height: 1.5em;
 
@@ -172,14 +170,14 @@
             margin: 0;
             background: transparent;
             border: none;
-            @include border-radius(0);
+            border-radius: 0;
         }
     }
 
     //
     //
     //  Images & Captions
-    //  
+    //
     .image-container {
         @include secondaryText;
         max-width: none;

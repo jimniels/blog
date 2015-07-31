@@ -1,8 +1,8 @@
 ---
-layout: post
 title: "Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio"
 date: 2012-12-11
 tags: tips
+redirect_from: /posts/ios-border-radius/
 ---
 
 So you've got to create an icon for the iOS ecosystem, where do you start? You probably realized quickly you'll have to supply a couple different sizes for the various contexts in which the icon will be used. Apple details these requirements in their [iOS Human Interface Guidelines][iconSizes]:
@@ -18,14 +18,14 @@ You don't actually have to create rounded corners for your icon artwork. Apple w
 
 ## Creating the Icon
 
-So how do you actually get started creating an icon? Well, the amazing icon designer [Michael Flarup][Flarup] has created a great [iOS icon starter template][template] with proper iOS-style proportions and radii. 
+So how do you actually get started creating an icon? Well, the amazing icon designer [Michael Flarup][Flarup] has created a great [iOS icon starter template][template] with proper iOS-style proportions and radii.
 
 But what if you have to create an icon size that doesn't quite fall into Apple's predetermined sizes, say 175x175 pixels? How do you determine what size the border radius will be at any given size?
 
 Well, thanks to [David Barnard][Barnard]'s [post over at stackoverflow][stackoverflow], we have insight into how the border radius for iOS icons is determined by Apple. According to Barnard, Apple calculates the border radius for icons starting at the 57px icon size (one can only assume that is because the size of icons on the original iPhone was 57px):
 
 > Apple starts with the 57px icon and a radius of 10 then scales up or down from there. Thus you can calculate the radius for any icon size using 10/57 x new size
-         
+
 Therefore, to achieve the correct iOS-style border radius on any square icon you simply multiply the icon's size by what I'll call the **iOS icon ratio**. This ratio is calculated from Barnard's insight: 57 / 10 = .175438596
 
 For simplicity, we can probably round this to about four or five decimal places: **.17544**. This ratio will help you calculate the border-radius for any size iOS style icon you're creating.

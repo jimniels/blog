@@ -15,7 +15,8 @@
 
         &:hover {
             .site-logo {
-                @include transform(scale(.95) rotate(-4deg));
+                -webkit-transform: scale(.95) rotate(-4deg);
+                transform: scale(.95) rotate(-4deg);
             }
 
             .site-title {
@@ -26,7 +27,7 @@
 }
 
 .site-logo {
-    @include transition(.25s ease all);
+    @include vendor-prefix(transition, .25s ease all);
     margin: 0 auto;
     width: 200px;
     height: 100px;
@@ -34,7 +35,7 @@
 }
 
 .site-title {
-    @include transition(.25s ease color);
+    @include vendor-prefix(transition, .25s ease color);
     font-size: 11px;
     position: absolute;
     width: 250px;

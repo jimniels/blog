@@ -3,6 +3,7 @@ layout: post
 title: Benjamin Franklin, an Open Source Contributor?
 date: 2013-12-18
 tags: insights
+redirect_from: /posts/ben-franklin-open-source-contributor/
 ---
 
 I was recently reading “The Autobiography of Benjamin Franklin” and came across an interesting little story that made me think of Benjamin Franklin as a believer in open source.

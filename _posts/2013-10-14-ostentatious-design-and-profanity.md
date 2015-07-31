@@ -1,8 +1,8 @@
 ---
-layout: post
 title: "Ostentatious Design & Profanity"
 date: 2013-10-14
 tags: insights
+redirect_from: /posts/ostentatious-design-and-profanity/
 ---
 
 I’m not sure why, but people love to curse. In fact, curse words are losing their potency and becoming increasingly banal because of overuse.
@@ -38,7 +38,7 @@ Some might argue, “but the cursing adds personality”. The dictionary defines
 
 ## Conclusion
 
-As designers (and human beings) let’s ennoble people. Eliciting emotion through vulgarity is a lot easier than doing it through nobility (or at least decency). And that applies to everything be it design, humor, education, or anything else. 
+As designers (and human beings) let’s ennoble people. Eliciting emotion through vulgarity is a lot easier than doing it through nobility (or at least decency). And that applies to everything be it design, humor, education, or anything else.
 
 You want to be good? Elicit human emotion (like the book 50 Shades of Grey). You want to be great? Ennoble the human spirit and intellect (like the timeless book Les Miserables).
- 	
+

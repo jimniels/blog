@@ -5,5 +5,16 @@ baseurl: /blog
 imageurl: /blog/assets/img
 # imageurl: assets/img # for testing
 domain: http://jim-nielsen.com
-permalink: /posts/:title
+permalink: /:year/:title
 paginate: 5
+sass:
+    sass_dir: _sass
+gems:
+  - jekyll-redirect-from
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "post"

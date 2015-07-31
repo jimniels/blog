@@ -1,9 +1,9 @@
 ---
-layout: post
 title: A Web of People
 date: 2015-06-29
 tags: insights
 summary: "Thoughts around the web as both a medium and a profession."
+redirect_from: /posts/a-web-of-people/
 ---
 
 Did you see *The LEGO Movie*? [My boss](https://twitter.com/timothymeaney) told us to watch it as homework. That’s right, I have work homework. To be honest, it was the first homework i’d had in years and, contrary to homework of the past, I really enjoyed this assignment. There’s a scene at the end of the movie that perfectly illustrates a trait of the web I’d like to talk about. [Spoilers ahead!]
@@ -14,9 +14,9 @@ Emmet discovers that the events of the LEGO world are unfolding  in the parallel
 
 In the final showdown between Emmet and Lord Business, the following exchange takes place:
 
-*Emmet*: Look at all these things that people built. You might see a mess…  
-*Lord Business*: Exactly! A bunch of weird dorky stuff that ruined my perfectly good stuff.  
-*Emmet*: Ok. What I see, are people. Inspired by each other, and by you! People taking what you made and making something new out of it.  
+*Emmet*: Look at all these things that people built. You might see a mess…
+*Lord Business*: Exactly! A bunch of weird dorky stuff that ruined my perfectly good stuff.
+*Emmet*: Ok. What I see, are people. Inspired by each other, and by you! People taking what you made and making something new out of it.
 
 Admittedly, I’ve found myself in Lord Business’ shoes–looking at the web and seeing a bunch of weird dorky stuff that ruined my perfectly good stuff. Inferior, inefficient, poorly-executed, ugly work that pales in comparison to my own self-perceived beautiful, elegant, efficient, standards-conforming work. And unfortunately I too often voice my knee-jerk, negative reaction on stuff that doesn’t fit what I deem as tasteful, professional design.
 

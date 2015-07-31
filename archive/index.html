@@ -1,5 +1,65 @@
 ---
 layout: default
-title: Post Archive | Jim Nielsen’s Blog
+title: All Posts | Jim Nielsen’s Blog
 ---
-{% include archive-tags.html %}
+<div class="archive">
+
+    <h3 class="archive__title">Years</h3>
+    <ul class="archive__toc">
+        {% for post in site.posts %}
+        {% assign currentdate = post.date | date: "%Y" %}
+        {% if currentdate != date %}
+        <li><a href="#year-{{currentdate}}">{{ currentdate }}</a></li>
+        {% assign date = currentdate %}
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    {% comment %}
+    {% for post in site.posts  %}
+        {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+        {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+
+        {% if forloop.first %}
+        <h2 class="archive__title" id="{{ this_year }}-ref">{{this_year}}</h2>
+        <ul class="archive__list">
+        {% endif %}
+
+        <li>
+            <time class="date">{{ post.date | date: "%-d %b, %Y" }}</time>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        </li>
+
+        {% if forloop.last %}
+        </ul>
+        {% else %}
+            {% if this_year != next_year %}
+            </ul>
+            <h2 id="{{ next_year }}-ref" class="archive__title">{{next_year}}</h2>
+            <ul class="archive__list">
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    {% endcomment %}
+
+
+    {% for post in site.posts %}
+        {% assign currentdate = post.date | date: "%Y" %}
+
+        {% if currentdate != date %}
+            {% unless forloop.first %}</ul>{% endunless %}
+            <h2 id="year-{{post.date | date: "%Y"}}" class="archive__title">{{ currentdate }}</h2>
+            <ul class="archive__list">
+            {% assign date = currentdate %}
+        {% endif %}
+
+        <li>
+            <time class="date">{{ post.date | date: "%-d %b, %Y" }}</time>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        </li>
+
+        {% if forloop.last %}</ul>{% endif %}
+    {% endfor %}
+
+    </ul>
+</div>

@@ -1,13 +1,13 @@
 ---
-layout: post
 title: Build a Responsive, Single Page Portfolio with Sass and Compass via Tuts+ Premium
 date: 2013-2-14
-tags: published-articles
+tags: publishedArticles
+redirect_from: /posts/tuts-single-page-portfolio/
 ---
 
 ![Screenshot of a Responsive, Single Page Portfolio via Tuts+ Premium](http://tutsplus-media.s3.amazonaws.com/tutsplus.com/uploads/2013/02/screenshot.png)
 
-My latest tutorial teachs how to build a responsive, single page portfolio with Sass and Compass. 
+My latest tutorial teachs how to build a responsive, single page portfolio with Sass and Compass.
 
 The tutorial incorporates modern web development techniques such as:
 

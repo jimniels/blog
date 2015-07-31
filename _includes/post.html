@@ -23,12 +23,12 @@
         =================================== -->
         <footer class="article-footer">
             {% if page.tags %}
-                <p class="tags"> 
+                <p class="tags">
                     {% for tag in page.tags %}
-                        <a href="{{ site.baseurl }}/tags/{{ tag }}/" class="tag">#{{ tag }}</a>
+                        <a href="{{ site.baseurl }}/tags/#{{ tag }}" class="tag">#{{ tag }}</a>
                     {% endfor %}
                 </p>
-            {% endif %}     
+            {% endif %}
 
         </footer>
     {% endif %}

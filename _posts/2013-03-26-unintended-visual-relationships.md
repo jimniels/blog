@@ -1,18 +1,18 @@
 ---
-layout: post
 title: Unintended Visual Relationships
 date: 2013-03-26
 tags: tips
+redirect_from: /posts/unintended-visual-relationships/
 ---
 
 Establishing a grid is a great way to organize and structure design elements. In addition, by breaking the organization and structure of the grid you can emphasize visual relationships between design elements.
 
 ## Drawbacks to Grids
-Recently I came across a subtle and often overlooked side-effect of grid-based design: unintended visual relationships. An example of this can be found in the Wordpress theme [Portfolium](http://wpshower.com/themes/portfolium/) 
+Recently I came across a subtle and often overlooked side-effect of grid-based design: unintended visual relationships. An example of this can be found in the Wordpress theme [Portfolium](http://wpshower.com/themes/portfolium/)
 
 ![Portfolium Screenshot]({{ site.imageurl }}/2013/portfolium.jpg)
 
-Overall, it's a well executed grid-based design: organized and structured; however, the alignment of the navigation to the thumbnail grid suggests visual relationships that are nonexistent. 
+Overall, it's a well executed grid-based design: organized and structured; however, the alignment of the navigation to the thumbnail grid suggests visual relationships that are nonexistent.
 
 For example, take a look at the words at the top of the page: they align to the thumbnail grid. This suggests a columnar relationship between each navigation item and the thumbnails  below them. However, no such relationship actually exists.
 

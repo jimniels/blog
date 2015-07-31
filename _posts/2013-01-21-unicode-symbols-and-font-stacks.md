@@ -1,13 +1,13 @@
 ---
-layout: post
 title: Miscellaneous Unicode Symbols, Font Stacks, and You
 date: 2013-01-21
 tags: tips
+redirect_from: /posts/unicode-symbols-and-font-stacks/
 ---
 
 I needed a star symbol in my design. That's how this all started. I wanted to use something other than an image to display the star on screen for various reasons:
 
-1. I wanted the star to be different colors in different contexts and I didn't want to create an image of the star for each variance. 
+1. I wanted the star to be different colors in different contexts and I didn't want to create an image of the star for each variance.
 2. I wanted the star to be crisp and clear, which meant I'd have to create multiple sizes of the image for retina screen support.
 
 So rather than create a handful of stars as images (in different colors and sizes) I decided to try using the black star symbol in Unicode (U+2605, &amp;#9733).
@@ -17,7 +17,7 @@ I began by simply inserting the character reference in my markup with the defaul
 
 ![Black Star Unicode Using Helvetica and Arial Unicode MS]({{ site.imageurl }}/2013/black-star-unicode-arial-helvetica.png)
 
-Notice the size difference? It appears the black star unicode symbol is not supported by my default stack of Helvetica. In order to display the character, each browser is resorting to a font of it's own choosing that *does* support it. In this case, each browsers is choosing a different font; hence the size discrepancy. 
+Notice the size difference? It appears the black star unicode symbol is not supported by my default stack of Helvetica. In order to display the character, each browser is resorting to a font of it's own choosing that *does* support it. In this case, each browsers is choosing a different font; hence the size discrepancy.
 
 By resorting to a font stack that supports the black star glyph (in this case Arial Unicode MS), I achieved consistent sizing across browsers. You can see the differences and similarities in this blown up photo:
 

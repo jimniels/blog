@@ -1,8 +1,8 @@
 ---
-layout: post
 title: "Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)"
 date: 2012-11-30
 summary: "The new tab preview experience in Safari 6 might be better if it *revealed more* of the tab previews as it grows horizontally rather than increasing the size of the tab previews."
+redirect_from: /posts/safari-tab-preview/
 ---
 
 

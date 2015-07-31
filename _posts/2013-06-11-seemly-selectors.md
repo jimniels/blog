@@ -1,8 +1,8 @@
 ---
-layout: post
 title: Seemly Selectors
 date: 2013-06-11
 tags: tips
+redirect_from: /posts/seemly-selectors/
 ---
 
 Take a look at this:
@@ -22,6 +22,6 @@ It's important to remember that general rules of thumb, such as:
 - don't use the `*` selector, it's slow
 - don't use the `!important` rule
 
-are rules discovered and shared by developers working on immensely large scale applications and websites, like Google.com. Some rules just don't apply to your ten page Wordpress site. 
+are rules discovered and shared by developers working on immensely large scale applications and websites, like Google.com. Some rules just don't apply to your ten page Wordpress site.
 
 The `*` and `!important` rules were invented for a reason. If you find yourself needing them, use them. That's what they were made for. If page performance takes a hit, look into larger-scale optimization techniques first, such as image optimization and concatenation. After that, you can get down to the nit-picky. In general, [optimization of selectors should be the job of the rendering engine](http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/), not the designer.

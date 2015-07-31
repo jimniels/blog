@@ -1,8 +1,8 @@
 ---
-layout: post
 title: Scriptogram Logo in Vector Form (.svg)
 date: 2013-05-29
 tags: resources
+redirect_from: /posts/scriptogram-vector-logo/
 ---
 
 While working on a recent design, I suddenly needed a vector version of the [scriptogram](http://scriptogr.am/) logo. I couldn't find one on the web, so I made one myself.

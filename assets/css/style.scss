@@ -1,0 +1,22 @@
+---
+# this ensures Jekyll reads the file to be transformed into CSS later
+# only Main files contain this front matter, not partials.
+---
+
+@import "reset";
+
+@import "syntax"; // http://jekyllrb.com/docs/templates/#code_snippet_highlighting
+
+@import "mixins";
+@import "variables";
+@import "general";
+
+@import "typography";
+@import "article";
+@import "archive";
+@import "navigation";
+
+@import "footnotes";
+@import "header";
+@import "pagination";
+@import "footer";

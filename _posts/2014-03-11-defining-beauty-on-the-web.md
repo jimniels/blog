@@ -1,14 +1,14 @@
 ---
-layout: post
 title: Defining Beauty on the Web
 date: 2014-03-11
 tags: insights
 summary: "A talk from Ethan and a post from Trent reminded me what true beauty is on the web. It’s found through a fulfillment of the essence and mission of the medium itself."
+redirect_from: /posts/defining-beauty-on-the-web/
 ---
 
 Back in October 2013, I attended [An Event Apart](http://aneventapart.com/) in Austin where I listened to [Ethan Marcotte](https://twitter.com/beep) give an incredibly insightful talk. Afterwards, I remember shaking Ethan’s hand thanking him for providing me with a “Eureka!” moment. A few days later the conference ended and I was back home, but Ethan’s arguments wouldn’t leave me. For whatever reason, I outlined what I had learned from Ethan’s talk and sent them to him in an email, thanking him again.
 
-Yesterday, Trent Walton wrote a piece titled [Device-Agnostic](http://trentwalton.com/2014/03/10/device-agnostic/) which reawakened the revelations I received from Ethan’s talk in Austin. Trent talks about what good web design means and how that definition encompasses not just aesthetics, but a fulfillment of the traits inherent to the medium of the web itself, such as universal accessibility and speed. 
+Yesterday, Trent Walton wrote a piece titled [Device-Agnostic](http://trentwalton.com/2014/03/10/device-agnostic/) which reawakened the revelations I received from Ethan’s talk in Austin. Trent talks about what good web design means and how that definition encompasses not just aesthetics, but a fulfillment of the traits inherent to the medium of the web itself, such as universal accessibility and speed.
 
 I decided I would share the email I wrote Ethan as I realized I need to remind myself of the points from his talk. They seem even more relevant now than when he shared them. And I'm sure they will only increase in relevance in the years to come.
 
