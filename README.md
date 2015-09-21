@@ -8,5 +8,4 @@ I only have the single branch `gh-pages` (master is deleted). I did this followi
 
 ## To-Do
 - Feed images
-- Update scriptogram theme to point to new blog
 - Next / Prev Posts at the end of a post (read next)
