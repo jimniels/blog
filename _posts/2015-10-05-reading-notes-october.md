@@ -18,9 +18,11 @@ Reminds me of this quote, from the book *The Inmates are Running the Asylum* (wh
 
 >  If, as a designer, you do something really, fundamentally, blockbuster correct, everybody looks at it and says, “Of course! What *other* way would there be?” This is true even if the client has been staring, empty-handed and idea0-free, at the problem for months or even years without a clue about solving it. It’s also true even if our solution generates millions of dollars for the company. most really breakthrough conceptual advances are *opaque in foresight and transparent in hindsight*. It is incredibly hard to see breakthroughs in design. you can be trained and prepared, spend hours studying the problem, and still not see the answer. Then someone else comes along and points out a key insight, and the vision clicks into place with tentacular obviousness of the wheel. If you shout the solution from the rooftops, others will say, “of course the wheel is round! What other shape could it possibly be?” This makes it frustratingly hard to show off good design work. — pg. 200
 
-Also makes me think of [something said by Alan Dye](http://www.bloomberg.com/features/2015-how-apple-built-3d-touch-iphone-6s/), Vice President of User Interface Design at Apple, where he talked about how the goal of Apple’s designers is to make things feel “inevitable”, as if they themselves couldn’t even control how their product came to be and function because it’s so natural and logical:
+This is inline with what [Alan Dye](http://www.bloomberg.com/features/2015-how-apple-built-3d-touch-iphone-6s/), Vice President of User Interface Design at Apple, said about Apple’s design goals:
 
 > Inevitable is the word we use a lot. We want the way you use our products to feel inevitable.
+
+The goal is to make it seem as if the designers at Apple can’t even control the form and function of their products because the end goal is so natural and logical, i.e. inevitable.
 
 ## Article: [Miyazaki on Creative Dissatisfaction](Making films is all about—as soon as you’re finished—continually regretting what you’ve done. When we look at films we’ve made, all we can see are)
 
