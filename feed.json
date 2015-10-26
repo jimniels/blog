@@ -1,18 +1,13 @@
 ---
 layout: null
 ---
-{
-    "name": "{{ site.name }}",
-    "description": "{{ site.description }}",
-    "url": "{{ site.domain }}{{ site.baseurl }}",
-    "posts": [
-        {% for post in site.posts limit:10 %}
-        {
-            "title":        "{{ post.title }}",
-            "date":         {{ post.date | date: "%d %b, %Y" | jsonify}},
-            "url":          "{{ site.domain }}{{ site.baseurl }}{{ post.url }}",
-            "word-count":   "{% assign words = post.content | split:&nbsp; %}{{ words | size }}"
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-    ]    
-}
+[
+    {% for post in site.posts limit:10 %}
+    {
+        "title":        "{{ post.title }}",
+        "date":         {{ post.date | date: "%d %b, %Y" | jsonify}},
+        "url":          "{{ site.domain }}{{ site.baseurl }}{{ post.url }}",
+        "word-count":   "{% assign words = post.content | split:&nbsp; %}{{ words | size }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+]
