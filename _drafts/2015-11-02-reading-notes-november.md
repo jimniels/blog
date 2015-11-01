@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-10-05
+date: 2015-11-02
 title: Reading Notes, November 2015
 tags: notes
 summary: "Notes, impressions, and excerpts from things I’ve encountered this month."
@@ -35,6 +35,18 @@ Perhaps this story seems unreal, but the speaker provides a less fictitious exam
 > Notice what you're doing, though. Now you're in an adversarial arms race with another human being that has nothing to do with measurement. It's become an issue of control, agency and power.
 > You thought observing the driver’s behavior would get you closer to reality, but instead you've put another layer between you and what's really going on.
 > These kinds of arms races are a symptom of data disease. We've seen them reach the point of absurdity in the online advertising industry, which unfortunately is also the economic cornerstone of the web. Advertisers have built a huge surveillance apparatus in the dream of perfect knowledge, only to find themselves in a hall of mirrors, where they can't tell who is real and who is fake.
+
+## Talk Transcript: [The Internet With A Human Face](http://idlewords.com/talks/internet_with_a_human_face.htm)
+
+> The belief in Big Data turns out to be true, although in an unexpected way. If you collect enough data, you really can find anything you want.
+
+![big data](https://static.pinboard.in/bt14/thumbs/bt14.019.thumb.jpg)
+
+> This is a graph from Tyler Vingen's lovely website, which been making the rounds lately. This one shows the relationship between suicides by hanging and the number of lawyers in North Carolina. There are lots of other examples to choose from.
+> There's a 0.993 correlation here. You could publish it in an academic journal! Perhaps that process could be automated.
+> You can even imagine stories that could account for that bump in the middle of the graph. Maybe there was a rope shortage for a few weeks?
+> 'Big data' has this intoxicating effect. We start collecting it out of fear, but then it seduces us into thinking that it will give us power. In the end, it's just a mirror, reflecting whatever assumptions we approach it with.
+> But collecting it drives this dynamic of relentless surveillance.
 
 ## Article: [Five Years of Building Instagram](https://medium.com/backchannel/war-stories-3696d00207ff)
 
