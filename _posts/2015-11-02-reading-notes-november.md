@@ -8,7 +8,7 @@ summary: "Notes, impressions, and excerpts from things I’ve encountered this m
 
 ## Article: [Mind Set](https://adactio.com/journal/9688) by Jeremy Keith
 
-This is a great little piece of writing that touches on the art of human relationships. It’s based on an experience Jeremy Keith had trying to persuade others about the importance accessibility:
+A great little piece of writing touching on the art of human relationships. It’s based on an experience Jeremy Keith had trying to persuade others about the importance accessibility:
 
 > If I really want to change someone’s mind, then I need to make the effort to first understand their mind. That’s going to be far more productive than declaring that my own mind is made up. After all, if I show no willingness to consider alternative viewpoints, why should they?
 
@@ -20,11 +20,11 @@ One example the speaker touches on is the pharmaceuticals industry and how, beca
 
 > This has been a bitter pill to swallow for the pharmacological industry. They bought in to the idea of big data very early on. The growing fear is that the data-driven approach is inherently a poor fit for life science. In the world of computers, we learn to avoid certain kinds of complexity, because they make our systems impossible to reason about.
 
-Note that the speaker suggests that the diminishing returns result from the fact that computers need unambiguous rules in order to make sense of things so programmers have to through out “certain kinds of complexity” which are inherently and naturally found in the realm of biological science. As the speaker states later on, “Nature is full of self-modifying, interlocking systems, with interdependent variables you can't isolate.”
+Note that the speaker suggests that the diminishing returns result from the fact that computers need unambiguous rules in order to make sense of things. Thus, in order to create data models and make sense of the world, programmers have to throw out “certain kinds of complexity” which are inherently and naturally found in the realm of biological science. As the speaker states later on, “Nature is full of self-modifying, interlocking systems, with interdependent variables you can't isolate.”
 
-Ultimately, what we are dealing with in our computer systems are humans and humans adapt. That means when you create a data model around a person, the model inevitably goes out the window because a person adapts and changes, not just over time naturally, but they also react and change according to the model that is enforced on them.
+Ultimately, what we are dealing with in our computer systems are humans and humans adapt. That means when you create a data model around a person, the model inevitably goes out the window because a person adapts and changes, not just naturally over time, but they also react and change according to the model that is enforced on them.
 
-An example of how humans adapt to numerical requirements, as mentioned by the speaker, is provided by the anecdotal story of a nail factory. Once their was a nail factory. In the first year of their five year plan, the nail factory’s management evaluated employees by how many mails they could produce. As such, employees produced hundreds of millions of uselessly tiny nails. Seeing their mistakes, management changed their productions goals to measure nail weight rather than nail quantity. As a result, employees produced a single giant nail.
+An example of how humans adapt to numerical requirements, as drawn from this transcript, is found in the anecdotal story of a nail factory. Once their was a nail factory. In the first year of their five year plan, the nail factory’s management evaluated employees by how many mails they could produce. As such, employees produced hundreds of millions of uselessly tiny nails. Seeing their mistakes, management changed their productions goals to measure nail weight rather than nail quantity. As a result, employees produced a single giant nail.
 
 Perhaps this story seems unreal, but the speaker provides a less fictitious example of how humans adapt to the systems imposed on them and how that ultimately renders the collected data useless:
 
@@ -38,6 +38,8 @@ Perhaps this story seems unreal, but the speaker provides a less fictitious exam
 
 ## Talk Transcript: [The Internet With A Human Face](http://idlewords.com/talks/internet_with_a_human_face.htm)
 
+Love this assertion the speaker makes: very often data is just a mirror, it reflects whatever assumptions we bring to it.
+
 > The belief in Big Data turns out to be true, although in an unexpected way. If you collect enough data, you really can find anything you want.
 
 ![big data](https://static.pinboard.in/bt14/thumbs/bt14.019.thumb.jpg)
@@ -50,7 +52,7 @@ Perhaps this story seems unreal, but the speaker provides a less fictitious exam
 
 ## Article: [Five Years of Building Instagram](https://medium.com/backchannel/war-stories-3696d00207ff)
 
-An overview of how Instagram has been engineered over the last five years. The lesson that stuck out to me:
+An overview of how Instagram has been engineered over the last five years. A few points stuck out to me.
 
 Choose simple solutions and do not over engineer in order to future proof:
 
@@ -67,4 +69,4 @@ However, with that said, the author does state that this is not the answer all t
 
 ## Video: [Building Without Nails: the Genius of Japanese Carpentry](https://m.youtube.com/watch?v=rMtSc2MJLcw)
 
-Just a cool video about craftsmanship. I love how the philosophy behind the craftsmanship is what drives the work forward, not the numbers or data behind the product.
+Just a cool video about craftsmanship. I love how the philosophy behind the craftsmanship is what drives the work forward, not the data behind the product.
