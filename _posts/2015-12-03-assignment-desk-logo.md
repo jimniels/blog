@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-11-24
+date: 2015-12-03
 title: Assignment Desk Logo
 tags: design-process
 ---
@@ -9,7 +9,7 @@ At [Postlight](http://www.postlight.com) I’ve been working on an internal appl
 
 Part of this effort meant we needed to “brand” the application we were engineering. We ditched the corporate-y name it had by default and came up with a new one based on the application’s purpose. We called it “Assignment Desk”. The Assignment Desk is a place where the clients’ employees and contractors create “Assignments” for one another in order to collaborate and get work done.
 
-Because of other constraints on the project, the idea was to create something very simple. This wasn't going to be a logo design for a Fortune 500 company with large exposure. Mostly, it would simply be a visual word mark for the application, along with a possible abstract shape. It would be an MVL: minimum-viable-logo.
+Because of other constraints on the project, the idea was to create something very simple. This wasn't going to be a logo design for a Fortune 500 company with large exposure. Mostly, it would simply be a visual word mark for the application, along with a possible abstract shape. It would be a MVL: minimum-viable-logo.
 
 Oh, and the timeline was about one work day.
 
@@ -21,7 +21,7 @@ I started by trying to sketch out some ideas. This included not only sketching l
 
 ## Playing with letterforms
 
-Once I was finished with sketching, I had a much better idea of what I wanted to logo to be and convey, but perhaps more importantly, I had a better idea of what *not* do with the logo. So at that point I began trying different combinations of font families based on the brand identity of the parent company (to help convey a sense of relationship amongst the company and its products).
+Once I was finished with sketching, I had a much better idea of what I wanted to logo to be and convey, but perhaps more importantly, I had a better idea of what *not* do with the logo. So at that point I began trying different combinations of font families based on the brand identity of the parent company (thinking it might help convey a sense of relationship amongst the parent company and its products).
 
 ![Working with font combinations]({{ site.imageurl }}/2015/assignment-desk-font-combinations.gif)
 
@@ -51,18 +51,18 @@ After playing with shape and font combinations, I narrowed down my options to tw
 
 The serif version played off the parent brand’s typography, while the sans-serif version seemed to drive more unity in the logo as a whole. In trying to decide which would work best, I dropped the logos into the only environment they would probably ever see: the Assignment Desk application.
 
-![Logo finalists in context of the application]({{ site.imageurl }}/2015/assignment-desk-finalists-in-context.png)
+![Logo finalists in context of the application]({{ site.imageurl }}/2015/assignment-desk-finalists-in-context.gif)
 
-After some thought, I went with the sans-serif version because it fit the context of the application better since we use sans-serif type everywhere in the application. That reasoning seem to fit because the logo would only ever stand within the context of its application. It wouldn’t really be branded alongside its parent. This made the application feel more like a whole, as a singly-designed thing, which felt like the right choice.
+In the end, I decided to go with the sans-serif version because it seemed to fit the context of the application better (as we use sans-serif type everywhere in the application). That reasoning seem to fit because the logo would only ever stand within the context of its application. It wouldn’t really be branded alongside its parent. This made the application feel more like a whole, as a singly-designed thing so to say, which felt like the right choice.
 
 ## And then there was one...
 
-The application we were building was really only one in a set of many internal tools that were planning on being developed. As such, we explored how the “Assignment Desk” logo might be expanded, both from a visual and branding standpoint, to encompass a suite of software applications in the future.
+The application we were building was really only one in a set of many internal tools that were planning on being developed. As such, we explored how the “Assignment Desk” logo might be expanded, both from a visual and branding standpoint, to encompass a suite of “desk” software applications in the future.
 
 ![Variations within a suite of software]({{ site.imageurl }}/2015/assignment-desk-software-suite-variations.png)
 
 In the end, however, we decided there was too much ambiguity around future application roadmaps to really make any concerted effort towards branding them.
 
-As such, I took the logo and worked on some fine details like kerning the wordmark and properly fitting the square/desk shape. I ended up with a slightly more elongated desk shape, which helped balance the negative space of the logo for any bounding box it may appear in, while also (I think) better communicating the idea of a desk visually.
+As such, I took the logo I’d arrived at and worked on some fine details like kerning and proportionally fitting and sizing the square/desk shape. I ended up with a slightly more elongated desk shape, which helped balance the negative space of the logo for any bounding box it may appear in, while also (I think) better communicating the idea of a desk visually.
 
 ![Assignment Desk logo]({{ site.imageurl }}/2015/assignment-desk-final.png)
