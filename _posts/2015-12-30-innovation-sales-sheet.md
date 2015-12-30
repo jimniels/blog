@@ -2,7 +2,7 @@
 layout: post
 title: Innovation Sales Sheet
 date: 2015-12-30
-tags: design-process
+tags: designProcess
 summary: "The process behind turning a textual Google Doc into a visual sales sheet."
 ---
 
