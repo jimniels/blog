@@ -5,18 +5,14 @@
 
 @import "reset";
 
-@import "syntax"; // http://jekyllrb.com/docs/templates/#code_snippet_highlighting
+//@import "syntax"; // http://jekyllrb.com/docs/templates/#code_snippet_highlighting
 
 @import "mixins";
 @import "variables";
+
+@import "theme";
+
 @import "general";
-
-@import "typography";
-@import "article";
-@import "archive";
-@import "navigation";
-
-@import "footnotes";
+@import "content";
+@import "nav";
 @import "header";
-@import "pagination";
-@import "footer";

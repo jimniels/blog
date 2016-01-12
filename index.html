@@ -1,32 +1,14 @@
 ---
 layout: default
-title: Blog | Jim Nielsen, Designer
+title: Blog Home
+type: home
 ---
 
-    {% comment %} 
-        Assign page to post, as that's what the post template uses 
-    {% endcomment %}
-    
-    <!-- Loop over posts -->
-    {% for post in paginator.posts  %}
-        {% assign page = post %}
-        {% assign content = post.content %}
-        {% include post.html currentPage='home' %}
-    {% endfor %}
+{% comment %}
+  Assign page to post, as that's what the post template uses
+{% endcomment %}
 
-    <!-- Pagination links -->
-    <div class="pagination">
-        <span class="page-number ">page {{ paginator.page }} / {{ paginator.total_pages }}</span>
-
-        {% if paginator.previous_page %}
-            <a href="{{site.baseurl}}/page{{ paginator.previous_page }}" class="previous"><span class="arrow">&laquo;</span> prev</a>
-        {% else %}
-            <span class="previous disabled"><span class="arrow">&laquo;</span> prev</span>
-        {% endif %}
-            
-        {% if paginator.next_page %}
-            <a href="{{site.baseurl}}/page{{ paginator.next_page }}" class="next">next <span class="arrow">&raquo;</span></a>
-        {% else %}
-            <span class="next disabled">next <span class="arrow">&raquo;</span></span>
-        {% endif %}
-    </div>
+{% assign post = site.posts.first %}
+{% assign page = post %}
+{% assign content = post.content %}
+{% include post.html currentPage='home' %}

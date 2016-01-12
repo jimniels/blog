@@ -1,63 +1,60 @@
 //
 //
-//  FONT SIZES
+// Variables
+// ======================================================================
 //
-$h1 					: 3em;
-$h2 					: 1.525em;
-$h3 					: 1.25em;
-
-//
-//
-//  WIDTHS
-//
-//  Assumed body font size is 16px.
-//  Max-width on body font sizes is 35em
-//      (thus resulting in 560px)
-//  560px / 16px = 1em
-//
-//  So the equation for larger font sized max-widths:
-//  560 / (16 * font-size) = max-width
-//
-$max-width-base         : 35em;
-$max-width-h1           : 14em;
-$max-width-h2           : #{ ($max-width-base * 16) / (16 * $h2)}em;
-$max-width-h3           : #{ ($max-width-base * 16) / (16 * $h3)}em;
-
-//
-//
-//  COLORS
-//
-$color-text-medium      : #555;
-$color-text-dark        : #222;
-$color-text-light       : #777;
-$color-text-lightest    : #bbb;
-$color-highlight        : #c02702;
-$color-highlight-light  : #f7f1f0;
-$color-border           : #ccc;
-$color-border-light     : #eee;
-$color-border-lightest  : #f0f0f0;
-$color-background-light : #fafafa;
-
-$color-twitter          : #55acee;
-
-//
-//
-//  FONT STACKS
-//  Primary - base font stack used on <body>
-//  Secondary - used on headings, secondary text elements like quotes, excerpts
-//  Tertiary - used ONLY on the main heading
-//
-$font-stack-primary     : Palatino, Georgia, serif;
-$font-stack-secondary   : Trebuchet MS, Gill sans, lucida grande, lucida sans, verdana, sans-serif;
-$font-stack-monospace   : 'Source Code Pro', monospace;
-$font-size-base         : 1.3125em;
-$font-size-base-px      : 21;
 
 
 //
+// Layout
+// ========================================
+
+$sidebar-width: 320px;
+
+
 //
-//  Media Queries
-//  ========================================
-//  General sizes of media queries
+// Colors
+// ========================================
+
+
+// Defaults
+
+$color-sidebar-bg: #292929; // #273238;
+$color-sidebar-border: #4B4545; //#374850;
+$color-sidebar-text: #736B6A; //#546F7A;
+$color-sidebar-active: $color-sidebar-border;
+
+$color-content-bg: #fff;
+$color-content-text: $color-sidebar-bg;
+$color-content-text-light: #BBB0AF; //#AFBFC6;
+$color-content-highlight: #D82C1E; //#D0513E;
+$color-content-link: $color-content-highlight; //#80CBC4;
+
+
+// Light/Dark Theme
+$color-sidebar-bg-light: #F5F1F1;
+$color-sidebar-border-light: #ECE0DF;
+$color-sidebar-text-light: #AE9696;
+$color-sidebar-active-light: #ECE0DF;
+
+$color-content-bg-dark: #363636;
+$color-content-text-dark: #ccc;
+
 //
-$media-query-s          : $max-width-base - 1;
+// Typography
+// ========================================
+
+$font-stack             : Verdana, sans-serif;
+$font-stack-content     : Verdana, sans-serif;
+$font-stack-monospace   : monospace;
+$font-size-base         : 1em;
+$font-size-base-px      : 16;
+
+
+//
+// Media Queries
+// ========================================
+
+$media-query            : 1000px;
+$media-query-s          : 600px;
+$media-query-lg         : 1300px;

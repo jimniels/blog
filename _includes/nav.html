@@ -1,0 +1,117 @@
+<!-- Current Post
+=================================== -->
+{% if include.showCurrentPost and (page.type == 'post' or page.type == 'home') %}
+  <ul class="nav-list">
+    <li>
+      <h2 class="nav-list__header">
+        Current Post
+      </h2>
+      <ul>
+        <li class="active">
+          <span class="nav-list__item">
+            {% comment %}
+              If it's a post page, output the date/name
+              Otherwise it should be the home page, so highlight the first post
+              (as that's the active one)
+            {% endcomment %}
+            {% if page.type == 'post'%}
+              {{ page.date | date: "%Y/%m" }} - {{ page.title }}
+            {% else %}
+              {{ site.posts.first.date | date: "%Y/%m" }} - {{ site.posts.first.title }}
+            {% endif %}
+          </span>
+        </li>
+      </ul>
+    </li>
+  </ul>
+{% endif %}
+
+<!-- Posts
+=================================== -->
+<ul class="nav-list nav-list--posts">
+  <li>
+    <h2 class="nav-list__header">
+      Posts
+    </h2>
+    <ul>
+      {% for post in site.posts %}
+        <li>
+          {% comment %}
+            We capture the filename so we don't have to use it in two places.
+            Then we setup a `testCase` variable since liquid syntax doesn't allow
+            multiple arguments in an `if` statement
+          {% endcomment %}
+          {% capture filename = %}{{ post.date | date: "%Y/%m" }} - {{ post.title }}{% endcapture %}
+
+          {% assign isActivePost = false %}
+          {% if page.title == post.title %}
+            {% assign isActivePost = true %}
+          {% endif %}
+          {% if page.type == 'home' and forloop.first == true %}
+            {% assign isActivePost = true %}
+          {% endif %}
+
+          {% if isActivePost %}
+            <span class="nav-list__item nav-list__item--active" title="{{ post.title }}">
+               {{ filename }}
+            </span>
+          {% else %}
+            <a class="nav-list__item"
+               href="{{ site.baseurl }}{{ post.url }}"
+               title="{{ post.title }}"
+               data-url="{{ site.baseurl }}{{ post.url }}/">
+               {{ filename }}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </li>
+</ul>
+
+<!-- Tags
+=================================== -->
+<ul class="nav-list nav-list--tags">
+  <li>
+    <h2 class="nav-list__header">
+      Tags
+    </h2>
+    <ul>
+      {% assign sortedTags = (site.tags | sort:0) %}
+      {% for tag in sortedTags %}
+        <li>
+          <a class="nav-list__item" href="{{ site.url }}{{ site.baseurl }}/tags/index.html#{{tag.first}}" data-url="/blog/tags/index.html#{{ tag.first }}">
+            #{{tag.first}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </li>
+</ul>
+
+<!-- Links
+=================================== -->
+<ul class="nav-list nav-list--links">
+  <li>
+    <h2 class="nav-list__header">
+      Links
+    </h2>
+    <ul>
+      <li>
+        <a class="nav-list__item" href="{{ site.baseurl }}/feed.xml">
+          Blog RSS Feed
+        </a>
+      </li>
+      <li>
+        <a class="nav-list__item nav-list__item--external" href="http://jim-nielsen.com/">
+          My Portfolio
+        </a>
+      </li>
+      <li>
+        <a class="nav-list__item nav-list__item--external" href="http://twitter.com/jimniels/">
+          @jimniels on Twitter
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>

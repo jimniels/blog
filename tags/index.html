@@ -1,32 +1,34 @@
 ---
 layout: default
 title: Tags | Jim Nielsen’s Blog
+type: tags
 ---
-<div class="archive">
-    <h3 class="archive__title">Tags</h3>
-    <ul class="archive__toc">
-        {% for tag in site.tags %}
-            <li>
-                <a href="#{{tag.first}}">#{{tag.first}}</a>
-            </li>
-        {% endfor %}
-    </ul>
 
-    {% for tag in site.tags %}
-        <h2 id="{{tag.first}}" class="archive__title">
-            #{{tag.first}} <span>({{tag[1] | size}})</span>
-        </h2>
-        <ul class="archive__list">
-            {% for post in site.posts %}
-                {% if post.tags contains tag.first %}
-                    <li>
-                        <time class="date">{{ post.date | date: "%-d %b, %Y" }}</time>
-                        <a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-    {% endfor %}
+<h1 class="bold">
+  Tags
+</h1>
 
+<hr />
+
+{% assign sortedTags = (site.tags | sort:0) %}
+{% for tag in sortedTags %}
+  <div id="{{tag.first}}">
+    <h2>
+      #{{tag.first}} <span>({{tag[1] | size}})</span>
+    </h2>
+    <ul>
+      {% for post in site.posts %}
+        {% if post.tags contains tag.first %}
+          <li class="m-b-sm">
+            <time class="tags-date">
+              {{ post.date | date: "%-d %b, %Y" }}
+            </time>
+            <a href="{{ site.baseurl }}{{ post.url }}" id="{{ post.id }}">
+              {{post.title}}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
     </ul>
-</div>
+  </div>
+{% endfor %}

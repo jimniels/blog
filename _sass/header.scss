@@ -1,0 +1,130 @@
+//
+//
+//  Header
+//  ======================================================================
+//
+
+.header {
+  font-size: em(13);
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $sidebar-width;
+  height: 100%;
+  float: left;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  border-right-width: 1px;
+  border-right-style: solid;
+
+  @media screen and (max-width: $media-query) {
+    border-right-width: 0;
+    border-bottom-width: 1px;
+    @include clearfix();
+    position: relative;
+    float: none;
+    overflow: visible;
+    -webkit-overflow-scrolling: none;
+    width: 100%;
+  }
+
+  &:before {
+    content: '';
+    width: ($sidebar-width - 40); // compensate for padding
+    height: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 20px;
+    z-index: 1;
+
+    @media screen and (max-width: $media-query) {
+      display: none;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  //
+  // Logo
+  // ========================================
+
+  .header__logo {
+    a {
+      display: block;
+      margin: 0 auto;
+      padding: em(20, 13) 0;
+      text-align: center;
+      position: relative;
+
+      &:hover,
+      &:active {
+        color: $color-content-link;
+      }
+
+      @media screen and (max-width: $media-query) {
+        float: left;
+        padding: em(15, 13) 0;
+      }
+
+      // Optical centering
+      img {
+        position: relative;
+        left: -6px;
+
+        @media screen and (max-width: $media-query) {
+          position: absolute;
+          left: 15px;
+          top: 3px;
+          width: 150px;
+        }
+
+        @media screen and (max-width: $media-query-s) {
+          width: 110px;
+          top: 7px;
+          left: -5px;
+        }
+      }
+
+      span {
+        position: absolute;
+        right: 80px;
+        bottom: 25px;
+        font-size: 12px;
+
+        @media screen and (max-width: $media-query) {
+          position: relative;
+          right: initial;
+          bottom: initial;
+          font-size: 1em;
+          margin-left: 150px;
+        }
+
+        @media screen and (max-width: $media-query-s) {
+          margin-left: 110px;
+          top: 1px;
+          color: $color-content-link;
+        }
+      }
+    }
+  }
+
+  //
+  // Menu Trigger
+  // ========================================
+
+  .header__nav-link {
+    display: none;
+
+    @media screen and (max-width: $media-query) {
+      display: block;
+      position: absolute;
+      right: em(20, 13);
+      top: em(15, 13);
+      color: rgba(255, 255, 255, .5);
+    }
+  }
+}

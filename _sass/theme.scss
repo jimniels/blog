@@ -1,0 +1,182 @@
+//
+//
+// Theme
+// ======================================================================
+// All colors related to themeing are defined here
+//
+
+
+//
+// Toolbar
+// ========================================
+
+.theme-toolbar {
+  border: 1px solid $color-sidebar-border;
+  height: 30px;
+  margin: em(10) em(20) 0;
+  border-radius: 5px;
+  @include clearfix();
+
+  @media screen and (max-width: $media-query) {
+    display: none;
+  }
+
+  li {
+    float: left;
+    width: 33.3333333%;
+    text-indent: -9999px;
+    height: 100%;
+    position: relative;
+
+    &.active {
+      background-color: $color-sidebar-border;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:nth-child(2) {
+      border-left: 1px solid $color-sidebar-border;
+      border-right: 1px solid $color-sidebar-border;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 9px;
+      border-radius: 10px;
+    }
+
+    &:before {
+      left: 50%;
+      margin-left: -5px;
+    }
+
+    &:after {
+      right: 50%;
+      margin-right: -5px;
+    }
+
+    &[title="Theme: light"] {
+
+      &:before,
+      &:after {
+        border: 1px solid $color-sidebar-text;
+      }
+    }
+
+    &[title="Theme: regular"] {
+
+      &:before {
+        width: 5px;
+        border-radius: 5px 0 0 5px;
+        background-color: $color-sidebar-text;
+      }
+
+      &:after {
+        width: 5px;
+        border-radius: 0 5px 5px 0;
+        border: 1px solid $color-sidebar-text;
+      }
+    }
+
+    &[title="Theme: dark"] {
+
+      &:before,
+      &:after {
+        background: $color-sidebar-text;
+      }
+    }
+  }
+}
+
+
+//
+// Light
+// ========================================
+
+.header {
+  background: $color-sidebar-bg;
+  color: $color-sidebar-text;
+  border-color: $color-sidebar-border;
+
+  a:hover {
+    color: white;
+  }
+
+  &:before {
+    background-image: linear-gradient(rgba($color-sidebar-bg, 0), $color-sidebar-bg 50%);
+  }
+}
+
+.nav-header {
+  border-top: 1px solid $color-sidebar-border;
+
+  .active {
+    color: white;
+    background-color: $color-sidebar-active;
+  }
+}
+
+.theme-light {
+
+  .header {
+    background: $color-sidebar-bg-light;
+    color: $color-sidebar-text-light;
+    border-color: $color-sidebar-border-light;
+
+    a:hover {
+      color: $color-content-link;
+    }
+
+    &:before {
+      background-image: linear-gradient(rgba($color-sidebar-bg-light, 0), $color-sidebar-bg-light 50%);
+    }
+  }
+
+  .nav-header {
+    border-top: 1px solid $color-sidebar-border-light;
+
+    .active {
+      color: $color-content-link;
+      background-color: $color-sidebar-active-light;
+    }
+  }
+
+  .theme-toolbar {
+    border-color: $color-sidebar-border-light;
+
+    li.active {
+      background-color: $color-sidebar-border-light;
+    }
+
+    li:nth-child(2) {
+      border-color: $color-sidebar-border-light;
+    }
+  }
+}
+
+
+//
+// Dark
+// ========================================
+
+.content {
+  background-color: $color-content-bg;
+  color: $color-content-text;
+
+  a {
+    color: $color-content-link;
+  }
+}
+
+.theme-dark {
+  .content {
+    background-color: $color-content-bg-dark;
+    color: $color-content-text-dark;
+  }
+}

@@ -1,27 +1,57 @@
-{% include header.html %}
+{% include document-head.html %}
 
-    <main class="wrapper">
-        {{ content }}
-    </main>
+  <!-- Header
+  =================================== -->
+  <header class="header" id="header">
+    <h1 class="header__logo">
+      <a href="{{ site.url }}{{ site.baseurl }}/">
+        <img src="{{ site.baseurl }}/assets/img/logo.png"
+             alt="Jim Nielsen logo"
+             width="202"
+             height="99" />
+        <span>
+          Jim Nielsen’s Blog <!-- &equiv; &#x2261; -->
+        </span>
+      </a>
+    </h1>
 
-    <footer class="footer">
-        <p>This is my blog, <a href="{{ site.baseurl }}/feed.xml">subscribe to it.</a> You can also <a href="http://jim-nielsen.com/" title="Jim Nielsen's portfolio">see my portfolio</a> or <a href="http://twitter.com/jimniels">find me on Twitter</a>.</p>
-    </footer>
+    <a href='#nav-footer' class="header__nav-link">
+      Menu
+    </a>
 
-    <!-- Analytics -->
-    <script type="text/javascript">
+    <nav class="nav-header">
+      {% include nav.html showCurrentPost="true" %}
+    </nav>
+  </header>
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-19579223-2']);
-      _gaq.push(['_trackPageview']);
+  <!-- Main
+  =================================== -->
+  <main class="content" id="content">
+    {{ content }}
+  </main>
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+  <!-- Footer
+  =================================== -->
+  <footer class="nav-footer" id="nav-footer">
+    {% include nav.html %}
+  </footer>
 
-    </script>
+  <!-- Javascript
+  =================================== -->
+  <script type="text/javascript" src="{{ site.baseurl }}/assets/js/js.js"></script>
 
+  <!-- Analytics
+  ===================================
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19579223-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script> -->
 </body>
 </html>

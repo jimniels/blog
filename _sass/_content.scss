@@ -1,0 +1,323 @@
+//
+//
+//  Content
+//  ======================================================================
+//  Typographic styles for blog post content
+//
+
+$font-size-context: 18;
+
+.content {
+  //font-family: $font-stack;
+  font-size: em($font-size-context, 16);
+  position: relative;
+  padding: em(20, $font-size-context) 6% em(80, $font-size-context);
+  margin-left: $sidebar-width;
+
+  @media screen and (min-width: $media-query-lg) {
+    padding-left: em(120, $font-size-context);
+  }
+
+  @media screen and (max-width: $media-query) {
+    margin-left: 0;
+  }
+
+  @media screen and (max-width: $media-query-s) {
+    padding-left: em(15, $font-size-context);
+    padding-right: em(15, $font-size-context);
+    font-size: em(18);
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      //color: darken($color-content-link, 8%);
+      text-decoration: underline;
+    }
+  }
+
+
+  //
+  // Header
+  // ========================================
+
+  &__header {
+    line-height: 1.325;
+    opacity: .5;
+
+    // Override any default html tag styles
+    > * {
+      margin: 0 !important;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    // Add front matter dividers
+    &:before,
+    &:after {
+      content: '- - -';
+      display: block;
+    }
+
+    // Prefix each header item with a label
+    > *:before {
+      content: attr(data-label) ':';
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+
+  //
+  // Body
+  // ========================================
+  // Styles for post content only
+
+  &__body {
+    line-height: 1.625;
+    font-family: $font-stack-content;
+
+
+    //
+    // Headings
+    // ==========
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      //font-family: $font-stack;
+      line-height: 1.125;
+      position: relative;
+      letter-spacing: -.03575em;
+      font-weight: bold;
+      margin-bottom: em(20);
+
+      &:before {
+        position: absolute;
+        right: 100%;
+        margin-right: em(5);
+        letter-spacing: .0625em;
+        display: none;
+
+        @media screen and (max-width: $media-query-s) {
+          position: static;
+          margin-right: 0;
+        }
+
+        @media screen and (min-width: $media-query-lg) {
+          display: block;
+        }
+      }
+    }
+
+    h1 {
+      font-size: em(36, $font-size-context);
+      @include max-width(36);
+      margin: em(30, 36) 0 em(40, 36);
+
+      &:before {
+        content: '# ';
+        margin-right: em(5, 36);
+      }
+    }
+
+    h2 {
+      font-size: em(24, $font-size-context);
+      @include max-width(24);
+      margin-bottom: em(20);
+
+      &:before {
+        content: '## ';
+        margin-right: em(5, 24);
+      }
+    }
+
+    h3 {
+      font-size: em(21, $font-size-context);
+      @include max-width(21);
+      margin-bottom: em(20);
+
+      &:before {
+        content: '### ';
+        margin-right: em(5, 21);
+      }
+    }
+
+    h4 { // don't think this is ever used
+      &:before {
+        content: '#### ';
+      }
+    }
+
+    h5 { // don't think this is ever used
+      &:before {
+        content: '##### ';
+      }
+    }
+  }
+
+
+  //
+  // Element Margins
+  // ==========
+
+  h1, h2, h3, h4, h5,
+  p, ul, ol, pre, blockquote, pre, hr, > object, > iframe, > div {
+    // margin-left: auto;
+    // margin-right: auto;
+  }
+
+  p, ul, ol, blockquote, hr, > object, > iframe, > div {
+    @include max-width($font-size-context);
+    margin-bottom: 2em;
+    display: block;
+  }
+
+  pre {
+    margin-bottom: 2em;
+  }
+
+  hr {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+  //
+  // Lists
+  // ==========
+
+  ul {
+    list-style-type: circle;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul,
+  ol {
+    list-style-position: outside;
+    padding-left: 1em;
+  }
+
+  ol ol,
+  ol ol ol,
+  ul ul,
+  ul ul ul {
+    margin: 0;
+    margin-left: 1.5em;
+  }
+
+
+  //
+  // Inline Text
+  // ==========
+
+  strong {
+      font-weight: 700;
+  }
+
+  em {
+      font-style: italic;
+  }
+
+
+  //
+  // Blockquote
+  // ==========
+
+  blockquote {
+      position: relative;
+      border-left: 3px solid rgba(0, 0, 0, .1);
+      padding-left: em(20, 20);
+      font-style: italic;
+
+      em {
+          font-style: normal;
+      }
+  }
+
+
+  //
+  // Code
+  // ==========
+
+  pre,
+  code {
+    font-family: $font-stack-monospace;
+  }
+
+  code {
+    padding: (2em / $font-size-base-px) (5em / $font-size-base-px) (3em / $font-size-base-px);
+    margin: 0 .325em;
+    border-radius: .166667em;
+    background: rgba(0, 0, 0, .05);
+    border: 1px solid rgba(0, 0, 0, .1);
+  }
+
+  pre {
+    padding: 1em;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background: rgba(0, 0, 0, .05);
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .166667em;
+
+    code {
+      line-height: 1.5em;
+
+      // override inline code styles
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+    }
+  }
+
+
+  //
+  // Horizontal Ruler
+  // ==========
+
+  hr {
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+  }
+
+  //
+  // Images
+  // ==========
+
+  img {
+    display: block;
+    max-width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, .075);
+
+    // left align mobile
+    @media screen and (max-width: $media-query-s) {
+      img {
+        margin: 0;
+      }
+    }
+  }
+
+  .image-container {
+    font-size: .75em;
+    font-style: italic;
+    line-height: 1.5em;
+    color: rgba($color-content-text, .5);
+
+    max-width: none;
+    padding: 1em 0;
+  }
+}

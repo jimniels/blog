@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Title
+    =================================== -->
+    <title>{{ page.title }} | Jim Nielsen’s Blog</title>
+
+    <!-- Meta
+    =================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ site.baseurl }}/feed.xml">
+
+    <!-- CSS
+    =================================== -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+<body>
+  <script>
+    // This has to go here or you get a flicker effect when persisting the theme
+    // across different URLs
+    function addThemeClass() {
+      document.documentElement.className = '';
+      document.documentElement.classList.add('theme-' + localStorage.getItem('theme'));
+    }
+    addThemeClass();
+  </script>
