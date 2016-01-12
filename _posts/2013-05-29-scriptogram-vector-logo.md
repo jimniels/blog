@@ -1,7 +1,6 @@
 ---
 title: Scriptogram Logo in Vector Form (.svg)
 date: 2013-05-29
-tags: resources
 redirect_from: /posts/scriptogram-vector-logo/
 ---
 
