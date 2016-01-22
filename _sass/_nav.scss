@@ -104,17 +104,13 @@
 
 .nav-footer {
   font-size: em(13);
-  background-color: $color-sidebar-bg;
-  padding: em(30, 13) em(60, 13);
-  color: lighten($color-sidebar-text, 20%);
-  display: none;
 
   @media screen and (max-width: $media-query) {
-    display: block;
+    padding: em(60, 13);
   }
 
   @media screen and (max-width: $media-query-s) {
-    padding: em(30, 13) em(15, 13);
+    padding: em(40, 13) em(15, 13);
   }
 
   //
@@ -124,6 +120,11 @@
   .nav-list {
     margin-bottom: em(20, 13);
     @include max-width(13);
+    display: none;
+
+    @media screen and (max-width: $media-query) {
+      display: block;
+    }
 
     a {
       color: inherit;
@@ -133,26 +134,21 @@
       opacity: .5;
     }
 
-    &--posts,
-    &--tags,
-    &--links {
-      ul li {
-        padding: 0 em(10, 13) 0 0;
-        position: relative;
-        border-bottom: 1px solid rgba($color-sidebar-border, .5);
-      }
+    ul li {
+      padding: 0 em(10, 13) 0 0;
+      position: relative;
+    }
 
-      a,
-      span {
-        padding: em(5, 13) 0;
-        text-decoration: none;
-        @include truncate();
+    a,
+    span {
+      padding: em(5, 13) 0;
+      text-decoration: none;
+      @include truncate();
 
-        &:after {
-          content: '›';
-          position: absolute;
-          right: 0;
-        }
+      &:after {
+        content: '›';
+        position: absolute;
+        right: 0;
       }
     }
   }
