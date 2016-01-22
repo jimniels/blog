@@ -10,13 +10,17 @@ document.querySelector('.header__nav-link').addEventListener('click', function(e
 });
 
 function scrollTo(element, to, duration) {
-    if (duration < 0) return;
+    if (duration < 0) {
+      return;
+    }
     var difference = to - element.scrollTop;
     var perTick = difference / duration * 10;
 
     setTimeout(function() {
         element.scrollTop = element.scrollTop + perTick;
-        if (element.scrollTop === to) return;
+        if (element.scrollTop === to) {
+          return;
+        }
         scrollTo(element, to, duration - 10);
     }, 10);
 }
@@ -105,5 +109,5 @@ for (var i = 0; i < themeColors.length; i++) {
 }
 
 // Insert <ul> toolbar
-var header = document.getElementById('header');
-header.insertBefore(ul, header.firstChild);
+var footer = document.getElementById('nav-footer');
+footer.insertBefore(ul, footer.firstChild);
