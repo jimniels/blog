@@ -45,6 +45,7 @@ $font-size-context: 18;
   &__header {
     line-height: 1.325;
     opacity: .5;
+    font-size: em(16, $font-size-context);
 
     // Override any default html tag styles
     > * {
