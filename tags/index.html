@@ -4,7 +4,7 @@ title: Tags | Jim Nielsen’s Blog
 type: tags
 ---
 
-<h1 class="bold">
+<h1 class="bold m-b">
   Tags
 </h1>
 
@@ -13,7 +13,7 @@ type: tags
 {% assign sortedTags = (site.tags | sort:0) %}
 {% for tag in sortedTags %}
   <div id="{{tag.first}}">
-    <h2>
+    <h2 class="m-b">
       #{{tag.first}} <span>({{tag[1] | size}})</span>
     </h2>
     <ul>
