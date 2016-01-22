@@ -24,7 +24,7 @@
     @include clearfix();
     position: relative;
     float: none;
-    overflow: visible;
+    overflow: hidden;
     -webkit-overflow-scrolling: none;
     width: 100%;
   }
@@ -67,7 +67,35 @@
 
       @media screen and (max-width: $media-query) {
         float: left;
-        padding: em(15, 13) 0;
+        padding: em(15, 13) 6%; // matching content area
+        background-color: $color-content-link;
+        color: white;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:hover,
+        &:active {
+          color: white;
+        }
+
+        &:after {
+          content: '';
+          width: 30px;
+          height: 100px;
+          position: absolute;
+          right: -15px;
+          top: 50%;
+          background: $color-content-link;
+          transform: rotate(-25deg);
+          margin-top: -50px;
+        }
+      }
+
+      @media screen and (max-width: $media-query-s) {
+        padding-left: em(20, 13);
+        padding-right: em(20, 13);
       }
 
       // Optical centering
@@ -80,12 +108,7 @@
           left: 15px;
           top: 3px;
           width: 150px;
-        }
-
-        @media screen and (max-width: $media-query-s) {
-          width: 110px;
-          top: 7px;
-          left: -5px;
+          display: none;
         }
       }
 
@@ -99,14 +122,8 @@
           position: relative;
           right: initial;
           bottom: initial;
-          font-size: 1em;
-          margin-left: 150px;
-        }
-
-        @media screen and (max-width: $media-query-s) {
-          margin-left: 110px;
-          top: 1px;
-          color: $color-content-link;
+          font-size: 16px;
+          font-weight: bold;
         }
       }
     }
@@ -124,7 +141,7 @@
       position: absolute;
       right: em(20, 13);
       top: em(15, 13);
-      color: rgba(255, 255, 255, .5);
+      //color: rgba(255, 255, 255, .5);
     }
   }
 }

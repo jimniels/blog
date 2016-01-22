@@ -11,14 +11,19 @@
 // ========================================
 
 .theme-toolbar {
-  border: 1px solid $color-sidebar-border;
-  height: 30px;
-  margin: em(10) em(20) 0;
   border-radius: 5px;
+  height: 30px;
+  position: fixed;
+  right: 20px;
+  top: 40px;
+  width: 200px;
   @include clearfix();
+  overflow: hidden;
 
   @media screen and (max-width: $media-query) {
-    display: none;
+    position: static;
+    width: 100%;
+    margin-bottom: em(40, 13)
   }
 
   li {
@@ -28,17 +33,8 @@
     height: 100%;
     position: relative;
 
-    &.active {
-      background-color: $color-sidebar-border;
-    }
-
     &:hover {
       cursor: pointer;
-    }
-
-    &:nth-child(2) {
-      border-left: 1px solid $color-sidebar-border;
-      border-right: 1px solid $color-sidebar-border;
     }
 
     &:before,
@@ -60,8 +56,27 @@
       right: 50%;
       margin-right: -5px;
     }
+  }
 
-    &[title="Theme: light"] {
+  //
+  // Styles
+  // ==========
+
+  border: 1px solid $color-sidebar-border-light;
+
+  li {
+    background: white;
+
+    &.active {
+      background-color: $color-sidebar-border-light;
+    }
+
+    &:nth-child(2) {
+      border-left: 1px solid $color-sidebar-border-light;
+      border-right: 1px solid $color-sidebar-border-light;
+    }
+
+    &[title*="light"] {
 
       &:before,
       &:after {
@@ -69,22 +84,22 @@
       }
     }
 
-    &[title="Theme: regular"] {
+    &[title*="regular"] {
 
       &:before {
-        width: 5px;
-        border-radius: 5px 0 0 5px;
+        width: 6px;
+        border-radius: 6px 0 0 6px;
         background-color: $color-sidebar-text;
       }
 
       &:after {
-        width: 5px;
-        border-radius: 0 5px 5px 0;
+        width: 6px;
+        border-radius: 0 6px 6px 0;
         border: 1px solid $color-sidebar-text;
       }
     }
 
-    &[title="Theme: dark"] {
+    &[title*="dark"] {
 
       &:before,
       &:after {
@@ -92,6 +107,24 @@
       }
     }
   }
+
+  // In the footer it's always the same 'dark' theme
+  // @media screen and (max-width: $media-query) {
+  //   border-color: $color-sidebar-border;
+  //
+  //   li {
+  //     background: $color-content-bg-dark;
+  //
+  //     &.active {
+  //       background-color: $color-sidebar-border;
+  //     }
+  //
+  //     &:nth-child(2) {
+  //       border-left-color: $color-sidebar-border;
+  //       border-right-color: $color-sidebar-border;
+  //     }
+  //   }
+  // }
 }
 
 
@@ -122,6 +155,17 @@
   }
 }
 
+.nav-footer {
+  background-color: $color-sidebar-bg;
+  color: lighten($color-sidebar-text, 20%);
+
+  .nav-list {
+    ul li {
+      border-bottom: 1px solid rgba($color-sidebar-border, .5);
+    }
+  }
+}
+
 .theme-light {
 
   .header {
@@ -147,15 +191,14 @@
     }
   }
 
-  .theme-toolbar {
-    border-color: $color-sidebar-border-light;
+  .nav-footer {
+    background-color: $color-sidebar-bg-light;
+    color: $color-sidebar-text-light;
 
-    li.active {
-      background-color: $color-sidebar-border-light;
-    }
-
-    li:nth-child(2) {
-      border-color: $color-sidebar-border-light;
+    .nav-list {
+      ul li {
+        border-bottom-color: $color-sidebar-border-light;
+      }
     }
   }
 }
@@ -165,8 +208,11 @@
 // Dark
 // ========================================
 
+body {
+  background-color: $color-content-bg; // put this on body for edge case short articles
+}
+
 .content {
-  background-color: $color-content-bg;
   color: $color-content-text;
 
   a {
@@ -175,8 +221,42 @@
 }
 
 .theme-dark {
-  .content {
+  body {
     background-color: $color-content-bg-dark;
+  }
+
+  .content {
     color: $color-content-text-dark;
+  }
+
+  .theme-toolbar {
+
+  }
+}
+
+@mixin toolbar-dark() {
+  border-color: $color-sidebar-border;
+
+  li {
+    background-color: $color-content-bg-dark;
+
+    &.active {
+      background-color: $color-sidebar-border;
+    }
+
+    &:nth-child(2) {
+      border-left-color: $color-sidebar-border;
+      border-right-color: $color-sidebar-border;
+    }
+  }
+}
+
+.theme-dark .theme-toolbar {
+  @include toolbar-dark();
+}
+
+.theme-regular .theme-toolbar {
+  @media screen and (max-width: $media-query) {
+    @include toolbar-dark();
   }
 }
