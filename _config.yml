@@ -6,7 +6,6 @@ imageurl: /blog/assets/img
 # imageurl: assets/img # for testing
 domain: http://jim-nielsen.com
 permalink: /:year/:title
-paginate: 5
 sass:
     sass_dir: _sass
 gems:
