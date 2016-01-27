@@ -11,12 +11,12 @@
 // ========================================
 
 .theme-toolbar {
-  border-radius: 5px;
+  //border-radius: 5px;
   height: 30px;
   position: fixed;
   right: 20px;
   top: 40px;
-  width: 200px;
+  width: 175px;
   @include clearfix();
   overflow: hidden;
 
@@ -28,7 +28,8 @@
 
   li {
     float: left;
-    width: 33.3333333%;
+    width: 31.3333333%;
+    margin: 0 1%;
     text-indent: -9999px;
     height: 100%;
     position: relative;
@@ -62,18 +63,23 @@
   // Styles
   // ==========
 
-  border: 1px solid $color-sidebar-border-light;
-
   li {
     background: white;
+    border: 1px solid rgba(0, 0, 0, .075);
+    border-radius: 3px;
 
     &.active {
-      background-color: $color-sidebar-border-light;
+      border-color: $color-sidebar-text;
+
+      &:after,
+      &:before {
+        opacity: 1;
+      }
     }
 
-    &:nth-child(2) {
-      border-left: 1px solid $color-sidebar-border-light;
-      border-right: 1px solid $color-sidebar-border-light;
+    &:after,
+    &:before {
+      opacity: .5;
     }
 
     &[title*="light"] {
@@ -100,31 +106,12 @@
     }
 
     &[title*="dark"] {
-
       &:before,
       &:after {
         background: $color-sidebar-text;
       }
     }
   }
-
-  // In the footer it's always the same 'dark' theme
-  // @media screen and (max-width: $media-query) {
-  //   border-color: $color-sidebar-border;
-  //
-  //   li {
-  //     background: $color-content-bg-dark;
-  //
-  //     &.active {
-  //       background-color: $color-sidebar-border;
-  //     }
-  //
-  //     &:nth-child(2) {
-  //       border-left-color: $color-sidebar-border;
-  //       border-right-color: $color-sidebar-border;
-  //     }
-  //   }
-  // }
 }
 
 
@@ -140,10 +127,6 @@
   a:hover {
     color: white;
   }
-
-  &:before {
-    background-image: linear-gradient(rgba($color-sidebar-bg, 0), $color-sidebar-bg 50%);
-  }
 }
 
 .nav-header {
@@ -157,7 +140,7 @@
 
 .nav-footer {
   background-color: $color-sidebar-bg;
-  color: lighten($color-sidebar-text, 20%);
+  color: $color-sidebar-text;
 
   .nav-list {
     ul li {
@@ -175,10 +158,6 @@
 
     a:hover {
       color: $color-content-link;
-    }
-
-    &:before {
-      background-image: linear-gradient(rgba($color-sidebar-bg-light, 0), $color-sidebar-bg-light 50%);
     }
   }
 
@@ -235,18 +214,13 @@ body {
 }
 
 @mixin toolbar-dark() {
-  border-color: $color-sidebar-border;
-
   li {
+    border-color: $color-sidebar-border;
     background-color: $color-content-bg-dark;
 
     &.active {
-      background-color: $color-sidebar-border;
-    }
-
-    &:nth-child(2) {
-      border-left-color: $color-sidebar-border;
-      border-right-color: $color-sidebar-border;
+      //background-color: $color-sidebar-border;
+      border-color: rgba($color-content-text-dark, .75);
     }
   }
 }
