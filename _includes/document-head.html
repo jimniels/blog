@@ -3,7 +3,13 @@
 <head>
     <!-- Title
     =================================== -->
-    <title>{{ page.title }} | Jim Nielsen’s Blog</title>
+    <title>
+      {% if page.type == 'home' %}
+        Jim Nielsen’s Blog
+      {% else %}
+        {{ page.title }} | Jim Nielsen’s Blog
+      {% endif %}
+    </title>
 
     <!-- Meta
     =================================== -->
