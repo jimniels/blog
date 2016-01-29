@@ -201,6 +201,10 @@ Because this project had the additional scope of serving as a boilerplate of sor
 
 ![Screenshot of basic application style guide]({{site.imageurl}}/2016/assignment-desk-style-guide.png)
 
+Additionally, I put together a resource kit of sorts that allows designers coming after me to easily find and export assets for existing applications. It also serves as a template for creating new application assets based on existing style guidelines.
+
+![Screenshot of resource kit]({{site.imageurl}}/2016/assignment-desk-resource-kit.png)
+
 ## Conclusion(-ing)
 
 It was really neat to see how quickly we could build this app. Granted it wasn’t a beast in terms of complexity, but that was partly because we made it that way. Up front we had to cut anything that was unnecessary and unify any patterns we could in order to ship something as fast as we did.
