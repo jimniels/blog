@@ -1,6 +1,4 @@
 name: Blog | Jim Nielsen, Designer
-markdown: redcarpet
-highlighter: pygments
 baseurl: /blog
 imageurl: /blog/assets/img
 # imageurl: assets/img # for testing
