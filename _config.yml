@@ -3,7 +3,7 @@ baseurl: /blog
 imageurl: /blog/assets/img
 # imageurl: assets/img # for testing
 domain: http://jim-nielsen.com
-permalink: /:year/:title
+permalink: /:year/:title/
 sass:
     sass_dir: _sass
 gems:
