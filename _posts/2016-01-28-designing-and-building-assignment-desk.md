@@ -110,9 +110,9 @@ Writing these specifications down really helped me get a grasp of the design com
 
 ## Drawing, Wireframing, and Sketch(-ing)
 
-Based on the specifications I had in writing, I began drawing sketches on paper to help better visually explain the navigation of the app, each entity’s relationship to one another, and the overall architecture (technically as well as from a modular design perspective). These drawings and wireframes helped produce buy-in and approval from stakeholders and allowed me to begin working on more high-fidelity mocks. It also gave our front-end developer enough information to begin working on a project scaffolding in terms of the codebase. So my work helped get all the wheels churning asynchronously.
+Based on the specifications I had in writing, I began drawing sketches on paper to help better visually explain the navigation of the app, each entity’s relationship to one another, and the overall architecture (technically as well as from a modular design perspective). These drawings and wireframes helped produce buy-in and approval from stakeholders and allowed me to begin working on more high-fidelity mocks. It also gave our other front-end developer enough information to begin working on a project scaffolding in terms of the codebase. So my work helped get all the wheels churning asynchronously.
 
-As I discovered many of the views could share designs components, I didn’t spend a lot of time in Sketch designing perfect mocks for each view. Instead I worked on a few simple views like login (`/login`), entity list views (`/contracts`, `/assignments`), and individual entity views (`/contracts/:id`, `/assignments/:id`) to get a general idea of asethetics like layout, typography, color, etc. For example, here’s `/login`:
+As I discovered many of the views could share designs components, I didn’t spend a lot of time in Sketch designing perfect mocks for each view. Instead I worked on a few simple views like login (`/login`), entity list views (`/contracts`, `/assignments`), and individual entity views (`/contracts/:id`, `/assignments/:id`) to get a general idea of aesthetics like layout, typography, color, etc. For example, here’s `/login`:
 
 ![Screenshot of login screen]({{site.imageurl}}/2016/assignment-desk-login.png)
 
@@ -130,7 +130,7 @@ Here’s an example of the three completed list views (`/contracts`, `/assignmen
 
 ![Animation of navigation between three list views]({{site.imageurl}}/2016/assignment-desk-list-views.gif)
 
-Once I had static mocks in a nearly completed state, it was an asynchronous process of implementing them with the front-end developer. I was writing CSS and React components to bring each of these mocks alive, while the front-end developer was wiring the flow of data from the back-end to the client.
+Once I had static mocks in a nearly completed state, it was an asynchronous process of implementing them in tandem with the other front-end developer. I was writing CSS and React components to bring each of these mocks alive, while the other developer was wiring the flow of data from the back-end to the client. I essentially designed and coded the view layer of the application, while the other developer implemented things architecturally.
 
 At times I would dive back into Sketch to figure out the designs for individual components of a page. For example, one of the widgets we were required to build specified that the user be able to select different brands and view content in the application based on the selected brand. For this, I designed a button in the application bar with the current brand’s logo (which provided brand context to the page’s content) that, once clicked, provided a modal where the user could change their brand context based on brands available to them:
 
@@ -146,7 +146,7 @@ As you can see, this project demanded a kind of a “as you go” process. A lot
 
 ## React(-ing)
 
-As far as the code side of things go, the app itself was architected by our front-end developer but a lot of individual components I coded myself. For example, one of the shared patterns across individual entity view pages was the attribute-value list (`.attr-val-list` HTML class). It is a simple representation of attribute-value pairs of data, grouped under an entity’s rubric.
+As far as the code side of things go, the app itself was architected by our senior react developer while I wrote most of the view layer of the application. For example, one of the shared patterns across individual entity view pages was the attribute-value list (`.attr-val-list` HTML class). It is a simple representation of attribute-value pairs of data, grouped under an entity’s rubric.
 
 ![Screenshot of attribute-value list UI]({{site.imageurl}}/2016/assignment-desk-attribute-value-list.png "The basic attribute-value layout")
 
@@ -209,4 +209,4 @@ Additionally, I put together a resource kit of sorts that allows designers comin
 
 It was really neat to see how quickly we could build this app. Granted it wasn’t a beast in terms of complexity, but that was partly because we made it that way. Up front we had to cut anything that was unnecessary and unify any patterns we could in order to ship something as fast as we did.
 
-Now that we’ve launced, the application has taken a more product-centric approach of getting user feedback and incorporating it back into the application while simultaneously figuring out ways to improve and enhance the basic design and functionality the app was built on.
+Now that we’ve launched, the application has taken a more product-centric approach of getting user feedback and incorporating it back into the application while simultaneously figuring out ways to improve and enhance the basic design and functionality the app was built on.
