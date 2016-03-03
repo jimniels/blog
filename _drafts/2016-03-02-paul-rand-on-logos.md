@@ -1,9 +1,8 @@
 ---
 layout: post
-date: 2015-10-17
+date: 2016-03-02
 title: Paul Rand on Logos
 tags: notes
-summary: "Contrary to what many may assert, the primary vitality of a logo doesn’t come from its visual design. As Rand states, “The Mercedes symbol has nothing to do with automobiles; yet it is a great symbol, not because its design is great, but because it stands for a great product...What makes the Rolls Royce emblem so distinguished is not its design...but the quality of the automobile for which it stands.”"
 ---
 
 It seems like every six months or so, some company does a logo redesign and then it seemingly becomes the talk of the entire online community. Headlines start rolling in which look something like:
