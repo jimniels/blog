@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Going the Extra Mile with Tasks and Feature Requests: A Real World Example"
+title: Going the Extra Mile with Tasks and Feature Requests
 date: 2016-03-02
 tags: designProcess
 ---
