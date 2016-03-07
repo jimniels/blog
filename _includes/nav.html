@@ -47,9 +47,11 @@
           {% if page.title == post.title %}
             {% assign isActivePost = true %}
           {% endif %}
+          {% comment %}
           {% if page.type == 'home' and forloop.first == true %}
-            {% assign isActivePost = true %}
+            {% assign isActivePost = false %}
           {% endif %}
+          {% endcomment %}
 
           {% if isActivePost %}
             <span class="nav-list__item nav-list__item--active" title="{{ post.title }}">
