@@ -79,6 +79,68 @@ One of the only points of direction I was given in regards to the aesthetic dire
 
 ## Stage 2: Sketches and UX
 
+I began my design work by looking at the user flow diagram which helped me organize the application into three distinct user experiences and responsibilities:
+
+1. Outsourcer users: responsible for converting issue assets into XML files
+2. Brand Owner users: responsible for setting rights restrictions on issue articles
+3. QA/Adimin users: responsible for progressing issues through a predefined workflow and ensuring the other two users complete their tasks
+
+Because each user had such a specifically-tailored task, I devised three different application user interfaces that fit the responsibilities of each user type.
+
+To understand how users would navigate through the application, I began by sketching out ideas around a URL structure. This helped me understand how users would navigate from one item to the next while also revealing that the application would need to serve different content at each URL endpoint depending on the logged-in user’s role. Here’s an example of my notes:
+
+
+    /   [dashboard]
+      - Custom depending on user. Gives overview of what needs to be done next.
+
+    /issues   [issue list view]
+      - Shared layout, custom column/data depending on user role.
+
+    /issues/:id   [issue view]
+      - Custom depending on user
+        - If vendor, show XML uploads UI
+        - If brand owner, show rights UI
+        - If QA/admin, show issue info and edit controls
+
+    /issues/:id/assets   [issue view tab]
+      - QA user view/edit assets
+
+    /issues/:id/articles   [issue view tab]
+      - QA user view/check/approve articles
+
+
+Defining these URLs helped me better understand the application architecture and allowed me to begin sketching through rough ideas of user interfaces and navigation.
+
+![Photo of application sketches.]({{ site.imageurl }}/2016/dcp-sketch-1.jpg "Sketches of different views in the application")
+
+![Photo of sketch notes.]({{ site.imageurl }}/2016/dcp-sketch-2.jpg "Keeping track of questions and answers through the sketching phase.")
+
+Once I had developed solid ideas around the structure and layout of shared URL views, I moved on to refining navigation and layout patterns for views unique to each user role.
+
+![Photo of application sketch.]({{ site.imageurl }}/2016/dcp-sketch-navigation.jpg "Sketches around navigation for the QA/Admin user experience.")
+
+My notes for URL structure in conjunction with my sketches for each view led me to solid ideas I could begin developing in Sketch with higher fidelity.
+
+
 ## Stage 3: Aesthetics and Visual Mocks
+
+My basic workflow in this stage was to mock each view and export it to [Invision App](https://www.invisionapp.com/) where I would link up each view and produce a basic, interactive prototype of the application that could be shown to stake holders for feedback and/or sign-off.
+
+As mentioned previously, I divided the application into three separate experiences based on user roles. This meant I had to design three different screens for each URL endpoint. For example, the home screen could display one of three views depending on the type of user logged in. I made sure to examine each view and, where possible, share design and layout patterns that could be leveraged across user experiences. As an example, the home screen dashboard for “Brand Owner” and “Outsourcer” user roles was a simple list of outstanding issues. As such, they could easily share a template with minor differences in data.
+
+![Screenshot of Brand Owner and Outsourcer dashboards.]({{ site.imageurl }}/2016/dcp-dashboard-shared.png "The dashboard for two user roles were designed in similar patterns: a simple list of outstanding issues that needed attention.")
+
+However, the home screen dashboard for QA/Admin users was a categorized list based on issue status that was designed to communicate more of a workflow than a simple to-do list, so its design and implementation were unique.
+
+![Screenshot of QA/Admin dashboard.]({{ site.imageurl }}/2016/dcp-dashboard-unique.png "The dashboard for one user role was significantly than the other two and required a unique, workflow layout approach.")
+
+### Brand Owner Mocks
+
+.gif
+
+### Outsourcer Mocks
+
+### QA/Admin Mocks
+
 
 ## Stage 4: Building in React
