@@ -7,7 +7,7 @@ layout: null
         "title":        "{{ post.title }}",
         "date":         {{ post.date | date: "%d %b, %Y" | jsonify}},
         "url":          "{{ site.domain }}{{ site.baseurl }}{{ post.url }}",
-        "word-count":   "{% assign words = post.content | split:&nbsp; %}{{ words | size }}"
+        "tags":         "#{{ post.tags | join: ', #'}}"
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
 ]
