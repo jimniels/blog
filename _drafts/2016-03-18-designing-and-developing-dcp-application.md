@@ -37,7 +37,9 @@ Because there was already an application in place with specified functionality, 
 
 ![Screenshot of the requirements PDF]({{ site.imageurl }}/2016/dcp-requirements-pdf.png "An excerpt from the 23-page PDF which documented the functionality of the existing application being replaced.")
 
-This PDF served as more of a starting point for conversations and wireframes than it did as a concrete blueprint of what we would be building. A lot of these specifications would change over time. As I designed and developed the application’s UI/UX, we would bring those materials back to the stakeholders to ensure we were on the right track. Those conversations would give rise to existing pain points for end users of the application, which allowed us to revised and edit the requirements PDF to help provide a better application end product.
+This PDF served as more of a starting point for conversations and wireframes than it did as a concrete blueprint of what we would be building. A lot of these specifications would change over time. As I designed and developed the application’s UI/UX, we would bring those materials back to the stakeholders to ensure we were on the right track. Those conversations would give rise to existing pain points for end users of the application, which allowed us to revised and edit the requirements PDF to help provide a better application end product. I printed the document and it served as a trusty reference and checklist for feature design and development.
+
+![Picture of my edited version of requirements PDF]({{ site.imageurl }}/2016/dcp-requirements-pdf-picture.jpg "Sometimes a physical copy of a document works best for tracking changes.")
 
 
 ### Flow Diagram
@@ -77,7 +79,7 @@ One of the only points of direction I was given in regards to the aesthetic dire
 ![Screenshot of another application within Time Inc.]({{ site.imageurl }}/2016/dcp-time-visual-guidelines.png "Screenshot of another internal application whose “minimal/clean” aesthetic Time Inc. wanted to imitate for DCP.")
 
 
-## Stage 2: Sketches and UX
+## Stage 2: Sketches, Wireframes, and UX
 
 I began my design work by looking at the user flow diagram which helped me organize the application into three distinct user experiences and responsibilities:
 
@@ -119,6 +121,16 @@ Once I had developed solid ideas around the structure and layout of shared URL v
 
 ![Photo of application sketch.]({{ site.imageurl }}/2016/dcp-sketch-navigation.jpg "Sketches around navigation for the QA/Admin user experience.")
 
+XXXXXX
+Once my sketches had provided me with enough concrete ideas, I took to Sketch app to form low-fidelity wireframes around layout, structure, and navigation for each of the three different user experiences:
+
+![Screenshot of brand owner issue view wireframe.]({{ site.imageurl }}/2016/dcp-wireframe-brand-owner-issue.png "Wireframe for the brand owner issue view which deals with setting article restrictions and checking-off issue rights.")
+
+![Screenshot of outsourcer issue view wireframe.]({{ site.imageurl }}/2016/dcp-wireframe-outsourcer-issue.png "Wireframe for the outsourcer issue view which deals with uploading XML files for issues.")
+
+MORE WIREFRAMES
+XXXXX
+
 My notes for URL structure in conjunction with my sketches for each view led me to solid ideas I could begin developing in Sketch with higher fidelity.
 
 
@@ -136,7 +148,7 @@ However, the home screen dashboard for QA/Admin users was a categorized list bas
 
 ### Brand Owner Mocks
 
-.gif
+![Animated gif of brand owner experince.]({{ site.imageurl }}/2016/dcp-animated-ux-brand-owner.gif "Flow for brand owners in setting restrictions on articles and checking-off issue rights as complete.")
 
 ### Outsourcer Mocks
 
