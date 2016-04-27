@@ -20,7 +20,6 @@ From the outset of this project, I was given a few resources to help me design a
 - Flow diagram of user roles and responsibilities
 - Screenshots of other TIME applications (for aesthetic direction)
 
-
 ### Athena Screenshots
 
 Time Inc. had an existing application named “Athena” that was being used internally for all digital content production related tasks. I suppose one would call this a “legacy application”, though I can assure you that name does not accurately describe the age of this application. Take a look for yourself:
@@ -37,10 +36,9 @@ Because there was already an application in place with specified functionality, 
 
 ![Screenshot of the requirements PDF]({{ site.imageurl }}/2016/dcp-requirements-pdf.png "An excerpt from the 23-page PDF which documented the functionality of the existing application being replaced.")
 
-This PDF served as more of a starting point for conversations and wireframes than it did as a concrete blueprint of what we would be building. A lot of these specifications would change over time. As I designed and developed the application’s UI/UX, we would bring those materials back to the stakeholders to ensure we were on the right track. Those conversations would give rise to existing pain points for end users of the application, which allowed us to revised and edit the requirements PDF to help provide a better application end product. I printed the document and it served as a trusty reference and checklist for feature design and development.
+This PDF served as more of a starting point for conversations and wireframes than it did as a concrete blueprint of what we would be building. A lot of these specifications would change over time. As I designed and developed the application’s UI/UX, we would bring those materials back to the stakeholders to ensure we were on the right track. Those conversations would give rise to existing pain points for end users of the application, which allowed us to revised and edit the requirements PDF to help provide a better application end product. The printed document also served as a trusty reference and checklist for feature design and development.
 
 ![Picture of my edited version of requirements PDF]({{ site.imageurl }}/2016/dcp-requirements-pdf-picture.jpg "Sometimes a physical copy of a document works best for tracking changes.")
-
 
 ### Flow Diagram
 
@@ -49,7 +47,6 @@ Probably the most useful piece of information I initially received was the flow 
 ![Axure wireframe: user roles and workflow]({{ site.imageurl }}/2016/dcp-axure-workflow.png)
 
 This helped me scope out user roles and responsibilities while also helping define the eventual URL structure of the application.
-
 
 ### Axure Wireframes
 
@@ -70,7 +67,6 @@ Note that this wireframe, while representing what data we needed to show, did no
 ![Axure wireframe: qa view]({{ site.imageurl }}/2016/dcp-axure-qa-view.png "Issue view wireframe for the “QA” user.")
 
 Contrary to what many wireframes do, these wireframes didn’t convey any sense of navigation or hierarchy. It was left completely unclear how a user would get around from one thing to another in the application while understanding the relationship between those things.
-
 
 ### Screenshots of Other Time Inc. Applications
 
@@ -121,17 +117,19 @@ Once I had developed solid ideas around the structure and layout of shared URL v
 
 ![Photo of application sketch.]({{ site.imageurl }}/2016/dcp-sketch-navigation.jpg "Sketches around navigation for the QA/Admin user experience.")
 
-XXXXXX
 Once my sketches had provided me with enough concrete ideas, I took to Sketch app to form low-fidelity wireframes around layout, structure, and navigation for each of the three different user experiences:
 
-![Screenshot of brand owner issue view wireframe.]({{ site.imageurl }}/2016/dcp-wireframe-brand-owner-issue.png "Wireframe for the brand owner issue view which deals with setting article restrictions and checking-off issue rights.")
+![Screenshot of brand owner issue view wireframe.]({{ site.imageurl }}/2016/dcp-wireframes-brand-owner-issue.png "Wireframe for the brand owner issue view which deals with setting article restrictions and checking-off issue rights.")
 
-![Screenshot of outsourcer issue view wireframe.]({{ site.imageurl }}/2016/dcp-wireframe-outsourcer-issue.png "Wireframe for the outsourcer issue view which deals with uploading XML files for issues.")
+![Screenshot of outsourcer issue view wireframe.]({{ site.imageurl }}/2016/dcp-wireframes-outsourcer-issue.png "Wireframe for the outsourcer issue view which deals with uploading XML files for issues.")
 
-MORE WIREFRAMES
-XXXXX
+![Screenshot of admin issue summary wireframe.]({{ site.imageurl }}/2016/dcp-wireframes-admin-issue-summary.png "Wireframe for the admin issue summary which provided a dashboard type overview of the issue’s status.")
 
-My notes for URL structure in conjunction with my sketches for each view led me to solid ideas I could begin developing in Sketch with higher fidelity.
+![Screenshot of admin issue assets wireframe.]({{ site.imageurl }}/2016/dcp-wireframes-admin-issue-assets.png "Wireframe for the admin issue assets list which served as a place to view, add, remove, and edit assets associated with an issue.")
+
+![Screenshot of admin dashboard wireframe.]({{ site.imageurl }}/2016/dcp-wireframes-admin-dashboard.png "Wireframe for the admin dashboard which served as the application home page and provided an overview of the progress of issues through the system workflow.")
+
+My notes for URL structure in conjunction with my hand-drawn sketches and digital wireframes led me to solid ideas I could begin developing as higher fidelity mocks.
 
 
 ## Stage 3: Aesthetics and Visual Mocks
@@ -146,13 +144,109 @@ However, the home screen dashboard for QA/Admin users was a categorized list bas
 
 ![Screenshot of QA/Admin dashboard.]({{ site.imageurl }}/2016/dcp-dashboard-unique.png "The dashboard for one user role was significantly than the other two and required a unique, workflow layout approach.")
 
-### Brand Owner Mocks
+Through the creation of static mocks and linking them in Invision, I was able to create a prototype of the application’s vital screens and interactions for review and feedback. Here’s an animated .gif overview of each of those screens based on the experience of each user role:
 
-![Animated gif of brand owner experince.]({{ site.imageurl }}/2016/dcp-animated-ux-brand-owner.gif "Flow for brand owners in setting restrictions on articles and checking-off issue rights as complete.")
+### Brand Owner Experience
 
-### Outsourcer Mocks
+![Animated gif of brand owner experience.]({{ site.imageurl }}/2016/dcp-animated-ux-brand-owner.gif "Flow for brand owners in setting restrictions on articles and checking-off issue rights as complete.")
 
-### QA/Admin Mocks
+### Outsourcer Experience
+
+![Animated gif of outsourcer experience.]({{ site.imageurl }}/2016/dcp-animated-ux-outsourcer.gif "Flow for outsourcers in uploading XML files to issues they’ve been assigned.")
+
+### QA/Admin Experience
+
+![Animated gif of admin experience (minus QA).]({{ site.imageurl }}/2016/dcp-animated-ux-admin.gif "Flow for admins in monitoring issues progress through the dashboard and reviewing individual issue progress along with editing, adding, and removing issue assets.")
+
+![Animated gif of admin QA experience.]({{ site.imageurl }}/2016/dcp-animated-ux-admin-qa.gif "Flow for admins in the QA process of an individual issue.")
 
 
 ## Stage 4: Building in React
+
+As noted in the earlier design process, I took the time to carefully consider shared patterns and components across each screen and user experience. The primary goal of these shared patterns was to make the application easy-to-use by introducing only a minimum number of UI elements, thereby increasing the ease with which users could familiarize themselves with the applications spectrum of interactions. This simplification of patterns not only enhanced the user’s experience of the application, but my experience in designing and developing the application. I could easily create shared symbols in Sketch and shared components in React which, when changed, would reflect across the application as a whole.
+
+As an example, for the outsourcer and brand owner dashboards, the designs shared the same patterns with minimal differences in textual labels. So composing these UI elements as sharable components was made relatively easy. To see this, look again at the shared design pattern between the outsourcer dashboard and the brand owner dashboard:
+
+![Screenshot of Brand Owner and Outsourcer dashboards.]({{ site.imageurl }}/2016/dcp-dashboard-shared.png "Brand owner dashboard on the left, outsourcer dashboard on the right.")
+
+As you can see, the layout and styles are very similar. The only real differences are the textual labels. So, first I defined the parent container for each of the dashboard lists that I would later include as a component in each individual file. The props this component needed were the data (issues) and the textual labels and their corresponding data keys for later composition:
+
+    // shared/components/DashboardList.js
+    render() {
+      const {
+        issues,
+        dashboardLabel,
+        issueSublabel,
+        issueSublabelKey,
+        issueProgressLabel,
+        issueProgressLabelKey
+      } = this.props
+
+      return(
+        <div className='dashboard-list'>
+          <h3>
+            Issue Dashboard · {`${dashboardLabel} ({issues.length})`}
+          </h3>
+          <ul>
+            { issues.map(issue =>
+              <DashboardListItem
+                sublabel={`${issueSublabel}: ${issue[issueSublabelKey]}`}
+                progressLabel={`${issue[issueProgressLabelKey]} ${issueProgressLabel}`}
+              />)}
+          </ul>
+        </div>
+      )
+    }
+
+With the parent component in place and accepting all the props I needed to compose the UI labels, I passed them into the child `<DashboardListItem />` as strings, which made the child component easy to read:
+
+    // components/shared/DashboardListItem.js
+    render() {
+      const { issue, sublabel, progressLabel } = this.props
+
+      return(
+        <li className='dashboard-list-item'>
+          <h4>
+            {issue.publication_date} - {issue.publication_name}
+          </h4>
+          <img
+            src={issue.cover_thumbnail}
+            alt={`Cover image for ${issue.publication_name}: ${issue.publication_date}`} />
+          <p>
+            {sublabel}
+          </p>
+          <p>
+            {progressLabel}
+          </p>
+        </li>
+      )
+    }
+
+Because the content of the dashboard parent and children were abstracted into separate props, I could easily have a `OutsourcerDashboard.js` file and a `BrandOwnerDashboard.js` file which fetched the data I needed and passed it in as props along with the info needed for composing the textual labels specific to that component:
+
+    // OutsourcerDashboard.js
+    <DashboardList
+      issues={this.fetchIssues()}
+      dashboardLabel='XMLs not submitted'
+      issueSublabel='XML due by'
+      issueSublabelKey='xml_due_date'
+      issueProgressLabel='XML files uploaded'
+      issueProgressLabelKey='xml_upload_count'
+    />
+
+    // BrandOwnerDashboard.js
+    <DashboardList
+      issues={this.fetchIssues()}
+      dashboardLabel='Rights incomplete'
+      issueSublabel='DCP Lead'
+      issueSublabelKey='dcp_lead'
+      issueProgressLabel='articles have restrictions'
+      issueProgressLabelKey='restirctions_count'
+    />
+
+This is a good example of how I was able to share components across views which made styling and debugging very simple because views with shared patterns were sourced from a single file. Change once, see everywhere.
+
+
+## Stage 5: Celebrate!
+
+The design and development on this project worked so well together, like a ying-yang relationship, that the time it took to ship this project was considerably fast. It really was a pleasure to work on. And, perhaps more importantly, has been easy to debug because of the separation of concerns coupled with tight modularity. Celebrate DCP!
