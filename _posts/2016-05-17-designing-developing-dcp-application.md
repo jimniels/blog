@@ -1,21 +1,21 @@
 ---
 layout: post
-date: 2016-03-18
+date: 2016-05-17
 title: Designing and Developing the DCP Application
 tags: designProcess
 ---
 
-My most recent project had me design and develop a new web application for Time Inc. called the “DCP” or “Digital Content Production” application. Using the framework we built for the [Assignment Desk](http://jim-nielsen.com/blog/2016/designing-and-building-assignment-desk/) application, I designed and built roughly the entire view layer of this application over in less than two months.
+My most recent project had me designing and developing a new web application for Time Inc. called the “DCP” or “Digital Content Production” application. Using the framework we built for the [Assignment Desk](http://jim-nielsen.com/blog/2016/designing-and-building-assignment-desk/) application, I designed and built roughly the entire view layer of this application in less than two months.
 
-The main goal of this project was to transition from a very old internal application at Time Inc. called “Athena”, to the new D.A.M. (Digital Asset Management) platform. I had already helped build the [Assignment Desk](http://jim-nielsen.com/blog/2016/designing-and-building-assignment-desk/) application which served as a framework for building other application’s that would interface with the backend D.A.M. layer, so the initial work around application architecture and tooling was largely in place. We had a boilerplate framework built on Node.js + React.js that could create, revise, edit, and delete information from the D.A.M. So a lot of the initial work would be around translating the existing application’s functionality into a web-based application.
+The main goal of this project was to transition from an antiquated internal application at Time Inc. called “Athena”, to the new D.A.M. (Digital Asset Management) platform. I had already helped build the [Assignment Desk](http://jim-nielsen.com/blog/2016/designing-and-building-assignment-desk/) application which served as a framework for building other application’s that would interface with the backend D.A.M. layer, so the initial work around application architecture and tooling was largely in place. We had a boilerplate framework built on Node.js + React.js that could create, revise, update, and delete information from the D.A.M. Because of this, much of work entailed translating the existing application’s functionality into a web-based application.
 
 
 ## Stage 1: Conceptualization
 
-From the outset of this project, I was given a few resources to help me design and build this application:
+From the outset of this project, I was given a few resources to help me in designing and building:
 
 - A 23-page PDF titled “Workflow Requirements”
-- Screenshots of the existing application we would be replacing (named “Athena”)
+- Screenshots of the existing application (“Athena”) we would be replacing
 - Rough Axure wireframes from the project lead
 - Flow diagram of user roles and responsibilities
 - Screenshots of other TIME applications (for aesthetic direction)
@@ -28,15 +28,13 @@ Time Inc. had an existing application named “Athena” that was being used int
 
 ![Screenshot of the Athena]({{ site.imageurl }}/2016/dcp-athena-screenshot-2.png "The “old” application’s UI for looking at the summary of an issue.")
 
-Having screenshots of the existing application was actually quite useful in clarifying any vagueness in how to represent data, user actions, and the like. In being given these screenshots, I was explicitly mandated to not “borrow any of the application’s UI or aesthetics”. I can assure you, I did not have to be told that twice (actually I didn’t need to be told that once).
+Having screenshots of the existing application was actually quite useful in clarifying vagueness around data representation, user actions, etc.. In being given these screenshots, I was explicitly mandated to not “borrow any of the application’s UI or aesthetics”. They didn’t have to tell me twice (I actually didn’t really need to be told that once).
 
 ### Workflow Requirements PDF
 
-Because there was already an application in place with specified functionality, we were given a 23-page PDF that specified, sometimes in a rather convoluted way, the minimum required functionality of the new application. In some ways, this made my task easier because I would not have to go through the old application and write down how the application worked, what data was presented, which buttons completed what actions, and so-forth. For example, rather than having to discover by myself that “Issues” in the system had nine different states and how those states affected the progression of issues through the system, this information was (mostly) documented in the PDF.
+Because there was already an application in place with specified functionality, we were given a 23-page PDF that specified (sometimes in a rather convoluted way) the minimum required functionality of the application we were building. In some ways, this made my task easier because I would not have to go through the old application and write down how the application worked, what data was presented, which buttons completed what actions, and so-forth.
 
-![Screenshot of the requirements PDF]({{ site.imageurl }}/2016/dcp-requirements-pdf.png "An excerpt from the 23-page PDF which documented the functionality of the existing application being replaced.")
-
-This PDF served as more of a starting point for conversations and wireframes than it did as a concrete blueprint of what we would be building. A lot of these specifications would change over time. As I designed and developed the application’s UI/UX, we would bring those materials back to the stakeholders to ensure we were on the right track. Those conversations would give rise to existing pain points for end users of the application, which allowed us to revised and edit the requirements PDF to help provide a better application end product. The printed document also served as a trusty reference and checklist for feature design and development.
+For example, rather than having to discover by myself that “Issues” in the system had nine different states and how those states affected the progression of issues through the system, this information was (mostly) documented in the PDF. The PDF ended up serving as more of a starting point for conversations and wireframes than it did as a concrete blueprint of what we would be building. A lot of the specifications changed through the course of the project. As I designed and developed the application’s UI/UX, we brought materials back to the stakeholders to ensure we were on the right track. Those conversations gave rise to existing pain points for end users of the application, which compelled us to revise and edit the requirements PDF to build a better application. The printed document also served as a trusty reference and checklist for feature design and development.
 
 ![Picture of my edited version of requirements PDF]({{ site.imageurl }}/2016/dcp-requirements-pdf-picture.jpg "Sometimes a physical copy of a document works best for tracking changes.")
 
@@ -134,7 +132,7 @@ My notes for URL structure in conjunction with my hand-drawn sketches and digita
 
 ## Stage 3: Aesthetics and Visual Mocks
 
-My basic workflow in this stage was to mock each view and export it to [Invision App](https://www.invisionapp.com/) where I would link up each view and produce a basic, interactive prototype of the application that could be shown to stake holders for feedback and/or sign-off.
+My basic workflow in this stage was to mock each view and export it to [Invision App](https://www.invisionapp.com/) where I linked up each view to produce a basic, interactive prototype of the application that could be shown to stake holders for feedback and/or sign-off.
 
 As mentioned previously, I divided the application into three separate experiences based on user roles. This meant I had to design three different screens for each URL endpoint. For example, the home screen could display one of three views depending on the type of user logged in. I made sure to examine each view and, where possible, share design and layout patterns that could be leveraged across user experiences. As an example, the home screen dashboard for “Brand Owner” and “Outsourcer” user roles was a simple list of outstanding issues. As such, they could easily share a template with minor differences in data.
 
