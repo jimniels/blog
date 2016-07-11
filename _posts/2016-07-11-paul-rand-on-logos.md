@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-03-02
+date: 2016-07-11
 title: Paul Rand on Logos
 tags: notes
 ---
@@ -20,6 +20,7 @@ When these articles inevitably spring up, the talk-of-the-town/internet turns to
 Did you catch that? He didn’t say if a logo’s design is second rate, the company will be perceived as second rate. No, he stated the opposite: if a company is second rate, its logo will be perceived as second rate. The vitality of a logo doesn’t come from its visual design, but [from an effective dissemination by its bearers](http://jim-nielsen.com/blog/2014/logo-the-image-of-a-company/). He states elsewhere in the article:
 
 > A logo derives its meaning from the quality of the thing it symbolizes, not the other way around.  
+
 > A logo is less important than the product it signifies; what it means is more important than what it looks like.
 
 Again catch what he’s saying here? When it comes to a company, a corporation, a church, a whatever, the logo is not a sign of quality, but a sign of THE quality. [A logo is created by a designer but made by a company](http://jim-nielsen.com/blog/2014/logo-the-image-of-a-company/). Rand makes this point so clear in the next part of his essay (emphasis added):
@@ -34,7 +35,7 @@ I love the examples he uses here, not just of brands but of people. The signatur
 
 ---
 
-And lastly, as a footnote to visual logo designs:
+As a footnote to visual logo designs:
 
 > Simple ideas, as well as simple designs are, ironically, the products of circuitous mental purposes.
 
