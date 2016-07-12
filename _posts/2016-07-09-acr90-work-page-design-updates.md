@@ -15,7 +15,7 @@ Arc90, being a product shop, had a “Work” page which showcased many of the p
 
 The basic functionality here was to feature each product Arc90 had built along with screenshots. Clicking on the thumbnails on the right would reveal larger images on the left. My first job was to add new project sections and update the existing project sections with new copy, screenshots, and thumbnails to reflect a uniformity in presentation across the entire page.
 
-![GIF of Arc90.com work page thumbnail interaction]({{ site.imageurl }}/2016/arc90-work-screenshot-ux.gif "Clicking on a product thumbnail image would reveal a larger screenshot.")]
+![GIF of Arc90.com work page thumbnail interaction]({{ site.imageurl }}/2016/arc90-work-screenshot-ux.gif "Clicking on a product thumbnail image would reveal a larger screenshot.")
 
 For any of you that were around the web scene back in 2012, you’ll know skeuomorphic graphics with lots of detail were the “in” thing. Going with that aesthetic, I reworked all the images in the carousels to have a uniform presentation and aesthetic. Each product screenshot was presented in its natural form(s), whether a web browser or native application.
 
@@ -31,6 +31,6 @@ This part of the page was non-existent when I started, so it was left entirely u
 
 I realized that many of the technologies we used were shared across different projects, so I thought a presentation of all the technologies we used was appropriate along with a “live filtering” interaction that would narrow down which technologies were used on each project.
 
-![GIF of Arc90.com “technologies” section]({{ site.imageurl }}/2016/arc90-work-technologies-ux.gif "The “technologies we use” section I built.")]
+![GIF of Arc90.com “technologies” section]({{ site.imageurl }}/2016/arc90-work-technologies-ux.gif "The “technologies we use” section I built.")
 
 It was fun to go back and capture this work I did years ago (thank you [Internet Archive](https://archive.org/web/)). This always felt like my first “real” web design job at a “real” web design company, so now I’ve got it chronicled for posterity :)
