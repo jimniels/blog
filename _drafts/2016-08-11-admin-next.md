@@ -1,6 +1,6 @@
 ---
 title: Redesigning the User Experience for Unauthenticated App Users on Groundwork Admin
-date: 2015-08-11
+date: 2016-08-11
 tags: design-process
 ---
 
@@ -14,9 +14,9 @@ One day, after I had been doing a lot of coding, I felt like I wanted a design e
 
 Piggy-backing on the material design aesthetic which we were using inside of our application, I opened Sketch and by the end of my exercise had two mocks: one with a heavy usage of a solid color, the other with a lighter usage of it.
 
-![Screenshot of new login page mock for Admin with heavy color]({{ site.imageurl }}/2016/admin-old-login.png "First mock of login page with heavy usage of solid color.")
+![Screenshot of new login page mock for Admin with heavy color]({{ site.imageurl }}/2016/admin-login-mock-heavy-color.png "First mock of login page with heavy usage of solid color.")
 
-![Screenshot of new login page mock for Admin with light color]({{ site.imageurl }}/2016/admin-old-login.png "Second mock of login page with lighter usage of solid.")
+![Screenshot of new login page mock for Admin with light color]({{ site.imageurl }}/2016/admin-login-mock-light-color.png "Second mock of login page with lighter usage of solid.")
 
 After doing this exercise, I kind of liked the direction, so I presented the mocks to the design team to see if there was any interesting in pursuing this direction. Everyone seemed to like the lighter version of the login page and thought it would be worthwhile pursuing these ideas more.
 
@@ -40,4 +40,4 @@ I reviewed all the current designs for these views, looking for existing pattern
 - Reset password form
 - Copyright & other text
 
-![Overview of page patterns on old layout]({{ site.imageurl }}/2016/admin-old-page-patterns.png "Discovering patterns across each of the old views helped know where and how to start designing.")
+[![Overview of page patterns on old layout]({{ site.imageurl }}/2016/admin-old-page-patterns.png "Discovering patterns across each of the old views helped know where and how to start designing.")]({{ site.imageurl }}/2016/admin-old-page-patterns.png)
