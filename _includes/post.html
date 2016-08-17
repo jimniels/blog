@@ -1,47 +1,32 @@
-<article id="post">
+<article class="content copy copy--md">
 
-    <!-- Content Header
-    =================================== -->
-    <header class="content__header">
-
-      <time data-label="date" class="truncate">
-        {{ page.date | date: "%-d %b, %Y" }}
-      </time>
-
-      {% if page.tags %}
-        <p data-label="tags" class="truncate">
-          {% for tag in page.tags %}
-            <a href="{{ site.baseurl }}/tags/#{{ tag }}" class="tag">
-              #{{ tag }}
-            </a>&nbsp;
-          {% endfor %}
-        </p>
-      {% endif %}
-<!--
-      <p data-label="url" class="truncate">
-        <a href="{{ site.baseurl }}{{ page.url }}" id="{{ page.date | date: '%Y-%m-%d' }}">
-          {{ site.domain }}{{ site.baseurl }}{{ page.url }}
-        </a>
-      </p>
-
-
-      {% if page.summary %}
-        <p data-label="summary">
-          {{ page.summary }}
-        </p>
-      {% endif %}
-      -->
-    </header>
-
-
-    <!-- Content Body
-    =================================== -->
-    <div class="content__body">
-      <h1>
+  <!-- Content Header
+  =================================== -->
+  <header class="content__header">
+    <h1 data-label="title">
+      <a href="{{ site.baseurl }}{{ post.url }}" class="bold">
         {{ page.title }}
-      </h1>
+      </a>
+    </h1>
 
-      {{ content }}
-    </div>
+    <time data-label="date" class="truncate">
+      {{ page.date | date: "%b %-d, %Y" }}
+    </time>
+
+    {% if page.tags %}
+      <p data-label="tags" class="truncate">
+        {% for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tags/#{{ tag }}" class="tag">
+            #{{ tag }}
+          </a>&nbsp;
+        {% endfor %}
+      </p>
+    {% endif %}
+  </header>
+
+
+  <!-- Content Body
+  =================================== -->
+  {{ content }}
 
 </article>

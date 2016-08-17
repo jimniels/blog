@@ -1,40 +1,31 @@
 {% include document-head.html %}
 
+<body>
+  <!-- Theme
+       This has to go here or you get a flicker effect when persisting the theme
+       across different URLs
+  =================================== -->
+  <script>
+    function addThemeClass() {
+      document.documentElement.className = '';
+      document.documentElement.classList.add('theme-' + localStorage.getItem('theme'));
+    }
+    addThemeClass();
+  </script>
+
   <!-- Header
   =================================== -->
-  <header class="header" id="header">
-    <h1 class="header__logo">
-      <a href="{{ site.url }}{{ site.baseurl }}/">
-        <img src="{{ site.baseurl }}/assets/img/logo.png"
-             alt="Jim Nielsen logo"
-             width="202"
-             height="99" />
-        <span>
-          Jim Nielsen’s Blog <!-- &equiv; &#x2261; -->
-        </span>
-      </a>
-    </h1>
-
-    <a href='#nav-footer' class="header__nav-link">
-      Menu
-    </a>
-
-    <nav class="nav-header" id="nav-header">
-      {% include nav.html showCurrentPost="true" %}
-    </nav>
-  </header>
+  {% include header.html %}
 
   <!-- Main
   =================================== -->
-  <main class="content" id="content">
+  <main>
     {{ content }}
   </main>
 
   <!-- Footer
   =================================== -->
-  <footer class="nav-footer" id="nav-footer">
-    {% include nav.html %}
-  </footer>
+  {% include footer.html showCurrentPost="true" %}
 
   <!-- Javascript
   =================================== -->

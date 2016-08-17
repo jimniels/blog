@@ -1,0 +1,122 @@
+<!-- Footer
+=================================== -->
+<footer class="footer copy" id="footer">
+
+  <!-- Tags
+  =================================== -->
+  <div id="tags">
+    <h2 class="m-b-0">
+      Tags
+    </h2>
+
+    <ul class="footer__list-inline m-b-0">
+      {% assign sortedTags = (site.tags | sort:0) %}
+      {% for tag in sortedTags %}
+        <li>
+          <a
+            class="nav-list__item"
+            href="{{ site.url }}{{ site.baseurl }}/tags/index.html#{{tag.first}}"
+            data-url="/blog/tags/index.html#{{ tag.first }}">
+            #{{tag.first}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Links
+  =================================== -->
+  <div id="links">
+    <h2 class="m-b-0">
+      Links
+    </h2>
+
+    <ul class="footer__list-inline m-b-0">
+      <li>
+        <a class="nav-list__item" href="{{ site.baseurl }}/feed.xml">
+          Blog RSS
+        </a>
+      </li>
+      <li>
+        <a class="nav-list__item nav-list__item--external" href="http://jim-nielsen.com/">
+          My Portfolio
+        </a>
+      </li>
+      <li>
+        <a class="nav-list__item nav-list__item--external" href="http://twitter.com/jimniels/">
+          @jimniels on Twitter
+        </a>
+      </li>
+      <li>
+        <a class="nav-list__item nav-list__item--external" href="http://dribbble.com/jimniels/">
+          @jimniels on Dribbble
+        </a>
+      </li>
+      <li>
+        <a class="nav-list__item nav-list__item--external" href="http://github.com/jimniels/">
+          @jimniels on Github
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Posts
+  =================================== -->
+  <div id="posts">
+    <h2>
+      Posts
+    </h2>
+
+    {% for post in site.posts  %}
+      {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+      {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+
+      {% if page.title == post.title %}
+        {% assign isNotActivePost = false %}
+      {% else %}
+        {% assign isNotActivePost = true %}
+      {% endif %}
+
+      {% if forloop.first %}
+      <h3 id="posts-{{this_year}}" class="m-b-xsm">
+        {{this_year}}
+      </h3>
+      <ul>
+      {% endif %}
+
+        <li class='m-b-xsm'>
+          {% if isNotActivePost %}
+            <a href="{{ site.baseurl }}{{ post.url }}" class="m-r-sm">
+          {% else %}
+            <span class="m-r-sm">
+          {% endif %}
+
+          {{ post.title }}
+
+          {%if isNotActivePost %}
+            </a>
+          {% else %}
+            </span>
+          {% endif %}
+
+          <span class="date">
+            {{ post.date | date: "%b %d" }}
+          </span>
+        </li>
+
+      {% if forloop.last %}
+      </ul>
+      {% else %}{% if this_year != next_year %}
+      </ul>
+      <h3 id="posts-{{next_year}}" class="m-b-xsm">
+        {{next_year}}
+      </h3>
+      <ul>
+      {% endif %}{% endif %}
+    {% endfor %}
+  </div>
+
+  <p class="footer__back-to-top">
+    <a href="#top" class="js-animate-scroll">↑ Back to top  ↑</a>
+  </p>
+</footer>

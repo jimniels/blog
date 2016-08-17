@@ -7,17 +7,20 @@ redirect_from: /posts/preserving-CSS-comments-during-compression/
 
 Compressing your CSS for production websites is a best-practice, especially if you're using a CSS preprocessor like Compass. If you don't compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file.
 
-Here's an example CSS rule before compression:
+Here's an example of compiled CSS output before compression:
 
-    /* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-    // Here's a comment I have on styling my CSS
-    a:hover {
-		    border: 0; // remove border from CSS
-    }
+```scss
+/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a:hover {
+    border: 0; /* remove border from CSS */
+}
+```
 
 Now here's that same rule compressed:
 
-    a:hover{border:0}
+```css
+a:hover{border:0}
+```
 
 You should already be commenting your code generously. Thus, your CSS file size will increase rather quickly. Here's a comparison example of CSS file sizes for a project I'm currently working on:
 
@@ -38,14 +41,16 @@ What if you want to preserve specific comments in your CSS? Suppose you want to 
 
 When creating a Wordpress theme, you **must** include CSS comments in `style.css` identifying your theme. It's usually something like this:
 
-	/*
-	Theme Name: Twenty Ten
-	Theme URI: http://wordpress.org/
-	Description: The 2010 default theme for WordPress.
-	Author: wordpressdotorg
-	Author URI: http://wordpress.org/
-	Version: 1.0
-	*/
+```scss
+/*
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: wordpressdotorg
+Author URI: http://wordpress.org/
+Version: 1.0
+*/
+```
 
 Why? Wordpress uses that information in to identify themes. From the [codex](http://codex.wordpress.org/Theme_Development#Theme_Stylesheet):
 
@@ -61,6 +66,7 @@ To ensure specific CSS comments are included in a compressed file, make the firs
 
 Thus, in the example above, your Wordpress comments would go something like this:
 
+```scss
 	/*!
 	Theme Name: Twenty Ten
 	Theme URI: http://wordpress.org/
@@ -69,7 +75,6 @@ Thus, in the example above, your Wordpress comments would go something like this
 	Author URI: http://wordpress.org/
 	Version: 1.0
 	*/
+```
 
 Compass will now preserve that comment block when compressing your CSS.
-
-

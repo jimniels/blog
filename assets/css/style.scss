@@ -4,8 +4,7 @@
 ---
 
 @import "reset";
-
-//@import "syntax"; // http://jekyllrb.com/docs/templates/#code_snippet_highlighting
+// @import "syntax-highlighting"; // http://jekyllrb.com/docs/templates/#stylesheets-for-syntax-highlighting
 
 @import "mixins";
 @import "variables";
@@ -14,5 +13,5 @@
 
 @import "general";
 @import "content";
-@import "nav";
+@import "footer";
 @import "header";

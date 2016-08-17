@@ -5,37 +5,9 @@
 //  Typographic styles for blog post content
 //
 
-$font-size-context: 18;
-
 .content {
-  //font-family: $font-stack;
-  font-size: em($font-size-context, 16);
+  // font-family: $font-stack;
   position: relative;
-  padding: em(20, $font-size-context) 6% em(80, $font-size-context);
-  margin-left: $sidebar-width;
-
-  @media screen and (min-width: $media-query-lg) {
-    padding-left: em(120, $font-size-context);
-  }
-
-  @media screen and (max-width: $media-query) {
-    margin-left: 0;
-  }
-
-  @media screen and (max-width: $media-query-s) {
-    padding-left: em(15, $font-size-context);
-    padding-right: em(15, $font-size-context);
-    font-size: em(18);
-  }
-
-  a {
-    text-decoration: none;
-
-    &:hover {
-      //color: darken($color-content-link, 8%);
-      text-decoration: underline;
-    }
-  }
 
 
   //
@@ -43,17 +15,15 @@ $font-size-context: 18;
   // ========================================
 
   &__header {
-    line-height: 1.325;
-    opacity: .5;
-    font-size: em(16, $font-size-context);
+    // line-height: 1.325;
+    // opacity: .5;
+    // font-size: em(16, $font-size-context);
+    margin-bottom: em(40);
+    @include max-width();
 
     // Override any default html tag styles
     > * {
       margin: 0 !important;
-    }
-
-    a {
-      color: inherit;
     }
 
     // Add front matter dividers
@@ -67,100 +37,59 @@ $font-size-context: 18;
     > *:before {
       content: attr(data-label) ':';
     }
-
-    a {
-      color: inherit;
-    }
   }
+}
 
+//
+// Body
+// ========================================
+// Styles for post content only
+
+.copy {
 
   //
-  // Body
-  // ========================================
-  // Styles for post content only
+  // Headings
+  // ==========
 
-  &__body {
-    line-height: 1.625;
-    font-family: $font-stack-content;
+  h1, h2, h3, h4, h5 {
+    position: relative;
+    font-weight: bold;
+    @include max-width();
+  }
 
+  //
+  // Headings Markdown
+  // ==========
+  // Modifier class for adding heading markers
 
-    //
-    // Headings
-    // ==========
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-      //font-family: $font-stack;
-      line-height: 1.125;
-      position: relative;
-      letter-spacing: -.03575em;
-      font-weight: bold;
-      margin-bottom: em(20);
-
+  &--md {
+    h2, h3, h4, h5 {
       &:before {
-        position: absolute;
-        right: 100%;
-        margin-right: em(5);
-        letter-spacing: .0625em;
-        display: none;
+        margin-right: em(10);
+        font-weight: 500;
+        opacity: .25;
 
-        @media screen and (max-width: $media-query-s) {
-          position: static;
-          margin-right: 0;
-        }
-
-        @media screen and (min-width: $media-query-lg) {
-          display: block;
+        @media screen and (min-width: $media-query-s) {
+          position: absolute;
+          right: 100%;
         }
       }
     }
 
-    h1 {
-      font-size: em(36, $font-size-context);
-      @include max-width(36);
-      margin: em(30, 36) 0 em(40, 36);
-
-      &:before {
-        content: '# ';
-        margin-right: em(5, 36);
-      }
+    h2:before {
+      content: '##';
     }
 
-    h2 {
-      font-size: em(24, $font-size-context);
-      @include max-width(24);
-      margin-bottom: em(20);
-
-      &:before {
-        content: '## ';
-        margin-right: em(5, 24);
-      }
+    h3:before {
+      content: '###';
     }
 
-    h3 {
-      font-size: em(21, $font-size-context);
-      @include max-width(21);
-      margin-bottom: em(20);
-
-      &:before {
-        content: '### ';
-        margin-right: em(5, 21);
-      }
+    h4:before { // don't think this is ever used
+      content: '#### ';
     }
 
-    h4 { // don't think this is ever used
-      &:before {
-        content: '#### ';
-      }
-    }
-
-    h5 { // don't think this is ever used
-      &:before {
-        content: '##### ';
-      }
+    h5:before { // don't think this is ever used
+      content: '##### ';
     }
   }
 
@@ -170,24 +99,20 @@ $font-size-context: 18;
   // ==========
 
   h1, h2, h3, h4, h5,
-  p, ul, ol, pre, blockquote, pre, hr, > object, > iframe, > div {
+  p, ul, ol, pre, blockquote, hr, > object, > iframe, > div {
     // margin-left: auto;
     // margin-right: auto;
   }
 
-  p, ul, ol, blockquote, hr, > object, > iframe, > div {
-    @include max-width($font-size-context);
-    margin-bottom: 2em;
+  h1, h2, h3, h4, h5,
+  p, ul, ol, blockquote, hr, > object, > iframe, > div, > pre {
+    @include max-width();
+    margin-bottom: em(20);
     display: block;
   }
 
-  pre {
-    margin-bottom: 2em;
-  }
-
-  hr {
-    margin-left: 0;
-    margin-right: 0;
+  h3 {
+    margin-bottom: 0;
   }
 
 
@@ -196,7 +121,7 @@ $font-size-context: 18;
   // ==========
 
   ul {
-    list-style-type: circle;
+    list-style-type: disc;
   }
 
   ol {
@@ -214,7 +139,7 @@ $font-size-context: 18;
   ul ul,
   ul ul ul {
     margin: 0;
-    margin-left: 1.5em;
+    margin-left: 1.25em;
   }
 
 
@@ -223,11 +148,11 @@ $font-size-context: 18;
   // ==========
 
   strong {
-      font-weight: 700;
+    font-weight: 700;
   }
 
   em {
-      font-style: italic;
+    font-style: italic;
   }
 
 
@@ -236,14 +161,19 @@ $font-size-context: 18;
   // ==========
 
   blockquote {
-      position: relative;
-      border-left: 3px solid rgba(0, 0, 0, .1);
-      padding-left: em(20, 20);
-      font-style: italic;
+    position: relative;
+    border-left: 3px solid rgba(0, 0, 0, .1);
+    padding-left: em(20);
+    font-style: italic;
+    // opacity: .5;
 
-      em {
-          font-style: normal;
-      }
+    em {
+      font-style: normal;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
   }
 
 
@@ -251,7 +181,6 @@ $font-size-context: 18;
   // Code
   // ==========
 
-  pre,
   code {
     font-family: $font-stack-monospace;
   }
@@ -265,11 +194,11 @@ $font-size-context: 18;
   }
 
   pre {
+    line-height: 1em;
     padding: 1em;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     background: rgba(0, 0, 0, .05);
-    border: 1px solid rgba(0, 0, 0, .1);
     border-radius: .166667em;
 
     code {
@@ -313,12 +242,22 @@ $font-size-context: 18;
   }
 
   .image-container {
-    font-size: .75em;
-    font-style: italic;
-    line-height: 1.5em;
-    color: rgba($color-content-text, .5);
-
+    text-align: center;
     max-width: none;
-    padding: 1em 0;
+    margin: em(60) auto;
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    span {
+      font-size: em(13);
+      font-style: italic;
+      color: rgba($color-content-text, .5);
+      max-width: em(520, 13);
+      display: block;
+      margin: em(5, 13) auto 0;
+    }
   }
 }

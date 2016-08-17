@@ -4,31 +4,33 @@ title: Tags | Jim Nielsen’s Blog
 type: tags
 ---
 
-<h1 class="bold m-b">
-  Tags
-</h1>
+<div class="copy">
+  <h1>
+    Tags
+  </h1>
 
-<hr />
+  <hr />
 
-{% assign sortedTags = (site.tags | sort:0) %}
-{% for tag in sortedTags %}
-  <div id="{{tag.first}}">
-    <h2 class="m-b">
-      #{{tag.first}} <span>({{tag[1] | size}})</span>
-    </h2>
-    <ul>
-      {% for post in site.posts %}
-        {% if post.tags contains tag.first %}
-          <li class="m-b-sm">
-            <time class="tags-date">
-              {{ post.date | date: "%-d %b, %Y" }}
-            </time>
-            <a href="{{ site.baseurl }}{{ post.url }}" id="{{ post.id }}">
-              {{post.title}}
-            </a>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-{% endfor %}
+  {% assign sortedTags = (site.tags | sort:0) %}
+  {% for tag in sortedTags %}
+    <div id="{{tag.first}}">
+      <h2>
+        #{{tag.first}} <span>({{tag[1] | size}})</span>
+      </h2>
+      <ul>
+        {% for post in site.posts %}
+          {% if post.tags contains tag.first %}
+            <li class="m-b-xsm">
+              <a href="{{ site.baseurl }}{{ post.url }}" class="m-r-sm">
+                {{post.title}}
+              </a>
+              <time class="date">
+                {{ post.date | date: "%-d %b, %Y" }}
+              </time>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>

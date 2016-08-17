@@ -8,6 +8,13 @@ sass:
     sass_dir: _sass
 gems:
   - jekyll-redirect-from
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter_opts:
+    disable : true
+
 defaults:
   -
     scope:

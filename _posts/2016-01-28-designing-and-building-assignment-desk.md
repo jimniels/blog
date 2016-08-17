@@ -32,7 +32,7 @@ Because so many of the expectations around this application were not actually sp
 
 So I started with a simple `.md` file with notes around URL structure, view specifications, shared design patterns, and other questions I came up with along the way. Here’s an example excerpt of that:
 
-```
+```md
 ## Unique Views
 
 / [login] - [home page -> assignments]

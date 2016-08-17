@@ -4,233 +4,52 @@
 // ======================================================================
 // All colors related to themeing are defined here
 //
-
-
 //
-// Toolbar
-// ========================================
 
-.theme-toolbar {
-  //border-radius: 5px;
-  height: 30px;
-  position: fixed;
-  right: 20px;
-  top: 40px;
-  width: 175px;
-  @include clearfix();
-  overflow: hidden;
-
-  @media screen and (max-width: $media-query) {
-    position: static;
-    width: 100%;
-    margin-bottom: em(40, 13)
-  }
-
-  li {
-    float: left;
-    width: 31.3333333%;
-    margin: 0 1%;
-    text-indent: -9999px;
-    height: 100%;
-    position: relative;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:before,
-    &:after {
-      content: '';
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      top: 9px;
-      border-radius: 10px;
-    }
-
-    &:before {
-      left: 50%;
-      margin-left: -5px;
-    }
-
-    &:after {
-      right: 50%;
-      margin-right: -5px;
-    }
-  }
-
-  //
-  // Styles
-  // ==========
-
-  li {
-    background: white;
-    border: 1px solid rgba(0, 0, 0, .075);
-    border-radius: 3px;
-
-    &.active {
-      border-color: $color-sidebar-text;
-
-      &:after,
-      &:before {
-        opacity: 1;
-      }
-    }
-
-    &:after,
-    &:before {
-      opacity: .5;
-    }
-
-    &[title*="light"] {
-
-      &:before,
-      &:after {
-        border: 1px solid $color-sidebar-text;
-      }
-    }
-
-    &[title*="regular"] {
-
-      &:before {
-        width: 6px;
-        border-radius: 6px 0 0 6px;
-        background-color: $color-sidebar-text;
-      }
-
-      &:after {
-        width: 6px;
-        border-radius: 0 6px 6px 0;
-        border: 1px solid $color-sidebar-text;
-      }
-    }
-
-    &[title*="dark"] {
-      &:before,
-      &:after {
-        background: $color-sidebar-text;
-      }
-    }
-  }
+.accent {
+  color: $color-primary;
 }
 
 
 //
 // Light
 // ========================================
+// This is the default, so we dno't necessarily need overrides here
 
-.header {
-  background: $color-sidebar-bg;
-  color: $color-sidebar-text;
-  border-color: $color-sidebar-border;
-
-  a:hover {
-    color: white;
-  }
+body {
+  transition: .333s ease background;
 }
 
-.nav-header {
-  border-top: 1px solid $color-sidebar-border;
+.footer {
 
-  .active {
-    color: white;
-    background-color: $color-sidebar-active;
+  > div {
+    background: rgba(0, 0, 0, .1);
   }
-}
 
-.nav-footer {
-  background-color: $color-sidebar-bg;
-  color: $color-sidebar-text;
+  :target {
+    background: rgba($color-primary, .065);
 
-  .nav-list {
-    ul li {
-      border-bottom: 1px solid rgba($color-sidebar-border, .5);
+    h2 {
+      color: $color-primary;
     }
   }
 }
 
-.theme-light {
-
-  .header {
-    background: $color-sidebar-bg-light;
-    color: $color-sidebar-text-light;
-    border-color: $color-sidebar-border-light;
-
-    a:hover {
-      color: $color-content-link;
-    }
-  }
-
-  .nav-header {
-    border-top: 1px solid $color-sidebar-border-light;
-
-    .active {
-      color: $color-content-link;
-      background-color: $color-sidebar-active-light;
-    }
-  }
-
-  .nav-footer {
-    background-color: $color-sidebar-bg-light;
-    color: $color-sidebar-text-light;
-
-    .nav-list {
-      ul li {
-        border-bottom-color: $color-sidebar-border-light;
-      }
-    }
-  }
-}
 
 
 //
 // Dark
 // ========================================
 
-body {
-  background-color: $color-content-bg; // put this on body for edge case short articles
-}
-
-.content {
-  color: $color-content-text;
-
-  a {
-    color: $color-content-link;
-  }
-}
-
 .theme-dark {
   body {
-    background-color: $color-content-bg-dark;
+    background: #251e1e;
+    color: #d0c5c5;
   }
 
-  .content {
-    color: $color-content-text-dark;
-  }
-
-  .theme-toolbar {
-
-  }
-}
-
-@mixin toolbar-dark() {
-  li {
-    border-color: $color-sidebar-border;
-    background-color: $color-content-bg-dark;
-
-    &.active {
-      //background-color: $color-sidebar-border;
-      border-color: rgba($color-content-text-dark, .75);
+  .footer {
+    > div {
+      background: lighten(#251e1e, 3%);
     }
-  }
-}
-
-.theme-dark .theme-toolbar {
-  @include toolbar-dark();
-}
-
-.theme-regular .theme-toolbar {
-  @media screen and (max-width: $media-query) {
-    @include toolbar-dark();
   }
 }

@@ -1,0 +1,44 @@
+//
+//
+//  Footer
+//  ======================================================================
+//
+
+.footer {
+  margin-top: em(100);
+
+  > div {
+    padding: em(20);
+    background: #FAFAFA;
+    border-radius: 3px;
+    transition: .333s ease background;
+
+    @media screen and (min-width: $media-query-s) {
+      padding: em(20) em(30);
+    }
+  }
+}
+
+ul.footer__list-inline {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+
+    &:after {
+      content: '·';
+      padding: 0 em(5);
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+  }
+}
+
+.footer__back-to-top {
+  font-size: em(14);
+  text-align: center;
+  margin-bottom: em(20, 14);
+}

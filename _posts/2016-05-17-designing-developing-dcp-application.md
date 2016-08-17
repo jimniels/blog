@@ -169,78 +169,84 @@ As an example, for the outsourcer and brand owner dashboards, the designs shared
 
 As you can see, the layout and styles are very similar. The only real differences are the textual labels. So, first I defined the parent container for each of the dashboard lists that I would later include as a component in each individual file. The props this component needed were the data (issues) and the textual labels and their corresponding data keys for later composition:
 
-    // shared/components/DashboardList.js
-    render() {
-      const {
-        issues,
-        dashboardLabel,
-        issueSublabel,
-        issueSublabelKey,
-        issueProgressLabel,
-        issueProgressLabelKey
-      } = this.props
+```jsx
+// shared/components/DashboardList.js
+render() {
+  const {
+    issues,
+    dashboardLabel,
+    issueSublabel,
+    issueSublabelKey,
+    issueProgressLabel,
+    issueProgressLabelKey
+  } = this.props
 
-      return(
-        <div className='dashboard-list'>
-          <h3>
-            Issue Dashboard · {`${dashboardLabel} ({issues.length})`}
-          </h3>
-          <ul>
-            { issues.map(issue =>
-              <DashboardListItem
-                sublabel={`${issueSublabel}: ${issue[issueSublabelKey]}`}
-                progressLabel={`${issue[issueProgressLabelKey]} ${issueProgressLabel}`}
-              />)}
-          </ul>
-        </div>
-      )
-    }
+  return(
+    <div className='dashboard-list'>
+      <h3>
+        Issue Dashboard · {`${dashboardLabel} ({issues.length})`}
+      </h3>
+      <ul>
+        { issues.map(issue =>
+          <DashboardListItem
+            sublabel={`${issueSublabel}: ${issue[issueSublabelKey]}`}
+            progressLabel={`${issue[issueProgressLabelKey]} ${issueProgressLabel}`}
+          />)}
+      </ul>
+    </div>
+  )
+}
+```
 
 With the parent component in place and accepting all the props I needed to compose the UI labels, I passed them into the child `<DashboardListItem />` as strings, which made the child component easy to read:
 
-    // components/shared/DashboardListItem.js
-    render() {
-      const { issue, sublabel, progressLabel } = this.props
+```jsx
+// components/shared/DashboardListItem.js
+render() {
+  const { issue, sublabel, progressLabel } = this.props
 
-      return(
-        <li className='dashboard-list-item'>
-          <h4>
-            {issue.publication_date} - {issue.publication_name}
-          </h4>
-          <img
-            src={issue.cover_thumbnail}
-            alt={`Cover image for ${issue.publication_name}: ${issue.publication_date}`} />
-          <p>
-            {sublabel}
-          </p>
-          <p>
-            {progressLabel}
-          </p>
-        </li>
-      )
-    }
+  return(
+    <li className='dashboard-list-item'>
+      <h4>
+        {issue.publication_date} - {issue.publication_name}
+      </h4>
+      <img
+        src={issue.cover_thumbnail}
+        alt={`Cover image for ${issue.publication_name}: ${issue.publication_date}`} />
+      <p>
+        {sublabel}
+      </p>
+      <p>
+        {progressLabel}
+      </p>
+    </li>
+  )
+}
+```
 
 Because the content of the dashboard parent and children were abstracted into separate props, I could easily have a `OutsourcerDashboard.js` file and a `BrandOwnerDashboard.js` file which fetched the data I needed and passed it in as props along with the info needed for composing the textual labels specific to that component:
 
-    // OutsourcerDashboard.js
-    <DashboardList
-      issues={this.fetchIssues()}
-      dashboardLabel='XMLs not submitted'
-      issueSublabel='XML due by'
-      issueSublabelKey='xml_due_date'
-      issueProgressLabel='XML files uploaded'
-      issueProgressLabelKey='xml_upload_count'
-    />
+```jsx
+// OutsourcerDashboard.js
+<DashboardList
+  issues={this.fetchIssues()}
+  dashboardLabel='XMLs not submitted'
+  issueSublabel='XML due by'
+  issueSublabelKey='xml_due_date'
+  issueProgressLabel='XML files uploaded'
+  issueProgressLabelKey='xml_upload_count'
+/>
 
-    // BrandOwnerDashboard.js
-    <DashboardList
-      issues={this.fetchIssues()}
-      dashboardLabel='Rights incomplete'
-      issueSublabel='DCP Lead'
-      issueSublabelKey='dcp_lead'
-      issueProgressLabel='articles have restrictions'
-      issueProgressLabelKey='restirctions_count'
-    />
+// BrandOwnerDashboard.js
+<DashboardList
+  issues={this.fetchIssues()}
+  dashboardLabel='Rights incomplete'
+  issueSublabel='DCP Lead'
+  issueSublabelKey='dcp_lead'
+  issueProgressLabel='articles have restrictions'
+  issueProgressLabelKey='restirctions_count'
+/>
+```
 
 This is a good example of how I was able to share components across views which made styling and debugging very simple because views with shared patterns were sourced from a single file. Change once, see everywhere.
 

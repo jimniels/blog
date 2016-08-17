@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="top">
 <head>
     <!-- Title
     =================================== -->
@@ -22,13 +22,3 @@
     =================================== -->
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
-<body>
-  <script>
-    // This has to go here or you get a flicker effect when persisting the theme
-    // across different URLs
-    function addThemeClass() {
-      document.documentElement.className = '';
-      document.documentElement.classList.add('theme-' + localStorage.getItem('theme'));
-    }
-    addThemeClass();
-  </script>

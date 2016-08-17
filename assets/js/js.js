@@ -1,94 +1,140 @@
 /**
- * Responsive Menu Button
- * Animate scroll when clicking 'Menu'
+ * Header links
+ * Animate a smooth scroll on anchor links
  */
-document.querySelector('.header__nav-link').addEventListener('click', function(e){
-  e.preventDefault();
-  var footer = document.getElementById('nav-footer');
-  var offset = footer.offsetTop;
-  scrollTo(document.body, offset, 500);
-});
+var navItems = document.querySelectorAll('.js-animate-scroll');
+for (var i = 0; i < navItems.length; i++) {
+  navItems[i].addEventListener('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    jump(e.target.hash, {
+      duration: 666,
+      callback: function() {
+        window.location.hash = e.target.hash;
+      }
+    });
+  });
+}
 
-function scrollTo(element, to, duration) {
-    if (duration < 0) {
-      return;
-    }
-    var difference = to - element.scrollTop;
-    var perTick = difference / duration * 10;
+// https://github.com/sitepoint-editors/smooth-scrolling/blob/gh-pages/jump.js
+function jump(target, options) {
+  var start = window.pageYOffset,
+      opt = {
+        duration: options.duration || 1000,
+        offset: options.offset || 0,
+        callback: options.callback,
+        easing: options.easing || easeInOutQuad
+      },
+      distance = typeof target === 'string'
+        ? opt.offset + document.querySelector(target).getBoundingClientRect().top
+        : target,
+      duration = typeof opt.duration === 'function'
+        ? opt.duration(distance)
+        : opt.duration,
+      timeStart,
+      timeElapsed;
 
-    setTimeout(function() {
-        element.scrollTop = element.scrollTop + perTick;
-        if (element.scrollTop === to) {
-          return;
-        }
-        scrollTo(element, to, duration - 10);
-    }, 10);
+  requestAnimationFrame(function(time) { timeStart = time; loop(time); });
+
+  function loop(time) {
+    timeElapsed = time - timeStart;
+
+    window.scrollTo(0, opt.easing(timeElapsed, start, distance, duration));
+
+    if (timeElapsed < duration)
+    requestAnimationFrame(loop)
+    else
+    end();
+  }
+
+  function end() {
+    window.scrollTo(0, start + distance);
+
+    if (typeof opt.callback === 'function')
+    opt.callback();
+  }
+
+  // Robert Penner's easeInOutQuad - http://robertpenner.com/easing/
+  function easeInOutQuad(t, b, c, d)  {
+    t /= d / 2
+    if(t < 1) return c / 2 * t * t + b
+    t--
+    return -c / 2 * (t * (t - 2) - 1) + b
+  }
 }
 
 /**
  * Image Container
  * Set images to full-width with captions
  */
-var images = document.querySelectorAll('.content__body p img');
+var images = document.querySelectorAll('.content > p img');
+console.log(images);
 for (var i = 0; i < images.length; i++) {
   var parentEl = images[i].parentNode; // not sure if we need to traverse all the way up for a <p> ?
   parentEl.classList.add('image-container');
 
   var caption = images[i].getAttribute('title');
   if (caption) {
-    var textnode = document.createTextNode(caption);
-    parentEl.appendChild(textnode);
+    var captionSpan = document.createElement('SPAN');
+    var captionText = document.createTextNode(caption);
+    captionSpan.appendChild(captionText);
+    parentEl.appendChild(captionSpan);
   }
 }
-
-/**
- * Fixed Sidebar Scroll
- * Handle scrolling behaviour correction for the fixed sidebar on desktop
- */
-var header = document.getElementById('header');
-var body = document.body;
-header.addEventListener('mouseenter', function(){
-  body.style.overflow = 'hidden';
-});
-header.addEventListener('mouseleave', function(){
-  body.style.overflow = 'initial';
-});
-
 
 /**
  * Theme Toolbar
  * Creates a <ul> based off themeColors array where each item represents an <li>
  *
  * Markup output:
- *  <ul>
- *    <li title="Theme: light"></li>
- *    <li title="Theme: regular"></li>
- *    <li title="Theme: dark"></li>
- *  </ul>
+ *  <dl class="header__nav__theme-control">
+ *    <dt>Theme:<dt/>
+ *    <dd>
+ *      <a href='#'>Light</a>
+ *      <a href='#'>Dark</a>
+ *    </dd>
+ *  </dl>
  *
  * Note: addThemeClass() is defined inline at start of document. This helps
  * prevent a 'theme' flicker between page loads.
  */
-var themeColors = ['light', 'regular', 'dark'];
-var ul = document.createElement('ul');
-ul.classList.add('theme-toolbar');
-var currentlyActiveTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'regular';
 
+var themeColors = ['light', 'dark'];
+var currentlyActiveTheme = localStorage.getItem('theme')
+  ? localStorage.getItem('theme')
+  : 'light';
+
+var dl = document.createElement('dl');
+dl.classList.add('header__nav__theme-control');
+var dt = document.createElement('dt');
+var dd = document.createElement('dd');
+var dtText = document.createTextNode('Theme: ');
+dt.appendChild(dtText);
+dl.appendChild(dt);
+
+// Create and append <a> links in <dd>
 for (var i = 0; i < themeColors.length; i++) {
   (function () {
 
     var themeColor = themeColors[i];
 
-    // Create <li> element
-    var li = document.createElement('li');
-    li.innerHTML = themeColor;
-    li.setAttribute('title', 'Theme: ' + themeColor);
+    // Create text node
+    var text = document.createTextNode(themeColor);
+
+    // Create <a> element, append text
+    var a = document.createElement('a');
+    a.setAttribute('href', '#');
+    a.setAttribute('title', themeColor + ' theme');
+    a.appendChild(text);
 
     // Bind event listener to the current theme
-    li.addEventListener('click', function(){
+    a.addEventListener('click', function(){
       // Classes for indicating active theme
-      document.querySelector('.theme-toolbar .active').classList.remove('active');
-      this.classList.add('active');
+      var accentNode = document.querySelector('.header__nav__theme-control .accent');
+      if (accentNode) {
+        accentNode.classList.remove('accent');
+      }
+      this.classList.add('accent');
 
       // Set localstorage for keeping track of active theme
       localStorage.setItem('theme', themeColor);
@@ -98,16 +144,23 @@ for (var i = 0; i < themeColors.length; i++) {
     });
 
     // Set the active class on whichever element is active
-    console.log(themeColor, currentlyActiveTheme);
     if (themeColor === currentlyActiveTheme) {
-      li.classList.add('active');
+      a.classList.add('accent');
     }
 
-    // Append to <ul>
-    ul.appendChild(li);
-  }())
+    // Append <a> to <dd>
+    dd.appendChild(a);
+
+    // Insert a <span> after the first item for presentation only
+    if (i === 0) {
+      var span = document.createElement('span');
+      dd.appendChild(span);
+    }
+  }());
 }
 
-// Insert <ul> toolbar
-var footer = document.getElementById('nav-footer');
-footer.insertBefore(ul, footer.firstChild);
+// Append <dd> to <dl>
+dl.appendChild(dd);
+
+// Add <dl> to DOM
+document.querySelector('.header__nav').appendChild(dl);

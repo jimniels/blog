@@ -11,8 +11,10 @@
 
 @mixin max-width($context: $font-size-base-px) {
   max-width: #{750 / $context}em;
+  margin-left: auto;
+  margin-right: auto;
 
-  @media screen and (max-width: $media-query) {
+  @media screen and (max-width: $media-query-s) {
     max-width: 100%;
   }
 }
@@ -38,4 +40,11 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@mixin wrapper($context: $font-size-base-px) {
+  @include max-width($context);
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
 }
