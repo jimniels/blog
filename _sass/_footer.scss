@@ -9,9 +9,9 @@
 
   > div {
     padding: em(20);
-    background: #FAFAFA;
     border-radius: 3px;
     transition: .333s ease background;
+    max-width: 100%;
 
     @media screen and (min-width: $media-query-s) {
       padding: em(20) em(30);

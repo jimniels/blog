@@ -1,0 +1,217 @@
+//
+// Copy
+// ======================================================================
+// Styles for copy
+
+.copy {
+
+  //
+  // Headings
+  // ========================================
+
+  h1, h2, h3, h4, h5 {
+    position: relative;
+    font-weight: bold;
+    @include max-width();
+  }
+
+  //
+  // Headings Markdown
+  // ========================================
+  // Modifier class for adding heading markers
+
+  &--md {
+    h2, h3, h4, h5 {
+      &:before {
+        margin-right: em(10);
+        font-weight: 500;
+        opacity: .25;
+
+        @media screen and (min-width: $media-query-s) {
+          position: absolute;
+          right: 100%;
+        }
+      }
+    }
+
+    h2:before {
+      content: '##';
+    }
+
+    h3:before {
+      content: '###';
+    }
+
+    h4:before { // don't think this is ever used
+      content: '#### ';
+    }
+
+    h5:before { // don't think this is ever used
+      content: '##### ';
+    }
+  }
+
+
+  //
+  // Element Margins
+  // ========================================
+
+  h1, h2, h3, h4, h5,
+  p, ul, ol, pre, blockquote, hr, > object, > iframe, > div {
+    // margin-left: auto;
+    // margin-right: auto;
+  }
+
+  h1, h2, h3, h4, h5,
+  p, ul, ol, blockquote, hr, > object, > iframe, > div, > pre {
+    @include max-width();
+    margin-bottom: em(20);
+    display: block;
+  }
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+
+  //
+  // Lists
+  // ========================================
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul,
+  ol {
+    list-style-position: outside;
+    padding-left: 1em;
+  }
+
+  ol ol,
+  ol ol ol,
+  ul ul,
+  ul ul ul {
+    margin: 0;
+    margin-left: 1.25em;
+  }
+
+
+  //
+  // Inline Text
+  // ========================================
+
+  strong {
+    font-weight: 700;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+
+  //
+  // Blockquote
+  // ========================================
+
+  blockquote {
+    position: relative;
+    border-left: 3px solid rgba(0, 0, 0, .1);
+    padding-left: em(20);
+    font-style: italic;
+    // opacity: .5;
+
+    em {
+      font-style: normal;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+  //
+  // Code
+  // ========================================
+
+  code {
+    font-family: $font-stack-monospace;
+  }
+
+  code {
+    padding: (2em / $font-size-base-px) (5em / $font-size-base-px) (3em / $font-size-base-px);
+    margin: 0 .325em;
+    border-radius: .166667em;
+    background: rgba(0, 0, 0, .05);
+    border: 1px solid rgba(0, 0, 0, .1);
+  }
+
+  pre {
+    line-height: 1em;
+    padding: 1em;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background: rgba(0, 0, 0, .05);
+    border-radius: .166667em;
+
+    code {
+      line-height: 1.5em;
+
+      // override inline code styles
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+    }
+  }
+
+
+  //
+  // Horizontal Ruler
+  // ========================================
+
+  hr {
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+  }
+
+  //
+  // Images
+  // ========================================
+
+  img {
+    display: block;
+    max-width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, .075);
+  }
+
+  // Image Container
+  // ==========
+  // Class applied via JS to parent <p> tags on mardown generated HTML 
+  .image-container {
+    text-align: center;
+    max-width: none;
+    margin: em(60) auto;
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    span {
+      font-size: em(13);
+      font-style: italic;
+      color: rgba($color-content-text, .5);
+      max-width: em(520, 13);
+      display: block;
+      margin: em(5, 13) auto 0;
+    }
+  }
+}

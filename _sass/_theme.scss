@@ -23,7 +23,7 @@ body {
 .footer {
 
   > div {
-    background: rgba(0, 0, 0, .1);
+    background: rgba(0, 0, 0, .0333);
   }
 
   :target {
@@ -43,13 +43,13 @@ body {
 
 .theme-dark {
   body {
-    background: #251e1e;
-    color: #d0c5c5;
+    background: #1b1818;
+    color: #dcd5d5;
   }
 
   .footer {
     > div {
-      background: lighten(#251e1e, 3%);
+      background: rgba(255, 255, 255, .0333);
     }
   }
 }
