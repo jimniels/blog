@@ -1,10 +1,11 @@
 {% include document-head.html %}
 
 <body>
-  <!-- Theme
-       This has to go here or you get a flicker effect when persisting the theme
-       across different URLs
-  =================================== -->
+  {% comment %}
+    Theme
+    This has to go here or you get a flicker effect when persisting the theme
+    across different URLs
+  {% endcomment %}
   <script>
     function addThemeClass() {
       document.documentElement.className = '';
@@ -13,26 +14,31 @@
     addThemeClass();
   </script>
 
-  <!-- Header
-  =================================== -->
+  {% comment %}
+    Header
+  {% endcomment %}
   {% include header.html %}
 
-  <!-- Main
-  =================================== -->
-  <main>
+  {% comment %}
+    Main
+  {% endcomment %}
+  <main class="main">
     {{ content }}
   </main>
 
-  <!-- Footer
-  =================================== -->
+  {% comment %}
+    Footer
+  {% endcomment %}
   {% include footer.html showCurrentPost="true" %}
 
-  <!-- Javascript
-  =================================== -->
+  {% comment %}
+    Javascript
+  {% endcomment %}
   <script type="text/javascript" src="{{ site.baseurl }}/assets/js/js.js"></script>
 
-  <!-- Analytics
-  =================================== -->
+  {% comment %}
+    Analytics
+  {% endcomment %}
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-19579223-2']);

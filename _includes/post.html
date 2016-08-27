@@ -1,7 +1,8 @@
 <article class="content copy copy--md">
 
-  <!-- Content Header
-  =================================== -->
+  {% comment %}
+    Content Header
+  {% endcomment %}
   <header class="content__header">
     <h1 data-label="title">
       <a href="{{ site.baseurl }}{{ post.url }}" class="bold">
@@ -25,8 +26,9 @@
   </header>
 
 
-  <!-- Content Body
-  =================================== -->
+  {% comment %}
+    Content Body
+  {% endcomment %}
   {{ content }}
 
 </article>

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html id="top">
 <head>
-    <!-- Title
-    =================================== -->
+    {% comment %}
+      Title
+    {% endcomment %}
     <title>
       {% if page.type == 'home' %}
         Jim Nielsen’s Blog
@@ -11,14 +12,16 @@
       {% endif %}
     </title>
 
-    <!-- Meta
-    =================================== -->
+    {% comment %}
+      Meta
+    {% endcomment %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ site.baseurl }}/feed.xml">
 
-    <!-- CSS
-    =================================== -->
+    {% comment %}
+      CSS
+    {% endcomment %}
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
