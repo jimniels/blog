@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-09-08
+date: 2015-08-31
 title: Reading Notes, August 2015
 tags: notes
 summary: "Notes, impressions, and excerpts from a few articles, sites, and books I recently encountered."
