@@ -168,7 +168,8 @@ The `debug` parameter (when in development mode) would take the place of the val
 
 ```
 render() {
-  const { attr, val, valIsHtml, inPhotographerEmail } = this.props
+  const { attr, val, valIsHtml, inPhotographerEmail } = this.props;
+  const html = { __html: val }
   return (
     <li>
       <div className='attr'>
@@ -178,7 +179,7 @@ render() {
       </div>
       <div className='val'>
         { valIsHtml
-          ? <div dangerouslySetInnerHTML={{ __html: val }}></div>
+          ? <div dangerouslySetInnerHTML={html}></div>
           : val }
       </div>
     </li>
