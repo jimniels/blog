@@ -70,7 +70,7 @@ As always, insightful progressive enhancement thoughts around service workers vs
 
 > It’s so much easier to get excited about implementing service workers. You’ve literally got nothing to lose and everything to gain.
 
-## “[The Futuer of the Web](http://alistapart.com/article/the-future-of-the-web)” by Matt Griffin via A List Apart
+## “[The Future of the Web](http://alistapart.com/article/the-future-of-the-web)” by Matt Griffin via A List Apart
 
 Why it’s ok to be failing while trying to find your way:
 
@@ -78,7 +78,7 @@ Why it’s ok to be failing while trying to find your way:
 
 Love that last bit: the only way to get good is to be bad.
 
-## [Why we use progressive enhancement to build GOV.UK](https://gdstechnology.blog.gov.uk/2016/09/19/why-we-use-progressive-enhancement-to-build-gov-uk/)
+## [Why we use progressive enhancement to build GOV.UK](https://gdstechnology.blog.gov.uk/2016/09/19/why-we-use-progressive-enhancement-to-build-gov-uk/) by Robin Whittleton via GOV.UK
 
 This article is more interesting views on progressive enhancement, though there’s not a lot of novelty here. Progressive enhancement, though arguably not for everyone, seems ideal for a government website.
 
