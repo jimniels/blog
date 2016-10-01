@@ -1,5 +1,5 @@
 ---
-title: Reading Notes, September 2017
+title: Reading Notes, September 2016
 date: 2016-09-08
 tags: readingNotes
 ---
