@@ -10,7 +10,7 @@
 }
 
 @mixin max-width($context: $font-size-base-px) {
-  max-width: #{750 / $context}em;
+  max-width: #{600 / $context}em;
   margin-left: auto;
   margin-right: auto;
 
