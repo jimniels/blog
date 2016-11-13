@@ -1,7 +1,7 @@
 ---
 title: Redesigning the User Experience for Unauthenticated App Users on Groundwork Admin
 date: 2016-08-11
-tags: design-process
+tags: designProcess
 ---
 
 At Timshel, we had an application called “Admin” ...
