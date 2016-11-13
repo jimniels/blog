@@ -86,4 +86,4 @@ The more time I spend developing for the web the more I like the concept of prog
 
 > “progressive enhancement is about resilience as much as it is about inclusiveness.” ... Building in resilience is also known as defensive design: a system shouldn’t break wholly if a single part of it fails or isn’t supported.
 
-> We have a mandate to provide digital services to everyone in the UK and many beyond. Many users access services in different ways to the configuration tested by developers. If a person visits GOV.UK we want them to be able to complete their service or access the information they need, regardless of whether we’ve tested their configuration or not.
+> We have a mandate to provide digital services to everyone in the UK and many beyond. Many users access services in different ways to the configuration tested by developers. If a person visits GOV.UK we want them to be able to complete their service or access the information they need, regardless of whether we’ve tested their configuration or not.  
