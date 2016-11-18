@@ -17,15 +17,14 @@ html {
 body {
   -webkit-text-size-adjust:none;
   font-size: $font-size-base;
-  line-height: 1.5em; // 1.7
-  line-height: 1.625;
+  line-height: 1.5;
   font-family: $font-stack;
   font-weight: 400;
   border-top: 5px solid $color-primary;
 
-  @media screen and (min-width: $media-query-s) {
-    font-size: em($font-size-base-px + 2);
-  }
+  // @media screen and (min-width: $media-query-s) {
+  //   font-size: em($font-size-base-px + 2);
+  // }
 }
 
 .main {
