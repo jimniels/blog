@@ -194,11 +194,11 @@
 
   // Image Container
   // ==========
-  // Class applied via JS to parent <p> tags on mardown generated HTML 
+  // Class applied via JS to parent <p> tags on mardown generated HTML
   .image-container {
     text-align: center;
     max-width: none;
-    margin: em(60) auto;
+    //margin: em(60) auto;
 
     img {
       margin-left: auto;
