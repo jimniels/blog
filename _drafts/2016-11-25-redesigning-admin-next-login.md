@@ -6,7 +6,7 @@ tags: designProcess
 
 At Timshel, we had an application called “Admin” which was used by clients to view and adminster data associated with their account. For example, a client would use our platform’s API to do a variety of things: create and manage events, process payments, and more. In “Admin” they could view all that activity, giving them insight into how customers were using their products.
 
-## It All Started With an Idea
+## Exercise: It’s Good for You
 
 One day, after I had been doing a lot of coding, I felt like I wanted a design exercise. The login page for Admin felt like it could use a facelift to better match the UI and aesthetic that we were using “inside” of the app, i.e. once a user had authenticated. So I decided to take a stab at redesigning the login page.
 
@@ -98,7 +98,17 @@ Designs for the new member setup page if a user somehow landed there without a t
 
 ![Screenshot of new forgot password page]({{ site.imageurl }}/2016/admin-new-member-setup-new.png "The new design")
 
-## Final
+## The Code
+
+From a front-end perspective, this was all written on a stack including React, React Bootstrap, Redux, and CSS Modules. Because I designed the views around component pieces as patterns, it was simple enough to make configureable react components that served as building blocks for each view.
+
+Take, for example, the `/new-member-setup:token` and `/forgot-password:token`. These shared very similar design patterns with configureable content. As such, I could abstract each component and make it configurable so that changes to patterns propagated across all views.
+
+![Screenshots of app illustrating shared react components]({{ site.imageurl }}/2016/admin-shared-components.png)
+
+As you can see from the image above, `<LoginLogo />` and `<LoginMessage />` are example components used across all the unauthenticaed login views and configured to each unique view as necessary.
+
+## Conclusion
 
 Because this is a dynamic application, there was more going on in these screens than just the static UI elements. I had to take into account error states, contextual messaging, animations, and more, both from a design perspective and an implementation perspective.
 
