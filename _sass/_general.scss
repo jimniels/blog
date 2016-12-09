@@ -29,6 +29,7 @@ body {
 
 .main {
   @include wrapper();
+  max-width: none;
 }
 
 img {
