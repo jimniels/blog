@@ -82,14 +82,14 @@
       <h3 id="posts-{{this_year}}" class="m-b-xsm">
         {{this_year}}
       </h3>
-      <ul>
+      <ul class="footer__list-posts">
       {% endif %}
 
-        <li class='m-b-xsm'>
+        <li class="footer__list-posts__item">
           {% if isNotActivePost %}
-            <a href="{{ site.baseurl }}{{ post.url }}" class="m-r-sm">
+            <a href="{{ site.baseurl }}{{ post.url }}" class="title" style="order: 2">
           {% else %}
-            <span class="m-r-sm">
+            <span class="title">
           {% endif %}
 
           {{ post.title }}
@@ -101,7 +101,7 @@
           {% endif %}
 
           <span class="date">
-            {{ post.date | date: "%b %d" }}
+            {{ post.date | date: "%b %-d" }}
           </span>
         </li>
 
@@ -112,7 +112,7 @@
       <h3 id="posts-{{next_year}}" class="m-b-xsm">
         {{next_year}}
       </h3>
-      <ul>
+      <ul class="footer__list-posts">
       {% endif %}{% endif %}
     {% endfor %}
   </div>

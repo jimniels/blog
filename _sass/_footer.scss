@@ -37,6 +37,24 @@ ul.footer__list-inline {
   }
 }
 
+ul.footer__list-posts {
+  padding-left: 0;
+}
+
+.footer__list-posts__item {
+  display: flex;
+  padding-bottom: em(5);
+
+  .date {
+    order: 1;
+    min-width: em(70);
+  }
+
+  .title {
+    order: 2;
+  }
+}
+
 .footer__back-to-top {
   font-size: em(14);
   text-align: center;
