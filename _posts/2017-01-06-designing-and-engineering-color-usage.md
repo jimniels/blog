@@ -1,7 +1,7 @@
 ---
 title: Designing and Engineering Color Usage in Agent Portal
 date: 2017-01-06
-tags: designProcess insight
+tags: designProcess insight engineering
 ---
 
 One of my tasks at Insight has been to design (i.e. first make sense of, second improve) the visual language across the company, both in terms of brand and product design. The first step in designing is understanding the problem you’re solving. How can you design something you don’t understand?

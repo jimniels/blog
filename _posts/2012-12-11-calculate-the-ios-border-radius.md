@@ -1,7 +1,7 @@
 ---
 title: "Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio"
 date: 2012-12-11
-tags: tips
+tags: tips engineering
 redirect_from: /posts/ios-border-radius/
 ---
 
