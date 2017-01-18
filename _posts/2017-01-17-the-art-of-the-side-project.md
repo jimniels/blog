@@ -1,7 +1,7 @@
 ---
 title: The Art of the Side Project
 date: 2017-01-17
-tags: insights
+tags: thoughts
 ---
 
 > Society is growing ever more skeptical of the value of solitude, ever more suspicious of even the briefest of withdrawals into inactivity and apparent purposelessness – Nicolas Carr

@@ -1,7 +1,7 @@
 ---
 title: "Understanding Comes in Stages"
 date: 2012-11-28
-tags: insights
+tags: thoughts
 redirect_from: /posts/understanding-comes-in-stages/
 ---
 

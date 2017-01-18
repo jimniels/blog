@@ -1,7 +1,7 @@
 ---
 title: Things to Be Informed About in Life
 date: 2013-07-24
-tags: insights
+tags: thoughts
 redirect_from: /posts/things-to-be-informed-about/
 ---
 

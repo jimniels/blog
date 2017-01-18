@@ -1,7 +1,7 @@
 ---
 title: "Thoughts from “On Writing Well”"
 date: 2013-07-15
-tags: insights tips
+tags: thoughts tips
 redirect_from: /posts/thoughts-from-on-writing-well/
 ---
 

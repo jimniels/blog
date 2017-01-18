@@ -1,7 +1,7 @@
 ---
 title: "Once Again, It’s About Putting the User First"
 date: 2013-08-12
-tags: insights
+tags: thoughts
 redirect_from: /posts/putting-the-user-first/
 ---
 

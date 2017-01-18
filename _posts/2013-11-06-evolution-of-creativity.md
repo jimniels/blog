@@ -1,7 +1,7 @@
 ---
 title: The Evolution of Creativity
 date: 2013-11-06
-tags: insights
+tags: thoughts
 redirect_from: /posts/evoluation-of-creativity/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Ostentatious Design & Profanity"
 date: 2013-10-14
-tags: insights
+tags: thoughts
 redirect_from: /posts/ostentatious-design-and-profanity/
 ---
 

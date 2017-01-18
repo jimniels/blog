@@ -1,7 +1,7 @@
 ---
 title: Automating Feelings
 date: 2013-09-23
-tags: insights
+tags: thoughts
 summary: "The digital world has undergone an emotional transformation in the past few years. The once plain, typographic emoticons graphically expressing human emotion have now become an expansive collection of visually stimulating emoji. Will automating the expression of human emotion change us?"
 redirect_from: /posts/automating-feelings/
 ---
