@@ -4,6 +4,7 @@ imageurl: /blog/assets/img
 # imageurl: assets/img # for testing
 domain: http://jim-nielsen.com
 permalink: /:year/:title/
+# permalink: /:short_year:month:day/
 sass:
     sass_dir: _sass
 gems:
