@@ -87,13 +87,10 @@ for (var i = 0; i < images.length; i++) {
  * Creates a <ul> based off themeColors array where each item represents an <li>
  *
  * Markup output:
- *  <dl class="header__nav__theme-control">
- *    <dt>Theme:<dt/>
- *    <dd>
- *      <a href='#'>Light</a>
- *      <a href='#'>Dark</a>
- *    </dd>
- *  </dl>
+ *  <p class="header__nav__theme-control">
+ *    <a href='#'>Light</a>
+ *    <a href='#'>Dark</a>
+ *  </p>
  *
  * Note: addThemeClass() is defined inline at start of document. This helps
  * prevent a 'theme' flicker between page loads.
@@ -104,13 +101,8 @@ var currentlyActiveTheme = localStorage.getItem('theme')
   ? localStorage.getItem('theme')
   : 'light';
 
-var dl = document.createElement('dl');
-dl.classList.add('header__nav__theme-control');
-var dt = document.createElement('dt');
-var dd = document.createElement('dd');
-var dtText = document.createTextNode('Theme: ');
-dt.appendChild(dtText);
-dl.appendChild(dt);
+var p = document.createElement('p');
+p.classList.add('header__nav__theme-control');
 
 // Create and append <a> links in <dd>
 for (var i = 0; i < themeColors.length; i++) {
@@ -123,6 +115,7 @@ for (var i = 0; i < themeColors.length; i++) {
 
     // Create <a> element, append text
     var a = document.createElement('a');
+
     a.setAttribute('href', '#');
     a.setAttribute('title', themeColor + ' theme');
     a.appendChild(text);
@@ -130,11 +123,11 @@ for (var i = 0; i < themeColors.length; i++) {
     // Bind event listener to the current theme
     a.addEventListener('click', function(){
       // Classes for indicating active theme
-      var accentNode = document.querySelector('.header__nav__theme-control .accent');
-      if (accentNode) {
-        accentNode.classList.remove('accent');
+      var activeNode = document.querySelector('.header__nav__theme-control a[disabled]');
+      if (activeNode) {
+        activeNode.removeAttribute('disabled');
       }
-      this.classList.add('accent');
+      this.setAttribute('disabled', true);
 
       // Set localstorage for keeping track of active theme
       localStorage.setItem('theme', themeColor);
@@ -145,22 +138,16 @@ for (var i = 0; i < themeColors.length; i++) {
 
     // Set the active class on whichever element is active
     if (themeColor === currentlyActiveTheme) {
-      a.classList.add('accent');
+      a.setAttribute('disabled', true);
     }
 
-    // Append <a> to <dd>
-    dd.appendChild(a);
-
-    // Insert a <span> after the first item for presentation only
-    if (i === 0) {
-      var span = document.createElement('span');
-      dd.appendChild(span);
-    }
+    // Append <a> to <p>
+    p.appendChild(a);
   }());
 }
 
 // Append <dd> to <dl>
-dl.appendChild(dd);
+// dl.appendChild(dd);
 
 // Add <dl> to DOM
-document.querySelector('.header__nav').appendChild(dl);
+document.querySelector('.header__nav').appendChild(p);
