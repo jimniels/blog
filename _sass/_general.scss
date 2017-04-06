@@ -23,9 +23,9 @@ body {
   font-weight: 400;
   border-top: 5px solid $color-primary;
 
-  // @media screen and (min-width: $media-query-s) {
-  //   font-size: em($font-size-base-px + 2);
-  // }
+  @media screen and (max-width: $media-query) {
+    font-size: em(18, 16);
+  }
 }
 
 .main {
