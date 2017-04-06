@@ -13,24 +13,23 @@
   // ========================================
 
   &__header {
-    margin-bottom: em(40);
+    padding: 1.618em 0;
+    margin-bottom: 1.618em;
     @include max-width();
+    border-bottom: 1px solid rgba(0,0,0,.15);
 
-    // Override any default html tag styles
-    > * {
+    p {
+      opacity: .75;
+      font-size: em(16);
+      // text-transform: uppercase;
+      // letter-spacing: em(1);
+      // Override
       margin: 0 !important;
-    }
+      max-width: 100% !important;
 
-    // Add front matter dividers
-    &:before,
-    &:after {
-      content: '- - -';
-      display: block;
-    }
-
-    // Prefix each header item with a label
-    > *:before {
-      content: attr(data-label) ':';
+      span {
+        display: inline-block;
+      }
     }
   }
 }

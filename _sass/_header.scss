@@ -11,10 +11,11 @@ $local-header-breakpoint: 400px;
 // ========================================
 
 .header {
-  font-size: em(14);
+  font-size: em(16);
   z-index: 1;
-  @include wrapper(14);
-  padding: em(40) 0;
+  @include wrapper(16);
+  padding: 1.618em 0;
+  border-bottom: 1px solid rgba(0,0,0,.15);
 
   @media screen and (min-width: $local-header-breakpoint) {
     display: flex;
@@ -31,10 +32,19 @@ $local-header-breakpoint: 400px;
   display: block;
   width: 160px;
   margin: 0 auto em(20);
+  transition: .2s ease transform;
 
   @media screen and (min-width: $local-header-breakpoint) {
     margin: 0;
     width: 180px;
+  }
+
+  &:hover {
+    transform: rotate(-1deg) scale(1.05);
+  }
+
+  &:active {
+    transform: rotate(2deg) scale(.95);
   }
 }
 
@@ -75,28 +85,24 @@ $local-header-breakpoint: 400px;
 .header__nav__theme-control {
   display: flex;
 
-  dt {
-    margin-right: em(10);
-  }
-
-  span {
-    &:before {
-      content: '/';
-      margin: 0 em(5, 14);
-      opacity: .325;
-    }
-  }
-
   a {
     text-transform: capitalize;
     display: inline-block;
-  }
 
-  a.accent {
-    text-decoration: none;
+    &:first-child:after {
+      content: '/';
+      margin: 0 em(5, 14);
+      opacity: .325;
+      color: $color-text;
+    }
 
-    &:hover {
-      cursor: default;
+    &[disabled] {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        cursor: default;
+      }
     }
   }
 }

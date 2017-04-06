@@ -4,23 +4,34 @@
     Content Header
   {% endcomment %}
   <header class="content__header">
-    <h1 data-label="title">
-      <a href="{{ site.baseurl }}{{ post.url }}" class="bold">
+    <h1>
+      <a href="{{ site.baseurl }}{{ post.url }}">
         {{ page.title }}
       </a>
     </h1>
 
-    <time data-label="date" class="truncate">
-      {{ page.date | date: "%b %-d, %Y" }}
-    </time>
-
     {% if page.tags %}
-      <p data-label="tags" class="truncate">
-        {% for tag in page.tags %}
-          <a href="{{ site.baseurl }}/tags/#{{ tag }}" class="tag">
-            #{{ tag }}
-          </a>&nbsp;
-        {% endfor %}
+      <p>
+        <span>
+          Posted on
+          <time>
+            {{ page.date | date: "%b %-d, %Y" }}
+          </time>
+        </span>
+
+        &nbsp; · &nbsp;
+
+        <span>
+          Tagged in
+          {% for tag in page.tags %}
+            <a href="{{ site.baseurl }}/tags/#{{ tag }}" class="tag">
+              #{{ tag }}
+            </a>
+            {% if forloop.last != true %}
+              ,&nbsp;
+            {% endif %}
+          {% endfor %}
+        </span>
       </p>
     {% endif %}
   </header>

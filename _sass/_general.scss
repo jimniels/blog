@@ -15,16 +15,17 @@ html {
 }
 
 body {
+  color: $color-text;
   -webkit-text-size-adjust:none;
   font-size: $font-size-base;
-  line-height: 1.5;
+  line-height: 1.618;
   font-family: $font-stack;
   font-weight: 400;
   border-top: 5px solid $color-primary;
 
-  // @media screen and (min-width: $media-query-s) {
-  //   font-size: em($font-size-base-px + 2);
-  // }
+  @media screen and (max-width: $media-query) {
+    font-size: em(18, 16);
+  }
 }
 
 .main {
@@ -38,13 +39,37 @@ img {
 }
 
 a {
-  text-decoration: underline;
-  color: inherit;
-  transition: .222s ease all;
+  text-decoration: none;
+  color: $color-primary;
+  position: relative;
 
   &:hover {
-    color: $color-primary;
+    text-decoration: underline;
+    color: lighten($color-primary, 5%);
   }
+
+  // &:hover:after,
+  // &:hover:before {
+  //   width: 50%;
+  // }
+
+  // &:after,
+  // &:before {
+  //   transition: .22s ease all;
+  //   height: 1px;
+  //   background: $color-primary;
+  //   content: '';
+  //   position: absolute;
+  //   bottom: 0;
+  //   width: 0;
+  // }
+
+  // &:after {
+  //   left: 50%;
+  // }
+  // &:before {
+  //   right: 50%;
+  // }
 }
 
 .wrapper {
