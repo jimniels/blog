@@ -68,7 +68,7 @@ function jump(target, options) {
  * Set images to full-width with captions
  */
 var images = document.querySelectorAll('.content > p img');
-console.log(images);
+// console.log(images);
 for (var i = 0; i < images.length; i++) {
   var parentEl = images[i].parentNode; // not sure if we need to traverse all the way up for a <p> ?
   parentEl.classList.add('image-container');
@@ -146,8 +146,5 @@ for (var i = 0; i < themeColors.length; i++) {
   }());
 }
 
-// Append <dd> to <dl>
-// dl.appendChild(dd);
-
-// Add <dl> to DOM
+// Add <p> to DOM
 document.querySelector('.header__nav').appendChild(p);

@@ -32,10 +32,19 @@ $local-header-breakpoint: 400px;
   display: block;
   width: 160px;
   margin: 0 auto em(20);
+  transition: .2s ease transform;
 
   @media screen and (min-width: $local-header-breakpoint) {
     margin: 0;
     width: 180px;
+  }
+
+  &:hover {
+    transform: rotate(-1deg) scale(1.05);
+  }
+
+  &:active {
+    transform: rotate(2deg) scale(.95);
   }
 }
 

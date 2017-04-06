@@ -41,12 +41,35 @@ img {
 a {
   text-decoration: none;
   color: $color-primary;
-  transition: .222s ease all;
+  position: relative;
 
   &:hover {
     text-decoration: underline;
-    color: darken($color-primary, 5%);
+    color: lighten($color-primary, 5%);
   }
+
+  // &:hover:after,
+  // &:hover:before {
+  //   width: 50%;
+  // }
+
+  // &:after,
+  // &:before {
+  //   transition: .22s ease all;
+  //   height: 1px;
+  //   background: $color-primary;
+  //   content: '';
+  //   position: absolute;
+  //   bottom: 0;
+  //   width: 0;
+  // }
+
+  // &:after {
+  //   left: 50%;
+  // }
+  // &:before {
+  //   right: 50%;
+  // }
 }
 
 .wrapper {
