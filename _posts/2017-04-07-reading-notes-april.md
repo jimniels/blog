@@ -1,14 +1,14 @@
 ---
 title: Reading Notes, April 2017
-date: 2017-04-03
+date: 2017-04-07
 tags: notes
 ---
 
-## “[The end of the black turtleneck](http://zurb.com/article/1448/the-end-of-the-black-turtleneck)”
+## “[The end of the black turtleneck](http://zurb.com/article/1448/the-end-of-the-black-turtleneck)” via zurb.com
 
-Interesting look at how, over time, the curtain has been pulled back on Apple’s magic. Some of this article is meh, but there are a few good pieces in here. 
+Interesting look at how, over time, the curtain has been pulled back on Apple’s magic. Some of this article is meh, but there are a few good pieces in here.
 
-On how we took the wrong things away from Apple and Steve’s methods: 
+On how we took the wrong things away from Apple and Steve’s methods:
 
 > Designer’s took all the wrong ideas away from his presentations. Big reveals were marketing techniques, not methods to surprise our internal product teams. Sexy interfaces were inspirational, not things we blindly copy without consideration for users. Going against the grain was a way to inspire people, not an excuse to shun the ideas of our coworkers . Secrecy was a business technique, not a reason for us to hide and design solo in our computers. Spurring focus groups encouraged risk taking, not give us a reason to avoid learning from our customers.
 
@@ -16,7 +16,7 @@ But now the curtain has been pulled back. We know the truth. We’ve known it th
 
 > It’s time for designers to embrace what really drives amazing products and innovation, connection with other people. The impactful design leader is not a lone genius that locks themselves away only to come back with magic that even they themselves don't fully understand. That’s myth, storytelling. No, the impactful design leader is a facilitator. They bring people together from all parts of their organization, rally them around ideas, and extract the best thinking into small gains that lead to big wins. They are found with people, soliciting feedback from designer and non designer alike. They realize failure is both an inevitable and necessary part of the process. They understand it takes constant iteration and a volume of ideas to get to the right answers. And they don’t have to wear a black turtleneck.
 
-## “[How to Use npm Scripts as Your Build Tool](https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool)”
+## “[How to Use npm Scripts as Your Build Tool](https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool)”, an egghead.io course
 
 An egghead.io course with lots of useful little tidbits I hadn’t become familiar with yet:
 
@@ -50,6 +50,12 @@ An egghead.io course with lots of useful little tidbits I hadn’t become famili
 
 ## “[Resilient Web Design](https://resilientwebdesign.com)” by Jeremy Keith
 
+If you haven’t already heard, Jeremy released this “web book” as he calls it. If you read or listen to Jeremy regularly (like I do) most of the content will feel familiar. Nonetheless, I gave it a read and have noted here a few excerpts that stuck out to me when I read it.
+
+---
+
+The book’s purpose (and the power of ideas over)
+
 > You won’t find any code in here to help you build better websites. But you will find ideas and approaches. Ideas are more resilient than code. I’ve tried to combine the most resilient ideas from the history of web design into an approach for building the websites of the future.
 
 Interesting tidbits on why things are the way they are today:
@@ -82,7 +88,7 @@ He continues:
 
 ## Video: [“How to Design a Good API and Why it Matters”](https://www.youtube.com/watch?v=aAb7hSCtvGw) by Joshua Block, Principal Software Engineer at Google
 
-In my search for stuff to listen to, I Google’d “the best programming talks” and this was one I stumbled on in a comment thread somewhere out there on the internet. 
+In my search for stuff to listen to, I Google’d “the best programming talks” and this was one I stumbled on in a comment thread somewhere out there on the internet.
 
 As I’m not a *real* computer programmer (but as Pinocchio said, maybe someday) I like to find talks that take a broader perspective and explore principles applicative to any discipline, be it programming, design, or maybe just woodworking. This talk had some of that, thought it was also quite technical at times. Anyhow, I wanted to just make some notes on the tidbits I liked (the slides from the talk can be found [here](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf)).
 
