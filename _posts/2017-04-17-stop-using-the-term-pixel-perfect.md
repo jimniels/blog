@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Stop Using the Term “Pixel Perfect”, Start Focusing on Experiences"
-date: 2017-04-07
+date: 2017-04-17
 tags: thoughts
 ---
 
-**Note**: I was digging through some old Google docs and found this piece of writing I did back in 2013. As I read through it, I thought some of it was good and some of it was a bit nauseating (did I really use to use the word “craftsman” for people making websites?) Of course, this was four years ago. The world of web design has changed. More importantly, *I* have changed. I’m like a sleazy politician: you can’t expect me to backup whatever my stance was yesterday, at least when it comes to technology because *it* is always changing and *I* am always changing.
+**Note**: I was digging through some old Google docs and found this piece of writing I did back in 2013. As I read through it, I thought some of it was good and some of it was a bit nauseating (why did I think the word “craftsman” was appropriate for people making websites?) Of course, this was four years ago. The world of web design has changed. More importantly, *I* have changed. I’m like a sleazy politician: you can’t expect me to backup whatever my stance was yesterday — at least when it comes to technology because *technology* is always changing and *I* am always changing.
 
 Nevertheless, I thought there were a few good little pieces in here. Even if there weren’t, I’d post it anyway. I like the idea of keeping junk around from years past. It may not be good, but it shows the arc of change in my knowledge and experience and sometimes I like to see that because it makes me think I’m progressing. But don’t hold me to that because in another five years when I read what I wrote in that last sentence I might be disgusted at myself.
 
