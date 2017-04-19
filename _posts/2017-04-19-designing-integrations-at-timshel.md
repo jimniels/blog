@@ -1,5 +1,5 @@
 ---
-title: Designing Integrations for the Admin application at Timshel
+title: Designing Integrations for the Admin Application at Timshel
 date: 2017-04-19
 tags: designProcess
 ---
