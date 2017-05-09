@@ -1,7 +1,7 @@
 ---
 title: Reading Notes, April 2017
 date: 2017-04-07
-tags: notes
+tags: readingNotes
 ---
 
 ## “[The end of the black turtleneck](http://zurb.com/article/1448/the-end-of-the-black-turtleneck)” via zurb.com

@@ -2,7 +2,7 @@
 layout: post
 date: 2015-12-01
 title: Reading Notes, December 2015
-tags: notes
+tags: readingNotes
 summary: "Notes, impressions, and excerpts from things I’ve encountered this month."
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: Reading Notes, July 2016
 date: 2016-08-08
-tags: notes
+tags: readingNotes
 ---
 
 ## Article [The Law of Leaky Abstractions](http://www.joelonsoftware.com/articles/LeakyAbstractions.html)
