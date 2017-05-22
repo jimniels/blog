@@ -5,8 +5,8 @@ layout: null
 {
   "version": "https://jsonfeed.org/version/1",
   "title": "{{ site.name }}",
-  "home_page_url": "{{ site.domain | join: site.baseurl }}",
-  "feed_url": "{{ site.domain | join: site.baseurl }}/feed.json",
+  "home_page_url": "{{ site.domain }}{{ site.baseurl }}",
+  "feed_url": "{{ site.domain }}{{ site.baseurl }}/feed.json",
   "author": {
     "name": "Jim Nielsen",
     "url": "http://jim-nielsen.com/"
