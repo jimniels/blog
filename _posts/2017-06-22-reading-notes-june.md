@@ -37,7 +37,7 @@ This is a couple years old now, but I found Frank’s “lessons learned” insi
 19. Find a way to forgive your mistakes.
 20. You’ll never know enough. Oh well.
 
-## [Conversations with Technology Leaders: Erik Meijer - ACM Queue](http://queue.acm.org/detail.cfm?id=3092954)
+## [Conversations with Technology Leaders: Erik Meijer](http://queue.acm.org/detail.cfm?id=3092954)
 
 This is a Q&A article I stumbled on that has some good pieces of advice in it.
 
@@ -61,7 +61,7 @@ Lastly, I love this bit about finding questions before answers. I often have to 
 
 > first focus on finding the right questions, and then the answers.
 
-## [The art of throwing JavaScript errors - NCZOnline](https://www.nczonline.net/blog/2009/03/03/the-art-of-throwing-javascript-errors/)
+## [The art of throwing JavaScript errors](https://www.nczonline.net/blog/2009/03/03/the-art-of-throwing-javascript-errors/)
 
 There were two good reminder pieces for me in this article:
 
