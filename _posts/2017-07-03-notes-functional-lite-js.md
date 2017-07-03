@@ -6,7 +6,7 @@ tags: generalNotes
 
 I recently watched the course “Functional Lite Javascript” by Kyle Simpson (author of the excellent [“You don’t know JS” book series](https://github.com/getify/You-Dont-Know-JS)). If you have a paid subscription (which I dont’t but my employer does) you can watch the video series on [Safari Books Online](https://www.safaribooksonline.com/library/view/functional-lite-javascript/9781491967508/). If you don’t have the dough for an O’Reilly subscription, Kyle also made [a book available on Github](https://github.com/getify/Functional-Light-JS) that, at least to my cursory glance, seems to cover the same subjects from the video series.
 
-In the video series, Keyl teaches fundamental functional concepts in an applicative method. He doesn’t teach “functional programming” from an academic / theoretical perspective, which means you don’t hear a lot of esoteric words like “currying”, “memoization”, and “monads” (though he does introduce them). The general structure of the course covers these fundamental list operations in Javascript:
+In the video series, Kyle teaches fundamental functional concepts in an applicative method. He doesn’t teach “functional programming” from an academic / theoretical perspective, which means you don’t hear a lot of esoteric words like “currying”, “memoization”, and “monads” (though he does introduce them). The general structure of the course covers these fundamental list operations in Javascript:
 
 - Transformation via `.map()`
 - Inclusion via `.filter()`
