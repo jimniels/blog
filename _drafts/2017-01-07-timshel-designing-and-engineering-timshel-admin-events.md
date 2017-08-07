@@ -86,7 +86,25 @@ This fourth and final iteration got us to a place where we felt we could start b
 
 ### The Create/Edit Event View
 
-### The Create/Edit/View Event Messages Tab
+There’s always the need for users to create events. This UI covered that, in addition to editing events which was the same UI just populated with data.
+
+![Screenshot of the create event view]({{ site.imageurl }}/2017/gw-event-create.png "View when creating a new event.")
+
+### The Messages Tab on the Event View
+
+One of the tabs on the events view was the “Messages” tab, which allowed users to manage all messaging associated with an event. For example, if the administrator of an event wanted to send out a message to invited guests (or a subset of invited guests, like only guests who have RSVP’d) they could use this UI in the context of the event to send out an email blast.
+
+The messages UI was a list by default that you could expand/collapse for more detail. At the top of the list was the ability to create a new message which provided a stepped UI process for creating and sending messages to people associated with the event.
+
+![Screenshot of the default messages view on the event view]({{ site.imageurl }}/2017/gw-event-messages.png "Default messages view was an index of all  messages for the event, sorted by date.")
+
+![Screenshot of the expanded default messages view on the event view]({{ site.imageurl }}/2017/gw-event-messages-expanded.png "Clicking on any message set would reveal additional meta information about the message.")
+
+![Screenshot of the one step in the create message process on the event view]({{ site.imageurl }}/2017/gw-event-messages-create.png "Step 2 of the “Create Message” process where users could specify custom recipients manually or via a .csv upload.")
+
+The “Create Message” process was somewhat sophisticated in what it allowed users to do, which is why I broke it up into a stepped process. Many of the different steps were dependent on choices made in prior steps, so the UI would change based on your decisions when creating a message. For example, you could  detai the recipients of your message manually, either by specifying them one-by-one or by uploading a `.csv` file. Additionally, there was a case where you would be provided a “smart set” recipients for common actions like sending a reminder message to all invitees who had not yet responded to your invitation. You can see an example of how this all played out in this animated .gif of the “Create Message” process:
+
+![Animated gif of stepped process to create a message on the event view]({{ site.imageurl }}/2017/gw-event-messages-create.gif "Example UX flow when creating a new message.")
 
 ### Stitching it All Together
 
@@ -98,6 +116,7 @@ Once I had these different views and variations based on event timeliness, I sti
 
 Timezone debaucle (tests failing every day about 7pm my time which i learned was when it hit midnight UTC. Those have got to be correlated.)
 
+I wrote the view layer while [damassi](http://damassi.github.io) worked on a lot of the plumbing and architecture (like wiring up API calls).
 
 DO A SPELL CHECK DUMMY!
 
