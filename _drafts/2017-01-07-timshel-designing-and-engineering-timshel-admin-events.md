@@ -114,9 +114,20 @@ Once I had these different views and variations based on event timeliness, I sti
 
 ## The (Front-end) Engineering
 
-Timezone debaucle (tests failing every day about 7pm my time which i learned was when it hit midnight UTC. Those have got to be correlated.)
+Once the designs were complete, I transitioned into writing the view layer for each of these views. Technologies I used included:
 
-I wrote the view layer while [damassi](http://damassi.github.io) worked on a lot of the plumbing and architecture (like wiring up API calls).
+- React
+- Redux
+- Material UI
+- Radium
+
+Most of the coding process was a balance of me writing styles, components, and view-related Javascript while the talented [damassi](http://damassi.github.io) worked on a lot of the architecture and plumbing like routing, wiring up API calls, etc.
+
+The most interesting aspect to me of this whole endeavor was the date/time related pieces. A simple example of how complex this can actually be was the events home view which hoisted all events occuring “today” to the top. Now saying that an event occurs today might *seem* straightforward but you know how computers are: they need to be told *exactly* what to do. So when you start diving into the details of what “today” means it gets hairy fast because the word “today” is relative. “Today” might be July 21 to somebody in Austrailia but July 20 to somebody in America. To figure that all out you have to do date and time conversions across the world and that gets especially hairs when you talk about local time shifts like daylight savings. 
+
+From a product standpoint, we made the decision that we wanted our UI language around the timeliness of an event (like “today” or “upcoming”) to be relative to the location of the event itself and not the location of the user viewing the user interface. As such, I wrote a few datetime conversion utilities to help reason about what language and styles to show in the UI based on the timeliness of the event. What made this really interesting was the learning that took place all along the way. For example, after writing some of my utitlieis and thinking they worked, I’d found out the next day that all my CI tests would fail around like 7PM. Then the same thing happened the next night. Then I’d learn that it was because our CI servers were on the east coast and 7PM was 12AM UTC which meant that was the time at which dates would no longer match (i.e. July 13th at 6:59PM on the east coast is July 13th at 11:59PM UTC, which meant a lot of my dates and times which were converting back to UTC were looking like july 13th == july 13th? True! However, when it hit 7PM, that logic became july 13th == july 14th? False! So anyway, that ordeal was an interesting one that was frustrating at times but the knowledge I gained from it has served me quite well since!
+
+I wish I had some actual code to share with you, but I don’t. Want to know what buzzwords I used on this project? css-in-js, functional JS, ES6/7, webpack, test-driven development, react, redux. I can’t anymore.
 
 DO A SPELL CHECK DUMMY!
 
