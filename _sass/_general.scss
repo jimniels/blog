@@ -6,6 +6,7 @@
 
 html {
   box-sizing: border-box;
+  font-size: #{$font-size-base}px;
 }
 
 *,
@@ -17,7 +18,6 @@ html {
 body {
   color: $color-text;
   -webkit-text-size-adjust:none;
-  font-size: $font-size-base;
   line-height: 1.618;
   font-family: $font-stack;
   font-weight: 400;
@@ -44,8 +44,10 @@ a {
   position: relative;
 
   &:hover {
+    border-radius: 2px;
     text-decoration: underline;
-    color: lighten($color-primary, 5%);
+    color: lighten(desaturate($color-primary, 10%), 7%);
+    background-color: rgba($color-primary, .075);
   }
 
   // &:hover:after,
@@ -80,7 +82,6 @@ a {
 }
 
 .date {
-  opacity: .5;
   white-space: nowrap;
 }
 
@@ -123,4 +124,8 @@ a {
     position: relative;
     top: em(-1);
   }
+}
+
+.font-weight-normal {
+  font-weight: normal;
 }

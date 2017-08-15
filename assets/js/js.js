@@ -2,19 +2,19 @@
  * Header links
  * Animate a smooth scroll on anchor links
  */
-var navItems = document.querySelectorAll('.js-animate-scroll');
-for (var i = 0; i < navItems.length; i++) {
-  navItems[i].addEventListener('click', function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    jump(e.target.hash, {
-      duration: 666,
-      callback: function() {
-        window.location.hash = e.target.hash;
-      }
-    });
-  });
-}
+// var navItems = document.querySelectorAll('.js-animate-scroll');
+// for (var i = 0; i < navItems.length; i++) {
+//   navItems[i].addEventListener('click', function(e){
+//     e.preventDefault();
+//     e.stopPropagation();
+//     jump(e.target.hash, {
+//       duration: 666,
+//       callback: function() {
+//         window.location.hash = e.target.hash;
+//       }
+//     });
+//   });
+// }
 
 // https://github.com/sitepoint-editors/smooth-scrolling/blob/gh-pages/jump.js
 function jump(target, options) {
@@ -67,7 +67,7 @@ function jump(target, options) {
  * Image Container
  * Set images to full-width with captions
  */
-var images = document.querySelectorAll('.content > p img');
+var images = document.querySelectorAll('#js-post-content > p img');
 // console.log(images);
 for (var i = 0; i < images.length; i++) {
   var parentEl = images[i].parentNode; // not sure if we need to traverse all the way up for a <p> ?
@@ -147,4 +147,4 @@ for (var i = 0; i < themeColors.length; i++) {
 }
 
 // Add <p> to DOM
-document.querySelector('.header__nav').appendChild(p);
+// document.querySelector('.header__nav').appendChild(p);

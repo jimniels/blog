@@ -11,40 +11,49 @@ $local-header-breakpoint: 400px;
 // ========================================
 
 .header {
-  font-size: em(16);
+  font-size: 1rem;
   z-index: 1;
-  @include wrapper(16);
-  padding: 1.618em 0;
+  @include wrapper();
+  padding: 1.618rem 0;
   border-bottom: 1px solid rgba(0,0,0,.15);
+  margin-bottom: 1.618rem;
 
   @media screen and (min-width: $local-header-breakpoint) {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-}
 
-//
-// Logo
-// ========================================
+  h1 {
+    font-size: rem(24);
 
-.header__logo {
-  display: block;
-  width: 160px;
-  margin: 0 auto em(20);
-  transition: .2s ease transform;
+    > :first-child {
+      font-weight: normal;
+      color: inherit;
+    }
 
-  @media screen and (min-width: $local-header-breakpoint) {
-    margin: 0;
-    width: 180px;
+    > :last-child {
+      font-weight: 700;
+    }
   }
+  
+  nav ul {
+    display: flex;
+    align-items: center;
+    font-size: rem(16);
 
-  &:hover {
-    transform: rotate(-1deg) scale(1.05);
-  }
+    li {
+      margin-left: 1rem;
 
-  &:active {
-    transform: rotate(2deg) scale(.95);
+      &:first-child {
+        margin-left: 0;
+      }
+
+      // &:after {
+      //   content: ' · ';
+      //   opacity: .75;
+      // }
+    }
   }
 }
 
