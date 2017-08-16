@@ -79,7 +79,7 @@ After running the regex, I would pull up the file diffs in the Github client and
 
 An example of where I had to fix things manually dealt with the `background-image()` mixin. There were a few occurences of an older syntax of `linear-gradient()` that had to have the direction `top` removed because that was the default browser value (this old syntax would fail in modern browsers).
 
-```
+```scss
 // Compass version
 @include background-image: linear-gradient(top, $blue, darken($blue, 10));
 // After find/replace
