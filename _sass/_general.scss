@@ -7,6 +7,11 @@
 html {
   box-sizing: border-box;
   font-size: #{$font-size-base}px;
+  color: $color-text;
+  -webkit-text-size-adjust:none;
+  font-family: $font-stack;
+  font-weight: 400;
+  border-top: 5px solid $color-primary;
 }
 
 *,
@@ -16,16 +21,7 @@ html {
 }
 
 body {
-  color: $color-text;
-  -webkit-text-size-adjust:none;
   line-height: 1.618;
-  font-family: $font-stack;
-  font-weight: 400;
-  border-top: 5px solid $color-primary;
-
-  @media screen and (max-width: $media-query) {
-    font-size: em(18, 16);
-  }
 }
 
 .main {
@@ -47,7 +43,7 @@ a {
     border-radius: 2px;
     text-decoration: underline;
     color: lighten(desaturate($color-primary, 10%), 7%);
-    background-color: rgba($color-primary, .075);
+    // background-color: rgba($color-primary, .075);
   }
 
   // &:hover:after,
@@ -109,21 +105,11 @@ a {
 // ========================================
 
 .bold {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .truncate {
   @include truncate();
-}
-
-.link-external {
-  &:after {
-    content: '\2197';
-    font-size: em(10);
-    margin-left: em(4, 10);
-    position: relative;
-    top: em(-1);
-  }
 }
 
 .font-weight-normal {

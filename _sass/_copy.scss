@@ -3,12 +3,14 @@
 // ======================================================================
 // Styles for copy
 
-.copy-with-prefixed-headings {
-  h1 { @include heading-prefix('h1') }
-  h2 { @include heading-prefix('h2') }
-  h3 { @include heading-prefix('h3') }
-  h4 { @include heading-prefix('h4') }
+.theme-dark {
+  .copy {
+    header {
+      border-color: rgba(255,255,255,.1);
+    }
+  }
 }
+
 .copy {
 
   header {
@@ -28,6 +30,11 @@
     line-height: 1.1618;
     @include max-width();
   }
+
+  h1 { @include heading-prefix('h1') }
+  h2 { @include heading-prefix('h2') }
+  h3 { @include heading-prefix('h3') }
+  h4 { @include heading-prefix('h4') }
 
   h1 {
     font-size: 2rem;
@@ -195,9 +202,4 @@
       margin: rem(5) auto 0;
     }
   }
-}
-
-
-.list-unstyled {
-  list-style: none;
 }

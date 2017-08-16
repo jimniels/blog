@@ -8,8 +8,9 @@
   {% endcomment %}
   <script>
     function addThemeClass() {
+      var isInDarkMode = localStorage.getItem('darkMode') === 'true' ? true : false;
       document.documentElement.className = '';
-      document.documentElement.classList.add('theme-' + localStorage.getItem('theme'));
+      document.documentElement.classList.add('theme-' + (isInDarkMode ? 'dark' : 'light'));
     }
     addThemeClass();
   </script>

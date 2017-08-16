@@ -20,36 +20,16 @@ body {
   transition: .333s ease background;
 }
 
-.footer {
-
-  > div {
-    background: rgba(0, 0, 0, .0333);
-  }
-
-  :target {
-    background: rgba($color-primary, .065);
-
-    h2 {
-      color: $color-primary;
-    }
-  }
-}
-
-
-
 //
 // Dark
 // ========================================
 
+html.theme-dark {
+  background: $color-text;
+  color: #dcd5d5;
+}
 .theme-dark {
-  body {
-    background: $color-text;
-    color: #dcd5d5;
-  }
-
-  .footer {
-    > div {
-      background: rgba(255, 255, 255, .0333);
-    }
+  html {
+    
   }
 }

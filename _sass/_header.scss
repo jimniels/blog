@@ -29,7 +29,6 @@ $local-header-breakpoint: 400px;
 
     > :first-child {
       font-weight: normal;
-      color: inherit;
     }
 
     > :last-child {
@@ -40,78 +39,105 @@ $local-header-breakpoint: 400px;
   nav ul {
     display: flex;
     align-items: center;
-    font-size: rem(16);
+    font-size: rem(14);
+    list-style: none;
 
     li {
-      margin-left: 1rem;
+      margin-left: rem(10);
+      display: flex;
 
       &:first-child {
         margin-left: 0;
+
+        &:before {
+          display: none;
+        }
       }
 
-      // &:after {
-      //   content: ' · ';
-      //   opacity: .75;
-      // }
+      &:before {
+        content: ' · ';
+        opacity: .75;
+        margin-right: rem(10);
+      }
+    }
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .tgl-btn {
+      margin-left: rem(4);
     }
   }
 }
 
 
 //
-// Nav
+// Toggles
 // ========================================
 
-.header__nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media screen and (min-width: $local-header-breakpoint) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-}
-
-.header__nav__title {}
-
-.header__nav__list {
-  display: flex;
-
-  li {
+.tgl {
+	display: none;
+  
+	// add default box-sizing for this scope
+	& + .tgl-btn {
+		
+		&::selection {
+			background: none;
+		}
+	}
+  
+	+ .tgl-btn {
+		outline: 0;
+		display: block;
+		width: rem(35);
+		height: rem(20);
+		position: relative;
+		cursor: pointer;
+    user-select: none;
+		&:after,
     &:before {
-      content: '·';
-      margin: 0 em(10);
-    }
-    &:first-child:before {
-      display: none;
-    }
-  }
+			position: relative;
+			display: block;
+			content: "";
+			width: 50%;
+			height: 100%;
+		}
+    
+		&:after {
+			left: 0;
+		}
+    
+		&:before {
+			display: none;
+		}
+	}
+  
+	&:checked + .tgl-btn:after {
+		left: 50%;
+	}
 }
 
-// Theme control is added via JS, so it's not in the source HTML
-.header__nav__theme-control {
-  display: flex;
-
-  a {
-    text-transform: capitalize;
-    display: inline-block;
-
-    &:first-child:after {
-      content: '/';
-      margin: 0 em(5, 14);
-      opacity: .325;
-      color: $color-text;
-    }
-
-    &[disabled] {
-      text-decoration: none;
-      color: inherit;
-
-      &:hover {
-        cursor: default;
-      }
-    }
-  }
+// themes
+.tgl-light {
+	+ .tgl-btn {
+		background: #ccc;
+		border-radius: 2em;
+		padding: 2px;
+		transition: all .4s ease;
+		&:after {
+			border-radius: 50%;
+			background: #fff;
+			transition: all .2s ease;
+		}
+	}
+  
+	&:checked + .tgl-btn {
+		background: $color-primary;
+	}
 }

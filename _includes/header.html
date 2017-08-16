@@ -1,10 +1,10 @@
 <header class="header">
   <h1>
-    <a href="http://jim-nielsen.com/">jim-nielsen.com</a><a href="{{ site.url | append: site.baseurl }}/">/blog</a>
+    jim-nielsen.com<a href="{{ site.url | append: site.baseurl }}/">/blog</a>
   </h1>
   
   <nav>
-    <ul class="list-unstyled">
+    <ul>
       <li>
         <a href="{{ site.url | append: site.baseurl }}/tags/">
           tags
@@ -21,16 +21,8 @@
         </a>
       </li>
       <script>
-        document.write('<li><form><input type="checkbox" id="theme" class="tgl tgl-light"/><label for="theme" class="tgl-btn"></label></form></li>')
+        // document.write('<li><form><label for="theme">dark mode<input type="checkbox" id="theme" class="tgl tgl-light"/><span class="tgl-btn"></span></label></form></li>')
       </script>
-      <!--
-      <li>
-        <a href="{{ site.baseurl }}/feed.xml">RSS</a>
-      </li>
-      <li>
-        <a href="http://jim-nielsen.com/" class="link-external">My Portfolio</a>
-      </li>
-      -->
     </ul>
   </nav>
 </header>
