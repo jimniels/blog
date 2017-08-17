@@ -7,11 +7,12 @@
 .footer {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   border-top: 1px solid rgba(0,0,0,.1);
   padding: 1.618em 0;
   font-size: rem(14);
 
   .theme-dark & {
-    border-color: rgba(255,255,255,.1);
+    border-color: rgba(255,255,255,.05);
   }
 }

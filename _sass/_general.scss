@@ -12,10 +12,15 @@ html {
   font-family: $font-stack;
   font-weight: 400;
   border-top: 5px solid $color-primary;
+  transition: .333s ease background;
 
   &.theme-dark {
     background: $color-text;
     color: #dcd5d5;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
   }
 }
 
@@ -27,7 +32,6 @@ html {
 
 body {
   line-height: 1.618;
-  transition: .333s ease background;
 }
 
 .main {

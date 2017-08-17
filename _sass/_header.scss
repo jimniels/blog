@@ -4,8 +4,6 @@
 //  ======================================================================
 //
 
-$local-header-breakpoint: 400px;
-
 //
 // Header
 // ========================================
@@ -15,10 +13,14 @@ $local-header-breakpoint: 400px;
   z-index: 1;
   @include wrapper();
   padding: 1.618rem 0;
-  border-bottom: 1px solid rgba(0,0,0,.15);
+  border-bottom: 1px solid rgba(0,0,0,.1);
   margin-bottom: 1.618rem;
 
-  @media screen and (min-width: $local-header-breakpoint) {
+  .theme-dark & {
+    border-color: rgba(255,255,255,.05);
+  }
+
+  @media screen and (min-width: 767px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,6 +43,7 @@ $local-header-breakpoint: 400px;
     align-items: center;
     font-size: rem(14);
     list-style: none;
+    flex-wrap: wrap;
 
     li {
       margin-left: rem(10);
@@ -54,10 +57,12 @@ $local-header-breakpoint: 400px;
         }
       }
 
-      &:before {
-        content: ' · ';
-        opacity: .75;
-        margin-right: rem(10);
+      @media screen and (min-width: 500px) {
+        &:before {
+          content: ' · ';
+          opacity: .75;
+          margin-right: rem(10);
+        }
       }
     }
   }

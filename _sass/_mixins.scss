@@ -43,20 +43,24 @@
 }
 
 @mixin wrapper($context: $font-size-base-px) {
-  max-width: 40rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
+  @include max-width();
+  width: 80%;
+
+  @media screen and (max-width: 499px) {
+    width: 86%;
+  }
 }
 
 @mixin heading-prefix($text) {
-  &:before {
-    content: '#{$text}';
-    font-weight: normal;
-    position: absolute;
-    right: 101.5%;
-    top: .25em;
-    font-size: .75em;
-    opacity: .25;
+  @media screen and (min-width: 500px) {
+    &:before {
+      content: '#{$text}';
+      font-weight: normal;
+      position: absolute;
+      right: 101.5%;
+      top: .25em;
+      font-size: .75em;
+      opacity: .25;
+    }
   }
 }
