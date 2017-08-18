@@ -44,10 +44,14 @@
 
 @mixin wrapper($context: $font-size-base-px) {
   @include max-width();
-  width: 80%;
+  width: 86%;
 
-  @media screen and (max-width: 499px) {
-    width: 86%;
+  @media screen and (min-width: 500px) {
+    width: 80%;
+  }
+
+  @media screen and (min-width: 900px) {
+    width: 95%;
   }
 }
 
