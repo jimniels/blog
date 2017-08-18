@@ -3,7 +3,21 @@
 // ======================================================================
 // Styles for copy
 
+.theme-dark {
+  .copy {
+    header {
+      border-color: rgba(255,255,255,.05);
+    }
+  }
+}
+
 .copy {
+
+  header {
+    margin: 0 auto 1.618rem;
+    @include max-width();
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
 
   //
   // Headings
@@ -12,7 +26,30 @@
   h1, h2, h3, h4, h5 {
     position: relative;
     font-weight: 700;
+    margin-bottom: .382em;
+    line-height: 1.1618;
     @include max-width();
+  }
+
+  h1 { @include heading-prefix('h1') }
+  h2 { @include heading-prefix('h2') }
+  h3 { @include heading-prefix('h3') }
+  h4 { @include heading-prefix('h4') }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.625rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
   }
 
   //
@@ -23,36 +60,6 @@
     @include max-width();
     margin-bottom: 1.618em;
     display: block;
-  }
-
-  h1 {
-    font-size: 2em;
-    line-height: 1.05;
-    margin-bottom: .382em;
-    @include max-width(2 * $font-size-base-px);
-
-    a {
-      color: inherit;
-
-      &:hover {
-        color: $color-primary;
-      }
-    }
-  }
-
-  h2 {
-    font-size: 1.625em;
-    line-height: 1.25;
-    margin-bottom: .382em;
-    @include max-width(1.625 * $font-size-base-px);
-  }
-
-  h3 {
-    font-size: 1.25em;
-    line-height: 1.25;
-    margin-bottom: .382em;
-    text-transform: uppercase;
-    @include max-width(1.25 * $font-size-base-px);
   }
 
 
@@ -71,7 +78,7 @@
   ul,
   ol {
     list-style-position: outside;
-    padding-left: 1.618em;
+    padding-left: 1.618rem;
   }
 
   ol ol,
@@ -79,7 +86,7 @@
   ul ul,
   ul ul ul {
     margin: 0;
-    margin-left: 1.618em;
+    margin-left: 1.618rem;
   }
 
 
@@ -103,7 +110,7 @@
   blockquote {
     position: relative;
     border-left: 3px solid rgba(0, 0, 0, .1);
-    padding-left: 1.618em;
+    padding-left: 1.618rem;
     font-style: italic;
 
     em {
@@ -126,23 +133,23 @@
 
   code {
     padding: (2em / $font-size-base-px) (5em / $font-size-base-px) (3em / $font-size-base-px);
-    margin: 0 .325em;
-    border-radius: .166667em;
+    margin: 0 .325rem;
+    border-radius: .166667rem;
     background: rgba(0, 0, 0, .05);
     border: 1px solid rgba(0, 0, 0, .1);
     // white-space: pre;
   }
 
   pre {
-    line-height: 1em;
-    padding: 1em;
+    line-height: 1rem;
+    padding: 1rem;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     background: rgba(0, 0, 0, .05);
-    border-radius: .166667em;
+    border-radius: .166667rem;
 
     code {
-      line-height: 1.5em;
+      line-height: 1.5rem;
       white-space: pre;
 
       // override inline code styles
@@ -187,12 +194,12 @@
     }
 
     span {
-      font-size: em(18);
+      font-size: rem(16);
       font-style: italic;
       opacity: .5;
-      max-width: em(520, 13);
+      max-width: rem(520);
       display: block;
-      margin: em(5, 13) auto 0;
+      margin: rem(5) auto 0;
     }
   }
 }

@@ -8,37 +8,22 @@
   {% endcomment %}
   <script>
     function addThemeClass() {
+      var isInDarkMode = localStorage.getItem('darkMode') === 'true' ? true : false;
       document.documentElement.className = '';
-      document.documentElement.classList.add('theme-' + localStorage.getItem('theme'));
+      document.documentElement.classList.add('theme-' + (isInDarkMode ? 'dark' : 'light'));
     }
     addThemeClass();
   </script>
 
-  {% comment %}
-    Header
-  {% endcomment %}
   {% include header.html %}
 
-  {% comment %}
-    Main
-  {% endcomment %}
   <main class="main">
     {{ content }}
   </main>
 
-  {% comment %}
-    Footer
-  {% endcomment %}
   {% include footer.html showCurrentPost="true" %}
 
-  {% comment %}
-    Javascript
-  {% endcomment %}
   <script type="text/javascript" src="{{ site.baseurl }}/assets/js/js.js"></script>
-
-  {% comment %}
-    Analytics
-  {% endcomment %}
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-19579223-2']);

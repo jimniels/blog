@@ -6,6 +6,22 @@
 
 html {
   box-sizing: border-box;
+  font-size: #{$font-size-base}px;
+  color: $color-text;
+  -webkit-text-size-adjust:none;
+  font-family: $font-stack;
+  font-weight: 400;
+  border-top: 5px solid $color-primary;
+  transition: .333s ease background;
+
+  &.theme-dark {
+    background: $color-text;
+    color: #dcd5d5;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
 }
 
 *,
@@ -15,17 +31,7 @@ html {
 }
 
 body {
-  color: $color-text;
-  -webkit-text-size-adjust:none;
-  font-size: $font-size-base;
   line-height: 1.618;
-  font-family: $font-stack;
-  font-weight: 400;
-  border-top: 5px solid $color-primary;
-
-  @media screen and (max-width: $media-query) {
-    font-size: em(18, 16);
-  }
 }
 
 .main {
@@ -44,8 +50,10 @@ a {
   position: relative;
 
   &:hover {
+    border-radius: 2px;
     text-decoration: underline;
-    color: lighten($color-primary, 5%);
+    color: lighten(desaturate($color-primary, 10%), 7%);
+    // background-color: rgba($color-primary, .075);
   }
 
   // &:hover:after,
@@ -80,7 +88,6 @@ a {
 }
 
 .date {
-  opacity: .5;
   white-space: nowrap;
 }
 
@@ -108,19 +115,13 @@ a {
 // ========================================
 
 .bold {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .truncate {
   @include truncate();
 }
 
-.link-external {
-  &:after {
-    content: '\2197';
-    font-size: em(10);
-    margin-left: em(4, 10);
-    position: relative;
-    top: em(-1);
-  }
+.font-weight-normal {
+  font-weight: normal;
 }

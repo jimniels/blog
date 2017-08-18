@@ -1,26 +1,23 @@
-<article class="content copy copy--md">
+<article class="copy copy-with-prefixed-headings" id="js-post-content">
 
-  {% comment %}
-    Content Header
-  {% endcomment %}
-  <header class="content__header">
+  <header>
     <h1>
-      <a href="{{ site.baseurl }}{{ post.url }}">
-        {{ page.title }}
-      </a>
+      {{ page.title }}
     </h1>
 
-    {% if page.tags %}
-      <p>
-        <span>
-          Posted on
+    <p>
+      <span>
+        Posted on
+        <a href="{{ site.baseurl | append: page.url }}">
           <time>
             {{ page.date | date: "%b %-d, %Y" }}
           </time>
-        </span>
+        </a>
+      </span>
 
-        &nbsp; · &nbsp;
+      &nbsp; · &nbsp;
 
+      {% if page.tags %}
         <span>
           Tagged in
           {% for tag in page.tags %}
@@ -32,14 +29,10 @@
             {% endif %}
           {% endfor %}
         </span>
-      </p>
-    {% endif %}
+      {% endif %}
+    </p>
   </header>
 
-
-  {% comment %}
-    Content Body
-  {% endcomment %}
   {{ content }}
 
 </article>
