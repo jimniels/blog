@@ -12,7 +12,6 @@ Here’s just one quote I enjoyed from his talk:
 
 > When you look at programming languages, you really should look at: what are they for? There’s no inherent goodness to programming languages. Only suitability constraints. 
 
-
 ## Article: [I’ve seen the future, it’s full of HTML.](https://medium.com/@mikeal/ive-seen-the-future-it-s-full-of-html-2577246f2210)
 
 My feelings precisely:
