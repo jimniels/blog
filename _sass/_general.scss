@@ -125,3 +125,22 @@ a {
 .font-weight-normal {
   font-weight: normal;
 }
+
+
+#posts > ul {
+  list-stype: none;
+  padding-left: 0;
+
+  > li {
+    display: flex;
+
+    > :first-child {
+      order: 2;
+    }
+
+    > :last-child {
+      order: 1;
+      min-width: 100px;
+    }
+  }
+}
