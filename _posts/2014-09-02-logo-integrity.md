@@ -2,8 +2,11 @@
 title: Logo Integrity Brought into Focus
 date: 2014-09-02
 tags: designProcess engineering
-summary: 'An analysis of my experiment (<a href="http://jim-nielsen.com/logo-integrity">http://jim-nielsen.com/logo-integrity</a>) in testing iconic logos and their visual integrity against a gaussian blur. Additionally, a technical behind-the-scenes breakdown of how I built the experiment.'
 redirect_from: /posts/logo-integrity/
+---
+
+**tldr;** An analysis of my experiment (<a href="http://jim-nielsen.com/logo-integrity">http://jim-nielsen.com/logo-integrity</a>) in testing iconic logos and their visual integrity against a gaussian blur. Additionally, a technical behind-the-scenes breakdown of how I built the experiment.
+
 ---
 
 I was reading Paul Rand’s *A Designers Art* and stumbled across this quote:
