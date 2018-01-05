@@ -6,7 +6,7 @@ tags: readingNotes
 
 ## Song Lyrics: ["No Phone"](https://www.youtube.com/watch?v=I93XzY8nRso) by Cake
 
-Just happened to be listening to some Cake the other day and the song [“No Phone](https://www.youtube.com/watch?v=I93XzY8nRso”) came on. To be honest, I kind of sat marveling that this song was written in 2003, way before smartphones came along. Seems incredibly prescient. Here’s some lyrical excerpts:
+Just happened to be listening to some Cake the other day and the song [“No Phone”](https://www.youtube.com/watch?v=I93XzY8nRso”) came on. To be honest, I kind of sat marveling that this song was written in 2003, way before smartphones came along. Seems incredibly prescient. Here’s some lyrical excerpts:
 
 > No phone No phone I just want to be alone today  
 > ...   
