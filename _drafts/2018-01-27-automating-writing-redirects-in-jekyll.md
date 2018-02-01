@@ -1,71 +1,82 @@
 ---
-title: Automated Batch Redirects in Jekyll
+title: URL Design and Writing Thousands of Redirects in Jekyll
 date: 2018-01-27
 tags: engineering
 ---
 
 ## The Problem: Poor URL Design
 
-Confession: when I initially setup my [icon](http://iosicongallery.com/) [gallery](http://macosicongallery.com/) [sites](http://watchosicongallery.com/), I did’t really know what I was doing. I knew I had to have URLs for each icon. So I basically just copied what I saw lots of other blogs doing those days, I picked a URL structure which followed this pattern:
+Confession: when I initially setup my [icon](http://iosicongallery.com/) [gallery](http://macosicongallery.com/) [sites](http://watchosicongallery.com/), I did’t really know what I was doing. I knew I had to have URLs for each icon. So I copied what I saw lots of other people doing those days with their blogs: I designed my URL structure like so:
 
 `/:category/:slug/`
 
-Which, for example, resulted in a URL like this:
+Which resulted in URLs like this:
 
 `/social-networking/facebook/`
 
-Then, at a later point in time, (I believe it coincided with the point in time at which I switched my blog from running dynamically on Wordpress to running on the static site generator Jekyll) I changed my URL structure to this new pattern:
+Then at a later point in time, which I believe coincided with the my switch of the underlying technology powering the site (from Wordpress to Jekyll), I changed my URL structure again to this new pattern:
 
 `/:year/:slug`
 
-Which resulted in URLs that looked like this:
+Which resulted in URLs like this:
 
 `/2015/facebook`
 
-I think one of my lines of reasoning (at the time) was that categories 1) weren’t that important to the information architecture of the site itself and 2) were subject to change by Apple (Apple uses IDs in their API for categories, therefore they can easily change the name of a category from say "Social Networking" to "Social Networks"). After having posted icons for a couple years, I also found myself occasionally posting multiple icons for the same application. For example, Twitter had one icon in 2012, but with the popularization of “flat design”, they changed its design in 2014 and I had both icons in my gallery. So at the time I concluded that the date the icon was posted had at least some kind of meaning in the information architecture of my site. I *believe* that’s why I decided to put the year in the URL. I probably thought “there’s no way I’ll ever need to post an icon from an app more than once a year”. I don’t know if I actually thought that, but if I did, I wasn’t very ~~smart~~ experienced.
+At the time, I believe part of my reasoning for the change was related to my poor choice of including the application category in the icon’s URL.
 
-I’m foreshadowing here but that decision came back to haunt me because the URL structure dictated I could only post one icon per app per year. For example, if I posted the icon for [Tweetbot](https://tapbots.com/tweetbot/) in, say, January of 2017, the URL to that post would look like this:
+1. Categories weren’t that important to the information architecture of the site
+2. Categories were subject to change by Apple (Apple uses IDs in their API for categories, therefore they can easily change the name of a category from say “Social Networking” to “Social Networks” without a change to the underlying category ID).
+
+Furthermore, after having posted icons for a couple years, I found myself in the situation where I was posting multiple icons for the same application. For example, Twitter had one icon in 2012 that I posted to my gallery. Then, with the popularization of “flat design”, Twitter changed their app’s icon in 2014 and I wanted to also post that icon to my gallery. But I already had an icon posted at `/social-networking/twitter`. This led me to concluded that the date the icon was posted to the gallery had some kind of meaning in the information architecture of my site. Looking back, I *believe* that’s why I decided to change the URL structure to be date-based (`/:year/:slug`). At the time, I probably thought “there’s no way I’ll ever need to post an icon from an app more than once a year”. I don’t know if I actually thought that, but if I did, I wasn’t very ~~smart~~ experienced.
+
+I’m foreshadowing here, but this decision came back to haunt me because this particular URL design dictated that I could only post one icon per app per year. For example, if I posted the icon for [Tweetbot](https://tapbots.com/tweetbot/) in, say, January of 2017, the URL to that post would look like this:
 
 `/2017/tweetbot`
 
-Then, if Tweetbot released a new icon in, say, October of 2017, my URLs would clash. The only way to post an icon for the same app would be to:
+Then, if Tweetbot released a new icon in, say, October of 2017, and I wanted to post it to my site, I would have two icon posts competing for the url `/2017/tweetbot`. The only way to get around this limitation would be:
 
-1. Wait until the next year (which is obviously a ridiculous limitation)
+1. Wait until the next year to post the icon (which is obviously a ridiculous limitation)
 2. Give the icon a new, unique slug (something that really shows I know how to use computers, like `/2017/tweetbot-2`)
 
-This wasn’t an issue I ran into all the time, but I did run into it on occasion. So I decided to finally do something about it and change all my URLs so that I could post any icon at any point in time.
+This wasn’t an issue I ran into all the time, but I did run into it frequently enough for it to irritate me. So I decided to finally do something about it and change all my URLs so that I could post any icon at any point in time.
 
-## The Solution: Better URL Design
+## The Solution: More Thoughtful URL Design
 
-I began thinking about what I wanted my new URLs to look like.
+I began by thinking about what I wanted my new URLs to look like. At first I thought about using just a seemingly cryptic ID of some kind, like `/192810394`, because then I’d never have to change URLs again (as my IDs would never change). But there were two problems with that approach:
 
-At first I thought about using just a seemingly cryptic ID of some kind, like `/2817ad039a`. However, my site was run on Jekyll which doesn’t support automatically generating unique IDs on a per post basis (at the time of writing this blog post, the only way to accomplish that would be to go back into every post and add some kind of unique ID in the yaml front matter for every single post).
+1. I liked the idea of having URLs that conveyed meaning to human beings. `iosicongallery.com/192810394` means nothing to a human other than “looks like content of some kind lives at that URL”.
+2. My site was powered by Jekyll which doesn’t support automatically generating unique, immutable IDs on a per post basis (at the time of writing this blog post, the only way to accomplish something like this would be to go back into every post by hand and add some kind of unique ID in the YAML front matter for every single post).
 
-I decided to work within the constraints of the [jekyll permalinks](https://jekyllrb.com/docs/permalinks/) and what they provided. I knew the slug alone (i.e. `angry-birds`) wasn’t going to be enough as a unique identifier for a post. I needed to also bring in the date as meaningful identifier for representing a icon in the gallery.
+I decided to work within the constraints of what was provided by [jekyll permalinks](https://jekyllrb.com/docs/permalinks/). I knew the post’s slug alone (i.e. `angry-birds`) wouldn’t be enough to serve as a unique identifier. I needed to additionally use the post’s date as meaningful identifier for representing an icon in the gallery.
 
-At first I thought about keeping the same format I’d had on the site, just with an extended date to help alleviate myself of any potential issues with URL collision, i.e.
+At first I thought about keeping the same format I’d had on the site (i.e. `/:year/:slug`), just with an extended date to help alleviate myself of any potential issues with URL collision. For example:
 
 `iosicongallery.com/2017-07-11/logic-remote`
 
-But at the end of the day, I did’t want to support index listings at the date level. For example, under the format above, if the user hit `/2017-07-11/` a semantically-responsible site would return all posts from that date. I didn’t want to support this kind of querying via URLs. Plus, writing that kind of static file structure wasn’t even something Jekyll supported anyway.
+But at the end of the day, I did’t want to support index listings at the date level. For example, under the format above, if the user hit `.../2017-07-11/` a semantically-responsible site would return all posts from that date. I didn’t want to support this kind of querying via URLs. Plus, writing that kind of static file structure wasn’t even something Jekyll supported anyway.
 
-So I decided a good URL structure would be to merely have all individual posts live directly off the root, identified solely by a unique ID consisting of a combination of the date and the app’s slug. This led me to try `date-slug` and `slug-date` with a few variations in between:
+So I decided a good URL structure would be to have all individual posts live directly off the root, identified solely by a unique ID consisting of a combination of the post date and the app’s slug. This led me to try a few variations of `date-slug` and `slug-date`:
 
 - `iosicongallery.com/2017-07-11-logic-remote`
 - `iosicongallery.com/logic-remote-2017-07-11`
 
-Here I decided I liked the slug reading first before the date as I figured identifying the app’s name made sense before identifying the post date of the app’s icon. So I made sure to have all subsequent contenders following that pattern. For what it’s worth, I basically did what you’re seeing me do here which is write out all possible options in a single text file and then compare them, weeding out possible contenders based on how they made me feel or what logical arguments around URL design they brought to mind.
+In the above examples, I liked the left-to-right reading that identified the post’s slug first and date second. Thus I made sure to do all subsequent URL variation contenders following that pattern. 
 
-Anyway, I knew I wanted the pattern `slug-date`. Now I just had to figure out what format I wanted my dates to take.
+(Side note: for what it’s worth, I basically did what you’re seeing me do here which is write out all possible options in a single text file and then compare them, weeding out possible contenders based on how they made me feel or what logical arguments my brain came up with around URL design.)
+
+Anyway, I knew I wanted a pattern that read slug first, date second. Now I just had to figure out what format I wanted my dates to take.
 
 - `iosicongallery.com/logic-remote-2017-07-11`
 - `iosicongallery.com/logic-remote-17-07-11`
+
+I didn’t like how the dates read when separated by hyphens in combination with the application slug. It made the URL read very long while also making the slug  feel like it had equal weight with the date. So I tried this:
+
 - `iosicongallery.com/logic-remote-20170711`
 - `iosicongallery.com/logic-remote-170711`
 
-I didn’t like how the dates read when separated by hyphens in combination with the application slug. It made the URL read very long while also making the slug  feel like it had equal weight with the date. Whereas indicating the date as a single unit with no hyphens felt like it gave a better division to the slug/date separation, which (granted in my mind only perhaps) made the URL read a little more human friendly, i.e. “name-of-the-thing” followed by “computer  stuff”. In my mind, it was almost like the date was designed to be put there as a kind of “this is one of those computer ID things” but if you looked closer you could discern it was a date. This felt like the right balance in terms of a human brain parsing the URL and the computer needing unique IDs per post. The date reads more inconsequential than the slug yet still parseable. It’s still readable, but not on the same level of “read this” as the hyphenated slug, it’s morel like “hey it’s there if you need it”
+Indicating the date as a single unit of text with no dividing hyphens felt like a more natural division (yet simultaneously unification) of information. To me, this made the URL more parseable and readable as a human being. The date part of the URL feels like “this exists as one of those computer ID things”. However, if you looked closer you can discern the information encoded within: a date. This felt like the right balance in terms of a human brain parsing the URL and the computer needing unique IDs on a post-by-post basis. The date reads more inconsequential than the slug yet it remains parseable by humans. It’s readable, but not on the same level of readability as the hyphenated slug. The more relevant information to the casual human parsing the link stands out (the slug) while the date fades into the background yet remains discernible. The more familiar you become with the site, the more easily you’d recognize this  pattern in the URLs, which really is the only point in time I think that piece of information starts becoming important to you. This made it feel like the right design.
 
-So I weighed these last two options:
+With that justification in mind, I weighed my last two options:
 
 - `iosicongallery.com/logic-remote-20170711`
 - `iosicongallery.com/logic-remote-170711`
@@ -73,15 +84,15 @@ So I weighed these last two options:
 Excluding the year prefix makes the date a little more cryptic as you almost just intake the number. I liked the idea of keeping the “20” prefix for two reason:
 
 1. It was more discernible and discoverable as a date by humans.
-2. My posts would be unique for the next thousands of years and not just till the end of the current century. Granted that’s a little ridiculous and hard to justify, but more and more I like to think of [the long game of the web](https://adactio.com/articles/1522). I’d like to think in the year 2156 you could still browse this site :)
+2. My posts would be unique for the next thousands of years and not just till the end of the current century. Granted that’s a little ridiculous and hard to justify, but more and more I like to think of [the long game of the web](https://adactio.com/articles/1522). I’d like to think in the year 2156 you could still post and browse the site :)
 
-After coming to a conclusion about what I felt was best, I let it sit for a few days. Not thinking about it and forgetting all my reasoning around it, then coming back to it is one of my favorite problem solving tricks. Then I have fresh eyes and my immediate gut reaction lets me know if i’ve arrived at a good decision. When I came back after a few days, my gut was still wavering between two choices, so I waited a few more days. Then when I came back again I finally arrived at a decision I felt good about:
+After coming to a conclusion about what I felt was best, I let it sit for a few days. I stopped thinking about my decision and forgot all my reasoning around it. Then, after probably a week or so, I came back to my decision with fresh eyes (FWIW: this is one of my favorite problem solving techniques). Coming back with fresh eyes and a mind disassociated from the problem allows me to have a more impactful gut reaction to know if I’ve arrived at a good decision. When I came back after a few days, my gut felt I’d made a good decision. So I stuck with this format:
 
 `iosicongallery.com/logic-remote-20170711`
 
-I like this format because the human friendly slug touches the right balance with the slightly obscured yet still discernible date. These two pieces of information make up entirely what constitutes an icon in the gallery: what the app is and when the icon was posted. I knew I’d never post the same application icon on the same day, so this was enough to make each post unique while I also felt I finally struck the right balance in the readability of the information encoded in the URL.
+I liked this format because the human friendly slug touches the right balance with the slightly obscured yet still discernible date. It was a good balance in readability between the two pieces of the information encoded in the URL: 1) the name of the app and 2) the date the icon was posted. I knew I’d never post the same application icon on the same day, so this design choice was enough to ensure every post going forward would be unique.
 
-I know, it sounds like a lot of fretting over nothing, but I really wanted to get the URLs right because I don’t ever want to redo them again. As a recovering link rot perpetrator, I try to do everything I can these days to preserve my URLs for time and all eternity. Which leads me to the second part of this post: how I automated writing over a thousand redirects into static Jekyll markdown posts.
+I know, this all sounds like a lot of fretting over minutia, but I really wanted to get the URLs right because I don’t ever want to redo them again. As a recovering perpetrator of link rot, I try to do everything I can these days to preserve my URLs for time and all eternity. Which leads me to the second part of this post: how I automated writing over a thousand redirects into static Jekyll markdown posts.
 
 ## The How: Writing Lots of Redirects for Jekyll Posts
 
@@ -108,7 +119,7 @@ Some quick pseudo code illustrated that I needed some kind of custom automation 
 
 Some of my posts already had a `redirect_from` value in the front-matter (which was in the form of a single value). For these posts, I would now need multiple values representing multiple redirects. For example:
 
-```
+```yaml
 # 2011-01-12-angry-birds.md
 
 # Exisiting `redirect_from` value:
@@ -122,7 +133,7 @@ redirect_from:
 
 For posts that didn’t yet have a `redirect_from` value, I could just add it to the post:
 
-```
+```yaml
 # 2017-02-03-tweetbot.md
 
 # Desired `redirect_from` value:
