@@ -1,39 +1,39 @@
 ---
-title: URL Design and Writing Thousands of Redirects in Jekyll
-date: 2018-01-27
+title: URL Design and Automated Redirects in Jekyll
+date: 2018-02-23
 tags: engineering
 ---
 
 ## The Problem: Poor URL Design
 
-Confession: when I initially setup my [icon](http://iosicongallery.com/) [gallery](http://macosicongallery.com/) [sites](http://watchosicongallery.com/), I did’t really know what I was doing. I knew I had to have URLs for each icon. So I copied what I saw lots of other people doing those days with their blogs: I designed my URL structure like so:
+Confession: when I initially setup my [icon](http://iosicongallery.com/) [gallery](http://macosicongallery.com/) [sites](http://watchosicongallery.com/), I did’t really know what I was doing. I knew I had to have URLs for each icon, so I merely copied what I saw lots of other blogs doing those days. I setup my URL structure like so:
 
 `/:category/:slug/`
 
-Which resulted in URLs like this:
+Which, for an app’s icon, resulted in URLs like this:
 
 `/social-networking/facebook/`
 
-Then at a later point in time, which I believe coincided with the my switch of the underlying technology powering the site (from Wordpress to Jekyll), I changed my URL structure again to this new pattern:
+At a later point in time (which I believe coincided me switching the underlying technology powering the site—from Wordpress to Jekyll) I changed my URL structure to this new pattern:
 
 `/:year/:slug`
 
-Which resulted in URLs like this:
+Which, for an app’s icon, resulted in URLs like this:
 
 `/2015/facebook`
 
-At the time, I believe part of my reasoning for the change was related to my poor choice of including the application category in the icon’s URL.
+At the time, I think part of my reasoning for these changes stemmed from my original (poor) choice to include the app’s category in the post URL.
 
 1. Categories weren’t that important to the information architecture of the site
 2. Categories were subject to change by Apple (Apple uses IDs in their API for categories, therefore they can easily change the name of a category from say “Social Networking” to “Social Networks” without a change to the underlying category ID).
 
-Furthermore, after having posted icons for a couple years, I found myself in the situation where I was posting multiple icons for the same application. For example, Twitter had one icon in 2012 that I posted to my gallery. Then, with the popularization of “flat design”, Twitter changed their app’s icon in 2014 and I wanted to also post that icon to my gallery. But I already had an icon posted at `/social-networking/twitter`. This led me to concluded that the date the icon was posted to the gallery had some kind of meaning in the information architecture of my site. Looking back, I *believe* that’s why I decided to change the URL structure to be date-based (`/:year/:slug`). At the time, I probably thought “there’s no way I’ll ever need to post an icon from an app more than once a year”. I don’t know if I actually thought that, but if I did, I wasn’t very ~~smart~~ experienced.
+Furthermore, after having posted icons for a couple years, I found myself in the situation where I was posting multiple icons for the same application. For example, Twitter had one icon in 2012 that I posted to my gallery. Then, with the popularization of “flat design”, Twitter changed their app’s icon in 2014 and I wanted to also post that icon to my gallery. But I already had an icon posted at `/social-networking/twitter`. This taught me that the date the icon was posted to the gallery had meaning in the information architecture of my site. Looking back, I *believe* that’s why I decided to change the URL structure to be inclusive of date (`/:year/:slug`). At the time, I probably thought “there’s no way I’ll ever need to post an icon from an app more than once a year”. I don’t know if I actually thought that, but if I did, I wasn’t very ~~smart~~ experienced.
 
 I’m foreshadowing here, but this decision came back to haunt me because this particular URL design dictated that I could only post one icon per app per year. For example, if I posted the icon for [Tweetbot](https://tapbots.com/tweetbot/) in, say, January of 2017, the URL to that post would look like this:
 
 `/2017/tweetbot`
 
-Then, if Tweetbot released a new icon in, say, October of 2017, and I wanted to post it to my site, I would have two icon posts competing for the url `/2017/tweetbot`. The only way to get around this limitation would be:
+Then, if Tweetbot released a new icon in, say, October of 2017 and I wanted to post it to my site, I would have two icon posts competing for the url `/2017/tweetbot`. The only way to get around this limitation would be:
 
 1. Wait until the next year to post the icon (which is obviously a ridiculous limitation)
 2. Give the icon a new, unique slug (something that really shows I know how to use computers, like `/2017/tweetbot-2`)
@@ -45,7 +45,7 @@ This wasn’t an issue I ran into all the time, but I did run into it frequently
 I began by thinking about what I wanted my new URLs to look like. At first I thought about using just a seemingly cryptic ID of some kind, like `/192810394`, because then I’d never have to change URLs again (as my IDs would never change). But there were two problems with that approach:
 
 1. I liked the idea of having URLs that conveyed meaning to human beings. `iosicongallery.com/192810394` means nothing to a human other than “looks like content of some kind lives at that URL”.
-2. My site was powered by Jekyll which doesn’t support automatically generating unique, immutable IDs on a per post basis (at the time of writing this blog post, the only way to accomplish something like this would be to go back into every post by hand and add some kind of unique ID in the YAML front matter for every single post).
+2. My site was powered by Jekyll which doesn’t support automatically generating unique, immutable IDs on a per-post basis. At the time of writing this blog post, Jekyll doesn’t do that out of the box. You’d have to manually assign an ID to each post in the YAML front matter. Alternatively, you could conceivably create a URL for each post that looks like an ID by doing permalinks based on the post date, i.e. `/:year:month:day:hour:minute:second`. That would not have worked for me, however, because all my posts dating back 5+ years only have date precision down to the day. So, if I had three or four posts from the same day, it would result in a URL collision, i.e. `/20170114` for three different posts all posted on January 14, 2017.
 
 I decided to work within the constraints of what was provided by [jekyll permalinks](https://jekyllrb.com/docs/permalinks/). I knew the post’s slug alone (i.e. `angry-birds`) wouldn’t be enough to serve as a unique identifier. I needed to additionally use the post’s date as meaningful identifier for representing an icon in the gallery.
 
