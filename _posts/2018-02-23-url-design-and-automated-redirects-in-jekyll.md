@@ -45,22 +45,22 @@ This wasn’t an issue I ran into all the time, but I did run into it frequently
 I began by thinking about what I wanted my new URLs to look like. At first I thought about using just a seemingly cryptic ID of some kind, like `/192810394`, because then I’d never have to change URLs again (as my IDs would never change). But there were two problems with that approach:
 
 1. I liked the idea of having URLs that conveyed meaning to human beings. `iosicongallery.com/192810394` means nothing to a human other than “looks like content of some kind lives at that URL”.
-2. My site was powered by Jekyll which doesn’t support automatically generating unique, immutable IDs on a per-post basis. At the time of writing this blog post, Jekyll doesn’t do that out of the box. You’d have to manually assign an ID to each post in the YAML front matter. Alternatively, you could conceivably create a URL for each post that looks like an ID by doing permalinks based on the post date, i.e. `/:year:month:day:hour:minute:second`. That would not have worked for me, however, because all my posts dating back 5+ years only have date precision down to the day. So, if I had three or four posts from the same day, it would result in a URL collision, i.e. `/20170114` for three different posts all posted on January 14, 2017.
+2. My site was powered by Jekyll which doesn’t support automatically generating unique, immutable IDs on a per-post basis. At the time of writing this blog post, Jekyll doesn’t do that out of the box. You’d have to manually assign an ID to each post in the YAML front matter. Alternatively, you could conceivably create a URL for each post that looks like an ID by doing permalinks based on the post date, i.e. `/:year:month:day:hour:minute:second`. That would not have worked for me, however, because all my posts dating back 5+ years only have date precision down to the day. If I followed a permalink format like that, I’d get URL collisions for any posts from the same day. For example, three different posts from January 14, 2017, for me would result in `/20170114000000` (as I didn’t set hours, minutes or seconds for previous posts).
 
-I decided to work within the constraints of what was provided by [jekyll permalinks](https://jekyllrb.com/docs/permalinks/). I knew the post’s slug alone (i.e. `angry-birds`) wouldn’t be enough to serve as a unique identifier. I needed to additionally use the post’s date as meaningful identifier for representing an icon in the gallery.
+I decided to work within the constraints of what was provided by [jekyll permalinks](https://jekyllrb.com/docs/permalinks/). A post’s slug (i.e. `angry-birds`) on its own wouldn’t be enough to serve as a unique identifier. I realized the post’s *full* date was the extra piece of information I needed to provide a meaningful and unique identifier for all icons in my galleries.
 
-At first I thought about keeping the same format I’d had on the site (i.e. `/:year/:slug`), just with an extended date to help alleviate myself of any potential issues with URL collision. For example:
+At first I thought about keeping the same date format I already had in my sites’ URLs (i.e. `/:year/:slug`). I would just need to use the fully-qualified date to help alleviate myself of any potential issues with URL collision. For example:
 
 `iosicongallery.com/2017-07-11/logic-remote`
 
 But at the end of the day, I did’t want to support index listings at the date level. For example, under the format above, if the user hit `.../2017-07-11/` a semantically-responsible site would return all posts from that date. I didn’t want to support this kind of querying via URLs. Plus, writing that kind of static file structure wasn’t even something Jekyll supported anyway.
 
-So I decided a good URL structure would be to have all individual posts live directly off the root, identified solely by a unique ID consisting of a combination of the post date and the app’s slug. This led me to try a few variations of `date-slug` and `slug-date`:
+So I decided a good URL structure would be to have all posts live directly off the root, identified solely by a unique ID consisting of a combination of the post date and the app’s slug. This led me to try a few variations of `/:date-:slug` and `/:slug-:date`:
 
 - `iosicongallery.com/2017-07-11-logic-remote`
 - `iosicongallery.com/logic-remote-2017-07-11`
 
-In the above examples, I liked the left-to-right reading that identified the post’s slug first and date second. Thus I made sure to do all subsequent URL variation contenders following that pattern. 
+In the above examples, I liked the left-to-right reading that identified the post’s slug first and date second, as the name of the app was the piece of information that would resonate with humans most. So, going down that path, I made sure all subsequent contenders for a new URL format follow that pattern. 
 
 (Side note: for what it’s worth, I basically did what you’re seeing me do here which is write out all possible options in a single text file and then compare them, weeding out possible contenders based on how they made me feel or what logical arguments my brain came up with around URL design.)
 
@@ -74,7 +74,7 @@ I didn’t like how the dates read when separated by hyphens in combination with
 - `iosicongallery.com/logic-remote-20170711`
 - `iosicongallery.com/logic-remote-170711`
 
-Indicating the date as a single unit of text with no dividing hyphens felt like a more natural division (yet simultaneously unification) of information. To me, this made the URL more parseable and readable as a human being. The date part of the URL feels like “this exists as one of those computer ID things”. However, if you looked closer you can discern the information encoded within: a date. This felt like the right balance in terms of a human brain parsing the URL and the computer needing unique IDs on a post-by-post basis. The date reads more inconsequential than the slug yet it remains parseable by humans. It’s readable, but not on the same level of readability as the hyphenated slug. The more relevant information to the casual human parsing the link stands out (the slug) while the date fades into the background yet remains discernible. The more familiar you become with the site, the more easily you’d recognize this  pattern in the URLs, which really is the only point in time I think that piece of information starts becoming important to you. This made it feel like the right design.
+Indicating the date as a single unit of text with no dividing hyphens felt like a more natural division (yet simultaneously a unification) of information. To me, this made the URL more parseable and readable as a human being. The date part of the URL feels like “this exists as one of those computer ID things”. However, if you looked closer you can discern the information encoded within: a date. This felt like the right balance in terms of a human brain parsing the URL and the computer needing unique IDs on a post-by-post basis. The date reads more inconsequential than the slug yet it remains parseable by humans. It’s readable, but not on the same level of readability as the hyphenated slug. The more relevant information to the casual human parsing the link is the slug and it stands out over the date which fades into the background (yet remains discernible). The more familiar you become with the site, the more easily you’d recognize this  pattern in the URLs, which really is the only point in time I think that piece of information starts becoming important to you. This made it feel like the right design.
 
 With that justification in mind, I weighed my last two options:
 
@@ -96,9 +96,9 @@ I know, this all sounds like a lot of fretting over minutia, but I really wanted
 
 ## The How: Writing Lots of Redirects for Jekyll Posts
 
-In order to prevent link rot, I vowed to setup proper redirects for all my existing posts. The constraints of my site dictated I use Jekyll for doing redirects, as I didn’t have a server-side aspect to the site where I could do some kind of pattern-matching redirects. Instead, my sole option was [jekyll-redirect-from](https://github.com/jekyll/jekyll-redirect-from) which is the official, Github pages supported option for creating redirects in Jekyll. jekyll-redirect-from works by creating “an HTML file with an HTTP-REFRESH meta tag which points to your destination”.
+In order to prevent link rot, I vowed to setup proper redirects for all my existing posts. The constraints of my site dictated I use Jekyll for doing redirects, as I didn’t have a server-side aspect to the site where I could do some kind of pattern-matching redirects. Instead, my sole option was [`jekyll-redirect-from`](https://github.com/jekyll/jekyll-redirect-from) which is the official, Github pages supported option for creating redirects in Jekyll. `jekyll-redirect-from` works by creating “an HTML file with an HTTP-REFRESH meta tag which points to your destination”.
 
-I was actually already using jekyll-redirect-from in my site from the last time I changed the URLs. Many of my posts from 2012 and 2013 were initially hosted on the web at URLs following a pattern of `/:category/:slug`. When I changed to `/:year/:slug` I had to create redirects for those posts. So some of my posts were already leveraging `redirect_from` in their YAML front-matter, i.e.
+I was actually already using `jekyll-redirect-from` in my site from the last time I changed the URLs. Many of my posts from 2012 and 2013 were initially hosted on the web at URLs following a pattern of `/:category/:slug`. When I changed to `/:year/:slug` I had to create redirects for those posts. So some of my posts were already leveraging `redirect_from` in their YAML front-matter, i.e.
 
 ```yaml
 title: Angry Birds
@@ -111,9 +111,7 @@ Since I decided to change my URLs from their current structure of `/:year/:slug`
 
 ### What I Needed Done
 
-At first (perhaps naively) I thought I could leverage a find/replace regex through my editor to add a `redirect_from` to each posts’ front-matter, but I quickly realized the changes I needed to make were more significant. 
-
-Some quick pseudo code illustrated that I needed some kind of custom automation script to loop through every post and do a couple things for each one.
+At first (perhaps naively) I thought I could leverage a find/replace regex through my editor to add a `redirect_from` to each posts’ front-matter, but I quickly realized the changes I needed to make were more significant. Some quick pseudo code illustrated that I needed some kind of custom automation script to loop through every post and do a couple things for each one.
 
 #### Redirects
 
@@ -143,13 +141,13 @@ redirect_from:
 
 So essentially I needed my script to detect: does this already have a `redirect_from` value? If so, turn it into an array of values and add the new redirect to it. Otherwise, just add a new `redirect_from` value with the new redirect (as an array, in case we ever need to add more in the future).
 
-I had to read through each post file line by line, because I didn’t have any assurances about where in the file a `redirect_from` value might be found. It could be the first piece of metadata in the file, the last, or somewhere in between. Thus, my script read through each post line by line and when it found a `redirect_from`, it stored it in memory and rewrote it at the very end of the YAML front-matter. If no `redirect_from` value was found, then I wrote the new redirect at the end.
+My scripts needed to read through each post file line by line, because I didn’t have any assurances about where in the file a `redirect_from` value might be found. It could be the first piece of metadata in the file, the last, or somewhere in between. Thus, my script read through each post line by line and when it found a `redirect_from`, it stored it in memory and rewrote it at the very end of the YAML front-matter. If no `redirect_from` value was found, then I wrote the new redirect at the end.
 
 #### Icon Images
 
 Each post had corresponding icons image files matching their URL (i.e. a `slug-date.png` pattern resulted in an icon image like `angry-birds-2017.png`) which meant I was running into the same naming collision problem with the URLs over time. To fix this, I needed my pattern for naming icons image files for a post to match the URL.
 
-Because I my automation script was already looping through each post, I had each posts’ metadata available to me. This allowed me to put together all the pieces of information from the post which I needed for the new filename pattern I decided on: `:slug-:year-:month-:day.png`. Additionally, I had various sizes for each icon in a respective folder, so I had to do a rename for all icon sizes, i.e.
+Because my automated script was already looping through each post, I had each posts’ metadata available to me. This allowed me to put together all the pieces of information from the post which I needed for the new filename pattern I decided on: `:slug-:year-:month-:day.png`. Additionally, I had various sizes for each icon in a respective folder, so I had to do a rename for all icon sizes, i.e.
 
 - `icons/512/facebook-2017.png` -> `icons/512/facebook-02-24-2017.png`
 - `icons/256/facebook-2017.png` -> `icons/256/facebook-02-24-2017.png`
@@ -237,7 +235,7 @@ fs.readdirSync(postsDir)
 
 ## The End
 
-Well, I think that’s about all I have to say on this matter. I ran my script on all three of my gallery sites and it worked perfect on each one. Fortunately, git made this process easy, as I could run my script as many times as I wanted. Each time through it would manipulate files and then I could preview the differences using git. If something wasn’t as I expected, I could just re-checkout every file in git (`git checkout -- .`), modify my script, and then try running it again. I did this however many times it took until it was rewriting my files as I expected. Using git like this made the whole process incredibly easy. In the old days before git, I could’ve seen myself doing a copy/paste of my entire project, running the node script on the file copies, and if the changes went awry, deleting the copied files and then trying again. It would’ve been a lot of copy pasting. And even when I though the script was running perfectly, I would’ve still created a copy of the original project and stored it somewhere just in case when I deployed the changes via FTP and found something wrong, I’d still have a backup. So what I learned from this process is:
+I ran my script on all three of my gallery sites and it worked perfect on each one (granted not the first time). Git made this process *extremely* easy, as I could run my script as many times as I wanted. Each time through it would manipulate files and then I could preview the differences using Git. If something wasn’t as I expected, I could just re-checkout every file in Git (`git checkout -- .`), modify my script, and then try running it again. I did this however many times it took until it was rewriting my files as I expected. Using Git like this made the whole process incredibly easy. In the old days before Git, I could’ve seen myself doing a copy/paste of my entire project, running the node script on the file copies, and if the changes went awry, deleting the copied files and then trying again. It would’ve been a lot of copy pasting. And even when I though the script was running perfectly, I would’ve still created a copy of the original project and stored it somewhere just in case when I deployed the changes via FTP and found something wrong, I’d still have a backup. So what I learned from this process is:
 
 1. Git is awesome.
 2. URLs are UI and should be [thoughtfully designed](https://www.w3.org/Provider/Style/URI) at the beginning of a project.
