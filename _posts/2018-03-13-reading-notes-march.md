@@ -4,7 +4,7 @@ date: 2018-03-13
 tags: readingNotes
 ---
 
-## Article: [“The Loveliest Living Fossil”](https://www.typography.com/blog/the-loveliest-living-fossil)
+## Article: [“The Loveliest Living Fossil”](https://www.typography.com/blog/the-loveliest-living-fossil) via typography.com
 
 A really interesting article that looks at the fluctuating meanings behind punctuations in typography:
 
@@ -60,7 +60,7 @@ He continues:
 
 If you start paying attention, you’ll notice how pervasive the metaphor of “human brain as a computer” is. In fact, I admit (somewhat ashamedly) that when my first son was born I was kind of in shock that during his nine months of development in the womb, there wasn’t some kind of bug that worked its way into his biological system (a weird nose, an immune deficiency, etc). Thousands of babies must be born everyday, most of them likely in “normal working order”. How is that possible? I can’t even ship a single piece of code without some underlying a bug. I suppose I’ve been spending *too* much time writing software.
 
-## Article: [“In Search of the Perfect Writing Font”](https://ia.net/topics/in-search-of-the-perfect-writing-font/) via IA
+## Article: [“In Search of the Perfect Writing Font”](https://ia.net/topics/in-search-of-the-perfect-writing-font/) via ia.net
 
 A well-articulated set of arguments for why the folks at IA ship their plain text editor with only a monospaced font:
 
@@ -78,7 +78,7 @@ And here’s the why behind exploring duospace:
 
 > The advantage over proportional fonts is that you keep all benefits of the monospace: the draft like look, the discernability of words and letters, and the right pace for writing. Meanwhile, you eliminate the downside stemming from mechanical restrictions that do not apply to screen fonts.
 
-## Article: [“Dying a Little in Computer Poetry”](https://ia.net/topics/computer-poetry/) via IA
+## Article: [“Dying a Little in Computer Poetry”](https://ia.net/topics/computer-poetry/) via ia.net
 
 Honesty, I’d like to see more blog posts like this. These kinds of observations (and their implications) get brushed over too frequently. In my opinion, the author is trivially breezing over a topic that could results in the ultimate regret at the end of his life:
 
@@ -92,7 +92,7 @@ Conclusion:
 
 > Just pay attention to not pour half your life into the digital void.
 
-## Article: [“Take the Power Back”](https://ia.net/topics/take-the-power-back/) via IA
+## Article: [“Take the Power Back”](https://ia.net/topics/take-the-power-back/) via ia.net
 
 Great analogy:
 
