@@ -1,4 +1,5 @@
 name: Jim Nielsen’s Blog
+repository: jimniels/blog
 baseurl: /blog
 imageurl: /blog/assets/img
 # imageurl: assets/img # for testing
