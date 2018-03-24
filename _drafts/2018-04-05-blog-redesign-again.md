@@ -33,9 +33,21 @@ This particular screenshot reflects the default theme the service applied to all
 
 **Circa March 2014**: I actually had this design for a while. I remember thinking it was pretty good. It was a “theme” I developed first when my blog was hosted on Scriptogram. When that service went down, there was this thing called “Jekyll + Github Pages” I decided to give a try. I remember it being relatively easy to transfer all my posts and the site’s theme from scriptogram (markdown posts in dropbox + static CSS theme) to jekyll (markdown posts and HTML/CSS in Github). I think I kept this design longer than others, but eventually the itch to redesign struck again (as it always does).
 
+![Screenshot of my blog in August of 2016]({{ site.imageurl }}/2018/blog-history-snapshot-2016-08-26.png)
 
-// @TODO more from github
+**Circa August 2016**: about this time, I began tracking [my “redesigns” as tagged releases in Github](https://github.com/jimniels/blog/releases). You could technically head over there to see them all, but I’ll continue posting the rest here for convenience sake. 
 
+This particular design came about because one day I was particularly enjoying the experience of navigating my blog and the `_posts/` directory of jekyll in my code editor and I thought “what if this was the experience on the actual website?” Before I could even think if it was a good idea, I was coding because I wanted to see if it could be done and what it would feel like. Shortly thereafter I published my new theme, but it didn’t last very long. To be honest, it was a decision made in the haste and excitement of something novel. But that’s ok, it’s my blog. I can do whatever I want.
+
+![Screenshot of my blog in April of 2017]({{ site.imageurl }}/2018/blog-history-snapshot-2017-04-06.png)
+
+**Circa April 2017**: in a similar vein to the impulse described above (blog theme emulating an IDE), this was a foray into treating a post’s typography as if it were a plain text file with markdown syntax. I took this one to the extreme of having everything in a single font size. It was interesting. I kind of liked it for a while. But the novelty wore off and I was quickly onto the next thing.
+
+![Screenshot of my blog in August of 2017]({{ site.imageurl }}/2018/blog-history-snapshot-2017-08-18.png)
+
+**Circa August 2018**: this was my most recent theme (before the new one you see today). It was the result of a more natural progression from the ones preceding it. It had a “dark theme” which was nice, but honestly I never used it. I thought about doing something fancy where I detect the time of the client and if it’s past like 10PM, automatically setting the theme as dark. But then I realized that I hate it when apps do that to me. If I want it dark, I’ll set it dark. So I removed that, though I wouldn’t be surprised if it makes it back someday.
+
+// TODO SCREENSHOT
 
 **March 2018** Ah yes, the redesign of 2018 where you wrote a blog post to go with the new design. What were you thinking back th...oh wait, this is my current design. I’m sure all my rationale (or rather impulse) for this design will be considered “silly” by Jim of 2020, but that’s ok. I’ve learned to live with myself.
 
