@@ -1,6 +1,6 @@
 ---
 title: Blog Redesign Over the Years Time Machine
-date: 2018-03-23
+date: 2018-04-02
 tags: design
 ---
 
@@ -47,7 +47,7 @@ This particular design came about because one day I was particularly enjoying th
 
 **Circa August 2018**: this was my most recent theme (before the new one you see today). It was the result of a more natural progression from the ones preceding it. It had a “dark theme” which was nice, but honestly I never used it. I thought about doing something fancy where I detect the time of the client and if it’s past like 10PM, automatically setting the theme as dark. But then I realized that I hate it when apps do that to me. If I want it dark, I’ll set it dark. So I removed that, though I wouldn’t be surprised if it makes it back someday.
 
-// TODO SCREENSHOT
+![Screenshot of my blog at the time of this writing (2018)]({{ site.imageurl }}/2018/blog-history-snapshot-present-2018.png)
 
 **March 2018** Ah yes, the redesign of 2018 where you wrote a blog post to go with the new design. What were you thinking back th...oh wait, this is my current design. I’m sure all my rationale (or rather impulse) for this design will be considered “silly” by Jim of 2020, but that’s ok. I’ve learned to live with myself.
 
