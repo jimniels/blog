@@ -1,5 +1,5 @@
 ---
-title: Blog Redesign Over the Years Time Machine
+title: Blog Redesign Over the Years
 date: 2018-04-02
 tags: design
 ---
