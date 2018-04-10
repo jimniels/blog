@@ -38,7 +38,7 @@ Traditionally, if you want to install a component to use in your app, you grab i
 }
 ```
 
-The way most people are doing this these days (note the date of this blog post, since we’re talking the JS ecosystem, this blog post could be out of date within 2 or 3 days of the published date on this piece) is that you write your project’s code in something like ES6/7 and keep it under source control in something like Github. Then when you want your library to become consumable by other people (and applications) you publish the code (transpiled to ES2015) to npm. This is fine if you are publishing code intended to be publicly available but what about proprietary code (like we have at Insight)? npm has [private accounts](https://www.npmjs.com/pricing) available, but those can become costly as they are on a per-user basis. In our situation, there are a variety of people (and applications) who need access to `my-insight-component`. There are the developers of the library. There are developers who consume the library in  other apps. There are CI servers who install the library to build apps. There are third-party contractors who...you get the point. Under our organizational model it can get pricey to setup an account for every single person who ends up needing to consume this library in some form.
+The way most people are doing this these days (note the date of this blog post, since we’re talking the JS ecosystem, this blog post could be out of date within 2 or 3 days of the published date on this piece) is that you write your project’s code in something like ES6/7 and keep it under source control in something like Github. Then when you want your library to become consumable by other people (and applications) you publish the code (transpiled to ES5) to npm. This is fine if you are publishing code intended to be publicly available but what about proprietary code (like we have at Insight)? npm has [private accounts](https://www.npmjs.com/pricing) available, but those can become costly as they are on a per-user basis. In our situation, there are a variety of people (and applications) who need access to `my-insight-component`. There are the developers of the library. There are developers who consume the library in  other apps. There are CI servers who install the library to build apps. There are third-party contractors who...you get the point. Under our organizational model it can get pricey to setup an account for every single person who ends up needing to consume this library in some form.
 
 Enter installing and building the library from Github.
 
@@ -56,12 +56,12 @@ npm has the ability to install code from Github. If you look at [the docs](https
 
 Again, there’s more details on this in [the docs](https://docs.npmjs.com/cli/install), but what’s neat for us at Insight is that we can use tags in git to enable npm to leverage semver when installing the code (note the `#` at the end of the above repo name). With the above reference, npm will basically clone the repo and now you your code from Github is in `node_modules`. 
 
-The problem is your code from Github is likely written in something like ES6/7 and your consuming app doesn’t want that. What you need is the ES2015 version of that code. So what is one to do?
+The problem is your code from Github is likely written in something like ES6/7 and your consuming app doesn’t want that. What you need is the ES5 version of that code. So what is one to do?
 
-What we at Insight *used* to do is we had a folder at the root of the repo named `dist/` which housed the built version of our source code (the ES6/7 code transpiled down to ES2015 along with some static assets, etc.). Less than ideal, but it worked. Our process for releasing the component as a consumable library looked something like this:
+What we at Insight *used* to do is we had a folder at the root of the repo named `dist/` which housed the built version of our source code (the ES6/7 code transpiled down to ES5 along with some static assets, etc.). Less than ideal, but it worked. Our process for releasing the component as a consumable library looked something like this:
 
 1. Commit some changes until we say “it’s good, let’s make a release”
-2. Run a build command (i.e. `npm run build`) producing the transpiled ES2015 code for consuming apps (plus any static assets, etc.)
+2. Run a build command (i.e. `npm run build`) producing the transpiled ES5 code for consuming apps (plus any static assets, etc.)
 3. Stick the build artifact in `dist/`
 4. Commit the file changes
 5. Tag a release in git
@@ -102,7 +102,7 @@ To reiterate, this means we no longer have to build code and commit it to our re
 Under this new process, working on our component is as follows:
 
 1. Commit some changes until we say “it’s good, let’s make a release”
-2. ~~Run a build command (i.e. `npm run build`) producing the transpiled ES2015 code for consuming apps (plus any static assets, etc.)~~
+2. ~~Run a build command (i.e. `npm run build`) producing the transpiled ES5 code for consuming apps (plus any static assets, etc.)~~
 3. ~~Stick the build artifact in `dist/`~~
 4. Commit the file changes
 5. Tag a release in git
