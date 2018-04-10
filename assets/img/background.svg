@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="76" viewBox="0 0 1024 76" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <rect id="a" width="1024" height="80"/>
+    <rect id="c" width="1024" height="30" x="50" y="-7"/>
+    <rect id="d" width="1024" height="88" x=".506" y="-76.996"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="b" fill="white">
+      <use xlink:href="#a"/>
+    </mask>
+    <rect width="1024" height="30" x="50" y="-11" fill="#FF0000" opacity=".05" mask="url(#b)" transform="rotate(7 562 4)"/>
+    <g mask="url(#b)" transform="rotate(3 562 8)">
+      <use fill="#FF0000" fill-opacity=".2" xlink:href="#c"/>
+      <rect width="1027" height="33" x="48.5" y="-8.5" stroke="#FFFFFF" stroke-width="3"/>
+    </g>
+    <g mask="url(#b)" transform="rotate(1 512.506 -32.996)">
+      <use fill="#FF0000" xlink:href="#d"/>
+      <rect width="1026" height="90" x="-.494" y="-77.996" stroke="#FFFFFF" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

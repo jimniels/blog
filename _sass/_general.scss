@@ -4,39 +4,43 @@
 // =============================================================================
 //
 
+:root {
+  --color-primary: #FF0000;
+}
+
 html {
-  box-sizing: border-box;
-  font-size: #{$font-size-base}px;
+  font-size: 16px;
   color: $color-text;
   -webkit-text-size-adjust:none;
   font-family: $font-stack;
-  font-weight: 400;
-  border-top: 5px solid $color-primary;
   transition: .333s ease background;
+  background: #f2f2f2;
 
-  &.theme-dark {
-    background: $color-text;
-    color: #dcd5d5;
-  }
-
-  @media screen and (max-width: 500px) {
-    font-size: 16px;
+  @media screen and (min-width: 860px) {
+    font-size: 18px;
   }
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 body {
   line-height: 1.618;
-}
+  position: relative;
+  background: #fff;
+  box-shadow: 0 1px 5px rgba(0,0,0,.333);
+  margin: 0 auto;
+  max-width: 960px;
+  background: #fff url(/blog/assets/img/background@2x.png) no-repeat 0 0;
+  background-size: 100%;
 
-.main {
-  @include wrapper();
-  max-width: none;
+  @media screen and (min-width: 860px) {
+    margin-top: 1.618rem;
+    margin-bottom: 1.618rem;
+  }
 }
 
 img {
@@ -44,47 +48,24 @@ img {
   height: auto;
 }
 
-a {
+:link { color: #0000EE; }
+:visited { color: #551A8B; }
+:link:active, :visited:active { color: #FF0000; }
+:link, :visited { cursor: pointer; }
+
+:link {
   text-decoration: none;
-  color: $color-primary;
-  position: relative;
 
   &:hover {
-    border-radius: 2px;
     text-decoration: underline;
-    color: lighten(desaturate($color-primary, 10%), 7%);
-    // background-color: rgba($color-primary, .075);
   }
-
-  // &:hover:after,
-  // &:hover:before {
-  //   width: 50%;
-  // }
-
-  // &:after,
-  // &:before {
-  //   transition: .22s ease all;
-  //   height: 1px;
-  //   background: $color-primary;
-  //   content: '';
-  //   position: absolute;
-  //   bottom: 0;
-  //   width: 0;
-  // }
-
-  // &:after {
-  //   left: 50%;
-  // }
-  // &:before {
-  //   right: 50%;
-  // }
 }
 
 .wrapper {
   @include max-width();
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 95%;
 }
 
 .date {
@@ -94,17 +75,6 @@ a {
 //
 // Miscellaneous
 // ========================================
-
-
-// Date stuff for tag index
-.tags-date {
-  font-size: .625em;
-  opacity: .5;
-  letter-spacing: -0.0125em;
-  display: block;
-  float: right;
-  margin-left: 20px;
-}
 
 :target h2 {
   color: $color-primary;
@@ -126,21 +96,47 @@ a {
   font-weight: normal;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
 
-#posts > ul {
-  list-stype: none;
+  li {
+    &:after {
+      content: "·";
+      margin: 0 .5rem 0 .25rem;
+    }
+    &:last-child:after {
+      display: none;
+    }
+  }
+}
+
+
+.posts {
+  list-style: none;
   padding-left: 0;
+  @include max-width();
 
-  > li {
+  .post-wrapper {
     display: flex;
+    align-items: flex-start;
+    margin-bottom: .125rem;
 
-    > :first-child {
+    @media screen and (max-width: 520px) {
+      flex-direction: column;
+      padding: .382rem 0;
+    }
+
+    .post-title {
       order: 2;
     }
 
-    > :last-child {
+    > .post-date {
       order: 1;
-      min-width: 100px;
+      min-width: 7rem;
+      font-size: .9rem;
+      position: relative;
+      top: .05rem;
     }
   }
 }

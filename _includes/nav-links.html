@@ -1,0 +1,50 @@
+<ul class="nav-links">
+  <li>
+    {% if page.type == 'home' %}
+    <span>
+    {% else %}
+    <a href="{{ site.baseurl }}/">
+    {% endif %}
+
+    posts
+
+    {% if page.type == 'home' %}
+    </span>
+    {% else %}
+    </a>
+    {% endif %}
+  </li>
+  <li>
+    {% if page.type == 'tags' %}
+    <span>
+    {% else %}
+    <a href="{{ site.baseurl }}/tags/">
+    {% endif %}
+
+    tags
+
+    {% if page.type == 'tags' %}
+    </span>
+    {% else %}
+    </a>
+    {% endif %}
+  </li>
+  <li>
+    {% if page.type == 'about' %}
+    <span>
+    {% else %}
+    <a href="{{ site.baseurl }}/about/">
+    {% endif %}
+
+    about
+
+    {% if page.type == 'about' %}
+    </span>
+    {% else %}
+    </a>
+    {% endif %}
+  </li>
+  <li>
+    <a href="{{ site.baseurl }}/feed.xml">rss</a>, <a href="{{ site.baseurl }}/feed.json">json</a> feeds
+  </li>
+</ul>

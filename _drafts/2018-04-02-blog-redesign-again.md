@@ -4,12 +4,25 @@ date: 2018-04-02
 tags: design
 ---
 
-Yet another post in which you announce a redesign. I got an itch to redesign my blog, which I can scratch because, hey, it’s mine and you can’t tell me what to do.
+I know, I know. Yet another post in which somebody is announcing a redesign. But I got an itch to redesign my blog and I can scratch it because, hey, it’s my blog and you can’t tell me what to do.
 
-The thing that inspired me to redesign my blog was, well, to be honest it was kind of fatigue. My blog is basically just a place for me to write about things I want to write about because they either interest me or because I want to learn more about them and writing helps me do that. [@TODO tyler email explaining this] just about reading/writing for me. 
+The thing that moved me to redesign my blog was...well, to be honest it was in part due to fatigue. My blog is basically [just a place for me to write](https://jim-nielsen.com/blog/about/) about things I want to write about because they either interest me or because I want to learn more about them and writing helps me do that. And the more I read and write on the web, the more I wish I had some of those old-school web features, like usage of the `:visted` pseudo class in CSS. Why? Because then I could browse around and actually know what I’ve already looked at or read. But hardly anyone uses those things anymore. Be the change you want to see in the world right? 
 
-The more I read and write on the web, the more I wish I had those old-school web features like usage of the `:visted` pseudo class in CSS. Why? Because then I could browse the web and actually know what i’ve read/looked at. But hardly anyone uses that anymore. Be the change you want to see in the world right? I'd been reading some of Tim Berners Lee’s notes on the web recently and really enjoyed it because he basic ”web” styles: blue links (purple for visited ones). This made reading his stuff really easy. If it was purple, i'd already read it. It sounds so simple, but it was so nice. It's the small things you know?
+I’ve been reading some of [Tim Berners Lee’s notes on the web](https://www.w3.org/DesignIssues/) recently and have really enjoyed it. Granted, that site isn’t going to win any “design” awards, but the *exprerience* of reading from that site is fantastic, in part because it uses basic ”web” styles: blue for links, purple for visited ones. This made reading his stuff really easy. If it was purple, I’d already read it. I didn’t need an app to keep track of what I’ve read and what I have’t. It sounds so simple, but it was so nice. It's the small things you know?
 
+Anyway, I decided I wanted to do the same thing with my blog. Try to go back to basic web styles. I’m not trying to win any design awards for my blog, it’s just a place for me to dump my thoughts. My initial design attempt basically stripped everything away, but the visual part of me begged for just a tiny bit more, so that’s how I ended up with what I have today. 
+
+Really, at this point, the blog design is more about the content than it is the look. Isn’t that how it should be? I’m sure I’ll change my mind on this in a few months or years when I want to redesign something again. But there’s also a part of me that someday hopes I can strip everything down such that the extent of the CSS on my blog would be something like:
+
+```css
+body {
+  max-width: 35rem;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+```
+
+In fact, just writing that prior paragraph gave me an idea: what if I included the ability for someone to browse my site free of CSS? Here’s [my base implementation of that](https://jim-nielsen.com/?noCSS)
 
 ## The Blog at jim-nielsen.com
 

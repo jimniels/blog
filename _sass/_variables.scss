@@ -9,8 +9,8 @@
 // Colors
 // ========================================
 
-$color-text: #252525;
-$color-primary: #C02702;
+$color-text: #333;
+$color-primary: #FF0000;
 
 //
 // Typography
@@ -21,8 +21,6 @@ $font-stack             : -apple-system, BlinkMacSystemFont,
   "Ubuntu", "Cantarell", "Fira Sans",
   "Droid Sans", "Helvetica Neue", sans-serif;;
 $font-stack-monospace   : monospace;
-$font-size-base         : 18;
-$font-size-base-px      : 18;
 
 
 //
@@ -37,4 +35,4 @@ $media-query-lg         : 1300px;
 // Other
 // ========================================
 
-$spacer: (20em / $font-size-base-px)
+$spacer: (20em / 18)

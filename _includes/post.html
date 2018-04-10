@@ -5,21 +5,13 @@
       {{ page.title }}
     </h1>
 
-    <p>
-      <span>
-        Posted on
-        <a href="{{ site.baseurl | append: page.url }}">
-          <time>
-            {{ page.date | date: "%b %-d, %Y" }}
-          </time>
-        </a>
-      </span>
-
-      &nbsp; · &nbsp;
+    <p>  
+      <time>
+        {{ page.date | date: "%b %-d, %Y" }}
+      </time>
 
       {% if page.tags %}
-        <span>
-          Tagged in
+        &nbsp;·&nbsp;
           {% for tag in page.tags %}
             <a href="{{ site.baseurl }}/tags/#{{ tag }}" class="tag">
               #{{ tag }}
@@ -28,7 +20,7 @@
               ,&nbsp;
             {% endif %}
           {% endfor %}
-        </span>
+        
       {% endif %}
     </p>
   </header>

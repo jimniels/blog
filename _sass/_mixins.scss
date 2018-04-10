@@ -5,34 +5,14 @@
 //  Used by img caption, blog excerpts
 //
 
-@function rem($pixels) {
-  @return #{$pixels/$font-size-base}rem;
-}
-
 @mixin max-width() {
-  max-width: 40rem;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
 
-  @media screen and (max-width: $media-query-s) {
-    max-width: 100%;
+  @media screen and (min-width: 860px) {
+    max-width: 35rem;
   }
-}
-
-@mixin clearfix() {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
-@mixin vendor-prefix($name, $argument) {
-  -webkit-#{$name}: #{$argument};
-  -ms-#{$name}: #{$argument};
-  -moz-#{$name}: #{$argument};
-  -o-#{$name}: #{$argument};
-  #{$name}: #{$argument};
 }
 
 @mixin truncate {
@@ -42,28 +22,15 @@
   text-overflow: ellipsis;
 }
 
-@mixin wrapper($context: $font-size-base-px) {
-  @include max-width();
-  width: 86%;
-
-  @media screen and (min-width: 500px) {
-    width: 80%;
-  }
-
-  @media screen and (min-width: 900px) {
-    width: 95%;
-  }
-}
-
 @mixin heading-prefix($text) {
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 860px) {
     &:before {
       content: '#{$text}';
       font-weight: normal;
       position: absolute;
-      right: 101.5%;
-      top: .25em;
-      font-size: .75em;
+      right: 103%;
+      top: .3em;
+      font-size: .7em;
       opacity: .25;
     }
   }

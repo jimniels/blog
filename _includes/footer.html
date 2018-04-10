@@ -1,11 +1,9 @@
-<footer class="footer wrapper" id="footer">
-  <p>
-    view all
-    <a href="{{ site.baseurl }}/">posts</a>
-    or 
-    <a href="{{ site.baseurl }}/tags/">tags</a>
-  </p>
-  <p>
-    by <a href="http://jim-nielsen.com/">jim nielsen</a> a.k.a <a href="https://twitter.com/jimniels">@jimniels</a>
-  </p>
+<footer class="footer" id="footer">
+  <div class="wrapper">
+    <h1>
+      <strong>jim-nielsen/blog</strong> — <em>seeking clarity through writing</em>
+    </h1>
+    {% include nav-links.html %}    
+    <img src="{{ site.imageurl }}/profile-photo.jpg" class="footer__avatar" alt="Jim Nielsen profile photo" title="That guy? That’s me, Jim Nielsen" />
+  </div>
 </footer>

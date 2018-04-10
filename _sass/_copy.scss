@@ -3,20 +3,24 @@
 // ======================================================================
 // Styles for copy
 
-.theme-dark {
-  .copy {
-    header {
-      border-color: rgba(255,255,255,.05);
-    }
-  }
-}
-
 .copy {
-
   header {
+    padding: 0 0 1.618rem 0;
+    border-bottom: 4px solid rgba(0,0,0,.1);
     margin: 0 auto 1.618rem;
-    @include max-width();
-    border-bottom: 1px solid rgba(0,0,0,.1);
+
+    @media screen and (min-width: 860px) {
+      max-width: 35rem;
+    }
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin-top: .325rem;
+      margin-bottom: 0;
+    }
   }
 
   //
@@ -37,15 +41,15 @@
   h4 { @include heading-prefix('h4') }
 
   h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
     font-size: 1.625rem;
   }
 
+  h2 {
+    font-size: 1.4rem;
+  }
+
   h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   h4 {
@@ -109,12 +113,17 @@
 
   blockquote {
     position: relative;
-    border-left: 3px solid rgba(0, 0, 0, .1);
-    padding-left: 1.618rem;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding-left: 1rem;
     font-style: italic;
 
     em {
       font-style: normal;
+    }
+
+    > * {
+      margin-left: 0;
+      margin-right: 0;
     }
 
     > :last-child {
@@ -132,21 +141,20 @@
   }
 
   code {
-    padding: 0 (4em / $font-size-base-px) (2em / $font-size-base-px);
+    padding: 0 (4em / 18) (2em / 18);
     margin: 0 .325rem;
     border-radius: .166667rem;
     background: rgba(0, 0, 0, .05);
-    border: 1px solid rgba(0, 0, 0, .1);
+    // border: 1px solid rgba(0, 0, 0, .1);
     // white-space: pre;
   }
 
   pre {
     line-height: 1rem;
-    padding: 1.618rem;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    background: rgba(0, 0, 0, .05);
-    border-radius: .166667rem;
+    // background: transparent;
+    // border-radius: .166667rem;
     tab-size: 2;
 
     code {
@@ -163,8 +171,15 @@
   }
   
   // Jekyll auto-generates classes for code highlighting. We tap into that here.
-  [class^="language-"] {
-    max-width: 50rem;
+  > .highlighter-rouge {
+    max-width: 100%;
+    padding: 1.618rem;
+    padding-right: 0;
+
+    @media screen and (min-width: 860px) {
+      padding: (1.618 * 2rem);
+      padding-right: 0;
+    }
   }
 
 
@@ -174,7 +189,8 @@
 
   hr {
     border: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, .15);
+    border-bottom: 4px double rgba(0, 0, 0, .15);
+    max-width: 90%;
   }
 
   //
@@ -184,7 +200,7 @@
   img {
     display: block;
     max-width: 100%;
-    border-radius: 5px;
+    // border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, .075);
   }
 
@@ -200,12 +216,12 @@
     }
 
     span {
-      font-size: rem(16);
+      font-size: .85rem;
       font-style: italic;
       opacity: .5;
-      max-width: rem(520);
+      max-width: 30rem;
       display: block;
-      margin: rem(5) auto 0;
+      margin: .5rem auto 0;
     }
   }
 }
