@@ -169,7 +169,7 @@ As an example, for the outsourcer and brand owner dashboards, the designs shared
 
 As you can see, the layout and styles are very similar. The only real differences are the textual labels. So, first I defined the parent container for each of the dashboard lists that I would later include as a component in each individual file. The props this component needed were the data (issues) and the textual labels and their corresponding data keys for later composition:
 
-```jsx
+```js
 // shared/components/DashboardList.js
 render() {
   const {
@@ -200,7 +200,7 @@ render() {
 
 With the parent component in place and accepting all the props I needed to compose the UI labels, I passed them into the child `<DashboardListItem />` as strings, which made the child component easy to read:
 
-```jsx
+```js
 // components/shared/DashboardListItem.js
 render() {
   const { issue, sublabel, progressLabel } = this.props
@@ -226,7 +226,7 @@ render() {
 
 Because the content of the dashboard parent and children were abstracted into separate props, I could easily have a `OutsourcerDashboard.js` file and a `BrandOwnerDashboard.js` file which fetched the data I needed and passed it in as props along with the info needed for composing the textual labels specific to that component:
 
-```jsx
+```js
 // OutsourcerDashboard.js
 <DashboardList
   issues={this.fetchIssues()}
