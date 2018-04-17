@@ -1,50 +1,44 @@
-<ul class="nav-links">
-  <li>
-    {% if page.type == 'home' %}
-    <span>
-    {% else %}
-    <a href="{{ site.baseurl }}/">
-    {% endif %}
+<h1 class="site-nav max-width-wrapper">
 
-    posts
+  {% if page.id == 'home' %}
+  <span>
+  {% else %}
+  <a href="{{ site.url | append: site.baseurl }}/">
+  {% endif %}
 
-    {% if page.type == 'home' %}
-    </span>
-    {% else %}
-    </a>
-    {% endif %}
-  </li>
-  <li>
-    {% if page.type == 'tags' %}
-    <span>
-    {% else %}
-    <a href="{{ site.baseurl }}/tags/">
-    {% endif %}
+  Posts
 
-    tags
+  {% if page.id == 'home' %}
+  </span>
+  {% else %}
+  </a>
+  {% endif %}
 
-    {% if page.type == 'tags' %}
-    </span>
-    {% else %}
-    </a>
-    {% endif %}
-  </li>
-  <li>
-    {% if page.type == 'about' %}
-    <span>
-    {% else %}
-    <a href="{{ site.baseurl }}/about/">
-    {% endif %}
+  {% if page.id == 'tags' %}
+  <span>
+  {% else %}
+  <a href="{{ site.url | append: site.baseurl }}/tags/">
+  {% endif %}
 
-    about
+  Tags
 
-    {% if page.type == 'about' %}
-    </span>
-    {% else %}
-    </a>
-    {% endif %}
-  </li>
-  <li>
-    <a href="{{ site.baseurl }}/feed.xml">rss</a>, <a href="{{ site.baseurl }}/feed.json">json</a> feeds
-  </li>
-</ul>
+  {% if page.id == 'tags' %}
+  </span>
+  {% else %}
+  </a>
+  {% endif %}
+
+  {% if page.id == 'about' %}
+  <span>
+  {% else %}
+  <a href="{{ site.url | append: site.baseurl }}/about/">
+  {% endif %}
+
+  About
+
+  {% if page.id == 'about' %}
+  </span>
+  {% else %}
+  </a>
+  {% endif %}
+</h1>

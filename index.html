@@ -1,19 +1,18 @@
 ---
 layout: default
 title: Blog Home
-type: home
+id: home
 ---
 
 <ul class="posts">
   {% for post in site.posts  %}
     <li class="post-wrapper">
+      <time class="date post-date" datetime="{{ post.date | date: "%Y-%m-%d" }}">
+        {{ post.date | date: "%Y-%m-%d" }}
+      </time>
       <a href="{{ site.baseurl }}{{ post.url }}" class="post-title">
         {{ post.title }}
       </a>
-
-      <time class="date post-date">
-        {{ post.date | date: "%Y-%m-%d" }}
-      </time>
     </li>
   {% endfor %}
 </ul>

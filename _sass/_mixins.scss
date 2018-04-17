@@ -5,33 +5,4 @@
 //  Used by img caption, blog excerpts
 //
 
-@mixin max-width() {
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
 
-  @media screen and (min-width: 860px) {
-    max-width: 35rem;
-  }
-}
-
-@mixin truncate {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-@mixin heading-prefix($text) {
-  @media screen and (min-width: 860px) {
-    &:before {
-      content: '#{$text}';
-      font-weight: normal;
-      position: absolute;
-      right: 103%;
-      top: .3em;
-      font-size: .7em;
-      opacity: .25;
-    }
-  }
-}

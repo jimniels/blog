@@ -2,33 +2,31 @@
 layout: default
 ---
 
-<article class="copy copy-with-prefixed-headings" id="js-post-content">
+<article class="markdown markdown-with-prefixed-headings" id="js-post-content">
 
   <header>
+    <time datetime="{{ post.date }}">
+      {{ page.date | date: "%B %-d, %Y" }}
+    </time>
     <h1>
-      {{ page.title }}
+      <span>{{ page.title }}</span>
     </h1>
-
-    <p>  
-      <time>
-        {{ page.date | date: "%b %-d, %Y" }}
-      </time>
-
-      {% if page.tags %}
-        &nbsp;·&nbsp;
-          {% for tag in page.tags %}
-            <a href="{{ site.baseurl }}/tags/#{{ tag }}" class="tag">
-              #{{ tag }}
-            </a>
-            {% if forloop.last != true %}
-              ,&nbsp;
-            {% endif %}
-          {% endfor %}
-        
-      {% endif %}
-    </p>
   </header>
 
   {{ content }}
 
+  
+  {% if page.tags %}
+    <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
+      Tagged in: 
+      {% for tag in page.tags %}
+        <a href="{{ site.baseurl }}/tags/#{{ tag }}" class="tag">
+          #{{ tag }}
+        </a>
+        {% if forloop.last != true %}
+          ,&nbsp;
+        {% endif %}
+      {% endfor %}
+    </footer>
+  {% endif %}
 </article>

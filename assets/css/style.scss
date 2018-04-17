@@ -3,14 +3,6 @@
 # only Main files contain this front matter, not partials.
 ---
 
-@import "reset";
-@import "syntax-highlighting"; // http://jekyllrb.com/docs/templates/#stylesheets-for-syntax-highlighting
-
-@import "mixins";
-@import "variables";
-
-@import "general";
-@import "helpers";
-@import "copy";
-@import "footer";
-@import "header";
+@import "normalize";
+@import "base";
+@import "syntax-highlighting"; 
