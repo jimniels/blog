@@ -18,6 +18,11 @@ for (var i = 0; i < images.length; i++) {
   }
 }
 
+/**
+ * Remove CSS
+ * Add a query param `?noCSS` to strip out the CSS and apply real basic styles
+ * Really just a novel thing for me to use as I please.
+ */
 var urlParams = new URLSearchParams(window.location.search);
 if (urlParams.has('noCSS')) {
   var cssNodes = document.querySelectorAll('head link[rel="stylesheet"]');
