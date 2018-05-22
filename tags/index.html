@@ -1,32 +1,32 @@
 ---
 layout: default
 title: Tags | Jim Nielsen’s Blog
-type: tags
+id: tags
 ---
+  
+{% assign sortedTags = (site.tags | sort:0) %}
+{% for tag in sortedTags %}
+  <h2 id="{{tag.first}}" class="max-width-wrapper" style="margin-bottom: 1rem;">
+    #{{tag.first}}
+    <span style="font-weight: normal">
+      ({{tag[1] | size}})
+    </span>
+  </h2>
 
-<div class="copy">
-  <h1>
-    Tags
-  </h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if post.tags contains tag.first %}
+        <li class="post-wrapper">
+          <a href="{{ site.baseurl }}{{ post.url }}" class="post-title m-r-sm">
+            {{post.title}}
+          </a>
+          <time class="date post-date">
+            {{ post.date | date: "%Y-%m-%d" }}
+          </time>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endfor %}
 
-  {% assign sortedTags = (site.tags | sort:0) %}
-  {% for tag in sortedTags %}
-    <h2 id="{{tag.first}}">
-      #{{tag.first}} <span class="font-weight-normal">({{tag[1] | size}})</span>
-    </h2>
-    <ul>
-      {% for post in site.posts %}
-        {% if post.tags contains tag.first %}
-          <li>
-            <a href="{{ site.baseurl }}{{ post.url }}" class="m-r-sm">
-              {{post.title}}
-            </a>
-            <time class="date">
-              {{ post.date | date: "%-d %b, %Y" }}
-            </time>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  {% endfor %}
-</div>
+

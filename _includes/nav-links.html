@@ -1,0 +1,44 @@
+<h1 class="site-nav max-width-wrapper">
+
+  {% if page.id == 'home' %}
+  <span>
+  {% else %}
+  <a href="{{ site.url | append: site.baseurl }}/">
+  {% endif %}
+
+  Posts
+
+  {% if page.id == 'home' %}
+  </span>
+  {% else %}
+  </a>
+  {% endif %}
+
+  {% if page.id == 'tags' %}
+  <span>
+  {% else %}
+  <a href="{{ site.url | append: site.baseurl }}/tags/">
+  {% endif %}
+
+  Tags
+
+  {% if page.id == 'tags' %}
+  </span>
+  {% else %}
+  </a>
+  {% endif %}
+
+  {% if page.id == 'about' %}
+  <span>
+  {% else %}
+  <a href="{{ site.url | append: site.baseurl }}/about/">
+  {% endif %}
+
+  About
+
+  {% if page.id == 'about' %}
+  </span>
+  {% else %}
+  </a>
+  {% endif %}
+</h1>

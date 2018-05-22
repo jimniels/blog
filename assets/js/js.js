@@ -19,13 +19,30 @@ for (var i = 0; i < images.length; i++) {
 }
 
 /**
+ * Remove CSS
+ * Add a query param `?noCSS` to strip out the CSS and apply real basic styles
+ * Really just a novel thing for me to use as I please.
+ */
+var urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('noCSS')) {
+  var cssNodes = document.querySelectorAll('head link[rel="stylesheet"]');
+  for (i = 0; i < cssNodes.length; ++i) {
+    document.head.removeChild(cssNodes[i]);
+  }
+
+  document.body.style.maxWidth = "35rem";
+  document.body.style.margin = "0 auto";
+  document.body.style.lineHeight = "1.5"
+}
+
+/**
  * Theme Toolbar
  * Creates an input for toggling the dark theme
  *
  * Note: addThemeClass() is defined inline at start of document. This helps
  * prevent a 'theme' flicker between page loads.
  */
-
+/*
 var isDarkMode = localStorage.getItem('darkMode') === 'true' ? true : false;
 var $ul = document.querySelector('header nav ul');
 var $li = document.createElement('li');
@@ -46,3 +63,4 @@ $input.addEventListener('change', function(e) {
 });
 
 $ul.appendChild($li);
+*/
