@@ -1,7 +1,7 @@
 ---
 title: "Blog Redesign: Out with the Old, in with the Old"
 date: 2018-05-22
-tags: design
+tags: designProcess
 ---
 
 > Why, are expectations so high?  
@@ -40,11 +40,11 @@ The particular screenshot you see above reflects the default theme Scriptogram a
 
 **Circa March 2014**: I actually had this design for a while. I remember thinking it was pretty good. It was a “theme” I developed first when my blog was hosted on Scriptogram. When that service went down, there was this thing called “Jekyll + Github Pages” I decided to give a try. I remember it being relatively easy to transfer all my posts and the site’s theme from scriptogram (markdown posts in dropbox + static CSS theme) to jekyll (markdown posts and HTML/CSS in Github). I think I kept this design longer than others, but eventually the itch to redesign struck again (as it always does).
 
-![Screenshot of my blog in August of 2016]({{ site.imageurl }}/2018/blog-history-snapshot-2016-08-26.png "Circa Augst 2016")
+![Screenshot of my blog in August of 2016]({{ site.imageurl }}/2018/blog-history-snapshot-2016-08-26.gif "Circa Augst 2016")
 
 **Circa August 2016**: about this time, I began tracking [my “redesigns” as tagged releases in Github](https://github.com/jimniels/blog/releases). You could technically head over there to see them all, but I’ll continue posting the rest here for convenience sake. 
 
-This particular design came about because one day I was particularly enjoying the experience of navigating my blog and the `_posts/` directory of jekyll in my code editor and I thought “what if this was the experience on the actual website?” Before I could even think if it was a good idea, I was coding because I wanted to see if it could be done and what it would feel like. Shortly thereafter I published my new theme, but it didn’t last very long. To be honest, it was a decision made in the haste and excitement of something novel. But that’s ok, it’s my blog. I can do whatever I want.
+This particular design came about because one day I was particularly enjoying the experience of navigating my blog and the `_posts/` directory of jekyll in my code editor and I thought “what if this was the experience on the actual website?” Before I could even think if it was a good idea, I was coding because I wanted to see if it could be done and what it would feel like (as you can see, I even include theme variations of light/medium/dark). It only took a few months before I was on to my next “redesign”. To be honest, it was a decision made in the haste and excitement of something novel. But that’s ok, it’s my blog. I can do whatever I want.
 
 ![Screenshot of my blog in April of 2017]({{ site.imageurl }}/2018/blog-history-snapshot-2017-04-06.png "Circa April 2017")
 
@@ -70,13 +70,13 @@ The thing that moved me to redesign my blog was...well, to be honest it was in p
 
 Lately I’ve been reading some of [Tim Berners Lee’s notes on the web](https://www.w3.org/DesignIssues/) and have really enjoyed the content. What I find equally interesting about his writing is the delivery mechanism. The design around the content isn’t going to win any “design” awards, but the *exprerience* of reading from that site is actually quite nite. I believe that stems, at least in part, from the fact that its design uses basic ”web” styles: blue for links, purple for visited ones (this is [actually prescribed in the spec](https://stackoverflow.com/a/4774037/1339693)). This made reading his stuff really easy. If it was purple, I’d already read it. I didn’t need an app to keep track of what I’ve read and what I have’t. It sounds so simple, but it was so nice. It's the small things you know? 
 
-While reading Tim’s notes, I thought “man, I should just make my blog basic HTML and CSS and just call it good.” Then I happened upon this quote from Frank Chimero that really resonated with me:
+While reading Tim’s notes, I thought “man, I should just make my blog basic HTML and CSS and just call it good.” Later, while chewing on that thought, I happened upon this quote from Frank Chimero that really resonated with me:
 
-> I think that you can make a perfectly great and serviceable website...It doesn’t take a lot of JavaScript...The old websites from the 90’s, they still work, their fonts just need to be a little bit bigger and they need to set a max width on their paragraph so it has a nice measure. Other than that, you go back and look at a bunch of the essays by Tim Berners-Lee and you’re like, “Actually, this still holds up.”
+> The old websites from the 90’s, they still work, their fonts just need to be a little bit bigger and they need to set a max width on their paragraph so it has a nice measure. Other than that, you go back and look at a bunch of the essays by Tim Berners-Lee and you’re like, “Actually, this still holds up.”
 
-I decided this is precisely what I wanted to do with my blog: try to go back to basic “web” styles (“going with the grain of the web” as Frank calls it). I’m not trying to win any design awards for my blog. It’s just a place for me to dump my thoughts. And there’s this nagging thought in my mind that most of my previous blog “designs” were more about being looked at than actually being used. And I’ve found myself “using” my blog a lot lately, almost like a personal notes archive, and the “basic web style” is just what I needed in terms of functional usage.
+I decided this is precisely what I wanted to do with my blog: try to go back to basic “web” styles (“going with the grain of the web” as Frank calls it).  There has been this nagging thought in my mind that most of my previous blog “designs” were more about being looked at than actually being used. And I’ve found myself “using” my blog a lot lately, almost like a personal notes archive, and the “basic web style” is just what I needed in terms of functional usage.
 
-With that in mind, this new blog “design” is an exercise in bringing priority more to the content than to the look. I’m hoping this will make me focus more about the content of what I write rather than the look of what I write. However, with all that said, here’s a note to future Jim reading this in five years: it’s very possible you already changed your mind about everything above and you’ve “redesigned” the blog again. And you know what? That’s ok. But right now there’s a part of me that hopes someday I can strip everything down such that the extent of my blog’s CSS would be:
+With that in mind, this new blog “design” is an exercise in bringing priority more to the content than to the look. I’m hoping this will make me focus more on the substance of what I write rather than the look of what I write. However, with all that said, here’s a note to future Jim reading this in five years: it’s very possible you already changed your mind about everything above and you’ve “redesigned” the blog again. And you know what? That’s ok. But right now there’s a part of me that hopes someday I can strip everything down such that the extent of my blog’s CSS would be:
 
 ```css
 body {
@@ -86,4 +86,6 @@ body {
 }
 ```
 
-In fact, that’s what my initial design exercise had me doing. Just stripping everything away. But the visual part of me begged for just a tiny bit more, so that’s how I ended up with what I have now. 
+In fact, that’s what my initial design exercise had me doing. Just stripping everything away. But the visual part of me begged for just a tiny bit more, so that’s how I ended up with what I have now. I also added a few more “enhancements” under the hood to this new design, like removing Google Analytics tracking. There’s been a lot of talk about that lately and I’m not going to write my thoughts about it other than I’m removing it. To be honest, I don’t need it. That should help me squeeze out just a tiny bit more improvement in terms of performance.
+
+I could talk more about my tendencies these days towards “basic web” styles and technology, but I’m think I am going to save that for another blog post where I can flesh out my ideas a little more. For now, enjoy this “new” design. I know I will, at least for now.
