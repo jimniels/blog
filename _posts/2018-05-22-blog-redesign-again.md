@@ -16,7 +16,7 @@ tags: designProcess
 
 I know, I know. Yet another post in which someone is announcing a redesign. But you know what? I had an itch to redesign my blog and I can scratch that itch because, hey, it’s my blog and you can’t tell me what to do.
 
-But before I get into writing my thoughts on my new “design”, let’s take a stroll down memory lane and see (cue sentimental music for a nostalgic slideshow).
+But before I get into writing my thoughts on my new “design”, let’s take a stroll down memory lane and see what some of my old blog designs looked like (cue sentimental music for a nostalgic slideshow).
 
 ## A Graphic History of My Blog
 
@@ -32,7 +32,7 @@ One of the things that interested me when I started this redesign was how many t
 
 ![Screenshot of my blog in March of 2013]({{ site.imageurl }}/2018/blog-history-snapshot-2013-03-02.png "Circa March 2013")
 
-**Circa March 2013**: ahhh, I remember this. This was when I switched to the now-defunct service [Scriptogram](http://scriptogr.am/) for hosting my blog. That service was pretty neat. You could publish markdown files to a folder on Dropbox and their service would build your blog for you. In a sense it was really great because I could edit a plain-text markdown file from anywhere and the edits would be live to my blog within a minute or so, all due to Dropbox’s file syncing platform. It was kind of like Jekyll but without the git-ness of Jekyll. You have a folder of markdown files representing posts (which take a certain format), we turn it into a blog. The service, however, was free so (as you can imagine) it wasn’t around long. 
+**Circa March 2013**: ahhh, I remember this. This was when I switched to the now-defunct service [Scriptogram](http://scriptogr.am/) for hosting my blog. That service was pretty neat. You could publish markdown files to a folder on Dropbox and their service would build your blog for you. In a sense it was really great because I could edit a plain-text markdown file from anywhere and the edits would be live to my blog within a minute or so, all due to Dropbox’s file syncing platform. It was kind of like Jekyll but without the git-ness of Jekyll. You have a folder of markdown files representing posts (which take a certain format), we turn it into a blog. The service, however, was free so (as you can imagine) it wasn’t around long.
 
 The particular screenshot you see above reflects the default theme Scriptogram applied to all their blogs. It was fine. It worked for me. Or rather, it worked for me until I had to the itch to roll my own design. Lucky for me, their service allowed such itch scratching, which leads me to my next screenshot.
 
@@ -42,7 +42,7 @@ The particular screenshot you see above reflects the default theme Scriptogram a
 
 ![Screenshot of my blog in August of 2016]({{ site.imageurl }}/2018/blog-history-snapshot-2016-08-26.gif "Circa Augst 2016")
 
-**Circa August 2016**: about this time, I began tracking [my “redesigns” as tagged releases in Github](https://github.com/jimniels/blog/releases). You could technically head over there to see them all, but I’ll continue posting the rest here for convenience sake. 
+**Circa August 2016**: about this time, I began tracking [my “redesigns” as tagged releases in Github](https://github.com/jimniels/blog/releases). You could technically head over there to see them all, but I’ll continue posting the rest here for convenience sake.
 
 This particular design came about because one day I was particularly enjoying the experience of navigating my blog and the `_posts/` directory of jekyll in my code editor and I thought “what if this was the experience on the actual website?” Before I could even think if it was a good idea, I was coding because I wanted to see if it could be done and what it would feel like (as you can see, I even include theme variations of light/medium/dark). It only took a few months before I was on to my next “redesign”. To be honest, it was a decision made in the haste and excitement of something novel. But that’s ok, it’s my blog. I can do whatever I want.
 
@@ -56,7 +56,7 @@ This particular design came about because one day I was particularly enjoying th
 
 ![Screenshot of my almost-new blog redesign of 2018]({{ site.imageurl }}/2018/blog-history-snapshot-present-almost-2018.png "Circa February 2018")
 
-**Circa February 2018**: this was *almost* my most recent blog design. It all began one day with tweaking styles on the previous design, which led to me jumping into Sketch, which led to me saying “I’m just going to redesign the whole thing” which led me to this. I even coded it up. I found myself enjoying presenting the content as if it were on a piece of paper on screen. Plus it kind of tied into the design of `jim-nielsen.com` at the time (nothing wrong with a little design consistency, right?) But then my mood changed and I just wanted to throw it all in the garbage.
+**Circa February 2018**: this was _almost_ my most recent blog design. It all began one day with tweaking styles on the previous design, which led to me jumping into Sketch, which led to me saying “I’m just going to redesign the whole thing” which led me to this. I even coded it up. I found myself enjoying presenting the content as if it were on a piece of paper on screen. Plus it kind of tied into the design of `jim-nielsen.com` at the time (nothing wrong with a little design consistency, right?) But then my mood changed and I just wanted to throw it all in the garbage.
 
 ![Screenshot of my blog at the time of this writing (2018)]({{ site.imageurl }}/2018/blog-history-snapshot-present-2018.png "May 2018")
 
@@ -66,15 +66,15 @@ This particular design came about because one day I was particularly enjoying th
 
 > When you change the way you look at things, the things you look at change. — Dr. Wayne Dyer
 
-The thing that moved me to redesign my blog was...well, to be honest it was in part due to fatigue. My blog is basically [just a place for me to write](https://jim-nielsen.com/blog/about/) about things I want to write about because they either interest me or because I want to learn more about them and writing helps me do that. And the more I read and write on the web, the more I wish I had some of those old-school web features, like usage of the `:visted` pseudo class in CSS. Why? Because then I could browse around and actually know what I’ve already looked at or read. But hardly anyone uses those things anymore. “Be the change you want to see in the world” right? 
+The thing that moved me to redesign my blog was...well, to be honest it was in part due to fatigue. My blog is basically [just a place for me to write](https://jim-nielsen.com/blog/about/) about things I want to write about because they either interest me or because I want to learn more about them and writing helps me do that. And the more I read and write on the web, the more I wish I had some of those old-school web features, like usage of the `:visted` pseudo class in CSS. Why? Because then I could browse around and actually know what I’ve already looked at or read. But hardly anyone uses those things anymore. “Be the change you want to see in the world” right?
 
-Lately I’ve been reading some of [Tim Berners Lee’s notes on the web](https://www.w3.org/DesignIssues/) and have really enjoyed the content. What I find equally interesting about his writing is the delivery mechanism. The design around the content isn’t going to win any “design” awards, but the *exprerience* of reading from that site is actually quite nite. I believe that stems, at least in part, from the fact that its design uses basic ”web” styles: blue for links, purple for visited ones (this is [actually prescribed in the spec](https://stackoverflow.com/a/4774037/1339693)). This made reading his stuff really easy. If it was purple, I’d already read it. I didn’t need an app to keep track of what I’ve read and what I have’t. It sounds so simple, but it was so nice. It's the small things you know? 
+Lately I’ve been reading some of [Tim Berners Lee’s notes on the web](https://www.w3.org/DesignIssues/) and have really enjoyed the content. What I find equally interesting about his writing is the delivery mechanism. The design around the content isn’t going to win any “design” awards, but the _exprerience_ of reading from that site is actually quite nite. I believe that stems, at least in part, from the fact that its design uses basic ”web” styles: blue for links, purple for visited ones (this is [actually prescribed in the spec](https://stackoverflow.com/a/4774037/1339693)). This made reading his stuff really easy. If it was purple, I’d already read it. I didn’t need an app to keep track of what I’ve read and what I have’t. It sounds so simple, but it was so nice. It's the small things you know?
 
 While reading Tim’s notes, I thought “man, I should just make my blog basic HTML and CSS and just call it good.” Later, while chewing on that thought, I happened upon this quote from Frank Chimero that really resonated with me:
 
 > The old websites from the 90’s, they still work, their fonts just need to be a little bit bigger and they need to set a max width on their paragraph so it has a nice measure. Other than that, you go back and look at a bunch of the essays by Tim Berners-Lee and you’re like, “Actually, this still holds up.”
 
-I decided this is precisely what I wanted to do with my blog: try to go back to basic “web” styles (“going with the grain of the web” as Frank calls it).  There has been this nagging thought in my mind that most of my previous blog “designs” were more about being looked at than actually being used. And I’ve found myself “using” my blog a lot lately, almost like a personal notes archive, and the “basic web style” is just what I needed in terms of functional usage.
+I decided this is precisely what I wanted to do with my blog: try to go back to basic “web” styles (“going with the grain of the web” as Frank calls it). There has been this nagging thought in my mind that most of my previous blog “designs” were more about being looked at than actually being used. And I’ve found myself “using” my blog a lot lately, almost like a personal notes archive, and the “basic web style” is just what I needed in terms of functional usage.
 
 With that in mind, this new blog “design” is an exercise in bringing priority more to the content than to the look. I’m hoping this will make me focus more on the substance of what I write rather than the look of what I write. However, with all that said, here’s a note to future Jim reading this in five years: it’s very possible you already changed your mind about everything above and you’ve “redesigned” the blog again. And you know what? That’s ok. But right now there’s a part of me that hopes someday I can strip everything down such that the extent of my blog’s CSS would be:
 
