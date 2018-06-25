@@ -263,10 +263,10 @@ body {
     position: relative;
     border-left: 2px solid rgba(0, 0, 0, .1);
     padding-left: 1rem;
-    font-style: italic;
+    opacity: .75;
 
     em {
-      font-style: normal;
+      font-style: italic;
     }
 
     > * {
