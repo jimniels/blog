@@ -1,6 +1,7 @@
 ---
 title: My Little Cabin in the Woods of Logo Integrity
 date: 2018-08-09
+tags: story
 ---
 
 Back in December (of 2017) I received [a tweet from @ycparak](https://twitter.com/ycparak/status/940646088389939201) out of the blue:
