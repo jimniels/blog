@@ -1,3 +1,5 @@
 # Jim Nielsen’s Blog
 
-Production branch is `gh-pages`.
+[jim-nielsen.com/blog](http://jim-nielsen.com/blog)
+
+FYI Production branch is `gh-pages`.
