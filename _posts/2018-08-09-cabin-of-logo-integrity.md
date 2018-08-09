@@ -29,7 +29,7 @@ Some quick troubleshooting of the problem made me realize it was broken only in 
 
 So I was quite fortunate to get pinged on twitter early on so I could fix the problem (#twitterPagerDuty) as the site got more and more traffic over the next few days. In fact, a lot of people were posting their scores to twitter with the hashtag `#logoIntegrity`, which is funny because when I initially built the site without the “game” aspect. But at the recommendation of [the same friend](https://tylergaw.com) mentioned earlier, I put in a little widget at the end that says “congrats, you scored \_\_ points. Share it on twitter!”
 
-![Screenshot of twitter with people linking to the logo-integrity project]({{ site.imageurl }}/2018/logo-integrity-twitter.png)
+![Screenshot of twitter with people linking to the logo-integrity project]({{ site.imageurl }}/2018/logo-integrity-twitter.png "A screenshot excerpt of people posting about the project on Twitter")
 
 Granted that little share widget could totally be manipulated and you could put whatever score in there you wanted. Accusations of this were hurled around on Designer News.
 
