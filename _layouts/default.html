@@ -2,11 +2,7 @@
 <html id="top">
 <head>
   <title>
-    {% if page.type == 'home' %}
-      Jim Nielsen’s Blog
-    {% else %}
-      {{ page.title }} | Jim Nielsen’s Blog
-    {% endif %}
+    {% if page.title %}{{ page.title }} | {% endif %}Jim Nielsen’s Blog
   </title>
 
   <meta charset="utf-8">
@@ -17,28 +13,11 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body>
-  <header class="site-header max-width-wrapper">  
-    <a href="{{ site.url | append: site.baseurl }}/">
-      <img src="{{ site.imageurl }}/avatar.png" width="85" height="85" alt="Photo of Jim Nielsen" title="That there? That’s me"/>  
-    </a>
-    <h1>
-      <a href="{{ site.url | append: site.baseurl }}/">
-        jim-nielsen/blog:
-      </a>
-      <a href="{{ site.url | append: site.baseurl }}/about/">
-        <em>seeking clarity through writing</em>
-      </a>
-    </h1>
-    <p>
-      Subscribe via <a href="{{ site.baseurl }}/feed.xml">RSS</a> or <a href="{{ site.baseurl }}/feed.json">JSON</a>
-    </p>
-  </header>
+  <nav class="nav">
+    {% include nav.html %}
+  </nav>
 
-  <main class="main">
-    {% if page.id == 'home' or page.id == 'about' or page.id == 'tags' %}
-      {% include nav-links.html %}
-    {% endif %}
-    
+  <main class="main">    
     {{ content }}
   </main>
 
