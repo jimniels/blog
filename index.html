@@ -1,18 +1,24 @@
 ---
 layout: default
-title: Blog Home
 id: home
 ---
 
-<ul class="posts">
-  {% for post in site.posts  %}
-    <li class="post-wrapper">
-      <time class="date post-date" datetime="{{ post.date | date: "%Y-%m-%d" }}">
-        {{ post.date | date: "%Y-%m-%d" }}
-      </time>
-      <a href="{{ site.baseurl }}{{ post.url }}" class="post-title">
+{% for post in site.posts %}
+  {% assign currentdate = post.date | date: "%Y" %}
+  {% if currentdate != date %}
+    {% unless forloop.first %}</ul>{% endunless %}
+    <h2 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h2>
+    <ul class="posts-list">
+    {% assign date = currentdate %}
+  {% endif %}
+    <li>
+      <a href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }}
       </a>
+      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
+          {{ post.date | date: "%b %e" }}
+        </time>
     </li>
-  {% endfor %}
-</ul>
+  {% if forloop.last %}</ul>{% endif %}
+{% endfor %}
+

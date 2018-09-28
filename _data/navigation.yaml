@@ -1,0 +1,12 @@
+- id: home
+  label: Posts
+  path: /
+- id: tags
+  label: Tags
+  path: /tags/
+- id: about
+  label: About
+  path: /about/
+- id: feeds
+  label: Feeds
+  path: /feeds/

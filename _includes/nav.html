@@ -1,0 +1,18 @@
+<ul>
+  {% for item in site.data.navigation %}
+    <li {% if page.id == item.id %}class="active"{% endif %}>
+      {% if page.id == item.id %}
+        {{item.label}}
+      {% else %}
+        <a href="{{ site.baseurl }}{{ item.path }}">{{item.label}}</a>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+<p>
+  Hi, I’m <a href="http://jim-nielsen.com/">Jim Nielsen</a>. This is my blog, where I find clarity through writing. You’re welcome here anytime.
+</p>
+
+<img src="http://jim-nielsen.com/assets/img/logo.png" style="filter: grayscale(1)" />
+

@@ -7,16 +7,18 @@ domain: http://jim-nielsen.com
 permalink: /:year/:title/
 # permalink: /:short_year:month:day/
 sass:
-    sass_dir: _sass
+  sass_dir: _sass
 gems:
   - jekyll-redirect-from
 
 markdown: kramdown
 highlighter: rouge
 
+# https://stackoverflow.com/questions/16608466/connect-to-a-locally-built-jekyll-server-using-mobile-devices-in-the-lan
+host: 0.0.0.0
+
 defaults:
-  -
-    scope:
+  - scope:
       path: "" # an empty string here means all files in the project
       type: "posts" # previously `post` in Jekyll 2.2.
     values:

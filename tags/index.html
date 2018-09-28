@@ -3,25 +3,30 @@ layout: default
 title: Tags | Jim Nielsen’s Blog
 id: tags
 ---
-  
+
 {% assign sortedTags = (site.tags | sort:0) %}
+
+{% comment %}
 {% for tag in sortedTags %}
-  <h2 id="{{tag.first}}" class="max-width-wrapper" style="margin-bottom: 1rem;">
+  <a href="#{{tag.first}}">{{tag.first}}</a>&nbsp; · &nbsp;
+{% endfor %}
+{% endcomment %}
+
+{% for tag in sortedTags %}
+  <h2 id="{{tag.first}}" style="margin-bottom: 1rem;">
     #{{tag.first}}
     <span style="font-weight: normal">
       ({{tag[1] | size}})
     </span>
   </h2>
 
-  <ul class="posts">
+  <ul class="posts-list">
     {% for post in site.posts %}
       {% if post.tags contains tag.first %}
         <li class="post-wrapper">
-          <a href="{{ site.baseurl }}{{ post.url }}" class="post-title m-r-sm">
-            {{post.title}}
-          </a>
+          <a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>
           <time class="date post-date">
-            {{ post.date | date: "%Y-%m-%d" }}
+            {{ post.date | date: "%b %e, %Y" }}
           </time>
         </li>
       {% endif %}
