@@ -5,6 +5,13 @@ id: tags
 ---
 
 {% assign sortedTags = (site.tags | sort:0) %}
+
+{% comment %}
+{% for tag in sortedTags %}
+  <a href="#{{tag.first}}">{{tag.first}}</a>&nbsp; · &nbsp;
+{% endfor %}
+{% endcomment %}
+
 {% for tag in sortedTags %}
   <h2 id="{{tag.first}}" style="margin-bottom: 1rem;">
     #{{tag.first}}
