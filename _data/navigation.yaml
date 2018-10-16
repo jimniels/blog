@@ -1,5 +1,5 @@
 - id: home
-  label: Posts
+  label: Home
   path: /
 - id: tags
   label: Tags
