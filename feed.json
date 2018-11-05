@@ -5,11 +5,11 @@ layout: null
 {
   "version": "https://jsonfeed.org/version/1",
   "title": "{{ site.name }}",
-  "home_page_url": "{{ site.domain }}{{ site.baseurl }}",
-  "feed_url": "{{ site.domain }}{{ site.baseurl }}/feed.json",
+  "home_page_url": "{{ site.url }}{{ site.baseurl }}",
+  "feed_url": "{{ site.url }}{{ site.baseurl }}/feed.json",
   "author": {
     "name": "Jim Nielsen",
-    "url": "http://jim-nielsen.com/"
+    "url": "https://jim-nielsen.com/"
   },
   "items": [
     {% for post in site.posts limit:10 %}
@@ -17,7 +17,7 @@ layout: null
       "id": "{{ post.date | date: "%Y-%m-%d" }}",
       "date_published": "{{ post.date | date: "%Y-%m-%d" }}",
       "title": {{ post.title | jsonify }},
-      "url": "{{ site.domain }}{{ site.baseurl }}{{ post.url }}",
+      "url": "{{ site.url }}{{ site.baseurl }}{{ post.url }}",
       "tags": [
         {% for tag in post.tags %}
           "{{ tag }}"{% unless forloop.last %},{% endunless %}

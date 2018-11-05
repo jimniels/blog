@@ -1,0 +1,10 @@
+[build]
+  base = ""
+  publish = "_site"
+  command = "bundle exec jekyll build"
+
+[[redirects]]
+  from = "https://jimniels-blog.netlify.com/*"
+  to = "https://blog.jim-nielsen.com/:splat"
+  status = 301
+  force = true
