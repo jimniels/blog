@@ -18,4 +18,4 @@ But hey, like I said, these days I’m aiming for my blog posts to basically be 
 
 — Jim (version of myself on April 16, 2018)
 
-![Photo of Jim Nielsen](http://jim-nielsen.com/assets/img/profile.jpg)
+![Photo of Jim Nielsen](https://www.jim-nielsen.com/assets/img/profile.jpg)
