@@ -4,45 +4,45 @@ date: 2018-11-05
 tags: engineering
 ---
 
-As you might know by now, [I’m a big fan of Netlify](https://twitter.com/jimniels/status/1054726634052468736) and I’ve been switching over all my web hosting needs to it from Github Pages. I used my [icon](https://www.iosicongallery.com/) [galleries](https://www.macosicongallery.com/) [sites](https://www.watchosicongallery.com/) as lab rats for build/deployment/hosting through Netlify and I love it. When I was hosting through Github pages, I had to structure the form and content to fit the build, deployment, and hosting setup. But now with Netlify, I have a lot more liberty in choosing the build, deployment, and hosting setup, giving me a codebase whose technology fits the needs of the site, rather than a codebase whose technology fits the needs of the hosting provider.
+As you might know by now, [I’m a fan of Netlify](https://twitter.com/jimniels/status/1054726634052468736) and I’ve been moving all my web hosting needs over to them from Github Pages. I used my [icon](https://www.iosicongallery.com/) [galleries](https://www.macosicongallery.com/) [sites](https://www.watchosicongallery.com/) as my lab rats of sorts for getting my feet wet in building, deploying, and hosting through Netlify. And guess what? It’s all worked perfectly. What I love about Netlify is it gives me liberty in choosing how I build and deploy my site, which results in a codebase and project structure that fits the needs of the site, rather than a codebase and project structure that fits the needs of Github Pages. So I decided to make the move and begin switching over all my web real estate at [jim-nielsen.com](https://www.jim-nielsen.com/).
 
-So I decided to make the move and begin switching over all my real estate and [jim-nielsen.com](https://www.jim-nielsen.com/). I’ve actually been meaning to switch over all my weird projects to subdomains rather than pathnames off my host name, but with Github Pages it wasn’t very easy so I never got around to it. Netlify gave me the excuse to do it. Because each of my projects were so disparate from what was on jim-nielsen.com, it felt right that they each had their own subdomain and felt like their own independent thing.
+All of my one-off projects at jim-nielsen.com actually live as pathnames of the host (i.e. [jim-nielsen.com/sassme](https://sassme.jim-nielsen.com), [jim-nielsen.com/teamcolors](https://teamcolors.jim-nielsen.com), etc). This always irked me a little bit, as none of my projects had any semblance of uniformity with the homepage at jim-nielsen.com, so subdomains for each project felt like a better fit than pathnames. But when I initially setup all these sites using Github Pages, doing pathnames was my only option (honestly, I can’t remember precisely why...) so I never got around to doing subdomains for each project. Netlify, however, gave me the excuse to finally do it.
 
-So if you visit any of my web properties, you’ll notice the following changes:
+So now, after switching everything over to Netlify, if you visit any of my web properties you’ll notice the following changes:
 
-- [http://jim-nielsen.com](http://jim-nielsen.com) → [https://www.jim-nielsen.com](https://www.jim-nielsen.com)
-  - The apex domain, `jim-nielsen.com` now points to the `www`, I took [Netlify’s advice](https://www.netlify.com/blog/2017/02/28/to-www-or-not-www/).
-- [http://jim-nielsen.com/blog](http://jim-nielsen.com/blog) → [https://jim-nielsen.com/blog](http://jim-nielsen.com/blog)
-- [http://jim-nielsen.com/logo-integrity](http://jim-nielsen.com/logo-integrity) → [https://logo-integrity.jim-nielsen.com](https://logo-integrity.jim-nielsen.com)
-- [http://jim-nielsen.com/sandbox/old-interfaces](http://jim-nielsen.com/sandbox/old-interfaces) → [https://old-movie-uis.jim-nielsen.com](https://old-movie-uis.jim-nielsen.com)
-- [http://jim-nielsen.com/sandbox/kindlinglovesstartups](http://jim-nielsen.com/sandbox/kindlinglovesstartups) → [https://kindling-loves-startups.jim-nielsen.com](https://kindling-loves-startups.jim-nielsen.com)
-- [http://jim-nielsen.com/gimmiedaticon](http://jim-nielsen.com/gimmiedaticon) → [https://gimmie-dat-icon.jim-nielsen.com](https://gimmie-dat-icon.jim-nielsen.com)
-- [http://jim-nielsen.com/teamcolors](http://jim-nielsen.com/teamcolors) → [https://teamcolors.jim-nielsen.com](https://teamcolors.jim-nielsen.com)
-- [http://jim-nielsen.com/sassme](http://jim-nielsen.com/sassme) → [https://sassme.jim-nielsen.com](https://sassme.jim-nielsen.com)
+- [jim-nielsen.com](http://jim-nielsen.com) → [www.jim-nielsen.com](https://www.jim-nielsen.com)
+  - The apex domain, `jim-nielsen.com` still points to `www` (I took [Netlify’s advice](https://www.netlify.com/blog/2017/02/28/to-www-or-not-www/))
+- [jim-nielsen.com/blog](http://jim-nielsen.com/blog) → [blog.jim-nielsen.com](http://blog.jim-nielsen.com)
+- [jim-nielsen.com/logo-integrity](http://jim-nielsen.com/logo-integrity) → [logo-integrity.jim-nielsen.com](https://logo-integrity.jim-nielsen.com)
+- [jim-nielsen.com/sandbox/old-interfaces](http://jim-nielsen.com/sandbox/old-interfaces) → [old-movie-uis.jim-nielsen.com](https://old-movie-uis.jim-nielsen.com)
+- [jim-nielsen.com/sandbox/kindlinglovesstartups](http://jim-nielsen.com/sandbox/kindlinglovesstartups) → [kindling-loves-startups.jim-nielsen.com](https://kindling-loves-startups.jim-nielsen.com)
+- [jim-nielsen.com/gimmiedaticon](http://jim-nielsen.com/gimmiedaticon) → [gimmie-dat-icon.jim-nielsen.com](https://gimmie-dat-icon.jim-nielsen.com)
+- [jim-nielsen.com/teamcolors](http://jim-nielsen.com/teamcolors) → [teamcolors.jim-nielsen.com](https://teamcolors.jim-nielsen.com)
+- [jim-nielsen.com/sassme](http://jim-nielsen.com/sassme) → [sassme.jim-nielsen.com](https://sassme.jim-nielsen.com)
 
-Note the following changes:
+A few notes about the above changes:
 
-- It’s all `https` now. [Netlify makes this really easy](https://www.netlify.com/docs/ssl/) if you use their managed SSL.
+- It’s all `https` now. [Netlify makes this really easy](https://www.netlify.com/docs/ssl/) if you use their managed SSL. I always meant to make my sites `https` but for the longest time Github Pages didn’t support `https` for custom domains. Somewhat recently they changed this, but too little too late Github.
 - Old URLs all get [301 redirects thanks to Netlify](https://www.netlify.com/docs/redirects/)
-  - This was always a strict drawback to Github Pages as you didn’t get even the slightest bit of control over how the server responds to a request, so large-reaching URL changes were difficult to deal with.
+  - This was always a strict drawback to Github Pages as you didn’t get even the slightest bit of control over how the server responded to a request. This made sweeping URL changes to your site difficult to deal with (in general, the way you dealt with it was you generated static html pages at all of your old URLs that contained a `<meta http-equiv="refresh" ...>` redirect tag).
 - I used to have a repo called `sandbox` where I stuck just a bunch of static stuff. It was workaround to how Github Pages makes you host things. With Netlify, I was able to be very atomic about my repositories and deployments. Each sandbox item became it’s own repo with it’s own subdomain.
 
-Not to be a stickler either, but this was all free which is awesome (but [it does worry me just a tiny bit](https://twitter.com/jimniels/status/1054746927139565568)).
+Not that I’m cheap (but I am) but doing all of this on Netlify was free (which is awesome, but [also slightly worrying](https://twitter.com/jimniels/status/1054746927139565568) as I don’t want them to go out of business).
 
-## The Details
+## The Technical Details
 
-Here’s a kind of sloppy look at how I actually made the transition from Github Pages to Netlify.
+Here’s a really fast look at how I actually made the transition from Github Pages to Netlify while not breaking all my old links (because [cool URIs don’t change](https://www.w3.org/Provider/Style/URI)).
 
 ### My First Misstep
 
-Because my apex domain (jim-nielsen.com) was controlled by Github, it initially appeared like there was no way I could switch things over one by one. This was going to be an all-or-nothing approach. But after some Googling, I found [this possibility on Stack Overflow](https://stackoverflow.com/questions/48604843/how-to-host-multiple-github-repos-using-the-same-custom-domain-on-netlify) that illustrated how you could host multiple Github repos on Netlify while using the same custom domain. The solution lies in the fact that Netlify lets you control (at least a little bit) how the server responds. I realized that through using a `_redirects` file, I could proxy requests from one “project” in Netlify to another while making the URLs appear as though they hadn’t changed.
+Because my apex domain (jim-nielsen.com) was controlled by Github, it initially appeared like there was no way I could switch things over one by one. This was going to be an all-or-nothing approach. But after some Googling, I found [this possibility on Stack Overflow](https://stackoverflow.com/questions/48604843/how-to-host-multiple-github-repos-using-the-same-custom-domain-on-netlify) that illustrated how you could host multiple Github repos on Netlify while using the same custom domain. The solution lies in the fact that Netlify gives you some control over how the server responds to a request. I realized that through using Netlify’s custom `_redirects` file, I could proxy requests from one “project” in Netlify to another while making the URLs appear as though they hadn’t changed.
 
-For example, when you setup a site in Netlify, your site gets a `x.netlify.com` subdomain. So, as an example, I had two different repos in Github, each representing a different part of my site (the reason I structured it this way was because ~~the devil~~ Github Pages made me do it)
+For example, when you setup a site in Netlify, your site gets a `x.netlify.com` subdomain. So, as an example, I had two different repos in Github, each representing a different part of my site (a constraint once forced upon me by Github Pages):
 
 - `jim-nielsen.com` pointed to my repo `jimniels.github.io`
 - `jim-nielsen.com/blog` pointed to my repo `blog`
 
-After setting up both these repos in Netlify, I now had `jim-nielsen.netlify.com` representing (what would be) `jim-nielsen.com` and I had `jim-nielsen-blog.netlify.com` representing (what would be) `jim-nielsen.com/blog`.
+After setting up both these repos in Netlify, I now had `jim-nielsen.netlify.com` representing (what would be) `jim-nielsen.com` and I had `jim-nielsen-blog.netlify.com` representing (what would be) `jim-nielsen.com/blog`. Now all I had to do was add a `_redirects` file that proxied requests to `/blog` to my other Netlify project at `jim-nielsen-blog.netlify.com`.
 
 At first I thought this was going to be my path forward. It would allow me to keep all my URLs the same yet switch all deployment/hosting over to Netlify. It seemed like a nice “half-step” towards my end goal of having a subdomain per repo and everything hosted on Netlify. My rough outline for moving in this direction was:
 
@@ -50,21 +50,21 @@ At first I thought this was going to be my path forward. It would allow me to ke
 2. Setup `jim-nielsen.com` as a site in Netlify and make sure it has `_redirects` file following the structure of [the Stack Overflow suggestion](https://stackoverflow.com/questions/48604843/how-to-host-multiple-github-repos-using-the-same-custom-domain-on-netlify) which would proxy all path requests of `jim-nielsen.com` to my custom `x.netlify.com` Netlify project domains.
 3. Once all repos and sites were setup in Netlify, test each redirect from my `jim-nielsen.netlify.com` domain (i.e. make sure `jim-nielsen.netlify.com/blog` would proxy the request to my `jim-nielsen-blog.netlify.com` project in Netlify while keeping the URL in the address bar as `jim-nielsen.netlify.com/blog`)
 4. If everything worked as expected, change `jim-nielsen.com` domain to point at Netlify instead of GitHub.
-5. Test everything again.
+5. And of course, test everything again for good measure.
 
 After getting to step 3, I realized this was actually more complicated than I thought. As the Stack Overflow solution points out:
 
-> You will however need to ensure that any urls used in the dissertation repo are correctly relative to this path, which may be easy or may be very hard depending on the build system.
+> You will however need to ensure that any urls used in the [proxied] repo are correctly relative to [your root domain], which may be easy or may be very hard depending on the build system.
 
-Each of my repos were a little haphazard with how they were handling URLs. And because they were static pages still being hosted live at jim-nielsen.com by Github Pages, I realized that this half-step towards getting things into Netlify was actually going to be more complicated than going all the way to where I wanted to be: a subdomain for each repo.
+Each of my repos were a little haphazard with how they were handling URLs (be it absolute or relative) and since they were static pages hosted at jim-nielsen.com via Github Pages, I realized that this half-step towards getting things into Netlify was actually going to be more complicated than going all the way to where I wanted to be: a subdomain for each repo.
 
 ### A Subdomain For Each Repo
 
-The biggest challenge in setting everything up as it’s own subdomain was that I would have to go through and audit every single repo, just to make sure its URLs etc. were prepared for the change in location at which they lived. I had been trying to avoid this because the manic person inside of me knew that if I touched an old repo, I’d see all the things I did wrong back when I built it and wouldn’t be able to not refactor things. It seemed as though moving half a dozen projects from pathnames to subdomains would end up resulting in half a dozen projects being modernized, which would take forever.
+The biggest challenge in setting everything up as its own subdomain was that I would have to go through and audit every single repo to make sure all URLs (like `<a>` tags, RSS links, and open graph tags) were prepared for a change of location. I had been trying to avoid this because the manic person inside of me knew that if I touched an old repo, I’d see all the things I did wrong back when I built it and wouldn’t be able to not refactor things. It seemed as though moving half a dozen projects from pathnames to subdomains would end up resulting in half a dozen projects being modernized, which would take forever.
 
-I’m not going to lie, that’s kind of what happened, at least on some projects. Some of the repos I touched were really old and I hadn’t built them in a very portable way, so I tried to only fix those aspects. However, there was also a repo or two that I didn’t even have to change a single line for them to work.
+I’m not going to lie, that’s kind of what happened, at least on some projects. Some of the repos I touched were really old and I hadn’t built them in a very portable way, so I tried to only fix those aspects. However, there were also a couple repos where I didn’t have to change a single line of code for them to work (hooray for Jim of yesteryear).
 
-Probably the most common change I had to make to each repo was to set up a standardized build process. Because these projects had been on Github pages, many were dynamic in the sense that they were built locally and then the “built” files were committed to git. Plus, because (at least when I set these projects up) Github Pages essentially just plopped your repo into a web server, I had to make sure all my `index.html` files were in the repo. So I had a lot of project structures like this:
+Probably the most common change I had to make to each repo was to set up a standardized build process. Most projects had some kind of build process that resulted in a few compiled files being committed into git so Github Pages would host them. You see Github Pages (at least when I set these projects up) essentially just plopped your repo onto a web server as-is, so many of my repos had strange file placements to make things work, like a compiled `index.html` file in the root of the repo. I had a couple project structures similar to this:
 
 ```
 .
@@ -97,11 +97,11 @@ Here are a couple examples of the code changes that took place for each repo:
 
 ### Config Values
 
-Here’s an example from my blog (which runs on Jekyll). I had a few config values which drove most of the way my URls worked, so changes were relatively self-contained and easy to make.
+This is a code diff from my blog (which runs on Jekyll). I had a few config values which drove most of the way my URls worked, so changes were relatively self-contained and easy to make.
 
 ![Screenshot of git diff for changed config values]({{ site.imageurl }}/2018/pathnames-to-subdomains-blog-diff.png)
 
-### `netlify.toml`
+### netlify.toml
 
 I added a `netlify.toml` file to all my repos so that I could define and control the project setup and build from a single file (rather than having to login to the Netlify UI to do it).
 
@@ -123,7 +123,7 @@ A couple of my sites had `http` links scattered throughout them, which would tri
 
 ### Deploy Scripts
 
-As mentioned, many of my sites were “dynamic” in that they were compiled to static files from source data. In a few cases, I had deploy scripts which would compile the content and commit the files to a `gh-pages` branch, so as to not sully up my source code with compiled files. Netlify obviated the need for any of this trickery by deploying from a build folder that’s not under source control.
+As mentioned, many of my sites were “dynamic” in that they were compiled to static files from source data. In a few cases, I had deploy scripts which would compile the content and commit the files to a `gh-pages` branch, so as to not sully up my source code with compiled files. Netlify obviated the need for any of this trickery by building the entire site to a directory not under source control then deploying from it.
 
 ![Screenshot of git diff removing build scripts]({{ site.imageurl }}/2018/pathnames-to-subdomains-sassme-deploy-script-removal.png)
 
@@ -139,7 +139,7 @@ I just wanted to point out one of the neatest advantages to switching this all o
 
 ![Screenshot of jim-nielsen.com homepage with latest Blog and Dribbble content]({{ site.imageurl }}/2018/pathnames-to-subdomains-blog-dribbble-jim-nielsen.png "jim-nielsen.com with the latest content from my blog and Dribbble")
 
-There’s a couple different ways you could do a widget like this. One way would be to use client-side JavaScript. This would mean that every person who hits my site would run JavaScript code which hits the Dribbble API and [my blog’s JSON feed](https://blog.jim-nielsen.com/feed.json) to get the latest content and then render the page. Besides the oft-ignored problem of “what happens if JavaScript is disabled?”, this wouldn’t really work because the Dribbble API is rate limited. Not that I get tons of traffic to my blog, but because every visitor would be hitting Dribbble’s API, I still run the risk of overdosing on my allotted API calls.
+There’s a couple different ways you could do a widget like this. One way would be to use client-side JavaScript. This would mean that every person who hits my site would run JavaScript code which hits the Dribbble API and [my blog’s JSON feed](https://blog.jim-nielsen.com/feed.json) to get the latest content and then render the page. Besides the oft-ignored problem of “what happens if JavaScript is disabled?”, this wouldn’t really work because the Dribbble API is rate limited. Not that I get massive traffic to my site or anything, but this is still a problem because every visitor would be hitting Dribbble’s API and I would therefore run the risk of overdosing on my allotted API calls.
 
 I could do this server side. Setup like a cron job that runs every so often and fetches the latest content to a cache file which gets used to render the HTML. But then I have to setup and maintain a server, which I don’t want to do.
 
