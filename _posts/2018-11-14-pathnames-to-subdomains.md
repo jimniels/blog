@@ -1,12 +1,12 @@
 ---
-title: Pathnames to Subdomains on jim-nielsen.com
-date: 2018-11-05
+title: Migrating from Pathnames to Subdomains for jim-nielsen.com
+date: 2018-11-14
 tags: engineering
 ---
 
-As you might know by now, [I’m a fan of Netlify](https://twitter.com/jimniels/status/1054726634052468736) and I’ve been moving all my web hosting needs over to them from Github Pages. I used my [icon](https://www.iosicongallery.com/) [galleries](https://www.macosicongallery.com/) [sites](https://www.watchosicongallery.com/) as my lab rats of sorts for getting my feet wet in building, deploying, and hosting through Netlify. And guess what? It’s all worked perfectly. What I love about Netlify is it gives me liberty in choosing how I build and deploy my site, which results in a codebase and project structure that fits the needs of the site, rather than a codebase and project structure that fits the needs of Github Pages. So I decided to make the move and begin switching over all my web real estate at [jim-nielsen.com](https://www.jim-nielsen.com/).
+As you might know by now, [I’m a fan of Netlify](https://twitter.com/jimniels/status/1054726634052468736) and I’ve been transitioning to them (from Github Pages) for all my web hosting needs. I used my [icon](https://www.iosicongallery.com/) [galleries](https://www.macosicongallery.com/) [sites](https://www.watchosicongallery.com/) as lab rats of sorts for getting my feet wet in building, deploying, and hosting through Netlify. And guess what? It’s all worked perfectly (the rats are all safe and sound as it were). What I love about Netlify is it gives me liberty in choosing how I build and deploy my site, which results in a codebase and project structure that fits the needs of the site, rather than a codebase and project structure that fits the needs of Github Pages. With my beta phase of using Netlify over, I decided to switch over all my web real estate at [jim-nielsen.com](https://www.jim-nielsen.com/).
 
-All of my one-off projects at jim-nielsen.com actually live as pathnames of the host (i.e. [jim-nielsen.com/sassme](https://sassme.jim-nielsen.com), [jim-nielsen.com/teamcolors](https://teamcolors.jim-nielsen.com), etc). This always irked me a little bit, as none of my projects had any semblance of uniformity with the homepage at jim-nielsen.com, so subdomains for each project felt like a better fit than pathnames. But when I initially setup all these sites using Github Pages, doing pathnames was my only option (honestly, I can’t remember precisely why...) so I never got around to doing subdomains for each project. Netlify, however, gave me the excuse to finally do it.
+All of my one-off projects at jim-nielsen.com actually live as pathnames of the host (i.e. [jim-nielsen.com/sassme](https://sassme.jim-nielsen.com), [jim-nielsen.com/teamcolors](https://teamcolors.jim-nielsen.com), etc). This always irked me a little bit, as none of my projects had any semblance of uniformity with the “home page” host (jim-nielsen.com). Subdomains for each project, instead of pathnames, always like a better fit. However, when I initially setup all these projects using Github Pages, doing pathnames was my only option (honestly, I can’t remember precisely why...) so I never got around to doing subdomains for each project. Netlify, however, gave me the excuse to finally do it.
 
 So now, after switching everything over to Netlify, if you visit any of my web properties you’ll notice the following changes:
 
@@ -75,7 +75,7 @@ Probably the most common change I had to make to each repo was to set up a stand
 ├── src/
 |   └── index.mustache
 ├── favicon.ico
-└── index.html // generated file
+└── index.html # generated file
 ```
 
 Note how a lot of my code/project/non-web stuff was intermixed with content like `index.html` because it had to be at the root due to the way Github Pages did deploys. With Netlify, I was able to go into a lot of these projects and change this structure to properly separate concerns and reflect the source/build nature of each project.

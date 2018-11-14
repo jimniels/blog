@@ -1,12 +1,22 @@
-# Book Notes: “The Pun Also Rises” by John Pollack
+---
+title: "Book Notes: “The Pun Also Rises” by John Pollack"
+date: 2018-11-05
+tags: bookNotes
+---
+
+Last Christmas, my sister got me this book because she knew I loved a good pun. I read it. It wasn’t an amazing, life-changing book. But it did have parts that made me smile. Like this simple statement about puns:
 
 > Critics and curmudgeons often deride the pun as the lowest form of humor. Others would counter that if that’s true, it would make punning the foundation of all humor. (xxii)
- 
+
+But the book wasn’t solely about how puns can be funny. It was, in a way, a kind of critical defense of the pun. The guy who wrote the book was a champion punner (something I didn’t even knew existed until I read this book) and he made the case as to why puns can actually be an intellectual challenge:
+
+> The common expectation that puns  should always be funny, or die in the attempt, is a relatively modern development. (65)...For thousands of years, the [pun] had commanded respect for revealing divine wisdom, as a poetic expression of life’s inherent contradictions, and as an elegant rhetorical tool to communicate multiple ideas at once.(85)
+
 > As children learn to spot and evaluate secondary meanings in common words and phrases, they’re really learning how to think critically. To get the joke, they have to overlook the obvious to explore other possible interpretations of what they have just heard...Though often dismissed as juvenile, riddles and knock-knock jokes actually require significant powers of abstraction, a deliberate subversion of rules, and a special appreciation for surprise. (xxiii)
 
 > Punning is all about connecting ideas, no matter how disparate (17)
  
-> let the unconscious do tis creative work unmolested “while other processes continue simultaneously on the rational surface” (32)
+> let the unconscious do its creative work unmolested “while other processes continue simultaneously on the rational surface” (32)
  
 > Punning, of all arts and sciences, is the most extraordinary: for all others are circumscribed by certain bounds; but this alone is found to have no limits, because, to excel therein requires a more extensive knowledge of all things. (80)
 
@@ -19,6 +29,8 @@
 > without learning to pun, we might just take speech at face value and wouldn’t necessarily learn to hunt for deeper, different or related meanings. (149)
  
 --
+
+## The Classification of Puns
  
 The classifications for the different kinds of puns: homophonic and homographic.
  
@@ -33,9 +45,6 @@ Those damn homophonic puns are always the more difficult ones to express online,
 
 
 ---
-
-> The common expectation that puns  should always be funny, or die in the attempt, is a relatively modern development. (65)...For thousands of years, the [pun] had commanded respect for revealing divine wisdom, as a poetic expression of life’s inherent contradictions, and as an elegant rhetorical tool to communicate multiple ideas at once.(85)
-
 
 How many ears does Davy Crockett have? Three: a right ear, a left ear, and a wild front ear. 
 
