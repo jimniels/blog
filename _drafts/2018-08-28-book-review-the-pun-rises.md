@@ -8,11 +8,34 @@ Last Christmas, my sister got me this book because she knew I loved a good pun. 
 
 > Critics and curmudgeons often deride the pun as the lowest form of humor. Others would counter that if that’s true, it would make punning the foundation of all humor. (xxii)
 
-But the book wasn’t only about how puns can be funny. It was, in a way, a kind of critical defense of the pun. The guy who wrote the book was a champion punner (something I didn’t even knew [existed](http://punoff.com) until I read this book) and he argues that, contrary to what many might think, punning isn’t solely made up of poor attempts at humor. In fact, for a long time, puns were a form of intellectual exercise:
+But the book wasn’t just a collection of funny puns. It was quite the opposite: a kind of critical defense of the intellectual value of the pun. The author ( apparently [a champion punner](http://punoff.com), something I didn’t even knew existed until I read this book) argues that puns were for a long time a respected form of intellectual endeavor:
 
 > The common expectation that puns should always be funny, or die in the attempt, is a relatively modern development. (65)...For thousands of years, the [pun] had commanded respect for revealing divine wisdom, as a poetic expression of life’s inherent contradictions, and as an elegant rhetorical tool to communicate multiple ideas at once.(85)
 
-Not only was the pun a kind of intellectual tool, punning can help you to learn to think critically
+So before diving into an analysis of punning, the author defends the pun as, well, something worth defending right at the beginning of the book. An argument I was all for :)
+
+## The Classification of Puns
+
+There are two kinds of puns: homophonic and homographic.
+
+> Homophonic puns exploit words that sound alike, either generally or identically...By contrast, homographic puns are based on etymologically distinct words, spelled the same, that have more than one meaning, such as bunk.(10)
+
+Homophonic: “the excitement at the circus is in tents”
+(“in tents” and “intense” are two words the listener will hear and have to distinguish between).
+
+Homographic: “An architect in prison complained that the walls were not built to scale”. Note the dual meaning of “scale”: 1) the building’s relative proportions, as seen by the architect, or 2) the difficulty someone might encounter when attempting to escape over the prison walls. The beauty of the pun here is that both definitions work.
+
+Those damn homophonic puns, though, are always the more difficult ones to express online, as you hear them in your head, but once you type them out you realize “crap this isn’t going to come across right” because you have to type it with literal spelling. Here’s an example of a pun that, when you see it, you immediately grasp the pun. But when you hear it, it can take a second to grasp:
+
+> How many ears does Davy Crockett have? Three: a right ear, a left ear, and a wild frontier.
+
+## Favorite Excerpts
+
+The following is just a collection of excerpts from the book (in no particular order) that stood out to me.
+
+---
+
+Throughout the book, the author makes the case that punning is an artistic, creative, even rebellious exercise in connecting ideas. Even more, punning is an exercise in being open-minded, because by nature it is the practice of looking for alternative meanings. These excerpts touch on this point:
 
 > As children learn to spot and evaluate secondary meanings in common words and phrases, they’re really learning how to think critically. To get the joke, they have to overlook the obvious to explore other possible interpretations of what they have just heard...Though often dismissed as juvenile, riddles and knock-knock jokes actually require significant powers of abstraction, a deliberate subversion of rules, and a special appreciation for surprise. (xxiii)
 
@@ -25,27 +48,6 @@ Not only was the pun a kind of intellectual tool, punning can help you to learn 
 > puns reveal that the words we use to define the world around us are ultimately just arbitrary signs (145)
 
 > without learning to pun, we might just take speech at face value and wouldn’t necessarily learn to hunt for deeper, different or related meanings. (149)
-
-## The Classification of Puns
-
-The classifications for the different kinds of puns: homophonic and homographic.
-
-> Homophonic puns exploit words that sound alike, either generally or identically...By contrast, homographic puns are based on etymologically distinct words, spelled the same, that have more than one meaning, such as bunk.(10)
-
-Homophonic: “the excitement at the circus is in tents”
-(“in tents” and “intense”, two words the listener will hear and have to distinguish between).
-
-Homographic: “An architect in prison complained that the walls were not built to scale”. Dual meaning of “scale”: 1) the building’s relative proportions, as seen by the architect, or 2) the difficulty someone might encounter when attempting to escape over the prison walls. The beauty of the pun here is that both definitions work.
-
-Those damn homophonic puns, though, are always the more difficult ones to express online, as you hear them in your head, but once you type them out you realize “crap this isn’t going to come across right” because you have to type it with literal spelling. Here’s an example of a pun that, when you see it, you immediately grasp the pun. But when you hear it, it can take a second:
-
-> How many ears does Davy Crockett have? Three: a right ear, a left ear, and a wild frontier.
-
-This particular pun is stripped of its impact when read with your eyes, whereas if it communicated vocally its impact would be much more acute.
-
-## Favorite Excerpts
-
-The following is just a collection of excerpts from the book that stood out to me when I read it, so I wanted to write them down to remember them.
 
 ---
 
