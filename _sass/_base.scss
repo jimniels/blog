@@ -405,12 +405,13 @@ a:active:hover {
   }
 
   // Jekyll auto-generates classes for code highlighting. We tap into that here.
-  > .highlighter-rouge {
+  .highlighter-rouge {
     padding: 1.618rem;
     padding-right: 0;
     background: var(--color-bg-sidebar);
     max-width: 960px;
     overflow-y: scroll;
+    margin-bottom: 1.618rem;
     -webkit-overflow-scrolling: touch;
 
     /* @TODO fix dark mode with syntax highlighting */
@@ -455,6 +456,7 @@ a:active:hover {
       max-width: 30rem;
       display: block;
       margin: 0 0.5rem;
+      margin-top: calc(2rem - 1.618rem);
     }
   }
 }
