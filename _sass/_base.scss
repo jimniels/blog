@@ -405,7 +405,7 @@ a:active:hover {
   }
 
   // Jekyll auto-generates classes for code highlighting. We tap into that here.
-  .highlighter-rouge {
+  > .highlighter-rouge {
     padding: 1.618rem;
     padding-right: 0;
     background: var(--color-bg-sidebar);
