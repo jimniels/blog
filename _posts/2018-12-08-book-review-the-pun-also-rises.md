@@ -8,9 +8,10 @@ Last Christmas, my sister got me this book because she knew I loved a good pun. 
 
 > Critics and curmudgeons often deride the pun as the lowest form of humor. Others would counter that if that’s true, it would make punning the foundation of all humor. (xxii)
 
-But the book wasn’t just a collection of funny puns. It was quite the opposite: a kind of critical defense of the intellectual value of the pun. The author ( apparently [a champion punner](http://punoff.com), something I didn’t even knew existed until I read this book) argues that puns were for a long time a respected form of intellectual endeavor:
+But the book wasn’t just a collection of funny puns. It was quite the opposite: a kind of critical defense of the intellectual value of the pun. The author (apparently [a champion punner](http://punoff.com) – something I didn’t even knew existed until I read this book) argues that puns were, for a long time, a respected form of intellectual endeavor:
 
-> The common expectation that puns should always be funny, or die in the attempt, is a relatively modern development. (65)...For thousands of years, the [pun] had commanded respect for revealing divine wisdom, as a poetic expression of life’s inherent contradictions, and as an elegant rhetorical tool to communicate multiple ideas at once.(85)
+> The common expectation that puns should always be funny, or die in the attempt, is a relatively modern development. (65)
+> For thousands of years, the [pun] had commanded respect for revealing divine wisdom, as a poetic expression of life’s inherent contradictions, and as an elegant rhetorical tool to communicate multiple ideas at once.(85)
 
 So before diving into an analysis of punning, the author defends the pun as, well, something worth defending right at the beginning of the book. An argument I was all for :)
 
@@ -20,10 +21,10 @@ There are two kinds of puns: homophonic and homographic.
 
 > Homophonic puns exploit words that sound alike, either generally or identically...By contrast, homographic puns are based on etymologically distinct words, spelled the same, that have more than one meaning, such as bunk.(10)
 
-Homophonic: “the excitement at the circus is in tents”
+**Homophonic**: “the excitement at the circus is in tents”
 (“in tents” and “intense” are two words the listener will hear and have to distinguish between).
 
-Homographic: “An architect in prison complained that the walls were not built to scale”. Note the dual meaning of “scale”: 1) the building’s relative proportions, as seen by the architect, or 2) the difficulty someone might encounter when attempting to escape over the prison walls. The beauty of the pun here is that both definitions work.
+**Homographic**: “An architect in prison complained that the walls were not built to scale”. Note the dual meaning of “scale”: 1) the building’s relative proportions, as seen by the architect, or 2) the difficulty someone might encounter when attempting to escape over the prison walls. The beauty of the pun here is that both definitions work.
 
 Those damn homophonic puns, though, are always the more difficult ones to express online, as you hear them in your head, but once you type them out you realize “crap this isn’t going to come across right” because you have to type it with literal spelling. Here’s an example of a pun that, when you see it, you immediately grasp the pun. But when you hear it, it can take a second to grasp:
 
