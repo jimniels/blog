@@ -1,6 +1,6 @@
 ---
 title: "Book Notes: “The Pun Also Rises” by John Pollack"
-date: 2018-11-05
+date: 2018-12-08
 tags: bookNotes
 ---
 
