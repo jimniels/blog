@@ -1,6 +1,6 @@
 ---
-title: Personal Observations on “CSS and Network Performance”
-date: 2018-12-07
+title: Personal Observations on “CSS and Network Performance” by Harry Roberts
+date: 2018-12-28
 tags: engineering
 ---
 
