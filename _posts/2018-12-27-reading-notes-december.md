@@ -78,4 +78,4 @@ He says the way you can tell if you’re awakening possibility in other people i
 
 > Who am I being that my player’s eyes are not shining?
 
-And that can extend to anyone in your sphere of influence: “who am I being that my [children’s|employees’|friends’] eyes are not shining?”
+And that can extend to anyone in your sphere of influence: “who am I being that my [children’s / employees’ / friends’] eyes are not shining?”
