@@ -6,11 +6,13 @@ id: tags
 
 {% assign sortedTags = (site.tags | sort:0) %}
 
-{% comment %}
+<h1>All Tags Index</h1>
+<ul>
 {% for tag in sortedTags %}
-  <a href="#{{tag.first}}">{{tag.first}}</a>&nbsp; · &nbsp;
+  <li><a href="#{{tag.first}}">#{{tag.first}}</a> ({{tag[1] | size}})</li>
 {% endfor %}
-{% endcomment %}
+</ul>
+
 
 {% for tag in sortedTags %}
   <h2 id="{{tag.first}}" style="margin-bottom: 1rem;">

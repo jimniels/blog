@@ -1,21 +1,21 @@
 :root {
-  --color-text: #212121;
-  --color-bg: #fff;
-  --color-bg-sidebar: rgba(0, 0, 0, 0.05);
-  --color-link: #0000ff;
-  --color-link-visited: #551a8b;
-  --color-link-active: #ff0000;
-  --color-quote-line: rgba(0, 0, 0, 0.333);
+  --color-text: #{#212121};
+  --color-bg: #{#fff};
+  --color-bg-sidebar: #{rgba(0, 0, 0, 0.05)};
+  --color-link: #{#0000ff};
+  --color-link-visited: #{#551a8b};
+  --color-link-active: #{#ff0000};
+  --color-quote-line: #{rgba(0, 0, 0, 0.333)};
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text: #eee;
-    --color-bg: rgb(63, 59, 57);
-    --color-bg-sidebar: rgba(0, 0, 0, 0.2);
-    --color-link: rgb(5, 172, 255);
-    --color-link-visited: rgb(195, 95, 255);
-    --color-quote-line: rgba(255, 255, 255, 0.333);
+    --color-text: #{#eee};
+    --color-bg: #{rgb(63, 59, 57)};
+    --color-bg-sidebar: #{rgba(0, 0, 0, 0.2)};
+    --color-link: #{rgb(5, 172, 255)};
+    --color-link-visited: #{rgb(195, 95, 255)};
+    --color-quote-line: #{rgba(255, 255, 255, 0.333)};
   }
 }
 
@@ -30,6 +30,7 @@ html {
   font-size: 1.125rem;
   background: var(--color-bg);
   color: var(--color-text);
+  scroll-behavior: smooth;
 }
 
 body {
