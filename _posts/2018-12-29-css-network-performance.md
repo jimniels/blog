@@ -14,10 +14,12 @@ First and foremost, this post is a reflection on [“CSS and Network Performance
 
 Example:
 
-```
+```html
 <link rel="stylesheet" href="slow-loading-stylesheet.css" />
 <script>
-  console.log("I will not run until slow-loading-stylesheet.css is downloaded.");
+  console.log(
+    "I will not run until slow-loading-stylesheet.css is downloaded."
+  );
 </script>
 ```
 
