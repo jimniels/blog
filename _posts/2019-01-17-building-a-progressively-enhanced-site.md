@@ -36,8 +36,6 @@ So if a user went to my website and the CSS loaded, but for some reason the Java
 
 ![Screenshot of site without JavaScript]({{ site.imageurl }}/2019/progressive-no-js.png "HTML and CSS loaded, but JavaScript failed for some reason")
 
-(As I write this and review this screen, I can see a big gaping whole where the ad is supposed to be. I could probably clean this up by adding a `hidden` attribute to this list item and then removing that attribute via JavaScript – if it loads – then I wouldn’t end up with a giant gaping whole in my list of items.)
-
 ## JavaScript
 
 Now if the JavaScript did run (and the styles loaded), this is what a user might see:
@@ -53,6 +51,8 @@ Did you notice the difference?
 The ads on my site are loaded through a third-party via JavaScript. That’s pretty much standard ad-tech these days.
 
 Actually, that’s not entirely true. The ads for [iosicongallery.com](https://www.iosicongallery.com) are loaded via JavaScript from third-party [Carbon Ads](https://www.carbonads.net/). The ads for [macosicongallery.com](https://www.macosicongallery.com) and [watchosicongallery](https://www.watchosicongallery.com) are actually “server-side” ads. They get generated at build time and built into the site’s HTML, so there’s no third-party assets (JavaScript, images, etc) for displaying them. It’s solely an affiliate link. I kind of like that setup. I’ll probably ditch Carbon Ads one day and either not have ads in general, or try and find someone who wants to pay me like \$10/month and I’ll put up whatever they want in that spot. But that’s a discussion for another blog post another day.
+
+Even as I write this, I’m thinking of a better way to handle this (“writing is nature’s way of letting you know how sloppy your thinking is”). As I review these screens with and without JavaScript, I can see that big gaping whole where the ad is supposed to be. I could improve upon this by adding a `hidden` attribute to the `<li>` of the ad’s containing `<script>` tag, then remove the `hidden` attribute via JavaScript if it loads. Or at least something like that, something to make the presence of the ad space not obvious if JavaScript is absent. [*Issue filed with self.*]
 
 ### Search & Dark Mode Toggle
 
