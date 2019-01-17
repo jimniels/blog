@@ -36,6 +36,8 @@ So if a user went to my website and the CSS loaded, but for some reason the Java
 
 ![Screenshot of site without JavaScript]({{ site.imageurl }}/2019/progressive-no-js.png "HTML and CSS loaded, but JavaScript failed for some reason")
 
+(As I write this and review this screen, I can see a big gaping whole where the ad is supposed to be. I could probably clean this up by adding a `hidden` attribute to this list item and then removing that attribute via JavaScript – if it loads – then I wouldn’t end up with a giant gaping whole in my list of items.)
+
 ## JavaScript
 
 Now if the JavaScript did run (and the styles loaded), this is what a user might see:
