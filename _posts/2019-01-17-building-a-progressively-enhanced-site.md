@@ -1,6 +1,6 @@
 ---
 title: Building a Progressively-Enhanced Site
-date: 2019-01-16
+date: 2019-01-17
 tags: engineering
 ---
 
@@ -8,31 +8,33 @@ I recently added the ability to search for icons (by name) on my [icon](https://
 
 ![New search functionality GIF]({{ site.imageurl }}/2019/progressive-search.gif)
 
-I even got it working nicely on mobile.
+I even got it working on mobile.
 
 ![New search functionality GIF on mobile]({{ site.imageurl }}/2019/progressive-search-mobile.gif)
 
-There are about a million ways I could’ve done this. However, one of the self-imposed engineering constraints with my icon gallery sites is accessibility. I ~~like~~ love the idea of building [resilient](https://resilientwebdesign.com/) web sites that’ll not only stand up to spotty networks or antiquated devices, but I love building sites with longevity. Semantic HTML, enhanced with styles and JS interactivity, is a recipe for a website that could last a decade or two or [three](http://info.cern.ch/hypertext/WWW/TheProject.html). Although it’s often less feasible for me to build sites like this at my place of employment, my personal projects get to serve as a sandbox for practicing the tenants of progressive enhancement.
+There are about a million ways I could’ve done this. However, one of the self-imposed engineering constraints with my icon gallery sites is accessibility. I ~~like~~ love the idea of building [resilient](https://resilientwebdesign.com/) web sites that’ll not only stand up to spotty networks or antiquated devices, but will have some longevity to them. Semantic HTML, enhanced with styles and JS interactivity, is a recipe for a website that could last a decade or two or [three](http://info.cern.ch/hypertext/WWW/TheProject.html).
 
-So how do I go about such an endeavor?
+The longer I work on the web, the more I find myself coming back to writing my websites in the basics: HTML, CSS, and JavaScript. I’ve had quite a few projects where I’ll come back to them after a couple months (or years) and find myself tearing out abstractions I used on top of the core web technologies. Less Haml. Less Sass. Less CoffeeScript. Less Babel. Instead of tearing out the old and putting in whatever the new fashionable abstractions are, I now try engineering my sites with a baseline and consider everything else an enhancement. This allows me to pass on setting up sophisticated toolchains for transipiling, compiling, etc. The code I write ships as-is, and if a browser doesn’t support it, that’s ok. I’m trying to [keep it simple](https://principles.adactio.com).
+
+So how do I go about such an endeavor? I’ll try to explain from the perspective of the most recent feature I shipped on my icon gallery sites.
 
 ## HTML
 
-First and foremost, I my sites are built with HTML. I focus on trying to make my markup simple and semantic. I strive to write markup that describes the content, rather than markup that describes _how I’ll style_ the content. That means describing content with the proper tags, rather than making every container a `<div>`. It also means abstaining from superfluous elements, like `<span>`, just to create a stylish effect (`::before` and `::after` in CSS make this way easier than it used to be). I strive to have every tag semantically describe not merely the content it’s wrapping, but the relationship between its children, parents, and siblings.
+First and foremost, my sites start with the HTML. I focus on trying to make my markup simple and semantic. I strive to write markup that describes the content, rather than markup that describes _how I’ll style_ the content. That means describing content with the the appropriate tags, rather than making every container a `<div>`. It also means abstaining from superfluous elements, like `<span>`, just to create a stylish effect (`::before` and `::after` in CSS make this way easier than it used to be). I strive to have every tag semantically describe not merely the content it’s wrapping, but the relationship between its children, parents, and siblings.
 
 ![Screenshot of DOM structure]({{ site.imageurl }}/2019/progressive-dom-structure.png "Example DOM structure")
 
 If you hit my site’s URL and the CSS or the JavaScript fails to load, you’ll still be able to navigate the site and view the content.
 
-![Screenshot of site without CSS or JavaScript]({{ site.imageurl }}/2019/progressive-no-css.png "Cropped screenshot illustrating the header, body, and footer content of my site without any styles of JavaScript")
+![Screenshot of site without CSS or JavaScript]({{ site.imageurl }}/2019/progressive-no-css.png "Cropped screenshot illustrating the header, body, and footer content of my site without any styles of JavaScript. Feels like the web circa 1998.")
 
 ## CSS
 
-Next comes styling. For these particular sites, I revel in modern CSS layouts, like `grid` and `flexbox`. I like to try and think of my CSS as a suggestion to the browser on how to display the content. The browser might say “great I support all of these styles” and paint it just how I described. Or it might only support and paint 80% of my styles. Or 20%. Or it might never paint any of them. Either way, the content is still there so I don’t have to worry about users of my site never being able to see anything.
+Next comes styling. For these particular sites, I revel in modern CSS layouts, using the likes of `grid` and `flexbox`. I like to try and think of my CSS as [a suggestion to the browser](https://adactio.com/journal/7653) on how to display the content. The browser might say “great I support all of these styles” and paint it just how I described. Or it might only support and paint 80% of my styles. Or 20%. Or it might never paint any of them. Either way, the content is still there so I don’t have to worry about users of my site never being able to see anything.
 
 So if a user went to my website and the CSS loaded, but for some reason the JavaScript didn’t (or the user had JavaScript disabled), this is what they’d see:
 
-![Screenshot of site without JavaScript]({{ site.imageurl }}/2019/progressive-no-js.png "JavaScript failed to load (or was disabled)")
+![Screenshot of site without JavaScript]({{ site.imageurl }}/2019/progressive-no-js.png "HTML and CSS loaded, but JavaScript failed for some reason")
 
 ## JavaScript
 
@@ -64,7 +66,7 @@ All this is to say, the site is progressively enhanced. If you’re browser supp
 
 When I built this new search functionality, I had the option to do it in React (or some other framework) but opted not to. It seemed like a relatively simple feature that could be written in vanilla JavaScript and I could thus avoid shipping all of `react` and `react-dom` to the client.
 
-I also didn’t want to bother setting up (and maintaing) the rube goldberg machine of modern JavaScript applications (webpack, babel, etc). I simply wanted to have a `.js` file with the code powering my search functionality. But the more and more I wrote the code to power the search, the more I found myself wanting to write the more-expressive ES5+ code (using syntax like `() => {}`, `const`, `let`, and `` (`template ${strings}`) ``. I also found myself wanting to break up my code into smaller, discrete modules but I didn’t want to setup a bundler/transpiler.
+I also didn’t want to bother setting up (and maintaining) the rube goldberg machine of modern JavaScript applications (webpack, babel, etc). I wanted to write code and ship it, without an intermediary step. Simply a `.js` file I ship directly to the browser that powers my search functionality. The more I wrote the code to power the search, the more I found myself wanting to use the more-expressive syntax of modern JavaScript (using syntax like `() => {}`, `const`, `let`, and `` (`template ${strings}`) ``. I also found myself wanting to break up my code into smaller, discrete modules, but again I didn’t want to setup a bundler/transpiler.
 
 So, I opted to use `<script type="module">` to load all my JavaScript. As module support in JavaScript landed relatively recently, I could ensure that any browser which supported ES modules also supported the syntactic sugar I craved (like arrow functions and template literals). This allowed me to write and ship modern JavaScript [without first creating the universe](https://postlight.com/trackchanges/if-you-wish-to-write-javascript-from-scratch-you-must-first-create-the-universe).
 
@@ -110,12 +112,7 @@ export default function addDarkModeToggle() {
 I went back and forth on whether I should stick the markup for progressively-enhanced features in the original HTML, or in its respective JavaScript file. In the end, I chose to render the markup in the DOM (in part because I could easily leverage my templating engine for some of the markup). Each feature that was unavailable without JavaScript got a `hidden` attribute to hide it on screen (and from screen readers). For example, every HTML page has this bit of markup in it:
 
 ```html
-<label
-  class="dark-mode-toggle"
-  for="dark-mode-toggle"
-  title="Toggle Dark Mode"
-  hidden
->
+<label for="dark-mode-toggle" title="Toggle Dark Mode" hidden>
   <input type="checkbox" name="dark-mode-toggle" id="dark-mode-toggle" />
   <!-- An <svg> embedded here -->
 </label>
@@ -123,4 +120,6 @@ I went back and forth on whether I should stick the markup for progressively-enh
 
 If you look back at the JavaScript for the dark mode toggle, you’ll see that (if it loads) it’s essentially looking into the DOM for this piece of markup, removing the `hidden` attribute, and attaching some event listeners to make the whole thing interactive.
 
-## Conclusion
+## Final Notes
+
+Most of the ideas and principles behind why you would want to build a site in this fashion are all courtesy of [Jeremy Keith](https://adactio.com). Many thanks to him for his tireless efforts in advocating (and making accessible) this strategy of engineering websites. If you want to learn more, check out [some](https://adactio.com/articles/12839) [of](https://adactio.com/articles/11481) [his](https://adactio.com/articles/9465) [thoughts](https://adactio.com/articles/9004) on the matter.
