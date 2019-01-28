@@ -1,12 +1,14 @@
 ---
-title: "Origin Story: the Size of iPhone App Icon"
-date: 2019-01-24
+title: "How the Original iPhone’s Springboard App Icon Size Came to Be 57 Pixels Square"
+date: 2019-01-27
 tags:
 ---
 
-How Apple Engineers Decided on the Size of the Home Screen App Icons for the Original iPhone
+Ken Kocienda was one of the engineers on “Project Purple”, the codename for the project behind the original iPhone. Ken pioneered the iPhone’s multitouch keyboard (along with autosuggest) and details that story – along with others – in his recent book [“Creative Selection”](https://www.amazon.com/Creative-Selection-Inside-Apples-Process/dp/1250194466).
 
-Nobody was really doing touchscreens, so this was all uncharted territory, which meant a lot of trial and error. Moments of “oh yeah, duh, tapping small things on screen is hard. And it’s even hard for my friend Joe who has big fingers”.
+As you might know, I run a couple [icon](https://www.iosicongallery.com/) [gallery](https://www.macosicongallery.com/) [sites](https://www.watchosicongallery.com/) dedicated to showcasing beautiful app icon artwork from Apple’s app store. So it was quite interesting to me when I read Ken’s book and found this little story about how they came to decide on the original size for the first iPhone’s app icons.
+
+First, it’s worth noting that back around 2006 nobody was doing touchscreens. So seemingly-simple questions about UI/UX were uncharted territory, which meant a lot of trial. There were lots of moments like “oh yeah, duh, tapping small things on screen is hard. And it’s even hard for my friend Joe who has big fingers”.
 
 As the engineers behind the first iPhone began seeing their prototype come to life, one of the key questions looming in everyone’s mind was: what’s the optimal tap target size for objects on screen?
 
