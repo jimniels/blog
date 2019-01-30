@@ -8,7 +8,7 @@ Ken Kocienda was one of the engineers on “Project Purple”, the codename for 
 
 As you might know, I run a couple [icon](https://www.iosicongallery.com/) [gallery](https://www.macosicongallery.com/) [sites](https://www.watchosicongallery.com/) dedicated to showcasing beautiful app icon artwork from Apple’s app store. So it was quite interesting to me when I read Ken’s book and discovered the story around how exactly they came to the conclusion that the app icon should be 57 pixels square.
 
-First, it’s worth noting that back around 2006 nobody was doing touchscreens. So seemingly-simple questions about UI/UX were uncharted territory, which meant a lot of trial (which Ken mentions). For example, they build a prototype on desktop hardware, then drop the software onto a physical hardware prototype and begin using. Quickly they’d discover things like “oh yeah, duh, tapping small things on a screen is hard. And it’s even hard for my friend Joe who has big fingers. We should make these things bigger.”
+First, it’s worth noting that back around 2006 nobody was doing touchscreens. Seemingly-simple questions about UI/UX were uncharted territory, which meant a lot of trial and error. After trying new software on prototype hardware, they quickly realized things like “oh yeah, duh, tapping small things on a screen is hard. And it’s even hard for my friend Joe who has big fingers. We should make these things bigger.”
 
 As Ken describes it in his book, the engineers behind the first iPhone began seeing their prototype come to life and one of the key questions looming in everyone’s mind was: what’s the optimal tap target size for objects on screen?
 
