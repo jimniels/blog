@@ -62,10 +62,3 @@ These are things Ken mentioned that struck a cord with me because they are thing
 > Persist too long in making choices without justifying them, and an entire creative effort might wander aimlessly. The results might be the sum of wishy-washy half decisions...Developing the judgment to avoid this pitfall centers on the refined-like response, evaluating in an active way and finding the self-confidence to form opinions with your gut you can also justify with your head. It’s not always easy to come to grips with objects or ideas and think about them until it’s possible to express why you like them or not, yet taking part in a healthy and productive creative process requires such reflective engagement. (184)
 
 > the appearance of a product should tell you what it is and how to use it. Objects should explain themselves. (187)
-
-
-
-
-
----
-
