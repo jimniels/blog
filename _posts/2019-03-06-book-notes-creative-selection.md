@@ -1,10 +1,10 @@
 ---
-title: "Book Notes: “Creative Selection: Inside Apple’s Design Process During the Golden Age of Steve Jobs” by Ken Kocienda"
+title: "Book Notes: “Creative Selection” by Ken Kocienda"
 date: 2019-03-06
 tags: bookNotes
 ---
 
-I recently finished reading Ken Kocienda’s book “Creative Selection: Inside Apple’s Design Process During the Golden Age of Steve Jobs”. Ken is a software engineer who, among other things, worked on “Project Purple”: Apple’s codename for the original iPhone.
+I recently finished reading Ken Kocienda’s book (fully titled) “Creative Selection: Inside Apple’s Design Process During the Golden Age of Steve Jobs”. Ken is a software engineer who, among other things, worked on “Project Purple”: Apple’s codename for the original iPhone.
 
 Specifically, there were a lot of interesting stories on how the original iPhone was built. More broadly, Ken writes about the process behind software creation at Apple—which he dubs "creative selection"—and how he thinks that process was a significant driver in how Apple came up with its world-class products.
 
