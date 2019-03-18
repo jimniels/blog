@@ -1,5 +1,5 @@
 ---
-title: Improving Server-Side Render with React
+title: Improving Server-Side Rendering with React
 date: 2019-03-18
 tags: engineering
 ---
