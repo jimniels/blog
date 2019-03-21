@@ -17,5 +17,3 @@ On this blog, I often don’t take the effort I should to craft what I’m writi
 But hey, like I said, these days I’m aiming for my blog posts to basically be a bad journal entry.
 
 — Jim (version of myself on April 16, 2018)
-
-![Photo of Jim Nielsen](https://www.jim-nielsen.com/assets/img/profile.jpg)
