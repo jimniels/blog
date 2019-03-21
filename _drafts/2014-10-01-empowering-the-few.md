@@ -1,6 +1,6 @@
 I was recently browsing through my recommended reads on Readability and I stumbled on this:
 
-![Screenshot of a recommended article on Readability from thegaw](http://jim-nielsen.com/blog/assets/img/2014/how-to-be-screenshot.png)
+![Screenshot of a recommended article on Readability from thegaw]({{ site.imageurl }}/2014/how-to-be-screenshot.png)
 
  Usually when [thegaw](https://twitter.com/thegaw) recommends something to read, it’s worth reading. If he recommends something worth printing and taping to every wall in my office, well it’s probably pretty good.
 
@@ -12,7 +12,7 @@ As far as I know, I’ve never created anything which has been seen and used by 
 
 However, occasionally I get small insights into how my projects are received and experienced. One example is [teamcolors](http://teamcolors.arc90.com/), a weekend hackathon project I pieced together when I worked at Arc90. It’s a simple compilation of HEX color values for professional sport teams.
 
-![Screenshot of teamcolors.arc90.com](http://jim-nielsen.com/blog/assets/img/2014/teamcolors-screenshot.png)
+![Screenshot of teamcolors.arc90.com]({{ site.imageurl }}/2014/teamcolors-screenshot.png)
 
 Since its launch, the product has received a few changes and updates, most of them courtesy of people who willing contribute [pull requests for the project](https://github.com/arc90/teamcolors/pulls).   
 
