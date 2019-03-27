@@ -223,19 +223,15 @@ As you can see, I declare a solid color for my variable, but I have to wrap it i
 I think the reason I probably avoided this approach mentally is because I did’t like mixing HEX and RGB color value declarations. I’m not a machine and can’t do the translation of RGB to HEX in my brain. Imagine coming into a codebase anew and seeing:
 
 ```css
-.selector {
-  --color-text: #2f0664;
-  --color-text-rgb: 47, 6, 100;
-}
+--color-text: #2f0664;
+--color-text-rgb: 47, 6, 100;
 ```
 
 How would you know that those are actually the same color, just expressed in the syntax of different color models? It’s probably safe to assume they are the same colors, but the ambiguity is there. Obviously you could just add a comment. Or you could also use `rgb` instead of `hex`.
 
 ```css
-.selector {
-  --color-text: rgb(47, 6, 100);
-  --color-text-rgb: 47, 6, 100;
-}
+--color-text: rgb(47, 6, 100);
+--color-text-rgb: 47, 6, 100;
 ```
 
 I think that makes it a little more obvious what’s going on. With that said, I started writing my colors on the web in HEX, so I’m much more fluent understanding what a color is by seeing it in HEX vs. RGB, so I may still end up rolling with Tyler’s suggestion.
