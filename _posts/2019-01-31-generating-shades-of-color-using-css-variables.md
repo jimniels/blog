@@ -179,3 +179,59 @@ Consumers of our component library include our CSS in their app and then voilà!
 ```
 
 Pretty cool. Still can’t believe I didn’t figure this out until Jan 2019.
+
+---
+
+## Update Mar 27, 2019
+
+[Tyler](https://tylergaw.com/) ([@thegaw](https://twitter.com/tylergaw)) pinged me on twitter and dropped this little note:
+
+> I'm using your trick for using css custom prop for color + rgba. 👍 working great, thanks! I'm finding myself setting a hex and rgb variables...That way I don't always have to use `rgba`, if I only need the hex value. Can just use `var()`
+
+He dropped this code example to illustrate:
+
+```css
+--color-white: #fff;
+--color-white-rgb: 255, 255, 255;
+--color-text: #2f0664;
+--color-text-rgb: 47, 6, 100;
+```
+
+This is a great tip! Since creating this post and using the approach I outlined, I found it tedious to constantly be declaring the color model syntax in addition to the color model values. For example:
+
+```
+/* Given a variable of rgb values */
+:root {
+  --my-color-rgb: 255,255,255;
+}
+/* That gives me flexibility in working with the alpha channel */
+.selector {
+  color: rgba(var(--my-color), .25);
+}
+/* But to get the solid version of that color, I have to write this: */
+.selector {
+  color: rgba(var(--my-color), 1);
+}
+/* Or this */
+.selector {
+  color: rgb(var(--my-color))
+}
+```
+
+As you can see, I declare a solid color for my variable, but I have to wrap it in the `rgb` or `rgba` syntax to use it—opacity or no opacity. Kind of a bummer. So Tyler’s suggestion is spot on with real-world use.
+
+I think the reason I probably avoided this approach mentally is because I did’t like mixing HEX and RGB color value declarations. I’m not a machine and can’t do the translation of RGB to HEX in my brain. Imagine coming into a codebase anew and seeing:
+
+```css
+--color-text: #2f0664;
+--color-text-rgb: 47, 6, 100;
+```
+
+How would you know that those are actually the same color, just expressed in the syntax of different color models? It’s probably safe to assume they are the same colors, but the ambiguity is there. Obviously you could just add a comment. Or you could also use `rgb` instead of `hex`.
+
+```css
+--color-text: rgb(47, 6, 100);
+--color-text-rgb: 47, 6, 100;
+```
+
+I think that makes it a little more obvious what’s going on. With that said, I started writing my colors on the web in HEX, so I’m much more fluent understanding what a color is by seeing it in HEX vs. RGB, so I may still end up rolling with Tyler’s suggestion.
