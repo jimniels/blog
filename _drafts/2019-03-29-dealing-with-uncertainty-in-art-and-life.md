@@ -1,5 +1,5 @@
 ---
-title: Uncertainty in Artmaking
+title: Dealing With Uncertainty in Art...and Life
 date: 2019-03-06
 ---
 
