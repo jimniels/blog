@@ -1,6 +1,7 @@
 ---
 title: Thoughts on Jeremy Keith’s “Split”
 date: 2019-04-10
+tags: thuoghts engineering
 ---
 
 Jeremy recently wrote an article called [“Split”](https://adactio.com/journal/15050) that caught my attention (to be honest, Jeremy’s writing always catches my attention, you should [follow him](https://adactio.com/) if you’re not already).
@@ -29,6 +30,6 @@ I think there’s some more nuance in this as well. Depending on the “CSS-in-J
 
 For example, if the end result is a sever-rendered page of HTML with a bunch of styles applied inline to various HTML elements, you have to ship those styles with every single page of HTML that you serve where elements are styled identically. In contrast, if you had an external stylesheet of CSS referenced via a `<link>` tag in all your HTML pages, then that resource gets cached the first time your page loads, and therefore the browser doesn’t have to load the styles for your elements which share identical styles every time a page loads. In other words, if you wanted every `<h1>` element to be red, you could write `h1 { color: red }` in a stylesheet and link to it on every HTML page (browser caches that stylesheet resource and only has to load it once across all your pages). Or, your HTML could contain `<h1 style="color:red"></h1>` every single time you use an h1 across every single page. Granted this is a simplistic example, but you can imagine how in the second example (inline styles), as your usage of styles compounds, you’re going to end up shipping a lot more bytes to the client because you’re styles have to be declared inline on every element to which they are applicable, whereas the stylesheet approach results in one declaration applied everywhere and fetched once.
 
-I guess my point here is that I don’t think it “is the same whether styling is applied via a selector in an external stylesheet or…via an inline style declaration”. As Jeremy points out, “in some situations, a server-rendered CSS-in-JS solution might be better for performance” and I think the reverse would also be true: in some situations, a stylesheet solution might be better for performance.
+I guess my point here is that I don’t think it “is the same whether styling is applied via a selector in an external stylesheet or…via an inline style declaration”. As Jeremy points out, “in some situations, a server-rendered CSS-in-JS solution might be better for performance” and I think the reverse could also be true: in some situations, a stylesheet solution might be better for performance.
 
 So which should you use? The answer, my friend, is blowing in the wind.
