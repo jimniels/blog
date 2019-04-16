@@ -1,7 +1,8 @@
 ---
 title: Thoughts on Jeremy Keith’s “Split”
 date: 2019-04-10
-tags: thuoghts engineering
+tags: thoughts engineering
+redirect_from: /2019/thuoghts-on-jeremy-keiths-split/
 ---
 
 Jeremy recently wrote an article called [“Split”](https://adactio.com/journal/15050) that caught my attention (to be honest, Jeremy’s writing always catches my attention, you should [follow him](https://adactio.com/) if you’re not already).

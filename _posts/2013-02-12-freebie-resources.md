@@ -1,6 +1,6 @@
 ---
 title: Freebie Resources - Don’t Assume, Double Check
-date: 2013-2-12
+date: 2013-02-12
 tags: tips
 redirect_from: /posts/freebie-resources/
 ---

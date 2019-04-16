@@ -1,6 +1,6 @@
 ---
 title: The Incredible (Frustrating) Potential of Google Glass
-date: 2013-5-17
+date: 2013-05-17
 tags: thoughts
 redirect_from: /posts/the-frustration-of-google-glass/
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Science Speaks: Good Typography = Good Mood"
-date: 2013-1-8
+date: 2013-01-08
 tags: thoughts
 redirect_from: /posts/science-of-typography/
 ---

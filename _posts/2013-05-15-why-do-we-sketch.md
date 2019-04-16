@@ -1,6 +1,6 @@
 ---
 title: Why Do We Sketch?
-date: 2013-5-15
+date: 2013-05-15
 tags: tips
 redirect_from: /posts/why-do-we-sketch/
 ---
