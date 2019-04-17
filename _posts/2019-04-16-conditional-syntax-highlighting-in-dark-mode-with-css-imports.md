@@ -74,13 +74,7 @@ It might not be apparent, but that gif showing the switch from light to dark is 
 
 [@tylergaw](https://twitter.com/tylergaw) hit me up on twitter after this post, pointing out that you can use the `media` attribute on the `<link>` tag in HTML to essentially accomplish the same thing I was doing with `@import` in CSS.
 
-> Yesterday's post was great. You're making me want to do light/dark styles for my site now. That import syntax is super cool, I'd never seen that. Could you also use the `media` attribute of `link` to accomplish the same thing? Like: 
-> ```
-> <!-- Default light mode and use this -->
-> <link rel="stylesheet" href="cdn.com/atom-one-dark…">
-> <!-- If dark mode, use this -->
-> <link rel="stylesheet" href="cdn.com/atom-one-light…" media="screen and (prefers-color-scheme: dark)">
-> ```
+> Yesterday's post was great. You're making me want to do light/dark styles for my site now. That import syntax is super cool, I'd never seen that. Could you also use the `media` attribute of `link` to accomplish the same thing?
 
 It’s funny because my questioning began at the HTML level, i.e. “wouldn’t it be nice if, in HTML, I could declaratively say ‘use this stylesheet if you’re in dark mode, otherwise use this one’”. Turns out you can!
 
