@@ -70,3 +70,62 @@ It might not be apparent, but that gif showing the switch from light to dark is 
 
 `@media (prefers-color-scheme: dark)` is still pretty new, which is why I don’t use `@media (prefers-color-scheme: light)` for the first `@import`. I assume a light mode by default, but if the user has a newer browser and their system says they’re in dark mode, they’ll get the dark styles. The idea of conditionally serving different styles to different devices based on information queried from `@media` feels like the perfect use case for `@import` in CSS.
 
+## Update: Apr 17, 2019
+
+[@tylergaw](https://twitter.com/tylergaw) hit me up on twitter after this post, pointing out that you can use the `media` attribute on the `<link>` tag in HTML to essentially accomplish the same thing I was doing with `@import` in CSS.
+
+> Yesterday's post was great. You're making me want to do light/dark styles for my site now. That import syntax is super cool, I'd never seen that. Could you also use the `media` attribute of `link` to accomplish the same thing? Like: 
+> ```
+> <!-- Default light mode and use this -->
+> <link rel="stylesheet" href="cdn.com/atom-one-dark…">
+> <!-- If dark mode, use this -->
+> <link rel="stylesheet" href="cdn.com/atom-one-light…" media="screen and (prefers-color-scheme: dark)">
+> ```
+
+It’s funny because my questioning began at the HTML level, i.e. “wouldn’t it be nice if, in HTML, I could declaratively say ‘use this stylesheet if you’re in dark mode, otherwise use this one’”. Turns out you can!
+
+Doing it in HTML is even cooler because now I have control over *when* the `<link>` appears in the HTML. For example, the CSS styles for syntax highlighting are really only applicable to “post” pages on my blog. For example, my “About” page doesn’t have any syntax highlighting on it, so including those styles is just dead weight. However, now that I can include these styles on a page-by-page basis, I can tap into my static site generator and only include the `<link>` to dark mode syntax highlighting on applicable pages. 
+
+For example, I have a `<Page>` component that wraps every single `.html` page that gets output by my static site generator. Inside of that component, I can detect if the page it’s rendering is a “post” page. If it is, only then do I include a `<link>` to the syntax highlighting styles. Example:
+
+```jsx
+const Page = (props) => 
+  <html>
+    <head>
+      {/* Styles every page on my site needs */}
+      <link rel="stylesheet" href="assets/styles.css" />
+      
+      {/* Styles only post pages need */}
+      {props.isPost && 
+        <>
+          <link
+            rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-light.min.css"
+            media="screen"
+          />
+          <link
+            rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-dark.min.css"
+            media="screen and (prefers-color-scheme: dark)"
+          />
+        </>}
+    </head>
+  </html>
+```
+
+Now only my post pages will have `<link>` tags that retrieve syntax highlighting styles. And the browser takes care of fetching the right one, depending on whether the client is “in dark mode” or not.
+
+This is pretty damn cool. In the future, I can imagine a world where you can split up all your stylesheets by light/dark and then just tell the browser “fetch the one you need, based on user preferences”.
+
+```html
+<link
+  rel="stylesheet"
+  href="light-mode-styles.css"
+  media="screen and (prefers-color-scheme: light)"
+/>
+<link
+  rel="stylesheet"
+  href="dark-mode-styles.css"
+  media="screen and (prefers-color-scheme: dark)"
+/>
+```
