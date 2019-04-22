@@ -1,0 +1,24 @@
+{
+  "name": "Jim Nielsen’s Blog",
+  "baseurl": "",
+  "url": "https://blog.jim-nielsen.com",
+  "permalink": "/:year/:title/",
+  "navigation": [
+    {
+      "label": "Home",
+      "path": "/"
+    },
+    {
+      "label": "Tags",
+      "path": "/tags/"
+    },
+    {
+      "label": "About",
+      "path": "/about/"
+    },
+    {
+      "label": "Feeds",
+      "path": "/feeds/"
+    }
+  ]
+}

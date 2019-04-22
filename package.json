@@ -1,0 +1,37 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "[jim-nielsen.com/blog](http://jim-nielsen.com/blog)",
+  "main": "metalsmith.js",
+  "scripts": {
+    "start": "node metalsmith.js",
+    "build": "NODE_ENV=production node metalsmith.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimniels/blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimniels/blog/issues"
+  },
+  "homepage": "https://github.com/jimniels/blog#readme",
+  "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.0",
+    "highlight.js": "^9.15.6",
+    "markdown-it": "^8.4.2",
+    "metalsmith": "^2.3.0",
+    "metalsmith-debug-ui": "^0.3.2",
+    "metalsmith-permalinks": "^2.2.0",
+    "metalsmith-serve": "0.0.7",
+    "metalsmith-watch": "^1.0.3",
+    "multimatch": "^3.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
