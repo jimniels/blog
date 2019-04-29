@@ -1,10 +1,12 @@
 ---
 title: Your Product Doesn’t Have to Look the Same On Every Platform
-date: 2019-04-25
+date: 2019-04-29
 tags: thoughts
 ---
 
-In case you couldn’t tell from the title, this post is a hot take. It’s a bit of rambling and not quite coherent, but that’s because my thoughts around it aren’t quite coherent. I’m hoping in writing this all down I can work through and flesh out some of my thoughts and feelings towards actually having an opinion on the matter.
+In case you couldn’t tell from the title, this post is a hot take.
+
+It’s a bit of rambling and not quite coherent, but that’s because my thoughts around it aren’t quite coherent. I’m hoping in writing this all down I can work through and flesh out some of my thoughts and feelings towards actually having a more informed opinion on the matter, rather than just some feels.
 
 ## Hypothesis
 
@@ -28,7 +30,7 @@ Similarly, look at the native controls. Photoshop for Mac used the underlying Aq
 
 ![Screenshot of Photoshop CS4 for Mac]({{site.imageurl}}/2019/look-same-photoshop-cs4-mac-annotated.jpg)
 
-This resulted in applications providing a kind of coherence and cohesiveness within the environment of the operating system. As you switched from one app to the next, many of your controls looked and functioned the same. Granted there were similarities in a product across operating systems (Photoshop on Mac still looked a lot like Photoshop on Windows), but they were not identical. I have nothing against similarities. Identical is what I’m trying to get at. Identical is what we used to strive for in web designs across different browsers.
+This resulted in applications providing a kind of coherence and cohesiveness within the environment of the operating system. As you switched from one app to the next, many of your controls looked and functioned the same. Granted there were similarities in a product across operating systems (Photoshop on Mac still looked a lot like Photoshop on Windows), but they were not identical. I have nothing against similarities. Identical is what I’m trying to get at. Identical is what we used to strive for in web designs across different browsers. “Your website doesn’t have to look identical in every browser” would’ve been a similar refrain.
 
 What’s interesting is how the web seems to be the one that spurred this change of direction, at least in part. When the web came along, web sites couldn’t always tap into OS-specific gestures or UI toolkits like native applications could. So websites created their own UI kits via CSS: custom navigation elements, dropdowns, buttons, etc. This made web applications look the same across operating systems, whereas native applications did not. (Granted, there are a few elements you can use on a website that look like system-level UI controls—`<button>`, `<input type="radio" />`, `<input type="checkbox">` or `<select>`—but even the appearance, and in some cases functionality, of those elements has been increasingly hijacked from the system’s defaults to the whims of the web page’s developer. Creating custom radio buttons, checkboxes, and dropdowns in CSS used to be hard, but it’s gotten way easier and, I predict, will only increasingly become so.)
 
@@ -60,11 +62,11 @@ I’m not necessarily saying one choice is bad and the other is good. I love Ree
 
 ## Maybe It’s About Control?
 
-In some regards, this does seem like a fight of control. Apple can dictate how UIs should look because they own the operating system. Microsoft is in the same boat. But where does that leave Google? That doesn’t seem fair to them right? So many of their products are web-based, in a sense agnostic of the operating system on which they live. How can they create their own design language that is uniquely Google and not Apple or Microsoft? That’s precisely what they’ve been doing with material. And material is, in a sense, the design language of an operating system: Android. But, unlike Aqua which was the design language of an Mac OSX, Material is a language for more than just an operating system. It’s a language for a product, for a company. It’s agnostic in a lot of ways to what operating system you’re on.
+In some regards, this does seem like a fight of control. Apple can dictate how UIs should look because they own the operating system. Microsoft is in the same boat. But where does that leave Google or Facebook? That doesn’t seem fair to them right? So many of their products are web-based, in a sense agnostic of the operating system on which they live. How can they create their own design language that is uniquely Google and not Apple or Microsoft? That’s precisely what they’ve been doing with material. And material is, in a sense, the design language of an operating system: Android. But, unlike Aqua which was the design language of an Mac OSX, Material is a language for more than just an operating system. It’s a language for a product, for a company. It’s agnostic in a lot of ways to what operating system you’re on.
 
 ## Summary
 
-Note the inversion in all of this: whereas you previously used an operating system and had some semblance of continuity between various user interfaces of different products (and with the system itself), that continuity within the operating system is now dissolving and instead you have continuity between products across operating systems. Twitter for Mac looks like Twitter for web looks like Twitter for Android looks like Twitter for Windows. But once you switch to Facebook, all bets are off. Radios are different. Dropdowns are different. Checkboxes are different. We gave up coherence and continuity across products within an operating system for coherence and continuity across operating systems within a product.
+Note the inversion in all of this: whereas you previously used an operating system and had some semblance of continuity between various user interfaces of different products (and with the system itself), that continuity within the operating system is now dissolving and instead you have continuity between products across operating systems. Twitter for Mac looks like Twitter for web looks like Twitter for Android looks like Twitter for Windows. But once you switch to Facebook, all bets are off. Radios are different. Dropdowns are different. Checkboxes are different. Similar, perhaps, but still different. We gave up coherence and continuity across products within an operating system for coherence and continuity across operating systems within a product.
 
 I don’t think I like this direction. I enjoyed the operating system being the platform in which I lived, the products I use adapting to the language of the OS. Now, it seems, the products I use are the platforms in which I live (Twitter, Facebook, GitHub) and I have to adapt to the language of each particular product’s platform. The former felt centered around _me_. It’s a personal computer. The latter feels centered around _them_. It’s their computer, I’m just using it.
 
