@@ -46,8 +46,6 @@ I found the BFF pattern proposed in the article quite interesting, as it was not
 
 > On a more technical problem, our public APIs almost by definition are very generic. To empower third-party developers to build interesting integrations, you need to design an API that makes no assumptions about how the data is going to be used. This results in very fine-grained endpoints, which then require a large number of HTTP requests to multiple different endpoints to render even the simplest experiences...The idea was that having the team working on the client own the API would allow for them to move much quicker as it required no coordination between parts
 
-![Drawing of the BFF architecture pattern](http://philcalcado.com/img/2015-09-back-end-for-front-end-pattern/sc-bff-6.png)
-
 ## Article: [“Learn in Public”](https://swyx.io/writing/learn-in-public)
 
 I’ve known Shawn for a little while online, but just recently met him in person. We got to talking about a variety of things and he told me about this short little piece of writing he’d done sometime past. So I looked it up and read it. It’s good. I like the metaphor that comes to mind of “creating learning exhaust”. I think that makes writing feel more feasible and accessible. What you produce doesn’t have to be Hemingway; rather it’s often just going to be the byproduct of your learning.
