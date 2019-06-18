@@ -276,7 +276,7 @@ The MDN docs elucidate the issue (emphasis mine):
 
 Ah! So when it hits that first comma, it just takes everything from there to the end as the fallback value. That actually makes a lot of sense because CSS variables should be able to contain commas. They should be able to contain just about anything.
 
-Wait, so how would you specify a fallback for a fallback? Like if I wanted to say “first try the variable `--blue`, then try the variable `--red` and if neither of those work, use the value `0,255,0`.”
+Wait, so how would you specify a fallback for a fallback? Like if I wanted to say “first try the variable `--red`, then try the variable `--green` and if neither of those work, use the value `0,0,255`.”
 
 The answer is: you nest `var()` statements. Example:
 
@@ -285,31 +285,31 @@ The answer is: you nest `var()` statements. Example:
   Let's say you were looking for custom properties whose values were a comma 
   delimited set of numbers representing an rgb value, i.e.
     --red: 255, 0, 0;
-    --blue: 0, 0, 255;
+    --green: 0, 0, 255;
   You fallback from one to the next by nesting `var()` statements.
 */
 
 .selector {
   /* incorrect */
-  color: rgb(var(--red, --blue, 0, 0, 255));
+  color: rgb(var(--red, --green, 0, 0, 255));
 
   /* correct */
-  color: rgb(var(--red, var(--blue, 0, 0, 255)));
+  color: rgb(var(--red, var(--green, 0, 0, 255)));
 }
 ```
 
 Why is this? Remember, the browser takes _everything after the first comma_ as the fallback value. So if you want another variable, then after the first comma you have to put another `var()` statement. So for this statement:
 
 ```css
-color: rgb(var(--red, --blue, 0, 0, 255));
+color: rgb(var(--red, --green, 0, 0, 255));
 ```
 
-The browser first looks for `--red`. If it can't find that, it looks for everything after the first `,` which in this case is `--blue, 0, 0, 255` and that is not a valid value in CSS. For the other statement:
+The browser first looks for `--red`. If it can't find that, it looks for everything after the first `,` which in this case is `--green, 0, 0, 255` and that is not a valid value in CSS. For the other statement:
 
 ```css
-color: rgb(var(--red, var(--blue, 0, 0, 255)));
+color: rgb(var(--red, var(--green, 0, 0, 255)));
 ```
 
-The browser first looks for `--red`. If it can’t find that, it looks for everything after the first `,` which in this case is `var(--blue, 0, 0, 255)` and that is a valid value in CSS.
+The browser first looks for `--red`. If it can’t find that, it looks for everything after the first `,` which in this case is `var(--green, 0, 0, 255)` and that is a valid value in CSS.
 
 ![Image depicting fallback pattern for CSS custom property values]({{site.imageurl}}/2019/css-variable-fallback.png)
