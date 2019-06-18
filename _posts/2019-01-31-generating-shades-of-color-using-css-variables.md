@@ -28,11 +28,11 @@ My goal in working with colors on the web has been to define a limited, core col
 ```css
 :root {
   --color-highlight: rgb(251, 0, 0);
-  --color-highlight-9: rgba(251, 0, 0, .9);
-  --color-highlight-8: rgba(251, 0, 0, .8);
-  --color-highlight-7: rgba(251, 0, 0, .7);
-  --color-highlight-6: rgba(251, 0, 0, .6);
-  --color-highlight-5: rgba(251, 0, 0, .5);
+  --color-highlight-9: rgba(251, 0, 0, 0.9);
+  --color-highlight-8: rgba(251, 0, 0, 0.8);
+  --color-highlight-7: rgba(251, 0, 0, 0.7);
+  --color-highlight-6: rgba(251, 0, 0, 0.6);
+  --color-highlight-5: rgba(251, 0, 0, 0.5);
   /* etc. */
 }
 ```
@@ -45,7 +45,7 @@ When I used to write Sass, dealing with this problem was made relatively easy th
 $color-highlight: #fb0000;
 
 .selector {
-  background-color: rgba($color-highlight, .5);
+  background-color: rgba($color-highlight, 0.5);
 }
 ```
 
@@ -61,7 +61,7 @@ This was incredibly useful because I could generate any shade of a core color I 
 
 ## How You Can’t
 
-In my mind it seemed impossible to do something like: 
+In my mind it seemed impossible to do something like:
 
 ```css
 :root {
@@ -69,7 +69,7 @@ In my mind it seemed impossible to do something like:
 }
 
 .selector {
-  background-color: rgba(var(--color-highlight), .5);
+  background-color: rgba(var(--color-highlight), 0.5);
 }
 ```
 
@@ -82,7 +82,7 @@ And it is. At least how I’ve outlined it above. And using `opacity` doesn’t 
 
 .selector {
   background-color: var(--color-highlight);
-  opacity: .5;
+  opacity: 0.5;
 }
 ```
 
@@ -104,7 +104,7 @@ One dirty workaround I used to leverage was to employ pseudo elements. Then I co
   bottom: 0;
   right: 0;
   background-color: var(--color-highlight);
-  opacity: .5;
+  opacity: 0.5;
 }
 ```
 
@@ -114,16 +114,16 @@ Even if you defined the color variable as an rgb value, you still couldn’t int
 
 ```css
 :root {
-  --color-highlight: rgb(251,0.0);
+  --color-highlight: rgb(251, 0);
 }
 
 .selector {
   /* doesn't work */
-  background-color: rgba(var(--color-highlight), .5);
+  background-color: rgba(var(--color-highlight), 0.5);
 }
 ```
 
-As you’re about to see (or if you already know the solution here), I was *sooooo* close to the solution I was looking for. I was never able to make that last mental leap to the correct syntax.
+As you’re about to see (or if you already know the solution here), I was _sooooo_ close to the solution I was looking for. I was never able to make that last mental leap to the correct syntax.
 
 ## How You Can
 
@@ -137,13 +137,13 @@ If you define your color values as a comma-separated list of rgb values, then yo
 }
 
 .selector {
-  background-color: rgba(var(--color-highlight), .5);
+  background-color: rgba(var(--color-highlight), 0.5);
 }
 ```
 
 It’s that simple. The worst part is, when I finally thought “ok, i’ll go search Google and see if this is possible”, this insight was [the first result](https://stackoverflow.com/a/41265350/1339693).
 
-What’s really neat about this too is that, if you *are* using Sass, you can leverage your color variables in Sass then pass them into your CSS output for usage there as well (FWIW, I wrote a little bit about [supporting CSS variables in Sass](https://blog.jim-nielsen.com/2018/supporting-css-variables-in-sass/)). 
+What’s really neat about this too is that, if you _are_ using Sass, you can leverage your color variables in Sass then pass them into your CSS output for usage there as well (FWIW, I wrote a little bit about [supporting CSS variables in Sass](https://blog.jim-nielsen.com/2018/supporting-css-variables-in-sass/)).
 
 In one particular use case of mine, this came in handy because at [Insight](https://www.icg360.com) we’re authoring a component library with a CSS framework but the source styles are actually written in Sass. Using this technique, we can define our theme color values in Sass, compile the styles to a CSS file, and empower consumers of our component library to leverage the same color variables we were using in Sass but via CSS. For example, in Sass:
 
@@ -174,7 +174,7 @@ Consumers of our component library include our CSS in their app and then voilà!
 
 ```css
 .selector {
-  background-color: rgba(var(--color-highlight), .5);
+  background-color: rgba(var(--color-highlight), 0.5);
 }
 ```
 
@@ -202,11 +202,11 @@ This is a great tip! Since creating this post and using the approach I outlined,
 ```css
 /* Given a variable of rgb values */
 :root {
-  --my-color-rgb: 255,255,255;
+  --my-color-rgb: 255, 255, 255;
 }
 /* That gives me flexibility in working with the alpha channel */
 .selector {
-  color: rgba(var(--my-color), .25);
+  color: rgba(var(--my-color), 0.25);
 }
 /* But to get the solid version of that color, I have to write this: */
 .selector {
@@ -214,7 +214,7 @@ This is a great tip! Since creating this post and using the approach I outlined,
 }
 /* Or this */
 .selector {
-  color: rgb(var(--my-color))
+  color: rgb(var(--my-color));
 }
 ```
 
@@ -235,3 +235,81 @@ How would you know that those are actually the same color, just expressed in the
 ```
 
 I think that makes it a little more obvious what’s going on. With that said, I started writing my colors on the web in HEX, so I’m much more fluent understanding what a color is by seeing it in HEX vs. RGB, so I may still end up rolling with Tyler’s suggestion.
+
+---
+
+## Update Jun 18, 2019
+
+I got an email from [Ryan Wheale](https://github.com/DesignByOnyx) who pointed out an interesting aspect of custom variables that I had never actually used before: [custom property fallback values](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties#Custom_property_fallback_values)
+
+> I just came across your blog post about rgb color variables and it was extremely helpful...However, I was concerned about how to handle fallback values which can be passed to CSS variable lookups like this:
+>
+> ```
+> var(--some-color, #ffeecc);
+> var(--some-color, --backup-color-1, --backup-color-2, #ffeecc);
+> ```
+>
+> The browser falls back to the next until it is satisfied. It's kind of a head scratcher as to how you would provide a fallback value which has commas in it for use in rgb(a) values. Well the cool thing is you can do this:
+>
+> ```
+> --some-color: var(--does-not-exist, 0, 255, 0);
+> background-color: var(--some-color);
+> ```
+>
+> And you get a green background. It seems a little counterintuitive because the browser somehow knows to grab 3 fallback values as a single value.
+
+Interesting! As mentioned, I didn’t even know you could have these kinds of fallbacks. To be honest, I’m still not sure what the circumstances would be that would necessitate using them. I haven’t found myself in a position where I thought “I wish I had a fallback for this custom property...”. It’s worth nothing, however, that the MDN docs says fallbacks can be useful “when working with Custom Elements and Shadow DOM.”
+
+Anyhow, Ryan’s comment on the syntax here intrigued me as well. When you type:
+
+```css
+.selector {
+  background-color: var(--value-that-doesnt-exist, 0, 0, 255);
+}
+```
+
+How does the browser know to take a comma delimited value like `0, 0, 255` as the entire fallback value? Shouldn’t you have to group those values together somehow, like in quotes? i.e. `var(--doesnt-exist, "0, 0, 255")`?
+
+The MDN docs elucidate the issue (emphasis mine):
+
+> The first argument to the function is the name of the custom property to be substituted. The second argument to the function, if provided, is a fallback value, which is used as the substitution value when the referenced custom property is invalid. **The function only accepts two parameters, assigning everything following the first comma as the second parameter.**
+
+Ah! So when it hits that first comma, it just takes everything from there to the end as the fallback value. That actually makes a lot of sense because CSS variables should be able to contain commas. They should be able to contain just about anything.
+
+Wait, so how would you specify a fallback for a fallback? Like if I wanted to say “first try the variable `--blue`, then try the variable `--red` and if neither of those work, use the value `0,255,0`.”
+
+The answer is: you nest `var()` statements. Example:
+
+```css
+/*
+  Let's say you were looking for custom properties whose values were a comma 
+  delimited set of numbers representing an rgb value, i.e.
+    --red: 255, 0, 0;
+    --blue: 0, 0, 255;
+  You fallback from one to the next by nesting `var()` statements.
+*/
+
+.selector {
+  /* incorrect */
+  color: rgb(var(--red, --blue, 0, 0, 255));
+
+  /* correct */
+  color: rgb(var(--red, var(--blue, 0, 0, 255)));
+}
+```
+
+Why is this? Remember, the browser takes _everything after the first comma_ as the fallback value. So if you want another variable, then after the first comma you have to put another `var()` statement. So for this statement:
+
+```css
+color: rgb(var(--red, --blue, 0, 0, 255));
+```
+
+The browser first looks for `--red`. If it can't find that, it looks for everything after the first `,` which in this case is `--blue, 0, 0, 255` and that is not a valid value in CSS. For the other statement:
+
+```css
+color: rgb(var(--red, var(--blue, 0, 0, 255)));
+```
+
+The browser first looks for `--red`. If it can’t find that, it looks for everything after the first `,` which in this case is `var(--blue, 0, 0, 255)` and that is a valid value in CSS.
+
+![Image depicting fallback pattern for CSS custom property values]({{site.imageurl}}/2019/css-variable-fallback.png)

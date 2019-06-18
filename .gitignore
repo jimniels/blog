@@ -3,3 +3,5 @@ _site/*
 .DS_STORE
 .jekyll-metadata
 Gemfile.lock
+node_modules/
+build/
