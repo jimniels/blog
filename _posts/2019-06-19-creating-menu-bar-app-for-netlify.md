@@ -1,10 +1,10 @@
 ---
-title: Creating a Menu Bar App for Viewing the Build Status of Your Netlify Sites
+title: How to Create a macOS Menu Bar App for Viewing the Build Status of Your Netlify Sites
 date: 2019-06-19
 tags: engineering
 ---
 
-In case you don’t already know, I like Netlify. And I [build](https://blog.jim-nielsen.com/2019/trigger-build-in-netlify-from-aws-iot-button/) [on](https://blog.jim-nielsen.com/2018/bookmarklet-deploys-with-netlify/) [it](https://blog.jim-nielsen.com/2018/netlibox-my-guest-post-on-netlify/) on a lot.
+In case you don’t already know, I like Netlify. And I [build](https://blog.jim-nielsen.com/2019/trigger-build-in-netlify-from-aws-iot-button/) [on](https://blog.jim-nielsen.com/2018/bookmarklet-deploys-with-netlify/) [it](https://blog.jim-nielsen.com/2018/netlibox-my-guest-post-on-netlify/) quite a bit.
 
 A while back, I was scrolling through my twitter feed and saw [this tweet from Phil Hawksworth](https://twitter.com/philhawksworth/status/1107646222582587392):
 
@@ -20,7 +20,7 @@ Similar to Phil, a tool of some sort showing the build status of all my sites on
 
 Not only can you checkout a [live demo of the dashboard](https://status.lekoarts.de), but you can also read/view/fork [the code behind it](https://github.com/LekoArts/gatsby-status-dashboard) to get your own dashboard! So why try and make anything better than that?
 
-Well I’m not trying to. But I did try to make something _different_. Rather than a website dashboard, what if you had a menu bar app on your mac (sorry Windows folks, this post is not for you) that could show you the same information? Namely, what’s the build status of all my sites on Netlify?
+Well I’m not trying to. But I did try to make something different. Rather than a website dashboard, what if you had a menu bar app on your mac (sorry Windows folks, this post is not for you) that could show you the same information? Namely, what’s the build status of all my sites on Netlify?
 
 That’s what I set out to do.
 
@@ -49,7 +49,7 @@ When I click on the menu bar app, I get a native dropdown which displays all my 
 - Green: latest build was successful
 - Yellow: latest build is in progress
 - Red: latest build failed
-- Gray: no build pipeline applicable
+- Gray: no build pipeline applicable (for me, these were static sites I dragged and dropped for deployment through Netlify’s UI)
 
 ![Screenshot of Netlify menu bar app dropdown]({{site.imageurl}}/2019/netlify-menubar-screenshot-dropdown.jpg)
 
@@ -59,13 +59,15 @@ So putting it all together, you get something like this:
 
 ![Animated gif depicting how the Netlify menu bar app works]({{site.imageurl}}/2019/netlify-menubar-animated.gif)
 
+What’s really neat about is how flexible BitBar actually is. If you wanted, you have each site be it’s own flyout menu in the menu bar and have it display all kinds of meta info: build status, build time, site url, netlify site admin url, etc. Sky is the limit!
+
 ## Under the Hood
 
 So, from a technical perspective, how do you actually do all of this?
 
 Well, first of all, you have to install [BitBar](https://getbitbar.com) on your Mac. Once installed, you’ll get a directory where you can put individual scripts (of all kinds might I add, like PHP, JavaScript, Ruby, Go, [etc](https://github.com/matryer/bitbar#tested-languages)). Those scripts get turned into individual menu bar apps.
 
-So, in my case, I have a `netlify.1m.js` file in my BitBar scripts folder (the `1m` in [the filename tells bitbar](https://github.com/matryer/bitbar#configure-the-refresh-time) how often to refresh my script: every 1 minute). In addition, since my script is JavaScript (node) I have to put a shebang at the front of my file which denoting where my node executable is.
+So, in my case, I have a `netlify.1m.js` file in my BitBar scripts folder (the `1m` in [the filename tells bitbar how often to refresh my script](https://github.com/matryer/bitbar#configure-the-refresh-time), in this case every 1 minute). In addition, since my script is JavaScript (node) I have to put a shebang at the front of my file which denoting where my node executable is.
 
 So, to get started, you have a file like `myFile.5m.js` which looks like this:
 
@@ -78,13 +80,17 @@ So, to get started, you have a file like `myFile.5m.js` which looks like this:
 */
 ```
 
-BitBar has an API you can work with to `console.log()` a string of text which will render your menu bar app. There’s also a [bitbar module](https://github.com/sindresorhus/bitbar) that allows to construct your bitbar app with a nice API vs. concatenating a big string. While it’s a cool idea, I wanted to write my BitBar script such that it had 0 dependencies. So I didn’t use that module (or any npm modules for that matter).
+BitBar has an API you can work with to `console.log()` a string of text which will render your menu bar app. There’s also a [bitbar module](https://github.com/sindresorhus/bitbar) that allows to construct your bitbar app with a nice API vs. concatenating a big string. While it’s a cool idea, I wanted to write my BitBar script such that it had zero dependencies. So I didn’t use that module (or any npm modules for that matter).
 
-So what does my script look like? Well my script was pretty custom to my setup in Netlify, as I grouped my sites by what made sense in my case. But, if you want to get up and running quickly, here’s a little script that should pull all your netlify sites and output them as menu bar items.
+So what does my script look like? Well my script is pretty custom to my setup in Netlify. I grouped the output of my sites in the menubar by what made sense to me.
 
-**Note**: this script accesses the [Netlify API](https://www.netlify.com/docs/api/) and therefore requries an access token. You’ll have to follow their instructions to get one and put in the script below where it says `YOUR_TOKEN_HERE`.
+So instead of just giving you my script, I put together this simple script to get you started. It has zero dependencies and just calls the Netlify API to pull all your sites and the latest build for each of those sites.
 
 ![Screenshot of Netlify menu bar app using the example script]({{site.imageurl}}/2019/netlify-menubar-example-script.jpg)
+
+**Note**: this script accesses the [Netlify API](https://www.netlify.com/docs/api/) and therefore requires an access token. You’ll have to follow their instructions to get one and put in the script below where it says `YOUR_TOKEN_HERE`.
+
+**Second Note**: this script probably has issues. I am imperfect and so is my code. I may not even be using the Netlify API correctly. If for any reason you find an issue with this script and want to notify me of it, feel free to reach out. This is meant as more of a (possibly broken) starting point for you to build magical things.
 
 ```js
 #!/usr/bin/env /usr/local/bin/node
