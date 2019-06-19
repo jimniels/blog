@@ -4,7 +4,7 @@ date: 2019-06-19
 tags: engineering
 ---
 
-In case you don’t already know, I like Netlify. And I [build](https://blog.jim-nielsen.com/2019/trigger-build-in-netlify-from-aws-iot-button/) [on](https://blog.jim-nielsen.com/2018/bookmarklet-deploys-with-netlify/) [it](https://blog.jim-nielsen.com/2018/netlibox-my-guest-post-on-netlify/) quite a bit.
+In case you don’t already know, I like Netlify. And I [build on it](https://blog.jim-nielsen.com/2019/trigger-build-in-netlify-from-aws-iot-button/) [quite](https://blog.jim-nielsen.com/2018/bookmarklet-deploys-with-netlify/) [a lot](https://blog.jim-nielsen.com/2018/netlibox-my-guest-post-on-netlify/).
 
 A while back, I was scrolling through my twitter feed and saw [this tweet from Phil Hawksworth](https://twitter.com/philhawksworth/status/1107646222582587392):
 
@@ -90,7 +90,7 @@ So instead of just giving you my script, I put together this simple script to ge
 
 **Note**: this script accesses the [Netlify API](https://www.netlify.com/docs/api/) and therefore requires an access token. You’ll have to follow their instructions to get one and put in the script below where it says `YOUR_TOKEN_HERE`.
 
-**Second Note**: this script probably has issues. I am imperfect and so is my code. I may not even be using the Netlify API correctly. If for any reason you find an issue with this script and want to notify me of it, feel free to reach out. This is meant as more of a (possibly broken) starting point for you to build magical things.
+**Second Note**: this script probably has issues. I am imperfect and so is my code. I may not even be using the Netlify API correctly. If for any reason you find an issue with this script and want to notify me of it, feel free to reach out. This is not meant to be a product. It’s meant to be a hacky starting point for your use in building much better, magical things.
 
 ```js
 #!/usr/bin/env /usr/local/bin/node
