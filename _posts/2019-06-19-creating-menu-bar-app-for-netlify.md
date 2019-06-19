@@ -34,15 +34,15 @@ So how does it work?
 
 By default you get a nice little Netlify logo in your menu bar.
 
-![Screenshot of Netlify app in my Mac’s menu bar]({{site.imageurl}}/2019/netlify-menubar-screenshot-no-notification.jpg)
+![Screenshot of Netlify app in my Mac’s menu bar]({{site.imageurl}}/2019/netlify-menubar-screenshot-no-notification.png)
 
 What’s neat is BitBar has instructions on how to build your menu bar app so it accommodates things like retina screens and dark mode.
 
-![Screenshot of Netlify app in my Mac’s menu bar in dark mode]({{site.imageurl}}/2019/netlify-menubar-screenshot-no-notification-dark-mode.jpg)
+![Screenshot of Netlify app in my Mac’s menu bar in dark mode]({{site.imageurl}}/2019/netlify-menubar-screenshot-no-notification-dark-mode.png)
 
 BitBar also has a very simple API for indicating how often your script should run: via the file name! I set mine to run every minute (but I could make it every 30, 15, or 5 seconds if I wanted). Each time it runs, it asks Netlify for all my sites and the latest build status of each. If there’s a build in progress, I get a number next to the menu bar icon to indicating the number of sites currently being built.
 
-![Screenshot of Netlify app in my Mac’s menu bar with a notification]({{site.imageurl}}/2019/netlify-menubar-screenshot-notification.jpg)
+![Screenshot of Netlify app in my Mac’s menu bar with a notification]({{site.imageurl}}/2019/netlify-menubar-screenshot-notification.png)
 
 When I click on the menu bar app, I get a native dropdown which displays all my sites (I decided to group them by domain) along with a little status light indicator to show the build status:
 
@@ -58,3 +58,22 @@ Clicking on any of the sites listed in the dropdown will take you to that partic
 So putting it all together, you get something like this:
 
 ![Animated gif depicting how the Netlify menu bar app works]({{site.imageurl}}/2019/netlify-menubar-animated.gif)
+
+## Under the Hood
+
+So, from a technical perspective, how do you actually do all of this?
+
+Well, first of all, you have to install [BitBar](https://getbitbar.com) on your Mac. Once installed, you’ll get a directory where you can put individual scripts (of all kinds might I add, like PHP, JavaScript, Ruby, Go, [etc](https://github.com/matryer/bitbar#tested-languages)). Those scripts get turned into individual menu bar apps.
+
+So, in my case, I have a `netlify.1m.js` file in my BitBar scripts folder (the `1m` in [the filename tells bitbar](https://github.com/matryer/bitbar#configure-the-refresh-time) how often to refresh my script: every 1 minute). In addition, since my script is JavaScript (node) I have to put a shebang at the front of my file which denoting where my node executable is.
+
+So, to get started, you have a file like `myFile.5m.js` which looks like this:
+
+```
+#!/usr/bin/env /path/to/the/node/executable
+
+/*
+  Write your javascript here.
+  Anything you console.log() out is what ends up in your menubar.
+*/
+```
