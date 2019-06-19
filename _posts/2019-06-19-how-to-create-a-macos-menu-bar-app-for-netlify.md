@@ -26,7 +26,9 @@ That’s what I set out to do.
 
 ## A Netlify Menu Bar App for Mac
 
-So what does it look like? By default you get a nice little Netlify logo in your menu bar.
+First of all, it’s worth noting that I built this on top of [BitBar](https://github.com/matryer/bitbar). So what does it look like?
+
+By default you get a nice little Netlify logo in your menu bar.
 
 ![Screenshot of Netlify app in my Mac’s menu bar]({{site.imageurl}}/2019/netlify-menubar-screenshot-no-notification.png)
 
@@ -53,21 +55,19 @@ So putting it all together, you get something like this:
 
 ![Animated gif depicting how the Netlify menu bar app works]({{site.imageurl}}/2019/netlify-menubar-animated.gif)
 
-What’s really neat about is how flexible BitBar actually is. If you wanted, you have each site be it’s own flyout menu in the menu bar and have it display all kinds of meta info: build status, build time, site url, netlify site admin url, etc. Sky is the limit!
+What’s really neat about is how flexible BitBar actually is. If you wanted, you have each site be its own flyout menu in the menu bar and have it display all kinds of meta info—build status, build time, site url, netlify site admin url, etc—you could! THe sky’s the limit.
 
 ## Under the Hood
 
 So how does all of this work exactly? Good question.
 
-Because I wanted a native menu bar app for my Netlify sites, I thought for a second about jumping into Xcode. But ain’t nobody got time for that. Or at least I don’t.
+Because I wanted a native menu bar app for my Netlify sites, I thought for a second about jumping into Xcode. But ain’t nobody got time to learn how to do that. Or at least I don’t.
 
-So instead I looked for tools with less of a learning curve. “There’s got to be a way to write JavaScript for OS X” I thought, “like an Electron app but for the Mac’s menubar.” Then I found [BitBar](https://github.com/matryer/bitbar): an app that let’s you “put the output from any script or program in your Mac OS X Menu Bar”. Boom! Precisely what I was looking for. “Netlify has [an API](https://www.netlify.com/docs/api/)” I thought, “I bet I could write a node script that talked to Netlify and conformed the output for BitBar!” A little while later and I had exactly what I wanted.
+“There’s got to be a way to write JavaScript for OS X” I thought, “like an Electron app but for the Mac’s menubar.” Then I found [BitBar](https://github.com/matryer/bitbar): an app that let’s you “put the output from any script or program in your Mac OS X Menu Bar”. Boom! Precisely what I was looking for. “Netlify has [an API](https://www.netlify.com/docs/api/)” I thought, “I bet I could write a node script that talked to Netlify and translated the response to something BitBar expects in order to render a menu bar app!” A little while later and I had exactly what I wanted. Here’s how it works.
 
-So how does it work under the hood?
+First you have to install [BitBar](https://getbitbar.com) on your Mac. Once installed, you’ll get a directory where you can put individual scripts (of all kinds might I add, like PHP, JavaScript, Ruby, Go, [etc](https://github.com/matryer/bitbar#tested-languages)). Those scripts get turned into individual menu bar apps.
 
-Well, first of all, you have to install [BitBar](https://getbitbar.com) on your Mac. Once installed, you’ll get a directory where you can put individual scripts (of all kinds might I add, like PHP, JavaScript, Ruby, Go, [etc](https://github.com/matryer/bitbar#tested-languages)). Those scripts get turned into individual menu bar apps.
-
-So, in my case, I have a `netlify.1m.js` file in my BitBar scripts folder (the `1m` in [the filename tells bitbar how often to refresh my script](https://github.com/matryer/bitbar#configure-the-refresh-time), in this case every 1 minute). In addition, since my script is JavaScript (node) I have to put a shebang at the front of my file which denoting where my node executable is.
+In my case, I have a `netlify.1m.js` file in my BitBar scripts folder (the `1m` in [the filename tells bitbar how often to refresh my script](https://github.com/matryer/bitbar#configure-the-refresh-time), in this case every 1 minute). In addition, since my script is JavaScript (node) I have to put a shebang at the front of my file denoting where my node executable is.
 
 So, to get started, you have a file like `myFile.5m.js` which looks like this:
 
@@ -82,15 +82,15 @@ So, to get started, you have a file like `myFile.5m.js` which looks like this:
 
 BitBar has an API you can work with to `console.log()` a string of text which will render your menu bar app. There’s also a [bitbar module](https://github.com/sindresorhus/bitbar) that allows to construct your bitbar app with a nice API vs. concatenating a big string. While it’s a cool idea, I wanted to write my BitBar script such that it had zero dependencies. So I didn’t use that module (or any npm modules for that matter).
 
-So what does my script look like? Well my script is pretty custom to my setup in Netlify. I grouped the output of my sites in the menubar by what made sense to me.
+So what does my script look like? Well my script is pretty custom to my setup in Netlify. I grouped my Netlify sites in the menu bar based on their individual characteristics and what made sense to me, which may not make sense to you.
 
-So instead of just giving you my script, I put together this simple script to get you started. It has zero dependencies and just calls the Netlify API to pull all your sites and the latest build for each of those sites.
+So, instead of just giving you my script, I put together this simple script to get you started. It has zero dependencies and just calls the Netlify API to pull all your sites and the latest build for each of those sites.
 
 ![Screenshot of Netlify menu bar app using the example script]({{site.imageurl}}/2019/netlify-menubar-example-script.jpg)
 
 **Note**: this script accesses the [Netlify API](https://www.netlify.com/docs/api/) and therefore requires an access token. You’ll have to follow their instructions to get one and put in the script below where it says `YOUR_TOKEN_HERE`.
 
-**Second Note**: this script probably has issues. I am imperfect and so is my code. I may not even be using the Netlify API correctly. If for any reason you find an issue with this script and want to notify me of it, feel free to reach out. This is not meant to be a product. It’s meant to be a hacky starting point for your use in building much better, magical things.
+**Second Note**: this script probably has issues. I am imperfect and so is my code. I may not even be using the Netlify API correctly. If for any reason you find an issue with this script and want to notify me of it, feel free to reach out. This is not meant to be a product. It’s meant to be a hacky starting point for your use in building things that are much better.
 
 ```js
 #!/usr/bin/env /usr/local/bin/node
