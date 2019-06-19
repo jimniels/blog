@@ -40,7 +40,7 @@ What’s neat is BitBar has instructions on how to build your menu bar app so it
 
 ![Screenshot of Netlify app in my Mac’s menu bar in dark mode]({{site.imageurl}}/2019/netlify-menubar-screenshot-no-notification-dark-mode.png)
 
-BitBar also has a very simple API for indicating how often your script should run: via the file name! I set mine to run every minute (but I could make it every 30, 15, or 5 seconds if I wanted). Each time it runs, it asks Netlify for all my sites and the latest build status of each. If there’s a build in progress, I get a number next to the menu bar icon to indicating the number of sites currently being built.
+BitBar also has a very simple API for indicating how often your script should run: via the file name! I set mine to run every minute (but I could make it every 30, 15, or 5 seconds if I wanted). Each time it runs, it asks Netlify for all my sites and the latest build status of each. If there’s a build in progress, I get a number next to the menu bar icon to indicate the number of sites currently being built.
 
 ![Screenshot of Netlify app in my Mac’s menu bar with a notification]({{site.imageurl}}/2019/netlify-menubar-screenshot-notification.png)
 
