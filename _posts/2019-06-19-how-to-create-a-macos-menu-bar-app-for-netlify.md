@@ -6,7 +6,9 @@ tags: engineering
 
 In case you don’t already know, I like Netlify. And I [build on it](https://blog.jim-nielsen.com/2019/trigger-build-in-netlify-from-aws-iot-button/) [quite](https://blog.jim-nielsen.com/2018/bookmarklet-deploys-with-netlify/) [a lot](https://blog.jim-nielsen.com/2018/netlibox-my-guest-post-on-netlify/).
 
-A while back, I was scrolling through my twitter feed and saw [this tweet from Phil Hawksworth](https://twitter.com/philhawksworth/status/1107646222582587392):
+A while back, I was scrolling through my twitter feed and saw [this project tweeted about by Phil Hawksworth](https://twitter.com/philhawksworth/status/1107646222582587392):
+
+![Screenshot of lekoarts_de’s Netlify status board]({{site.imageurl}}/2019/netlify-menubar-status-board-screenshot.png)
 
 > I really like this. I've been meaning to make my own dashboard showing the status any of my sites that I care about by just including a list of [@Netlify](https://twitter.com/Netlify) deploy badges.
 >
@@ -14,25 +16,17 @@ A while back, I was scrolling through my twitter feed and saw [this tweet from P
 >
 > But [@lekoarts_de](https://twitter.com/lekoarts_de) beat me to it with this nice example.
 
-Similar to Phil, a tool of some sort showing the build status of all my sites on Netlify was a fun project idea I’d had in the back of my mind for a couple months. It was cool to see [somebody else execute on it](https://twitter.com/lekoarts_de/status/1107620649021960193) so beautifully:
+Similar to Phil, a tool of some sort showing the build status of all my sites on Netlify was a fun project idea I’d had in the back of my mind for a couple months. It was cool to see [somebody else execute on it](https://twitter.com/lekoarts_de/status/1107620649021960193) so beautifully.
 
-![Screenshot of lekoarts_de’s Netlify status board]({{site.imageurl}}/2019/netlify-menubar-status-board-screenshot.png)
+Not only can you checkout a [live demo of the project](https://status.lekoarts.de), but you can also read/view/fork [the code behind it](https://github.com/LekoArts/gatsby-status-dashboard) to get your own dashboard! So why try and make anything better than that?
 
-Not only can you checkout a [live demo of the dashboard](https://status.lekoarts.de), but you can also read/view/fork [the code behind it](https://github.com/LekoArts/gatsby-status-dashboard) to get your own dashboard! So why try and make anything better than that?
-
-Well I’m not trying to. But I did try to make something different. Rather than a website dashboard, what if you had a menu bar app on your mac (sorry Windows folks, this post is not for you) that could show you the same information? Namely, what’s the build status of all my sites on Netlify?
+Well I’m not trying to. But I did try to make something different. If you’re a Mac user, what if you had a menu bar app that could show you the same information? Namely, what’s the build status of my sites on Netlify?
 
 That’s what I set out to do.
 
 ## A Netlify Menu Bar App for Mac
 
-So how does it work exactly? Well, I thought about this a lot. I even thought about jumping into Xcode and learning how to build natively for Mac, but ain’t ~~nobody~~ me got time for that. At least not right now.
-
-So instead I looked for tools with less of a learning curve. “There’s got to be a way to write JavaScript for OS X” I thought, “like an Electron app but for the Mac’s menubar.” Then I found [BitBar](https://github.com/matryer/bitbar): an app that let’s you “put the output from any script or program in your Mac OS X Menu Bar”. Boom! Precisely what I was looking for. “Netlify has [an API](https://www.netlify.com/docs/api/)” I thought, “I bet I could write a node script that talked to Netlify and conformed the output for BitBar!” A little while later and I had exactly what I wanted.
-
-So how does it work?
-
-By default you get a nice little Netlify logo in your menu bar.
+So what does it look like? By default you get a nice little Netlify logo in your menu bar.
 
 ![Screenshot of Netlify app in my Mac’s menu bar]({{site.imageurl}}/2019/netlify-menubar-screenshot-no-notification.png)
 
@@ -63,7 +57,13 @@ What’s really neat about is how flexible BitBar actually is. If you wanted, yo
 
 ## Under the Hood
 
-So, from a technical perspective, how do you actually do all of this?
+So how does all of this work exactly? Good question.
+
+Because I wanted a native menu bar app for my Netlify sites, I thought for a second about jumping into Xcode. But ain’t nobody got time for that. Or at least I don’t.
+
+So instead I looked for tools with less of a learning curve. “There’s got to be a way to write JavaScript for OS X” I thought, “like an Electron app but for the Mac’s menubar.” Then I found [BitBar](https://github.com/matryer/bitbar): an app that let’s you “put the output from any script or program in your Mac OS X Menu Bar”. Boom! Precisely what I was looking for. “Netlify has [an API](https://www.netlify.com/docs/api/)” I thought, “I bet I could write a node script that talked to Netlify and conformed the output for BitBar!” A little while later and I had exactly what I wanted.
+
+So how does it work under the hood?
 
 Well, first of all, you have to install [BitBar](https://getbitbar.com) on your Mac. Once installed, you’ll get a directory where you can put individual scripts (of all kinds might I add, like PHP, JavaScript, Ruby, Go, [etc](https://github.com/matryer/bitbar#tested-languages)). Those scripts get turned into individual menu bar apps.
 
