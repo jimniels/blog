@@ -20,7 +20,7 @@ Similar to Phil, a tool of some sort showing the build status of all my sites on
 
 Not only can you checkout a [live demo of the project](https://status.lekoarts.de), but you can also read/view/fork [the code behind it](https://github.com/LekoArts/gatsby-status-dashboard) to get your own dashboard! So why try and make anything better than that?
 
-Well I’m not trying to. But I did try to make something different. If you’re a Mac user, what if you had a menu bar app that could show you the same information? Namely, what’s the build status of my sites on Netlify?
+Well I tried to make something a little different. If you’re a Mac user, what if you had a menu bar app that could show you similar information? Namely, what’s the status of the latest build for my sites on Netlify?
 
 That’s what I set out to do.
 
@@ -36,7 +36,7 @@ What’s neat is BitBar has instructions on how to build your menu bar app so it
 
 ![Screenshot of Netlify app in my Mac’s menu bar in dark mode]({{site.imageurl}}/2019/netlify-menubar-screenshot-no-notification-dark-mode.png)
 
-BitBar also has a very simple API for indicating how often your script should run: via the file name! I set mine to run every minute (but I could make it every 30, 15, or 5 seconds if I wanted). Each time it runs, it asks Netlify for all my sites and the latest build status of each. If there’s a build in progress, I get a number next to the menu bar icon to indicate the number of sites currently being built.
+BitBar also has a very simple API for indicating how often your script should run: via the file name! I set mine to run every minute (but I could make it every 30, 15, or 5 seconds if I wanted). Each time it runs, it asks Netlify for all my sites and the latest build status of each. If there’s a build in progress (or one failed), I get a number next to the menu bar icon, a kind of notification if you will.
 
 ![Screenshot of Netlify app in my Mac’s menu bar with a notification]({{site.imageurl}}/2019/netlify-menubar-screenshot-notification.png)
 
@@ -55,13 +55,13 @@ So putting it all together, you get something like this:
 
 ![Animated gif depicting how the Netlify menu bar app works]({{site.imageurl}}/2019/netlify-menubar-animated.gif)
 
-What’s really neat about is how flexible BitBar actually is. If you wanted, you have each site be its own flyout menu in the menu bar and have it display all kinds of meta info—build status, build time, site url, netlify site admin url, etc—you could! THe sky’s the limit.
+What’s really neat about is how flexible BitBar actually is. If you wanted, you have each site be its own flyout menu in the menu bar and have it display all kinds of meta info—build status, build time, site url, netlify site admin url, etc—you could! The sky’s the limit.
 
 ## Under the Hood
 
 So how does all of this work exactly? Good question.
 
-Because I wanted a native menu bar app for my Netlify sites, I thought for a second about jumping into Xcode. But ain’t nobody got time to learn how to do that. Or at least I don’t.
+Because I wanted a native menu bar app for my Netlify sites, I thought for a second about jumping into Xcode. But I just didn’t have the time for that.
 
 “There’s got to be a way to write JavaScript for OS X” I thought, “like an Electron app but for the Mac’s menubar.” Then I found [BitBar](https://github.com/matryer/bitbar): an app that let’s you “put the output from any script or program in your Mac OS X Menu Bar”. Boom! Precisely what I was looking for. “Netlify has [an API](https://www.netlify.com/docs/api/)” I thought, “I bet I could write a node script that talked to Netlify and translated the response to something BitBar expects in order to render a menu bar app!” A little while later and I had exactly what I wanted. Here’s how it works.
 
