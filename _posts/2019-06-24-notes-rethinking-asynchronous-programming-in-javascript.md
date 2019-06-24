@@ -49,7 +49,7 @@ Callback hell has to do with an inversion of control, which means there’s a pa
 
 In other words, every callback you’ve ever written has an existing bug of trust (even if you haven’t been bitten by it yet)
 
-### Writing Asynchronous Codes in a Sequential Manner
+### Writing Asynchronous Programs in a Sequential Manner
 
 Kyle’s theory: the point at which our brains and our natural methods of cognition diverge from the way the javascript engine works, that’s the point at which bugs occur
 
