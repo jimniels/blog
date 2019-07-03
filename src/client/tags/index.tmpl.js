@@ -1,16 +1,19 @@
----
-layout: default
-title: Tags | Jim Nielsen’s Blog
-id: tags
----
+import Layout from "../../server/Layout.js";
 
-{% assign sortedTags = (site.tags | sort:0) %}
-
+const Tags = ({ site, page }) => `
+${JSON.stringify(site)}
+${JSON.stringify(page)}
 <h1>All Tags Index</h1>
 <ul>
-{% for tag in sortedTags %}
-  <li><a href="#{{tag.first}}">#{{tag.first}}</a> ({{tag[1] | size}})</li>
-{% endfor %}
+  <!-- @TODO something here that groups tags by id 
+  /*site.tagById.map(
+    tag => 
+    <li>
+      <a href="#{tag.id}}">#{tag.id}</a> ({tag.count})
+    </li>
+  
+  )
+  -->
 </ul>
 
 
@@ -35,5 +38,9 @@ id: tags
     {% endfor %}
   </ul>
 {% endfor %}
+`;
 
-
+export default Layout(Tags, {
+  // title: "Tags",
+  id: "tags"
+});
