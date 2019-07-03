@@ -11,8 +11,11 @@ export const jim = (strings, ...values) => {
       out += string + value;
       // Number
     } else if (typeof value === "number") {
-      out += String(value);
-      // undefined, null, boolean, any other object
+      out += string + String(value);
+      // object
+    } else if (typeof value === "object") {
+      out += string + value;
+      // undefined, null, boolean
     } else {
       out += string;
     }

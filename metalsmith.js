@@ -5,31 +5,15 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import multimatch from "multimatch";
 import pretty from "pretty";
+import metadata from "./plugins/metadata.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 Metalsmith(__dirname)
-  // name of current working directory
-  .metadata({
-    baseurl: ""
-
-    // add any variable you want
-    // use them in layout-files
-    // sitename: "My Static Site & Blog",
-    // siteurl: "http://example.com/",
-    // description: "It's about saying »Hello« to the world.",
-    // generatorname: "Metalsmith",
-    // generatorurl: "http://metalsmith.io/"
-  })
   .source("./src/client") // source directory
   .destination("./build") // destination directory
   .clean(true) // clean destination before
-  // .use(
-  //   collections({
-  //     // group all blog posts by internally
-  //     posts: "posts/*.md" // adding key 'collections':'posts'
-  //   })
-  // ) // use `collections.posts` in layouts
+  .use(metadata())
   .use(markdown()) // transpile all md into html
   .use(
     permalinks({
@@ -40,7 +24,7 @@ Metalsmith(__dirname)
   // Render templates
   .use(async (files, metalsmith, done) => {
     const matchedFiles = multimatch(Object.keys(files), "**/*.tmpl.js");
-    console.log(matchedFiles);
+
     // @TODO async import, or convert to a function right here inline;
     console.log("Rendering templates....");
     await Promise.all(
@@ -55,7 +39,7 @@ Metalsmith(__dirname)
         delete files[file];
       })
     );
-    console.log("Done rendering templates!");
+    console.log("  Done rendering templates!");
 
     done();
   })
