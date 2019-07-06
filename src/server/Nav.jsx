@@ -1,3 +1,5 @@
+const React = require("react");
+
 const navItems = [
   {
     id: "home",
@@ -22,22 +24,21 @@ const navItems = [
 ];
 
 // prettier-ignore
-const Nav = ({ site: { baseurl }, page }) => `
+const Nav = ({ site: { baseurl }, page }) => 
   <div class="nav-wrapper">
     <div class="nav__img">
       <img src="https://www.jim-nielsen.com/assets/img/profile.jpg" alt="Photography of Jim Nielsen" />
     </div>
 
     <ul>
-      ${navItems.map(navItem => `
-        <li class="${page.id == navItem.id ? "active" : ""}">
-          ${page.id == navItem.id
+      {navItems.map(navItem => 
+        <li className={page.id == navItem.id ? "active" : ""}>
+          {page.id == navItem.id
             ? navItem.label
-            : `<a href="${baseurl}${navItem.path}">
-                ${navItem.label}
-              </a>`}
-        </li>
-      `).join("")}
+            : <a href={baseurl + navItem.path}>
+                {navItem.label}
+              </a>}
+        </li>)}
     </ul>
 
     <p>
@@ -46,6 +47,5 @@ const Nav = ({ site: { baseurl }, page }) => `
       You’re welcome here anytime.
     </p>
   </div>
-`;
 
-export default Nav;
+module.exports = Nav;

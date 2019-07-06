@@ -2,20 +2,26 @@
   "name": "jimniels-blog",
   "version": "1.0.0",
   "description": "[jim-nielsen.com/blog](http://jim-nielsen.com/blog)",
-  "type": "module",
   "main": "metalsmith.js",
   "dependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.4",
     "metalsmith": "^2.3.0",
     "metalsmith-markdown": "^1.2.0",
     "metalsmith-permalinks": "^2.2.0",
-    "metalsmith-serve": "^0.0.7",
+    "metalsmith-serve": "0.0.7",
     "metalsmith-watch": "^1.0.3",
     "multimatch": "^3.0.0",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node metalsmith.js",
+    "build": "NODE_ENV=production node metalsmith.js"
   },
   "repository": {
     "type": "git",
