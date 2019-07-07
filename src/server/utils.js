@@ -1,4 +1,4 @@
-export const jim = (strings, ...values) => {
+const jim = (strings, ...values) => {
   let out = "";
   strings.forEach((string, i) => {
     const value = values[i];
@@ -21,4 +21,8 @@ export const jim = (strings, ...values) => {
     }
   });
   return out;
+};
+
+module.exports = {
+  jim
 };

@@ -1,13 +1,11 @@
-import Metalsmith from "metalsmith";
-import markdown from "metalsmith-markdown";
-import permalinks from "metalsmith-permalinks";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
-import multimatch from "multimatch";
-import pretty from "pretty";
-import metadata from "./plugins/metadata.js";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const Metalsmith = require("metalsmith");
+const markdown = require("metalsmith-markdown");
+const permalinks = require("metalsmith-permalinks");
+const { dirname, join } = require("path");
+const { fileURLToPath } = require("url");
+const multimatch = require("multimatch");
+const pretty = require("pretty");
+const metadata = require("./plugins/metadata.js");
 
 Metalsmith(__dirname)
   .source("./src/client") // source directory
@@ -22,24 +20,31 @@ Metalsmith(__dirname)
     })
   )
   // Render templates
-  .use(async (files, metalsmith, done) => {
-    const matchedFiles = multimatch(Object.keys(files), "**/*.tmpl.js");
+  .use((files, metalsmith, done) => {
+    const { Post } = require("./src/server/Layout.js");
+    const site = metalsmith.metadata();
 
-    // @TODO async import, or convert to a function right here inline;
-    console.log("Rendering templates....");
-    await Promise.all(
-      matchedFiles.map(async file => {
-        console.log("  " + file);
-        const fn = await import(
-          join(metalsmith._directory, metalsmith._source, file)
-        ).then(module => module.default);
+    Object.keys(files).forEach(file => {
+      // <Page> templates
+      if (multimatch(file, "**/*.tmpl.js").length) {
+        const Component = require(join(
+          metalsmith._directory,
+          metalsmith._source,
+          file
+        ));
 
-        files[file].contents = pretty(fn(metalsmith.metadata()));
-        files[file.replace(".tmpl.js", ".html")] = files[file];
+        files[file].contents = pretty(Component(site));
+        files[file.replace(".tmpl.js", "")] = files[file];
         delete files[file];
-      })
-    );
-    console.log("  Done rendering templates!");
+        // Posts
+      } else if (multimatch(files[file].srcFilepath, "posts/**").length) {
+        // @TODO
+        files[file].contents = Post({ site, page: files[file] });
+        // console.log(out);
+      } else {
+        // regular <Page> .md files
+      }
+    });
 
     done();
   })

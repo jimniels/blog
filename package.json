@@ -2,7 +2,6 @@
   "name": "jimniels-blog",
   "version": "1.0.0",
   "description": "[jim-nielsen.com/blog](http://jim-nielsen.com/blog)",
-  "type": "module",
   "main": "metalsmith.js",
   "dependencies": {
     "metalsmith": "^2.3.0",
@@ -15,7 +14,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node metalsmith.js"
   },
   "repository": {
     "type": "git",

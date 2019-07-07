@@ -1,10 +1,11 @@
-import Nav from "./Nav.js";
-import { jim } from "./utils.js";
+const Nav = require("./Nav.js");
+const { jim } = require("./utils.js");
 
-const Layout = (ComponentFn, pageProps) => siteProps => {
-  const { baseurl } = siteProps;
-  const { title } = pageProps;
-  const props = { page: pageProps, site: siteProps };
+const Layout = (props, children) => {
+  const {
+    site: { baseurl },
+    page: { title }
+  } = props;
 
   return jim`
     <!DOCTYPE html>
@@ -40,12 +41,58 @@ const Layout = (ComponentFn, pageProps) => siteProps => {
       </nav>
 
       <main class="main">    
-        ${ComponentFn(props)}
+        ${children}
       </main>
 
-      <script type="text/javascript" src="${baseurl}/assets/js/js.js"></script>
+      <script
+        type="text/javascript"
+        src="${baseurl}/assets/js/js.js">
+      </script>
     </body>
   </html>`;
 };
 
-export default Layout;
+// prettier-ignore
+const Post = (props, children) => {
+  const { site, page } = props;
+  
+  return Layout(props, jim`
+    <article
+      class="markdown markdown-with-prefixed-headings"
+      id="js-post-content">
+    <header>
+      <time datetime="${page.date}">
+        ${page.date /* format */}
+      </time>
+      <h1>
+        <span>${page.title}</span>
+      </h1>
+    </header>
+
+    ${page.contents.toString()}
+
+    ${page.tags && `
+      <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
+        Tagged in: 
+        ${page.tags.map(tag => `
+          <a href="${site.baseurl}/tags/#${tag}}" class="tag">
+            #${tag}
+          </a>
+        `).join(",&nbsp;")}
+      </footer>`}
+    </article>
+  `);
+};
+
+// prettier-ignore
+const Page = (props, children) => Layout(props, jim`
+  <div class="markdown">
+    ${children}
+  </div>
+`);
+
+module.exports = {
+  // Layout,
+  Post,
+  Page
+};

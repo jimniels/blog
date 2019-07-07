@@ -1,3 +1,5 @@
+const { jim } = require("./utils.js");
+
 const navItems = [
   {
     id: "home",
@@ -22,7 +24,7 @@ const navItems = [
 ];
 
 // prettier-ignore
-const Nav = ({ site: { baseurl }, page }) => `
+const Nav = ({ site: { baseurl }, page }) => jim`
   <div class="nav-wrapper">
     <div class="nav__img">
       <img src="https://www.jim-nielsen.com/assets/img/profile.jpg" alt="Photography of Jim Nielsen" />
@@ -37,7 +39,7 @@ const Nav = ({ site: { baseurl }, page }) => `
                 ${navItem.label}
               </a>`}
         </li>
-      `).join("")}
+      `)}
     </ul>
 
     <p>
@@ -48,4 +50,4 @@ const Nav = ({ site: { baseurl }, page }) => `
   </div>
 `;
 
-export default Nav;
+module.exports = Nav;
