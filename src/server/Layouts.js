@@ -3,7 +3,7 @@ const { jim } = require("./utils.js");
 
 const Layout = (props, children) => {
   const {
-    site: { baseurl },
+    site: { baseurl, isDevelopment },
     page: { title }
   } = props;
 
@@ -32,7 +32,11 @@ const Layout = (props, children) => {
       >
       <link
         rel="stylesheet"
-        href="${baseurl}/assets/css/style.css"
+        href="${baseurl}/assets/css/normalize.css"
+      >
+      <link
+        rel="stylesheet"
+        href="${baseurl}/assets/css/styles.css"
       >
     </head>
     <body>
@@ -48,15 +52,27 @@ const Layout = (props, children) => {
         type="text/javascript"
         src="${baseurl}/assets/js/js.js">
       </script>
+
+      ${isDevelopment &&
+        `<script src="http://localhost:35729/livereload.js"></script>`}
     </body>
   </html>`;
 };
 
 // prettier-ignore
-const Post = (props, children) => {
+const Post = (props) => {
   const { site, page } = props;
   
   return Layout(props, jim`
+    <link
+      rel="stylesheet"
+      href="/assets/css/atom-one-light.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/css/atom-one-dark.css"
+      media="screen and (prefers-color-scheme: dark)"
+    />
     <article
       class="markdown markdown-with-prefixed-headings"
       id="js-post-content">
@@ -71,7 +87,7 @@ const Post = (props, children) => {
 
     ${page.contents.toString()}
 
-    ${page.tags && `
+    ${Array.isArray(page.tags) && `
       <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
         Tagged in: 
         ${page.tags.map(tag => `
@@ -85,14 +101,17 @@ const Post = (props, children) => {
 };
 
 // prettier-ignore
-const Page = (props, children) => Layout(props, jim`
+const PageCustom = (props, children) => Layout(props, children);
+
+// prettier-ignore
+const Page = (props) => Layout(props, jim`
   <div class="markdown">
-    ${children}
+    ${props.page.contents.toString()}
   </div>
 `);
 
 module.exports = {
-  // Layout,
   Post,
-  Page
+  Page,
+  PageCustom
 };

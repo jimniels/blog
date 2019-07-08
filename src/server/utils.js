@@ -23,6 +23,22 @@ const jim = (strings, ...values) => {
   return out;
 };
 
+const toDateUI = date => {
+  return date.toLocaleString("en-US", {
+    timeZone: "UTC",
+    year: "numeric",
+    month: "short",
+    day: "numeric"
+  });
+};
+const toDateUIMin = date => toDateUI(date).split(",")[0];
+const toDateISO = date => {
+  return date.toISOString().slice(0, 10);
+};
+
 module.exports = {
-  jim
+  jim,
+  toDateUI,
+  toDateUIMin,
+  toDateISO
 };

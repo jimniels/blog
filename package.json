@@ -4,9 +4,9 @@
   "description": "[jim-nielsen.com/blog](http://jim-nielsen.com/blog)",
   "main": "metalsmith.js",
   "dependencies": {
+    "highlight.js": "^9.15.8",
+    "marked": "^0.7.0",
     "metalsmith": "^2.3.0",
-    "metalsmith-markdown": "^1.2.0",
-    "metalsmith-permalinks": "^2.2.0",
     "metalsmith-serve": "^0.0.7",
     "metalsmith-watch": "^1.0.3",
     "multimatch": "^3.0.0",
@@ -15,7 +15,12 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node metalsmith.js"
+    "date": "node date.js",
+    "copy-css": "cp node_modules/highlight.js/styles/atom-one-*.css src/client/assets/css/",
+    "prestart": "npm run copy-css",
+    "start": "node metalsmith.js",
+    "prebuild": "npm run copy-css",
+    "build": "NODE_ENV=production node metalsmith.js"
   },
   "repository": {
     "type": "git",

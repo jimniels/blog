@@ -1,54 +1,81 @@
 const Metalsmith = require("metalsmith");
-const markdown = require("metalsmith-markdown");
-const permalinks = require("metalsmith-permalinks");
+const watch = require("metalsmith-watch");
+const serve = require("metalsmith-serve");
 const { dirname, join } = require("path");
 const { fileURLToPath } = require("url");
 const multimatch = require("multimatch");
-const pretty = require("pretty");
 const metadata = require("./plugins/metadata.js");
 
-Metalsmith(__dirname)
+const isDevelopment = process.env.NODE_ENV !== "production";
+
+let App = Metalsmith(__dirname)
+  .metadata({
+    baseurl: "",
+    isDevelopment
+  })
   .source("./src/client") // source directory
   .destination("./build") // destination directory
   .clean(true) // clean destination before
   .use(metadata())
-  .use(markdown()) // transpile all md into html
-  .use(
-    permalinks({
-      // change URLs to permalink URLs
-      relative: false // put css only in /css
-    })
-  )
-  // Render templates
   .use((files, metalsmith, done) => {
-    const { Post } = require("./src/server/Layout.js");
+    const layouts = require("./src/server/Layouts.js");
     const site = metalsmith.metadata();
 
-    Object.keys(files).forEach(file => {
-      // <Page> templates
-      if (multimatch(file, "**/*.tmpl.js").length) {
-        const Component = require(join(
-          metalsmith._directory,
-          metalsmith._source,
-          file
-        ));
+    const getFilePath = filepath =>
+      join(metalsmith._directory, metalsmith._source, filepath);
 
-        files[file].contents = pretty(Component(site));
+    Object.keys(files).forEach(file => {
+      // Templates
+      if (multimatch(file, "**/*.tmpl.js").length) {
+        const { fn, props } = require(getFilePath(file));
+        files[file].contents = fn({
+          site,
+          page: {
+            ...files[file],
+            ...props
+          }
+        });
         files[file.replace(".tmpl.js", "")] = files[file];
         delete files[file];
-        // Posts
-      } else if (multimatch(files[file].srcFilepath, "posts/**").length) {
-        // @TODO
-        files[file].contents = Post({ site, page: files[file] });
-        // console.log(out);
-      } else {
-        // regular <Page> .md files
+        // Files with a layout
+      } else if (files[file].layout) {
+        const fn = layouts[files[file].layout];
+        if (fn) {
+          files[file].contents = fn({
+            site,
+            page: files[file]
+          });
+        }
       }
     });
 
     done();
-  })
-  .build(err => {
-    // build process
-    if (err) throw err; // error handling is required
   });
+if (isDevelopment) {
+  App.use(
+    watch({
+      paths: {
+        "${source}/**/*": true,
+        "src/server/**/*": "**/*"
+      },
+      livereload: true,
+      invalidateCache: true
+    })
+  ).use(
+    serve({
+      http_error_files: {
+        404: "/404.html" // @TODO
+      }
+    })
+  );
+}
+
+App.build(err => {
+  // build process
+  if (err) throw err; // error handling is required
+});
+
+function getPropsFromFile(file) {
+  const { mode, stats, ...props } = file;
+  return props;
+}
