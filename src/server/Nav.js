@@ -3,7 +3,7 @@ const { jim } = require("./utils.js");
 const navItems = [
   {
     id: "home",
-    label: "Home",
+    label: "Posts",
     path: "/"
   },
   {
@@ -27,7 +27,9 @@ const navItems = [
 const Nav = ({ site: { baseurl }, page }) => jim`
   <div class="nav-wrapper">
     <div class="nav__img">
-      <img src="https://www.jim-nielsen.com/assets/img/profile.jpg" alt="Photography of Jim Nielsen" />
+      <a href="/">
+        <img src="https://www.jim-nielsen.com/assets/img/profile.jpg" alt="Photography of Jim Nielsen" />
+      </a>
     </div>
 
     <ul>
@@ -40,12 +42,15 @@ const Nav = ({ site: { baseurl }, page }) => jim`
               </a>`}
         </li>
       `)}
+      <!--
+        <li>
+          <a href="https://www.jim-nielsen.com">jim-nielsen.com</a>
+        </li>
+        -->
     </ul>
 
     <p>
-      Hi, I’m <a href="http://jim-nielsen.com/">Jim Nielsen</a>. 
-      This is my blog, where I find clarity through writing. 
-      You’re welcome here anytime.
+      Hi, I’m <a href="http://jim-nielsen.com/">Jim Nielsen</a>. This is my blog, where I seek clarity through writing. 
     </p>
   </div>
 `;

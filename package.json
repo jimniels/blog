@@ -10,7 +10,8 @@
     "metalsmith-serve": "^0.0.7",
     "metalsmith-watch": "^1.0.3",
     "multimatch": "^3.0.0",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {},
   "scripts": {

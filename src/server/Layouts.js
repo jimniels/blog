@@ -1,5 +1,6 @@
+const pt = require("prop-types");
 const Nav = require("./Nav.js");
-const { jim } = require("./utils.js");
+const { jim, toDateISO, toDateUI } = require("./utils.js");
 
 const Layout = (props, children) => {
   const {
@@ -59,10 +60,29 @@ const Layout = (props, children) => {
   </html>`;
 };
 
-// prettier-ignore
-const Post = (props) => {
+const Post = props => {
   const { site, page } = props;
-  
+
+  pt.checkPropTypes(
+    {
+      site: pt.shape({
+        baseurl: pt.string.isRequired,
+        zzz: pt.string.isRequired,
+        isDevelopment: pt.bool.isRequired
+      }),
+      page: pt.shape({
+        title: pt.string.isRequired,
+        date: pt.instanceOf(Date),
+        contents: pt.oneOfType([pt.instanceOf(Buffer), pt.string]),
+        tags: pt.arrayOf(pt.string)
+      })
+    },
+    props,
+    "prop",
+    "Post"
+  );
+
+  // prettier-ignore
   return Layout(props, jim`
     <link
       rel="stylesheet"
@@ -76,26 +96,27 @@ const Post = (props) => {
     <article
       class="markdown markdown-with-prefixed-headings"
       id="js-post-content">
-    <header>
-      <time datetime="${page.date}">
-        ${page.date /* format */}
-      </time>
-      <h1>
-        <span>${page.title}</span>
-      </h1>
-    </header>
 
-    ${page.contents.toString()}
+      <header>
+        <time datetime="${toDateISO(page.date)}">
+          ${toDateUI(page.date)}
+        </time>
+        <h1>
+          <span>${page.title}</span>
+        </h1>
+      </header>
 
-    ${Array.isArray(page.tags) && `
-      <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
-        Tagged in: 
-        ${page.tags.map(tag => `
-          <a href="${site.baseurl}/tags/#${tag}}" class="tag">
-            #${tag}
-          </a>
-        `).join(",&nbsp;")}
-      </footer>`}
+      ${page.contents.toString()}
+
+      ${Array.isArray(page.tags) && `
+        <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
+          Tagged in: 
+          ${page.tags.map(tag => `
+            <a href="${site.baseurl}/tags/#${tag}}" class="tag">
+              #${tag}
+            </a>
+          `).join(",&nbsp;")}
+        </footer>`}
     </article>
   `);
 };

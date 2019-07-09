@@ -29,33 +29,43 @@ let App = Metalsmith(__dirname)
   .destination("./build")
   .clean(true)
   .use((files, metalsmith, done) => {
-    // Delete all drafts
-    // @TODO IF we are including drafts, move them to the "posts" folder
+    /**
+     * Handle Drafts
+     * @TODO IF we are including drafts, move them to the "posts" folder
+     * for now we are just going to delete them.
+     */
     multimatch(Object.keys(files), ["drafts/**", "draftz/**"]).forEach(file => {
       delete files[file];
     });
 
-    // Convert markdown to HTML for all .md files
+    /**
+     * Handle Markdown
+     * Convert all .md files to .html files
+     */
     multimatch(Object.keys(files), "**/*.md").forEach(file => {
       files[file].contents = marked(
         files[file].contents
           .toString()
-          .replace(/{{\s*site.imageurl\s*}}/g, "/assets/img/") // @TODO
+          // @TODO all the old posts prefixed where you could find the content
+          // using this syntax
+          .replace(/{{\s*site.imageurl\s*}}/g, "/assets/img/")
       );
       files[file.replace(".md", ".html")] = files[file];
       delete files[file];
     });
 
-    // Do stuff with posts
+    /**
+     * Posts
+     * Do stuff that we want to do with each post file
+     */
     multimatch(Object.keys(files), "posts/**").forEach(file => {
       files[file].layout = "Post";
       const post = files[file];
 
-      // @TODO rename anything that gets logged here
+      // An extra console to tell us if we've named a file wrong
       if (/[A-Z]/.test(file)) {
         console.log("=====> You've got an uppercase slug ", file);
       }
-
       // Set the URL based on filename
       const slug = path
         .basename(file)
@@ -67,9 +77,10 @@ let App = Metalsmith(__dirname)
       files[file].permalink = `/${year}/${slug}/`;
 
       // Tags: turn them into an array
-      if (post.tags) {
+      const { tags } = files[file];
+      if (tags) {
         // A little extra warning
-        if (post.tags !== post.tags.trim()) {
+        if (tags !== tags.trim()) {
           console.warn(
             "Tag data is malformed. No extra spaces around tags for:",
             file
@@ -78,17 +89,31 @@ let App = Metalsmith(__dirname)
 
         // Tags will come space separated, i.e. "readingNotes design"
         // So turn them into an array
-        post.tags = post.tags.trim().split(" ");
+        files[file].tags = post.tags.trim().split(" ");
       }
 
-      // Rename post to slug output
+      // Rename all posts to their appropriate permalinks to slug output
       files[`${year}/${slug}/index.html`] = files[file];
       delete files[file];
     });
 
-    // May already exist, don't update @TODO
+    /**
+     * Handle Collections
+     * Remember that anything happening here could be the first _or_ second
+     * pass (so all the files or only one)
+     */
     const meta = metalsmith.metadata();
-    if (!meta.posts) {
+    if (meta.posts) {
+      Object.keys(files).forEach(file => {
+        const index = meta.posts.findIndex(
+          post => post.slug === files[file].slug
+        );
+        if (index !== -1) {
+          meta.posts[index] = files[file];
+        }
+      });
+    } else {
+      // Doesn't exist yet, so all files are available
       meta.posts = Object.keys(files)
         .filter(file => files[file].layout === "Post")
         .map(file => files[file])
@@ -122,7 +147,8 @@ let App = Metalsmith(__dirname)
     }
 
     /**
-     * Render the templates and/or layouts
+     * Handle Templating
+     * Render the templates and/or layouts for all applicable files
      */
     const layouts = require("./src/server/Layouts.js");
     const site = metalsmith.metadata();
@@ -159,6 +185,7 @@ let App = Metalsmith(__dirname)
   });
 
 /**
+ * Development
  * If this is development mode, start up the server and watch files.
  */
 if (isDevelopment) {
@@ -166,10 +193,12 @@ if (isDevelopment) {
     watch({
       paths: {
         "${source}/**/*": true,
+        "${source}/posts/*.md": "**/*.tmpl.js",
         "src/server/**/*": "**/*"
       },
       livereload: true,
       invalidateCache: true
+      // log: () => {} // silence the log
     })
   ).use(
     serve({
@@ -180,6 +209,9 @@ if (isDevelopment) {
   );
 }
 
+/**
+ * Build the app
+ */
 App.build(err => {
   // build process
   if (err) throw err; // error handling is required

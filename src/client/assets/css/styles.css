@@ -418,7 +418,7 @@ a:active:hover {
   line-height: 1.5rem;
   white-space: pre;
 
-  // override inline code styles
+  /* override inline code styles */
   padding: 0;
   margin: 0;
   background: transparent;
@@ -426,8 +426,7 @@ a:active:hover {
   border-radius: 0;
 }
 
-/* Jekyll auto-generates classes for code highlighting. We tap into that here. */
-.markdown > .language {
+.markdown > pre {
   padding: 1.618rem;
   padding-right: 0;
   background: var(--color-bg-sidebar);
@@ -435,13 +434,6 @@ a:active:hover {
   overflow-y: scroll;
   margin-bottom: 1.618rem;
   -webkit-overflow-scrolling: touch;
-}
-
-/* @TODO fix dark mode with syntax highlighting */
-@media (prefers-color-scheme: dark) {
-  .markdown > .language * {
-    color: inherit !important;
-  }
 }
 
 /*
