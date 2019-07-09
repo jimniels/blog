@@ -4,7 +4,7 @@ const { jim, toDateISO, toDateUI } = require("./utils.js");
 
 const Layout = (props, children) => {
   const {
-    site: { baseurl, isDevelopment },
+    site: { name, baseurl, isDevelopment },
     page: { title }
   } = props;
 
@@ -13,7 +13,7 @@ const Layout = (props, children) => {
     <html id="top">
     <head>
       <title>
-        ${title && `${title} | `}Jim Nielsen’s Blog
+        ${title && `${title} | `}${name}
       </title>
 
       <meta charset="utf-8">
@@ -67,7 +67,8 @@ const Post = props => {
     {
       site: pt.shape({
         baseurl: pt.string.isRequired,
-        zzz: pt.string.isRequired,
+        name: pt.string.isRequired,
+        origin: pt.string.isRequired,
         isDevelopment: pt.bool.isRequired
       }),
       page: pt.shape({

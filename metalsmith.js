@@ -22,6 +22,8 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 
 let App = Metalsmith(__dirname)
   .metadata({
+    name: "Jim Nielsen’s Blog",
+    origin: "https://blog.jim-nielsen.com",
     baseurl: "",
     isDevelopment
   })
@@ -43,13 +45,22 @@ let App = Metalsmith(__dirname)
      * Convert all .md files to .html files
      */
     multimatch(Object.keys(files), "**/*.md").forEach(file => {
-      files[file].contents = marked(
+      const markdown = marked(
         files[file].contents
           .toString()
           // @TODO all the old posts prefixed where you could find the content
           // using this syntax
-          .replace(/{{\s*site.imageurl\s*}}/g, "/assets/img/")
+          .replace(
+            /{{\s*site.imageurl\s*}}/g,
+            // no relative URLs in the content, as the feeds won't work
+            metalsmith.metadata().origin + "/assets/img/"
+          )
       );
+      // We'll save markdown, so we can access just that if we want,
+      // but we'll also save the `.contents` because that's what gets output to
+      // a file. Useful for cases like
+      files[file].markdown = markdown;
+      files[file].contents = markdown;
       files[file.replace(".md", ".html")] = files[file];
       delete files[file];
     });
@@ -104,14 +115,17 @@ let App = Metalsmith(__dirname)
      */
     const meta = metalsmith.metadata();
     if (meta.posts) {
-      Object.keys(files).forEach(file => {
-        const index = meta.posts.findIndex(
-          post => post.slug === files[file].slug
-        );
-        if (index !== -1) {
-          meta.posts[index] = files[file];
-        }
-      });
+      // @TODO
+      // Updating can make access the .contents be the full html file and not
+      // just the markdown. This can get weird. PROCEED WITH CAUTION
+      // Object.keys(files).forEach(file => {
+      //   const index = meta.posts.findIndex(
+      //     post => post.slug === files[file].slug
+      //   );
+      //   if (index !== -1) {
+      //     meta.posts[index] = files[file];
+      //   }
+      // });
     } else {
       // Doesn't exist yet, so all files are available
       meta.posts = Object.keys(files)
@@ -159,7 +173,7 @@ let App = Metalsmith(__dirname)
     Object.keys(files).forEach(file => {
       // Templates
       if (multimatch(file, "**/*.tmpl.js").length) {
-        const { fn, props } = require(getFilePath(file));
+        const { fn, props = {} } = require(getFilePath(file));
         files[file].contents = fn({
           site,
           page: {
