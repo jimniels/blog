@@ -4,7 +4,7 @@ const { jim, toDateISO, toDateUI } = require("./utils.js");
 
 const Layout = (props, children) => {
   const {
-    site: { name, baseurl, isDevelopment },
+    site: { name, isDevelopment },
     page: { title }
   } = props;
 
@@ -23,21 +23,21 @@ const Layout = (props, children) => {
         rel="alternate"
         type="application/rss+xml"
         title="RSS"
-        href="${baseurl}/feed.xml"
+        href="/feed.xml"
       >
       <link
         rel="alternate"
         type="application/json"
         title="JSON Feed"
-        href="${baseurl}/feed.json"
+        href="/feed.json"
       >
       <link
         rel="stylesheet"
-        href="${baseurl}/assets/css/normalize.css"
+        href="/assets/css/normalize.css"
       >
       <link
         rel="stylesheet"
-        href="${baseurl}/assets/css/styles.css"
+        href="/assets/css/styles.css"
       >
     </head>
     <body>
@@ -49,10 +49,7 @@ const Layout = (props, children) => {
         ${children}
       </main>
 
-      <script
-        type="text/javascript"
-        src="${baseurl}/assets/js/js.js">
-      </script>
+      <script type="text/javascript" src="/assets/js/js.js"></script>
 
       ${isDevelopment &&
         `<script src="http://localhost:35729/livereload.js"></script>`}
@@ -66,7 +63,6 @@ const Post = props => {
   pt.checkPropTypes(
     {
       site: pt.shape({
-        baseurl: pt.string.isRequired,
         name: pt.string.isRequired,
         origin: pt.string.isRequired,
         isDevelopment: pt.bool.isRequired
@@ -113,7 +109,7 @@ const Post = props => {
         <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
           Tagged in: 
           ${page.tags.map(tag => `
-            <a href="${site.baseurl}/tags/#${tag}}" class="tag">
+            <a href="/tags/#${tag}}" class="tag">
               #${tag}
             </a>
           `).join(",&nbsp;")}

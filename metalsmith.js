@@ -6,7 +6,6 @@ const { fileURLToPath } = require("url");
 const multimatch = require("multimatch");
 const hljs = require("highlight.js");
 const marked = require("marked");
-const metadata = require("./plugins/metadata.js");
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -24,7 +23,6 @@ let App = Metalsmith(__dirname)
   .metadata({
     name: "Jim Nielsen’s Blog",
     origin: "https://blog.jim-nielsen.com",
-    baseurl: "",
     isDevelopment
   })
   .source("./src/client")
@@ -70,22 +68,32 @@ let App = Metalsmith(__dirname)
      * Do stuff that we want to do with each post file
      */
     multimatch(Object.keys(files), "posts/**").forEach(file => {
-      files[file].layout = "Post";
-      const post = files[file];
-
       // An extra console to tell us if we've named a file wrong
       if (/[A-Z]/.test(file)) {
         console.log("=====> You've got an uppercase slug ", file);
       }
-      // Set the URL based on filename
-      const slug = path
-        .basename(file)
-        .split(".")[0]
-        .slice(11)
-        .toLowerCase();
-      const year = files[file].date.getFullYear(); // @TODO handle dates
+
+      // Set the layout
+      files[file].layout = "Post";
+
+      // Derive data from the filename
+      // Get the filename, i.e. for "2019-06-12-my-post-slug.html" get "2019-06-12-my-post-slug"
+      const filename = path.basename(file, path.extname(file));
+      // Get just the date, i.e. "2019-06-12"
+      const dateISO = filename.slice(0, 10);
+      // Get the year, i.e. "2019"
+      const year = dateISO.slice(0, 4);
+      // Get the slug, i.e. "my-post-slug.md"
+      const slug = filename.slice(11);
+
+      // Store some of the filename-derived data with the post
       files[file].slug = slug;
       files[file].permalink = `/${year}/${slug}/`;
+      // I don't store time information on my posts, so we'll make all posts
+      // publish at the same time of day: noon mountain time.
+      // Noon mountain time is UTC-7 (technically UTC-6 during daylight savings)
+      // That's why we append T19 zulu time on to the end
+      files[file].date = new Date(dateISO + "T19:00:00Z");
 
       // Tags: turn them into an array
       const { tags } = files[file];
@@ -100,7 +108,7 @@ let App = Metalsmith(__dirname)
 
         // Tags will come space separated, i.e. "readingNotes design"
         // So turn them into an array
-        files[file].tags = post.tags.trim().split(" ");
+        files[file].tags = tags.trim().split(" ");
       }
 
       // Rename all posts to their appropriate permalinks to slug output

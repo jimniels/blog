@@ -24,7 +24,7 @@ const navItems = [
 ];
 
 // prettier-ignore
-const Nav = ({ site: { baseurl }, page }) => jim`
+const Nav = ({ site, page }) => jim`
   <div class="nav-wrapper">
     <div class="nav__img">
       <a href="/">
@@ -37,7 +37,7 @@ const Nav = ({ site: { baseurl }, page }) => jim`
         <li class="${page.id == navItem.id ? "active" : ""}">
           ${page.id == navItem.id
             ? navItem.label
-            : `<a href="${baseurl}${navItem.path}">
+            : `<a href="${navItem.path}">
                 ${navItem.label}
               </a>`}
         </li>
