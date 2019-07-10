@@ -1,6 +1,5 @@
 ---
 title: Dark Mode on the Web via OS-Level Preferences
-date: 2018-10-25
 tags: engineering
 ---
 

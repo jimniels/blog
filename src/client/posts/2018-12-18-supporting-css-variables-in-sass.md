@@ -1,6 +1,5 @@
 ---
 title: Supporting CSS Variables in Sass
-date: 2018-12-18
 tags: engineering
 ---
 
@@ -28,7 +27,6 @@ $color: #eee;
 ```
 
 Compiles, as you would probably expect, to:
-
 
 ```css
 :root {

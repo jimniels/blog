@@ -1,6 +1,5 @@
 ---
 title: Creating iOS Icon Masks in the Browser
-date: 2017-11-27
 tags: engineering tips
 ---
 
@@ -18,7 +17,7 @@ The point is that the actual icon artwork submitted by app developers is simply 
 
 ![iOS icon with and without mask]({{ site.imageurl }}/2017/iosicons-icon-with-and-without-mask.png)
 
-But what if you’re displaying an iOS icon on the web? Creating this same effect on has got to be easy right? ... RIGHT?! 
+But what if you’re displaying an iOS icon on the web? Creating this same effect on has got to be easy right? ... RIGHT?!
 
 ### How Apple Does It
 
@@ -80,7 +79,7 @@ Do you see my problem with this approach? The main content of the modal, the ico
 
 ![Icon in a modal indicating problematic areas]({{ site.imageurl }}/2017/iosicons-modal-mask-problem.jpg "Note the corners of the icon mask overlaying the content underneath.")
 
-One of the other things I wanted to achieve with this “icon quick preview”  was to mimic the blur aesthetic found in the newer versions of iOS. For example, when triggering the modal overlay, rather than just having a semi-transparent background overlay, I wanted to have it blur the underlying content. This actually wasn’t that difficult thanks to the advances in CSS. I was able to progressively enhance this aesthetic into my design by leveraging the `filter: blur()` CSS property. For modern browsers, this means you get the nice iOS aesthetic of blurring background content while bringing foreground content into sharp focus. However, as you’ll notice, this only further intensified the problem of overlaying an image mask on the icon, as the white corners of the mask became even more evident.
+One of the other things I wanted to achieve with this “icon quick preview” was to mimic the blur aesthetic found in the newer versions of iOS. For example, when triggering the modal overlay, rather than just having a semi-transparent background overlay, I wanted to have it blur the underlying content. This actually wasn’t that difficult thanks to the advances in CSS. I was able to progressively enhance this aesthetic into my design by leveraging the `filter: blur()` CSS property. For modern browsers, this means you get the nice iOS aesthetic of blurring background content while bringing foreground content into sharp focus. However, as you’ll notice, this only further intensified the problem of overlaying an image mask on the icon, as the white corners of the mask became even more evident.
 
 ![Icon in a modal with blurred background]({{ site.imageurl }}/2017/iosicons-modal-mask-problem-blurred.jpg "With the blurred background, the mask’s white corner edges stood out even more.")
 
@@ -116,20 +115,19 @@ So this was a no-go.
 
 As discussed earlier, using the `border` and `border-radius` properties in CSS would be sufficient if we were dealing with pre-iOS 7 icons. But it wasn’t good enough for achieving the “squircle” shape. Now I know what you’re thinking “geez, come on, the difference between the two is soooo miniscule, nobody will ever notice the difference.” However, I would counter that notion with this: the main users of this site are designers and they literally make a living off noticing and making use of 1px differences. So I knew I had to achieve the exact iOS effect for the site to be of any use.
 
-However, one useful thing I thought of when considering this option was that `border` and `border-radius` *could* work as a good-enough, graceful degradation fallback. In other words, if I could find a cutting-edge CSS property that allowed me to do native image masking in the browser whose browser support was limited to modern browsers only, `border-radius` seemed like a good fallback choice to achieve a “close-enough” iOS icon masking effect. After all, if you’re a modern iOS designer who painstakingly scrutinizes icon designs on a large retina screen but you use IE9, sorry dude, you get the “close-enough” version of the site.
+However, one useful thing I thought of when considering this option was that `border` and `border-radius` _could_ work as a good-enough, graceful degradation fallback. In other words, if I could find a cutting-edge CSS property that allowed me to do native image masking in the browser whose browser support was limited to modern browsers only, `border-radius` seemed like a good fallback choice to achieve a “close-enough” iOS icon masking effect. After all, if you’re a modern iOS designer who painstakingly scrutinizes icon designs on a large retina screen but you use IE9, sorry dude, you get the “close-enough” version of the site.
 
 ### CSS: `clip-path`
 
 After doing [a little](https://css-tricks.com/clipping-masking-css/) [research](https://codepen.io/yoksel/full/fsdbu) on image masking, I came across the `clip-path` property which seemed promising at first because of the relatively-good browser support for it. However, after playing around with it for a bit, I encountered a few problems that ended up being deal breakers.
 
-First: the responsiveness of `clip-path` has much to be desired. In fact, it doesn’t really work. The `objectBoundingBox` attribute in SVG can fix this, but then you have to resize all your SVG units to be in 1×1 pixel ratio. Eric Meyer had a [clever little workaround](http://meyerweb.com/eric/thoughts/2017/02/24/scaling-svg-clipping-paths-for-css-use/) for this, but I actually could never really quite get it working (though in theory, it *should have* worked). In the end, I took Apple’s vector icon mask and shrunk it down to 1×1 pixels in Sketch and then exported it as an SVG to get my units correct. But even then I found other problems with `clip-path`.
+First: the responsiveness of `clip-path` has much to be desired. In fact, it doesn’t really work. The `objectBoundingBox` attribute in SVG can fix this, but then you have to resize all your SVG units to be in 1×1 pixel ratio. Eric Meyer had a [clever little workaround](http://meyerweb.com/eric/thoughts/2017/02/24/scaling-svg-clipping-paths-for-css-use/) for this, but I actually could never really quite get it working (though in theory, it _should have_ worked). In the end, I took Apple’s vector icon mask and shrunk it down to 1×1 pixels in Sketch and then exported it as an SVG to get my units correct. But even then I found other problems with `clip-path`.
 
-Second: browser support for `clip-path` is complicated. Support appears relatively broad at first glance, but you have to be careful. There’s a difference between support for `clip-path` on SVG elements and support for it on HTML elements. `clip-path` is essentially just a rule that says “hey browser, mask this element with this image mask I have defined”. If you want to use `clip-path` *inside* an SVG element, browser support is really good. But that’s not what I was trying to do. I wanted to use `clip-path` on an HTML element (specifically an `<img>` element). For example, my usage would look something like this: 
-
+Second: browser support for `clip-path` is complicated. Support appears relatively broad at first glance, but you have to be careful. There’s a difference between support for `clip-path` on SVG elements and support for it on HTML elements. `clip-path` is essentially just a rule that says “hey browser, mask this element with this image mask I have defined”. If you want to use `clip-path` _inside_ an SVG element, browser support is really good. But that’s not what I was trying to do. I wanted to use `clip-path` on an HTML element (specifically an `<img>` element). For example, my usage would look something like this:
 
 ```css
 img.icon {
-  clip-path: url(#mask.svg)
+  clip-path: url(#mask.svg);
 }
 ```
 
@@ -143,21 +141,21 @@ My best option for using `clip-path` and getting relatively consistent results w
 
 <!-- How I could've done them -->
 <svg>
-	<image xlink:href="/path/to/icon.png" />
+  <image xlink:href="/path/to/icon.png" />
 </svg>
 ```
 
-If I went the route of defining my icons as `<svg>` elements, I could achieve an image mask by using `clip-path` inside the SVG. This would result in good cross-browser support because `clip-path` is well supported *inside SVG*. However, this approach felt wrong. Semantically it didn’t feel right to markup all my raster icons as SVG elements for the sole purpose of achieving a visual aesthetic. That kinda felt like the old web where we used leverage elements for style in HTML, like `<bold>` or `<marquee>`.
+If I went the route of defining my icons as `<svg>` elements, I could achieve an image mask by using `clip-path` inside the SVG. This would result in good cross-browser support because `clip-path` is well supported _inside SVG_. However, this approach felt wrong. Semantically it didn’t feel right to markup all my raster icons as SVG elements for the sole purpose of achieving a visual aesthetic. That kinda felt like the old web where we used leverage elements for style in HTML, like `<bold>` or `<marquee>`.
 
-In the end, `clip-path` didn’t really work out for me because I didn’t have a reliable way to test for the HTML support I needed while being able to provide a viable fallback as needed. 
+In the end, `clip-path` didn’t really work out for me because I didn’t have a reliable way to test for the HTML support I needed while being able to provide a viable fallback as needed.
 
 ### CSS: `mask-image`
 
-Eventually I came to `mask-image`, which is similar to `clip-path` but is designed specifically for targeting HTML elements. You target the element then specify your image mask (which can be a vector SVG), i.e. 
+Eventually I came to `mask-image`, which is similar to `clip-path` but is designed specifically for targeting HTML elements. You target the element then specify your image mask (which can be a vector SVG), i.e.
 
 ```css
 img.icon {
-	mask-image: url(#my-mask.svg)
+  mask-image: url(#my-mask.svg);
 }
 ```
 
@@ -166,22 +164,22 @@ Support for `mask-image` is [relatively good](https://caniuse.com/#search=mask-i
 ```scss
 // For browsers that can't mask, just do a border and border-radius
 img.icon {
-	border-radius: 22.5%;
-	border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 22.5%;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 // For browsers that can mask, you get the squircle and a 1px border
 @supports (mask-size: cover) or (-webkit-mask-size: cover) {
-	img.icon {
-		// Override the above borders
-		border-radius: 0;
-		border: none;
-		-webkit-mask-image: url(/shared/img/ios-mask-512.svg);
-		-webkit-mask-size: cover;
-		mask-image: url(/shared/img/ios-mask-512.svg);
-		mask-size: cover;
-		// more stuff here...
-	}
+  img.icon {
+    // Override the above borders
+    border-radius: 0;
+    border: none;
+    -webkit-mask-image: url(/shared/img/ios-mask-512.svg);
+    -webkit-mask-size: cover;
+    mask-image: url(/shared/img/ios-mask-512.svg);
+    mask-size: cover;
+    // more stuff here...
+  }
 }
 ```
 
@@ -201,7 +199,7 @@ First, I created my image mask. I could define this at any size I wanted because
 
 The problem here is that I needed the position to be on the inside, so that the semi-transparent border could overlay the underlying content. This is the exact effect Apple used (via a raster PNG mask) and that’s what I was striving for in terms of pixel-level precision.
 
-This meant I would have to create the icon mask borders myself. First I leveraged the vector icon Apple provides for the squircle shape. Then I outlined the mask with a 1px inner border in sketch, then converted that shape to an outline. Again, the reason it has to be outlined is because even as an “inner” border in sketch, it will end up as a “centered” border when exported to SVG. 
+This meant I would have to create the icon mask borders myself. First I leveraged the vector icon Apple provides for the squircle shape. Then I outlined the mask with a 1px inner border in sketch, then converted that shape to an outline. Again, the reason it has to be outlined is because even as an “inner” border in sketch, it will end up as a “centered” border when exported to SVG.
 
 ![Border positioning example]({{ site.imageurl }}/2017/iosicons-border-outline.png)
 
@@ -221,4 +219,3 @@ This was the long way of saying “How To Do iOS Icon Masks in the Browser”. I
 2. Define one border in SVG and apply everywhere, even in the case of responsiveness where the SVG shrinks
 
 Hope you enjoyed this exhaustive look at doing (what seems like) a simple thing.
-

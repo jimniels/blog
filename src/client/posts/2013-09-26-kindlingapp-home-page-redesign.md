@@ -1,6 +1,5 @@
 ---
 title: Home Page Redesign of kindlingapp.com
-date: 2013-09-26
 tags: designProcess
 redirect_from: /posts/kindlingapp-home-page-redesign/
 ---
@@ -16,7 +15,6 @@ Upon first impression that may sound easy, but it’s harder than you might thin
 One of the best places to communicate what your business is all about is your website. Communicating an entire product’s purpose on the homepage requires lots of focus and discipline.
 
 The new disciplined design for [kindlingapp.com](http://kindlingapp.com) focuses on narrating how Kindling is useful in discovering, sharing, and realizing ideas within an organization. My wife, after seeing the new page, said, "oh, I actually know what the company you work for does now".
-
 
 ## The Design
 
