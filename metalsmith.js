@@ -48,11 +48,7 @@ let App = Metalsmith(__dirname)
           .toString()
           // @TODO all the old posts prefixed where you could find the content
           // using this syntax
-          .replace(
-            /{{\s*site.imageurl\s*}}/g,
-            // no relative URLs in the content, as the feeds won't work
-            metalsmith.metadata().origin + "/assets/img/"
-          )
+          .replace(/{{\s*site.imageurl\s*}}/g, "/assets/img/")
       );
       // We'll save markdown, so we can access just that if we want,
       // but we'll also save the `.contents` because that's what gets output to
