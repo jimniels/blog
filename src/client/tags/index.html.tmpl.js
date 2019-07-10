@@ -1,5 +1,5 @@
 const { PageCustom } = require("../../server/Layouts.js");
-const { jim, toDateISO, toDateUI } = require("../../server/utils.js");
+const { jim, toDateUI } = require("../../server/utils.js");
 
 const Tags = ({ site, page }) => {
   const postsByTag = site.posts.reduce((acc, post) => {
@@ -41,7 +41,7 @@ const Tags = ({ site, page }) => {
         ${postsByTag[tag].map(post => jim`
           <li class="post-wrapper">
             <a href="${post.permalink}">${post.title}</a>
-            <time class="date post-date" datetime="${toDateISO(post.date)}">
+            <time class="date post-date" datetime="${post.date.toISOString()}">
               ${toDateUI(post.date)}
             </time>
           </li>

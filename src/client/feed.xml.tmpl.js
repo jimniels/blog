@@ -1,4 +1,4 @@
-const { jim, toDateISO } = require("../server/utils.js");
+const { jim } = require("../server/utils.js");
 
 // prettier-ignore
 const XMLFeed = ({ site }) => jim`<?xml version="1.0" encoding="UTF-8"?>

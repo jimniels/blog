@@ -32,13 +32,9 @@ const toDateUI = date => {
   });
 };
 const toDateUIMin = date => toDateUI(date).split(",")[0];
-const toDateISO = date => {
-  return date.toISOString().slice(0, 10);
-};
 
 module.exports = {
   jim,
   toDateUI,
-  toDateUIMin,
-  toDateISO
+  toDateUIMin
 };

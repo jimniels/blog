@@ -1,5 +1,5 @@
 const { PageCustom } = require("../server/Layouts.js");
-const { jim, toDateISO, toDateUI, toDateUIMin } = require("../server/utils.js");
+const { jim, toDateUI, toDateUIMin } = require("../server/utils.js");
 
 const Index = ({ site, page }) => {
   const postsByYear = site.posts.reduce((acc, post) => {
@@ -29,7 +29,7 @@ const Index = ({ site, page }) => {
               <a href="${post.permalink}">
                 ${post.title}
               </a>
-              <time datetime="${toDateISO(post.date)}">
+              <time datetime="${post.date.toISOString()}">
                 ${toDateUIMin(post.date)}
               </time>
             </li>

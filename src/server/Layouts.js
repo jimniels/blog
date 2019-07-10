@@ -1,6 +1,6 @@
 const pt = require("prop-types");
 const Nav = require("./Nav.js");
-const { jim, toDateISO, toDateUI } = require("./utils.js");
+const { jim, toDateUI } = require("./utils.js");
 
 const Layout = (props, children) => {
   const {
@@ -95,7 +95,7 @@ const Post = props => {
       id="js-post-content">
 
       <header>
-        <time datetime="${toDateISO(page.date)}">
+        <time datetime="${page.date.toISOString()}">
           ${toDateUI(page.date)}
         </time>
         <h1>
