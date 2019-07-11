@@ -398,7 +398,7 @@ a:active:hover {
   */
 
 .markdown code {
-  padding: 0 (4em / 18) (2em / 18);
+  padding: 0 calc(4em / 18) calc(2em / 18);
   /* margin: 0 0.325rem; */
   border-radius: 0.166667rem;
   background: var(--color-bg-sidebar);
