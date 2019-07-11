@@ -1,6 +1,5 @@
 ---
 title: Preserving CSS Comments For Wordpress During Sass Compression
-date: 2013-07-22
 tags: engineering
 redirect_from: /posts/preserving-CSS-comments-during-compression/
 ---

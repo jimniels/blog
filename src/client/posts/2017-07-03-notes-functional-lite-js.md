@@ -1,6 +1,5 @@
 ---
 title: Notes on “Functional Lite Javascript” by Kyle Simpson
-date: 2017-07-03
 tags: generalNotes
 ---
 

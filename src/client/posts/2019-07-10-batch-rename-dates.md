@@ -17,7 +17,6 @@ Inside of each post file, I had a duplication of data in that the date of the po
 ```yaml
 ---
 title: Why jQuery is Great
-date: 2010-02-12
 ---
 Let me tell you the answer to all your problems—jQuery...
 ```

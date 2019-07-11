@@ -1,6 +1,5 @@
 ---
 title: A Short Perspective on Hiring
-date: 2018-04-13
 tags: thoughts
 ---
 

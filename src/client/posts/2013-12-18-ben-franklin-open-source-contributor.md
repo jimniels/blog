@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Benjamin Franklin, an Open Source Contributor?
-date: 2013-12-18
 tags: thoughts
 redirect_from: /posts/ben-franklin-open-source-contributor/
 ---

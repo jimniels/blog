@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, May 2017
-date: 2017-05-09
 tags: readingNotes
 ---
 

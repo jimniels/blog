@@ -1,6 +1,5 @@
 ---
 title: Conceiving Blog Post Artwork
-date: 2015-05-04
 tags: designProcess
 redirect_from: /posts/conceiving-blog-post-artwork/
 ---

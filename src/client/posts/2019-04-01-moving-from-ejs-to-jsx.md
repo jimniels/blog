@@ -1,6 +1,5 @@
 ---
 title: Moving from EJS to JSX
-date: 2019-04-01
 tags: engineering
 ---
 

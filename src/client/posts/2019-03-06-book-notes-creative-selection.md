@@ -1,6 +1,5 @@
 ---
 title: "Book Notes: “Creative Selection” by Ken Kocienda"
-date: 2019-03-06
 tags: bookNotes
 ---
 

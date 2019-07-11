@@ -1,6 +1,5 @@
 ---
 title: Logo Integrity Brought into Focus
-date: 2014-09-02
 tags: designProcess engineering
 redirect_from: /posts/logo-integrity/
 ---

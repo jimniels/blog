@@ -1,6 +1,5 @@
 ---
 layout: post
-date: 2016-05-17
 title: Designing and Developing the DCP Application
 tags: designProcess engineering
 ---

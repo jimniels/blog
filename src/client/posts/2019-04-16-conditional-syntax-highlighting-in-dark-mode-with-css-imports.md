@@ -1,6 +1,5 @@
 ---
 title: Using @import in CSS to Conditionally Load Syntax Highlighting Styles in Dark Mode
-date: 2019-04-16
 tags: engineering
 ---
 

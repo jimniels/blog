@@ -1,6 +1,5 @@
 ---
 layout: post
-date: 2016-07-09
 title: Arc90 “Work” Page Design Updates
 tags: designProcess
 ---

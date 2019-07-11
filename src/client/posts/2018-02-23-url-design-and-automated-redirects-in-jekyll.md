@@ -1,6 +1,5 @@
 ---
 title: URL Design and Automated Redirects in Jekyll
-date: 2018-02-23
 tags: engineering
 ---
 
@@ -103,7 +102,6 @@ I was actually already using `jekyll-redirect-from` in my site from the last tim
 ```yaml
 title: Angry Birds
 slug: angry-birds
-date: 2011-06-16
 redirect_from: /games/angry-birds/
 ```
 

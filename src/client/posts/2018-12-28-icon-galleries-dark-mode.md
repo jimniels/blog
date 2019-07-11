@@ -1,6 +1,5 @@
 ---
 title: Bringing “Dark Mode” to My Icon Galleries Sites
-date: 2018-12-28
 tags: engineering
 ---
 

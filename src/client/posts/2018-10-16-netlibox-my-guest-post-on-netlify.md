@@ -1,6 +1,5 @@
 ---
 title: "Netlibox: My Guest Post on Netlify’s Blog"
-date: 2018-10-16
 tags: engineering
 ---
 

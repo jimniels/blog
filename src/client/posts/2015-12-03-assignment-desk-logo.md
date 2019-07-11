@@ -1,6 +1,5 @@
 ---
 layout: post
-date: 2015-12-03
 title: Assignment Desk Logo
 tags: designProcess
 ---

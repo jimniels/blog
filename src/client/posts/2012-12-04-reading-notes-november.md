@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, November 2012
-date: 2012-12-04
 tags: readingNotes
 redirect_from: /posts/reading-notes-november/
 ---

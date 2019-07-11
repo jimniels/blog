@@ -1,6 +1,5 @@
 ---
 title: Choosing a Static Site Generator
-date: 2018-08-02
 tags: engineering
 ---
 
@@ -10,7 +9,6 @@ For probably the past three or four years, my icon gallery sites ([iosicongaller
 ---
 title: "Facebook"
 slug: facebook
-date: 2018-04-24
 # more stuff here
 ---
 ```

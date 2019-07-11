@@ -1,6 +1,5 @@
 ---
 title: "The “Kinda-Sorta Looks Like the Internet” Internet"
-date: 2013-09-26
 tags: thoughts
 redirect_from: /posts/kinda-sorta-looks-like-the-internet/
 ---

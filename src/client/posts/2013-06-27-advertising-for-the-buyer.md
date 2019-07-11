@@ -1,6 +1,5 @@
 ---
 title: When Advertising Became About the Buyer, Not the Product
-date: 2013-06-27
 tags: thoughts
 redirect_from: /posts/advertising-for-the-buyer/
 ---

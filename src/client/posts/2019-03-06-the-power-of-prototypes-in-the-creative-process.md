@@ -1,6 +1,5 @@
 ---
 title: The Power of Prototypes in the Creative Process
-date: 2019-03-06
 tags: thoughts
 ---
 

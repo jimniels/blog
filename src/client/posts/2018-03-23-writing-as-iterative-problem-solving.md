@@ -1,6 +1,5 @@
 ---
 title: Writing as a Process for Iterative Problem Solving (and Thoughts on  Structuring a Small Redux Project)
-date: 2018-03-23
 tags: engineering insight
 ---
 

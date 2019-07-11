@@ -1,6 +1,5 @@
 ---
 title: "Designing the “Quick Quote” Experience in Agent Portal"
-date: 2019-01-08
 tags: designProcess insight
 ---
 

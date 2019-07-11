@@ -1,6 +1,5 @@
 ---
 title: The Difference Between substring and substr in JavaScript
-date: 2019-01-04
 tags: engineering workNotes
 ---
 

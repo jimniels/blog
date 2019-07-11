@@ -1,6 +1,5 @@
 ---
 title: "Blog Redesign: Out with the Old, in with the Old"
-date: 2018-05-22
 tags: designProcess
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: The Value of Visual Design
-date: 2017-11-04
 tags: thoughts
 ---
 

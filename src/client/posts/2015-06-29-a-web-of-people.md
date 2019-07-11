@@ -1,6 +1,5 @@
 ---
 title: A Web of People
-date: 2015-06-29
 tags: thoughts
 summary: "Thoughts around the web as both a medium and a profession."
 redirect_from: /posts/a-web-of-people/

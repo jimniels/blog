@@ -1,6 +1,5 @@
 ---
 title: A Logo Is an Image, The Image of a Company
-date: 2014-03-03
 tags: thoughts
 redirect_from: /posts/logo-the-image-of-a-company/
 ---

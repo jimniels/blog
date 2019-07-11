@@ -1,6 +1,5 @@
 ---
 title: Your Product Doesn’t Have to Look the Same On Every Platform
-date: 2019-04-29
 tags: thoughts
 ---
 

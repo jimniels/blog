@@ -1,6 +1,5 @@
 ---
 title: Everything But Visual Design
-date: 2015-02-05
 tags: designProcess
 redirect_from: /posts/everything-but-visual-design/
 ---

@@ -1,6 +1,5 @@
 ---
 layout: post
-date: 2016-07-11
 title: Paul Rand on Logos
 tags: thoughts
 ---

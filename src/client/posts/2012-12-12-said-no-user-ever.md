@@ -1,6 +1,5 @@
 ---
 title: Said No Normal User, Ever.
-date: 2012-12-12
 tags: thoughts
 redirect_from: /posts/said-no-user-ever/
 ---

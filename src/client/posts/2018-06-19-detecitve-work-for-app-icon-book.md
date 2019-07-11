@@ -1,6 +1,5 @@
 ---
 title: Detective Work for the App Icon Book
-date: 2018-06-19
 tags: designProcess
 ---
 

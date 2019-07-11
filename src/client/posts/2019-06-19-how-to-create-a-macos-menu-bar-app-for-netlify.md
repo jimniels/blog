@@ -1,6 +1,5 @@
 ---
 title: How to Create a macOS Menu Bar App for Netlify
-date: 2019-06-19
 tags: engineering
 ---
 

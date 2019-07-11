@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, January 2019
-date: 2019-01-30
 tags: readingNotes
 ---
 

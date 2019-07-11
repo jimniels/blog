@@ -1,6 +1,5 @@
 ---
 title: Seemly Selectors
-date: 2013-06-11
 tags: tips
 redirect_from: /posts/seemly-selectors/
 ---

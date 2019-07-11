@@ -1,6 +1,5 @@
 ---
 title: Team Color Codes
-date: 2013-02-19
 tags: designProcess
 redirect_from: /posts/teamcolors/
 ---

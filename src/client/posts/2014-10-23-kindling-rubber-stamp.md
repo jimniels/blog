@@ -1,6 +1,5 @@
 ---
 title: "Kindling Rubber Stamp"
-date: 2014-10-23
 tags: designProcess
 summary: "A quick look at the design process for creating branded a rubber stamp for Kindling."
 redirect_from: /posts/kindling-rubber-stamp/

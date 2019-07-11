@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, October 2018
-date: 2018-10-29
 tags: readingNotes
 ---
 

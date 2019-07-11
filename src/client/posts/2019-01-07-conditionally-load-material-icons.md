@@ -1,6 +1,5 @@
 ---
 title: Conditionally Load Material Icons
-date: 2019-01-07
 tags: engineering workNotes
 ---
 

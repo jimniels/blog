@@ -1,6 +1,5 @@
 ---
 title: Stop Direct Spam Comments in Wordpress
-date: 2013-05-22
 tags: tips
 redirect_from: /posts/stop-direct-spam-comments-in-wordpress/
 ---

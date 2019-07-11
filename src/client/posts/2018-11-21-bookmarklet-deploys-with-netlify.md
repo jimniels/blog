@@ -1,6 +1,5 @@
 ---
 title: Triggering a Deploy in Netlify With Bookmarklets
-date: 2018-11-21
 tags: engineering
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Generating Shades of Color Using CSS Variables
-date: 2019-01-31
 tags: engineering
 ---
 

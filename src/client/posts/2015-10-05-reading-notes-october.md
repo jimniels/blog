@@ -1,6 +1,5 @@
 ---
 layout: post
-date: 2015-10-05
 title: Reading Notes, September 2015
 tags: readingNotes
 summary: "Notes, impressions, and excerpts from things I’ve encountered this month."

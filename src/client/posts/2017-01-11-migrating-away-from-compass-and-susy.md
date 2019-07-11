@@ -1,6 +1,5 @@
 ---
 title: Migrating Away from Compass and Susy to Sass Exclusively
-date: 2017-01-11
 tags: engineering insight
 ---
 

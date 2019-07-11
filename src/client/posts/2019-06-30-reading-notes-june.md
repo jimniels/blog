@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, June 2019
-date: 2019-06-30
 tags: readingNotes
 ---
 

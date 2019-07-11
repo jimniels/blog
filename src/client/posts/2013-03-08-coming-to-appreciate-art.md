@@ -1,6 +1,5 @@
 ---
 title: Coming to Appreciate Art
-date: 2013-03-08
 tags: thoughts
 redirect_from: /posts/coming-to-appreciate-art/
 ---

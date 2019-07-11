@@ -1,6 +1,5 @@
 ---
 layout: post
-date: 2015-08-26
 title: Designing Kindling’s Pricing Page
 tags: designProcess
 summary: "Designing Kindling’s pricing page was as much about defining and visually designing a web page as it was about defining and designing our internal culture."

@@ -1,6 +1,5 @@
 ---
 title: The Art of the Side Project
-date: 2017-01-17
 tags: thoughts
 ---
 

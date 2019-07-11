@@ -1,6 +1,5 @@
 ---
 title: My Little Cabin in the Woods of Logo Integrity
-date: 2018-08-09
 tags: stories
 ---
 

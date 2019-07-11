@@ -1,6 +1,5 @@
 ---
 title: Wireframes and Gravity
-date: 2013-10-21
 tags: thoughts
 redirect_from: /posts/wireframes-and-gravity/
 ---

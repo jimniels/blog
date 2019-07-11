@@ -1,6 +1,5 @@
 ---
 title: "Designing and Engineering Event Management for Timshel’s “Admin” Web Application"
-date: 2017-08-11
 tags: designProcess
 ---
 

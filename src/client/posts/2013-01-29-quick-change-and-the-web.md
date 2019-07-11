@@ -1,6 +1,5 @@
 ---
 title: Quick Change and the Web
-date: 2013-01-29
 tags: thoughts
 redirect_from: /posts/quick-change-and-the-web/
 ---

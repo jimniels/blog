@@ -1,6 +1,5 @@
 ---
 title: Installing and Building an NPM Package from Github
-date: 2018-04-10
 tags: engineering
 ---
 

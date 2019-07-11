@@ -1,6 +1,5 @@
 ---
 title: Limitations in Software
-date: 2017-08-26
 tags: thoughts 
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Down the Rabbit Hole of Image Optimization Tooling
-date: 2019-03-27
 tags: engineering
 ---
 

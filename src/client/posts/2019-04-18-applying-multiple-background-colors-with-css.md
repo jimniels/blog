@@ -1,6 +1,5 @@
 ---
 title: Applying Multiple Background Colors with CSS
-date: 2019-04-18
 tags: engineering
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, January 2017
-date: 2017-01-31
 tags: readingNotes
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Changes to max_upload_filesize not working in php.ini? Restart Apache!
-date: 2013-06-10
 tags: tips
 redirect_from: /posts/max-upload-filesize-restart-apache/
 ---

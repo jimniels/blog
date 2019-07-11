@@ -1,6 +1,5 @@
 ---
 title: Notes on “Rethinking Asynchronous Programming in JavaScript” by Kyle Simpson
-date: 2019-06-24
 tags: generalNotes
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Thoughts on Jeremy Keith’s “Split”
-date: 2019-04-10
 tags: thoughts engineering
 redirect_from: /2019/thuoghts-on-jeremy-keiths-split/
 ---

@@ -1,6 +1,5 @@
 ---
 title: Migrating from Pathnames to Subdomains for jim-nielsen.com
-date: 2018-11-14
 tags: engineering
 ---
 

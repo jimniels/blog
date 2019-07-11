@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, June 2017
-date: 2017-06-22
 tags: readingNotes
 ---
 

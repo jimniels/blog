@@ -1,6 +1,5 @@
 ---
 title: How Apple Engineers Decided the App Icon Size for the Original iPhone
-date: 2019-01-29
 tags: stories
 ---
 

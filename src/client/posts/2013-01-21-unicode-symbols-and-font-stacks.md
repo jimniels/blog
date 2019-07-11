@@ -1,6 +1,5 @@
 ---
 title: Miscellaneous Unicode Symbols, Font Stacks, and You
-date: 2013-01-21
 tags: tips
 redirect_from: /posts/unicode-symbols-and-font-stacks/
 ---

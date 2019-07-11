@@ -1,6 +1,5 @@
 ---
 title: Modularize Your PSDs by Embedding Them Inside Each Other
-date: 2013-01-31
 tags: tips
 redirect_from: /posts/modularize-your-psds/
 ---

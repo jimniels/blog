@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Designing and Building the Assignment Desk Application
-date: 2016-01-28
 tags: designProcess engineering
 ---
 

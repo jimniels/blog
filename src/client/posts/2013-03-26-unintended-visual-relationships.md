@@ -1,6 +1,5 @@
 ---
 title: Unintended Visual Relationships
-date: 2013-03-26
 tags: tips
 redirect_from: /posts/unintended-visual-relationships/
 ---

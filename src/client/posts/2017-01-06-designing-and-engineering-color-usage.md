@@ -1,6 +1,5 @@
 ---
 title: Designing and Engineering Color Usage in Agent Portal
-date: 2017-01-06
 tags: designProcess insight engineering
 ---
 

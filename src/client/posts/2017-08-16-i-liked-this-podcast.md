@@ -1,6 +1,5 @@
 ---
 title: "I Liked this Podcast"
-date: 2017-08-16
 tags: designProcess
 ---
 

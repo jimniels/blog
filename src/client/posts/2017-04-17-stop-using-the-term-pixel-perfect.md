@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Stop Using the Term “Pixel Perfect”, Start Focusing on Experiences"
-date: 2017-04-17
 tags: thoughts
 ---
 

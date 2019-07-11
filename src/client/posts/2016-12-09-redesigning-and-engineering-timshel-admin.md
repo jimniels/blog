@@ -1,6 +1,5 @@
 ---
 title: Redesigning and Engineering the UI/UX for Unauthenticated Users of Timshel’s “Admin”
-date: 2016-12-09
 tags: designProcess engineering
 ---
 

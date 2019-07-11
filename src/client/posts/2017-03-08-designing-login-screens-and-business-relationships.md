@@ -1,6 +1,5 @@
 ---
 title: Designing Cross-Application Login Screens (and Business Relationships)
-date: 2017-03-08
 tags: designProcess insight
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, December 2018
-date: 2018-12-27
 tags: readingNotes
 ---
 

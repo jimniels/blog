@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, May 2019
-date: 2019-05-28
 tags: readingNotes
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Designing a Successful Transaction Receipt
-date: 2014-11-04
 tags: designProcess
 redirect_from: /posts/successful-transaction-receipt/
 ---

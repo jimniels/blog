@@ -1,6 +1,5 @@
 ---
 title: Retrieving Recent Posts from Scriptogram in JSON Format Using PHP
-date: 2013-07-08
 tags: engineering
 redirect_from: /posts/scriptogram-posts-in-JSON-with-php/
 ---

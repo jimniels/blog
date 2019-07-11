@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, July 2018
-date: 2018-07-28
 tags: readingNotes
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Notes from Fluent Conference
-date: 2017-06-28
 tags: generalNotes
 ---
 

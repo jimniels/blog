@@ -1,6 +1,5 @@
 ---
 title: Reading Notes, November 2016
-date: 2016-11-18
 tags: readingNotes
 ---
 

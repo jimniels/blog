@@ -1,6 +1,5 @@
 ---
 title: The Analog Web
-date: 2017-03-27
 tags: thoughts
 ---
 

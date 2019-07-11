@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Reading Notes, July 2016
-date: 2016-08-08
 tags: readingNotes
 ---
 

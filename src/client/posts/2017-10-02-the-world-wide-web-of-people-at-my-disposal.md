@@ -1,6 +1,5 @@
 ---
 title: The World Wide Web of People at My Disposal
-date: 2017-10-02
 tags: thoughts
 ---
 

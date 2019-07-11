@@ -1,6 +1,5 @@
 ---
 title: An Analysis of Infinte Scrolling
-date: 2013-05-05
 tags: thoughts
 redirect_from: /posts/an-analysis-of-infinite-scrolling/
 ---

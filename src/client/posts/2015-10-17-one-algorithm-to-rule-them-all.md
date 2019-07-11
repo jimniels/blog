@@ -1,6 +1,5 @@
 ---
 layout: post
-date: 2015-10-17
 title: One Algorithm to Rule Them All
 tags: thoughts
 summary: "The (unfortunate) thinking behind much of today’s tech: data uncovers patterns, patterns uncover fundamental laws, fundamental laws predict outcomes. Therefore, get lots and lots of data and you can predict outcomes, even in something as unpredictable as human behavior."
