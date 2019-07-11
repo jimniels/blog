@@ -1,6 +1,5 @@
 ---
 title: Leveraging Regexes and Git to Find/Replace Dates in Markdown Files
-date: 2019-07-10
 tags: engineering
 ---
 

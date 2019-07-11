@@ -10,7 +10,7 @@ I’ve been [playing](https://blog.jim-nielsen.com/2019/conditional-syntax-highl
 
 In addition to primary and secondary colors, I often define a number of base neutral colors in `rgba`. Why `rgba`? I want to leverage the alpha channel so those neutral colors can blend in with other colors of the site.
 
-![Graphic showing and explaining a UI element with rgba colors]({{ site.imageurl }}/assets/img/2019/multiple-backgrounds-css-colors-outline.png)
+![Graphic showing and explaining a UI element with rgba colors]({{ site.imageurl }}/2019/multiple-backgrounds-css-colors-outline.png)
 
 What this means is I start with a number of neutral colors for light mode:
 
@@ -40,7 +40,7 @@ And then switching to dark mode is easy: I flip the color definitions to the oth
 
 This is rather simplistic for illustration purposes, but you get the idea. The problem is, I often need a solid version of those colors in my UI because I want an element to overlay—and block out—another element.
 
-![Screenshot showing the problem where a UI element with a transparent color is trying to overlay—and block out—another UI element]({{ site.imageurl }}/assets/img/2019/multiple-backgrounds-css-on-white-problem.png)
+![Screenshot showing the problem where a UI element with a transparent color is trying to overlay—and block out—another UI element]({{ site.imageurl }}/2019/multiple-backgrounds-css-on-white-problem.png)
 
 When I write `background-color: var(--color-border-light)`, what I often want is that color _as if it was appearing on white (the background color)_. So the question becomes: could I tell CSS that? Display my specified color _as if it were blending into the natural background color_? Something like this:
 
@@ -56,11 +56,11 @@ When I write `background-color: var(--color-border-light)`, what I often want is
 
 Turns out that you can display multiple background colors in CSS and achieve the effect I described above, you just need to leverage gradients to do it. Essentially, you declare two different gradients in CSS—one solid one transparent—that blend into each other.
 
-![Screenshot a transparent and a solid UI element overlaying another UI element along with the corresponding CSS values to achieve the effect]({{ site.imageurl }}/assets/img/2019/multiple-backgrounds-css-on-white.png)
+![Screenshot a transparent and a solid UI element overlaying another UI element along with the corresponding CSS values to achieve the effect]({{ site.imageurl }}/2019/multiple-backgrounds-css-on-white.png)
 
 What’s neat about this is, given the “dark mode” colors we declared above, when you switch to dark mode this “just works”.
 
-![Screenshot showing one UI elements overlaying other UI elements but in dark mode]({{ site.imageurl }}/assets/img/2019/multiple-backgrounds-css-on-black.png)
+![Screenshot showing one UI elements overlaying other UI elements but in dark mode]({{ site.imageurl }}/2019/multiple-backgrounds-css-on-black.png)
 
 Here’s some example code:
 
