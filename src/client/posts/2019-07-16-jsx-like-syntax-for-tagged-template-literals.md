@@ -1,11 +1,11 @@
 ---
-title: JSX-Style Expressions in JavaScript Template Literals
+title: JSX-Like Syntax for Tagged Template Literals in JavaScript
 tags: engineering
 ---
 
-I recently moved my blog off Jekyll. Instead of choosing an off-the-shelf templating framework, I decided to try rolling my own.
+I recently moved my blog off Jekyll. Instead of choosing an off-the-shelf templating framework, I naively decided I would attempt rolling my own.
 
-My blog is pretty simple in terms of what needs to be done. A couple pages, a hundred or so posts, and some feed files. Nothing too sophisticated. What I wanted to try doing templating-wise was use [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) in JavaScript to write all my markup. What I came up with was pretty straightforward: a number of functions which took data and returned strings. Node would then take those strings and write them out as static HTML files.
+My blog is pretty simple in terms of what needs to be done. A couple pages, a hundred or so posts, and some feed files. Nothing too sophisticated. What I wanted to try was to leverage [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) in JavaScript as my “templating language” to generate all my markup. What I came up with was pretty straightforward: a number of functions which took data and returned strings. node.js would then take those strings and write them out as static HTML files.
 
 What I love about this setup is the longevity of it: it’s just javascript. There’s no special syntax. No framework. It’s all merely functions returning strings. And what truly makes this possible (and ergonomic) in 2019 are template literals. 
 
@@ -32,7 +32,7 @@ const Layout = (props) => `
 `;
 ```
 
-This kind of structure allows me write component-ized template files for each section of HTML content. So I can have a `Navigation.js` component file which renders the navigational HTML for each static `.html` page. It takes data (like information about the current page it’s rendering) and returns a string.
+This kind of structure allows me write component-ized template files for each section of HTML content. So I can have a `Navigation.js` component file which renders the navigational HTML for each static `.html` page. It takes data (like information about the current page being rendered) and returns a string.
 
 ```js
 const navItems = [
@@ -58,10 +58,10 @@ const Navigation = (props) => `
 module.exports = Navigation;
 ```
 
-You can see in the example above, my function receives data about the page being rendered by metalsmith and uses that data to know what kind of HTML to output. I actually quite like this syntax. It’s a string I can format how I want and interpolate data as needed. But, because this is not JSX, there are two things in particular I had to tweak to make it work:
+You can see in the example above, my function receives data about the page being rendered by metalsmith and uses that data to know what kind of HTML to output. I actually quite like this syntax. It’s a string I can format how I want and interpolate data as needed. If write JSX often, this will probably look familiar. But there are two things in particular here that are different:
 
-1. Joining arrays into a string (`.map(...).join("")`) 
-2. Always having an empty string for ternaries (`boolean ? "echo this" : ""`)
+1. `.map(...).join("")` - Joining arrays into a string 
+2. `boolean ? "echo this" : ""` - Ternaries with an empty string instead of a shortcut operator
 
 First, `.map()` in the example above is going to return _an array_ of strings. That would result in an array being inside a string, so the array is going to get coerced into a string which is not going to give me what I want. That’s why I have to add `.join("")` onto the end of it. It joins all the items in the array into a string. React knows how to handle arrays of children, so it works in JSX. But with template literals, you have to make sure every expression inside your backticks (`${expression}`) is going to result in a string. 
 
@@ -82,7 +82,7 @@ const str = "<ul>" + ["<li>Home</li>", "<li>About</li>"] + "</ul>";
 // "<ul><li>Home</li>,<li>About</li></ul>"
 ```
 
-Notice how, without `.join("")` you are coercing an array to a string, and so you end up with commas delimiting each item in the array. Whereas:
+Notice how without `.join("")` you are coercing an array to a string and so you end up with commas delimiting each item in the array. Whereas:
 
 ```js
 // This
@@ -109,7 +109,7 @@ const str = `
 `;
 ```
 
-Whereas JSX allows you to be a bit more concise in using shortcut operators like `&&` and `||`:
+Whereas JSX allows you to be a bit more concise in using shortcut operators like `&&`:
 
 ```jsx
 const component = (
@@ -145,11 +145,11 @@ const str = `
 // '<a class="false">Text</a>'
 ```
 
-To be honest, all of this slight workaround to achieving true JSX-like syntax are ok. I could go about adding `.join("")` onto my arrays and always having an empty string on my ternarys `true ? "this" : ""`, but what if there was another way...
+To be honest, these workarounds to achieving a JSX-like syntax in template literals are ok. I could go about adding `.join("")` onto my arrays and always having an empty string on my ternarys `true ? "this" : ""`, but because this is programming I can’t not try to figure out a workaround...
 
 ## _Tagged_ Template Literals
 
-One cool thing about this new back tick syntax in JavaScript for template literals is that you can “tag” them. What does that mean? The best explanation I’ve found comes from [Wes Bos’ article](https://wesbos.com/tagged-template-literals/).
+One cool thing about this new backtick syntax in JavaScript for template literals is that you can “tag” them. What does that mean? The best explanation I’ve found comes from [Wes Bos’ article](https://wesbos.com/tagged-template-literals/).
 
 > One feature that comes along with template literals, or template strings, is the ability to tag them.
 >
@@ -157,9 +157,20 @@ One cool thing about this new back tick syntax in JavaScript for template litera
 
 You really should read Wes’ entire article if you don’t understand how tagged template literals work, otherwise the rest of this post won’t make much sense.
 
-Ok so with tagged template literals you can control how the string inside the back ticks gets made. In our case, that means we can support a more JSX-like syntax in our template literals. We can detect the value of the expression that was evaluated and, depending on its type, we can output the value we would expect. The code to do that would look something like this:
+Read it? Ok so with tagged template literals you can control how the string inside the backticks gets made. In our case, that means we can support a more JSX-like syntax in our template literals. We can detect the value of the expression that was evaluated and, depending on its type, we can output the value we would expect. The code to do that would look something like this:
 
 ```js
+/**
+ * Tagged template literal function for coercing certain values to what
+ * we would expcted for a more JSX-like syntax.
+ * 
+ * For values that we don't want to coerce, we just skip outputing them
+ * Example:
+ *   `class="${variable}"`
+ * If the value of my variable was one of these types I don't want 
+ * JavaScript to coerce, then I'd get this:
+ *   'class=""'
+ */
 function jsx(strings, ...values) {
   let out = "";
   strings.forEach((string, i) => {
@@ -174,10 +185,11 @@ function jsx(strings, ...values) {
       out += string + value;
     }
     // Number - Coerce to string and output with value
+    // This would happen anyway, but for clarity's sake on what's happening here
     else if (typeof value === "number") {
       out += string + String(value);
     }
-    // object, undefined, null, boolean - Don't output value
+    // object, undefined, null, boolean - Don't output a value.
     else {
       out += string;
     }
@@ -193,16 +205,19 @@ const { jsx } = require("./utils.js");
 
 console.log(`I love ${false && "dogs"}`);
 // "I love false"
+
 console.log(jsx`I love ${false && "dogs"}`);
 // "I love dogs"
 
 const fruit = ["apple", "banana"];
+
 console.log(`
   <ul>
     ${fruit.map(f => `<li>${fruit}</li>`)}
   </ul>
 `);
 // "<ul><li>apple</li>,<li>banana</li></ul>
+
 console.log(`
   <ul>
     ${fruit.map(f => jsx`<li>${fruit}</li>`)}
@@ -239,9 +254,9 @@ const Navigation = (props) => `
 module.exports = Navigation;
 ```
 
-It’s worth noting there are definitely edge cases here. For example, if a value was an array but not an array of strings (perhaps, say, an array of objects), you’re probably going to see something you don’t expect. So keep in mind that if your `.map` is always returning a string, you shouldn’t have any problems.
+It’s worth noting there are definitely edge cases here. For example, if a value was an array but not an array of strings (perhaps, say, an array of objects), you’re probably going to see something you don’t expect. So keep that in mind. In my case, I only ever use `.map()` to return an array of strings.
 
-Note that each time you have a template literal that needs JSX-like syntax, you’ll have to tag it, i.e. if you have template literals inside template literals, you have to tag each one that needs to be evaluated more like JSX. You can’t just tag the one at the top and everything underneath works. Example:
+Note that each time you have a template literal that needs JSX-like syntax, you’ll have to tag it, i.e. if you have a template literal inside a template literal, you have to tag each one that want evaluated with `jsx`. You can’t just tag the one at the top and everything underneath works. Example:
 
 ```js
 const results = [/* array of 20 objects */]
