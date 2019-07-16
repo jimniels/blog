@@ -63,7 +63,7 @@ Before Apple officially released a template for this new icon mask, there was a 
 
 ![iOS 7 icon radius math formula]({{ site.imageurl }}/2017/iosicons-math-formula.png)
 
-Eventually, Apple released an official (vector) icon template which helped designers everywhere know precisely what shape their icons would take within iOS. Side note: if you’d like to read an interesting proposition as to why Apple made this rather subtle change to their ubiquitos icon shapes in iOS, go read [this article on curvature continuity](https://hackernoon.com/apples-icons-have-that-shape-for-a-very-good-reason-720d4e7c8a14)).
+Eventually, Apple released an official (vector) icon template which helped designers everywhere know precisely what shape their icons would take within iOS. Side note: if you’d like to read an interesting proposition as to why Apple made this rather subtle change to their ubiquitos icon shapes in iOS, go read [this article on curvature continuity](https://hackernoon.com/apples-icons-have-that-shape-for-a-very-good-reason-720d4e7c8a14).
 
 With these changes in iOS, I needed to update the raster icon masks on iosicongallery.com to take the shape of this new “squircle”. You might be thinking, “but will anyone really notice the difference?” To that I would say: iosicongallery.com is a site primarily for iOS icon designers seeking inspiration. Pixel-level precision is something the site’s users will undoubtedly notice.
 
@@ -192,7 +192,7 @@ In the end, this solution worked great because it solved all my problems:
 
 #### A side note
 
-The trickiest part of this ended up being supplying the 1px border around the icon. When you use `mask-image`, you’re SVG is essentially just a shape that the browser uses to mask. You can’t have additional graphical elements in there. So to get that 1px border, I had to do a little extra work.
+The trickiest part of this ended up being supplying the 1px border around the icon. When you use `mask-image`, your SVG is essentially just a shape that the browser uses to mask. You can’t have additional graphical elements in there. So to get that 1px border, I had to do a little extra work.
 
 First, I created my image mask. I could define this at any size I wanted because I used the `mask-size` property to have the mask fill the dimensions of its parent. This was the easy part. I thought about doing the same thing for my mask’s border. Just define one size and let it scale. But there were a few problems with this approach. First, you [don’t get to choose the positioning of SVG borders](https://stackoverflow.com/questions/7241393/can-you-control-how-an-svgs-stroke-width-is-drawn). They are always applied at the center (image courtesy of [sketchapp](https://www.sketchapp.com/docs/styling/borders/)).
 
