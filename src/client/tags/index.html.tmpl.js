@@ -1,7 +1,12 @@
 const { PageCustom } = require("../../server/Layouts.js");
 const { jim, toDateUI } = require("../../server/utils.js");
 
-const Tags = ({ site, page }) => {
+const page = {
+  title: "Tags",
+  id: "tags"
+}
+
+const Tags = (site) => {
   const postsByTag = site.posts.reduce((acc, post) => {
     if (post.tags) {
       post.tags.forEach(tag => {
@@ -51,10 +56,4 @@ const Tags = ({ site, page }) => {
   `);
 };
 
-module.exports = {
-  fn: Tags,
-  props: {
-    title: "Tags",
-    id: "tags"
-  }
-};
+module.exports = Tags;

@@ -167,6 +167,13 @@ let App = Metalsmith(__dirname)
     /**
      * Handle Templating
      * Render the templates and/or layouts for all applicable files
+     * 
+     * Any files (.md) with front-matter in them that indicate a `layout` get
+     * rendered with that layout with `site` AND `page` data. 
+     *   ({ site, page }) => {}
+     * Any files marked as templates get passed ONLY the `site` data so they can
+     * render themselves.
+     *   (site) => CustomLayout({ site, page: {...} }, children)
      */
     const layouts = require("./src/server/Layouts.js");
     const site = metalsmith.metadata();
@@ -177,14 +184,8 @@ let App = Metalsmith(__dirname)
     Object.keys(files).forEach(file => {
       // Templates
       if (multimatch(file, "**/*.tmpl.js").length) {
-        const { fn, props = {} } = require(getFilePath(file));
-        files[file].contents = fn({
-          site,
-          page: {
-            ...files[file],
-            ...props
-          }
-        });
+        const fn = require(getFilePath(file));
+        files[file].contents = fn(site);
         files[file.replace(".tmpl.js", "")] = files[file];
         delete files[file];
         // Files with a layout
