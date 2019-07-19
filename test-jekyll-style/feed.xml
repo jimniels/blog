@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${props.site.name}</title>
+    <description></description>
+    <link>${props.site.origin}</link>
+    <atom:link href="${props.site.origin}/feed.xml" rel="self" type="application/rss+xml" />
+
+    ${props.site.posts.slice(0, 10).map(post => `
+    <item>
+      <title>${escapeXml(post.title)}</title>
+      <description>${escapeXml(post.content)}</description>
+      <pubDate>${post.date.toUTCString()}</pubDate>
+      <link>${props.site.origin + post.permalink}</link>
+      <guid isPermaLink="true">${props.site.origin + post.permalink}</guid>
+    </item>
+    `).join("")}
+    
+  </channel>
+</rss>
+
+
