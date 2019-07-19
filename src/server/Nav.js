@@ -1,4 +1,4 @@
-const { jim } = require("./utils.js");
+import { jim } from "./utils.js";
 
 const navItems = [
   {
@@ -42,11 +42,11 @@ const Nav = ({ site, page }) => jim`
               </a>`}
         </li>
       `)}
-      <!--
+      
         <li>
           <a href="https://www.jim-nielsen.com">jim-nielsen.com</a>
         </li>
-        -->
+      
     </ul>
 
     <p>
@@ -55,4 +55,4 @@ const Nav = ({ site, page }) => jim`
   </div>
 `;
 
-module.exports = Nav;
+export default Nav;

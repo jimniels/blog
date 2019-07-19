@@ -1,11 +1,16 @@
-const { PageCustom } = require("../server/Layouts.js");
-const { jim, toDateUI, toDateUIMin } = require("../server/utils.js");
-
 const page = {
   id: "home"
 };
 
-const Index = site => {
+export default async function Index(site) {
+  const { PageCustom } = await import(
+    "../server/Layouts.js?time=" + new Date().getTime()
+  );
+  const { jim, toDateUI, toDateUIMin } = await import(
+    "../server/utils.js?time=" + new Date().getTime()
+  );
+  console.log();
+
   const postsByYear = site.posts.reduce((acc, post) => {
     const year = post.date.getFullYear();
     if (acc[year]) {
@@ -43,6 +48,6 @@ const Index = site => {
       `
       )
   );
-};
+}
 
-module.exports = Index;
+// export default Index;

@@ -1,6 +1,6 @@
-const pt = require("prop-types");
-const Nav = require("./Nav.js");
-const { jim, toDateUI } = require("./utils.js");
+import pt from "prop-types";
+import Nav from "./Nav.js";
+import { jim, toDateUI } from "./utils.js";
 
 const Layout = (props, children) => {
   const {
@@ -128,8 +128,6 @@ const Page = (props) => Layout(props, jim`
   </div>
 `);
 
-module.exports = {
-  Post,
-  Page,
-  PageCustom
-};
+const Test = () => "TEST";
+
+export { Post, Page, PageCustom, Test };

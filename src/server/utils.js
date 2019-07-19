@@ -33,8 +33,6 @@ const toDateUI = date => {
 };
 const toDateUIMin = date => toDateUI(date).split(",")[0];
 
-module.exports = {
-  jim,
-  toDateUI,
-  toDateUIMin
-};
+const require = pathname => import(`${pathname}?time=${new Date().getTime()}`);
+
+export { jim, toDateUI, toDateUIMin, require };

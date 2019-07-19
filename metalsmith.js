@@ -1,11 +1,14 @@
-const Metalsmith = require("metalsmith");
-const watch = require("metalsmith-watch");
-const serve = require("metalsmith-serve");
-const path = require("path");
-const { fileURLToPath } = require("url");
-const multimatch = require("multimatch");
-const hljs = require("highlight.js");
-const marked = require("marked");
+import Metalsmith from "metalsmith";
+import watch from "metalsmith-watch";
+import serve from "metalsmith-serve";
+import path from "path";
+import { fileURLToPath } from "url";
+import multimatch from "multimatch";
+import hljs from "highlight.js";
+import marked from "marked";
+
+const importDefault = filepath =>
+  import(filepath).then(module => module.default);
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -17,6 +20,7 @@ marked.setOptions({
   smartLists: true,
   langPrefix: "language language-"
 });
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 let App = Metalsmith(__dirname)
@@ -28,7 +32,7 @@ let App = Metalsmith(__dirname)
   .source("./src/client")
   .destination("./build")
   .clean(true)
-  .use((files, metalsmith, done) => {
+  .use(async (files, metalsmith, done) => {
     /**
      * Handle Drafts
      * @TODO IF we are including drafts, move them to the "posts" folder
@@ -167,38 +171,45 @@ let App = Metalsmith(__dirname)
     /**
      * Handle Templating
      * Render the templates and/or layouts for all applicable files
-     * 
+     *
      * Any files (.md) with front-matter in them that indicate a `layout` get
-     * rendered with that layout with `site` AND `page` data. 
+     * rendered with that layout with `site` AND `page` data.
      *   ({ site, page }) => {}
      * Any files marked as templates get passed ONLY the `site` data so they can
      * render themselves.
      *   (site) => CustomLayout({ site, page: {...} }, children)
      */
-    const layouts = require("./src/server/Layouts.js");
+    const layouts = await import(
+      "./src/server/Layouts.js?time=" + new Date().getTime()
+    );
+
     const site = metalsmith.metadata();
 
     const getFilePath = filepath =>
       path.join(metalsmith._directory, metalsmith._source, filepath);
 
-    Object.keys(files).forEach(file => {
-      // Templates
-      if (multimatch(file, "**/*.tmpl.js").length) {
-        const fn = require(getFilePath(file));
-        files[file].contents = fn(site);
-        files[file.replace(".tmpl.js", "")] = files[file];
-        delete files[file];
-        // Files with a layout
-      } else if (files[file].layout) {
-        const fn = layouts[files[file].layout];
-        if (fn) {
-          files[file].contents = fn({
-            site,
-            page: files[file]
-          });
+    await Promise.all(
+      Object.keys(files).map(async file => {
+        // Templates
+        if (multimatch(file, "index.html.tmpl.js").length) {
+          // const fn = await import(
+          //   getFilePath(file) + "?time=" + new Date().getTime()
+          // ).then(module => module.default);
+          // files[file].contents = await fn(site);
+          // files[file.replace(".tmpl.js", "")] = files[file];
+          // delete files[file];
+          // Files with a layout
+        } else if (files[file].layout) {
+          const fn = layouts[files[file].layout];
+          if (fn) {
+            files[file].contents = fn({
+              site,
+              page: files[file]
+            });
+          }
         }
-      }
-    });
+      })
+    );
 
     done();
   });
