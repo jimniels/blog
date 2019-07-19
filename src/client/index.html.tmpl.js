@@ -5,7 +5,7 @@ const page = {
   id: "home"
 };
 
-const Index = (site) => {
+const Index = site => {
   const postsByYear = site.posts.reduce((acc, post) => {
     const year = post.date.getFullYear();
     if (acc[year]) {
@@ -46,10 +46,3 @@ const Index = (site) => {
 };
 
 module.exports = Index;
-
-// module.exports = {
-//   fn: Index,
-//   props: {
-//     id: "home"
-//   }
-// };
