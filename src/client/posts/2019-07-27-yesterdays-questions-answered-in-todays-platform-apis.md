@@ -16,4 +16,4 @@ I wonder if this will forever be a problem of the web? I encounter this issue al
 
 It seems platform answers will always lag behind library answers. How could it be any other way? That’s the route we’ve chosen to go on the web. That’s why XHTML died. We decided it’s better to discover new platform APIs in userland and port them back into the platform. A byproduct of that choice seems to be that we’ll always be fighting the problem described above. Which means the following:
 
-Today’s questions are answered in today’s library APIs. Yesterday’s questions are answered in yesterday’s library APIs—and unfortunately today’s platform APIs. 
+Today’s questions are answered in today’s library APIs. Yesterday’s questions are answered in yesterday’s library APIs—and today’s platform APIs. 
