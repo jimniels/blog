@@ -23,19 +23,19 @@ Of course, it’s easy to read a sentence like that and think “yeah, all _thos
 >
 > People on expensive data contracts benefit too. They can choose to see all the images by following the link or they can wait until they are connected to WI-FI.
 
-There are so many sensible—and yet boring—pieces of advice in that excerpt. The sexy JavaScript interaction? The dense information architecture? The sophisticated unfolding of content? Dump it all. That’s where my brain went when I was reading this. Just get rid of it.
+There are so many sensible—and yet [boring](https://mcfunley.com/choose-boring-technology)—pieces of advice in that excerpt. The sexy JavaScript interaction? The dense information architecture? The sophisticated unfolding of content? Dump it all. That’s where my brain went when I was reading this. Just get rid of it.
 
 These thoughts really got my brain churning and that’s how I ended up making the changes described below.
 
 ## Real-World Application
 
-One of the thoughts that came into my head while reading the aforementioned article was: I could apply “progressive disclosure” on my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [sites](https://www.watchosicongallery.com). On those sites, the page for each individual icon features the icon itself, its associated metadata, and then a bunch of icons who have some kind of related metadata.
+One of the thoughts that came into my head while reading the aforementioned article was that I could apply “progressive disclosure” on my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [sites](https://www.watchosicongallery.com). On those sites, the page for each individual icon features the icon itself, its associated metadata, and then a bunch of icons which have some kind of related metadata.
 
 ![Screenshot of old icon view page for iosicongallery]({{site.imageurl}}/2019/progressive-disclosure-old-page.jpg)
 
 It makes for a nice big page full of icons. But that kind of felt like the problem, it’s like every other site on the internet: “hey you liked X? Check out A, B, and C!” In my case, it was more like “hey, you liked X icon? Check out A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S...”
 
-So, to the point in Adam’s article, what if I removed all that extra info and made only the essential information available on initial page load? What if instead of saying “here, look at these 12 related icons!” I said, “hey, _there are_ 12 related icons, you want to see them? Click here.” A lean view by default, but the ability to gorge if you want it.
+So, to the point in Adam’s article, what if I removed all that extra info and made only the essential information available on initial page load? What if instead of saying “here, look at these 12 related icons!” I said, “hey, _there are_ 12 related icons, you want to see them? You’re going to have to click here.” A lean view by default, but the ability to gorge if you want it.
 
 Here’s what I came up with:
 
@@ -49,7 +49,7 @@ Sidenote: I’ve been approaching my free-tier bandwidth limit through my host (
 
 In particular, note the decline in resources requested: from 1.2MB to 452KB!
 
-But even more than all this technical stuff (fast/slow load speed, high/low bandwidth, etc) this is a philisophical change. Rather than “here’s what you asked for, _as well as_ a million other things just in case you’re interested”—i.e. the philosophy of engagement—this is “here’s the essentials, there’s more if you want it”—i.e. progressive disclosure. This is a restaurant now, not a buffet. You want more? Sure, we have it but you have to ask (click) for it.
+But even more than all this technical stuff (fast/slow load speed, high/low bandwidth, etc) this is a philisophical change. Rather than “here’s what you asked for, _as well as_ a million other things just in case you’re interested”—i.e. the philosophy of engagement—this is “here’s the essentials, there’s more if you want it”—i.e. progressive disclosure. This is a restaurant now, not a buffet. You want more? Sure, I’ve got more for you, but you’ll have to ask (click) for it.
 
 ![Animated gif depicting the ‘show more’ functionality of the new icon view page for iosicongallery]({{site.imageurl}}/2019/progressive-disclosure-new-page.gif)
 
@@ -67,7 +67,7 @@ This is a static site generated from data. So every “icon page” (`/icons/:id
 
 The actual markup for the icons that represents what the user sees when they click “View” lives in the DOM in a `<template>` tag. While the functionality to view the icons is dependent on JavaScript, I chose to stick the already-rendered markup in the DOM because:
 
-1. It allowed me to take advantage of already exisiting templating components I had on the server for rendering (I have a `<IconList>` component for rendering a list of icons). This led to:
+1. It allowed me to take advantage of already exisiting component templates I had on the server for rendering (I have a `<IconList>` component for rendering a list of icons). This led to:
 2. Less client-side JavaScript.
 
 To point number two, the JavaScript to “reveal more” wasn’t loading data, rendering a template, and sticking it in the DOM. Instead it was pulling exisiting markup from the DOM (in the form of an inert `<template>`), sticking it in the DOM, and showing/hiding it. Much less complexity. Probably about 20 lines total, whereas doing all of it (data fetching, templating, etc.) on the client would’ve required a lot more code.
@@ -84,7 +84,7 @@ const ServerSidePageTemplate = (props) => {
   );
   return (
     <div className="icon">
-      {relatedCategoryIcons &&
+      {relatedCategoryIcons.length &&
         <React.Fragment>
           <button className="js-show-more">Shore more</button>
           <template id="template-related-category-icons">
