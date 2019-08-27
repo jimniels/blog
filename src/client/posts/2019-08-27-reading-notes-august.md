@@ -7,7 +7,7 @@ tags: readingNotes
 
 > To use a GitHub backend with NetlifyCMS, you have to have your own server to handle OAuth. This is a requirement of GitHub’s authentication flow. The good news about that, is that it’s a standard OAuth flow. The bad news about that, is that it’s a standard OAuth flow.
 
-This is what I love about Tyler’s writing. So approachable. He writes how I my brain thinks and my heart feels when I’m trying to wrangle computers to do stuff.
+This is what I love about Tyler’s writing. So approachable. He writes how my brain thinks and my heart feels when I’m trying to wrangle computers to do stuff.
 
 > What I needed to do was build my own server to handle the OAuth flow. This is a thing I’ve done and written about before. OAuth is like that for me. I set it up. Deploy it. Forget it. Then have to give myself a refresher to do again. That’s what the server example in this post is.
 
