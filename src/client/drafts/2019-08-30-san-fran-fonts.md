@@ -5,6 +5,11 @@ tags: readingNotes
 
 I recently watched Apple’s [“Introducing the New System Fonts”](https://developer.apple.com/videos/play/wwdc2015/804/), which is a recording of a presentation at WWDC 2015 that introduced the San Francisco font. While the talk was focused on the San Francisco font specifically, it provided an overview of a number of good typographic principles and how they were applied to the design of the San Francisco fonts. 
 
+![Weight similitude]({{site.imageurl}}/2019/sf-weight-similitude.png)
+![Weight similitude]({{site.imageurl}}/2019/sf-dissimilar.gif)
+![Weight similitude]({{site.imageurl}}/2019/sf-monospace-vs-proportional-numbers.gif)
+![Weight similitude]({{site.imageurl}}/2019/sf-proportional-numbers-for-static-labels.gif)
+
 
 > Visual perception is largely about illusion.
 
