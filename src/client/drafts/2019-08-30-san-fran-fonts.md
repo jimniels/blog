@@ -16,13 +16,28 @@ Example of slides where text alignment on the slide itself appears centered when
 
 Example where you have to make larger text a lighter weight than smaller text in order to have them appear similar.
 
-I actually never knew which was which
-“Display” fonts are for larger text
-“Text” fonts are for smaller text
-The system (text set in iOS0 adjusts that for you, so you don’t have to. But if you’re using a design application like photoshop, you are supposed to switch yourself, depending on your usage context.\
+
 
 For SF family, Text weights come in 6 weights. Display fonts come in 9 weghts. Why? The extreme weights of the family are designed for titles, so it doesn’t make sense to use them below 20pt (and text is designed for 20pt or less, so no need for them there).
 
 Proportional numbers by default, Monospace by opt-in. Differences?
 
+## Display vs. Text 
+
+![Selection of variety of SF fonts in Sketch]({{site.imageurl}}/2019/sf-font-selection.png)
+
+
+![Display sizes vs. text sizes]({{site.imageurl}}/2019/sf-display-vs-text.png)
+![Display sizes vs. text i]({{site.imageurl}}/2019/sf-display-vs-text-i.png)
+
+I actually never knew which was which
+“Display” fonts are for larger text
+“Text” fonts are for smaller text
+The system (text set in iOS0 adjusts that for you, so you don’t have to. But if you’re using a design application like photoshop, you are supposed to switch yourself, depending on your usage context.\
+
+![Display weights]({{site.imageurl}}/2019/sf-display-weights.png)
+![Text weights]({{site.imageurl}}/2019/sf-text-weights.png)
+
 Don’t draw the font at a small size and draw up. You won’t get all the smarts that went into it. Draw it at the size you need, so you get display text instead of regular text.
+
+![Screenshot of talk detailing differences between upscaling font size and choosing a specific one]({{site.imageurl}}/2019/sf-point-sizes.png)
