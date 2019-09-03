@@ -1,5 +1,5 @@
 ---
-title: Thoughts on Rich Harris’ “Metaphysis and JavaScript”
+title: Thoughts on Rich Harris’ “Metaphysics and JavaScript”
 tags: thoughts
 ---
 
@@ -11,7 +11,7 @@ I want regurgitate some of his points in this post in order to help further eluc
 
 ## UI is a Function of State...?
 
-Rich starts off his talk by clearing stating that he plans to critque the “most sacred of sacred cows”: that your UI is a function of your application’s state.
+Rich starts off his talk by clearing stating that he plans to critique the “most sacred of sacred cows”: that your UI is a function of your application’s state.
 
 > UI = F(STATE)
 >
@@ -43,7 +43,7 @@ I digress. Let’s continue where Rich left off.
 
 > So what would happen if we took a very naive approach to functional UI? Maybe it would look something like this: we create a function that generates some UI from some state, including an event listener that calls the function again when that state changes.
 
-![Anitmated gif from Rich’s talk depicting a simple example of UI as a function of state]({{site.imageurl}}/2019/ideology-of-react-simple.gif)
+![Animated gif from Rich’s talk depicting a simple example of UI as a function of state]({{site.imageurl}}/2019/ideology-of-react-simple.gif)
 
 Do you see what’s happening here? We’re trying to create a very simple interactive experience illustrating the idea of “UI as a function of state”. We have some text that says “Hello *blank*” where *blank* gets filled in by whatever value is in the `<input>`. The JavaScript code is merely listening for a change on the input, and anytime it changes, it reaches into the DOM, erases everything in `<body>`, and re-renders the UI based on the new stateful value of the input.
 
