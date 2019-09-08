@@ -14,11 +14,11 @@ A lot of the decisions around the technology and stack for the front-end applica
 
 In addition to these mandates around technological tools, I was given a flowchart documenting the business process the application would be based on:
 
-![User flow diagram]({{site.imageurl}}/2016/assignment-desk-workflow-screenshot.png)
+![User flow diagram](/images/2016/assignment-desk-workflow-screenshot.png)
 
 As well as a few rough mocks done by the project lead:
 
-![Rough mocks of the app done by project lead]({{site.imageurl}}/2016/assignment-desk-axure-screenshots.png)
+![Rough mocks of the app done by project lead](/images/2016/assignment-desk-axure-screenshots.png)
 
 With this base, I began my design process by studying and understanding the mocks and flowchart. This helped me grasp the purpose of the application and the problems we were trying to solve. After a few conversations with the project lead around timelines, expectations, and other constraints, I realized that first iteration of this thing would essentially be a glorified database viewer — a simple UI experience around viewing and creating data from Time’s new platform for digital assets (all of this supporting the business process and needs of employees).
 
@@ -113,33 +113,33 @@ Based on the specifications I had in writing, I began drawing sketches on paper 
 
 As I discovered many of the views could share designs components, I didn’t spend a lot of time in Sketch designing perfect mocks for each view. Instead I worked on a few simple views like login (`/login`), entity list views (`/contracts`, `/assignments`), and individual entity views (`/contracts/:id`, `/assignments/:id`) to get a general idea of aesthetics like layout, typography, color, etc. For example, here’s `/login`:
 
-![Screenshot of login screen]({{site.imageurl}}/2016/assignment-desk-login.png)
+![Screenshot of login screen](/images/2016/assignment-desk-login.png)
 
 And here’s an example of an individual entity’s view (`/assignments/:id`):
 
-![Screenshot of assignment page view]({{site.imageurl}}/2016/assignment-desk-assignment-view.png)
+![Screenshot of assignment page view](/images/2016/assignment-desk-assignment-view.png)
 
 And here’s an example of that single design pattern shared across three different entity views (`/contracts/:id`, `/assignments/:id`, and `vendors/:id`):
 
-![Screenshot of contract, assignment, and vendor views]({{site.imageurl}}/2016/assignment-desk-item-views.png)
+![Screenshot of contract, assignment, and vendor views](/images/2016/assignment-desk-item-views.png)
 
 Another pattern that I discovered which easily lent itself to sharing design and code were the list views. They consisted of a table list of entities with controls like sort, search, and filter. I designed these views in such a way to easily share UI components, which not only helped reinforce a feeling of familiarity and consistent expectations for the end-user, but also helped cut down implementation cost when writing React components.
 
 Here’s an example of the three completed list views (`/contracts`, `/assignments`, and `/vendors`) being navigated in the browser. Notice how their component design easily shares UI patterns as well as code (this same type of pattern and code sharing was done for the “Create” and “Edit” views for each entity):
 
-![Animation of navigation between three list views]({{site.imageurl}}/2016/assignment-desk-list-views.gif)
+![Animation of navigation between three list views](/images/2016/assignment-desk-list-views.gif)
 
 Once I had static mocks in a nearly completed state, it was an asynchronous process of implementing them in tandem with the other front-end developer. I was writing CSS and React components to bring each of these mocks alive, while the other developer was wiring the flow of data from the back-end to the client. I essentially designed and coded the view layer of the application, while the other developer implemented things architecturally.
 
 At times I would dive back into Sketch to figure out the designs for individual components of a page. For example, one of the widgets we were required to build specified that the user be able to select different brands and view content in the application based on the selected brand. For this, I designed a button in the application bar with the current brand’s logo (which provided brand context to the page’s content) that, once clicked, provided a modal where the user could change their brand context based on brands available to them:
 
-![Screenshot of brand switch modal]({{site.imageurl}}/2016/assignment-desk-brand-switcher.png)
+![Screenshot of brand switch modal](/images/2016/assignment-desk-brand-switcher.png)
 
 There were also other views that I jumped into sketch to design before implementing in the browser. This included views like the system error and 404 pages, where I spent a little time refining an “Error” graphic:
 
-![Screenshot of system error page]({{site.imageurl}}/2016/assignment-desk-system-error.png)
+![Screenshot of system error page](/images/2016/assignment-desk-system-error.png)
 
-![Screenshot of 404 page]({{site.imageurl}}/2016/assignment-desk-404.png)
+![Screenshot of 404 page](/images/2016/assignment-desk-404.png)
 
 As you can see, this project demanded a kind of a “as you go” process. A lot of the visual style was developed up front in Sketch (in accordance with preset visual brand guidelines from the client) based on a few basic views, and then each succeeding view or component was built upon that visual groundwork as new requirements and features came in from the project lead. As such, **my sketch files weren’t necessarily the “set in stone” visuals of the app, but more of a sandbox for discovering and refining the aesthetics of component parts.** These mocks would serve me as guides for implementing each component or view in the browser. Additionally, they would also serve as visuals to convey the direction of the product to stakeholders.
 
@@ -147,11 +147,11 @@ As you can see, this project demanded a kind of a “as you go” process. A lot
 
 As far as the code side of things go, the app itself was architected by our senior react developer while I wrote most of the view layer of the application. For example, one of the shared patterns across individual entity view pages was the attribute-value list (`.attr-val-list` HTML class). It is a simple representation of attribute-value pairs of data, grouped under an entity’s rubric.
 
-![Screenshot of attribute-value list UI]({{site.imageurl}}/2016/assignment-desk-attribute-value-list.png "The basic attribute-value layout")
+![Screenshot of attribute-value list UI](/images/2016/assignment-desk-attribute-value-list.png "The basic attribute-value layout")
 
 This module had a few different variations, which were styled by applying class name variations in on the parent list element.
 
-![Screenshot of attribute-value list variation]({{site.imageurl}}/2016/assignment-desk-attribute-value-list-variation.png "An example of style variation on the attribute-value list")
+![Screenshot of attribute-value list variation](/images/2016/assignment-desk-attribute-value-list-variation.png "An example of style variation on the attribute-value list")
 
 At their most simple level, each attribute-value list item was an `<li>` element whose logic was extracted into a shared React component. This allowed me to easily make tweaks (in both HTML structure and CSS styles) in one file and see the changes reflected across multiple entity views. For each data pair, I wrote a `<ListItemPair />` component and used that to pass in individual parameters:
 
@@ -188,7 +188,7 @@ render() {
 
 There are a couple additional parameters you might notice here. These served as optional flags to help indicate what kind of content we were trying to represent. At the most basic level, the attribute-value pairs were simple text. But sometimes a value needed to be a react element, or perhaps raw HTML (in the case of an address field, for example), so these cases were accounted for with optional props.
 
-![Screenshot of attribute-value list address variation]({{site.imageurl}}/2016/assignment-desk-attribute-value-list-address-variation.png "Sometimes the val parameter needed to be an element (<a> tag emails) or raw HTML (addresses with line breaks)")
+![Screenshot of attribute-value list address variation](/images/2016/assignment-desk-attribute-value-list-address-variation.png "Sometimes the val parameter needed to be an element (<a> tag emails) or raw HTML (addresses with line breaks)")
 
 This is just one basic example of the many components I wrote on this project. Because I was able to think in terms of react components at the design stage, it was much easier to fit UI pieces together while accounting for slight variations in each component part. This is one thing I really like about React: **you can think of designing your UI modules in visual and functional terms at the same time**. The fine details of the aesthetics can be figured out in Sketch and the technical details of code can be figured out in your code editor, each in their respective time and season during iterative process of making your application.
 
@@ -199,11 +199,11 @@ This is why I love sitting the fence between design and development — it can b
 
 Because this project had the additional scope of serving as a boilerplate of sorts for future applications that would communicate with the client’s back-end platform, I also developed a kind of style guide (well, at the time of publishing this post it’s still a work in process) which would serve as a benchmark for keeping visuals consistent across other applications that would be built in the future.
 
-![Screenshot of basic application style guide]({{site.imageurl}}/2016/assignment-desk-style-guide.png)
+![Screenshot of basic application style guide](/images/2016/assignment-desk-style-guide.png)
 
 Additionally, I put together a resource kit of sorts that allows designers coming after me to easily find and export assets for existing applications. It also serves as a template for creating new application assets based on existing style guidelines.
 
-![Screenshot of resource kit]({{site.imageurl}}/2016/assignment-desk-resource-kit.png)
+![Screenshot of resource kit](/images/2016/assignment-desk-resource-kit.png)
 
 ## Conclusion(-ing)
 

@@ -60,6 +60,6 @@ a:hover {
 
 Granted that will change the entire appearance of the element, but for this particular use case, it worked perfect for me. I got a darker color on hover without having to add more color declarations, just what I wanted.
 
-![gif showing link color change on hover]({{site.imageurl}}/2019/css-filter-on-hover.gif)
+![gif showing link color change on hover](/images/2019/css-filter-on-hover.gif)
 
 That’s it. That’s all I wanted to share.

@@ -3,7 +3,7 @@ title: "Netlibox: My Guest Post on Netlify’s Blog"
 tags: engineering
 ---
 
-[![Screenshot of guest post]({{ site.imageurl }}/2018/netlibox-post-screenshot.png)](https://www.netlify.com/blog/2018/10/15/combining-netlify-with-dropbox-for-a-one-click-publishing-process/)
+[![Screenshot of guest post](/images/2018/netlibox-post-screenshot.png)](https://www.netlify.com/blog/2018/10/15/combining-netlify-with-dropbox-for-a-one-click-publishing-process/)
 
 I’ve been a big fan of Github Pages over the last few years and have used it quite extensively for hosting my web paraphernalia. I pay $8/month and I get source control and static site hosting. And I’ve developed and deployed [quite](http://www.iosicongallery.com) [a](http://jim-nielsen.com/) [few](http://jim-nielsen.com/sassme) [sites](http://jim-nielsen.com/teamcolors/) using this model.
 
@@ -33,6 +33,6 @@ Anyhow, as I’ve been playing more and more with Netlify, the disparate pieces 
 
 This makes my life easier because Dropbox integration is so prevalent that I can update text files from my phone, from my computer, or just about anywhere, and by the simple act of “saving” the file, a build will get triggered in Netlify and my site will be live on the web with the newest content in no time. I don’t even have to _think_ about deploying my site. My simple blog is merely a function of my content.
 
-![Explanatory illustration of Netlibox process]({{ site.imageurl }}/2018/netlibox-explanation.png)
+![Explanatory illustration of Netlibox process](/images/2018/netlibox-explanation.png)
 
 You can read more of the specifics over on [the post I wrote for Netlify’s blog](https://www.netlify.com/blog/2018/10/15/combining-netlify-with-dropbox-for-a-one-click-publishing-process/) or you can [check out the sample project on Github](https://github.com/jimniels/netlibox).

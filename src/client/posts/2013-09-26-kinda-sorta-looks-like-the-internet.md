@@ -6,7 +6,7 @@ redirect_from: /posts/kinda-sorta-looks-like-the-internet/
 
 > This is not a watered down version of the internet. Or the “mobile” version of the internet. Or the “kinda-sorta looks like the internet” internet. It’s just the internet. On your phone.
 
-![iPhone internet TV ad screenshot]({{site.imageurl}}/2013/iphone-commercial.jpg)
+![iPhone internet TV ad screenshot](/images/2013/iphone-commercial.jpg)
 
 Those are the words from a [2007 TV ad](http://www.youtube.com/watch?v=ldjHqHC6szA) showcasing the capabilities of Apple’s new iPhone which allowed you to browse the internet. Not the stripped-down version so many PDAs and other mobile devices were accessing at the time, but the real internet. The same internet you saw on your desktop computer. That was revolutionary.
 

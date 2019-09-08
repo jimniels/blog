@@ -311,4 +311,4 @@ color: rgb(var(--red, var(--green, 0, 0, 255)));
 
 The browser first looks for `--red`. If it can’t find that, it looks for everything after the first `,` which in this case is `var(--green, 0, 0, 255)` and that is a valid value in CSS.
 
-![Image depicting fallback pattern for CSS custom property values]({{site.imageurl}}/2019/css-variable-fallback.png)
+![Image depicting fallback pattern for CSS custom property values](/images/2019/css-variable-fallback.png)

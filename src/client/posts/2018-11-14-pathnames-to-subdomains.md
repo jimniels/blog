@@ -98,13 +98,13 @@ Here are a couple examples of the code changes that took place for each repo:
 
 This is a code diff from my blog (which runs on Jekyll). I had a few config values which drove most of the way my URls worked, so changes were relatively self-contained and easy to make.
 
-![Screenshot of git diff for changed config values]({{ site.imageurl }}/2018/pathnames-to-subdomains-blog-diff.png)
+![Screenshot of git diff for changed config values](/images/2018/pathnames-to-subdomains-blog-diff.png)
 
 ### netlify.toml
 
 I added a `netlify.toml` file to all my repos so that I could define and control the project setup and build from a single file (rather than having to login to the Netlify UI to do it).
 
-![Screenshot of git diff for the new netlify.toml file]({{ site.imageurl }}/2018/pathnames-to-subdomains-blog-netlify-toml.png)
+![Screenshot of git diff for the new netlify.toml file](/images/2018/pathnames-to-subdomains-blog-netlify-toml.png)
 
 (You may have noticed in that screenshot how I also added a 301 redirect for everything at my site’s custom Netlify domain, this is just to ensure any traffic to the auto-generated `x.netlify.com` URL ends up at my custom domain, since it is the canonical source of the content.)
 
@@ -112,19 +112,19 @@ I added a `netlify.toml` file to all my repos so that I could define and control
 
 Here’s an example from my homepage at [jim-nielsen.com](https://www.jim-nielsen.com/). I made sure to update links from the old ones to the new ones. Granted, I setup proper 301 redirects for my old URLs, so I didn’t _have to_ change these, but I’m a little OCD about my web real estate.
 
-![Screenshot of git diff for the URL changes on the homepage]({{ site.imageurl }}/2018/pathnames-to-subdomains-homepage-url-changes.png)
+![Screenshot of git diff for the URL changes on the homepage](/images/2018/pathnames-to-subdomains-homepage-url-changes.png)
 
 ### HTTP to HTTPS
 
 A couple of my sites had `http` links scattered throughout them, which would trigger a warning in the browser about using `https` but linking to `http` stuff (most of these were discovered when I opened each site at its new subdomain and saw warnings in the browser console).
 
-![Screenshot of git diff for changing http link to https]({{ site.imageurl }}/2018/pathnames-to-subdomains-http-to-https.png)
+![Screenshot of git diff for changing http link to https](/images/2018/pathnames-to-subdomains-http-to-https.png)
 
 ### Deploy Scripts
 
 As mentioned, many of my sites were “dynamic” in that they were compiled to static files from source data. In a few cases, I had deploy scripts which would compile the content and commit the files to a `gh-pages` branch, so as to not sully up my source code with compiled files. Netlify obviated the need for any of this trickery by building the entire site to a directory not under source control then deploying from it.
 
-![Screenshot of git diff removing build scripts]({{ site.imageurl }}/2018/pathnames-to-subdomains-sassme-deploy-script-removal.png)
+![Screenshot of git diff removing build scripts](/images/2018/pathnames-to-subdomains-sassme-deploy-script-removal.png)
 
 ## How It All Played Out
 
@@ -136,7 +136,7 @@ Putting my domain under the control of Netlify was super simple. Within about 10
 
 I just wanted to point out one of the neatest advantages to switching this all over to Netlify. My homepage, [jim-nielsen.com](https://www.jim-nielsen.com/), has a list of the most recent posts from Dribbble and my blog.
 
-![Screenshot of jim-nielsen.com homepage with latest Blog and Dribbble content]({{ site.imageurl }}/2018/pathnames-to-subdomains-blog-dribbble-jim-nielsen.png "jim-nielsen.com with the latest content from my blog and Dribbble")
+![Screenshot of jim-nielsen.com homepage with latest Blog and Dribbble content](/images/2018/pathnames-to-subdomains-blog-dribbble-jim-nielsen.png "jim-nielsen.com with the latest content from my blog and Dribbble")
 
 There’s a couple different ways you could do a widget like this. One way would be to use client-side JavaScript. This would mean that every person who hits my site would run JavaScript code which hits the Dribbble API and [my blog’s JSON feed](https://blog.jim-nielsen.com/feed.json) to get the latest content and then render the page. Besides the oft-ignored problem of “what happens if JavaScript is disabled?”, this wouldn’t really work because the Dribbble API is rate limited. Not that I get massive traffic to my site or anything, but this is still a problem because every visitor would be hitting Dribbble’s API and I would therefore run the risk of overdosing on my allotted API calls.
 

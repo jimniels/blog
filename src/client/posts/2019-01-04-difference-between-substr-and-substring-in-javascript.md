@@ -3,7 +3,7 @@ title: The Difference Between substring and substr in JavaScript
 tags: engineering workNotes
 ---
 
-![substring vs. substr]({{ site.imageurl }}/2019/substring-vs-substr.png)
+![substring vs. substr](/images/2019/substring-vs-substr.png)
 
 I’m always having to lookup stuff like this. Often times I know like 90% of the answer, but that remaining 10% of ambiguity requires I look it up. In this case, Google led me to [a stack overflow answer](https://stackoverflow.com/questions/3745515/what-is-the-difference-between-substr-and-substring) stating:
 

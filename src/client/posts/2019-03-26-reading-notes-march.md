@@ -9,7 +9,7 @@ tags: readingNotes
 
 What I actually really loved about this site and found rather witty and novel was how it appeared when linked to in my twitter feed:
 
-![Screenshot of tweet on twitter]({{ site.imageurl }}/2019/reading-notes-march-twitter-open-graph-preview.jpg)
+![Screenshot of tweet on twitter](/images/2019/reading-notes-march-twitter-open-graph-preview.jpg)
 
 I found the anarchist, "freedom fighter" approach to this site’s open graph metadata rather novel and amusing.
 

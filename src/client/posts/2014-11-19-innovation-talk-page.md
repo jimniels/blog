@@ -15,7 +15,7 @@ Since the videos had already been shot, we looked at their content and began tal
 
 A new name and a new top-tier spot meant we needed a new page design. This fell to me. My first tool wasn’t jumping into Photoshop. It wasn’t even sketching on paper. My first tool was a text editor.
 
-![Photo of my work in a text editor]({{ site.imageurl }}/2014/innovation-talk-text-editor.jpg "The low fidelity starting point of a text editor")
+![Photo of my work in a text editor](/images/2014/innovation-talk-text-editor.jpg "The low fidelity starting point of a text editor")
 
 I needed to  determine what content modules would make up the page and what their respective elements would be:
 
@@ -29,10 +29,10 @@ I needed to  determine what content modules would make up the page and what thei
 
 Based on this content, I sketched a few initial ideas within the framework of the existing marketing site.
 
-![Photograph of initial sketch]({{ site.imageurl }}/2014/innovation-talk-sketch.jpg )
+![Photograph of initial sketch](/images/2014/innovation-talk-sketch.jpg )
 
 From there I jumped into Sketch to layout the design of the content modules. The design came together rather quickly.
 
-![Screenshot of initial mock]({{ site.imageurl }}/2014/innovation-talk-mock.png "Page mock (without website header/footer)")
+![Screenshot of initial mock](/images/2014/innovation-talk-mock.png "Page mock (without website header/footer)")
 
 Lesson? Naming is important and should be revisited as you iterate. The way you name something, even in the initial stages when a concept or idea is fuzzy, contains vital bearings on the direction of the project—whether you’re conscience of it or not. It would probably be a good idea to revisit the way you’ve named a project, task, or design as it matures. This would help ensure you’re understanding of the thing hasn’t deviated from the original conception (and if it has, make sure it’s for good reason). Otherwise you’ll eventually hit a wall and wonder, “why isn’t this thing working? It seemed so clear at first...”. It could be because the words you use to talk about the thing you’re creating hold subtle assumptions which may be slightly incorrect.

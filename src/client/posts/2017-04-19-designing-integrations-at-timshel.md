@@ -9,22 +9,22 @@ To begin, I got a walkthrough of the initial work a coworker had completed on th
 
 I sketched various interactions for the individual integration view (`/org/:orgid/integrations/:id`):
 
-![Photo of individual integration UI sketch]({{ site.imageurl }}/2017/gw-integrations-sketch-1.jpg)
+![Photo of individual integration UI sketch](/images/2017/gw-integrations-sketch-1.jpg)
 
 I sketched individual component pieces and their associated functionality, like a input fields and their component states:
 
-![Photo of individual component pieces sketch]({{ site.imageurl }}/2017/gw-integrations-sketch-2.jpg)
+![Photo of individual component pieces sketch](/images/2017/gw-integrations-sketch-2.jpg)
 
 I sketched the framework for an “n-number”-stepped linear flow process which would create each integration:
 
-![Photo of integration creation flow sketch]({{ site.imageurl }}/2017/gw-integrations-sketch-3.jpg)
+![Photo of integration creation flow sketch](/images/2017/gw-integrations-sketch-3.jpg)
 
 And I sketched some ideas around a “splash screen” the user would see when viewing an integration that hadn’t been configured yet:
 
-![Photo of integration splash screen sketch]({{ site.imageurl }}/2017/gw-integrations-sketch-4.jpg)
+![Photo of integration splash screen sketch](/images/2017/gw-integrations-sketch-4.jpg)
 
 Once I had created rough sketches that depcited all the views and interactions that were needed by the feature, I began creating more high fidelity mocks in Sketch app. Once I had all those worked out, I linked them all together in Invision to get a feel for UI interactions.
 
 I don’t have the individual mocks to show here, but I do have a big animated `.gif` that’ll show what the screens looked like when a user setup the Stripe integration. Enjoy:
 
-![Animated gif for the integrations flow]({{ site.imageurl }}/2017/gw-integrations-flow.gif)
+![Animated gif for the integrations flow](/images/2017/gw-integrations-flow.gif)
