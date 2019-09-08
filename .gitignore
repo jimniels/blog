@@ -6,3 +6,5 @@ Gemfile.lock
 node_modules/
 build/
 src/client/assets/css/atom-one*
+src/client/posts/*
+src/client/images/*
