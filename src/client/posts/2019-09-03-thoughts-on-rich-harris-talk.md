@@ -5,7 +5,7 @@ tags: thoughts
 
 [Rich Harris](https://twitter.com/Rich_Harris), creator of [Svelte](https://svelte.dev/), [shared](https://twitter.com/Rich_Harris/status/1168896800268464129) [his slides from a recent talk titled “Metaphysics and JavaScript”](https://docs.google.com/presentation/d/1PUvpXMBEDS45rd0wHu6tF3j_8wmGC6cOLtOw2hzU-mw) where he critiques aspects of the React programming model. I found the talk extremely cogent and applicable to my experience using React.
 
-I want regurgitate some of his points in this post in order to help further elucidate and articulate my own feelings around programming in React, which as of late have mapped quite directly to Rich’s points.
+I want to regurgitate some of his points in this post in order to help further elucidate and articulate my own feelings around programming in React, which as of late have mapped quite directly to Rich’s points.
 
 **A Note Before We Begin**: I love React and use it everyday. The following changes none of that. 
 
@@ -37,7 +37,7 @@ While he’s talking specifically about “design patterns” it does seem to ap
 
 So what we end up with when we say “UI is a function of state” is an idealogy that approximates a proper solution to building complex web applications, and we leverage that idealogy through the React programming model. But now we have to add a lot of things around the ideological solution to make it fit the raw materials with which we’re actually building (DOM) and it inevitably has flaws—or rather, perhaps I should say it inevitably makes tradeoffs—that create friction when we rub against mismatches in the ideology and the reality in which we live.
 
-What I really appreciate are Rich’s attempts at addressing the ideology behind the framework and its mismatches with the reality or building web applications. It’s great stuff. This is the kind of stuff I’d like to hear when we talk about things like React vs. Vue (instead of merely “well React uses JSX while Vue has HTML templates”).
+What I really appreciate are Rich’s attempts at addressing the ideology behind the framework and its mismatches with the reality of building web applications. It’s great stuff. This is the kind of stuff I’d like to hear when we talk about things like React vs. Vue (instead of merely “well React uses JSX while Vue has HTML templates”).
 
 I digress. Let’s continue where Rich left off. 
 
