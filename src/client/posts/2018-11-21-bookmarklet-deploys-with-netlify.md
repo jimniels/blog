@@ -33,12 +33,12 @@ javascript: (function() {
 
 Pop it into your browser, and voilà!
 
-![Animated gif showing bookmark URL change and one-click deploy trigger in Netlify]({{ site.imageurl }}/2018/netlify-bookmarklet.gif "Update your bookmark’s URL to your custom JavaScript code, then click it and watch Netlify trigger a build")
+![Animated gif showing bookmark URL change and one-click deploy trigger in Netlify](/images/2018/netlify-bookmarklet.gif "Update your bookmark’s URL to your custom JavaScript code, then click it and watch Netlify trigger a build")
 
 ## One-Click Deploys Everywhere
 
 What makes this even better is when you sync your bookmarks across devices. I use iCloud for syncing bookmarks in Safari, which means I can trigger a deploy of any of my sites from Safari on my iPhone or my Mac.
 
-![Screenshot of Safari mobile deploy bookmarks]({{ site.imageurl }}/2018/netlify-bookmarklet-mobile-sync.png)
+![Screenshot of Safari mobile deploy bookmarks](/images/2018/netlify-bookmarklet-mobile-sync.png)
 
-![Screenshot of Safari desktop deploy bookmarks]({{ site.imageurl }}/2018/netlify-bookmarklet-desktop-sync.png)
+![Screenshot of Safari desktop deploy bookmarks](/images/2018/netlify-bookmarklet-desktop-sync.png)

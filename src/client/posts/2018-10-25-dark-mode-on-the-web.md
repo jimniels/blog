@@ -36,7 +36,7 @@ body {
 
 After making my site’s colors controllable via CSS variables (something I should have already been doing honestly) I had everything working the way I wanted in about 20 minutes.
 
-![.gif depicting switch between dark and light mode]({{ site.imageurl }}/2018/dark-mode-example.gif)
+![.gif depicting switch between dark and light mode](/images/2018/dark-mode-example.gif)
 
 I don’t know about you, but there’s something incredibly satisfying about this. A user preference at the OS-level is cascading down into the browser and hooked into by the website’s CSS, which is leveraging the power of the cascade along with variables to change color modes. And the OS adds an animation on top when transitioning. I love it!
 

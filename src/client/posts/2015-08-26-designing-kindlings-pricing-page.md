@@ -26,15 +26,15 @@ That seemed pretty straightforward. But of course, there were a few exceptions t
 
 So, with those specifications in mind, I took our pricing tiers and began sketching out how to present the information.
 
-![Pricing tiers sketch]({{ site.imageurl }}/2015/pricing-sketch.jpg)
+![Pricing tiers sketch](/images/2015/pricing-sketch.jpg)
 
 After a few sketches and rough ideas, I jumped to high-fidelity mocks (because *deadlines, deadlines, deadlines*) and quickly came up with a first draft of the pricing page that used a visual metaphor of volume to indicate our tiered pricing structure.
 
-![First draft mock of the pricing page]({{ site.imageurl }}/2015/pricing-1.png)
+![First draft mock of the pricing page](/images/2015/pricing-1.png)
 
 Seeing that our marketing site was responsive, the mock came in another variation indicating how the page structure would flow down on mobile. Rather than a vertical stack, things switched to be horizontal:
 
-![First draft mock of the pricing page responsively]({{ site.imageurl }}/2015/pricing-1-responsive.png)
+![First draft mock of the pricing page responsively](/images/2015/pricing-1-responsive.png)
 
 As is the case with most first draft mocks, these visuals seemed to cause more problems than they solved. Ok, maybe that’s not a fair statement. The mocks didn’t cause problems, but they did serve as a platform for having a conversation around pricing. It’s one thing to discuss pricing and then write it down on paper. It’s another thing entirely to see it communicated visually because different people are going to interpret it differently. Visual mocks have a way of raising questions you thought had already been solved, and this case was no different. The mocks served as a tool for advancing our own internal discussion around what we wanted pricing to be.
 
@@ -48,11 +48,11 @@ One of the biggest issues was how we wanted to display pricing. Because the soft
 
 As is usually the case with organizational disagreements, we came up with a compromise. My task was to try and show both annual pricing and monthly pricing. It was like we were saying “ok here’s what it’s going to cost. We know, it’s a big number, so let us show you how that breaks down to a monthly cost.” And, as we had to learn once again from experience, **compromises in meetings sound great but compromises in visual design are mostly just confusing**. This is what I came back with:
 
-![Pricing with annual and monthly breakdown]({{ site.imageurl }}/2015/pricing-2.png)
+![Pricing with annual and monthly breakdown](/images/2015/pricing-2.png)
 
 We quickly discovered that trying to show both annual and monthly pricing breakdowns was too complicated. After more meetings and discussions we decided to simply show the per-month pricing. It felt better to show the smaller numbers so as to not scare people away, but we would indicate that it was billed annually. So, if someone really wanted to, they could do the math themselves and figure out the yearly cost. That led us to this design:
 
-![Pricing page final design]({{ site.imageurl }}/2015/pricing-3.png)
+![Pricing page final design](/images/2015/pricing-3.png)
 
 As the final design shows, we have monthly, per user pricing with a custom tier for large organizations and a slightly de-emphasized spot in the pricing table indicating that our product is free for startups.
 

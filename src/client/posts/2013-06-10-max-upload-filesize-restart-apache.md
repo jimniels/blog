@@ -8,7 +8,7 @@ I was trying to import a SQL database into a local copy of Wordpress. The SQL fi
 
 After some research, I realized I could change the `max_upload_filesize` in the `php.ini` file. However, after changing the value to 10MB, Wordpress was still indicating the prior upload limit of 2MB. After wasting time trying other fixes, I suddenly realized I had not restarted apache!
 
-![Duh!]({{ site.imageurl }}/2013/duh.gif)
+![Duh!](/images/2013/duh.gif)
 
 From the command line `sudo apachectl restart` restarted my local apache server and changed my upload limit to 10MB in Wordpress.
 

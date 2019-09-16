@@ -26,7 +26,7 @@ Additionally, I wanted to remove color from each logo because it can be a vital 
 
 Furthermore, I wanted to test logos that were abstract symbols rather than typographic represenations of the brand name. For example, Google’s logo is a logotype because the logo itself is the name of the company. Whereas Nike’s “swoosh” is an abstract logo mark. Logo marks really test the recognizability of a brand because they do not spell out the company’s name and instead rely on a mental association between the mark and the company.
 
-[![Logo Types, courtesy of logodesignsource.com]({{ site.imageurl }}/2014/logos-types.png)](http://www.logodesignsource.com/types.html)
+[![Logo Types, courtesy of logodesignsource.com](/images/2014/logos-types.png)](http://www.logodesignsource.com/types.html)
 
 So how did each logo fare?
 
@@ -34,7 +34,7 @@ So how did each logo fare?
 
 Logos which shared the same visual form fared the worst. For example, circular logos like ABC, General Electric, PBS, and CBS all consist primarily of a circle with a distinctive mark cut out of it. When heavily blurred, all of these logos begin to look alike and become indistinguishable from one another:
 
-![Blurred circular logos]({{ site.imageurl }}/2014/logos-circular.jpg "From left to right: ABC, GE, PBS, Pepsi, CBS, Target")
+![Blurred circular logos](/images/2014/logos-circular.jpg "From left to right: ABC, GE, PBS, Pepsi, CBS, Target")
 
 This is not to say that circular shapes are necessarily a poor choice when designing a logo. However, upon being brought significantly out of focus they do lose their visual distinctness and, thus, recognizability.
 
@@ -42,7 +42,7 @@ This is not to say that circular shapes are necessarily a poor choice when desig
 
 In contrast, the unique logo shapes of Nike and Puma seemed to fare the best. As you can see, towards the blurriest end of the spectrum the logos seem *almost* unrecognizable:
 
-![Blurred logos with unique shapes]({{ site.imageurl }}/2014/logos-unique-shapes.jpg "From left to right: Puma, Nike")
+![Blurred logos with unique shapes](/images/2014/logos-unique-shapes.jpg "From left to right: Puma, Nike")
 
 However, these two marks retain a portion of their recognizability due to their distinctive forms which maintain at least some degree of visual integrity (as opposed to other more symmetrical logo designs which begin to all look the same when heavily blurred).
 
@@ -66,11 +66,11 @@ For those of you who decided to venture on, I welcome you. Let me start by telli
 
 **Phase 1**: At first, I thought I would just experiment by doing a gaussian blur in Photoshop on a couple different logos, write a blog post about it, and call it a day. So I ended up with a PSD with sliced up logos like this:
 
-![Logos in Photoshop]({{ site.imageurl }}/2014/logos-plain-logos.png)
+![Logos in Photoshop](/images/2014/logos-plain-logos.png)
 
 **Phase 2:**: Once I got into Photoshop and blurred a few logos at different rates, I realized it would be way cooler to dynamically blur logos in the browser and see the point at which each logo loses its recognizability. So I mocked out an interface like this:
 
-![First mock]({{ site.imageurl }}/2014/logos-interface-mock.jpg)
+![First mock](/images/2014/logos-interface-mock.jpg)
 
 The integers in the UI would serve as controls to easily switch back and forth between heavy and light blurs. This allowed dynamic comparison between each logo, making it very easy to see which logos best retained their recognizability.
 
@@ -78,7 +78,7 @@ At this point, the thought crossed my mind, “what if it were a game where you 
 
 **Phase 3**: My final phase led me to create the guessing game you see today. I explored a few more UI changes in Photoshop and then tweaked my working HTML/CSS/Javascript prototype to match the mock I had created. As is my style, my mock wasn’t set in stone. I left myself room for making flexible design choices while building the page in the browser:
 
-![Final mock that matches finished version]({{ site.imageurl }}/2014/logos-interface-final.png)
+![Final mock that matches finished version](/images/2014/logos-interface-final.png)
 
 ### Implementation Choice: SVG or IMG
 
@@ -109,19 +109,19 @@ If SVGs are supported, however, then I directly inject the SVG element inside th
 
 As you can see, I tried to progressively enhance this page as I went along. For users who didn't have javascript turned on, they could still access the blurred logo results of the experiment by clicking on each brand.
 
-![Page appearance without Javascript or CSS loaded]({{ site.imageurl }}/2014/logos-no-js-css.png "CSS and Javascript both don't load")
+![Page appearance without Javascript or CSS loaded](/images/2014/logos-no-js-css.png "CSS and Javascript both don't load")
 
-![Page appearance with CSS loaded but no Javascript]({{ site.imageurl }}/2014/logos-no-js.png "CSS loads but no Javascript")
+![Page appearance with CSS loaded but no Javascript](/images/2014/logos-no-js.png "CSS loads but no Javascript")
 
 Users with javascript, however, received the enhanced ability to directly manipulate the logos’ blur values right in the browser, while simultaneously comparing those results across brands.
 
-![Page appearance with both CSS and Javascript loaded]({{ site.imageurl }}/2014/logos-js-css.png "CSS and Javascript both load")
+![Page appearance with both CSS and Javascript loaded](/images/2014/logos-js-css.png "CSS and Javascript both load")
 
 ### Programmatically Creating Each Logo Variation With ImageMagick
 
 In the prototyping stage, I started creating each logo and it's blurred variants in Photoshop. I sliced and diced them for easy exporting, but as the number of brands increased my Photoshop file became unmanageable.
 
-![Photoshop screenshot of all the brands]({{ site.imageurl }}/2014/logos-in-photoshop.png)
+![Photoshop screenshot of all the brands](/images/2014/logos-in-photoshop.png)
 
 The biggest downside to this approach was the it all had to be done by hand. What happened when I decided I didn't want to do gaussian blurs at 5, 10, and 15 pixels, but rather at 7, 14, and 21 pixels? Or some other measure? All that work would be wasted. Wasn’t there an easier way to do this? As a designer, I rarely do  image manipulation programatically. However, I'd vaguely heard of this command line tool called [ImageMagick](http://www.imagemagick.org/) which I thought might let me do this kind of batch image manipulation / processing. I already needed the SVG versions of each logo. Why couldn’t I just automatically create the all image assets I needed from each SVG logo?
 
@@ -131,17 +131,17 @@ The final process looks something like this:
 
 I have a master `.ai` file with vector versions of each logo on matching canvas sizes, which allows me to easily create a set of logos which are proportionally sized in relation to one another.
 
-![Illustrator master file]({{ site.imageurl }}/2014/logos-illustrator-file.png)
+![Illustrator master file](/images/2014/logos-illustrator-file.png)
 
 Each logo gets exported as an individual SVG file to a single directory `assets/images/src/svgs`
 
-![Export image of some kind]({{ site.imageurl }}/2014/logos-exported-files.png)
+![Export image of some kind](/images/2014/logos-exported-files.png)
 
 I process all SVG files in the folder using a small bash script of commands. This script uses ImageMagick and ImageOptim to dynamically create, convert, stitch, and compress all images required for the site. For example, it takes the file `nike.svg` and: 1) Converts it from SVG to PNG, 2) Creates PNG versions of all the blur variations, 3) Stiches all those individual PNGs back into a single file, 4) Compresses the image and sticks it into the build directory.
 
 This results in each brand getting its own sprite which consists of the logo in original form along with each blur variation. These serve as fallbacks in the event that someone’s browser does not support SVG files. They also serve as the linked images for those without javascript.
 
-![Exported JPG files]({{ site.imageurl }}/2014/logos-exported-jpgs.png)
+![Exported JPG files](/images/2014/logos-exported-jpgs.png)
 
 This approach allows easy image regeneration in the future. All I would have to do is modify my image manipulation script and regenerate all the necessary images using the original SVG files.
 

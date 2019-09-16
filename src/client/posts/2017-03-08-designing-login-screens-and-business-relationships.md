@@ -19,13 +19,13 @@ The product login screens provided a great workspace to explore the relationship
 
 Designing the login screens dictated that I spend time thinking about how Insights applications would be branded, both to internal and external users. Product name, product family name, and partner/customer brand all had to be taken into account and represeted somehow in each application.
 
-![Sketch around initial logins]({{ site.imageurl }}/2017/logins-sketch.jpg "Initial sketches around branding placement")
+![Sketch around initial logins](/images/2017/logins-sketch.jpg "Initial sketches around branding placement")
 
 After sketching through some ideas, I took a stab at mocking the login screen for one of our exisiting applications whose aesthetic (mostly) aligned with my  overarching vision for visual design at Insight. I chose to represent the product brand front and center on the login, while the customer brand was represented below the login box (as well as in the footer, which would be a persistent UI component across all views of the app). Additionally, I enhanced the representation of customer brand by introducing color as a theme.
 
-![Version 1 screenshot of AP themed login]({{ site.imageurl }}/2017/logins-v1-ap-sagesure.png "One application offering, themed for a specific customer")
+![Version 1 screenshot of AP themed login](/images/2017/logins-v1-ap-sagesure.png "One application offering, themed for a specific customer")
 
-![Version 1 screenshot of AP themed login]({{ site.imageurl }}/2017/logins-v1-ap-fednat.png "Another application offering, themed for a different customer")
+![Version 1 screenshot of AP themed login](/images/2017/logins-v1-ap-fednat.png "Another application offering, themed for a different customer")
 
 Doing these design exercises helped me confront and raise questions about brand hierarchy and business relationships—questions that hadn’t really been broached within the organization. We realized we had not yet fully developed a vocabulary for talking about what our products are. The design process helped us uncover the right questions to ask, which helped us further refine the definition of our products, their business relationships, and their future design, UX, and engineering direction.
 
@@ -33,15 +33,15 @@ Doing these design exercises helped me confront and raise questions about brand 
 
 After discussions, feedback, and relevant business context from the CEO, we did another round of iterations on the login screens. This time we had more clear direction around the relationships between Insight’s applications, its customers, and the respective end users. This allowed us to more clearly define visual hierarchy because we gained a better understanding of how our applications related to each other and how they should be perceived by customers as part of a larger business offering. These relationships were reflected in the hierarchy of the new login screen mocks (as well as in the designs for customizable content modules that would be configurable on a per-application/per-customer basis).
 
-![Version 2 screenshot of AP themed login]({{ site.imageurl }}/2017/logins-v2-ap-sagesure.png)
+![Version 2 screenshot of AP themed login](/images/2017/logins-v2-ap-sagesure.png)
 
-![Version 2 screenshot of AP themed login]({{ site.imageurl }}/2017/logins-v2-ap-fednat.png)
+![Version 2 screenshot of AP themed login](/images/2017/logins-v2-ap-fednat.png)
 
 These screens were designed in a modular fashion where their component parts could be extended to work for exisiting internal applications as well as future applications the company might offer. This got us one step closer to a coherent, consistent UI/UX for our product offerings.
 
-![Screenshot of IPCM login]({{ site.imageurl }}/2017/logins-v2-ipcm.png)
+![Screenshot of IPCM login](/images/2017/logins-v2-ipcm.png)
 
-![Screenshot of Risk login]({{ site.imageurl }}/2017/logins-v2-risk.png)
+![Screenshot of Risk login](/images/2017/logins-v2-risk.png)
 
 Working through the visual hierarchy of differing brands really helped us talk about and discover our product and business relationships as an organinzation.
 
@@ -51,13 +51,13 @@ In addition to being portrayed in the application’s theme, the customer brand 
 
 By this point, we felt we had correctly defined the relationship between our products, their product families, and our customer/partner brands. However, we got some internal feedback contrary to the aesthetic direction we had formulated. So that meant back to the aesthetic drawing board. However, because we already knew the hierarchical relationships of elements on the page, changing the aesthetic was the easy “design” part. After some thought, I came up with the following screens:
 
-![v3 screenshot of AP theme login]({{ site.imageurl }}/2017/logins-v3-ap-sagesure.png)
+![v3 screenshot of AP theme login](/images/2017/logins-v3-ap-sagesure.png)
 
-![v3 screenshot of AP theme login]({{ site.imageurl }}/2017/logins-v3-ap-fednat.png)
+![v3 screenshot of AP theme login](/images/2017/logins-v3-ap-fednat.png)
 
-![v3 screenshot of IPCM login]({{ site.imageurl }}/2017/logins-v3-ipcm.png)
+![v3 screenshot of IPCM login](/images/2017/logins-v3-ipcm.png)
 
-![v3 screenshot of Risk login]({{ site.imageurl }}/2017/logins-v3-risk.png)
+![v3 screenshot of Risk login](/images/2017/logins-v3-risk.png)
 
 These screens achieved full buy-in from all stakeholders because they better represented and accentuated the product, product family, and customer/partner brands in a hierarchy which reflected our business goals. Additionally, from the CEO’s perspective, the designs better represented an aesthetic based on our business’s market position and customer relationships.
 

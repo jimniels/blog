@@ -23,15 +23,15 @@ For context: the design (and engineering) team at The Groundwork already had a v
 
 First I began working on the events index page. This is where users could go to see all the events associated with their account. On the first iteration, I came up with three separate lists: events occurring “today”, events occurring “in the future”, and “ended” or cancelled events. (FYI: I put those words in quotes because, as you’ll see later, those are time-based words that are relative and mean different things depending on where you are in the world).
 
-![Screenshot of the first design iteration of the events index page]({{ site.imageurl }}/2017/gw-events-index-1.png "First iteration of the events index view")
+![Screenshot of the first design iteration of the events index page](/images/2017/gw-events-index-1.png "First iteration of the events index view")
 
 After an initial round of feedback, I decided to simplify the UI down to a single list which would initially filter all events to just the “upcoming” ones while any events occurring “today” would be hoisted to the top (to lend them prominence). The label for the list would serve as a dropdown filter where the user could then filter by other “types” of events (like “ended” or “cancelled”).
 
-![Screenshot of the second design iteration of the events index page]({{ site.imageurl }}/2017/gw-events-index-2.png "Another iteration of the events index view")
+![Screenshot of the second design iteration of the events index page](/images/2017/gw-events-index-2.png "Another iteration of the events index view")
 
 Eventually after more feedback and more feature clarification, I eventually arrived at a design like you see below. It functioned much like the mocks you’ve seen previously, but also took into account events that spanned multiple days.
 
-![Screenshot of the final design iteration of the events index page]({{ site.imageurl }}/2017/gw-events-index-3.png "Final iteration of the events index view")
+![Screenshot of the final design iteration of the events index page](/images/2017/gw-events-index-3.png "Final iteration of the events index view")
 
 One thing worth noting here: having the design of those multi-day events break the vertical alignment of date representations was, in fact, intentional. It was something I thought about a lot and decided to do purposefully. Multi-day events were, in most cases, an exception in the system. So calling them out specifically in the UI by breaking the linear flow was intentional (something [I pointed out on Dribbble](https://dribbble.com/shots/2833368-Event-list-view)). And that’s what design is all about: fulfilling purpose through intentional form. Anyway, I digress...
 
@@ -43,21 +43,21 @@ Another event management view I tackled was the individual view of an event. Thi
 
 Designing the first iteration gave me a better sense of the overall relationships between different pieces of information. In hindsight, I over-designed the UI on the first pass in trying to communicate everything (like RSVP state through individual icons) when not everything needed to be communicated. This became apparent when I tried showing the designs to other designers and trying to communicate *everything* that was going on in the UI. It was just too much, but that was a good exercise in making me go back to the drawing board and really define what pieces of information were most pertinent.
 
-![Screenshot of the first iteration of the individual event view for an upcoming event]({{ site.imageurl }}/2017/gw-event-1-upcoming.png "First iteration design of an “upcoming” event")
+![Screenshot of the first iteration of the individual event view for an upcoming event](/images/2017/gw-event-1-upcoming.png "First iteration design of an “upcoming” event")
 
-![Screenshot of the first iteration of the individual event view for an event occurring today]({{ site.imageurl }}/2017/gw-event-1-today.png "First iteration design of an event occuring “today” which features revealed functionality based on the date of the event, like the ability to check-in people to the event.")
+![Screenshot of the first iteration of the individual event view for an event occurring today](/images/2017/gw-event-1-today.png "First iteration design of an event occuring “today” which features revealed functionality based on the date of the event, like the ability to check-in people to the event.")
 
-![Screenshot of the first iteration of the individual event view for a cancelled event]({{ site.imageurl }}/2017/gw-event-1-cancelled.png "First iteration design of a cancelled event, which features a prominent UI alert denoting this event has been cancelled.")
+![Screenshot of the first iteration of the individual event view for a cancelled event](/images/2017/gw-event-1-cancelled.png "First iteration design of a cancelled event, which features a prominent UI alert denoting this event has been cancelled.")
 
 #### The Second Iteration
 
 The second iteration moved some of the pieces of information around to more relevant locations, but in hindsight I still didn’t go far enough in fully removing unnecessary complexity. Most of the individual pieces of the UI stayed the same but a better hierarchy and relationship between parts was achieved.
 
-![Screenshot of the second iteration of the individual event view for an upcoming event]({{ site.imageurl }}/2017/gw-event-2-upcoming.png "Second iteration design of an “upcoming” event which moved RSVP status below under the “People” tab.")
+![Screenshot of the second iteration of the individual event view for an upcoming event](/images/2017/gw-event-2-upcoming.png "Second iteration design of an “upcoming” event which moved RSVP status below under the “People” tab.")
 
-![Screenshot of the second iteration of the individual event view for an event occuring today]({{ site.imageurl }}/2017/gw-event-2-today.png "Second iteration design of an event occuring “today” which fleshed out user input for checking in people to the event.")
+![Screenshot of the second iteration of the individual event view for an event occuring today](/images/2017/gw-event-2-today.png "Second iteration design of an event occuring “today” which fleshed out user input for checking in people to the event.")
 
-![Screenshot of the second iteration of the individual event view for a cancelled event]({{ site.imageurl }}/2017/gw-event-2-cancelled.png "Second iteration design of a cancelled event.")
+![Screenshot of the second iteration of the individual event view for a cancelled event](/images/2017/gw-event-2-cancelled.png "Second iteration design of a cancelled event.")
 
 #### The Third Iteration
 
@@ -65,29 +65,29 @@ The third iteration was where I feel like I did a much better job of simplifying
 
 You’ll also notice the more graphical representation of the event’s date. This felt like a solid enhancement that really helped better visually anchor the design of the page and communicate the timeliness of what the user was looking at. 
 
-![Screenshot of the third iteration of the individual event view for an upcoming event]({{ site.imageurl }}/2017/gw-event-3-upcoming.png "Third iteration design of an “upcoming” event which narrowed and simplified the usage of icons to communicate meaning.")
+![Screenshot of the third iteration of the individual event view for an upcoming event](/images/2017/gw-event-3-upcoming.png "Third iteration design of an “upcoming” event which narrowed and simplified the usage of icons to communicate meaning.")
 
-![Screenshot of the third iteration of the individual event view for an event occurring today]({{ site.imageurl }}/2017/gw-event-3-today.png "Third iteration design of an event occuring “today”. Note the enhanced graphical representation of the event’s date.")
+![Screenshot of the third iteration of the individual event view for an event occurring today](/images/2017/gw-event-3-today.png "Third iteration design of an event occuring “today”. Note the enhanced graphical representation of the event’s date.")
 
-![Screenshot of the third iteration of the individual event view for an event that has ended]({{ site.imageurl }}/2017/gw-event-3-ended.png "Third iteration design of an event that has ended.")
+![Screenshot of the third iteration of the individual event view for an event that has ended](/images/2017/gw-event-3-ended.png "Third iteration design of an event that has ended.")
 
-![Screenshot of the third iteration of the individual event view for a cancelled event]({{ site.imageurl }}/2017/gw-event-3-cancelled.png "Third iteration design of a cancelled event.")
+![Screenshot of the third iteration of the individual event view for a cancelled event](/images/2017/gw-event-3-cancelled.png "Third iteration design of a cancelled event.")
 
 #### The Fourth (and Relatively-Final) Iteration
 
 This fourth and final iteration got us to a place where we felt we could start building an MVP. It explored a few variations in minor UI sections for dealing with edge cases (which you might notice, like multi-day events) but overall gave us a good sense of how everything was going to fit together as a whole.
 
-![Screenshot of the fourth iteration of the individual event view for an upcoming event]({{ site.imageurl }}/2017/gw-event-4-upcoming.png "Fourth iteration design of an “upcoming” event. Note the alternate design of the calendar for a multi-day event.")
+![Screenshot of the fourth iteration of the individual event view for an upcoming event](/images/2017/gw-event-4-upcoming.png "Fourth iteration design of an “upcoming” event. Note the alternate design of the calendar for a multi-day event.")
 
-![Screenshot of the fourth iteration of the individual event view for an event occurring today]({{ site.imageurl }}/2017/gw-event-4-today.png "Fourth iteration design of an event occuring “today”.")
+![Screenshot of the fourth iteration of the individual event view for an event occurring today](/images/2017/gw-event-4-today.png "Fourth iteration design of an event occuring “today”.")
 
-![Screenshot of the fourth iteration of the individual event view for a cancelled event]({{ site.imageurl }}/2017/gw-event-4-cancelled.png "Fourth iteration design of a cancelled event which explored using a more text-based approach to communicating the cancelled state.")
+![Screenshot of the fourth iteration of the individual event view for a cancelled event](/images/2017/gw-event-4-cancelled.png "Fourth iteration design of a cancelled event which explored using a more text-based approach to communicating the cancelled state.")
 
 ### The Create/Edit Event View
 
 There’s always the need for users to create events. This UI covered that, in addition to editing events which was the same UI just populated with data.
 
-![Screenshot of the create event view]({{ site.imageurl }}/2017/gw-event-create.png "View when creating a new event.")
+![Screenshot of the create event view](/images/2017/gw-event-create.png "View when creating a new event.")
 
 ### The Messages Tab on the Event View
 
@@ -95,21 +95,21 @@ One of the tabs on the events view was the “Messages” tab, which allowed use
 
 The messages UI was a list by default that you could expand/collapse for more detail. At the top of the list was the ability to create a new message which provided a stepped UI process for creating and sending messages to people associated with the event.
 
-![Screenshot of the default messages view on the event view]({{ site.imageurl }}/2017/gw-event-messages.png "Default messages view was an index of all  messages for the event, sorted by date.")
+![Screenshot of the default messages view on the event view](/images/2017/gw-event-messages.png "Default messages view was an index of all  messages for the event, sorted by date.")
 
-![Screenshot of the expanded default messages view on the event view]({{ site.imageurl }}/2017/gw-event-messages-expanded.png "Clicking on any message set would reveal additional meta information about the message.")
+![Screenshot of the expanded default messages view on the event view](/images/2017/gw-event-messages-expanded.png "Clicking on any message set would reveal additional meta information about the message.")
 
-![Screenshot of the one step in the create message process on the event view]({{ site.imageurl }}/2017/gw-event-messages-create.png "Step 2 of the “Create Message” process where users could specify custom recipients manually or via a .csv upload.")
+![Screenshot of the one step in the create message process on the event view](/images/2017/gw-event-messages-create.png "Step 2 of the “Create Message” process where users could specify custom recipients manually or via a .csv upload.")
 
 The “Create Message” process was somewhat sophisticated in what it allowed users to do, which is why I broke it up into a stepped process. Many of the different steps were dependent on choices made in prior steps, so the UI would change based on your decisions when creating a message. For example, you could  specify the recipients of your message manually, either by entering them one-by-one or by uploading a `.csv` file. Additionally, there was a case where you would be provided a “smart set” of recipients for common actions like sending a reminder message to all invitees who had not yet responded to your invitation. You can see an example of how this all played out in this animated .gif of the “Create Message” process:
 
-![Animated gif of stepped process to create a message on the event view]({{ site.imageurl }}/2017/gw-event-messages-create.gif "Example UX flow when creating a new message.")
+![Animated gif of stepped process to create a message on the event view](/images/2017/gw-event-messages-create.gif "Example UX flow when creating a new message.")
 
 ### Stitching it All Together
 
 Once I had these different views and their variations based on event date/time, I stitched them together into an Invision mock so that stakeholders could click through the different UIs and get a better sense of the overall UX, which looked something like this (excuse the not-so-great visual fidelity of the .gif):
 
-![Animated gif of the event UX]({{ site.imageurl }}/2017/gw-events-ux-flow.gif "An example of navigating the events user interface.")
+![Animated gif of the event UX](/images/2017/gw-events-ux-flow.gif "An example of navigating the events user interface.")
 
 ## The (Front-end) Engineering
 
