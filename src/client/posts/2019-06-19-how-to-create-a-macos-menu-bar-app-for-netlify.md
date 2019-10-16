@@ -242,6 +242,6 @@ The friendly [@kitopastorino](https://twitter.com/kitopastorino) from Netlify re
 > I was looking at the code and noticed some quick improvements can be done to improve the performance of the app (mostly using pagination in the builds endpoint...to only get one build per site)
 >
 
-He then sent me [a gist with his suggested changes](https://gist.github.com/kitop/a352074d20d8a3aaff57178e938a2552) which I’ve incorporated into the script in this blog post. The thrust of the changes, as Kito mentioned,  
+He then sent me [a gist with his suggested changes](https://gist.github.com/kitop/a352074d20d8a3aaff57178e938a2552) which I’ve incorporated into the script in this blog post. The thrust of the changes, as Kito mentioned, dealt with how to talk to the Netlify API. No one better than a Netlify developer to suggest those kinds of changes!
 
 ![A git diff of the primary code change based on Kito’s suggestions](/images/2019/netlify-menubar-script-diff.png)
