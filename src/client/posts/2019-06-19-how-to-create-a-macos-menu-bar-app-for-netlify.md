@@ -95,6 +95,9 @@ So, instead of just giving you my script, I put together this simple script to g
 #!/usr/bin/env /usr/local/bin/node
 const https = require("https");
 const url = require("url");
+const querystring = require("querystring");
+
+const API_TOKEN = "YOUR_TOKEN_HERE";
 
 // All my images as base64 strings
 const imgLogo =
@@ -115,12 +118,14 @@ fetchNetlify("sites")
   .then(sites => {
     return Promise.all(
       sites.map(site =>
-        fetchNetlify(`sites/${site.site_id}/builds`).then(builds => ({
-          ...site,
-          ...(builds && builds[0] && builds[0].id
-            ? { __latestBuild__: builds[0] }
-            : {})
-        }))
+        fetchNetlify(`sites/${site.site_id}/builds`, { per_page: 1 }).then(
+          builds => ({
+            ...site,
+            ...(builds && builds[0] && builds[0].id
+              ? { __latestBuild__: builds[0] }
+              : {})
+          })
+        )
       )
     );
   })
@@ -197,12 +202,20 @@ function logNetlifyLogo(notifications = 0) {
  * to the data of that endpoint.
  * @param {String} endpoint
  */
-function fetchNetlify(endpoint) {
+function fetchNetlify(endpoint, params = {}) {
   return new Promise((resolve, reject) => {
-    const uri = `https://api.netlify.com/api/v1/${endpoint}/?access_token=YOUR_TOKEN_HERE`;
+    let uri = `https://api.netlify.com/api/v1/${endpoint}`;
+    const query = querystring.stringify(params);
+    if (query) {
+      uri += `?${query}`;
+    }
+
+    const options = {
+      headers: { Authorization: `Bearer ${API_TOKEN}` }
+    };
 
     https
-      .get(uri, res => {
+      .get(uri, options, res => {
         let data = "";
         // A chunk of data has been recieved.
         res.on("data", chunk => {
@@ -219,3 +232,16 @@ function fetchNetlify(endpoint) {
   });
 }
 ```
+
+## Update 2019-10-16
+
+The friendly [@kitopastorino](https://twitter.com/kitopastorino) from Netlify reached out to me on twitter with a few suggestions for my script:
+
+> Hey Jim! I'm Kito from Netlify! Saw your post about a macOs Menu app...and loved it!
+>
+> I was looking at the code and noticed some quick improvements can be done to improve the performance of the app (mostly using pagination in the builds endpoint...to only get one build per site)
+>
+
+He then sent me [a gist with his suggested changes](https://gist.github.com/kitop/a352074d20d8a3aaff57178e938a2552) which I’ve incorporated into the script in this blog post. The thrust of the changes, as Kito mentioned,  
+
+![A git diff of the primary code change based on Kito’s suggestions](/images/2019/netlify-menubar-script-diff.png)
