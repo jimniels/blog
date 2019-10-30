@@ -124,6 +124,14 @@ Suffice it to say: despite the attractive purity of the approach where I step ou
 
 ## Attempt 4: Daemon
 
+Docs about `WatchPaths`:
+
+> If the path points to a directory, creating and removing this directory, as well as creating, removing and writing files in this directory will start the job. Actions performed in subdirectories of this directory will not be detected.
+
+That last line is kind of a deal breaker. I need the entire directory structure to know to sync anytime a file `n` levels deep changes. However, even though these launchd docs state this, I didn’t necessarily find it true in practice. I changed a number of files a couple levels deep and the deploy ran as expected. No problem there.
+
+However, I did have a problem with having `launchd` consistently run my script. If I added one file to my directory, it ran just fine. If I copied three files at once into my directory, again no problem. But once I started doing file changes in quick succession, like for example, delete three files one after another, not all three of those “events” seemed to register with `launchd`. As another example, if I added three files to my directory in quick succession–rather than all at once—the system seemed to pick up the first or second changes and run my script based on that point in time. But it didn’t seem to register that last file addition. This left me in a scenario where the folder structure on my machine did not mirror what was at my live URL, which left me in a situation where I needed some kind of “do a manual deploy to make sure everything is in sync” button. Falling out of sync is a big deal breaker, so I abnadoned this solution because I couldn’t figure out how to get it to work precisely (and there wasn’t a lot of useful information on the web about it).
+
 ![Animated gif of a deploy and notification by renaming a file in finder](/images/2019/netlify-sync-daemon-notification.gif)
 
 ## Attempt 5: BitBar (Again)
