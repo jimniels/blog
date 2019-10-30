@@ -100,6 +100,30 @@ Cons:
 
 In summary: I could see myself coming back to this prospect in the future. The idea of the Mac natively supporting JavaScript for scripting automation is incredibly intriguing. I’d really love to learn more about it, and how the worlds of npm and JXA could (or should) meet. But at the end of the day, I just wanted to get something working and so skipped this effort. But I think this will be good project to “grind my JavaScript for macOS axe” on someday.
 
-## Attempt 3: 
+## Attempt 3: Dropbox
 
-## Attempt 4: BitBar, But More Sophisticated
+As I was pondering how I could make the process of making sure my deployments were “in sync” with my local files, I had an idea pop into my mind based on [a previous Netlify project](https://github.com/jimniels/netlibox) I built.
+
+Every time I make a file change in Dropbox, Dropbox syncs that file to its servers and can send out [a webhook](https://www.dropbox.com/developers/reference/webhooks) saying “hey something changed”. In theory, I thought, that could be the trigger that then sets off a deploy of my site in Netlify with whatever the latest change is. The beauty of this approach is that it could all take place outside the context of my local machine. It would just be two clouds talking to each other. How? Via a lambda function in-between (why a lambda? because I know how to make those with Netlify’s help). So roughly I’d have a dance like this going on:
+
+1. I make changes to a file in my “deploy” folder on my machine (which is also a Dropbox folder)
+2. Mac Dropbox client syncs that file to Dropbox servers
+3. Dropbox server sends a webhook to a URL on my domain which triggers a lambda function 
+4. Lambda function receives the webhook, calls the Dropbox API and requests the files that changed
+5. Lambda function calls Netlify, tells it which files changed, and uploads a new deploy
+
+Again, having these two APIs talk to each other, without my involvement, anytime I changed files in my Dropbox folder _would have_ been a thing of beauty. But we’re talking about computers here, so it couldn’t be that easy.
+
+The problem, I discovered, was that Netlify’s API [talks about files in sha1 content hashes](https://docs.netlify.com/api/get-started/#file-digest-method) whereas Dropbox’s API talks about files in some kind of [block-level concatenation of sha256 hashes](https://www.dropbox.com/developers/reference/content-hash). “Can’t you just convert a sha256 string to a sha1 string?” While the answer to that question might be obvious to you, dear reader, it wasn’t to me. After some research and answers from [people](https://twitter.com/alazyreader) [smarter](https://twitter.com/kitopastorino) than me, I realized the answer is an abrupt “no”. 
+
+So what I have is a fundamental difference about how APIs talk about files. 
+
+Not only that, but there are some other sticky points here. For example, Netlify likes to know about _all_ the files in order to run a deploy. You tell it all the files in a deploy, it’ll tell you what it doesn’t already have and ask you to upload it. Under that scenario, every time a webhook comes in, my lambda would have to download _all_ files from my Dropbox folder to disk, calculate the sha1 of each, then pass that to Netlify for a deploy. That’s insanely heavy, especially if the folder you’re syncing is large. It appears the Netlify API provides the ability for you to PATCH a deploy, so in theory you could get a a webhook from Dropbox, detect only the things that changed, then surgically PATCH a previous deploy with those items. But in my lambda I’d still have to download all files that changed, get the sha1, and pass it on to Netlify in a PUT to a specific deploy ID. And that’s all just theory from reading the docs of both APIs. I never actually tried going down that route because it felt like a big hairball I didn’t want to tackle at this point in my life.
+
+Suffice it to say: despite the attractive purity of the approach where I step out of the picture and just let two APIs talk to each other, it didn’t seem feasible. Maybe smarter people than I will do it in the future.
+
+## Attempt 4: Daemon
+
+![Animated gif of a deploy and notification by renaming a file in finder](/images/2019/netlify-sync-daemon-notification.gif)
+
+## Attempt 5: BitBar (Again)
