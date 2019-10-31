@@ -65,9 +65,9 @@ Quoting David foster Wallace who is talking about ordinary people of their craft
 > maybe being able to communicate with people outside one’s area of expertise should be taught, and talked about, and considered as a requirement for genuine expertise.
 
 
-## Video: [“The State of Agile Software in 2018”](https://www.youtube.com/watch?v=G_y2pNj0zZg) by Dave Rupert
+## Video: [“The State of Agile Software in 2018”](https://www.youtube.com/watch?v=G_y2pNj0zZg)
 
-I originally discovered this via a link on [Dave Rupert’s blog](http://daverupert.com/2019/03/the-state-of-agile-software-in-2018/)—along with his reltable commentary:
+I originally discovered this via a link on [Dave Rupert’s blog](http://daverupert.com/2019/03/the-state-of-agile-software-in-2018/)—along with his relatable commentary:
 
 > Whenever I read the original Agile Manifesto and it’s accompanying Twelve Principles, my soul leaps! But in practice inside enterprise Agile frameworks, my soul is often left crushed...In my experience, there seems to be a strongly held belief that if you obey certain rituals: have certain meetings, say certain words, pray certain prayers, commit to improbable deadlines; your product will enter the Promise Land. It’s hard for me to rectify what I know about software development with this religion. I have resigned myself to being an apostate.
 
