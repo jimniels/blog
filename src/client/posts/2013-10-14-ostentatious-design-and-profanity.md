@@ -29,7 +29,7 @@ Profanity is the part of language that many consider impolite, offensive, or vul
 
 This app is called [Authentic Weather](http://www.authenticweather.com/) and it’s censored by Apple’s app store for vulgarity:
 
-[![Authentic Weather screenshot from iTunes](http://a5.mzstatic.com/us/r30/Purple6/v4/93/b3/da/93b3da38-9daf-fd31-fd1e-b8cdf10183f1/screen568x568.jpeg)](http://www.behance.net/gallery/Authentic-Weather-for-iOS/10324571)
+![Authentic Weather screenshot from iTunes](https://cdn.jim-nielsen.com/blog/2013/authentic-weather.jpg)
 
 Why do we need that? Why do we need to say, “It's f---ing cloudy now”? The point of the app, according to [this gallery](http://www.behance.net/gallery/Authentic-Weather-for-iOS/10324571), is to be authentic, honest, and get to the point. If you want to get to the point, leave out the superfluous words. Simply say “it’s cloudy”. You don't need the expletive “f---ing”. It’s unwarranted and crude. In addition, you don’t need the word “now” because of the present tense conjugation “it’s”.  If you want to “get to the point”, as the app’s proclamation states, “it’s raining” is more succinct.
 

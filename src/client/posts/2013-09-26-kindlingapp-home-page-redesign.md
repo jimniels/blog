@@ -24,13 +24,13 @@ The design started with a collaborative Google doc for the page’s copy. Though
 
 The artwork was then created in Photoshop. I dribbled a few previews of the work for historical sake:
 
-[![Narrative and artwork concepts](http://dribbble.s3.amazonaws.com/users/44352/screenshots/1233555/home-artwork.png)](http://dribbble.com/shots/1233555-Narrative-and-artwork-concepts)
+[![Narrative and artwork concepts](https://dribbble.s3.amazonaws.com/users/44352/screenshots/1233555/home-artwork.png)](https://dribbble.com/shots/1233555-Narrative-and-artwork-concepts)
 
-[![People Artwork](http://dribbble.s3.amazonaws.com/users/44352/screenshots/1237949/people.png)](http://dribbble.com/shots/1237949-People-graphic)
+[![People Artwork](https://dribbble.s3.amazonaws.com/users/44352/screenshots/1237949/people.png)](https://dribbble.com/shots/1237949-People-graphic)
 
 After drawing up the graphics and reviewing them with stakeholders, it was time to turn the design elements into markup and responsively test the designs across devices:
 
-[![Testing responsively now](http://dribbble.s3.amazonaws.com/users/44352/screenshots/1242191/drib.jpg)](http://dribbble.com/shots/1242191-Testing-responsively-now)
+[![Testing responsively now](https://dribbble.s3.amazonaws.com/users/44352/screenshots/1242191/drib.jpg)](https://dribbble.com/shots/1242191-Testing-responsively-now)
 
 ## Final Product
 

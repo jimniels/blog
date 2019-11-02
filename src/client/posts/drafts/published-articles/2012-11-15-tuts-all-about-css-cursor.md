@@ -20,4 +20,4 @@ Also, don't miss the end of the tutorial where I provide a comprehensive visual 
 
 
 
-[1]: http://jim-nielsen.com/images/2012/css-cursor-webdesign-tuts.png
+[1]: https://jim-nielsen.com/images/2012/css-cursor-webdesign-tuts.png
