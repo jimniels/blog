@@ -27,7 +27,7 @@ This was setting `NODE_ENV` to `production` and rendering the _entire_ site, whi
 
 So I started troubleshooting. My build log gave me a rough idea where the bottleneck was happening, so I was quickly able to diagnose the issue as the spot where I was calling `ReactDOMServer.renderToStaticMarkup()` to render the individual page views for each icon. 
 
-![Screenshot of CLI with drawings illustrating the differences in timing](/images/2019/react-dom-server-build-timing-screenshot.png)
+![Screenshot of CLI with drawings illustrating the differences in timing](https://cdn.jim-nielsen.com/blog/2019/react-dom-server-build-timing-screenshot.png)
 
 You can see how, as I increased the number of individual icon pages being rendered, the build got slower and slower. The strange thing was, this wasn’t happening with the production build. It was nice and quick. So why was my development version running slow? The npm `start` and `build` commands were running the same underlying build command, just with a few environmental configurations, i.e.
 
@@ -48,7 +48,7 @@ I’ve been using React for years and I didn’t know this was a thing. It’s l
 
 So how much faster was it to set `NODE_ENV` to `production`? Well, these were my results:
 
-![Chart comparing the build times when NODE_ENV was "production" and when it was not "production"](/images/2019/react-dom-server-build-timing-comparison-chart.png)
+![Chart comparing the build times when NODE_ENV was "production" and when it was not "production"](https://cdn.jim-nielsen.com/blog/2019/react-dom-server-build-timing-comparison-chart.png)
 
 - `NODE_ENV !== "production"`
   - 250 icons, 4 seconds

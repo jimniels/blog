@@ -68,7 +68,7 @@ The top item (imagemagick + imageoptim) was my baseline (that’s what I was usi
 
 The table shows none of these tools from npm were as good as the imagemagick + imageoptim combo. Some were definitely faster, but none resulted in equivalent image quality + file size. Remember: every tool on this list did _lossless_ compression except for pngquant, which did _lossy_ compression—that’s why it was so much faster than all the others, not too mention its resulting file sizes are much smaller. Here’s a look at a visual comparison of each file at 128px square, blown up for juxtaposition.
 
-![Comparison of image output](/images/2019/img-processing-node-tools-comparison.png)
+![Comparison of image output](https://cdn.jim-nielsen.com/blog/2019/img-processing-node-tools-comparison.png)
 
 My tests led me to discover that optipng and pngcrush were equivalent. Same file size output, same visual quality (to my eye). The only difference was the compression time. optinpng was an astounding 12 seconds in comparison to 56 seconds by pngcrush. I decided to dive a little deeper into that, as most of the tools had a couple different options you could play with to tweak output size, processing time, etc.
 
@@ -88,7 +88,7 @@ What I found is that the results didn’t seem to differ at all. The file size a
 
 If I was really going to replace imageoptim with optinpng, I wanted to dive a little deeper into comparing the output of each. This led me to choose a sample of icons which varied in visual complexity. You can usually tell what images will take longer than others to optimize and compress based on the visual sophistication of the icon (a “flat” icon design will likely be processed much quick than, say, a “skeumorphic” icon which has a lot of visual detail).
 
-![Icons processed for optinpng and imageoptim comparison](/images/2019/img-processing-optipng-tests.png)
+![Icons processed for optinpng and imageoptim comparison](https://cdn.jim-nielsen.com/blog/2019/img-processing-optipng-tests.png)
 
 Here’s how they did:
 
@@ -115,11 +115,11 @@ Before fully switching over to imageoptim’s API service, I wanted to do a litt
 
 First I took a look at the differences between optimizing *AND* resizing an image through the API vs. optimizing through the API but then resizing locally. 
 
-![Comparison of local vs server optimization and resizing for Mario icon](/images/2019/img-processing-server-vs-local-mario.png)
+![Comparison of local vs server optimization and resizing for Mario icon](https://cdn.jim-nielsen.com/blog/2019/img-processing-server-vs-local-mario.png)
 
 As you can see, resizing locally with node (using [sharp](https://github.com/lovell/sharp)) resulted in degraded image quality. I tested with a couple other icons and saw the same result.
 
-![Comparison of local vs server optimization and resizing for Oddmar icon](/images/2019/img-processing-server-vs-local-oddmar.png)
+![Comparison of local vs server optimization and resizing for Oddmar icon](https://cdn.jim-nielsen.com/blog/2019/img-processing-server-vs-local-oddmar.png)
 
 I also found that, not only was resizing locally resulting in worse image quality, but resizing through the API was too! This was puzzling to me until, deep in the docs, I found that if you ask the server to resize, it’s not going to do lossless compressions anymore. That meant, if I wanted lossless compression, I’d have to give the imageoptim API a lossless source file at each size I wanted. In other words, I couldn’t say, “here API, here’s my lossless source file of 1024px, I want 512px, 256px, and 128px of that optimized”. Rather, I had to say “here API, here’s my lossless source file of 512px, optimize it. Now here's my lossless source file of 256px, optimize it.” etc. Fortunately, this wasn’t too difficult because the iTunes API will give me back a URL for an app’s icon and I can request the size I want on the fly. So instead of having to download an icon myself to disk from iTunes, then upload it to imageoptim (and do this for every size I want), imageoptim actually accepted a file upload *or* a URL, so I could pass the iTunes URL to imageoptim and just change the file size in the URL that iTunes was providing.
 
@@ -129,7 +129,7 @@ Now I finally felt like I was on the right track. Get the URL for the artwork of
 
 Guess what? They weren’t identical. At that point I didn’t know what to do or how to reconcile those changes. So I wrote an email to the maintainers of imageoptim. Here’s the image comparison I sent them and an excerpt from that email:
 
-![Image depicting visual comparison of optimized image from imageoptim API and from imageoptim Mac app](/images/2019/img-processing-api-local-differences.png)
+![Image depicting visual comparison of optimized image from imageoptim API and from imageoptim Mac app](https://cdn.jim-nielsen.com/blog/2019/img-processing-api-local-differences.png)
 
 > The one on the left is optimized by the API. The one on the right is optimized locally. You can see the server optimized one is smaller in size, but it also seems to be lossy even though I specified `full,quality=lossless` [through the API]. Is this expected? My assumption here is that if I pass the source image to the API specifying `full,quality=lossless` (without any resizing) and I pass the same source image to the ImageOptim Mac app, I would get the same result. But that doesn't seem to be the case? Is there a way I can get the same result from your API that I would get using the Mac app on the desktop?
 

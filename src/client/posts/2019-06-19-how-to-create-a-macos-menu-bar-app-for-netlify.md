@@ -7,7 +7,7 @@ In case you don’t already know, I like Netlify. And I [build on it](https://bl
 
 A while back, I was scrolling through my twitter feed and saw [this project tweeted about by Phil Hawksworth](https://twitter.com/philhawksworth/status/1107646222582587392):
 
-![Screenshot of lekoarts_de’s Netlify status board](/images/2019/netlify-menubar-status-board-screenshot.png)
+![Screenshot of lekoarts_de’s Netlify status board](https://cdn.jim-nielsen.com/blog/2019/netlify-menubar-status-board-screenshot.png)
 
 > I really like this. I've been meaning to make my own dashboard showing the status any of my sites that I care about by just including a list of [@Netlify](https://twitter.com/Netlify) deploy badges.
 >
@@ -29,15 +29,15 @@ First of all, it’s worth noting that I built this on top of [BitBar](https://g
 
 By default you get a nice little Netlify logo in your menu bar.
 
-![Screenshot of Netlify app in my Mac’s menu bar](/images/2019/netlify-menubar-screenshot-no-notification.png)
+![Screenshot of Netlify app in my Mac’s menu bar](https://cdn.jim-nielsen.com/blog/2019/netlify-menubar-screenshot-no-notification.png)
 
 What’s neat is BitBar has instructions on how to build your menu bar app so it accommodates things like retina screens and dark mode.
 
-![Screenshot of Netlify app in my Mac’s menu bar in dark mode](/images/2019/netlify-menubar-screenshot-no-notification-dark-mode.png)
+![Screenshot of Netlify app in my Mac’s menu bar in dark mode](https://cdn.jim-nielsen.com/blog/2019/netlify-menubar-screenshot-no-notification-dark-mode.png)
 
 BitBar also has a very simple API for indicating how often your script should run: via the file name! I set mine to run every minute (but I could make it every 30, 15, or 5 seconds if I wanted). Each time it runs, it asks Netlify for all my sites and the latest build status of each. If there’s a build in progress (or one failed), I get a number next to the menu bar icon, a kind of notification if you will.
 
-![Screenshot of Netlify app in my Mac’s menu bar with a notification](/images/2019/netlify-menubar-screenshot-notification.png)
+![Screenshot of Netlify app in my Mac’s menu bar with a notification](https://cdn.jim-nielsen.com/blog/2019/netlify-menubar-screenshot-notification.png)
 
 When I click on the menu bar app, I get a native dropdown which displays all my sites (I decided to group them by domain) along with a little status light indicator to show the build status:
 
@@ -46,13 +46,13 @@ When I click on the menu bar app, I get a native dropdown which displays all my 
 - Red: latest build failed
 - Gray: no build pipeline applicable (for me, these were static sites I dragged and dropped for deployment through Netlify’s UI)
 
-![Screenshot of Netlify menu bar app dropdown](/images/2019/netlify-menubar-screenshot-dropdown.jpg)
+![Screenshot of Netlify menu bar app dropdown](https://cdn.jim-nielsen.com/blog/2019/netlify-menubar-screenshot-dropdown.jpg)
 
 Clicking on any of the sites listed in the dropdown will take you to that particular site in Netlify.
 
 So putting it all together, you get something like this:
 
-![Animated gif depicting how the Netlify menu bar app works](/images/2019/netlify-menubar-animated.gif)
+![Animated gif depicting how the Netlify menu bar app works](https://cdn.jim-nielsen.com/blog/2019/netlify-menubar-animated.gif)
 
 What’s really neat about is how flexible BitBar actually is. If you wanted, you have each site be its own flyout menu in the menu bar and have it display all kinds of meta info—build status, build time, site url, netlify site admin url, etc—you could! The sky’s the limit.
 
@@ -85,7 +85,7 @@ So what does my script look like? Well my script is pretty custom to my setup in
 
 So, instead of just giving you my script, I put together this simple script to get you started. It has zero dependencies and just calls the Netlify API to pull all your sites and the latest build for each of those sites.
 
-![Screenshot of Netlify menu bar app using the example script](/images/2019/netlify-menubar-example-script.jpg)
+![Screenshot of Netlify menu bar app using the example script](https://cdn.jim-nielsen.com/blog/2019/netlify-menubar-example-script.jpg)
 
 **Note**: this script accesses the [Netlify API](https://www.netlify.com/docs/api/) and therefore requires an access token. You’ll have to follow their instructions to get one and put in the script below where it says `YOUR_TOKEN_HERE`.
 
@@ -244,4 +244,4 @@ The friendly [@kitopastorino](https://twitter.com/kitopastorino) from Netlify re
 
 He then sent me [a gist with his suggested changes](https://gist.github.com/kitop/a352074d20d8a3aaff57178e938a2552) which I’ve incorporated into the script in this blog post. The thrust of the changes, as Kito mentioned, dealt with how to talk to the Netlify API. No one better than a Netlify developer to suggest those kinds of changes!
 
-![A git diff of the primary code change based on Kito’s suggestions](/images/2019/netlify-menubar-script-diff.png)
+![A git diff of the primary code change based on Kito’s suggestions](https://cdn.jim-nielsen.com/blog/2019/netlify-menubar-script-diff.png)

@@ -5,11 +5,11 @@ tags: engineering
 
 I recently added the ability to search for icons (by name) on my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [sites](https://www.watchosicongallery.com).
 
-![New search functionality GIF](/images/2019/progressive-search.gif)
+![New search functionality GIF](https://cdn.jim-nielsen.com/blog/2019/progressive-search.gif)
 
 I even got it working on mobile.
 
-![New search functionality GIF on mobile](/images/2019/progressive-search-mobile.gif)
+![New search functionality GIF on mobile](https://cdn.jim-nielsen.com/blog/2019/progressive-search-mobile.gif)
 
 There are about a million ways I could’ve done this. However, one of the self-imposed engineering constraints with my icon gallery sites is accessibility. I ~~like~~ love the idea of building [resilient](https://resilientwebdesign.com/) web sites that’ll not only stand up to spotty networks or antiquated devices, but will have some longevity to them. Semantic HTML, enhanced with styles and JS interactivity, is a recipe for a website that could last a decade or two or [three](http://info.cern.ch/hypertext/WWW/TheProject.html).
 
@@ -21,11 +21,11 @@ So how do I go about such an endeavor? I’ll try to explain from the perspectiv
 
 First and foremost, my sites start with the HTML. I focus on trying to make my markup simple and semantic. I strive to write markup that describes the content, rather than markup that describes _how I’ll style_ the content. That means describing content with the the appropriate tags, rather than making every container a `<div>`. It also means abstaining from superfluous elements, like `<span>`, just to create a stylish effect (`::before` and `::after` in CSS make this way easier than it used to be). I strive to have every tag semantically describe not merely the content it’s wrapping, but the relationship between its children, parents, and siblings.
 
-![Screenshot of DOM structure](/images/2019/progressive-dom-structure.png "Example DOM structure")
+![Screenshot of DOM structure](https://cdn.jim-nielsen.com/blog/2019/progressive-dom-structure.png "Example DOM structure")
 
 If you hit my site’s URL and the CSS or the JavaScript fails to load, you’ll still be able to navigate the site and view the content.
 
-![Screenshot of site without CSS or JavaScript](/images/2019/progressive-no-css.png "Cropped screenshot illustrating the header, body, and footer content of my site without any styles of JavaScript. Feels like the web circa 1998.")
+![Screenshot of site without CSS or JavaScript](https://cdn.jim-nielsen.com/blog/2019/progressive-no-css.png "Cropped screenshot illustrating the header, body, and footer content of my site without any styles of JavaScript. Feels like the web circa 1998.")
 
 ## CSS
 
@@ -33,17 +33,17 @@ Next comes styling. For these particular sites, I revel in modern CSS layouts, u
 
 So if a user went to my website and the CSS loaded, but for some reason the JavaScript didn’t (or the user had JavaScript disabled), this is what they’d see:
 
-![Screenshot of site without JavaScript](/images/2019/progressive-no-js.png "HTML and CSS loaded, but JavaScript failed for some reason")
+![Screenshot of site without JavaScript](https://cdn.jim-nielsen.com/blog/2019/progressive-no-js.png "HTML and CSS loaded, but JavaScript failed for some reason")
 
 ## JavaScript
 
 Now if the JavaScript did run (and the styles loaded), this is what a user might see:
 
-![Screenshot of site with JavaScript](/images/2019/progressive-js.png "Fully-enhanced version of the site with CSS & JavaScript")
+![Screenshot of site with JavaScript](https://cdn.jim-nielsen.com/blog/2019/progressive-js.png "Fully-enhanced version of the site with CSS & JavaScript")
 
 Did you notice the difference?
 
-![Differences between sites with and without JavaScript loaded](/images/2019/progressive-difference.png)
+![Differences between sites with and without JavaScript loaded](https://cdn.jim-nielsen.com/blog/2019/progressive-difference.png)
 
 ### Ads
 

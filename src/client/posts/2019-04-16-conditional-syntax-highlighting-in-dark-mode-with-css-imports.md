@@ -13,11 +13,11 @@ You know how they always say “don’t use `@import` in CSS”? Well, that’s 
 
 If you read my blog today (in “light mode”) you’ll see colored syntax highlighting for the code examples. However, when you switch to dark mode you lose that “feature” and all code just becomes white.
 
-![Screenshot of code from my blog showing how it’s all the same color](/images/2019/dark-mode-syntax-old-screenshot.png)
+![Screenshot of code from my blog showing how it’s all the same color](https://cdn.jim-nielsen.com/blog/2019/dark-mode-syntax-old-screenshot.png)
 
 If you looked at the CSS for this, you’d see how I left myself a little @TODO comment saying “hey, you should get around to this”. I essentially had to overwrite all the “light mode” styles and say, “just make everything white when in dark mode”, as I hadn’t had the time to figure out a dark color scheme and how to make it work (that `*` selector is nested and ends up something like `.markdown pre *`):
 
-![Screenshot of the syntax highlighting CSS code where I left a comment saying “fix this”](/images/2019/dark-mode-syntax-old-code.png)
+![Screenshot of the syntax highlighting CSS code where I left a comment saying “fix this”](https://cdn.jim-nielsen.com/blog/2019/dark-mode-syntax-old-code.png)
 
 I finally got around to trying to make this a bit better and I found a nifty solution that uses `@import` in CSS.
 
@@ -63,7 +63,7 @@ I was close, but that actually doesn’t actually work. The idea was there, I ju
 
 That’s pretty cool, and honestly feels like a perfect case for `@import`. I am conditionally declaring styles for syntax highlighting based on whether the user is in dark mode or not. And I didn’t have to use any JavaScript. No event listeners. No imperative fetch calls. Just two lines of CSS and it works.
 
-![Animated gif showing syntax highlighting changes between light and dark mode](/images/2019/dark-mode-syntax-switch.gif)
+![Animated gif showing syntax highlighting changes between light and dark mode](https://cdn.jim-nielsen.com/blog/2019/dark-mode-syntax-switch.gif)
 
 It might not be apparent, but that gif showing the switch from light to dark is actually a whole different set CSS rules for doing syntax highlighting on that code.
 

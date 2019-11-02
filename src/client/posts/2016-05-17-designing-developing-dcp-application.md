@@ -23,9 +23,9 @@ From the outset of this project, I was given a few resources to help me in desig
 
 Time Inc. had an existing application named “Athena” that was being used internally for all digital content production related tasks. I suppose one would call this a “legacy application”, though I can assure you that name does not accurately describe the age of this application. Take a look for yourself:
 
-![Screenshot of the Athena](/images/2016/dcp-athena-screenshot-1.png "The “old” application’s UI for settings article rights restrictions.")
+![Screenshot of the Athena](https://cdn.jim-nielsen.com/blog/2016/dcp-athena-screenshot-1.png "The “old” application’s UI for settings article rights restrictions.")
 
-![Screenshot of the Athena](/images/2016/dcp-athena-screenshot-2.png "The “old” application’s UI for looking at the summary of an issue.")
+![Screenshot of the Athena](https://cdn.jim-nielsen.com/blog/2016/dcp-athena-screenshot-2.png "The “old” application’s UI for looking at the summary of an issue.")
 
 Having screenshots of the existing application was actually quite useful in clarifying vagueness around data representation, user actions, etc.. In being given these screenshots, I was explicitly mandated to not “borrow any of the application’s UI or aesthetics”. They didn’t have to tell me twice (I actually didn’t really need to be told that once).
 
@@ -35,13 +35,13 @@ Because there was already an application in place with specified functionality, 
 
 For example, rather than having to discover by myself that “Issues” in the system had nine different states and how those states affected the progression of issues through the system, this information was (mostly) documented in the PDF. The PDF ended up serving as more of a starting point for conversations and wireframes than it did as a concrete blueprint of what we would be building. A lot of the specifications changed through the course of the project. As I designed and developed the application’s UI/UX, we brought materials back to the stakeholders to ensure we were on the right track. Those conversations gave rise to existing pain points for end users of the application, which compelled us to revise and edit the requirements PDF to build a better application. The printed document also served as a trusty reference and checklist for feature design and development.
 
-![Picture of my edited version of requirements PDF](/images/2016/dcp-requirements-pdf-picture.jpg "Sometimes a physical copy of a document works best for tracking changes.")
+![Picture of my edited version of requirements PDF](https://cdn.jim-nielsen.com/blog/2016/dcp-requirements-pdf-picture.jpg "Sometimes a physical copy of a document works best for tracking changes.")
 
 ### Flow Diagram
 
 Probably the most useful piece of information I initially received was the flow diagram showing how data was supposed to flow through the system and how the application’s end users were tied to this data flow.
 
-![Axure wireframe: user roles and workflow](/images/2016/dcp-axure-workflow.png)
+![Axure wireframe: user roles and workflow](https://cdn.jim-nielsen.com/blog/2016/dcp-axure-workflow.png)
 
 This helped me scope out user roles and responsibilities while also helping define the eventual URL structure of the application.
 
@@ -49,19 +49,19 @@ This helped me scope out user roles and responsibilities while also helping defi
 
 I was provided some rough (let me emphasize the word *rough*) wireframes around the UI/UX for each user in the application.
 
-![A ROUGH Axure wireframe](/images/2016/dcp-axure-print-schedule.png "An example “wireframe” I had to work with.")
+![A ROUGH Axure wireframe](https://cdn.jim-nielsen.com/blog/2016/dcp-axure-print-schedule.png "An example “wireframe” I had to work with.")
 
 They weren’t really wireframes so much as they were half-formed thoughts around what the application’s data would look like and how it should be displayed, edited, and manipulated. For example, here was a wireframe for representing the view for an issue:
 
-![Axure wireframe: Issue view](/images/2016/dcp-axure-issue-view.png "A wireframe of the issue view (which did not take into account varying user roles and responsibilities)")
+![Axure wireframe: Issue view](https://cdn.jim-nielsen.com/blog/2016/dcp-axure-issue-view.png "A wireframe of the issue view (which did not take into account varying user roles and responsibilities)")
 
 Note that this wireframe, while representing what data we needed to show, did not take into account any of the nuances of user roles and responsibilities (who could see and edit what data). Contrary to the flow diagram, not all users were supposed to be able to add or edit data in form fields as seen in the screenshot above. Some of the additional roles and responsibilities for different user types were accounted for in other wireframes, but it was never totally clear how (if at all) these screens were related to one another. For example, here were three other wireframes which were supposed to represent the view of an individual issue but with varying actions depending on user role:
 
-![Axure wireframe: outsourcer view](/images/2016/dcp-axure-outsourcer-view.png "Issue view wireframe for the “outsourcer” user.")
+![Axure wireframe: outsourcer view](https://cdn.jim-nielsen.com/blog/2016/dcp-axure-outsourcer-view.png "Issue view wireframe for the “outsourcer” user.")
 
-![Axure wireframe: brand owner view](/images/2016/dcp-axure-outsourcer-view.png "Issue view wireframe for the “brand owner” user.")
+![Axure wireframe: brand owner view](https://cdn.jim-nielsen.com/blog/2016/dcp-axure-outsourcer-view.png "Issue view wireframe for the “brand owner” user.")
 
-![Axure wireframe: qa view](/images/2016/dcp-axure-qa-view.png "Issue view wireframe for the “QA” user.")
+![Axure wireframe: qa view](https://cdn.jim-nielsen.com/blog/2016/dcp-axure-qa-view.png "Issue view wireframe for the “QA” user.")
 
 Contrary to what many wireframes do, these wireframes didn’t convey any sense of navigation or hierarchy. It was left completely unclear how a user would get around from one thing to another in the application while understanding the relationship between those things.
 
@@ -69,7 +69,7 @@ Contrary to what many wireframes do, these wireframes didn’t convey any sense 
 
 One of the only points of direction I was given in regards to the aesthetic direction of this new application is that I try to align it with the aesthetic direction of other applications being developed at Time Inc. (for obvious reasons like internal brand consistency, end user application experience continuity, etc.). Although there wasn’t much for me to go off, I was given a few mocks around a publishing tool being developed within Time Inc. along with verbal direction that it be “clean and minimalistic”.
 
-![Screenshot of another application within Time Inc.](/images/2016/dcp-time-visual-guidelines.png "Screenshot of another internal application whose “minimal/clean” aesthetic Time Inc. wanted to imitate for DCP.")
+![Screenshot of another application within Time Inc.](https://cdn.jim-nielsen.com/blog/2016/dcp-time-visual-guidelines.png "Screenshot of another internal application whose “minimal/clean” aesthetic Time Inc. wanted to imitate for DCP.")
 
 
 ## Stage 2: Sketches, Wireframes, and UX
@@ -106,25 +106,25 @@ To understand how users would navigate through the application, I began by sketc
 
 Defining these URLs helped me better understand the application architecture and allowed me to begin sketching through rough ideas of user interfaces and navigation.
 
-![Photo of application sketches.](/images/2016/dcp-sketch-1.jpg "Sketches of different views in the application")
+![Photo of application sketches.](https://cdn.jim-nielsen.com/blog/2016/dcp-sketch-1.jpg "Sketches of different views in the application")
 
-![Photo of sketch notes.](/images/2016/dcp-sketch-2.jpg "Keeping track of questions and answers through the sketching phase.")
+![Photo of sketch notes.](https://cdn.jim-nielsen.com/blog/2016/dcp-sketch-2.jpg "Keeping track of questions and answers through the sketching phase.")
 
 Once I had developed solid ideas around the structure and layout of shared URL views, I moved on to refining navigation and layout patterns for views unique to each user role.
 
-![Photo of application sketch.](/images/2016/dcp-sketch-navigation.jpg "Sketches around navigation for the QA/Admin user experience.")
+![Photo of application sketch.](https://cdn.jim-nielsen.com/blog/2016/dcp-sketch-navigation.jpg "Sketches around navigation for the QA/Admin user experience.")
 
 Once my sketches had provided me with enough concrete ideas, I took to Sketch app to form low-fidelity wireframes around layout, structure, and navigation for each of the three different user experiences:
 
-![Screenshot of brand owner issue view wireframe.](/images/2016/dcp-wireframes-brand-owner-issue.png "Wireframe for the brand owner issue view which deals with setting article restrictions and checking-off issue rights.")
+![Screenshot of brand owner issue view wireframe.](https://cdn.jim-nielsen.com/blog/2016/dcp-wireframes-brand-owner-issue.png "Wireframe for the brand owner issue view which deals with setting article restrictions and checking-off issue rights.")
 
-![Screenshot of outsourcer issue view wireframe.](/images/2016/dcp-wireframes-outsourcer-issue.png "Wireframe for the outsourcer issue view which deals with uploading XML files for issues.")
+![Screenshot of outsourcer issue view wireframe.](https://cdn.jim-nielsen.com/blog/2016/dcp-wireframes-outsourcer-issue.png "Wireframe for the outsourcer issue view which deals with uploading XML files for issues.")
 
-![Screenshot of admin issue summary wireframe.](/images/2016/dcp-wireframes-admin-issue-summary.png "Wireframe for the admin issue summary which provided a dashboard type overview of the issue’s status.")
+![Screenshot of admin issue summary wireframe.](https://cdn.jim-nielsen.com/blog/2016/dcp-wireframes-admin-issue-summary.png "Wireframe for the admin issue summary which provided a dashboard type overview of the issue’s status.")
 
-![Screenshot of admin issue assets wireframe.](/images/2016/dcp-wireframes-admin-issue-assets.png "Wireframe for the admin issue assets list which served as a place to view, add, remove, and edit assets associated with an issue.")
+![Screenshot of admin issue assets wireframe.](https://cdn.jim-nielsen.com/blog/2016/dcp-wireframes-admin-issue-assets.png "Wireframe for the admin issue assets list which served as a place to view, add, remove, and edit assets associated with an issue.")
 
-![Screenshot of admin dashboard wireframe.](/images/2016/dcp-wireframes-admin-dashboard.png "Wireframe for the admin dashboard which served as the application home page and provided an overview of the progress of issues through the system workflow.")
+![Screenshot of admin dashboard wireframe.](https://cdn.jim-nielsen.com/blog/2016/dcp-wireframes-admin-dashboard.png "Wireframe for the admin dashboard which served as the application home page and provided an overview of the progress of issues through the system workflow.")
 
 My notes for URL structure in conjunction with my hand-drawn sketches and digital wireframes led me to solid ideas I could begin developing as higher fidelity mocks.
 
@@ -135,27 +135,27 @@ My basic workflow in this stage was to mock each view and export it to [Invision
 
 As mentioned previously, I divided the application into three separate experiences based on user roles. This meant I had to design three different screens for each URL endpoint. For example, the home screen could display one of three views depending on the type of user logged in. I made sure to examine each view and, where possible, share design and layout patterns that could be leveraged across user experiences. As an example, the home screen dashboard for “Brand Owner” and “Outsourcer” user roles was a simple list of outstanding issues. As such, they could easily share a template with minor differences in data.
 
-![Screenshot of Brand Owner and Outsourcer dashboards.](/images/2016/dcp-dashboard-shared.png "The dashboard for two user roles were designed in similar patterns: a simple list of outstanding issues that needed attention.")
+![Screenshot of Brand Owner and Outsourcer dashboards.](https://cdn.jim-nielsen.com/blog/2016/dcp-dashboard-shared.png "The dashboard for two user roles were designed in similar patterns: a simple list of outstanding issues that needed attention.")
 
 However, the home screen dashboard for QA/Admin users was a categorized list based on issue status that was designed to communicate more of a workflow than a simple to-do list, so its design and implementation were unique.
 
-![Screenshot of QA/Admin dashboard.](/images/2016/dcp-dashboard-unique.png "The dashboard for one user role was significantly than the other two and required a unique, workflow layout approach.")
+![Screenshot of QA/Admin dashboard.](https://cdn.jim-nielsen.com/blog/2016/dcp-dashboard-unique.png "The dashboard for one user role was significantly than the other two and required a unique, workflow layout approach.")
 
 Through the creation of static mocks and linking them in Invision, I was able to create a prototype of the application’s vital screens and interactions for review and feedback. Here’s an animated .gif overview of each of those screens based on the experience of each user role:
 
 ### Brand Owner Experience
 
-![Animated gif of brand owner experience.](/images/2016/dcp-animated-ux-brand-owner.gif "Flow for brand owners in setting restrictions on articles and checking-off issue rights as complete.")
+![Animated gif of brand owner experience.](https://cdn.jim-nielsen.com/blog/2016/dcp-animated-ux-brand-owner.gif "Flow for brand owners in setting restrictions on articles and checking-off issue rights as complete.")
 
 ### Outsourcer Experience
 
-![Animated gif of outsourcer experience.](/images/2016/dcp-animated-ux-outsourcer.gif "Flow for outsourcers in uploading XML files to issues they’ve been assigned.")
+![Animated gif of outsourcer experience.](https://cdn.jim-nielsen.com/blog/2016/dcp-animated-ux-outsourcer.gif "Flow for outsourcers in uploading XML files to issues they’ve been assigned.")
 
 ### QA/Admin Experience
 
-![Animated gif of admin experience (minus QA).](/images/2016/dcp-animated-ux-admin.gif "Flow for admins in monitoring issues progress through the dashboard and reviewing individual issue progress along with editing, adding, and removing issue assets.")
+![Animated gif of admin experience (minus QA).](https://cdn.jim-nielsen.com/blog/2016/dcp-animated-ux-admin.gif "Flow for admins in monitoring issues progress through the dashboard and reviewing individual issue progress along with editing, adding, and removing issue assets.")
 
-![Animated gif of admin QA experience.](/images/2016/dcp-animated-ux-admin-qa.gif "Flow for admins in the QA process of an individual issue.")
+![Animated gif of admin QA experience.](https://cdn.jim-nielsen.com/blog/2016/dcp-animated-ux-admin-qa.gif "Flow for admins in the QA process of an individual issue.")
 
 
 ## Stage 4: Building in React
@@ -164,7 +164,7 @@ As noted in the earlier design process, I took the time to carefully consider sh
 
 As an example, for the outsourcer and brand owner dashboards, the designs shared the same patterns with minimal differences in textual labels. So composing these UI elements as sharable components was made relatively easy. To see this, look again at the shared design pattern between the outsourcer dashboard and the brand owner dashboard:
 
-![Screenshot of Brand Owner and Outsourcer dashboards.](/images/2016/dcp-dashboard-shared.png "Brand owner dashboard on the left, outsourcer dashboard on the right.")
+![Screenshot of Brand Owner and Outsourcer dashboards.](https://cdn.jim-nielsen.com/blog/2016/dcp-dashboard-shared.png "Brand owner dashboard on the left, outsourcer dashboard on the right.")
 
 As you can see, the layout and styles are very similar. The only real differences are the textual labels. So, first I defined the parent container for each of the dashboard lists that I would later include as a component in each individual file. The props this component needed were the data (issues) and the textual labels and their corresponding data keys for later composition:
 

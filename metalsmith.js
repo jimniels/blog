@@ -34,7 +34,7 @@ let App = Metalsmith(__dirname)
      * @TODO IF we are including drafts, move them to the "posts" folder
      * for now we are just going to delete them.
      */
-    multimatch(Object.keys(files), ["drafts/**", "draftz/**"]).forEach(file => {
+    multimatch(Object.keys(files), ["posts/drafts/**"]).forEach(file => {
       delete files[file];
     });
 
@@ -43,13 +43,7 @@ let App = Metalsmith(__dirname)
      * Convert all .md files to .html files
      */
     multimatch(Object.keys(files), "**/*.md").forEach(file => {
-      const markdown = marked(
-        files[file].contents
-          .toString()
-          // @TODO all the old posts prefixed where you could find the content
-          // using this syntax
-          .replace(/{{\s*site.imageurl\s*}}/g, "/assets/img")
-      );
+      const markdown = marked(files[file].contents.toString());
       // We'll save markdown, so we can access just that if we want,
       // but we'll also save the `.contents` because that's what gets output to
       // a file. Useful for cases like
@@ -167,9 +161,9 @@ let App = Metalsmith(__dirname)
     /**
      * Handle Templating
      * Render the templates and/or layouts for all applicable files
-     * 
+     *
      * Any files (.md) with front-matter in them that indicate a `layout` get
-     * rendered with that layout with `site` AND `page` data. 
+     * rendered with that layout with `site` AND `page` data.
      *   ({ site, page }) => {}
      * Any files marked as templates get passed ONLY the `site` data so they can
      * render themselves.

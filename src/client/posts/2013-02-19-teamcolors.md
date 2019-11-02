@@ -8,15 +8,15 @@ redirect_from: /posts/teamcolors/
 
 I recently participated in the [Arc90 Hackathon](http://lab.arc90.com/hackathon/2012/). I originally volunteered for a different project as part of a team, but due to scheduling conflicts my team disbanded. I was left with the option to work on a solo project, which resulted in [Team Colors][http://teamcolors.arc90.com/]: a single-page website that serves as a reference for HEX values for professional sport teams:
 
-![Screenshot of Team Colors, an Arc90 Hackathon Project](/images/2013/team-colors.png)
+![Screenshot of Team Colors, an Arc90 Hackathon Project](https://cdn.jim-nielsen.com/blog/2013/team-colors.png)
 
 Unfortunately, the Hackathon took place while I was absent from the office (travelling to Utah for the Christmas break). So a lot of my work was done on a plane and working from home. I started Team Colors by sketching out some ideas for the page hierarchy and navigation:
 
-![Sketch of Team Colors](/images/2013/team-colors-sketch.jpg)
+![Sketch of Team Colors](https://cdn.jim-nielsen.com/blog/2013/team-colors-sketch.jpg)
 
 After thinking through and sketching out how to present each team and its corresponding brand colors in a responsive manner, I turned to writing some pseudocode that would power the interaction of the site:
 
-![Pseudocode for Team Colors](/images/2013/team-colors-code.jpg)
+![Pseudocode for Team Colors](https://cdn.jim-nielsen.com/blog/2013/team-colors-code.jpg)
 
 Once I got everything down on paper, the fun part of building began. The hardest part was  finding the actual HEX values for each team. There were some obscure, outdated forum posts scattered across the web. In the end Wikipedia was my best reference, although it did not provide the brand colors in the user interface. I found them in the underlying HTML/CSS using Chrome developer tools.
 

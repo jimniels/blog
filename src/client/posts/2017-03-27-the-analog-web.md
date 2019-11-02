@@ -23,15 +23,15 @@ This is exactly why some audiophiles will argue that analog recordings trump dig
 
 To illustrate, take a look at this graphic (image courtesy of [Center Point Audio](http://www.centerpointaudio.com/Images/Analog-Digital%20frequency%20examples.png)):
 
-![Illustration of the difference between an analog and digital wave](/images/2017/analog-web-analog-vs-digital-wave.png)
+![Illustration of the difference between an analog and digital wave](https://cdn.jim-nielsen.com/blog/2017/analog-web-analog-vs-digital-wave.png)
 
 Notice the rigidity of the digital wave? The analog signal is continuous. It is without interruption. The digital signal, on the other hand, encodes the information contained in the analog signal into discrete signal states. That's what digital is: it’s binary. It's 1 or 0. On or off.
 
-![Illustration of the difference between an analog and digital signal](/images/2017/analog-web-analog-vs-digital-signal.png)
+![Illustration of the difference between an analog and digital signal](https://cdn.jim-nielsen.com/blog/2017/analog-web-analog-vs-digital-signal.png)
 
 A binary signal can only represent two values, which is not very useful compared to an analog signal which can represent an infinite number of intermediate values. That’s why digital signals have to use several “bits”, or multiple 1’s and 0’s, to represent points on a wave.
 
-![Illustration of the difference between an analog and digital signal](/images/2017/analog-web-analog-digital-curves.png)
+![Illustration of the difference between an analog and digital signal](https://cdn.jim-nielsen.com/blog/2017/analog-web-analog-digital-curves.png)
 
 When you pack enough binary values into a single point on a wave, the digital signal begins to more accurately represent the an analog signal. [Center Point Audio](http://www.centerpointaudio.com/Analog-VS-Digital.aspx) gives us an easy way to visual this:
 
@@ -47,17 +47,17 @@ When I grew up, we had OTA (over the air) analog television. This meant we had a
 
 Because the TV reception was analog it was subject to interference, resulting in some channels being more clear than others. Most of the channels came in clear at our house except for one: Univision (or the "spanish channel" as my siblings and I called it). For whatever reason, this channel always had lots of interference which resulted in the image often being barely distinguishable.
 
-![Image of a TV with a weak signal](/images/2017/analog-web-weak-analog-signal.jpg)
+![Image of a TV with a weak signal](https://cdn.jim-nielsen.com/blog/2017/analog-web-weak-analog-signal.jpg)
 
 For most members of my family, not being able to watch the spanish channel wasn’t a big concern. But it concerned me. Back then (and still somewhat today) soccer was obscure in American sports, so none of the major TV stations like ABC or NBC carried the big soccer matches. In the days before the internet, this made it very difficult for me as a 14-year-old kid to watch any matches. There was, however, one channel that always broadcast the soccer games and it was that fuzzy, hazy, barely-distinguishable, foreign-language spanish channel. I came to love that channel. Sure, the games were in a different language and the image on screen was incredibly low quality, but when the big games were on, none of that mattered. All I cared about was accessibility (not my web terminology here). Sure, crystal clear video and English commentators would've been nice, but those were all “enhancements” to me. Just getting the video signal was good enough for me.
 
 Now-a-days, all the OTA television have switched to digital. Sure DTV has its upsides, clearer picture and what not, but I kind of miss the old analog. Sometimes, when I go home to my parents, I’ll switch over to the spanish channel to catch a game. But the signal is digital now, so it has to come in perfectly clear or I will see nothing at all. This is actually quite frustrating. Often a show will play for 3 seconds, then pause for 15 seconds, then skip forward. It's not continuous. It's broken up, and it's frustrating to watch.
 
-![Image of a TV with a weak digital signal](/images/2017/analog-web-weak-digital-signal.jpg)
+![Image of a TV with a weak digital signal](https://cdn.jim-nielsen.com/blog/2017/analog-web-weak-digital-signal.jpg)
 
 This is known as the “[digital cliff effect](http://en.wikipedia.org/wiki/Cliff_effect)”.  While analog signals gradually degrade in quality with the introduction of interference, digital signals ”provide data which is either perfect or non-existent”. Digital signals work to a certain extent and then you go over the “digital cliff” and everything falls apart and you get no picture at all.
 
-![Depiction of digital cliff in wave form](/images/2017/analog-web-digital-cliff.png)
+![Depiction of digital cliff in wave form](https://cdn.jim-nielsen.com/blog/2017/analog-web-digital-cliff.png)
 
 If you live in an area of degraded analog signal quality (such as remote rural areas) you’ll receive a degraded and snowy picture but it’ll still watchable. With digital, however, you either get a perfect picture or no picture at all. You can see an example of the cliff effect [over on YouTube](https://www.youtube.com/watch?v=tn_eIg39vH0).
 
@@ -77,7 +77,7 @@ If we narrowed in on wavelengths to the space between the trough and the crest o
 
 The web is like an analog continuum, subject to interference. The "signal quality" of the web is subject to the web's unique components which introduce interference, such as browser or device type. IE8 introduces more "interference" into a site's visual design and functionality of features than the latest version of Chrome. But if a website truly adapts the mission of the web (universal accessibility) it will be no less accessible.
 
-![The browser contiuum](/images/2017/analog-web-browser-continuum.png)
+![The browser contiuum](https://cdn.jim-nielsen.com/blog/2017/analog-web-browser-continuum.png)
 
 This is what makes the web fundamentally different than native platforms. [Websites don't need to look exactly the same in every browser](http://dowebsitesneedtolookexactlythesameineverybrowser.com/). And that's not a weakness of the web, it's a strength. Jeremy expounds:
 

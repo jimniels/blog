@@ -9,13 +9,13 @@ For some time I’ve been maintaining [iOS Icon Gallery](http://iosicongallery.c
 
 The icon shape in iOS is pretty, well, iconic. Just look at an icon’s silhouette you’ll think “iPhone”:
 
-![iOS icon silhouette](/images/2017/iosicons-silhouette.png)
+![iOS icon silhouette](https://cdn.jim-nielsen.com/blog/2017/iosicons-silhouette.png)
 
 Within iOS, all icons must conform to this shape while being opaque. These constraints stand in contrast to other mobile operating systems, like Android for example, where icons can take whatever shape you want while being opaque or transparent. Hence, when creating an icon for iOS it’s not a blank canvas. There are constraints within which the designer must work. Some might see these constraints as arbitrary requirements that reduce creativity in icon design. However, I personally think we’ve seen the exact opposite over the years: an increase in icon design creativity. In an effort to create icons that stand out from the crowd, designers have gotten quite creative within the constraints of shape and transparency that Apple enforces on iOS icons. But I digress.
 
 The point is that the actual icon artwork submitted by app developers is simply a square image. The masking of the icon artwork is defined and applied at the system level within iOS.
 
-![iOS icon with and without mask](/images/2017/iosicons-icon-with-and-without-mask.png)
+![iOS icon with and without mask](https://cdn.jim-nielsen.com/blog/2017/iosicons-icon-with-and-without-mask.png)
 
 But what if you’re displaying an iOS icon on the web? Creating this same effect on has got to be easy right? ... RIGHT?! 
 
@@ -23,7 +23,7 @@ But what if you’re displaying an iOS icon on the web? Creating this same effec
 
 So you want to display a bunch of iOS icons on the web. How do you do it? A good place to start is to see how Apple does it. If you search for an iOS app on the web, you’ll end up looking at one of Apple’s “iTunes Preview” pages ([here’s Angry Birds as an example](https://itunes.apple.com/us/app/angry-birds/id343200656?mt=8)) where you can open the browser’s developer tools see how they display icon artwork using web technologies. So how do they do it? Each icon is an `<img>` tag. Adjacent to the image tag, there’s a `<span class="mask">` tag which leverages CSS to load and position a mask image on top of the `<img>` element, thus masking the corners. If you remove the mask, you’ll be left with the original artwork.
 
-![Masking an image in HTML/CSS](/images/2017/iosicons-itunes-preview.gif)
+![Masking an image in HTML/CSS](https://cdn.jim-nielsen.com/blog/2017/iosicons-itunes-preview.gif)
 
 If you look closely at the `<span class="mask">` and it’s background image, you’ll see it has three distinct pieces:
 
@@ -31,15 +31,15 @@ If you look closely at the `<span class="mask">` and it’s background image, yo
 2. A white, opaque background outside the transparent icon (this acts as the image mask)
 3. A 1px, semi-transparent inner border on the mask shape
 
-![Anatomy of an iOS icon mask](/images/2017/iosicons-mask-anatomy.png)
+![Anatomy of an iOS icon mask](https://cdn.jim-nielsen.com/blog/2017/iosicons-mask-anatomy.png)
 
 The 1px border is required because some icons are white. So if you didn’t have a border in the shape of the mask, you wouldn’t get that iconic iOS shape around the image.
 
-![Need for a border](/images/2017/iosicons-border-need.gif "Note how when the mask with a border is removed, the icon doesn’t have any shape.")
+![Need for a border](https://cdn.jim-nielsen.com/blog/2017/iosicons-border-need.gif "Note how when the mask with a border is removed, the icon doesn’t have any shape.")
 
 Even for icons that aren’t on a pure white background, the 1px inset border still provides a nice aesthetic that varies in perceptibility based on the color intensity of the underlying icon.
 
-![Border comparison](/images/2017/iosicons-inner-border-comparison.png "Note the semi-transparent border which blends in to the underlying icon at varying degrees, depending on the color.")
+![Border comparison](https://cdn.jim-nielsen.com/blog/2017/iosicons-inner-border-comparison.png "Note the semi-transparent border which blends in to the underlying icon at varying degrees, depending on the color.")
 
 ### How I Did It
 
@@ -47,21 +47,21 @@ When I first created [iosicongallery.com](http://iosicongallery.com), CSS3 prope
 
 Anyway, I decided to take the approach Apple took and leverage a transparent PNG mask that would overlay the original icon artwork. I had to create a variety of sizes for these masks (1024px, 512px, 256px, 128px) since I was displaying icons at a variety of sizes on my site. Here’s an example of what my PSD file looked like:
 
-![iOS icon masks in photoshop](/images/2017/iosicons-masks-psd.gif "Note the transparency of the masks and how they would overlay the icons.")
+![iOS icon masks in photoshop](https://cdn.jim-nielsen.com/blog/2017/iosicons-masks-psd.gif "Note the transparency of the masks and how they would overlay the icons.")
 
 ### Then Along Came iOS 7
 
 Because icon masks are applied at the system level, Apple has been able to make programmatic refinements and tweaks over time to how icons are displayed in iOS. For example, pre-iOS7, icons used to have a mask as well an (optional) highlight applied by the operating system:
 
-![Pre iOS7 icon example](/images/2017/iosicons-early-versions-ios.png)
+![Pre iOS7 icon example](https://cdn.jim-nielsen.com/blog/2017/iosicons-early-versions-ios.png)
 
 Additionally, in versions of iOS prior to iOS 7, the mask for an icon was essentially just a square with a border radius. However, with the introduction of iOS 7 the icon mask shape changed in a subtle way. Icon designers were some of the first to notice the change. They dubbed it the [“squircle”](https://applypixels.com/the-hunt-for-the-squircle/) (image courtesy of [manbolo blog](http://blog.manbolo.com/2013/08/15/new-metrics-for-ios-7-app-icons)).
 
-![Diff between iOS6 and iOS7 icons](/images/2017/iosicons-ios6-ios7-diff.gif "Note the subtle difference in the icon’s rounded corners pre- and post-iOS7")
+![Diff between iOS6 and iOS7 icons](https://cdn.jim-nielsen.com/blog/2017/iosicons-ios6-ios7-diff.gif "Note the subtle difference in the icon’s rounded corners pre- and post-iOS7")
 
 Before Apple officially released a template for this new icon mask, there was a lot of discussion in the design world about how to achieve this particular shape. Even sophisticated, mathematically-precise formulas for calculating the icon mask’s curvature at the corners were proposed. [Here’s an example](https://applypixels.com/the-hunt-for-the-squircle/):
 
-![iOS 7 icon radius math formula](/images/2017/iosicons-math-formula.png)
+![iOS 7 icon radius math formula](https://cdn.jim-nielsen.com/blog/2017/iosicons-math-formula.png)
 
 Eventually, Apple released an official (vector) icon template which helped designers everywhere know precisely what shape their icons would take within iOS. Side note: if you’d like to read an interesting proposition as to why Apple made this rather subtle change to their ubiquitos icon shapes in iOS, go read [this article on curvature continuity](https://hackernoon.com/apples-icons-have-that-shape-for-a-very-good-reason-720d4e7c8a14).
 
@@ -73,19 +73,19 @@ Using transparent PNG masks served as a viable method for mimicking iOS icon mas
 
 One of the things I was playing around with on my gallery site was the idea of a “quick preview” for a full-sized icon. Initially I thought, “well I’ll just throw the icon in a modal”. So playing around with it in the browser, I came up with this:
 
-![Icon in a modal](/images/2017/iosicons-modal-mask.jpg "Just a traditional modal: the icon on top of an overlay.")
+![Icon in a modal](https://cdn.jim-nielsen.com/blog/2017/iosicons-modal-mask.jpg "Just a traditional modal: the icon on top of an overlay.")
 
 Do you see my problem with this approach? The main content of the modal, the icon, is sitting on top of a semi-transparent modal overlay. However, the mask of the icon is not transparent at all. This means that if any part of the icon mask is overlaying content underneath, you’ll see the white edges of the mask.
 
-![Icon in a modal indicating problematic areas](/images/2017/iosicons-modal-mask-problem.jpg "Note the corners of the icon mask overlaying the content underneath.")
+![Icon in a modal indicating problematic areas](https://cdn.jim-nielsen.com/blog/2017/iosicons-modal-mask-problem.jpg "Note the corners of the icon mask overlaying the content underneath.")
 
 One of the other things I wanted to achieve with this “icon quick preview”  was to mimic the blur aesthetic found in the newer versions of iOS. For example, when triggering the modal overlay, rather than just having a semi-transparent background overlay, I wanted to have it blur the underlying content. This actually wasn’t that difficult thanks to the advances in CSS. I was able to progressively enhance this aesthetic into my design by leveraging the `filter: blur()` CSS property. For modern browsers, this means you get the nice iOS aesthetic of blurring background content while bringing foreground content into sharp focus. However, as you’ll notice, this only further intensified the problem of overlaying an image mask on the icon, as the white corners of the mask became even more evident.
 
-![Icon in a modal with blurred background](/images/2017/iosicons-modal-mask-problem-blurred.jpg "With the blurred background, the mask’s white corner edges stood out even more.")
+![Icon in a modal with blurred background](https://cdn.jim-nielsen.com/blog/2017/iosicons-modal-mask-problem-blurred.jpg "With the blurred background, the mask’s white corner edges stood out even more.")
 
 What I wanted, was a modal that looked like this:
 
-![Icon in a modal with blurred background](/images/2017/iosicons-modal-desired-effect.jpg "This was the effect I wanted, with real image masking on the icon.")
+![Icon in a modal with blurred background](https://cdn.jim-nielsen.com/blog/2017/iosicons-modal-desired-effect.jpg "This was the effect I wanted, with real image masking on the icon.")
 
 The effect itself seems pretty simple. It’s just a masked image. Any graphics editing software worth a dime could do this. But the browser isn’t a graphics editing program and masking images in the browser (at least up until recently) wasn’t possible. This is precisely why I had to create the workaround described earlier in this post which positions a transparent PNG on top of the icon. Technically this approach isn’t real image masking but the illusion of an image mask, which is why I ran into the problem above when working with transparency. However, browsers have come a long way since I first implemented this pseudo-image masking technique. I’d heard rumblings of image masking in CSS but never had to actually use it, so this seemed like the perfect opportunity to do some research and figure out how to mask images natively in the browser.
 
@@ -196,21 +196,21 @@ The trickiest part of this ended up being supplying the 1px border around the ic
 
 First, I created my image mask. I could define this at any size I wanted because I used the `mask-size` property to have the mask fill the dimensions of its parent. This was the easy part. I thought about doing the same thing for my mask’s border. Just define one size and let it scale. But there were a few problems with this approach. First, you [don’t get to choose the positioning of SVG borders](https://stackoverflow.com/questions/7241393/can-you-control-how-an-svgs-stroke-width-is-drawn). They are always applied at the center (image courtesy of [sketchapp](https://www.sketchapp.com/docs/styling/borders/)).
 
-![Border positioning example](/images/2017/iosicons-border-position.jpg "With SVGs, all borders are positioned at the center.")
+![Border positioning example](https://cdn.jim-nielsen.com/blog/2017/iosicons-border-position.jpg "With SVGs, all borders are positioned at the center.")
 
 The problem here is that I needed the position to be on the inside, so that the semi-transparent border could overlay the underlying content. This is the exact effect Apple used (via a raster PNG mask) and that’s what I was striving for in terms of pixel-level precision.
 
 This meant I would have to create the icon mask borders myself. First I leveraged the vector icon Apple provides for the squircle shape. Then I outlined the mask with a 1px inner border in sketch, then converted that shape to an outline. Again, the reason it has to be outlined is because even as an “inner” border in sketch, it will end up as a “centered” border when exported to SVG. 
 
-![Border positioning example](/images/2017/iosicons-border-outline.png)
+![Border positioning example](https://cdn.jim-nielsen.com/blog/2017/iosicons-border-outline.png)
 
 The one downside here is that I had to export all the different sizes at which I was using the shape because, as outlines, if they were ever scaled in the browser they would scale below 1 pixel. I view this as an implementation detail that I will likely be able to resolve in the future once the SVG spec allows border positioning specification. If that comes to pass, I will be able to specify one shape with a correctly-positioned border whose shape can scale to any size. So one .svg file for all masks. However, for now, I have a simple export for all my SVG shapes I need.
 
-![Screenshot of SVG exports](/images/2017/iosicons-svg-exports.png)
+![Screenshot of SVG exports](https://cdn.jim-nielsen.com/blog/2017/iosicons-svg-exports.png)
 
 These end up being displayed as pseudo elements on top of the actual icon’s `<img>` element. So the underlying icon image is natively masked by the browser and the 1px icon border is a SVG outline on top of it the icon as a pseudo element.
 
-![Screenshot of icon modal overlay with SVG border on icon mask](/images/2017/iosicons-svg-border.jpg)
+![Screenshot of icon modal overlay with SVG border on icon mask](https://cdn.jim-nielsen.com/blog/2017/iosicons-svg-border.jpg)
 
 ## Conclusion
 

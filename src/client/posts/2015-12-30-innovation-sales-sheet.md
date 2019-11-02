@@ -9,21 +9,21 @@ A while back, I got a request to take some existing copy describing a possible n
 
 My first step was meeting with the stakeholders and receiving an in-person summary of the intended purpose and goals of the to-be sales sheet, after which I was given access to the existing copy in a Google doc. At that point, my first intention was to understand the text by reading it through multiple times.
 
-![Screnshot of the original Google doc text](/images/2015/sales-sheet-google-doc.png "How it all started")
+![Screnshot of the original Google doc text](https://cdn.jim-nielsen.com/blog/2015/sales-sheet-google-doc.png "How it all started")
 
 In reading through the copy, I tried to conceptualize how the text might lend itself to a visual narrative. Between reading and editing, I took my thoughts to paper to try sketching (in broad strokes) the overarching story the text was trying to tell. This required that I take initiative in emphasizing points which were important to the overall goals of the document, while other points were de-emphasized. I burned through lots of ideas by sketching them with pencil and paper.
 
-![Photograph of pencil sketches](/images/2015/sales-sheet-sketches.jpg "Initial sketches on the document layout")
+![Photograph of pencil sketches](https://cdn.jim-nielsen.com/blog/2015/sales-sheet-sketches.jpg "Initial sketches on the document layout")
 
 Sketching helped lead me to understand how the copy itself could be configured into a narrative consisting of headings, subheadings, paragraphs, bullet points, and images. Granted, I had to inject a lot of my own interpretation into how this document should be presented and how the story should be told. This meant that, once done, I’d have to reconvene with the stakeholders to ensure my interpretations of the narrative were in sync with their own vision.
 
 In order to better communicate my design decisions and vision, I started making my ideas a little more concrete by digitally wireframing my paper sketches. This resulted in a low-fidelity, digital document I could show to stakeholders to ensure they were onboard with the direction I was taking (it always seems easier to communicate my idea with a visual aid rather than to trying to describe it with words – as they say, a picture is worth a thousand words).
 
-![Screenshot of a wireframed version of the sales sheet](/images/2015/sales-sheet-wireframe.png "Document wireframe used to sell stakeholders on my direction")
+![Screenshot of a wireframed version of the sales sheet](https://cdn.jim-nielsen.com/blog/2015/sales-sheet-wireframe.png "Document wireframe used to sell stakeholders on my direction")
 
 The reaction from the stakeholders was positive and they were on board with my direction and interpretation of the initial text.
 
-![Side by side screenshot of the initial text and the wireframe](/images/2015/sales-sheet-text-to-wireframe.png "Side-by-side view of the text transformed into a wireframed visual narrative")
+![Side by side screenshot of the initial text and the wireframe](https://cdn.jim-nielsen.com/blog/2015/sales-sheet-text-to-wireframe.png "Side-by-side view of the text transformed into a wireframed visual narrative")
 
 With all the stakeholders on-board, a solid visual prototype in-hand, and a final version of the narrative complete, I dove into the designing a more fine-tuned visual version.
 
@@ -31,4 +31,4 @@ Initially, stakeholders had assumed the document would use modified screenshots 
 
 In the end, I came up with the following sheet which was used to have productive conversations with exisiting clients:
 
-![Final version of the Sales Sheet](/images/2015/sales-sheet-final.png)
+![Final version of the Sales Sheet](https://cdn.jim-nielsen.com/blog/2015/sales-sheet-final.png)

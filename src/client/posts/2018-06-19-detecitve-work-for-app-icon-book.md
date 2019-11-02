@@ -7,7 +7,7 @@ I’ve been designing, developing, and curating my icon gallery sites ([iosicong
 
 That all changed April 11, 2018 when I received a very pleasant surprise in my inbox from the renowned icon designer [@flarup](https://twitter.com/flarup)
 
-![Screenshot of email](/images/2018/ios-icon-search-email.png "A surprise email in my inbox")
+![Screenshot of email](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-email.png "A surprise email in my inbox")
 
 I knew of Michael because I had over 30 of his icons in my gallery. Whenever he released an icon, I knew immediately I had new content for my gallery. I was honored he felt like reaching out to me for help. Serendipitously, we were both thinking the same thing: let’s create a book celebrating app icon design. The best part was that he had actually already started. He even had a [website](http://appiconbook.com/). I was onboard before I even got to the end of the email.
 
@@ -39,57 +39,57 @@ For each app in my gallery, I have contact information about the app developer (
 
 Most of the time, when I click on the app developer for the icon in question, I end up at one of those “this domain is now available for purchase” landing pages.
 
-![Screenshot of an abandoned domain](/images/2018/ios-icon-search-domain-for-sale.png "Most old apps point to abandoned domains")
+![Screenshot of an abandoned domain](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-domain-for-sale.png "Most old apps point to abandoned domains")
 
 Quite frequently I’ll come across apps which point to a domain that (I’m assuming) was abandoned and subsequently purchased by an unrelated party for gaudy advertising. This leads me to believe that these apps in their heyday must’ve been quite popular and drove lots of traffic to their domains. Then, when the company went out of business, the domain was snatched up for its traffic.
 
-![Screenshot of an app’s landing page repurposed for advertising](/images/2018/ios-icon-search-parked-domain.png "One app’s landing page repurposed for advertising")
+![Screenshot of an app’s landing page repurposed for advertising](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-parked-domain.png "One app’s landing page repurposed for advertising")
 
 (Sidenote: there has got to be an entire underworld for this kind of business where you snatch up domains that drive significant traffic but fail to renew and you then stick advertising on it. I don’t know how these companies monitor that type of thing, but someone should do an investigative piece on this. I’d love to read it. If you know of an article on this underbelly enterprise of the web, link me please!)
 
 I’ve actually found it interesting how many of these abandoned domains seem to have been picked up and repurposed for what I’m assuming are Chinese users? It seems like 80% of the abandoned domains point to sites like this which I can’t read.
 
-![Screenshot of an app’s landing page repurposed for advertising](/images/2018/ios-icon-search-chinese-domains.png)
+![Screenshot of an app’s landing page repurposed for advertising](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-chinese-domains.png)
 
 ## A Typical Search
 
 I want to give you some insight into what a typical icon search looks like. First thing I do is pull up an icon from my gallery.
 
-![Screenshot of a typical icon search: step 1](/images/2018/ios-icon-search-step-1.png)
+![Screenshot of a typical icon search: step 1](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-step-1.png)
 
 At the minimum, my gallery will give me the app developer’s name and URL, which I then follow. In this case, I the developer’s URL (`superret.ro`) was completely dead. That leads me to look at the app developer’s name and do a Google search. In this case, the developer’s name is a URL, so I follow that.
 
-![Screenshot of a typical icon search: step 2](/images/2018/ios-icon-search-step-2.png)
+![Screenshot of a typical icon search: step 2](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-step-2.png)
 
 Many times I end up at sites in a language I don’t understand. My gut tells me this site has nothing to do with the app I was just looking at on my gallery, but I do a quick Google translate to learn more.
 
-![Screenshot of a typical icon search: step 3](/images/2018/ios-icon-search-step-3.png)
+![Screenshot of a typical icon search: step 3](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-step-3.png)
 
 “This domain has been successfully registered on behalf of the client”, yeah, uh-huh, sure. “Sign in to your account on the *client system*” with a link to provide some kind of username and password credentials? This smells a little phishy to me. 
 
 So both contact points from my gallery are dead. I can only assume that at one point in time those domains were correctly pointing to some kind of legitimate business, as they were registered apps in the iTunes store. So I turn to my old friend [The Wayback Machine](http://archive.org/web/) which helps me lookup the app’s website from around the date when I posted the icon.
 
-![Screenshot of a typical icon search: step 4](/images/2018/ios-icon-search-step-4.png)
+![Screenshot of a typical icon search: step 4](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-step-4.png)
 
 Yes! That’s much more of what I would expect. But the site is pretty lean on any kind of contact information for the humans behind the app. It gives me some names but I’m going to try and see if they have any other iterations of their site from around the same time.
 
 (Sidenote: sometimes I can’t even get anything from The Wayback Machine because the site was not indexed at that point in time. At that point, I usually resort to Googling something like the app developer or company’s name combined with keywords like “founder” or “CEO”. I’ve found that to be the most successful way of finding humans behind an app.)
 
-![Screenshot of a typical icon search: step 5](/images/2018/ios-icon-search-step-5.png)
+![Screenshot of a typical icon search: step 5](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-step-5.png)
 
 Boom! There we go, a twitter link. It appears to go to one “Marc Ammann”, who was the same guy listed on the previous iteration of the site. Now I’m getting somewhere, so I follow the link to twitter:
 
-![Screenshot of a typical icon search: step 6](/images/2018/ios-icon-search-step-6.png)
+![Screenshot of a typical icon search: step 6](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-step-6.png)
 
 At this point, I could reach out to this guy directly on twitter. Often times I find twitter accounts that haven’t been active in years. It looks like this guy was last active on twitter a few months ago. I’ve found from experience that, unless the person was active on twitter within the last few days (preferably hours) any contact via twitter isn’t going to result in much. 
 
 So, looking at this a little more, I notice he says he’s part of some `@pxnwco`. I follow that link to another twitter profile, which has a link to a company website `pxnw.co`.
 
-![Screenshot of a typical icon search: step 7](/images/2018/ios-icon-search-step-7.png)
+![Screenshot of a typical icon search: step 7](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-step-7.png)
 
 This site doesn’t have much info, but it does have *yet another link* to another website. So I follow that.
 
-![Screenshot of a typical icon search: step 8](/images/2018/ios-icon-search-step-8.png)
+![Screenshot of a typical icon search: step 8](https://cdn.jim-nielsen.com/blog/2018/ios-icon-search-step-8.png)
 
 There we go, just the man I’ve been looking for! And now I have an email associated with his name. If I hadn’t been able to find an email for this guy, I would have resorted to contacting him on twitter but an email grants me like a 90% better probability of hearing back than any kind of message via social media.
 

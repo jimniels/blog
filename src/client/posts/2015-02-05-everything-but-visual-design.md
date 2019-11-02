@@ -12,11 +12,11 @@ Once we had a loose rubric to follow you might think I jumped right into the vis
 
 As a design team we had a common, unspoken, un-written-down understanding amongst ourselves as to why this “redesign” was necessary. But we realized we needed to formalize our argument to get buy-in from other stakeholders in the company. Simply saying, “the marketing site needs a redesign” wouldn’t cut it. So I started to think about what this “redesign” would entail by sketching out some of our ideas as they related to the site’s information architecture, user flows, etc.
 
-![Picture of sketches](/images/2015/marketing-sketches.jpg)
+![Picture of sketches](https://cdn.jim-nielsen.com/blog/2015/marketing-sketches.jpg)
 
 After we had a basic conception of what the new site could be, we put together a slide show with our arguments (backed by the data which impelled us to even begin this project) along with some low-fidelty wireframes I had created to help tell a story as to why we’re doing what we’re doing, how we plan on executing it, and how it will benefit all stakeholders involved, including current and future customers.
 
-![Screenshot of mock in Sketch](/images/2015/marketing-mock.png)
+![Screenshot of mock in Sketch](https://cdn.jim-nielsen.com/blog/2015/marketing-mock.png)
 
 Why am I saying all this? Because this seems to be, most often, the real “design process”. You have ideas and intuitively you know the reasons as to why they have promise. But if you can’t vocalize those arguments and convince others as to their potential, you’ll likely never get anywhere. So before you jump into your design application of choice to create the next best thing, you’re likely going to have to convince others *why* you should be jumping into your design application of choice to create the next best thing.
 

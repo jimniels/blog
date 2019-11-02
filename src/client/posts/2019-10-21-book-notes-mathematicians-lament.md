@@ -19,11 +19,11 @@ I think the spirit of technology—specifically building for the web—retains s
 
 The author illustrates the beauty of ideas in mathematics by showing a simple drawing of a rectangle with a triangle inside of it and asking the question: how can you figure out how much space that triangle takes up inside of that rectangle?
 
-![A drawing of a rectangle with a triangle inside of it](/images/2019/mathematicians-lament-triangle-1.png)
+![A drawing of a rectangle with a triangle inside of it](https://cdn.jim-nielsen.com/blog/2019/mathematicians-lament-triangle-1.png)
 
 At first—at least for me—it’s quite unapparent how to solve the problem. Then the author draws one more line on the diagram which cuts the triangle in half and instantly reveals the solution! The triangle takes up exactly half of the space in the rectangle (each sub-rectangle being equally divided diagonally by the sides of the triangle).
 
-![A drawing of a rectangle with a triangle inside of it split in half](/images/2019/mathematicians-lament-triangle-2.png)
+![A drawing of a rectangle with a triangle inside of it split in half](https://cdn.jim-nielsen.com/blog/2019/mathematicians-lament-triangle-2.png)
 
 It’s an fascinating visual exercise, because at first you have no idea how to approach the problem. Then, through the help of the author, you realize how elegant the answer actually is through the process of simply drawing one more line on the diagram.
 

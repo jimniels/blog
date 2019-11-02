@@ -39,7 +39,7 @@ Because the `border-radius` rule will accept a percentage value, we simply tranl
 		border-radius: 17.544%;
 	}
 
-![Border radius ratio example](/images/2012/border-radius-ratio.png)
+![Border radius ratio example](https://cdn.jim-nielsen.com/blog/2012/border-radius-ratio.png)
 
 Unfortunately, this technique only works in modern-browsers that accept the border-radius rule (no IE support). Also, it's worth note that some earlier versions of modern browsers didn't quite apply the border radius correctly when applied directly to an image (as they wouldn't mask out the edges). So proper browser testing is encouraged if you decide to implement this technique.
 

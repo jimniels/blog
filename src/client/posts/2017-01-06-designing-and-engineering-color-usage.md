@@ -17,17 +17,17 @@ I found out that there was no canonical source for prescribing the application�
 
 I began by creating a `.sketch` file that could serve as the application’s design asset. Once UI mocks were in place, color variations could easily be paired down and refined. Additionally, any new feature designs could be built on top of this file. This source file gave me the flexibility I needed to make color choices around theming the application, but it also took on the role of becoming a canonical source for the application’s visual aesthetic.
 
-![Screen shot of Agent Portal theme sketch file](/images/2017/ap-theme-sketch-file.png)
+![Screen shot of Agent Portal theme sketch file](https://cdn.jim-nielsen.com/blog/2017/ap-theme-sketch-file.png)
 
 ## Designing a Color Guide
 
 Based on some previous contractor work that was available to me, I systematized and documented color usage for the application. Developing a guide for color usage helped provide a clear delineation between which colors were shared between application themes and which were unique on a theme-by-theme basis.
 
-![Screen shot of shared colors guide](/images/2017/ap-theme-color-guide-shared.png "Documentation for colors shared across application themes")
+![Screen shot of shared colors guide](https://cdn.jim-nielsen.com/blog/2017/ap-theme-color-guide-shared.png "Documentation for colors shared across application themes")
 
-![Screen shot of a particular theme’s color guide](/images/2017/ap-theme-color-guide-sagesure.png "Documentation for colors of one particular branded theme")
+![Screen shot of a particular theme’s color guide](https://cdn.jim-nielsen.com/blog/2017/ap-theme-color-guide-sagesure.png "Documentation for colors of one particular branded theme")
 
-![Screen shot of another theme’s color guide](/images/2017/ap-theme-color-guide-fednat.png "Documentation for colors of a separate branded theme")
+![Screen shot of another theme’s color guide](https://cdn.jim-nielsen.com/blog/2017/ap-theme-color-guide-fednat.png "Documentation for colors of a separate branded theme")
 
 As you can see, by systematically designing color usage for the application, **and documenting it**, these color guides helped provide language around how to identify colors. This proved incredibly useful when implementing colors in code.
 
@@ -47,11 +47,11 @@ This kind of approach will help developers (and designers) be able to reason abo
 
 For example, here was the front-end code I initially encountered: two separate `.scss` files for each theme, each file containing all colors of the application, including the theme colors. This meant duplicate names, variable overwrites, unnecessary color mappings, and more.
 
-![GIF of code variables before re-factor](/images/2017/ap-theme-variables-before.gif "Before: variables are all over the place: mismatched names, duplicates, overwrites, etc. You can’t tell which is a theme color and which is not.")
+![GIF of code variables before re-factor](https://cdn.jim-nielsen.com/blog/2017/ap-theme-variables-before.gif "Before: variables are all over the place: mismatched names, duplicates, overwrites, etc. You can’t tell which is a theme color and which is not.")
 
 Based on the previous color definitions I had devised in the color guides, I came up with a more logical approach to theming with variables. Notice in this screen shot how the theme files are the same for each instance, it's just the values that change:
 
-![GIF of code variables after re-factor](/images/2017/ap-theme-variables-after.gif "After: variables are standardized across theme files; only the values change")
+![GIF of code variables after re-factor](https://cdn.jim-nielsen.com/blog/2017/ap-theme-variables-after.gif "After: variables are standardized across theme files; only the values change")
 
 I devised a single partial that defined the shared application colors which could be imported by each theme. By restructuring and renaming the application color variables, I came up with a solution that made reasoning about color usage and theming in the application simple. This served as a solid base around color usage and theming in application for the future.
 

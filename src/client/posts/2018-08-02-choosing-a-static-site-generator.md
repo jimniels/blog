@@ -100,7 +100,7 @@ Metalsmith touts itself as a “pluggable static site generator”. The core  li
 
 So I ended up doing a dance between Metalsmith and Hexo. When I didn’t like Metalsmith, I’d say “Ok I'm building this in Hexo”. Then when I got to the point that I didn’t like Hexo, I’d say "Ok, nevermind, I’m going to build this in Metalsmith”. Eventually I got so unsatisfied with both that I just told myself that [I would build my own static site generator](https://twitter.com/jimniels/status/1011285302944698371).
 
-![Screenshot of tweet](/images/2018/static-site-twitter.png )
+![Screenshot of tweet](https://cdn.jim-nielsen.com/blog/2018/static-site-twitter.png )
 
 However, I eventually found [this blog post](https://segment.com/blog/building-technical-documentation-with-metalsmith/) which is what gave me the “ah-ha!” moment I needed to understand how Metalsmith  worked. In the back of my mind, a line from Metalsmith’s docs kept coming into my mind which basically said “once you get how Metalsmith is working under the hood and what’s happening, it all clicks.” I finally had that moment and when it clicked, I realized Metalsmith was going to be my choice.
 

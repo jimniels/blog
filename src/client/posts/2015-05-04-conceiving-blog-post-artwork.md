@@ -14,16 +14,16 @@ The process for creating these visuals is usually pretty straightforward (FYI–
 
 For example, Tim Meaney wrote a blog post about [questioning legacy tools and ideas](https://www.kindlingapp.com/blog/embrace-change-question-legacy-tools-ideas/). He used the example of a floppy disk throughout his article to serve as an example of a legacy tool in the modern age. This made conceiving artwork easy: the blog post leveraged the idea of a floppy disk throughout the post, so I could just draw a floppy disk.
 
-![Floppy disk drawing](/images/2015/drawing-floppy-disk.jpg "A floppy disk drawing done for Tim’s blog post around legacy tools")
+![Floppy disk drawing](https://cdn.jim-nielsen.com/blog/2015/drawing-floppy-disk.jpg "A floppy disk drawing done for Tim’s blog post around legacy tools")
 
 However, not all blog posts lend themselves to artwork so easily. As an example, Christopher Pappas wrote a more technical piece explaining [why we use React.js at Kindling](https://www.kindlingapp.com/blog/why-kindling-uses-react-js/). His post delved into engineering explanations that did not lend themselves to ubiquitous imagery people outside of technology would recognize. Instead, I created a conceptual drawing to illustrate the core technical concepts the article was trying to communicate. This produced imagery more akin to what you’d see on a white board as opposed to some real-world object.
 
-![React.js diff model](/images/2015/drawing-react-diff.png "Drawing depicting the advantages of react.js in diffing DOM elements")
+![React.js diff model](https://cdn.jim-nielsen.com/blog/2015/drawing-react-diff.png "Drawing depicting the advantages of react.js in diffing DOM elements")
 
-![Flux design pattern](/images/2015/drawing-flux-design-pattern.jpg "A sketch of the flux design pattern leveraged in react.js")
+![Flux design pattern](https://cdn.jim-nielsen.com/blog/2015/drawing-flux-design-pattern.jpg "A sketch of the flux design pattern leveraged in react.js")
 
 Of course, I never get these visuals right the first time. Usually I have to start with simple point-to-point sketches and then expand on details and color as I go. For example, a blog post is being written right now about the essential parts of an innovation program. The author is leveraging the metaphor of a barstool with three supporting legs throughout his writing and requested a visual to go along with it. So, to accommodate this request, I started by sketching simple lines. From there I tried expanding those into shapes, then looked at possible shadowing, and finally redrew the stool more precisely with colors and what not.
 
-![Stool drawings](/images/2015/drawing-stool.jpg "Rough to refined sketches of the artwork for a blog post using the metaphor of a stool with supporting legs")
+![Stool drawings](https://cdn.jim-nielsen.com/blog/2015/drawing-stool.jpg "Rough to refined sketches of the artwork for a blog post using the metaphor of a stool with supporting legs")
 
 I’m kind of excited to see where this type of imagery leads us. It has a unique style which can be refined and polished in some contexts, while also rough and conceptual in others—a trait that perfectly represents the state of ideas in the world...and Kindling is all about ideas.

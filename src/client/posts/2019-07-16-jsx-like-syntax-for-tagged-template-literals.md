@@ -11,7 +11,7 @@ What I love about this setup is the longevity of it: it’s just javascript. The
 
 Let me try to explain with an example. The navigation of my site is pretty simple. It’s a set of links that exist on every page. And, if the page you’re viewing is one of the links in the navigation, it gets highlighted.
 
-![Screenshot of the navigation on my blog](/images/2019/jsx-style-templates-blog-navigation.png)
+![Screenshot of the navigation on my blog](https://cdn.jim-nielsen.com/blog/2019/jsx-style-templates-blog-navigation.png)
 
 Under the hood, my static site generator ([metalsmith](https://metalsmith.io/)) is calling a layout function for each file and passing it some data. The layout function is, in essence, a template file that renders the HTML that’s shared across every page of my entire site, like for example the navigation. It looks something like this:
 

@@ -19,15 +19,15 @@ So what do I mean by that?
 
 Traditionally (and maybe that’s why I feel the way that I do, I’m an oldie now) software products used to take on the conventions, gestures, and aesthetics of their environment: the operating system. Photoshop CS4 on Mac was different than Photoshop CS4 on Windows.
 
-![Screenshot of Photoshop CS4 for Mac](/images/2019/look-same-photoshop-cs4-mac.jpg "Photoshop CS4 for Mac")
+![Screenshot of Photoshop CS4 for Mac](https://cdn.jim-nielsen.com/blog/2019/look-same-photoshop-cs4-mac.jpg "Photoshop CS4 for Mac")
 
-![Screenshot of Photoshop CS4 for Windows](/images/2019/look-same-photoshop-cs4-windows.jpeg "Photoshop CS4 for Windows")
+![Screenshot of Photoshop CS4 for Windows](https://cdn.jim-nielsen.com/blog/2019/look-same-photoshop-cs4-windows.jpeg "Photoshop CS4 for Windows")
 
 Do those screenshots strike a bit of nostalgia in you? I know it does for me. I remember when Photoshop used to have those very Mac-esque floating windows, such that even when Photoshop was open you could see right down through the app into the underlying desktop. Photoshop for Windows, on the other hand, was an app that took up the entire screen. Even if nothing was open, you couldn’t see the desktop. And that made sense, that was very Windows-esque.
 
 Similarly, look at the native controls. Photoshop for Mac used the underlying Aqua-themed controls native to the operating system. Your select menus and checkboxes in Photoshop looked like the select menus and checkboxes of the underlying operating system.
 
-![Screenshot of Photoshop CS4 for Mac](/images/2019/look-same-photoshop-cs4-mac-annotated.jpg)
+![Screenshot of Photoshop CS4 for Mac](https://cdn.jim-nielsen.com/blog/2019/look-same-photoshop-cs4-mac-annotated.jpg)
 
 This resulted in applications providing a kind of coherence and cohesiveness within the environment of the operating system. As you switched from one app to the next, many of your controls looked and functioned the same. Granted there were similarities in a product across operating systems (Photoshop on Mac still looked a lot like Photoshop on Windows), but they were not identical. I have nothing against similarities. Identical is what I’m trying to get at. Identical is what we used to strive for in web designs across different browsers. “Your website doesn’t have to look identical in every browser” would’ve been a similar refrain.
 
@@ -35,13 +35,13 @@ What’s interesting is how the web seems to be the one that spurred this change
 
 Then came electron, which carried along with it this “web” way of designing apps: ignore the conventions of the OS, instead make things consistent _within your product_ across operating systems. For example, GitHub [once created a desktop app](https://github.blog/2015-08-12-github-desktop-is-now-available/) that was different, depending on whether you had the Windows version or the Mac version.
 
-![Screenshot of “old” GitHub for Mac](/images/2019/look-same-github-mac.png "The “old” GitHub for Mac")
+![Screenshot of “old” GitHub for Mac](https://cdn.jim-nielsen.com/blog/2019/look-same-github-mac.png "The “old” GitHub for Mac")
 
-![Screenshot of “old” GitHub for Windows](/images/2019/look-same-github-windows.png "The “old” GitHub for Windows")
+![Screenshot of “old” GitHub for Windows](https://cdn.jim-nielsen.com/blog/2019/look-same-github-windows.png "The “old” GitHub for Windows")
 
 I liked the old GitHub for Mac. It felt like a Mac app. The newest GitHub for Mac, on the other hand, looks identical whether you’re on Mac or Windows. Besides the green, yellow, and red circle buttons in the upper left to control the window, there’s nothing really “Mac-y” about it.
 
-![Screenshot of “new” GitHub for Mac and Windows](/images/2019/look-same-github-mac-and-windows.png "The “new” GitHub for Mac and Windows")
+![Screenshot of “new” GitHub for Mac and Windows](https://cdn.jim-nielsen.com/blog/2019/look-same-github-mac-and-windows.png "The “new” GitHub for Mac and Windows")
 
 I get it. Design, engineer, and maintain one piece of software instead of two. It makes a lot of business sense. I’m not saying it doesn’t. But there’s tradeoffs in everything, and I think we’re losing something here. It really gives me an appreciation for apps like [BBEdit](https://www.barebones.com/products/bbedit/) or [Transmit](https://panic.com/transmit/) (by Panic) that are built specifically for Mac and always have been.
 
@@ -51,11 +51,11 @@ This isn’t just happening in the space of desktop operating systems. I think e
 
 Elytra seems to be taking the stance of: I’m going to be an iOS reeding app. I’m going to look like iOS. I’m going to feel like iOS. If Apple built an RSS reader, this is what it would look like. It looks, feels, and functions like iOS.
 
-![Screenshots of Elytra for iOS](/images/2019/look-same-elytra-ios.png)
+![Screenshots of Elytra for iOS](https://cdn.jim-nielsen.com/blog/2019/look-same-elytra-ios.png)
 
 On the other hand there’s Reeder, which uses many of the system-level gestures of iOS, but very much has taken the position of creating it’s own UI language for communicating how to interact with the product wholly apart from iOS.
 
-![Screenshots of Reeder for iOS](/images/2019/look-same-reeder-ios.png)
+![Screenshots of Reeder for iOS](https://cdn.jim-nielsen.com/blog/2019/look-same-reeder-ios.png)
 
 I’m not necessarily saying one choice is bad and the other is good. I love Reeder and have been a long time user. However, when I recently came across Elytra, I immediately wanted it because of it’s continuity of UI language at the system level within iOS. For whatever reason (and this post is trying to help me figure it out) there is something in me that [yearns](https://www.youtube.com/watch?v=wA4oJfNe-DU) for that operating-system-inspired look in my apps.
 

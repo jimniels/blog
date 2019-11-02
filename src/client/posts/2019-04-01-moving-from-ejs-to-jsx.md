@@ -15,7 +15,7 @@ I love React and am very familiar with it. I use it on lots of work and personal
 
 While EJS doesn’t necessarily have a lot of cognitive overhead because your doing templating logic in JavaScript, I did often find myself having to lookup syntax around EJS tags for things like control-flow, whitespace slurping, unescaping values, comments, etc. For example, here’s a screenshot of the different [tags in EJS](https://ejs.co/):
 
-![Screenshot of the variety of tags in EJS (from EJS documentation website)](/images/2019/ejs-to-jsx-ejs-tags-screenshot.png)
+![Screenshot of the variety of tags in EJS (from EJS documentation website)](https://cdn.jim-nielsen.com/blog/2019/ejs-to-jsx-ejs-tags-screenshot.png)
 
 In addition to syntax familiarity, JSX works with [prettier](https://prettier.io/) so I get my syntax auto-formatted for me, whereas a lot of my EJS templates I had to format myself, by hand. I forgot how tedious that was; much easier to let the machines to it for me.
 
@@ -89,7 +89,7 @@ const renderedOutput = ejs.render(
 Again, it took me a while to figure out how to just get EJS templates rendering. Then more time to figure out how it actually worked when it was rendering. You can deduce this by looking at my old metalsmith code:
 
 
-![Screenshot of old code diff from Github for metalsmith config around layouts and in place rendering](/images/2019/ejs-to-jsx-old-metalsmith-config.png)
+![Screenshot of old code diff from Github for metalsmith config around layouts and in place rendering](https://cdn.jim-nielsen.com/blog/2019/ejs-to-jsx-old-metalsmith-config.png)
 
 When I finally got my EJS templates rendering, I thought “ok, so what data is available to me in these templates?” Essentially there was data available to me globally but you wouldn’t know what it was by looking at the EJS template. So to render 40 random icons from the site on the 404 page, I’d have code that looked like this:
 
@@ -189,7 +189,7 @@ Granted there’s more code here than the EJS example. But this code was more cl
 
 Here’s a screenshot of the final diff on Github before I merged the code. You can see the difference between what an EJS template looked like and what a JSX template looked like.
 
-![Screenshot of final diff on Github between EJS and JSX 404 pages](/images/2019/ejs-to-jsx-404-page-diff.png)
+![Screenshot of final diff on Github between EJS and JSX 404 pages](https://cdn.jim-nielsen.com/blog/2019/ejs-to-jsx-404-page-diff.png)
 
 Not only did the inner-workings of my templating code become more clear with JSX, but as I alluded to above, I got proptype checking for free! This allowed me to write a single set of rules for shared data types I used throughout my templating system. For example, I had a `propTypes.js` file that looked something like this:
 
@@ -225,7 +225,7 @@ I could import any of these proptype declarations into my templating files and t
 
 As you probably noticed from the code samples above, one of the things that changed in my transition from EJS to JSX was that my templates went from being a combination of YAML+EJS to being, essentially, JavaScript modules for node. Here’s another screenshot of a diff between what one of my templates looked like as an EJS template vs. what it looked like as a JSX template.
 
-![Screenshot from Github of file diff in for an HTML redirect file](/images/2019/ejs-to-jsx-xml-redirect.png)
+![Screenshot from Github of file diff in for an HTML redirect file](https://cdn.jim-nielsen.com/blog/2019/ejs-to-jsx-xml-redirect.png)
 
 This is a very straightforward example of the differences between an EJS template and a JSX template. It’s a simple redirect in HTML. In the EJS template, you can see I had to specify `layout: false` which tells the EJS engine to not wrap that file in any other layout. Then I have that magic `<%- site.url %>` variable, which kind of just appears out of nowhere.
 
@@ -320,7 +320,7 @@ module.exports = MyFunction;
 
 What’s really neat about this approach is I could use it to return just about anything I wanted that JSX didn’t support. For example, I was also writing a couple JSON files with data from my site. As described above, I couldn’t render a JSON string without a parent DOM element, so I used one of these custom “JS templates” of mine. Here’s an example of what that file looked like as an EJS template vs. as a JS template.
 
-![Screenshot of code diff on Github between EJS and JSON template file](/images/2019/ejs-to-jsx-json-template.png)
+![Screenshot of code diff on Github between EJS and JSON template file](https://cdn.jim-nielsen.com/blog/2019/ejs-to-jsx-json-template.png)
 
 I actually think this worked out really well for my use cases. If that [fragments issue for React](https://github.com/facebook/react/issues/12014) ever gets resolved, I’ll probably switch over to a JSX-based solution, but for now, this works perfect.
 
@@ -330,6 +330,6 @@ This was quite the post and I didn’t even get to cover half the stuff I wanted
 
 In terms of the build itself, it actually got quite a bit faster. Doing my own rendering with React instead of relying on two different third-party plugins cut my build time by about 10 seconds.
 
-![Screenshot of CLI depicting time duration of the old build with EJS](/images/2019/ejs-to-jsx-build-time-old.png)
+![Screenshot of CLI depicting time duration of the old build with EJS](https://cdn.jim-nielsen.com/blog/2019/ejs-to-jsx-build-time-old.png)
 
-![Screenshot of CLI depicting time duration of the new build with JSX](/images/2019/ejs-to-jsx-build-time-new.png)
+![Screenshot of CLI depicting time duration of the new build with JSX](https://cdn.jim-nielsen.com/blog/2019/ejs-to-jsx-build-time-new.png)

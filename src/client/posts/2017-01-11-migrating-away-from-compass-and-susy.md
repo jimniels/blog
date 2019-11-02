@@ -56,11 +56,11 @@ Using [regex101](https://regex101.com/), I devised a regex that would allow me t
 
 This regex searches for the specified Compass mixin, creates a grouping around the parameter value(s), and then selects up until the end of the line (`\);`). In doing a find and replace, this would give me the entire line to work with and provide me with the mixin’s CSS value in a grouping.
 
-![Screen shot of my regex on regex101](/images/2017/sass-refactor-regex.png)
+![Screen shot of my regex on regex101](https://cdn.jim-nielsen.com/blog/2017/sass-refactor-regex.png)
 
 Having a regex for each property, I could then run a find and replace for all `*.scss` files using my text editor Sublime. For each Compass mixin, I would swap out the beginning part of the regex with the mixin name I was trying to find (i.e. `@include border-radius\(` for finding and replacing Compass’ `border-radius()` mixin, `@include box-shadow\(` for finding and replacing Compass’ `box-shadow()` mixin, etc). Everything else about the regex could stay the same.
 
-![Screen shot of my regexes on regex101](/images/2017/sass-refactor-regexes.png)
+![Screen shot of my regexes on regex101](https://cdn.jim-nielsen.com/blog/2017/sass-refactor-regexes.png)
 
 For each of these mixin regexes, I used Sublime to do all the legwork, i.e.
 
@@ -74,7 +74,7 @@ Generally I would test out the regex on one file first, just to make sure it was
 
 After running the regex, I would pull up the file diffs in the Github client and just make sure everything looked ok. If anything needed to be fixed or corrected, I’d do that part manually.
 
-![Screen shot of my regexes on regex101](/images/2017/sass-refactor-find-replace-diffs.png)
+![Screen shot of my regexes on regex101](https://cdn.jim-nielsen.com/blog/2017/sass-refactor-find-replace-diffs.png)
 
 An example of where I had to fix things manually dealt with the `background-image()` mixin. There were a few occurences of an older syntax of `linear-gradient()` that had to have the direction `top` removed because that was the default browser value (this old syntax would fail in modern browsers).
 
@@ -93,6 +93,6 @@ Because Susy was only rarely used, I was able to find and replace most occurence
 
 After removing the Ruby dependencies of Compass and Susy, I took our application one more step and removed Ruby from the entire Sass compilation process by switching over to using node-sass via NPM. This was really easy: I ran `npm install node-sass --save-dev`, added a script to run the compilation in `package.json`, then ran `npm run css:build`.
 
-![Screen shot of my diffs when switching from Ruby Sass to node-sass](/images/2017/sass-refactor-swap-ruby-for-node.png "My Git diff for switching from Ruby Sass to node-sass")
+![Screen shot of my diffs when switching from Ruby Sass to node-sass](https://cdn.jim-nielsen.com/blog/2017/sass-refactor-swap-ruby-for-node.png "My Git diff for switching from Ruby Sass to node-sass")
 
 Gotta admit, this was kind of a fun little refactoring project. Feels really good to take another step towards a more modern, JS/Node front-end. The end goal is that every front-end dev can run `npm run start` and have their environment up and running. This work got us one step closer.

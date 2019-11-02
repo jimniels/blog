@@ -9,7 +9,7 @@ Back in December (of 2017) I received [a tweet from @ycparak](https://twitter.co
 
 My immediate reaction was: “oh, that old thing?” My [logo integrity project](http://jim-nielsen.com/logo-integrity/) was [something I had built back in 2014](http://jim-nielsen.com/blog/2014/logo-integrity/). A few people tweeted about it back then (and by a few, I mean like [two](https://twitter.com/gooeyblob/status/507615539586273280) [people](https://twitter.com/LeBinoclard/status/507553432488529920)) and then it faded into obscurity. I was ok with that. I didn’t make it for anyone except myself. It was a fun experiment for me, and at the time, probably the most complex ~~JavaScript~~ jQuery “app” I had ever built. I mean look at the repo:
 
-![Screenshot of codebase](/images/2018/logo-integrity-code.png)
+![Screenshot of codebase](https://cdn.jim-nielsen.com/blog/2018/logo-integrity-code.png)
 
 I’ve got a Sass file in there, a `package.json` along with a Grunt file. I’ve also got some PHP files in there that I used for templating because, honestly, that’s the best way I knew how to render a file from a particular set of static data back then.
 
@@ -29,14 +29,14 @@ Some quick troubleshooting of the problem made me realize it was broken only in 
 
 So I was quite fortunate to get pinged on twitter early on so I could fix the problem as the site got more and more traffic over the next few days (I do incident response via unsolicited, volunteer feedback on twitter #twitterPagerDuty). In fact, a lot of people were posting their scores to twitter with the hashtag `#logoIntegrity`, which is funny because when I initially built the site without the “game” aspect. But at the recommendation of [the same friend](https://tylergaw.com) mentioned earlier, I put in a little widget at the end that says “congrats, you scored \_\_ points. Share it on twitter!”
 
-![Screenshot of twitter with people linking to the logo-integrity project](/images/2018/logo-integrity-twitter.png "A screenshot excerpt of people posting about the project on Twitter")
+![Screenshot of twitter with people linking to the logo-integrity project](https://cdn.jim-nielsen.com/blog/2018/logo-integrity-twitter.png "A screenshot excerpt of people posting about the project on Twitter")
 
 Granted that little share widget could totally be manipulated and you could put whatever score in there you wanted. Accusations of this were hurled around on Designer News.
 
-![Screenshot of Designer News with accusation of inspect being used](/images/2018/logo-integrity-inspect-used.png)
+![Screenshot of Designer News with accusation of inspect being used](https://cdn.jim-nielsen.com/blog/2018/logo-integrity-inspect-used.png)
 
 I don’t even know why I am writing this blog post. I guess just for my own satisfaction in documenting this little thing that happened. The internet is a funny thing sometimes in how you’ll go from 0 visitors to 20,000 in an instant. Maybe I’ll put that on my resume one day if I ever go into marketing: increased a site’s visitors 424,000%.
 
-![gif of exponential analytics growth](/images/2018/logo-integrity-analytics-growth.gif)
+![gif of exponential analytics growth](https://cdn.jim-nielsen.com/blog/2018/logo-integrity-analytics-growth.gif)
 
 My guess is, in another three or four years, this will probably make the rounds again. That seems to be how it goes. Hopefully the site still works then and my cabin of logo integrity is found to be comfortable and cozy.

@@ -7,7 +7,7 @@ redirect_from: /posts/automating-feelings/
 
 > It’s been hard not to feel a deepening of the soul as the palette of online emotion signifiers has expanded from sparse typographic emoticons to colorful and animated emoji. (Nicolas Carr, “[Automating the feels](http://www.roughtype.com/?p=3693)”)
 
-![Emoji Transformation](/images/2013/emoji-transformation.png)
+![Emoji Transformation](https://cdn.jim-nielsen.com/blog/2013/emoji-transformation.png)
 
 Social networks (and digital products) are now focusing on providing tools to help users express how they feel. Structuring human emotion into a machine-readable format might possibly be the next holy grail of the digital world.
 

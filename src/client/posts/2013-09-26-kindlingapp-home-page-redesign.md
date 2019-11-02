@@ -20,7 +20,7 @@ The new disciplined design for [kindlingapp.com](http://kindlingapp.com) focuses
 
 The design started with a collaborative Google doc for the page’s copy. Though not visual, creating and crafting the copy was one of the most difficult tasks of the design. After innumerable edits the copy provided enough substance to get started on devising visuals for the narrative. I started with various sketches to determine how and where the visuals could aid in communicating Kindling’s purpose.
 
-![Kindling home page sketches](/images/2013/kindling-home-sketch.jpg)
+![Kindling home page sketches](https://cdn.jim-nielsen.com/blog/2013/kindling-home-sketch.jpg)
 
 The artwork was then created in Photoshop. I dribbled a few previews of the work for historical sake:
 
@@ -34,7 +34,7 @@ After drawing up the graphics and reviewing them with stakeholders, it was time 
 
 ## Final Product
 
-![Kindling home page screenshot](/images/2013/kindling-home-preview.jpg)
+![Kindling home page screenshot](https://cdn.jim-nielsen.com/blog/2013/kindling-home-preview.jpg)
 
 It seems rather simple but forming the narrative and accompanying graphics took a lot of work. It is difficult to take everything an entire company stands for and distill it into a page that’s clear and simple enough for an anyone to understand.
 

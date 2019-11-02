@@ -51,17 +51,17 @@ Through this little node script, I discovered four of my posts had mismatched da
 
 Number one was relatively easy. My node script only surfaced four files where values mismatched. So that was an easy one to do by hand.
 
-![Screenshot of the result of my node script](/images/2019/post-dates-node-script-result.png)
+![Screenshot of the result of my node script](https://cdn.jim-nielsen.com/blog/2019/post-dates-node-script-result.png)
 
 Number two was a little bit tricker. After dusting off the part of my brain that deals with regexes, I used the find/replace in VSCode to essentially look through all my `posts/*.md` files and remove any lines that started with `date:`.
 
 My first attempt found me using this regex pattern: `^date:.*$`. That seems right, right? Start at the beginning of the line (`^`) look for `date:` and then anything following that (`.*`) until the end of the line (`$`). VSCode made seeing the results of my search quite easy.
 
-![Screenshot of the result of my first regex search in VSCode](/images/2019/post-dates-first-regex-vscode.png)
+![Screenshot of the result of my first regex search in VSCode](https://cdn.jim-nielsen.com/blog/2019/post-dates-first-regex-vscode.png)
 
 After doing the find/replace, I looked at my file changes and realized I wasn’t capturing the entire line. The computer had found all my `date:` strings and removed them, leaving me with an empty line in each post file:
 
-![Screenshot of my first regex changes in git](/images/2019/post-dates-first-regex-git.png)
+![Screenshot of my first regex changes in git](https://cdn.jim-nielsen.com/blog/2019/post-dates-first-regex-git.png)
 
 As you can see, I now had an empty line in each file. There was still dust on the regex part of my brain, so I read some more about the `$` character on [regex101](https://regex101.com/) and found the following (emphasis mine):
 
@@ -71,11 +71,11 @@ Ah, so the new line character wasn’t being captured. Reverting my changes was 
 
 I then changed my regex to capture the new line character (`\n`) and performed another search/replace (`^date:.*$\n`):
 
-![Screenshot of the result of my second regex search in VSCode](/images/2019/post-dates-second-regex-vscode.png)
+![Screenshot of the result of my second regex search in VSCode](https://cdn.jim-nielsen.com/blog/2019/post-dates-second-regex-vscode.png)
 
 Ahh, sweet, sweet success!
 
-![Screenshot of my second regex changes in git](/images/2019/post-dates-second-regex-git.png)
+![Screenshot of my second regex changes in git](https://cdn.jim-nielsen.com/blog/2019/post-dates-second-regex-git.png)
 
 As you can see, that gave me precisely what I wanted: remove every line that started with `date:`. Working with git made this really easy. I could do search/replaces all day, ensure I got what I wanted by previewing the changes in git, then either committing or reverting my changes.
 

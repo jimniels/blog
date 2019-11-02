@@ -8,15 +8,15 @@ Seemingly high-quality freebies, who doesn't love them? They save lots of time. 
 
 Here's a vector freebie I got online today. I imported the shape into Photoshop and noticed a 1px offset in symmetry:
 
-![Freebie 1px Offset](/images/2013/freebie-offset.png)
+![Freebie 1px Offset](https://cdn.jim-nielsen.com/blog/2013/freebie-offset.png)
 
 I know you might be thinking, "1px offset? Nobody will even notice that." And you know what? You're right. One little 1px offset in an image that's 16x16 pixels probably won't be noticed by many people. However, the accumulation of many 1px offsets in your digital creations **will** be noticed! It's worth practicing some self discipline because it will help avoid sloppy work.
 
-![Freebie 1px Offset Shape Selection](/images/2013/freebie-offset-select.png)
+![Freebie 1px Offset Shape Selection](https://cdn.jim-nielsen.com/blog/2013/freebie-offset-select.png)
 
 Ahhh, isn't this much better?
 
-![Freebie 1px Offset Correction](/images/2013/freebie-offset-fix.png)
+![Freebie 1px Offset Correction](https://cdn.jim-nielsen.com/blog/2013/freebie-offset-fix.png)
 
 Don't assume the freebie is pixel-perfect, especially when transferring it between software applications. Keeping up your guard and not making assumptions will prevent slipshod work.
 
