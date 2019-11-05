@@ -19,7 +19,7 @@ const Layout = (props, children) => {
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="https://cdn.jim-nielsen.com" rel="preconnect">
+      <link rel="preconnect" href="https://cdn.jim-nielsen.com">
       <link
         rel="alternate"
         type="application/rss+xml"
