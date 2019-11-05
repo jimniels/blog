@@ -13,7 +13,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: #eee;
-    --color-bg: rgb(63, 59, 57);
+    --color-bg: rgb(64, 63, 62);
     --color-border: rgba(255, 255, 255, 0.1);
     --color-bg-sidebar: rgba(0, 0, 0, 0.2);
     --color-link: rgb(5, 172, 255);
@@ -44,17 +44,16 @@ body {
 /* @TODO
 // https://stackoverflow.com/questions/4774022/whats-default-html-css-link-color */
 a {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 a:link {
   color: var(--color-link);
-  text-decoration: none;
-  border-bottom: 1px solid;
+  text-decoration: underline;
+  text-decoration-color: inherit;
 }
 a:link:hover {
   /* @TODO */
   background-color: rgba(0, 0, 255, 0.05);
-  text-decoration: none;
 }
 a:visited {
   color: var(--color-link-visited);
@@ -72,16 +71,15 @@ a:active:hover {
 }
 
 .nav {
-  background: var(--color-bg-sidebar);
   display: flex;
   flex-direction: column;
 }
 
-.nav p {
-  font-size: 0.8125rem;
-  opacity: 0.5;
-  line-height: 1.3;
-  order: 1;
+.nav h1 {
+  font-size: 1.25em;
+  line-height: 1.4;
+
+  margin: 0;
 }
 
 .nav ul {
@@ -96,6 +94,9 @@ a:active:hover {
   text-decoration: none !important;
   background-color: transparent !important;
 }
+.nav ul .active {
+  font-weight: bold;
+}
 
 .nav__img {
   display: block;
@@ -106,20 +107,22 @@ a:active:hover {
   box-shadow: 0 7px 18px rgba(0, 0, 0, 0.15), 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .nav__img img {
-  position: absolute;
+  display: block;
   width: 100%;
-  top: 0;
-  left: 0;
+  height: auto;
 }
 
-.nav .active {
-  font-weight: bold;
+.nav p {
+  opacity: 0.5;
+  font-size: 0.875em;
 }
 
 @media screen and (max-width: 959px) {
   .nav {
     padding: calc(1.618rem / 1.5) 5%;
+    border-bottom: 1px solid var(--color-border);
   }
+
   .nav__img {
     width: 100px;
     height: 100px;
@@ -168,29 +171,37 @@ a:active:hover {
     padding-bottom: 1.618rem;
     padding-right: calc(1.1618rem * 2);
   }
+
+  .nav__img {
+    width: 250px;
+    height: 250px;
+  }
+
   .nav-wrapper {
     width: 250px;
+    position: relative;
   }
-  .nav__img {
-    width: 100%;
-    padding-bottom: 100%;
-    margin-bottom: 1.618rem;
-  }
-  .nav ul::after {
+
+  .nav-wrapper::after {
     content: "";
     background-image: url("../img/logo-black.png");
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    top: -71px;
-    right: 0px;
+    bottom: -90px;
+    left: -23px;
     width: 140px;
     height: 69px;
+    opacity: 0.333;
   }
   @media (prefers-color-scheme: dark) {
-    .nav ul::after {
+    .nav-wrapper::after {
       background-image: url("../img/logo-white.png");
     }
+  }
+
+  .nav h1 {
+    margin: calc(1.618rem / 2 + 5px) 0 calc(1.618rem / 2);
   }
 
   .nav li {
@@ -216,12 +227,6 @@ a:active:hover {
 
   .nav li.active {
     font-weight: bold;
-  }
-
-  .nav p {
-    font-size: 0.75rem;
-    opacity: 0.5;
-    order: 2;
   }
 
   .main {
@@ -264,7 +269,7 @@ a:active:hover {
   position: relative;
   font-weight: 700;
   margin-bottom: 0.382em;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 .markdown:before {

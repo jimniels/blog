@@ -26,11 +26,18 @@ const navItems = [
 // prettier-ignore
 const Nav = ({ site, page }) => jim`
   <div class="nav-wrapper">
-    <div class="nav__img">
-      <a href="/">
-        <img src="https://www.jim-nielsen.com/assets/img/profile.jpg" alt="Photography of Jim Nielsen" />
-      </a>
-    </div>
+    <a href="/" class="nav__img">
+      <img
+        src="https://cdn.jim-nielsen.com/shared/jim-nielsen-portrait.jpg"
+        alt="Photograph of Jim Nielsen"
+        width="250"
+        height="250"
+      />
+    </a> 
+
+    <h1 class="nav__title">
+      Jim’s Web Log
+    </h1>
 
     <ul>
       ${navItems.map(navItem => `
@@ -48,10 +55,7 @@ const Nav = ({ site, page }) => jim`
         </li>
         -->
     </ul>
-
-    <p>
-      Hi, I’m <a href="http://jim-nielsen.com/">Jim Nielsen</a>. This is my blog, where I seek clarity through writing. 
-    </p>
+    
   </div>
 `;
 
