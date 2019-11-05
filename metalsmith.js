@@ -21,7 +21,7 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 
 let App = Metalsmith(__dirname)
   .metadata({
-    name: "Jim Nielsen’s Blog",
+    name: "Jim Nielsen’s Web Log",
     origin: "https://blog.jim-nielsen.com",
     isDevelopment
   })

@@ -4,7 +4,7 @@ title: About
 id: about
 ---
 
-# About this Blog
+# About
 
 In the past, I frequently put off writing blog posts because I found myself unable to put forth my best effort in writing — that attitude of “if you can’t do something right, don’t do it at all” — but lately I’ve found myself regretting not writing at least _something_.
 

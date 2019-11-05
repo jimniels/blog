@@ -4,9 +4,9 @@ const { jim, toDateUI } = require("../../server/utils.js");
 const page = {
   title: "Tags",
   id: "tags"
-}
+};
 
-const Tags = (site) => {
+const Tags = site => {
   const postsByTag = site.posts.reduce((acc, post) => {
     if (post.tags) {
       post.tags.forEach(tag => {
@@ -24,7 +24,7 @@ const Tags = (site) => {
 
   // prettier-ignore
   return PageCustom({ site, page }, jim`
-    <h1>All Tags Index</h1>
+    <h1>Tags Index</h1>
     <ul>
       ${tags.map(
         tag => `
