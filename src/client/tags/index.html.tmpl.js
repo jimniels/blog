@@ -1,5 +1,5 @@
-const { PageCustom } = require("../../server/Layouts.js");
-const { jim, toDateUI } = require("../../server/utils.js");
+import { PageCustom } from "../../server/Layouts.js";
+import { jim, toDateUI } from "../../server/utils.js";
 
 const page = {
   title: "Tags",
@@ -56,4 +56,4 @@ const Tags = site => {
   `);
 };
 
-module.exports = Tags;
+export default Tags;

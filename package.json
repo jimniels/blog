@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "[jim-nielsen.com/blog](http://jim-nielsen.com/blog)",
   "main": "metalsmith.js",
+  "type": "module",
   "dependencies": {
     "highlight.js": "^9.15.8",
     "marked": "^0.7.0",

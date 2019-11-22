@@ -1,11 +1,13 @@
-const Metalsmith = require("metalsmith");
-const watch = require("metalsmith-watch");
-const serve = require("metalsmith-serve");
-const path = require("path");
-const { fileURLToPath } = require("url");
-const multimatch = require("multimatch");
-const hljs = require("highlight.js");
-const marked = require("marked");
+import Metalsmith from "metalsmith";
+import watch from "metalsmith-watch";
+import serve from "metalsmith-serve";
+import path from "path";
+import { fileURLToPath } from "url";
+import multimatch from "multimatch";
+import hljs from "highlight.js";
+import marked from "marked";
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -28,7 +30,7 @@ let App = Metalsmith(__dirname)
   .source("./src/client")
   .destination("./build")
   .clean(true)
-  .use((files, metalsmith, done) => {
+  .use(async (files, metalsmith, done) => {
     /**
      * Handle Drafts
      * @TODO IF we are including drafts, move them to the "posts" folder
@@ -169,30 +171,41 @@ let App = Metalsmith(__dirname)
      * render themselves.
      *   (site) => CustomLayout({ site, page: {...} }, children)
      */
-    const layouts = require("./src/server/Layouts.js");
+    const layouts = await import(`./src/server/Layouts.js?time=${Date.now()}`);
     const site = metalsmith.metadata();
 
     const getFilePath = filepath =>
       path.join(metalsmith._directory, metalsmith._source, filepath);
 
-    Object.keys(files).forEach(file => {
-      // Templates
-      if (multimatch(file, "**/*.tmpl.js").length) {
-        const fn = require(getFilePath(file));
-        files[file].contents = fn(site);
-        files[file.replace(".tmpl.js", "")] = files[file];
-        delete files[file];
-        // Files with a layout
-      } else if (files[file].layout) {
-        const fn = layouts[files[file].layout];
-        if (fn) {
-          files[file].contents = fn({
-            site,
-            page: files[file]
-          });
+    await Promise.all(
+      Object.keys(files).map(async file => {
+        // Templates
+        if (multimatch(file, "**/*.tmpl.js").length) {
+          try {
+            const fn = await import(
+              getFilePath(file) + "?time=" + Date.now()
+            ).then(module => module.default);
+            files[file].contents = fn(site);
+            const newFilename = file.replace(".tmpl.js", "");
+            files[newFilename] = files[file];
+            delete files[file];
+          } catch (e) {
+            console.error("Failed to render template for", file);
+            console.error(e);
+          }
+
+          // Files with a layout
+        } else if (files[file].layout) {
+          const fn = layouts[files[file].layout];
+          if (fn) {
+            files[file].contents = fn({
+              site,
+              page: files[file]
+            });
+          }
         }
-      }
-    });
+      })
+    );
 
     done();
   });

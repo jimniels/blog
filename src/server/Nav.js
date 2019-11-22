@@ -1,4 +1,4 @@
-const { jim } = require("./utils.js");
+import { jim } from "./utils.js";
 
 const navItems = [
   {
@@ -36,7 +36,7 @@ const Nav = ({ site, page }) => jim`
     </a> 
 
     <h1 class="nav__title">
-      Jim’s Weblog
+      Jim’s Weblogzzz
     </h1>
 
     <ul>
@@ -59,4 +59,4 @@ const Nav = ({ site, page }) => jim`
   </div>
 `;
 
-module.exports = Nav;
+export default Nav;
