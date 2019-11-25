@@ -4,8 +4,8 @@ const { jim, toDateUI } = require("./utils.js");
 
 const Layout = (props, children) => {
   const {
-    site: { name, isDevelopment },
-    page: { title }
+    site: { origin, name, isDevelopment },
+    page: { layout, permalink, title }
   } = props;
 
   return jim`
@@ -40,6 +40,11 @@ const Layout = (props, children) => {
         rel="stylesheet"
         href="/assets/css/styles.css"
       >
+      ${layout === "Post" && `
+        <meta property="og:title" content="${title}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="${origin + permalink}" />
+      `}
     </head>
     <body>
       <nav class="nav">
