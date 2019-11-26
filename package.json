@@ -24,7 +24,7 @@
     "prestart": "npm run copy-css",
     "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'node metalsmith && browser-sync reload'",
     "prebuild": "npm run copy-css",
-    "build": "export NODE_VERSION=13 NODE_ENV=production node metalsmith.js"
+    "build": "NODE_ENV=production node metalsmith.js"
   },
   "repository": {
     "type": "git",
