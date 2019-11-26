@@ -4,24 +4,27 @@
   "description": "[jim-nielsen.com/blog](http://jim-nielsen.com/blog)",
   "main": "metalsmith.js",
   "type": "module",
+  "engines": {
+    "node": ">=13.2.0"
+  },
   "dependencies": {
+    "browser-sync": "^2.26.7",
     "highlight.js": "^9.15.8",
     "marked": "^0.7.0",
     "metalsmith": "^2.3.0",
-    "metalsmith-serve": "^0.0.7",
-    "metalsmith-watch": "^1.0.3",
     "multimatch": "^3.0.0",
+    "nodemon": "^2.0.1",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "date": "node date.js",
+    "browser_sync": "browser-sync start --server build --browser=chrome",
     "copy-css": "cp node_modules/highlight.js/styles/atom-one-*.css src/client/assets/css/",
     "prestart": "npm run copy-css",
-    "start": "node metalsmith.js",
+    "start": "npm run browser_sync & NODE_ENV=development nodemon --exec 'node metalsmith && browser-sync reload'",
     "prebuild": "npm run copy-css",
-    "build": "NODE_ENV=production node metalsmith.js"
+    "build": "export NODE_VERSION=13 NODE_ENV=production node metalsmith.js"
   },
   "repository": {
     "type": "git",

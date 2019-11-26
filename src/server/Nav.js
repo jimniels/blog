@@ -36,7 +36,7 @@ const Nav = ({ site, page }) => jim`
     </a> 
 
     <h1 class="nav__title">
-      Jim’s Weblogzzz
+      Jim’s Weblog
     </h1>
 
     <ul>

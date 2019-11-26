@@ -1,6 +1,4 @@
 import Metalsmith from "metalsmith";
-import watch from "metalsmith-watch";
-import serve from "metalsmith-serve";
 import path from "path";
 import { fileURLToPath } from "url";
 import multimatch from "multimatch";
@@ -208,37 +206,7 @@ let App = Metalsmith(__dirname)
     );
 
     done();
+  }).build(err => {
+    // build process
+    if (err) throw err; // error handling is required
   });
-
-/**
- * Development
- * If this is development mode, start up the server and watch files.
- */
-if (isDevelopment) {
-  App.use(
-    watch({
-      paths: {
-        "${source}/**/*": true,
-        "${source}/posts/*.md": "**/*.tmpl.js",
-        "src/server/**/*": "**/*"
-      },
-      livereload: true,
-      invalidateCache: true
-      // log: () => {} // silence the log
-    })
-  ).use(
-    serve({
-      http_error_files: {
-        404: "/404.html" // @TODO
-      }
-    })
-  );
-}
-
-/**
- * Build the app
- */
-App.build(err => {
-  // build process
-  if (err) throw err; // error handling is required
-});
