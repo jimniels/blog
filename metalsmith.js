@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import multimatch from "multimatch";
 import hljs from "highlight.js";
 import marked from "marked";
+import * as layouts from "./src/server/Layouts.js";
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -112,51 +113,37 @@ let App = Metalsmith(__dirname)
      * pass (so all the files or only one)
      */
     const meta = metalsmith.metadata();
-    if (meta.posts) {
-      // @TODO
-      // Updating can make access the .contents be the full html file and not
-      // just the markdown. This can get weird. PROCEED WITH CAUTION
-      // Object.keys(files).forEach(file => {
-      //   const index = meta.posts.findIndex(
-      //     post => post.slug === files[file].slug
-      //   );
-      //   if (index !== -1) {
-      //     meta.posts[index] = files[file];
-      //   }
-      // });
-    } else {
-      // Doesn't exist yet, so all files are available
-      meta.posts = Object.keys(files)
-        .filter(file => files[file].layout === "Post")
-        .map(file => files[file])
-        .sort((a, b) => {
-          const formatForDateSort = date =>
-            Number(
-              date
-                .toISOString()
-                .slice(0, 10)
-                .replace(/-/g, "")
-            );
-          const adate = formatForDateSort(a.date);
-          const bdate = formatForDateSort(b.date);
-          // Sort by date, then alphabetically
-          if (adate > bdate) {
+    // Doesn't exist yet, so all files are available
+    meta.posts = Object.keys(files)
+      .filter(file => files[file].layout === "Post")
+      .map(file => files[file])
+      .sort((a, b) => {
+        const formatForDateSort = date =>
+          Number(
+            date
+              .toISOString()
+              .slice(0, 10)
+              .replace(/-/g, "")
+          );
+        const adate = formatForDateSort(a.date);
+        const bdate = formatForDateSort(b.date);
+        // Sort by date, then alphabetically
+        if (adate > bdate) {
+          return -1;
+        } else if (adate < bdate) {
+          return 1;
+        } else {
+          const aname = a.title.toLowerCase();
+          const bname = b.title.toLowerCase();
+          if (aname > bname) {
             return -1;
-          } else if (adate < bdate) {
+          } else if (aname < bname) {
             return 1;
           } else {
-            const aname = a.title.toLowerCase();
-            const bname = b.title.toLowerCase();
-            if (aname > bname) {
-              return -1;
-            } else if (aname < bname) {
-              return 1;
-            } else {
-              return 0;
-            }
+            return 0;
           }
-        });
-    }
+        }
+      });
 
     /**
      * Handle Templating
@@ -169,7 +156,6 @@ let App = Metalsmith(__dirname)
      * render themselves.
      *   (site) => CustomLayout({ site, page: {...} }, children)
      */
-    const layouts = await import(`./src/server/Layouts.js?time=${Date.now()}`);
     const site = metalsmith.metadata();
 
     const getFilePath = filepath =>
@@ -180,9 +166,9 @@ let App = Metalsmith(__dirname)
         // Templates
         if (multimatch(file, "**/*.tmpl.js").length) {
           try {
-            const fn = await import(
-              getFilePath(file) + "?time=" + Date.now()
-            ).then(module => module.default);
+            const fn = await import(getFilePath(file)).then(
+              module => module.default
+            );
             files[file].contents = fn(site);
             const newFilename = file.replace(".tmpl.js", "");
             files[newFilename] = files[file];
@@ -206,7 +192,8 @@ let App = Metalsmith(__dirname)
     );
 
     done();
-  }).build(err => {
+  })
+  .build(err => {
     // build process
     if (err) throw err; // error handling is required
   });

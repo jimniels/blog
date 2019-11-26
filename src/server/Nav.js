@@ -24,39 +24,39 @@ const navItems = [
 ];
 
 // prettier-ignore
-const Nav = ({ site, page }) => jim`
-  <div class="nav-wrapper">
-    <a href="/" class="nav__img">
-      <img
-        src="https://cdn.jim-nielsen.com/shared/jim-nielsen-portrait.jpg"
-        alt="Photograph of Jim Nielsen"
-        width="250"
-        height="250"
-      />
-    </a> 
+export default function Nav({ site, page }) {
+  return jim`
+    <div class="nav-wrapper">
+      <a href="/" class="nav__img">
+        <img
+          src="https://cdn.jim-nielsen.com/shared/jim-nielsen-portrait.jpg"
+          alt="Photograph of Jim Nielsen"
+          width="250"
+          height="250"
+        />
+      </a> 
 
-    <h1 class="nav__title">
-      Jim’s Weblog
-    </h1>
+      <h1 class="nav__title">
+        Jim’s Weblog
+      </h1>
 
-    <ul>
-      ${navItems.map(navItem => `
-        <li class="${page.id == navItem.id ? "active" : ""}">
-          ${page.id == navItem.id
-            ? navItem.label
-            : `<a href="${navItem.path}">
-                ${navItem.label}
-              </a>`}
-        </li>
-      `)}
-      <!--
-        <li>
-          <a href="https://www.jim-nielsen.com">jim-nielsen.com</a>
-        </li>
-        -->
-    </ul>
-    
-  </div>
-`;
-
-export default Nav;
+      <ul>
+        ${navItems.map(navItem => `
+          <li class="${page.id == navItem.id ? "active" : ""}">
+            ${page.id == navItem.id
+              ? navItem.label
+              : `<a href="${navItem.path}">
+                  ${navItem.label}
+                </a>`}
+          </li>
+        `)}
+        <!--
+          <li>
+            <a href="https://www.jim-nielsen.com">jim-nielsen.com</a>
+          </li>
+          -->
+      </ul>
+      
+    </div>
+  `;
+}

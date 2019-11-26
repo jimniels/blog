@@ -6,7 +6,7 @@ const page = {
   id: "tags"
 };
 
-const Tags = site => {
+export default function Tags(site) {
   const postsByTag = site.posts.reduce((acc, post) => {
     if (post.tags) {
       post.tags.forEach(tag => {
@@ -55,5 +55,3 @@ const Tags = site => {
     `)}
   `);
 };
-
-export default Tags;
