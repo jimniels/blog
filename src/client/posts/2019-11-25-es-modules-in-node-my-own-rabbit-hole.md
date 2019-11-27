@@ -123,3 +123,19 @@ In commonJS, when you `require` a module, it gets cached by node. So the next ti
 So that’s my summary of the problem. I’ll also admit that I might be misunderstanding something here. I know a lot of [in-depth stuff](https://hackernoon.com/node-js-tc-39-and-modules-a1118aecf95e) has been written on the subject of module systems in JavaScript. So if you’re reading this post and anxious to point out where I’m wrong, [reach out](https://twitter.com/jimniels). I’d be happy to have someone help me understand this all better. 
 
 Just writing this post has been therapeutic. Maybe I’ll hold off on ES modules in node for a little longer. At least on my metalsmith projects.
+
+## Update: Nov 27, 2019
+
+After writing this article and posting about it in the [metalsmith slack channel](https://metalsmith-slack.herokuapp.com/), I found this wonderful suggestion from [@AndrewGoodricke](https://twitter.com/AndrewGoodricke) (a.k.a. “Woody”):
+
+> Don't use `metalsmith-watch`, it caused issues with various plugins. It is also good to separate the build process from watching (and triggering a re-build), the build shouldn't know anything except for what it is building...use `browser-sync` and `nodemon`. 
+
+I had actually always wanted to do something like this, but I’d tried various combinations of file watchers and web servers available on npm and had never been able to get anything to work. But now I had a concerete suggestion of how to proceed forward.
+
+So I followed Woody’s suggestions and things worked like a charm! Granted, it wasn’t technically a resolution to the problem I described above. `nodemon` is watching for changes and then reloading/rerunning metalsmith altogether, which means I don’t have a module cache problem because my `import` statements are “fresh” each time the app runs.
+
+Technically, this solution is a bit slower. `metalsmith-watch` was insanely fast because it was only processing changes (vs. rerunning the entire metalsmith build). This was nice because, well, it was insanely fast. But it actually had some cognitive overhead into how you build and structure your metalsmith project. For example, any custom plugins have to take into consideration that they might be processing all expected files *or* just files that changed (which actually can get really tricky). So while the nodemon approach suggested here is a bit slower in terms of dev feedback loop, it’s a much cleaner separation of concerns, which helps you side-step thorny issues like “is this plugin processing things the first time around, or the 2nd, 3rd, 4th, etc?”
+
+I’ve included a screenshot of Woody’s notes here, since you’d otherwise have to have a slack account to find them.
+
+<img src="https://cdn.jim-nielsen.com/blog/2019/node-rabbit-hole-nodemon-suggestion.png" alt="Screenshot of documentation on how to ditch metalsmith-watch and use nodemon + browsersync instead." width="1136" height="1419">
