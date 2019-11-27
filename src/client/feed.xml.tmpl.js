@@ -1,7 +1,8 @@
-const { jim } = require("../server/utils.js");
+import { jim } from "../server/utils.js";
 
 // prettier-ignore
-const XMLFeed = (site) => jim`<?xml version="1.0" encoding="UTF-8"?>
+export default function XMLFeed(site) {
+  return jim`<?xml version="1.0" encoding="UTF-8"?>
   <rss version="2.0" 
     xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
@@ -20,9 +21,8 @@ const XMLFeed = (site) => jim`<?xml version="1.0" encoding="UTF-8"?>
       `)}
     </channel>
   </rss>
-`;
-
-module.exports = XMLFeed;
+  `;
+}
 
 function escapeXml(unsafe) {
   return unsafe.replace(/[<>&'"]/g, function(c) {

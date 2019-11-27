@@ -1,11 +1,12 @@
-const Metalsmith = require("metalsmith");
-const watch = require("metalsmith-watch");
-const serve = require("metalsmith-serve");
-const path = require("path");
-const { fileURLToPath } = require("url");
-const multimatch = require("multimatch");
-const hljs = require("highlight.js");
-const marked = require("marked");
+import Metalsmith from "metalsmith";
+import path from "path";
+import { fileURLToPath } from "url";
+import multimatch from "multimatch";
+import hljs from "highlight.js";
+import marked from "marked";
+import * as layouts from "./src/server/Layouts.js";
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -28,7 +29,7 @@ let App = Metalsmith(__dirname)
   .source("./src/client")
   .destination("./build")
   .clean(true)
-  .use((files, metalsmith, done) => {
+  .use(async (files, metalsmith, done) => {
     /**
      * Handle Drafts
      * @TODO IF we are including drafts, move them to the "posts" folder
@@ -112,51 +113,37 @@ let App = Metalsmith(__dirname)
      * pass (so all the files or only one)
      */
     const meta = metalsmith.metadata();
-    if (meta.posts) {
-      // @TODO
-      // Updating can make access the .contents be the full html file and not
-      // just the markdown. This can get weird. PROCEED WITH CAUTION
-      // Object.keys(files).forEach(file => {
-      //   const index = meta.posts.findIndex(
-      //     post => post.slug === files[file].slug
-      //   );
-      //   if (index !== -1) {
-      //     meta.posts[index] = files[file];
-      //   }
-      // });
-    } else {
-      // Doesn't exist yet, so all files are available
-      meta.posts = Object.keys(files)
-        .filter(file => files[file].layout === "Post")
-        .map(file => files[file])
-        .sort((a, b) => {
-          const formatForDateSort = date =>
-            Number(
-              date
-                .toISOString()
-                .slice(0, 10)
-                .replace(/-/g, "")
-            );
-          const adate = formatForDateSort(a.date);
-          const bdate = formatForDateSort(b.date);
-          // Sort by date, then alphabetically
-          if (adate > bdate) {
+    // Doesn't exist yet, so all files are available
+    meta.posts = Object.keys(files)
+      .filter(file => files[file].layout === "Post")
+      .map(file => files[file])
+      .sort((a, b) => {
+        const formatForDateSort = date =>
+          Number(
+            date
+              .toISOString()
+              .slice(0, 10)
+              .replace(/-/g, "")
+          );
+        const adate = formatForDateSort(a.date);
+        const bdate = formatForDateSort(b.date);
+        // Sort by date, then alphabetically
+        if (adate > bdate) {
+          return -1;
+        } else if (adate < bdate) {
+          return 1;
+        } else {
+          const aname = a.title.toLowerCase();
+          const bname = b.title.toLowerCase();
+          if (aname > bname) {
             return -1;
-          } else if (adate < bdate) {
+          } else if (aname < bname) {
             return 1;
           } else {
-            const aname = a.title.toLowerCase();
-            const bname = b.title.toLowerCase();
-            if (aname > bname) {
-              return -1;
-            } else if (aname < bname) {
-              return 1;
-            } else {
-              return 0;
-            }
+            return 0;
           }
-        });
-    }
+        }
+      });
 
     /**
      * Handle Templating
@@ -169,63 +156,44 @@ let App = Metalsmith(__dirname)
      * render themselves.
      *   (site) => CustomLayout({ site, page: {...} }, children)
      */
-    const layouts = require("./src/server/Layouts.js");
     const site = metalsmith.metadata();
 
     const getFilePath = filepath =>
       path.join(metalsmith._directory, metalsmith._source, filepath);
 
-    Object.keys(files).forEach(file => {
-      // Templates
-      if (multimatch(file, "**/*.tmpl.js").length) {
-        const fn = require(getFilePath(file));
-        files[file].contents = fn(site);
-        files[file.replace(".tmpl.js", "")] = files[file];
-        delete files[file];
-        // Files with a layout
-      } else if (files[file].layout) {
-        const fn = layouts[files[file].layout];
-        if (fn) {
-          files[file].contents = fn({
-            site,
-            page: files[file]
-          });
+    await Promise.all(
+      Object.keys(files).map(async file => {
+        // Templates
+        if (multimatch(file, "**/*.tmpl.js").length) {
+          try {
+            const fn = await import(getFilePath(file)).then(
+              module => module.default
+            );
+            files[file].contents = fn(site);
+            const newFilename = file.replace(".tmpl.js", "");
+            files[newFilename] = files[file];
+            delete files[file];
+          } catch (e) {
+            console.error("Failed to render template for", file);
+            console.error(e);
+          }
+
+          // Files with a layout
+        } else if (files[file].layout) {
+          const fn = layouts[files[file].layout];
+          if (fn) {
+            files[file].contents = fn({
+              site,
+              page: files[file]
+            });
+          }
         }
-      }
-    });
+      })
+    );
 
     done();
+  })
+  .build(err => {
+    // build process
+    if (err) throw err; // error handling is required
   });
-
-/**
- * Development
- * If this is development mode, start up the server and watch files.
- */
-if (isDevelopment) {
-  App.use(
-    watch({
-      paths: {
-        "${source}/**/*": true,
-        "${source}/posts/*.md": "**/*.tmpl.js",
-        "src/server/**/*": "**/*"
-      },
-      livereload: true,
-      invalidateCache: true
-      // log: () => {} // silence the log
-    })
-  ).use(
-    serve({
-      http_error_files: {
-        404: "/404.html" // @TODO
-      }
-    })
-  );
-}
-
-/**
- * Build the app
- */
-App.build(err => {
-  // build process
-  if (err) throw err; // error handling is required
-});

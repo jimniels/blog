@@ -1,12 +1,12 @@
-const { PageCustom } = require("../../server/Layouts.js");
-const { jim, toDateUI } = require("../../server/utils.js");
+import { PageCustom } from "../../server/Layouts.js";
+import { jim, toDateUI } from "../../server/utils.js";
 
 const page = {
   title: "Tags",
   id: "tags"
 };
 
-const Tags = site => {
+export default function Tags(site) {
   const postsByTag = site.posts.reduce((acc, post) => {
     if (post.tags) {
       post.tags.forEach(tag => {
@@ -55,5 +55,3 @@ const Tags = site => {
     `)}
   `);
 };
-
-module.exports = Tags;

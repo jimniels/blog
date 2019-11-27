@@ -33,8 +33,4 @@ const toDateUI = date => {
 };
 const toDateUIMin = date => toDateUI(date).split(",")[0];
 
-module.exports = {
-  jim,
-  toDateUI,
-  toDateUIMin
-};
+export { jim, toDateUI, toDateUIMin };
