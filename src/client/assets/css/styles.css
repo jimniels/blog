@@ -41,6 +41,11 @@ body {
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 /* @TODO
 // https://stackoverflow.com/questions/4774022/whats-default-html-css-link-color */
 a {
@@ -460,10 +465,12 @@ a:active:hover {
 .markdown img {
   display: block;
   max-width: 100%;
+
+  /* Old way of outlining each image
   border-radius: 5px;
-  /* @TODO dark-mode */
   border: 1px solid rgba(0, 0, 0, 0.075);
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.075);
+  */
 }
 
 /* Image Container
