@@ -1,6 +1,6 @@
 import pt from "prop-types";
 import Nav from "./Nav.js";
-import { jim, toDateUI } from "./utils.js";
+import { html, toDateUI } from "./utils.js";
 
 const Layout = (props, children) => {
   const {
@@ -8,59 +8,55 @@ const Layout = (props, children) => {
     page: { layout, permalink, title }
   } = props;
 
-  return jim`
+  return html`
     <!DOCTYPE html>
     <html id="top">
-    <head>
-      <title>
-        ${title && `${title} | `}${name}
-      </title>
+      <head>
+        <title>
+          ${title && `${title} | `}${name}
+        </title>
 
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="preconnect" href="https://cdn.jim-nielsen.com">
-      <link
-        rel="alternate"
-        type="application/rss+xml"
-        title="RSS"
-        href="/feed.xml"
-      >
-      <link
-        rel="alternate"
-        type="application/json"
-        title="JSON Feed"
-        href="/feed.json"
-      >
-      <link
-        rel="stylesheet"
-        href="/assets/css/normalize.css"
-      >
-      <link
-        rel="stylesheet"
-        href="/assets/css/styles.css"
-      >
-      ${layout === "Post" && `
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS"
+          href="/feed.xml"
+        />
+        <link
+          rel="alternate"
+          type="application/json"
+          title="JSON Feed"
+          href="/feed.json"
+        />
+        <link rel="stylesheet" href="/assets/css/normalize.css" />
+        <link rel="stylesheet" href="/assets/css/styles.css" />
+        ${layout === "Post" &&
+          `
         <meta property="og:title" content="${title}" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="${origin + permalink}" />
       `}
-    </head>
-    <body>
-      <nav class="nav">
-        ${Nav(props)}
-      </nav>
+      </head>
+      <body>
+        <nav class="nav">
+          ${Nav(props)}
+        </nav>
 
-      <main class="main">    
-        ${children}
-      </main>
+        <main class="main">
+          ${children}
+        </main>
 
-      <script type="text/javascript" src="/assets/js/js.js"></script>
+        <script type="text/javascript" src="/assets/js/js.js"></script>
 
-      ${isDevelopment &&
-        `<script src="http://localhost:35729/livereload.js"></script>`}
-    </body>
-  </html>`;
+        ${isDevelopment &&
+          `<script src="http://localhost:35729/livereload.js"></script>`}
+      </body>
+    </html>
+  `;
 };
 
 const Post = props => {
@@ -86,7 +82,7 @@ const Post = props => {
   );
 
   // prettier-ignore
-  return Layout(props, jim`
+  return Layout(props, html`
     <link
       rel="stylesheet"
       href="/assets/css/atom-one-light.css"
@@ -128,7 +124,7 @@ const Post = props => {
 const PageCustom = (props, children) => Layout(props, children);
 
 // prettier-ignore
-const Page = (props) => Layout(props, jim`
+const Page = (props) => Layout(props, html`
   <div class="markdown">
     ${props.page.contents.toString()}
   </div>

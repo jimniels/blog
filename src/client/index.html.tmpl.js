@@ -1,5 +1,5 @@
 import { PageCustom } from "../server/Layouts.js";
-import { jim, toDateUI, toDateUIMin } from "../server/utils.js";
+import { html, toDateUI, toDateUIMin } from "../server/utils.js";
 
 const page = {
   id: "home"
@@ -22,13 +22,13 @@ export default function Index(site) {
       .sort()
       .reverse()
       .map(
-        year => jim`
-        <h2 id="y${year}">
-          ${year}
-        </h2>
-        <ul class="posts-list">
-          ${postsByYear[year].map(
-            post => `
+        year => html`
+          <h2 id="y${year}">
+            ${year}
+          </h2>
+          <ul class="posts-list">
+            ${postsByYear[year].map(
+              post => `
             <li>
               <a href="${post.permalink}">
                 ${post.title}
@@ -38,9 +38,9 @@ export default function Index(site) {
               </time>
             </li>
           `
-          )}
-        </ul>
-      `
+            )}
+          </ul>
+        `
       )
   );
 }

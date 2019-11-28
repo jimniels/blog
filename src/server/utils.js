@@ -1,4 +1,4 @@
-const jim = (strings, ...values) => {
+const html = (strings, ...values) => {
   let out = "";
   strings.forEach((string, i) => {
     const value = values[i];
@@ -15,6 +15,9 @@ const jim = (strings, ...values) => {
       // object
     } else if (typeof value === "object") {
       out += string + value;
+      console.warn(
+        "Templating warning: failed to coerce an object in your template."
+      );
       // undefined, null, boolean
     } else {
       out += string;
@@ -33,4 +36,4 @@ const toDateUI = date => {
 };
 const toDateUIMin = date => toDateUI(date).split(",")[0];
 
-export { jim, toDateUI, toDateUIMin };
+export { html, toDateUI, toDateUIMin };

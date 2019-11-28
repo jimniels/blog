@@ -1,4 +1,4 @@
-import { jim } from "./utils.js";
+import { html } from "./utils.js";
 
 const navItems = [
   {
@@ -25,7 +25,7 @@ const navItems = [
 
 // prettier-ignore
 export default function Nav({ site, page }) {
-  return jim`
+  return html`
     <div class="nav-wrapper">
       <a href="/" class="nav__img">
         <img

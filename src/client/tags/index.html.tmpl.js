@@ -1,5 +1,5 @@
 import { PageCustom } from "../../server/Layouts.js";
-import { jim, toDateUI } from "../../server/utils.js";
+import { html, toDateUI } from "../../server/utils.js";
 
 const page = {
   title: "Tags",
@@ -23,7 +23,7 @@ export default function Tags(site) {
   const tags = Object.keys(postsByTag).sort();
 
   // prettier-ignore
-  return PageCustom({ site, page }, jim`
+  return PageCustom({ site, page }, html`
     <h1>Tags Index</h1>
     <ul>
       ${tags.map(
@@ -34,7 +34,7 @@ export default function Tags(site) {
         `)}
     </ul>
 
-    ${tags.map(tag => jim`
+    ${tags.map(tag => html`
       <h2 id="${tag}" style="margin-bottom: 1rem;">
         #${tag}
         <small style="font-weight: normal">
@@ -43,7 +43,7 @@ export default function Tags(site) {
       </h2>
 
       <ul class="posts-list">
-        ${postsByTag[tag].map(post => jim`
+        ${postsByTag[tag].map(post => html`
           <li class="post-wrapper">
             <a href="${post.permalink}">${post.title}</a>
             <time class="date post-date" datetime="${post.date.toISOString()}">
@@ -54,4 +54,4 @@ export default function Tags(site) {
       </ul>
     `)}
   `);
-};
+}

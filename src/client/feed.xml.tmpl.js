@@ -1,8 +1,8 @@
-import { jim } from "../server/utils.js";
+import { html as xml } from "../server/utils.js";
 
 // prettier-ignore
 export default function XMLFeed(site) {
-  return jim`<?xml version="1.0" encoding="UTF-8"?>
+  return xml`<?xml version="1.0" encoding="UTF-8"?>
   <rss version="2.0" 
     xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
@@ -10,7 +10,7 @@ export default function XMLFeed(site) {
       <description></description>
       <link>${site.origin}</link>
       <atom:link href="${site.origin}/feed.xml" rel="self" type="application/rss+xml" />
-      ${site.posts.slice(0, 10).map(post => jim`
+      ${site.posts.slice(0, 10).map(post => xml`
         <item>
             <title>${escapeXml(post.title)}</title>
             <description>${escapeXml(post.contents.toString())}</description>
