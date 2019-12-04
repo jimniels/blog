@@ -1,6 +1,6 @@
 ---
 title: "Netlibox: My Guest Post on Netlify’s Blog"
-tags: engineering
+tags: engineering netlify
 ---
 
 [![Screenshot of guest post](https://cdn.jim-nielsen.com/blog/2018/netlibox-post-screenshot.png)](https://www.netlify.com/blog/2018/10/15/combining-netlify-with-dropbox-for-a-one-click-publishing-process/)

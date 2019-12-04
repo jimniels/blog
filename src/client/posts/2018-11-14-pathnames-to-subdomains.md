@@ -1,6 +1,6 @@
 ---
 title: Migrating from Pathnames to Subdomains for jim-nielsen.com
-tags: engineering
+tags: engineering netlify
 ---
 
 As you might know by now, [I’m a fan of Netlify](https://twitter.com/jimniels/status/1054726634052468736) and I’ve been transitioning to them (from Github Pages) for all my web hosting needs. I used my [icon](https://www.iosicongallery.com/) [galleries](https://www.macosicongallery.com/) [sites](https://www.watchosicongallery.com/) as lab rats of sorts for getting my feet wet in building, deploying, and hosting through Netlify. And guess what? It’s all worked perfectly (the rats are all safe and sound as it were). What I love about Netlify is it gives me liberty in choosing how I build and deploy my site, which results in a codebase and project structure that fits the needs of the site, rather than a codebase and project structure that fits the needs of Github Pages. With my beta phase of using Netlify over, I decided to switch over all my web real estate at [jim-nielsen.com](https://www.jim-nielsen.com/).
