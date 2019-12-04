@@ -41,8 +41,9 @@ body {
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-img {
-  width: 100%;
+img,
+video {
+  max-width: 100%;
   height: auto;
 }
 
