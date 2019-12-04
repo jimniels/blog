@@ -13,7 +13,7 @@ This is part one of a three part series:
 
 For the past few years, do you know what I’ve [yearned](https://youtu.be/vnqBAuehmhM?t=82) for? The old Dropbox Public folder. It was a beautiful idea: you put files in a folder, they sync to Dropbox, then instantly become available on the web (via a URL that matches the structure of your folder). It was like a modern take on a FTP server, with Dropbox solving a lot of the ailments of FTP (security, credentials, file syncing, etc.) Just move, copy, or rename some files on your local computer and boom, they’re on the web (plus automatically backed up in Dropbox!)
 
-Some kind of service like that has to exist in 2019, right? I couldn’t find it, so [I asked twitter]((https://twitter.com/jimniels/status/1176892638143713280?s=20)):
+Some kind of service like that has to exist in 2019, right? I couldn’t find it, so [I asked twitter](https://twitter.com/jimniels/status/1176892638143713280?s=20):
 
 > Question: is there some kind of service out there, like Dropbox, where you drag and drop files to a folder on your Mac which syncs to a server and makes each file immediately available via a URL on a CDN? Kind of like the old Dropbox public folder?
 
