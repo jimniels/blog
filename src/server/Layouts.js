@@ -51,9 +51,6 @@ const Layout = (props, children) => {
         </main>
 
         <script type="text/javascript" src="/assets/js/js.js"></script>
-
-        ${isDevelopment &&
-          `<script src="http://localhost:35729/livereload.js"></script>`}
       </body>
     </html>
   `;
@@ -110,11 +107,9 @@ const Post = props => {
       ${Array.isArray(page.tags) && `
         <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
           Tagged in: 
-          ${page.tags.map(tag => `
-            <a href="/tags/#${tag}}" class="tag">
-              #${tag}
-            </a>
-          `).join(",&nbsp;")}
+          ${page.tags.map(tag => 
+            `<a href="/tags/#${tag}" class="tag">#${tag}</a>`
+          ).join(",&nbsp;")}
         </footer>`}
     </article>
   `);
