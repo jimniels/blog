@@ -40,11 +40,12 @@ const Layout = (props, children) => {
           <meta property="og:type" content="article" />
           <meta property="og:url" content="${origin + permalink}" />
 
-          <meta name="twitter:card" content="summary_large_image">
+          <meta name="twitter:card" content="summary">
           <meta name="twitter:site" content="@jimniels">
           <meta name="twitter:creator" content="@jimniels">
           <meta name="twitter:title" content="${title}">
           <meta name="twitter:image" content="https://cdn.jim-nielsen.com/shared/twitter-card.jpg">
+          <meta name="twitter:image:alt" content="Photo of Jim Nielsen saying stuff">
         `}
       </head>
       <body>
