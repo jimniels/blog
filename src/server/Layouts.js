@@ -36,10 +36,16 @@ const Layout = (props, children) => {
         <link rel="stylesheet" href="/assets/css/styles.css" />
         ${layout === "Post" &&
           `
-        <meta property="og:title" content="${title}" />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="${origin + permalink}" />
-      `}
+          <meta property="og:title" content="${title}" />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content="${origin + permalink}" />
+
+          <meta name="twitter:card" content="summary_large_image">
+          <meta name="twitter:site" content="@jimniels">
+          <meta name="twitter:creator" content="@jimniels">
+          <meta name="twitter:title" content="${title}">
+          <meta name="twitter:image" content="https://cdn.jim-nielsen.com/shared/twitter-card.jpg">
+        `}
       </head>
       <body>
         <nav class="nav">
