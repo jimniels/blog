@@ -1,5 +1,5 @@
 ---
-title: Hey Twitter, I’ve Got Stuff To Say and I Want You To Know About It
+title: Twitter Cards and Visually Representing That I’ve Got Stuff To Say
 date: 2019-12-20
 tags: tips
 ---
