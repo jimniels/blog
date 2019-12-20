@@ -1,5 +1,5 @@
 ---
-title: A Node.js helper function for accessing the CommonJS equivalent of __dirname in ES modules.
+title: A Node.js Helper Function for Accessing the CommonJS Equivalent of __dirname in ES Modules.
 date: 2019-12-20
 tags: engineering tips
 ---
