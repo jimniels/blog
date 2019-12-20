@@ -19,5 +19,3 @@ Yeah, yeah I know. [Twitter’s docs](https://developer.twitter.com/en/docs/twee
 >  You should not use a generic image such as your website logo, author photo, or other image that spans multiple pages.
 
 But you know what? Twitter is not the boss of me. I do what I want.
-
-And I’ve got stuff to say about it.
