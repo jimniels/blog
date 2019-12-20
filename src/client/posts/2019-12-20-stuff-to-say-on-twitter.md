@@ -8,11 +8,11 @@ Have you ever noticed when you post a link on Twitter, it gives you that nice �
 
 For example, check out Sketch and me in this screenshot from my timeline. Don’t we look like losers linking to garbage content that’s not tailored to Twitter sharing?
 
-<img src="https://cdn.jim-nielsen.com/blog/2019/stuff-to-say-no-img.jpg" alt="Screenshot of a twitter feed where my “twitter card” preview has the default fallback image" width="1026" height="921" />
+<img src="https://cdn.jim-nielsen.com/blog/2019/stuff-to-say-no-img.jpg" alt="Screenshot of a twitter feed where my “twitter card” preview has the default fallback image" width="650" height="921" />
 
 Well, I wasn’t about to have links to my website look so sad. I’ve got stuff to say! So I made an image to say as much:
 
-<img src="https://cdn.jim-nielsen.com/blog/2019/stuff-to-say-img.jpg" alt="Screenshot of a twitter feed where my “twitter card” preview has a picture of me with a speech bubble saying “STUFF” (because I have stuff to say)" width="1026" height="921" />
+<img src="https://cdn.jim-nielsen.com/blog/2019/stuff-to-say-img.jpg" alt="Screenshot of a twitter feed where my “twitter card” preview has a picture of me with a speech bubble saying “STUFF” (because I have stuff to say)" width="650" height="921" />
 
 Yeah, yeah I know. [Twitter’s docs](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary) on the matter specifically state:
 
