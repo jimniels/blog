@@ -5,8 +5,9 @@ import multimatch from "multimatch";
 import hljs from "highlight.js";
 import marked from "marked";
 import * as layouts from "./src/server/Layouts.js";
-
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
+console.time("Site built");
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -158,35 +159,41 @@ let App = Metalsmith(__dirname)
      */
     const site = metalsmith.metadata();
 
+    // Render templates first
+    // We run our templating on the `.tmpl.js` files first because some of them
+    // depend on getting *ONLY* the content of a post. So we want to render our
+    // post templates last (otherwise our feeds will contain the entire HTML of
+    // an individual post, including the <!DOCTYPE> )
     const getFilePath = filepath =>
       path.join(metalsmith._directory, metalsmith._source, filepath);
-
+    const templateFiles = multimatch(Object.keys(files), "**/*.tmpl.js");
     await Promise.all(
-      Object.keys(files).map(async file => {
-        // Templates
-        if (multimatch(file, "**/*.tmpl.js").length) {
-          try {
-            const fn = await import(getFilePath(file)).then(
-              module => module.default
-            );
-            files[file].contents = fn(site);
-            const newFilename = file.replace(".tmpl.js", "");
-            files[newFilename] = files[file];
-            delete files[file];
-          } catch (e) {
-            console.error("Failed to render template for", file);
-            console.error(e);
-          }
+      templateFiles.map(async file => {
+        try {
+          const fn = await import(getFilePath(file)).then(
+            module => module.default
+          );
+          files[file].contents = fn(site);
+          const newFilename = file.replace(".tmpl.js", "");
+          files[newFilename] = files[file];
+          delete files[file];
+        } catch (e) {
+          console.error("Failed to render template for", file);
+          console.error(e);
+        }
+      })
+    );
 
-          // Files with a layout
-        } else if (files[file].layout) {
-          const fn = layouts[files[file].layout];
-          if (fn) {
-            files[file].contents = fn({
-              site,
-              page: files[file]
-            });
-          }
+    // Render layouts last of all
+    const layoutFiles = Object.keys(files).filter(file => files[file].layout);
+    await Promise.all(
+      layoutFiles.map(async file => {
+        const fn = layouts[files[file].layout];
+        if (fn) {
+          files[file].contents = fn({
+            site,
+            page: files[file]
+          });
         }
       })
     );
@@ -196,4 +203,5 @@ let App = Metalsmith(__dirname)
   .build(err => {
     // build process
     if (err) throw err; // error handling is required
+    console.timeEnd("Site built");
   });
