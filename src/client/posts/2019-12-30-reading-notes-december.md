@@ -55,7 +55,7 @@ I think a corrollary to design would quite frequently hold to be true as well: �
 
 ## Article: [“Tape loop”](https://colly.com/journal/tape-loop) by Simon Collison
 
-A beautiful piece that ruminates on the experience of music as it was before the iPod. Back then, music was an experience that shaped your identity, you life! And now that experience is completely gone, except for those of us who remember it. We are vessels of the cassette. 
+A beautiful piece that ruminates on the experience of music as it was before the iPod. Back then, music was an experience that shaped your identity, your life! And now that experience is completely gone, except for those of us who remember it. We are vessels of the cassette. 
 
 > Physicality [the cassette tape] feels like an investment in something: a relationship with a piece of work that I'll endeavour to like. If I decide I don't like it, I will be sure of that, having tested more thoroughly than if it was one of hundreds of Spotify album samplings.
 
