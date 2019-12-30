@@ -39,8 +39,8 @@ This piece is quite an exhuastive look at why the folks behind Go version the wa
 
 While the article deals specifically with the topic of versioning in software, I found this commentary about code aesthetics to have many parallels to design. I thought it was a good articulation of how I feel about keeping links underlined—and in many cases the default “blue”—on the web.
 
-> The most common objection to semantic import versioning is that people don’t like seeing the major versions in the import paths. In short, they’re ugly. Of course, what this really means is only that people are not used to seeing the major version in import paths.
-> ...
+> The most common objection to semantic import versioning is that people don’t like seeing the major versions in the import paths. In short, they’re ugly. Of course, what this really means is only that people are not used to seeing the major version in import paths.  
+> ...  
 > Both these changes—upper-case for export and full URLs for import paths—were motivated by good software engineering arguments to which the only real objection was visual aesthetics. Over time we came to appreciate the benefits, and our aesthetic judgements adapted. I expect the same to happen with major versions in import paths. We’ll get used to them, and we’ll come to value the precision and simplicity they bring.
 
 What would the www be like if _everyone_ kept their links underlined? 
@@ -67,8 +67,8 @@ Maybe it’s just nostalgic ramblings, but I agree with his conclusion: “[I en
 
 Why? Because:
 
-> “Ethics” is nice. Morals are uncomfortable.
-> “Ethics” is less binding. They feel more abstract, neutral, less scary, less obligatory. Morals command.
+> “Ethics” is nice. Morals are uncomfortable.  
+> “Ethics” is less binding. They feel more abstract, neutral, less scary, less obligatory. Morals command.  
 > “Ethics” is abstract. Morals are concrete.
 
 Overall, a bit rambling in spots but had some interesting insights I think.
