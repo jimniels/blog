@@ -1,0 +1,5 @@
+# UI is a Function of State—When You Keep Track Of It
+
+Search is problematic (gotta keep track of blur state on keydown)
+Radio (do you keep track of state across inputs—in this scenario, your user is your state function. their click is the function that sets state, so you don't have to keep track of it. Just read it when you want it)
+Scroll (you lose it as you scroll down the page)
