@@ -1,5 +1,5 @@
 ---
-title: "Static Site Templating: Switching from React & JSX to Vanilla JavaScript’s Tagged Template Literals"
+title: "Static Site Templating: Switching from React & JSX to JavaScript & Template Literals"
 tags: engineering
 ---
 
@@ -275,6 +275,6 @@ You can read more about how I did that over on [this post](@TODO)
 
 ## Conclusion
 
+I’ve really enjoyed this new templating system thus far. And I’m really happy that I have one less project that’s dependent on webpack/babel. Not that there’s anything specifically wrong with those tools. But for my particular needs on this project, it felt like overkill. 
 
-
-
+I’ve moved [my blog](https://blog.jim-nielsen.com) and my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [sites](https://www.watchosicongallery.com) over to template literals for server-side rendering and am loving every minute of it.
