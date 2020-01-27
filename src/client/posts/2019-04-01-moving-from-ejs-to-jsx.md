@@ -333,3 +333,7 @@ In terms of the build itself, it actually got quite a bit faster. Doing my own r
 ![Screenshot of CLI depicting time duration of the old build with EJS](https://cdn.jim-nielsen.com/blog/2019/ejs-to-jsx-build-time-old.png)
 
 ![Screenshot of CLI depicting time duration of the new build with JSX](https://cdn.jim-nielsen.com/blog/2019/ejs-to-jsx-build-time-new.png)
+
+## Update: Jan 27, 2020
+
+[I moved from JSX to components using tagged template literals in JavaScript!](http://blog.jim-nielsen.com/2020/switching-from-react-to-js-for-templating/)

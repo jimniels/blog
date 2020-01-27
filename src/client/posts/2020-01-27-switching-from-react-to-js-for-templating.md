@@ -9,25 +9,23 @@ However, I don’t love fiddling with JavaScript tooling to get React & JSX to w
 
 You know what? Maybe I just won’t update this old side project.
 
-(Honestly, it took me a long time to figure out how to even  _ask_ babel-related questions, let alone understand the answers.)
+I find myself torn these days when I open up an old hobby project: do I hope it’s a jQuery project or a React project? Do I prefer jQuery spaghetti or transpiler-bundler linguine? I think my brain hopes for the codebase to be React, but deep in my heart of hearts there’s a small voice saying “please let this be a jQuery project so I don’t have to confront JS tooling.” It’s disheartening to not even be able to _get started_ on an old project because your build won’t work.
 
-I find myself torn these days when I open up an old hobby project: do I hope it’s a jQuery project or a React project? Do I want jQuery spaghetti or babel-bundler linguine? I think my brain hopes for the codebase to be React, but deep in my heart of hearts there’s a small voice saying “please let this be a jQuery project so I don’t have to confront JS tooling.” It’s disheartening to not even be able to _get started_ on an old project because your build won’t work.
+Because of this, I’ve decided to start moving away from React as a default templating choice. In this post I’m going to talk about one example where I did that: on my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [sites](https://www.watchosicongallery.com).
 
-Because of this, I’ve decided to start moving away from React as a default templating choice. In this post I’m going to talk about one example where I did that: on my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [projects](https://www.watchosicongallery.com).
-
-## Past: React and JSX for Server-Side Templating
+## Previously: React and JSX for Server-Side Templating
 
 In a previous post from last year, I outlined [why I moved from EJS to JSX for templating](https://blog.jim-nielsen.com/2019/moving-from-ejs-to-jsx/). This post is an extension of that post.
 
 When I moved from EJS to JSX I gained a lot and lost nothing. Moving from JSX to tagged template literals in vanilla JavaScript is the same: I gain a lot and lose nothing (at least, not that I know of). All of the benefits of JSX I outlined in that post, I still get them with this approach. Plus now I don’t have to worry about additional dependencies. My templating solution is “part of the language”, so I’ll never have to update a dependency to get my templates to work.
 
-In addition, now I get new language and platform features for free without having to wait for library authors to support them. For example, in that [previous post](https://blog.jim-nielsen.com/2019/moving-from-ejs-to-jsx/) where I outlined moving to JSX, at the end I mentioned how I wanted to move to ES modules in node but couldn’t get it to work. I didn’t know it at the time, but [later learned](https://blog.jim-nielsen.com/2019/es-modules-in-node-my-own-rabbit-hole/) that my JSX template files couldn’t be processed because node’s ES modules implementation doesn’t support babel register’s loader. Even today—Jan 2020—it’s still not supported as far as I know because the node modules team hasn’t built support for custom module loader hooks yet. 
+In addition, now I get new language and platform features for free without having to wait for library authors to support them. For example, in that [previous post](https://blog.jim-nielsen.com/2019/moving-from-ejs-to-jsx/) where I outlined moving to JSX, at the end I mentioned how I wanted to move to ES modules in node but couldn’t get it to work. I didn’t know it at the time, but [later learned](https://blog.jim-nielsen.com/2019/es-modules-in-node-my-own-rabbit-hole/) that my JSX template files couldn’t be processed because node’s ES modules implementation doesn’t support babel register’s loader. Even today—Jan 2020—it’s still not supported as far as I know because the node modules team hasn’t built and shipped support for custom module loader hooks yet. 
 
-## Future: JavaScript Tagged Template Literals for Server-Side Templating
+## Now: JavaScript Tagged Template Literals for Server-Side Templating
 
 So how does this all work? Let me provide a simple example.
 
-In React, you have a bunch of components that probably look something like this:
+For my server-side rendering in React, I have a bunch of components that look something like this:
 
 ```jsx
 // Page.js
@@ -38,7 +36,7 @@ export default function MyComponent(props) {
     <html>
       <head>
         <title>
-          ${pageTitle && pageTitle + " | "}${siteName}
+          {pageTitle && pageTitle + " | "}{siteName}
         </title>
       </head>
       <body>
@@ -58,7 +56,9 @@ const Page = require("./Page.js");
 
 const pageData = {/* some data */}
 const myHtmlFile = "<!DOCTYPE html>" +
-  ReactDOMServer.renderToStaticMarkup(	<Page {...pageData}>);
+  ReactDOMServer.renderToStaticMarkup(
+    <Page {...pageData}>
+  );
 
 // Then write the file to disk somewhere
 // and there’s your index.html file
@@ -91,7 +91,7 @@ export default function MyComponent(props) {
 }
 ```
 
-You can see in my `return` statement I am using [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which are native to JavaScript.
+You can see in my `return` statement I am using [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which are native to JavaScript. No more need for Babel because it’s not JSX. It really is Just JavaScript™.
 
 You probably noticed there are a couple differences in the interpolation syntax of the template. What’s cool, though, is that you can make this syntax much more similar to JSX if you want to (by using short-circuit operators and the like). To do so, you use a tagged template literal like so:
 
@@ -191,12 +191,12 @@ const PageTemplate = () => (
 );
 
 // Template literal
-const PageTemplate = () => (
+const PageTemplate = () => `
   <!doctype html>
   <html>
      ...some stuff here...
   </html>
-);
+`;
 ```
 
 ### HTML Attributes
@@ -209,7 +209,7 @@ I have. A lot. I still forget to write `className` in my JSX. And it’s not jus
 
 > Warning: Invalid DOM property `srcset`. Did you mean `srcSet`?
 
-With template literals, I don’t get any more errors around HTML attributes. Some might see that as a downside, because your attributes aren’t being “validated” (what if you mistyped one?) Personally I don’t see it that way. Again, I like the freedom. I learned HTML a long time ago and having to re-learn _some_ attribute names always trips me up. 
+With template literals, I don’t get any more errors around HTML attributes. Some might see that as a downside, because your attributes aren’t being “validated” (what if you mistyped one?) Personally I don’t see it that way. Again, I like the freedom. I learned HTML a long time ago and having to re-learn _some_ JSX-specific attribute names always trips me up. 
 
 But now with template literals, no more converting HTML attributes to camelCase and no more special names, which leads me to my next benefit.
 
@@ -251,7 +251,7 @@ const Component = () => `
 
 ### Non-HTML Files
 
-Need to render an XML (say `.rss`) file on the server with JSX as your templating system? What about a `.json` file? It’s not as easy as you’d think.
+Need to render XML (say a `.rss` file) on the server with JSX as your templating system? What about a `.json` file? It’s not as easy as you’d think.
 
 When I first encountered this problem, I thought “well I can use `<React.Fragment>` to render a react element without a tag and then use `dangerouslySetInnerHTML` for the content!” 
 
@@ -271,10 +271,52 @@ But with template literals, this is not a problem at all. I can write XML in my 
 
 Just because I’m not using React anymore doesn’t mean I can’t keep checking my props between templating components. The `prop-types` package was designed to be useful outside of React. And while React checks the props for you automatically, I call them myself in my template literal components. This ensures that the data coming in to each of my components is what I expect. At build time, my build process will show any warnings that came from failed props. 
 
-You can read more about how I did that over on [this post](@TODO)
+You can read more about how I did that over on [this post](https://blog.jim-nielsen.com/2020/proptypes-outside-of-react-in-template-literal-components/).
 
 ## Conclusion
 
-I’ve really enjoyed this new templating system thus far. And I’m really happy that I have one less project that’s dependent on webpack/babel. Not that there’s anything specifically wrong with those tools. But for my particular needs on this project, it felt like overkill. 
+I’ve really enjoyed this new “templating system” thus far. And I’m really happy that I have one less project that’s dependent on webpack/babel. Not that there’s anything specifically wrong with those tools. But for my particular needs on this project, it felt like overkill. 
 
-I’ve moved [my blog](https://blog.jim-nielsen.com) and my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [sites](https://www.watchosicongallery.com) over to template literals for server-side rendering and am loving every minute of it.
+The reason I put “templating system” in quotes is because it doesn’t really feel like a system to me. It’s just a bunch of functions that take data and return strings. Here’s a really simple illustration of “template literal components” in JavaScript:
+
+```js
+import fs from "fs";
+
+// A "template literal component"
+const Main = (props) => `
+  <main>
+    ${props.content}
+  </main>
+`;
+
+// Another "template literal component" with a nested component
+const Page = (props) => `
+  <!doctype html>
+  <html>
+    <head>
+      <title>${props.pageTitle}</title>
+    </head>
+    <body>
+      <header>
+        <h1>${title}</h1>
+      </header>
+
+      ${Main({ content: props.pageContent })}
+
+      <footer>
+        <p>Copyright 2020</p>
+      </footer>
+    </body>
+  </html>
+`;
+
+// Gather your markdown
+const markdown = fs.readFileSync("./src/index.md");
+// Process your markdown into HTML however you like...
+const data = { pageTitle: "Home", pageContent: markdown };
+// Call your top-most "component", pass it data, 
+// and write the output to a file
+fs.writeFileSync("./build/index.html", Page(pageData))
+```
+
+I’ve moved [my blog](https://blog.jim-nielsen.com) and my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [sites](https://www.watchosicongallery.com) over to “template literal components” for server-side rendering and am loving every minute of it.
