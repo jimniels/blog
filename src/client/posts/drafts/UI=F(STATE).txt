@@ -1,5 +1,49 @@
-# UI is a Function of State—When You Keep Track Of It
+# UI is a Function of State—That You Keep Track Of
 
 Search is problematic (gotta keep track of blur state on keydown)
 Radio (do you keep track of state across inputs—in this scenario, your user is your state function. their click is the function that sets state, so you don't have to keep track of it. Just read it when you want it)
 Scroll (you lose it as you scroll down the page)
+
+---
+
+Start from first principles. Maybe start with a fully function ing react example first with three pieces of state 1 active filter type 2 active filter value 3 visible results 
+
+1 Radio buttons a filter for one axis
+
+Click radio, see filter. Awesome UI is a function of state. Who needs react?
+
+2, radio as filter but with two axis (and grouping)
+
+Hmm ok so there’s some implicit browser state there. That’s ok. We can bypass that. Just auto choose it for me ( if this had been old school, the state would still be in the dom but with react you’d have to track it yourself to do that)
+
+Doing && to conditionally show actually blows Way a lot of implicit state in the dom. Once you unmount you throw that all away: selected item, scroll position, etc 
+
+(This probably comes last, like, let’s get really complicated...)
+
+
+3. Radio plus text input
+
+In react, UI is not solely a function of your state. It is a function of your structured state plus any implicit browser state. So now we have
+
+UI = f(your state + browser state)
+
+4. Scroll with pagination
+
+Breaks when implement yourself if you scroll beyond first page because each render blows away your scroll position
+
+---
+
+Statement from RIch’s piece:
+
+> UI = F(STATE)...This formulation is the very heart of the React programming model...I’m not going to claim that it’s wrong. I’m going to claim that it’s incomplete — that it’s more of an ideological statement than a description of what is actually happening when you build a React app. 
+
+He then says, "well hwat happens if we take this ideological statement and extend it outside of react?" 
+
+
+> So what would happen if we took a very naive approach to functional UI?
+
+That's something I wanted to do. I wanted to build a simple, 1-page "app" and while using React felt perfect from a development perspective in terms of organizing the logic and markup around what was happening, it felt like overkill to load all of react and react-dom for that one page. Could I do it in pure javascript? What if I took this "UI as a function of state" idea and applied it outside of react. Could it work?
+
+That’s why this post exists. I want to outline some of the simplest, most fundamental things I learned in this process. Things that now seem really obvious—and probably are to experienced developers—but weren't obvious to me at the outset.
+
+I found [this piece on Medium by Benjamin](@TODO)
