@@ -66,4 +66,4 @@ Projects
         <li>description</li>
         <li><a>Project overview &raquo;</a></li>
     </ul>
-</li>
+</li> 
