@@ -45,11 +45,33 @@ let App = Metalsmith(__dirname)
      * Convert all .md files to .html files
      */
     multimatch(Object.keys(files), "**/*.md").forEach(file => {
-      const markdown = marked(files[file].contents.toString());
+      let fileContentsByLine = files[file].contents.toString().split("\n");
+
+      // YAML front-matter is handled by Metalsmith, so we should have it at
+      // this point in time. In some cases, we add the `title` of the post
+      // as the first <h1> in the document, instead of in the YAML front-matter
+      // In those cases, we need to pull that out and add it as a meta item.
+      if (!files[file].title) {
+        // capture the line the title is on
+        for (let i = 0; i < fileContentsByLine.length; i++) {
+          let line = fileContentsByLine[i];
+          if (line.startsWith("# ")) {
+            // get the title
+            let title = line.replace("# ", "");
+            files[file].title = title;
+            // remove the title from our array
+            fileContentsByLine.splice(i, 1);
+            break;
+          }
+        }
+      }
+
       // We'll save markdown, so we can access just that if we want,
       // but we'll also save the `.contents` because that's what gets output to
       // a file. Useful for cases like
-      files[file].markdown = markdown;
+      const fileContents = fileContentsByLine.join("\n");
+      const markdown = marked(fileContents);
+      files[file].markdown = fileContents;
       files[file].contents = markdown;
       files[file.replace(".md", ".html")] = files[file];
       delete files[file];
