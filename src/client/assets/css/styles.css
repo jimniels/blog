@@ -411,6 +411,10 @@ a:active:hover {
   // ========================================
   */
 
+.markdown p code {
+  white-space: normal;
+}
+
 .markdown code {
   color: var(--color-link-active);
   padding: 0 calc(4em / 18) calc(2em / 18);
