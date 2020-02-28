@@ -6,3 +6,4 @@ Gemfile.lock
 node_modules/
 build/
 src/client/assets/css/atom-one*
+*.token
