@@ -227,3 +227,22 @@ let App = Metalsmith(__dirname)
     if (err) throw err; // error handling is required
     console.timeEnd("Site built");
   });
+
+/*
+
+  fav posts
+
+  favs: [
+  "/2017/the-analog-web/",
+  "/2015/a-web-of-people/",
+  "/2019/good-things/",
+  "/2019/netlify-public-folder-part-i-what/",
+  "/2016/redesigning-and-engineering-timshel-admin/",
+  "/2019/thoughts-on-rich-harris-talk/",
+  "/2019/designing-and-engineering-progressive-disclosure/",
+  "/2019/how-to-create-a-macos-menu-bar-app-for-netlify/",
+  "/2019/building-a-progressively-enhanced-site/",
+  "/2017/creating-ios-icon-masks-in-the-browser/"
+]
+
+  */
