@@ -39,7 +39,7 @@ const BlogPostsStatus = ({ blogPosts }) => html`
 
   <div class="blog-posts">
     <p>
-      <strong data-blog-posts="${blogPosts}">${blogPosts} blog posts</strong>
+      <strong data-blog-posts="${blogPosts}">${blogPosts} blog posts.</strong>
 
       <a href="/2020/50-blog-posts-in-2020/"
         >I’m trying to write 50 blog posts this year</a
