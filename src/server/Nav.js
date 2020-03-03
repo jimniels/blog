@@ -26,37 +26,32 @@ const navItems = [
 // prettier-ignore
 export default function Nav({ site, page }) {
   return html`
-    <div class="nav-wrapper">
+    
       <a href="/" class="nav__img">
         <img
-          src="https://cdn.jim-nielsen.com/shared/jim-nielsen-portrait.jpg"
+          src="/favicon.ico"
           alt="Photograph of Jim Nielsen"
-          width="250"
-          height="250"
+          width="32"
+          height="32"
         />
       </a> 
 
       <h1 class="nav__title">
-        Jim’s Weblog
+        <a href="/">blog.jim-nielsen.com</a>
       </h1>
 
-      <ul>
-        ${navItems.map(navItem => `
+      <ul class="nav__links">
+        ${navItems.map(navItem => html`
           <li class="${page.id == navItem.id ? "active" : ""}">
             ${page.id == navItem.id
               ? navItem.label
-              : `<a href="${navItem.path}">
+              : html`<a href="${navItem.path}">
                   ${navItem.label}
                 </a>`}
           </li>
         `)}
-        <!--
-          <li>
-            <a href="https://www.jim-nielsen.com">jim-nielsen.com</a>
-          </li>
-          -->
       </ul>
       
-    </div>
+    
   `;
 }

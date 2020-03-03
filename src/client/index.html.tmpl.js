@@ -66,7 +66,7 @@ export default function Index(site) {
     html`
       ${BlogPostsStatus({ blogPosts: postsByYear[2020].length })}
 
-      <h2>Most Recent</h2>
+      <h2>Latest</h2>
       ${PostList(recent)}
 
       <h2>Some Personal Favorites</h2>
