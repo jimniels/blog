@@ -2,9 +2,9 @@ import { html } from "./utils.js";
 
 const navItems = [
   {
-    id: "home",
-    label: "Posts",
-    path: "/"
+    id: "archive",
+    label: "Archive",
+    path: "/archive/"
   },
   {
     id: "tags",

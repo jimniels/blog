@@ -167,6 +167,16 @@ let App = Metalsmith(__dirname)
           }
         }
       });
+    // Add a postsByYear since it gets used in multiple places
+    meta.postsByYear = meta.posts.reduce((acc, post) => {
+      const year = post.date.getFullYear();
+      if (acc[year]) {
+        acc[year].push(post);
+      } else {
+        acc[year] = [post];
+      }
+      return acc;
+    }, {});
 
     /**
      * Handle Templating
@@ -228,21 +238,25 @@ let App = Metalsmith(__dirname)
     console.timeEnd("Site built");
   });
 
-/*
+/**
+ * @typedef {Object} Site
+ * @property {Array.<Post>} posts
+ * @property {Object.<string,Post>} postsByYear
+ * @property {Object} page
+ */
 
-  fav posts
+/**
+ * @typedef {Object} Post
+ * @property {string} title
+ * @property {string} slug
+ * @property {string} permalink
+ * @property {Date} date
+ * @property {string} tags
+ * @property {string} redirect_from
+ */
 
-  favs: [
-  "/2017/the-analog-web/",
-  "/2015/a-web-of-people/",
-  "/2019/good-things/",
-  "/2019/netlify-public-folder-part-i-what/",
-  "/2016/redesigning-and-engineering-timshel-admin/",
-  "/2019/thoughts-on-rich-harris-talk/",
-  "/2019/designing-and-engineering-progressive-disclosure/",
-  "/2019/how-to-create-a-macos-menu-bar-app-for-netlify/",
-  "/2019/building-a-progressively-enhanced-site/",
-  "/2017/creating-ios-icon-masks-in-the-browser/"
-]
-
-  */
+/**
+ * @typedef {Object} Page
+ * @property {string} id
+ * @property {string} title
+ */
