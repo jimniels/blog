@@ -10,6 +10,15 @@ const token = fs
 // one month time frame
 // from Wed Jan 29 2020 00:00:00 GMT-0700
 // to Fri Feb 28 2020 23:59:59 GMT-0700
+
+// const today = new Date();
+// today.setHours(0,0,0,0);
+// today.getTime();
+
+// const future = new Date();
+// future.setDate(future.getDate() + 30);
+// future.setHours(23,59,59,999);
+// future.getTime();
 fetch(
   "https://analytics.services.netlify.com/v1/2edb6cab-f1d8-4556-85ee-426ae71f5980/ranking/pages?from=1580281200000&to=1582959599999&timezone=-0700&limit=15",
   {
