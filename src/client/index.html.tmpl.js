@@ -71,6 +71,11 @@ export default function Index(site) {
 
       <h2>Some Personal Favorites</h2>
       ${PostList(favs)}
+      ${site.trendingPosts.length &&
+        html`
+          <h2>Trending this Month</h2>
+          ${PostList(site.trendingPosts)}
+        `}
     `
   );
 }
