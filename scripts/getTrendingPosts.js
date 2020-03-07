@@ -4,10 +4,12 @@ import { fileURLToPath } from "url";
 import fetch from "node-fetch";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const token = fs
-  .readFileSync(path.join(__dirname, "../.netlify-oauth.token"))
-  .toString()
-  .trim();
+const token = process.env.NETLIFY_OAUTH
+  ? process.env.NETLIFY_OAUTH
+  : fs
+      .readFileSync(path.join(__dirname, "../.netlify-oauth.token"))
+      .toString()
+      .trim();
 
 // @TODO
 // one month time frame
