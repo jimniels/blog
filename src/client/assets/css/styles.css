@@ -90,6 +90,7 @@ a:active:hover {
   display: flex;
   align-items: center;
   margin-bottom: calc(1.618rem * 2);
+  font-size: 0.888888rem;
 }
 
 .nav > *,
@@ -98,17 +99,18 @@ a:active:hover {
 }
 
 .nav h1 {
-  font-size: 1rem;
+  font-size: inherit;
   line-height: 1.4;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .nav h1:after {
-  content: "·";
+  content: "//";
   opacity: 0.5;
   font-weight: normal;
   margin-left: calc(1.618rem / 2);
+  margin-right: calc(1.618rem / 4);
 }
 
 .nav h1 a {
