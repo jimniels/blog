@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import multimatch from "multimatch";
 import hljs from "highlight.js";
 import marked from "marked";
+import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -178,6 +179,11 @@ let App = Metalsmith(__dirname)
       return acc;
     }, {});
 
+    const trendingPostPermalinks = await getTrendingPosts();
+    meta.trendingPosts = meta.posts.filter(post =>
+      trendingPostPermalinks.includes(post.permalink)
+    );
+
     /**
      * Handle Templating
      * Render the templates and/or layouts for all applicable files
@@ -242,6 +248,7 @@ let App = Metalsmith(__dirname)
  * @typedef {Object} Site
  * @property {Array.<Post>} posts
  * @property {Object.<string,Post>} postsByYear
+ * @property {Array.<Post>} trendingPosts
  * @property {Object} page
  */
 
