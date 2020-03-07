@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const token = process.env.NETLIFY_OAUTH
   ? process.env.NETLIFY_OAUTH
   : fs
-      .readFileSync(path.join(__dirname, "../.netlify-oauth.token"))
+      .readFileSync(path.join(__dirname, "../.NETLIFY_OAUTH"))
       .toString()
       .trim();
 
