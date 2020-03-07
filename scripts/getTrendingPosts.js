@@ -11,19 +11,19 @@ const token = process.env.NETLIFY_OAUTH
       .toString()
       .trim();
 
-// @TODO
 // one month time frame
 // from Wed Jan 29 2020 00:00:00 GMT-0700
 // to Fri Feb 28 2020 23:59:59 GMT-0700
 
-// const today = new Date();
-// today.setHours(0,0,0,0);
-// today.getTime();
+let today = new Date();
+today.setHours(0, 0, 0, 0);
+let startDate = today.getTime();
 
-// const future = new Date();
-// future.setDate(future.getDate() + 30);
-// future.setHours(23,59,59,999);
-// future.getTime();
+let future = new Date();
+future.setDate(future.getDate() + 30);
+future.setHours(23, 59, 59, 999);
+let endDate = future.getTime();
+
 export default function getTrendingPosts() {
   const cachedFile = path.join(__dirname, "./.trending-posts.json");
   if (fs.existsSync(cachedFile)) {
@@ -31,7 +31,7 @@ export default function getTrendingPosts() {
   }
 
   return fetch(
-    "https://analytics.services.netlify.com/v1/2edb6cab-f1d8-4556-85ee-426ae71f5980/ranking/pages?from=1580281200000&to=1582959599999&timezone=-0700&limit=15",
+    `https://analytics.services.netlify.com/v1/2edb6cab-f1d8-4556-85ee-426ae71f5980/ranking/pages?from=${startDate}&to=${endDate}&timezone=-0700&limit=15`,
     {
       headers: {
         authorization: `Bearer ${token}`,
@@ -59,7 +59,7 @@ export default function getTrendingPosts() {
           {}
         );
 
-      const data = Object.keys(postsByViews);
+      const data = Object.keys(postsByViews).slice(0, 10);
       fs.writeFileSync(cachedFile, JSON.stringify(data));
 
       return data;
