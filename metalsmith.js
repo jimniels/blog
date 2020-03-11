@@ -180,8 +180,8 @@ let App = Metalsmith(__dirname)
     }, {});
 
     const trendingPostPermalinks = await getTrendingPosts();
-    meta.trendingPosts = meta.posts.filter(post =>
-      trendingPostPermalinks.includes(post.permalink)
+    meta.trendingPosts = trendingPostPermalinks.map(permalink =>
+      meta.posts.find(post => post.permalink === permalink)
     );
 
     /**
