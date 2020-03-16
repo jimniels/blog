@@ -22,7 +22,7 @@ So the thought hit me: wouldn’t it be cool if the “Top Pages” from Netlify
 
 Spoiler: I did it.
 
-<img src="https://cdn.jim-nielsen.com/blog/2020/netlify-analytics-popular-list.png" alt="Screenshot of my blog’s “Popular This Month” list of posts powered by Netlify Analytics" width="1034" height="832" />
+<img src="https://cdn.jim-nielsen.com/blog/2020/netlify-analytics-popular-list.png" alt="Screenshot of my blog’s “Popular This Month” list of posts powered by Netlify Analytics" width="1035" height="830" />
 
 Questions you might ask:
 
