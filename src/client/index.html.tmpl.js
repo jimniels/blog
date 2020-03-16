@@ -73,7 +73,15 @@ export default function Index(site) {
       ${PostList(favs)}
       ${site.trendingPosts.length &&
         html`
-          <h2>Popular This Month</h2>
+          <h2>
+            Popular This Month
+            <small style="font-weight: normal">
+              (<a
+                href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
+                >According to Netlify Analytics</a
+              >)</small
+            >
+          </h2>
           ${PostList(site.trendingPosts)}
         `}
     `

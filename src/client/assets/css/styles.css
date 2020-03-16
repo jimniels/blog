@@ -447,7 +447,6 @@ ul.posts-list li {
 
 ul.posts-list time {
   font-size: 0.75rem;
-  vertical-align: bottom;
   opacity: 0.5;
   margin-left: calc(1.618rem * 0.333);
   white-space: nowrap;
