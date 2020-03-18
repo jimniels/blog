@@ -40,6 +40,6 @@ One day [Github issue #28](https://github.com/arc90/teamcolors/issues/28) came i
 
 I would have never thought someone would use this weekend hackathon project in such a way. I submitted a fix, though who knows how many other issues exist on this project that simply haven’t been discovered yet.
 
-My point is: you never really know how one tiny project might help someone out in an odd way you never imagined. I wouldn’t even go so far as to say this guy was “empowered” by my tiny project. More likely it was simply the resolution to a tiny problem he was facing, but that’s good enough. Empowerment or kindness doesn’t have to be at scale to be of value.
+My point is: you never really know how one tiny project might help someone out in an odd way you never imagined. I wouldn’t even go so far as to say this guy was “empowered” by my tiny project. More likely it was simply the resolution to a tiny problem he was facing, but that’s good enough. I’m going to go ahead and state the obvious: empowerment or kindness doesn’t have to be at scale to be of value.
 
 
