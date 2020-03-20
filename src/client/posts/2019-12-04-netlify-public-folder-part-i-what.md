@@ -30,7 +30,7 @@ Allow me to show a video for the full effect. What I have is a folder on my comp
 	src="https://cdn.jim-nielsen.com/blog/2019/netlify-lm-video.mp4"
 	poster="https://cdn.jim-nielsen.com/blog/2019/netlify-lm-video-poster.jpg"
 	width="920"
-	height="610" />
+	height="610">
 </video>
 
 So what exactly is going on here? I made a script that looks at a folder on my local computer, checks if any files have changed in it, and (if any have) syncs the files to Netlify where each files becomes instantly available on Netlify’s global CDN via an URL. 

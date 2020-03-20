@@ -27,14 +27,13 @@ const Layout = (props, children) => {
     comment +
     html`
       <!DOCTYPE html>
-      <html id="top">
+      <html lang="en-us" id="top">
         <head>
           <title>
             ${title && `${title} | `}${name}
           </title>
 
           <meta charset="utf-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
           <link
@@ -74,7 +73,7 @@ const Layout = (props, children) => {
             ${children}
           </main>
 
-          <script type="text/javascript" src="/assets/js/js.js"></script>
+          <script src="/assets/js/js.js"></script>
         </body>
       </html>
     `
