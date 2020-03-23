@@ -28,4 +28,4 @@ Thompson goes on to describe how he wrote a number of python-based tools for him
 
 Writing is hard. Programming is hard too, but in a different way. I’ve always found it much easier to sit down and code than sit down and write. I used to think maybe that’s because I practice coding so much. If only I practiced writing more, it would be just as easy. But here’s Clive Thompson, a professional writer, and he still finds it much more satisfying to code than to write. 
 
-And yet, Mr. Thompson wrote a book and continues to be a writer. Perhaps he meant “satisfying” in a more narrow, context. Personally I think I find coding more satisfying day-to-day, writing more fulfilling year-to-year.
+And yet, Mr. Thompson wrote a book and continues to be a writer. Perhaps he meant “satisfying” in a more narrow context. Personally I think I find coding more satisfying day-to-day, writing more fulfilling year-to-year.
