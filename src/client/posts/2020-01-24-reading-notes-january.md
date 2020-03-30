@@ -1,5 +1,5 @@
 ---
-title: Reading Notes, January 2019
+title: Reading Notes, January 2020
 tags: readingNotes
 ---
 
