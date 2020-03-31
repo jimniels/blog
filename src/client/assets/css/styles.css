@@ -1,5 +1,6 @@
 :root {
   --color-text: #212121;
+  --color-text-light: #888888;
   --color-bg: #fff;
   --color-bg-sidebar: rgba(0, 0, 0, 0.05);
   --color-border: rgba(0, 0, 0, 0.1);
@@ -12,6 +13,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: #eee;
+    --color-text-light: #999;
     --color-bg: rgb(64, 63, 62);
     --color-border: rgba(255, 255, 255, 0.1);
     --color-bg-sidebar: rgba(0, 0, 0, 0.2);
@@ -163,7 +165,7 @@ a:active:hover {
 }
 
 .markdown header time {
-  opacity: 0.5;
+  color: var(--color-text-light);
   display: block;
 }
 .markdown > * {
