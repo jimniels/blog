@@ -3,7 +3,7 @@ import BlogPostsStatus from "../server/BlogPostsStatus.js";
 import { html, toDateUI, toDateUIMin } from "../server/utils.js";
 
 const page = {
-  id: "home"
+  permalink: "/"
 };
 
 const favIds = [

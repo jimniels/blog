@@ -1,7 +1,7 @@
 ---
 layout: Page
 title: About
-id: about
+permalink: /about/
 ---
 
 # About

@@ -20,7 +20,7 @@ https://www.github.com/jimniels/blog/
 const Layout = (props, children) => {
   const {
     site: { origin, name, isDevelopment },
-    page: { layout, permalink, title }
+    page: { layout, permalink, title, id }
   } = props;
 
   return (
@@ -50,19 +50,21 @@ const Layout = (props, children) => {
           />
           <link rel="stylesheet" href="/assets/css/normalize.css" />
           <link rel="stylesheet" href="/assets/css/styles.css" />
+          <link rel="canonical" href="${origin + permalink}" />
+
           ${layout === "Post" &&
             `
-          <meta property="og:title" content="${title}" />
-          <meta property="og:type" content="article" />
-          <meta property="og:url" content="${origin + permalink}" />
+            <meta property="og:title" content="${title}" />
+            <meta property="og:type" content="article" />
+            <meta property="og:url" content="${origin + permalink}" />
 
-          <meta name="twitter:card" content="summary">
-          <meta name="twitter:site" content="@jimniels">
-          <meta name="twitter:creator" content="@jimniels">
-          <meta name="twitter:title" content="${title}">
-          <meta name="twitter:image" content="https://cdn.jim-nielsen.com/shared/twitter-card.jpg">
-          <meta name="twitter:image:alt" content="Photo of Jim Nielsen saying stuff">
-        `}
+            <meta name="twitter:card" content="summary">
+            <meta name="twitter:site" content="@jimniels">
+            <meta name="twitter:creator" content="@jimniels">
+            <meta name="twitter:title" content="${title}">
+            <meta name="twitter:image" content="https://cdn.jim-nielsen.com/shared/twitter-card.jpg">
+            <meta name="twitter:image:alt" content="Photo of Jim Nielsen saying stuff">
+          `}
         </head>
         <body>
           <nav class="nav">

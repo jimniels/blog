@@ -3,7 +3,7 @@ import { html, toDateUIMin } from "../../server/utils.js";
 
 const page = {
   title: "Archive",
-  id: "archive"
+  permalink: "/archive/"
 };
 
 export default function Archive(site) {

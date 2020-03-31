@@ -3,7 +3,7 @@ import { html, toDateUI } from "../../server/utils.js";
 
 const page = {
   title: "Tags",
-  id: "tags"
+  permalink: "/tags/"
 };
 
 export default function Tags(site) {
