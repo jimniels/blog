@@ -328,16 +328,11 @@ a:active:hover {
   color: var(--color-link-active);
   padding: 0 calc(4em / 18) calc(2em / 18);
   /* margin: 0 0.325rem; */
-  border-radius: 0.166667rem;
-  background: var(--color-bg-sidebar);
   white-space: nowrap;
 }
 
 .markdown pre {
   line-height: 1rem;
-
-  /* background: transparent;
-    // border-radius: .166667rem;*/
   tab-size: 2;
   margin: 0;
 }
@@ -356,9 +351,7 @@ a:active:hover {
 }
 
 .markdown > pre {
-  padding: 1.618rem;
-  padding-right: 0;
-  background: var(--color-bg-sidebar);
+  padding: 1.618rem 0;
   max-width: 960px;
   overflow-y: scroll;
   margin-bottom: 1.618rem;
