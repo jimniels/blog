@@ -160,14 +160,15 @@ a:active:hover {
 // Styles for markdown
 */
 
-.markdown header h1 {
+header.markdown h1 {
   margin: 1.618rem 0;
 }
 
-.markdown header time {
+header.markdown time {
   color: var(--color-text-light);
   display: block;
 }
+
 .markdown > * {
   max-width: 35rem;
   display: block;

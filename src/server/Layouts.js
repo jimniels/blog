@@ -20,7 +20,7 @@ https://www.github.com/jimniels/blog/
 const Layout = (props, children) => {
   const {
     site: { origin, name, isDevelopment },
-    page: { layout, permalink, title, id }
+    page: { layout, permalink, title, id },
   } = props;
 
   return (
@@ -53,7 +53,7 @@ const Layout = (props, children) => {
           <link rel="canonical" href="${origin + permalink}" />
 
           ${layout === "Post" &&
-            `
+          `
             <meta property="og:title" content="${title}" />
             <meta property="og:type" content="article" />
             <meta property="og:url" content="${origin + permalink}" />
@@ -82,7 +82,7 @@ const Layout = (props, children) => {
   );
 };
 
-const Post = props => {
+const Post = (props) => {
   const { site, page } = props;
 
   pt.checkPropTypes(
@@ -90,14 +90,14 @@ const Post = props => {
       site: pt.shape({
         name: pt.string.isRequired,
         origin: pt.string.isRequired,
-        isDevelopment: pt.bool.isRequired
+        isDevelopment: pt.bool.isRequired,
       }),
       page: pt.shape({
         title: pt.string.isRequired,
         date: pt.instanceOf(Date),
         contents: pt.oneOfType([pt.instanceOf(Buffer), pt.string]),
-        tags: pt.arrayOf(pt.string)
-      })
+        tags: pt.arrayOf(pt.string),
+      }),
     },
     props,
     "prop",
@@ -115,22 +115,22 @@ const Post = props => {
       href="/assets/css/atom-one-dark.css"
       media="screen and (prefers-color-scheme: dark)"
     />
-    <article
-      class="markdown markdown-with-prefixed-headings"
-      id="js-post-content">
+    <article class="h-entry">
 
-      <header>
-        <time datetime="${page.date.toISOString()}">
+      <header class="markdown">
+        <time class="dt-published" datetime="${page.date.toISOString()}">
           ${toDateUI(page.date)}
         </time>
-        <h1>
-          <span>${page.title}</span>
+        <h1 class="p-name">
+          ${page.title}
         </h1>
       </header>
 
-      ${page.contents.toString()}
+      <div class="markdown e-content" id="js-post-content">
+        ${page.contents.toString()}
+      </div>
 
-      ${Array.isArray(page.tags) && `
+      ${Array.isArray(page.tags) && html`
         <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
           Tagged in: 
           ${page.tags.map(tag => 
