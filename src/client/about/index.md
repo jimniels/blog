@@ -6,6 +6,10 @@ permalink: /about/
 
 # About
 
+The thoughts and opinions herein are my own. Although a few of my writings are original, mostly I feel responsible for the ways in which I misunderstand and mangle the ideas of other people far smarter than I.
+
+---
+
 Hello, I’m [Jim Nielsen](https://www.jim-nielsen.com). Let me tell you a bit about my approach to blogging at the moment.
 
 In the past, I frequently put off writing blog posts because I found myself unable to put forth my best effort in writing—that attitude of “if you can’t do something right, don’t do it at all”—but lately I’ve found myself regretting not writing at least _something_.
