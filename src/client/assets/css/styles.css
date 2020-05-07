@@ -325,13 +325,13 @@ header.markdown time {
   white-space: normal;
 }
 
-.markdown code {
-  white-space: nowrap;
+.markdown p code:before,
+.markdown p code:after {
+  content: "`";
 }
 
-.markdown code:before,
-.markdown code:after {
-  content: "`";
+.markdown code {
+  white-space: nowrap;
 }
 
 .markdown pre {
