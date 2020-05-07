@@ -326,10 +326,12 @@ header.markdown time {
 }
 
 .markdown code {
-  color: var(--color-link-active);
-  padding: 0 calc(4em / 18) calc(2em / 18);
-  /* margin: 0 0.325rem; */
   white-space: nowrap;
+}
+
+.markdown code:before,
+.markdown code:after {
+  content: "`";
 }
 
 .markdown pre {
