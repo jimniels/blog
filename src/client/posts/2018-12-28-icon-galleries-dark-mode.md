@@ -1,6 +1,6 @@
 ---
 title: Bringing “Dark Mode” to My Icon Galleries Sites
-tags: engineering
+tags: engineering darkMode css
 ---
 
 About two months ago, [I wrote about how creating a dark mode on my personal blog](https://blog.jim-nielsen.com/2018/dark-mode-on-the-web/). This particular “dark mode” was engineered so that it could _only_ be enabled by the user via a system-level setting (which CSS could tap into via a media query – `@media (prefers-color-scheme: dark)`). In essence, my website supported dark mode but only when “dark mode” was enabled at the OS level. There was no user-facing ability _from my blog’s website_ to trigger dark mode.

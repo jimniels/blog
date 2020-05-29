@@ -1,6 +1,6 @@
 ---
 title: Dark Mode on the Web via OS-Level Preferences
-tags: engineering
+tags: engineering darkMode css
 ---
 
 This morning, I saw [this tweet from @rafahari](https://twitter.com/rafahari/status/1055463780812050432) who is a designer at Netlify teasing what a “dark mode” of Netlify’s user interface could look like. What was more compelling than the dark mode, though, was how the display of dark and light mode mode _in the web browser_ was being controlled not by a JavaScript button in the browser, but by the macOS system preferences.
