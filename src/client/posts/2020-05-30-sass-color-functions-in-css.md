@@ -59,6 +59,8 @@ She then explains:
 
 As you can see from the above, what I’m presenting here isn’t necessarily new. I think it’s just one more step beyond what Lea proposed above.
 
+**Update June 9, 2020**: after publishing this post, I stumbled on a wonderfully-detailed article by [Una Kravets](https://una.im) (published months before this post) that outlines the same general ideas I present below but from a slightly-different yet very intriguing perspective around dynamic themeing. You should check it out: [“Calculating Color: Dynamic Color Theming with Pure CSS”](https://una.im/css-color-theming/)
+
 ## Some Background on HSL and Sass
 
 HSL is pretty cool. It has [a few problems](https://css-tricks.com/the-best-color-functions-in-css/) and, as Lea alluded to, there are better things coming (`lch`); nonetheless, I think HSL is a great mental model for thinking about color and programmatic control of color. Chris [sums it up really well](https://css-tricks.com/the-best-color-functions-in-css/):
