@@ -326,7 +326,9 @@ header.markdown time {
 }
 
 .markdown p code:before,
-.markdown p code:after {
+.markdown p code:after,
+.markdown li code:before,
+.markdown li code:after {
   content: "`";
 }
 
