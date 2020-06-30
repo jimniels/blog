@@ -26,7 +26,7 @@ Putting aside questions like “should I do this?" and getting straight to “ca
 > 
 > <img src="https://cdn.jim-nielsen.com/blog/2020/system-accent-system-preferences-twitter-screenshot.png" width="594" height="195" alt="Screenshot of macOS system preferences and how they map to CSS rules" />
 
-The amazing thing about Twitter is that I got a [response]((https://twitter.com/othermaciej/status/1261209849829810177?s=20)) from [@othermaciej](https://twitter.com/othermaciej), the head of webkit engineering at Apple, who noted that there is a nonstandard value in webkit accessible for use: `-apple-system-control-accent`.
+The amazing thing about Twitter is that I got a [response](https://twitter.com/othermaciej/status/1261209849829810177?s=20) from [@othermaciej](https://twitter.com/othermaciej), the head of webkit engineering at Apple, who noted that there is a nonstandard value in webkit accessible for use: `-apple-system-control-accent`.
 
 That answered my question, but didn’t result in something that functioned quite as [I had hoped](https://twitter.com/jimniels/status/1261308238546587650?s=20). So I wrote this post to convey what, exactly, I had hoped for.
 
