@@ -1,3 +1,7 @@
+---
+tags: readingNotes
+---
+
 # Reading Notes, June 2020
 
 ## Article: [“Deno is a Browser for Code”](https://kitsonkelly.com/posts/deno-is-a-browser-for-code/)
