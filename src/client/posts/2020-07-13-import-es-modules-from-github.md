@@ -17,7 +17,9 @@ It was _almost_ that easy.
 After getting the repo setup with the code, I tagged the first commit of the code as `0.1.0`, then did an `import` from its raw URL: [raw.githubusercontent.com/jimniels/html/0.1.0/html.js](https://raw.githubusercontent.com/jimniels/html/0.1.0/html.js). No dice. 
 
 ```
-Failed to load module script: The server responded with a non-JavaScript MIME type of "text/plain". Strict MIME type checking is enforced for module scripts per HTML spec.
+Failed to load module script: The server responded with a 
+non-JavaScript MIME type of "text/plain". Strict MIME type
+checking is enforced for module scripts per HTML spec.
 ```
 
 “Must be a server configuration for serving files,” I thought. Probably because the server is responding with `content-Type: text/plain` instead of `content-type: application/javascript`?
