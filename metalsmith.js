@@ -6,6 +6,7 @@ import hljs from "highlight.js";
 import marked from "marked";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
+import getPostsByYearChart from "./scripts/getPostsByYearChart.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 console.time("Site built");
@@ -183,6 +184,23 @@ let App = Metalsmith(__dirname)
     meta.trendingPosts = trendingPostPermalinks.map(permalink =>
       meta.posts.find(post => post.permalink === permalink)
     );
+
+    // if file already exists on disk, don't bother regenerating
+    // otherwise go fetch it
+    // also do some kind of meta item check like, "chartRetrieved"
+    // then the template can optionally output the chart
+    if (path.exists()) {
+      try {
+        const img = await getPostsByYearChart();
+        meta.postsByYearChartPath = "archive/posts-by-year-chart.png";
+        files[meta.postsByYearChartPath] = {
+          contents: img
+        };
+      } catch(e) {
+        meta.postsByYearChartPath = "";
+      }
+    }
+    
 
     /**
      * Handle Templating
