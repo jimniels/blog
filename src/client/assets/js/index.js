@@ -1,6 +1,6 @@
-import "./remove-css.js";
+import "./css-naked.js";
 
 // Blog post pages only!
 if (location.pathname.startsWith("/20")) {
-  import("./image-captions.js");
+  import("./post-images.js");
 }

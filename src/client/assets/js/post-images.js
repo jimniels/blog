@@ -21,13 +21,13 @@ document.body.appendChild($style);
 
 Array.from(document.querySelectorAll(".markdown img")).forEach(($img) => {
   // https://plainjs.com/javascript/manipulation/wrap-an-html-structure-around-an-element-28/
-  const $wrapper = document.createElement("p");
-  $wrapper.classList.add("image-container");
-  $img.parentNode.insertBefore($wrapper, $img);
-  $wrapper.appendChild($img);
+  const $parent = $img.parentNode;
+  if ($parent.tagName === "P") {
+    $parent.classList.add("image-container");
+  }
 
-  const $caption = document.createElement("span");
-  $caption.textContent = $img.getAttribute("alt");
-  $caption.styles;
-  $wrapper.appendChild($caption);
+  // const $caption = document.createElement("span");
+  // $caption.textContent = $img.getAttribute("alt");
+  // $caption.styles;
+  // $wrapper.appendChild($caption);
 });
