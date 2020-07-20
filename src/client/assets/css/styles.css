@@ -392,21 +392,6 @@ header.markdown time {
   */
 }
 
-/* Image Container
-  // Class applied via JS to parent <p> tags on mardown generated HTML */
-.markdown .image-container {
-  max-width: 960px;
-}
-.markdown .image-container span {
-  font-size: 0.85rem;
-  font-style: italic;
-  opacity: 0.5;
-  max-width: 30rem;
-  display: block;
-  margin: 0 0.5rem;
-  margin-top: calc(2rem - 1.618rem);
-}
-
 /* Tables */
 .markdown table {
   display: block;

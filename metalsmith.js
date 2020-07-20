@@ -10,8 +10,20 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 console.time("Site built");
 
+// This takes all markdown images ![]() which nests them as <p><img></p>
+// and turns them into what i've been doing later, which is not wrapping them
+// in <p> tags directly. Then I can manipulate them in the HTML as I want.
+let renderer = new marked.Renderer();
+renderer.paragraph = function (text) {
+  if (text.startsWith("<img") && text.endsWith(">")) {
+    return text;
+  } else {
+    return `<p>${text}</p>`;
+  }
+};
+
 marked.setOptions({
-  renderer: new marked.Renderer(),
+  renderer,
   highlight: code => {
     return hljs.highlightAuto(code).value;
   },
