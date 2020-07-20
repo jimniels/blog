@@ -1,7 +1,7 @@
 /**
  * CSS Naked
- * Add a query param `?noCSS` to strip out the CSS and apply real basic styles
- * Really just a novel thing for me to use as I please.
+ * Add a query param `?css-naked` to strip out any stylesheets linked in the
+ * <head> of the document. Really just a novel thing for me to use as I please.
  */
 
 let cssNaked = window.localStorage.getItem("css-naked") === "true";
@@ -36,16 +36,3 @@ if (cssNaked) {
   });
   document.body.prepend($alert);
 }
-
-/*
-toggleCSSNaked(cssNaked);
-function toggleCSSNaked(on = false) {
-  var newurl =
-    window.location.protocol +
-    "//" +
-    window.location.host +
-    window.location.pathname +
-    `?css-naked=${on ? "true" : "false"}`;
-  window.history.pushState({ path: newurl }, "", newurl);
-}
-*/
