@@ -10,17 +10,18 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 console.time("Site built");
 
-// This takes all markdown images ![]() which nests them as <p><img></p>
-// and turns them into what i've been doing later, which is not wrapping them
-// in <p> tags directly. Then I can manipulate them in the HTML as I want.
+// Old posts use markdown for images `![]()` which nests them as <p><img></p>
+// in the output. Some of the newer posts just manually specify the `<img>`
+// on a new line. These don’t get parsed into images wrapped in <p>s, which is
+// what I need for a client-side script (and is semantically more correct 
+// I suppose). So that’s what this is doing here.
 let renderer = new marked.Renderer();
-renderer.paragraph = function (text) {
-  if (text.startsWith("<img") && text.endsWith(">")) {
-    return text;
-  } else {
-    return `<p>${text}</p>`;
+renderer.html = (html) => {
+  if (html.startsWith("<img")) {
+    return `<p>${html}</p>`;
   }
-};
+  return html;
+}
 
 marked.setOptions({
   renderer,
