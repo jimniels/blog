@@ -26,14 +26,18 @@ const html = (strings, ...values) => {
   return out;
 };
 
-const toDateUI = date => {
+const toDateUI = (date) => {
   return date.toLocaleString("en-US", {
     timeZone: "UTC",
     year: "numeric",
     month: "short",
-    day: "numeric"
+    day: "numeric",
   });
 };
-const toDateUIMin = date => toDateUI(date).split(",")[0];
+const toDateUIMin = (date) => toDateUI(date).split(",")[0];
 
-export { html, toDateUI, toDateUIMin };
+const replyHtml = (postLink) =>
+  // prettier-ignore
+  html`<hr /><p><a href="mailto:jimniels@gmail.com?subject=RSS Reply&body=Source article ${postLink}">Reply via email</a></p>`;
+
+export { html, toDateUI, toDateUIMin, replyHtml };
