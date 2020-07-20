@@ -4,8 +4,8 @@ import fetch from "node-fetch";
 // https://export.highcharts.com
 
 const options = {
-  width: "600",
-  scale: false,
+  // width: "600",
+  scale: "2", // 1200x800
   constr: "Chart",
   styledMode: false,
   type: "image/png",

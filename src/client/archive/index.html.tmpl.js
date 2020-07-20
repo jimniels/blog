@@ -3,7 +3,7 @@ import { html, toDateUIMin } from "../../server/utils.js";
 
 const page = {
   title: "Archive",
-  permalink: "/archive/"
+  permalink: "/archive/",
 };
 
 export default function Archive(site) {
@@ -18,7 +18,7 @@ export default function Archive(site) {
           .sort()
           .reverse()
           .map(
-            year => html`
+            (year) => html`
               <li>
                 <a href="#${year}">${year}</a> (${postsByYear[year].length})
               </li>
@@ -26,11 +26,20 @@ export default function Archive(site) {
           )}
       </ul>
 
+      ${site.postsByYearChartPath &&
+      html`
+        <img
+          src="/${site.postsByYearChartPath}"
+          width="600"
+          height="400"
+          alt="Graph depicting the change in number of posts published per year, starting in 2012."
+        />
+      `}
       ${Object.keys(postsByYear)
         .sort()
         .reverse()
         .map(
-          year => html`
+          (year) => html`
             <h2 id="${year}">
               ${year}
               <small style="font-weight: normal">
@@ -39,7 +48,7 @@ export default function Archive(site) {
             </h2>
             <ul class="posts-list">
               ${postsByYear[year].map(
-                post => html`
+                (post) => html`
                   <li>
                     <a href="${post.permalink}">
                       ${post.title}
