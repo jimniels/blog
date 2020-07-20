@@ -1,16 +1,48 @@
 /**
- * Remove CSS
+ * CSS Naked
  * Add a query param `?noCSS` to strip out the CSS and apply real basic styles
  * Really just a novel thing for me to use as I please.
  */
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.has("noCSS")) {
-  var cssNodes = document.querySelectorAll('head link[rel="stylesheet"]');
-  for (i = 0; i < cssNodes.length; ++i) {
-    document.head.removeChild(cssNodes[i]);
-  }
 
-  document.body.style.maxWidth = "35rem";
-  document.body.style.margin = "0 auto";
-  document.body.style.lineHeight = "1.5";
+let cssNaked = window.localStorage.getItem("css-naked") === "true";
+if (new URLSearchParams(window.location.search).has("css-naked")) {
+  cssNaked = true;
+  window.localStorage.setItem("css-naked", "true");
 }
+
+if (cssNaked) {
+  Array.from(document.querySelectorAll('head link[rel="stylesheet"]')).forEach(
+    ($node) => {
+      document.head.removeChild($node);
+    }
+  );
+
+  const $alert = document.createElement("div");
+  $alert.innerHTML = `
+    You are viewing this site without any CSS. Any day can be <a href="https://css-naked-day.github.io/">CSS naked day</a>! Want to flip back to the normal view? <a href="./" id="naked-css-toggle">Click here</a>.
+  `;
+  $alert.style.cssText = `
+    background: lightyellow;
+    padding: 5px;
+    margin: 15px 0;
+  `;
+  $alert.querySelector("#naked-css-toggle").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.localStorage.setItem("css-naked", "false");
+    window.location.href = window.location.href.split("?")[0];
+  });
+  document.body.prepend($alert);
+}
+
+/*
+toggleCSSNaked(cssNaked);
+function toggleCSSNaked(on = false) {
+  var newurl =
+    window.location.protocol +
+    "//" +
+    window.location.host +
+    window.location.pathname +
+    `?css-naked=${on ? "true" : "false"}`;
+  window.history.pushState({ path: newurl }, "", newurl);
+}
+*/

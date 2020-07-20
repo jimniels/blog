@@ -8,6 +8,8 @@
   --color-link-visited: hsla(300, 100%, 25%, 1);
   --color-link-active: hsla(0, 100%, 50%, 1);
   --border-radius: 7px;
+
+  color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
