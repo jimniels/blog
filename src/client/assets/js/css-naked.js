@@ -18,9 +18,12 @@ if (cssNaked) {
   );
 
   const $alert = document.createElement("div");
-  $alert.innerHTML = `
-    You are viewing this site without any CSS. Any day can be <a href="https://css-naked-day.github.io/">CSS naked day</a>! Want to flip back to the normal view? <a href="./" id="naked-css-toggle">Click here</a>.
-  `;
+  $alert.innerHTML = [
+    "You are viewing this site without any CSS.",
+    "Any day can be <a href='https://css-naked-day.github.io/'>CSS naked day</a>!",
+    "Want to flip back to the normal view?",
+    "<a href='./' id='naked-css-toggle'>Click here</a>.",
+  ].join(" ");
   $alert.style.cssText = `
     background: lightyellow;
     padding: 5px;
