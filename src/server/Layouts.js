@@ -75,7 +75,7 @@ const Layout = (props, children) => {
             ${children}
           </main>
 
-          <script src="/assets/js/js.js" async></script>
+          <script src="/assets/js/index.js" type="module"></script>
         </body>
       </html>
     `

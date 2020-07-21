@@ -8,6 +8,8 @@
   --color-link-visited: hsla(300, 100%, 25%, 1);
   --color-link-active: hsla(0, 100%, 50%, 1);
   --border-radius: 7px;
+
+  color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -390,21 +392,6 @@ header.markdown time {
   border: 1px solid rgba(0, 0, 0, 0.075);
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.075);
   */
-}
-
-/* Image Container
-  // Class applied via JS to parent <p> tags on mardown generated HTML */
-.markdown .image-container {
-  max-width: 960px;
-}
-.markdown .image-container span {
-  font-size: 0.85rem;
-  font-style: italic;
-  opacity: 0.5;
-  max-width: 30rem;
-  display: block;
-  margin: 0 0.5rem;
-  margin-top: calc(2rem - 1.618rem);
 }
 
 /* Tables */
