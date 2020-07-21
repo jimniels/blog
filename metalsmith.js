@@ -10,8 +10,18 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 console.time("Site built");
 
+let markedRenderer = new marked.Renderer();
+markedRenderer.link = (href, title, text) => {
+  if (!href) {
+    console.log(href);
+    title = "Coming soon…";
+  }
+  // prettier-ignore
+  return `<a ${href ? `href="${href}"` : ""} ${title ? `title="${title}"` : ""}>${text}</a>`
+};
+// markedRenderer
 marked.setOptions({
-  renderer: new marked.Renderer(),
+  renderer: markedRenderer,
   highlight: code => {
     return hljs.highlightAuto(code).value;
   },

@@ -84,6 +84,16 @@ a:active:hover {
   /* @TODO */
   background-color: rgba(255, 0, 0, 0.05);
 }
+a:not([href]):after {
+  content: " 🚧";
+}
+a:not([href]):before {
+  content: "🚧 ";
+}
+a:not([href]) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 .markdown a {
   text-decoration: underline;
 }
