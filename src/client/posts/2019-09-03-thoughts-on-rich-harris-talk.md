@@ -7,7 +7,7 @@ tags: thoughts
 
 I want to regurgitate some of his points in this post in order to help further elucidate and articulate my own feelings around programming in React, which as of late have mapped quite directly to Rich’s points.
 
-**A Note Before We Begin**: I love React and use it everyday. The following changes none of that. 
+**A note before we begin**: I love React and use it everyday. The following changes none of that. 
 
 ## UI is a Function of State...?
 
@@ -45,7 +45,7 @@ I digress. Let’s continue where Rich left off.
 
 ![Animated gif from Rich’s talk depicting a simple example of UI as a function of state](https://cdn.jim-nielsen.com/blog/2019/ideology-of-react-simple.gif)
 
-Do you see what’s happening here? We’re trying to create a very simple interactive experience illustrating the idea of “UI as a function of state”. We have some text that says “Hello *blank*” where *blank* gets filled in by whatever value is in the `<input>`. The JavaScript code is merely listening for a change on the input, and anytime it changes, it reaches into the DOM, erases everything in `<body>`, and re-renders the UI based on the new stateful value of the input.
+Do you see what’s happening here? We’re trying to create a very simple interactive experience illustrating the idea of “UI as a function of state”. We have some text that says “Hello _blank_” where _blank_ gets filled in by whatever value is in the `<input>`. The JavaScript code is merely listening for a change on the input, and anytime it changes, it reaches into the DOM, erases everything in `<body>`, and re-renders the UI based on the new stateful value of the input.
 
 This is a great illustration of the belief that your UI is a function of your application state. So what’s the problem here? Why does this not work? Well, there’s more state in the UI than just the application state of `name`. Rich:
 
@@ -55,7 +55,7 @@ Every time that code runs, it’s reaching into the DOM, and replacing everythin
 
 Rich goes on to show that you could try to fix this by lifting the implicit DOM state into your application code. What happens? You end up running into another problem of the same type, and then another, and another, especially as your app and its interactions increase in complexity.
 
-So it turns out that the DOM is stateful. But I thought that’s what we were trying to *get away from* with frameworks like React? And there’s the mismatch Rich is pointing out: the framework has an ideological bent that doesn’t always match up to reality. That’s how we often end up trying to re-shape reality to match our ideology, rather than re-shaping our ideology to match reality.
+So it turns out that the DOM is stateful. But I thought that’s what we were trying to _get away from_ with frameworks like React? And there’s the mismatch Rich is pointing out: the framework has an ideological bent that doesn’t always match up to reality. That’s how we often end up trying to re-shape reality to match our ideology, rather than re-shaping our ideology to match reality.
 
 As Rich goes on to point out, implicit DOM state—things like the focus of an input, the time an element has been mounted— is a critical factor in determining what the user will see on screen at any point in time. And a lot of this implicit state can’t be easily moved into our application. 
 
