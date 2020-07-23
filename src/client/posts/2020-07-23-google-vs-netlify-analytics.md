@@ -109,7 +109,7 @@ To be honest, I don’t feel bad about breaking that. This seems like a standard
 
 In this case, I find it very interesting to look at Netlify’s analytics and see which assets were apparently very popular for [hotlinking](https://simple.wikipedia.org/wiki/Hotlinking).
 
-### 2. Security Vulnerabilities
+### 3. Security Vulnerabilities
 
 I [tweeted about this](https://twitter.com/jimniels/status/1219304625448398857)
 
