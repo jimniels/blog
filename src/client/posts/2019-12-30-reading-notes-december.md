@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, December 2019
 tags: readingNotes
 ---
+
+# Reading Notes, December 2019
 
 ## Article: [“Larry and Sergey: a valediction”](http://www.roughtype.com/?p=8661) by Nicholas Carr
 

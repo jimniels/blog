@@ -1,7 +1,8 @@
 ---
-title: Follow Your Values, Not Your Passions
 tags: thoughts
 ---
+
+# Follow Your Values, Not Your Passions
 
 My wife loves Dax Shepard’s podcast “Armchair Expert”. Recently, she listened to [an episode where Dax interviews Adam Grant](https://armchairexpertpod.com/pods/adam-grant)—a psychologist, author, and professor who specializes in organizational psychology—and recommended I listen to it.
 

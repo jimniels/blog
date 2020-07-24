@@ -1,7 +1,8 @@
 ---
-title: Texting is Cerebral
 tags: thoughts
 ---
+
+# Texting is Cerebral
 
 This is a reaction to Frank Chimero’s [“Leave the Phone At Home”](https://www.frankchimero.com/blog/2019/leave-the-phone-at-home/) where he talks about buying an Apple Watch and how he feels it has freed him in some regards:
 

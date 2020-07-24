@@ -1,7 +1,8 @@
 ---
-title: "Static Site Templating: Switching from React & JSX to JavaScript & Template Literals"
 tags: engineering
 ---
+
+# Static Site Templating: Switching from React & JSX to JavaScript & Template Literals
 
 First, let’s get this out of the way: I love React & JSX. 
 

@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, January 2020
 tags: readingNotes
 ---
+
+# Reading Notes, January 2020
 
 ## Article: [“Level of Effort”](https://bradfrost.com/blog/post/level-of-effort/) by Brad Frost
 

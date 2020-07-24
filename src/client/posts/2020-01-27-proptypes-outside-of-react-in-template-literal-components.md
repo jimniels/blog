@@ -1,7 +1,8 @@
 ---
-title: Using PropTypes Outside of React in Template Literal Components
 tags: engineering
 ---
+
+# Using PropTypes Outside of React in Template Literal Components
 
 I recently moved away from using JSX as my templating system and switched to using [“components” of template literals in JavaScript](/2020/switching-from-react-to-js-for-templating/). One of the things I didn’t want to lose when switching was the functionality of the [prop-types package](https://www.npmjs.com/package/prop-types).
 

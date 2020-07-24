@@ -1,8 +1,8 @@
 ---
-title: Twitter Cards and Visually Representing That I’ve Got Stuff To Say
-date: 2019-12-20
 tags: tips
 ---
+
+# Twitter Cards and Visually Representing That I’ve Got Stuff To Say
 
 Have you ever noticed when you post a link on Twitter, it gives you that nice “Twitter card” preview? But if you haven’t setup your website to give hungry Twitter the data it feeds on, you’ll get a default image (and who likes a default image?) 
 
