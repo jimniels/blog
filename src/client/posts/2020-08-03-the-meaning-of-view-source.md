@@ -206,7 +206,7 @@ One small thing I learned from Twitter’s HTML over the wire was this thing cal
 
 <img src="https://cdn.jim-nielsen.com/blog/2020/view-source-vs-onload-nonce.png" alt="Screenshot of file diff showing removal of nonce attribute on page load." width="1304" height="195" />
 
-`nonce` is a way of indicating that a particular `<script>` tag came over the wire and wasn’t injected at runtime. Again, it’s useful to make a distinction between what kind of “source” you're looking at when you read an HTML document.
+`nonce` is a way of indicating that a particular tag came over the wire and wasn’t injected at runtime. Again, it’s useful to make a distinction between what kind of “source” you're looking at when you read an HTML document.
 
 ## Summary
 
