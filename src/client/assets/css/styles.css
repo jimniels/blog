@@ -110,7 +110,7 @@ a:active:hover {
 }
 
 .nav h1:after {
-  content: "//";
+  content: "·";
   opacity: 0.5;
   font-weight: normal;
   margin-left: calc(1.618rem / 2);
