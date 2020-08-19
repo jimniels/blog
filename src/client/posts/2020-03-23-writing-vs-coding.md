@@ -1,5 +1,5 @@
 ---
-tags: thoughts bookNotes
+tags: thoughts bookNotes bookNotesCoders
 ---
 
 # Writing vs. Coding
