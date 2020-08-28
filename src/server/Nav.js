@@ -3,35 +3,34 @@ import { html } from "./utils.js";
 const navItems = [
   {
     label: "Archive",
-    permalink: "/archive/"
+    permalink: "/archive/",
   },
   {
     label: "Tags",
-    permalink: "/tags/"
+    permalink: "/tags/",
   },
   {
     label: "About",
-    permalink: "/about/"
+    permalink: "/about/",
   },
   {
     label: "Feeds",
-    permalink: "/feeds/"
-  }
+    permalink: "/feeds/",
+  },
 ];
 
 // prettier-ignore
 export default function Nav({ site, page }) {
   return html`
-    <a href="/" class="nav__img">
-      <img
-        src="/favicon.ico"
-        alt="Jim Nielsen favicon"
-        width="32"
-        height="32"
-      />
-    </a> 
-
     <h1 class="nav__title">
+      <a href="/" class="nav__img">
+        <img
+          src="/favicon.ico"
+          alt="Jim Nielsen favicon"
+          width="32"
+          height="32"
+        />
+      </a> 
       <a href="/">blog.jim-nielsen.com</a>
     </h1>
 

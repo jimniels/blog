@@ -48,8 +48,37 @@ const Layout = (props, children) => {
             title="JSON Feed"
             href="/feed.json"
           />
-          <link rel="stylesheet" href="/assets/css/normalize.css" />
-          <link rel="stylesheet" href="/assets/css/styles.css" />
+          <style>
+            body {
+              font-size: 1.125rem;
+              line-height: 1.5;
+            }
+            img {
+              max-width: 100%;
+              height: auto;
+            }
+            nav,
+            /* article > header > *,
+            article > .markdown > *,
+            article > footer > */
+            main {
+              display: block;
+              max-width: 35rem;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            .markdown img {
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            nav h1 {
+              display: flex;
+            }
+            nav h1 img {
+              margin-right: 1em;
+            }
+          </style>
           <link rel="canonical" href="${origin + permalink}" />
 
           ${layout === "Post" &&
