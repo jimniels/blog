@@ -3,7 +3,7 @@ tags: engineering javascript
 ---
 
 
-# ES Modules and The Future: There is No Registry
+# ES Modules: There is No Registry
 
 I’m excited. I’ve always wanted to live in the future, and the future is now. With ES modules support in browsers and projects like deno, the dependency on `node_modules` and npm is going away. In the future, there is no ~~spoon~~ registry.
 
