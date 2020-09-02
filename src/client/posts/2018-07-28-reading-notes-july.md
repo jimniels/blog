@@ -93,7 +93,7 @@ I’ve always enjoyed following Dan, he brings a dose of reality and empathy to 
 > 
 > Still, people are misunderstanding the "invent" part of the tweet. If we had to *invent* styling most experienced developers would choose tight coupling of styles to elements (otherwise Sass/Less/BEM/Modules wouldn't exist)
 
-And then [this]((https://twitter.com/dan_abramov/status/1012663626723987457)) — IMO an incredibly insightful, reasoned response in a technological discussion.
+And then [this](https://twitter.com/dan_abramov/status/1012663626723987457) — IMO an incredibly insightful, reasoned response in a technological discussion.
 
 @dan_abramov
 

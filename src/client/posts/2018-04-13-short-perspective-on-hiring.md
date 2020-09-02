@@ -11,7 +11,7 @@ When I say “we’re hiring!” the response I often get is “well, if you’r
  
 In response, I try to explain that we aren’t looking for anyone in particular, just good, smart people in general. I want candidates to bring their skills and personality. If it’s the right fit, we will ~~find~~ *make* a place for them — be it junior developer, senior UI architect, full stack developer, whatever. We need them all. “Give me your poor, your javascript fatigued, your huddled masses yearning to code.”
 
-[This blog post]((http://blog.capwatkins.com/two-questions)) from capwatkins expresses my sentiments on the matter. In particular, I think the two questions he formulated pierce to the heart of hiring:
+[This blog post](http://blog.capwatkins.com/two-questions) from capwatkins expresses my sentiments on the matter. In particular, I think the two questions he formulated pierce to the heart of hiring:
 
 > What skills does a particular candidate have that our teams and projects would benefit from?  
 > What is a candidate trying to achieve and are we set up to help them do so?

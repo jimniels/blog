@@ -22,7 +22,7 @@ I was recently browsing through my recommended reads on Readability and I stumbl
 
 When [thegaw](https://twitter.com/thegaw) recommends something to read, it’s worth reading. If he recommends something worth printing and taping to every wall in my office, well let’s just say I took notice.
 
-The article is titled [“How to be a Great Developer”](https://the-pastry-box-project.net/ed-finkler/2014-january-6) and is written by Ed Finkler (a.k.a. [funkatraon](https://twitter.com/funkatron)). There are a lot of really good insights in the article, I suggest you [take a look]((https://the-pastry-box-project.net/ed-finkler/2014-january-6)). However, I want to focus on one particular point made in the article:
+The article is titled [“How to be a Great Developer”](https://the-pastry-box-project.net/ed-finkler/2014-january-6) and is written by Ed Finkler (a.k.a. [funkatraon](https://twitter.com/funkatron)). There are a lot of really good insights in the article, I suggest you [take a look](https://the-pastry-box-project.net/ed-finkler/2014-january-6). However, I want to focus on one particular point made in the article:
 
 > Don’t worry about how many people use what you make. Empowering 5 people is incredibly special. They will remember what you did for them.
 
