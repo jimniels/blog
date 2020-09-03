@@ -29,9 +29,7 @@ const Layout = (props, children) => {
       <!DOCTYPE html>
       <html lang="en-us" id="top">
         <head>
-          <title>
-            ${title && `${title} | `}${name}
-          </title>
+          <title>${title && `${title} - `}${name}</title>
 
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -67,13 +65,9 @@ const Layout = (props, children) => {
           `}
         </head>
         <body>
-          <nav class="nav">
-            ${Nav(props)}
-          </nav>
+          <nav class="nav">${Nav(props)}</nav>
 
-          <main class="main">
-            ${children}
-          </main>
+          <main class="main">${children}</main>
 
           <script src="/assets/js/index.js" type="module"></script>
         </body>
