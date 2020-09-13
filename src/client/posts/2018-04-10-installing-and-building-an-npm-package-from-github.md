@@ -1,6 +1,6 @@
 ---
 title: Installing and Building an NPM Package from Github
-tags: engineering
+tags: engineering insight
 ---
 
 [The original draft for this post was dated August of 2017. Here it is April 2018 and I’m finally getting around to making this an MVP: minimum viable post. This is probably old news now, but I’m posting nonetheless.]

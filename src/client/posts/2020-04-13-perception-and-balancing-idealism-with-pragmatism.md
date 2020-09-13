@@ -1,5 +1,5 @@
 ---
-tags: design
+tags: design insight
 ---
 
 # Perception and Balancing Idealism with Pragmatism

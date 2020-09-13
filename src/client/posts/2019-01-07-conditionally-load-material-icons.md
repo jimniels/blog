@@ -1,6 +1,6 @@
 ---
 title: Conditionally Load Material Icons
-tags: engineering workNotes
+tags: engineering insight
 ---
 
 If you want to use [Material Icons](https://google.github.io/material-design-icons/) on your webpage, it’s advised that you stick a `<link>` tag in your HTML like so:
