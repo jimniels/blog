@@ -4,8 +4,10 @@ import { fileURLToPath } from "url";
 import multimatch from "multimatch";
 import hljs from "highlight.js";
 import marked from "marked";
+import psl from "psl";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
+import fetch from "node-fetch";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 console.time("Site built");
@@ -13,7 +15,7 @@ console.time("Site built");
 // Old posts use markdown for images `![]()` which nests them as <p><img></p>
 // in the output. Some of the newer posts just manually specify the `<img>`
 // on a new line. These don’t get parsed into images wrapped in <p>s, which is
-// what I need for a client-side script (and is semantically more correct 
+// what I need for a client-side script (and is semantically more correct
 // I suppose). So that’s what this is doing here.
 let renderer = new marked.Renderer();
 renderer.html = (html) => {
@@ -21,17 +23,37 @@ renderer.html = (html) => {
     return `<p>${html}</p>`;
   }
   return html;
-}
+};
+let linksByDomain = {};
+renderer.link = (href, title, text) => {
+  let hostname;
+
+  if (href.startsWith(".") || href.startsWith("/")) {
+    hostname = "blog.jim-nielsen.com";
+  } else {
+    hostname = new URL(href).hostname;
+  }
+
+  let domain = psl.get(hostname);
+
+  if (linksByDomain[domain]) {
+    linksByDomain[domain].push(href);
+  } else {
+    linksByDomain[domain] = [href];
+  }
+
+  return `<a href="${href}" ${title ? `title="${title}"` : ""}>${text}</a>`;
+};
 
 marked.setOptions({
   renderer,
-  highlight: code => {
+  highlight: (code) => {
     return hljs.highlightAuto(code).value;
   },
   gfm: true, // github flavored markdown
   // breaks: false,
   smartLists: true,
-  langPrefix: "language language-"
+  langPrefix: "language language-",
 });
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -39,7 +61,7 @@ let App = Metalsmith(__dirname)
   .metadata({
     name: "Jim Nielsen’s Weblog",
     origin: "https://blog.jim-nielsen.com",
-    isDevelopment
+    isDevelopment,
   })
   .source("./src/client")
   .destination("./build")
@@ -50,7 +72,7 @@ let App = Metalsmith(__dirname)
      * @TODO IF we are including drafts, move them to the "posts" folder
      * for now we are just going to delete them.
      */
-    multimatch(Object.keys(files), ["posts/drafts/**"]).forEach(file => {
+    multimatch(Object.keys(files), ["posts/drafts/**"]).forEach((file) => {
       delete files[file];
     });
 
@@ -58,7 +80,7 @@ let App = Metalsmith(__dirname)
      * Handle Markdown
      * Convert all .md files to .html files
      */
-    multimatch(Object.keys(files), "**/*.md").forEach(file => {
+    multimatch(Object.keys(files), "**/*.md").forEach((file) => {
       let fileContentsByLine = files[file].contents.toString().split("\n");
 
       // YAML front-matter is handled by Metalsmith, so we should have it at
@@ -95,7 +117,7 @@ let App = Metalsmith(__dirname)
      * Posts
      * Do stuff that we want to do with each post file
      */
-    multimatch(Object.keys(files), "posts/**").forEach(file => {
+    multimatch(Object.keys(files), "posts/**").forEach((file) => {
       // An extra console to tell us if we've named a file wrong
       if (/[A-Z]/.test(file)) {
         console.log("=====> You've got an uppercase slug ", file);
@@ -152,16 +174,11 @@ let App = Metalsmith(__dirname)
     const meta = metalsmith.metadata();
     // Doesn't exist yet, so all files are available
     meta.posts = Object.keys(files)
-      .filter(file => files[file].layout === "Post")
-      .map(file => files[file])
+      .filter((file) => files[file].layout === "Post")
+      .map((file) => files[file])
       .sort((a, b) => {
-        const formatForDateSort = date =>
-          Number(
-            date
-              .toISOString()
-              .slice(0, 10)
-              .replace(/-/g, "")
-          );
+        const formatForDateSort = (date) =>
+          Number(date.toISOString().slice(0, 10).replace(/-/g, ""));
         const adate = formatForDateSort(a.date);
         const bdate = formatForDateSort(b.date);
         // Sort by date, then alphabetically
@@ -193,8 +210,8 @@ let App = Metalsmith(__dirname)
     }, {});
 
     const trendingPostPermalinks = await getTrendingPosts();
-    meta.trendingPosts = trendingPostPermalinks.map(permalink =>
-      meta.posts.find(post => post.permalink === permalink)
+    meta.trendingPosts = trendingPostPermalinks.map((permalink) =>
+      meta.posts.find((post) => post.permalink === permalink)
     );
 
     /**
@@ -209,20 +226,21 @@ let App = Metalsmith(__dirname)
      *   (site) => CustomLayout({ site, page: {...} }, children)
      */
     const site = metalsmith.metadata();
+    site.linksByDomain = linksByDomain;
 
     // Render templates first
     // We run our templating on the `.tmpl.js` files first because some of them
     // depend on getting *ONLY* the content of a post. So we want to render our
     // post templates last (otherwise our feeds will contain the entire HTML of
     // an individual post, including the <!DOCTYPE> )
-    const getFilePath = filepath =>
+    const getFilePath = (filepath) =>
       path.join(metalsmith._directory, metalsmith._source, filepath);
     const templateFiles = multimatch(Object.keys(files), "**/*.tmpl.js");
     await Promise.all(
-      templateFiles.map(async file => {
+      templateFiles.map(async (file) => {
         try {
           const fn = await import(getFilePath(file)).then(
-            module => module.default
+            (module) => module.default
           );
           files[file].contents = fn(site);
           const newFilename = file.replace(".tmpl.js", "");
@@ -236,14 +254,14 @@ let App = Metalsmith(__dirname)
     );
 
     // Render layouts last of all
-    const layoutFiles = Object.keys(files).filter(file => files[file].layout);
+    const layoutFiles = Object.keys(files).filter((file) => files[file].layout);
     await Promise.all(
-      layoutFiles.map(async file => {
+      layoutFiles.map(async (file) => {
         const fn = layouts[files[file].layout];
         if (fn) {
           files[file].contents = fn({
             site,
-            page: files[file]
+            page: files[file],
           });
         }
       })
@@ -251,7 +269,7 @@ let App = Metalsmith(__dirname)
 
     done();
   })
-  .build(err => {
+  .build((err) => {
     // build process
     if (err) throw err; // error handling is required
     console.timeEnd("Site built");
@@ -263,6 +281,7 @@ let App = Metalsmith(__dirname)
  * @property {Object.<string,Post>} postsByYear
  * @property {Array.<Post>} trendingPosts
  * @property {Object} page
+ *
  */
 
 /**
