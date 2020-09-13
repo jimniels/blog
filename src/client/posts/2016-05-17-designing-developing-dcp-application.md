@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Designing and Developing the DCP Application
-tags: designProcess engineering
+tags: designProcess engineering postlight
 ---
 
 My most recent project had me designing and developing a new web application for Time Inc. called the “DCP” or “Digital Content Production” application. Using the framework we built for the [Assignment Desk](http://jim-nielsen.com/blog/2016/designing-and-building-assignment-desk/) application, I designed and built roughly the entire view layer of this application in less than two months.
