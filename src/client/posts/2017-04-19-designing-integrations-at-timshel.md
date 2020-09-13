@@ -1,6 +1,6 @@
 ---
 title: Designing Integrations for the Admin Application at Timshel
-tags: designProcess
+tags: timshel designProcess
 ---
 
 One of the tasks I had while working at [Timshel](https://timshel.com/) (a.k.a [The Groudwork](https://thegroundwork.com/)) was to design the flow for setting up integrations in our customer-facing application named “[Admin](http://jim-nielsen.com/blog/2016/redesigning-and-engineering-timshel-admin/)”. The very first integration we decided to build was for Stripe, but the idea was to  design a general process that would account for setting up integrations with other services in the future.

@@ -1,6 +1,6 @@
 ---
 title: Redesigning and Engineering the UI/UX for Unauthenticated Users of Timshel’s “Admin”
-tags: designProcess engineering
+tags: timshel designProcess engineering
 ---
 
 At Timshel, we had an application called “Admin” which was used by clients to view and adminster data associated with their account. For example, a client would use Timshel’s platform API for a variety of activities: create and manage events, process payments, setup user profiles, etc.. Since these activities were tracked via the API, they could be analyzed and managed via the Admin application. This gave clients insight into how their customers were interacting with the technological aspects of their business/organization.
