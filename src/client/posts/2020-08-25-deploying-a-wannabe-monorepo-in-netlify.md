@@ -36,7 +36,7 @@ I wanted to setup a single git repository with all of the content of my individu
 │       └── ...
 ├── src/
 │   ├── plugins/
-│   ├── tempaltes/
+│   ├── templates/
 │   └── public/
 ├── netlify.toml
 └── package.json
