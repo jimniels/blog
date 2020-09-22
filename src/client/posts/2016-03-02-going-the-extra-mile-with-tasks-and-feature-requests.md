@@ -19,7 +19,7 @@ Your job *is* taking the liberty and creative freedom to change, enhance, or eve
 A few weeks ago I was working on the [Assignment Desk](http://jim-nielsen.com/blog/2016/designing-and-building-assignment-desk/) application for Time Inc. when I received the following task in Asana:
 
 > When a contract is signed, display text instructing the user to request the signed contract. Text:
-"To request a copy of this signed contract, please email Digital_Asset_Contracts@timeinc.com."
+"To request a copy of this signed contract, please email person@timeinc.com."
 
 That sounds pretty straight forward right? I jumped into the application’s codebase to see the context of the task’s request and get a sense of the logic involved. Once found, I dropped in the new functionality specified in the task and thought “Well that was easy. Boy am I efficient!”. The new module looked like this:
 
