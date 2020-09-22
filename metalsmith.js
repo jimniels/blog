@@ -280,7 +280,7 @@ let App = Metalsmith(__dirname)
  * @property {Object.<string,Post>} postsByYear
  * @property {Array.<Post>} trendingPosts
  * @property {Object} page
- *
+ * @property {Object.<string,Array[string]>} linksByDomain
  */
 
 /**
