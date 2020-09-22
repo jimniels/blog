@@ -99,8 +99,10 @@ export default function About(site) {
 
         <p>
           I thought it would be interesting to
-          <a href="">index all the links on my blog</a> and keep it as a running
-          list.
+          <a href="https://blog.jim-nielsen.com/2020/indexing-my-blogs-links/"
+            >index all the links on my blog</a
+          >
+          and keep it as a running list.
         </p>
 
         ${domainsOfMoreThanOne.map(
