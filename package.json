@@ -13,7 +13,7 @@
     "marked": "^0.7.0",
     "metalsmith": "^2.3.0",
     "multimatch": "^3.0.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "nodemon": "^2.0.1",
     "psl": "^1.8.0",
     "prop-types": "^15.7.2"
