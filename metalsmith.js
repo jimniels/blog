@@ -7,7 +7,6 @@ import marked from "marked";
 import psl from "psl";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
-import fetch from "node-fetch";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 console.time("Site built");
