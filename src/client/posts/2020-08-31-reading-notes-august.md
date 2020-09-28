@@ -2,7 +2,7 @@
 tags: readingNotes
 ---
 
-# Reading Notes, August
+# Reading Notes, August 2020
 
 ## Article: [“Web Bloat”](https://danluu.com/web-bloat/)
 
