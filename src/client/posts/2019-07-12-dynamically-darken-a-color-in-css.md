@@ -54,7 +54,7 @@ a {
 }
 
 a:hover {
-  color: brightness(0.6);
+  filter: brightness(0.6);
 }
 ```
 
