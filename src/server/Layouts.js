@@ -52,6 +52,7 @@ const Layout = (props, children) => {
 
           ${layout === "Post" &&
           `
+            <!-- If it’s a post page, we’ll include meta info and code styling -->
             <meta property="og:title" content="${title}" />
             <meta property="og:type" content="article" />
             <meta property="og:url" content="${origin + permalink}" />
@@ -66,6 +67,16 @@ const Layout = (props, children) => {
               <meta name="twitter:image:alt" content="Photo of Jim Nielsen saying stuff">
               */
             }
+            
+            <link
+              rel="stylesheet"
+              href="/assets/css/atom-one-light.css"
+            />
+            <link
+              rel="stylesheet"
+              href="/assets/css/atom-one-dark.css"
+              media="screen and (prefers-color-scheme: dark)"
+            />
           `}
         </head>
         <body>
@@ -104,15 +115,6 @@ const Post = (props) => {
 
   // prettier-ignore
   return Layout(props, html`
-    <link
-      rel="stylesheet"
-      href="/assets/css/atom-one-light.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/assets/css/atom-one-dark.css"
-      media="screen and (prefers-color-scheme: dark)"
-    />
     <article class="h-entry">
 
       <header class="markdown">
