@@ -78,7 +78,7 @@ Web components are popular, right? I bet you could make a textarea that resizes 
 
 I suppose you could make that work, but unlike the HTML attribute solution described previously, this approach would break completely without JavaScript because there would be no input whatsoever. 
 
-I honestly don’t know that much about web components, but I would suppose the proper way to do this would look something like:
+I honestly don’t know that much about web components (_update:  I proved this statement, see my update below_):, but I would suppose the proper way to do this would look something like:
 
 ```html
 <textarea-autosize>
@@ -115,3 +115,45 @@ Which is better? Honestly, I’m not here to judge. My implementation of this wa
 
 What would be really neat is if this functionality was supported in the browser natively by just adding the appropriate attribute. Perhaps one day.
 
+## Update: Using a Web Component (Oct. 12, 2020)
+
+I received a [little tip on Twitter from @simevidas](https://twitter.com/simevidas/status/1315767829795401730?s=20) after posting this article:
+
+> For adding functionality to existing elements via web components, the suggested approach is the `is` attribute, e.g.,
+> 
+> `<textarea is="auto-sized"></textarea>`
+>
+> (You only need a tiny polyfill for Safari.)
+>
+> https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example
+
+This is pretty neat! I told you I don’t know how to use web components.
+
+So what does the implementation look like? The HTML:
+
+```html
+<textarea is="auto-size"></textarea>
+```
+
+And the JavaScript:
+
+```js
+import autosize from "https://unpkg.com/autosize@4.0.2/src/autosize.js";
+
+class AutoSize extends HTMLTextAreaElement {
+  constructor() {
+    super();
+    autosize(this);
+  }
+}
+    
+customElements.define(
+  "auto-size",
+  AutoSize,
+  { extends: "textarea" }
+);
+```
+
+That’s it! Note, however, that it does require [a polyfill](https://github.com/ungap/custom-elements-builtin) for Safari.
+
+You can see an example of this on my Codepen: [PROPERLY Auto Resize a `<textarea>` with a Web Component](https://codepen.io/jimniels/pen/MWeawPV).
