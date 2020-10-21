@@ -2,7 +2,7 @@
 tags: bookNotes
 ---
 
-# Book Notes: _Demand Side Sales_ by Bob Moesta
+# Book Notes: “Demand Side Sales” by Bob Moesta
 
 Based on a recommendation from Jason Fried on the Signal Vs. Noise blog, I recently read Bob Moesta and Greg Engle’s new book: _Demand Side Sales: Stop Selling and Help Your Customers Make Progress_.
 
