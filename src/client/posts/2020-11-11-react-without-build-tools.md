@@ -125,4 +125,4 @@ Granted, you can author in JSX and ship it directly to the browser. At the time 
 
 But this imports babel into the browser and transforms on the fly. Plus it doesn’t give you the ability to start splitting out your components into individual JavaScript modules. So pick your poison.
 
-Anyway, this might be a long-winded way of stating something most folks already know. But for those who don’t, try this setup. I think you’ll find the ability to use React without any kind of build tooling quite refreshing.
+Anyway, this might be a long-winded way of stating something most folks already know. But for those who don’t, try this setup. I think you’ll find it quite refreshing to use React A) with a JSX-like syntax, and B) without any kind of build tooling.
