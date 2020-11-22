@@ -14,6 +14,6 @@ Growing—that’s a word I want to employ when talking about my personal sites 
 
 Most of my favorite websites out there are grown—homegrown in fact. They are corners of the web where some unique human has been nurturing, curating, and growing stuff for years. Their blog posts, their links, their thoughts, their aesthetic, their markup, their style, everything about their site—and themselves—shows growth and evolution and change through the years. It’s a beautiful thing, a kind of artifact that could never be replicated or manufactured on a deadline.
 
-This part of the web, this organic part, stands in start contrast to the industrial web where websites are made and resources extracted. 
+This part of the web, this organic part, stands in stark contrast to the industrial web where websites are made and resources extracted. 
 
 You can make a website in a day, but it takes years to grow one. So plant one now if you haven’t already. Or go tend to yours. I’ll just be over here weeding and watering.
