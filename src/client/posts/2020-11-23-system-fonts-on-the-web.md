@@ -189,7 +189,7 @@ body {
 
 I believe that’s roughly how this would all shake out.
 
-### Final Thoughts
+## Final Thoughts
 
 So how does one know what something like `system-ui` means on each platform? I suppose that would just take research. Research that I cannot do because I do not have the device inventory to do so (or, honestly, the time or desire). But it would be nice if there was a dictionary of this somewhere, i.e. 
 
