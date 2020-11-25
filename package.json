@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "browser-sync": "^2.26.7",
-    "highlight.js": "^9.15.8",
+    "highlight.js": "^10.1.2",
     "marked": "^0.7.0",
     "metalsmith": "^2.3.0",
     "multimatch": "^3.0.0",
