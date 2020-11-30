@@ -3,7 +3,7 @@ title: Reading Notes, March 2019
 tags: readingNotes
 ---
 
-## Site: [“Always Own Your Platform”](http://alwaysownyourplatform.com)
+## Website: [“Always Own Your Platform”](http://alwaysownyourplatform.com)
 
 > You know, it wasn't that long ago. There was RSS. There were blogs...Now? [Social media sites] control what gets amplified and what gets monetized. A few conference rooms in Silicon Valley dictate our online culture.
 

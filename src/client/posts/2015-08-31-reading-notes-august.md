@@ -15,11 +15,7 @@ Earlier in the introduction, his newspaper editor talked about how fastidious Ga
 
 > good writing can save bad art, but good art can never save bad writing. 
 
-![The Far Side: the art of conversation comic](https://scontent-lax3-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/11921704_10153597598746204_2706705129014092483_n.jpg?oh=8f5e84277a3f79fd0e2be981b10aeee4&oe=56A5F014)
-
----
-
-## Article: [Stop Pushing the Web Forward](http://www.quirksmode.org/blog/archives/2015/07/stop_pushing_th.html)
+## Article: [“Stop Pushing the Web Forward”](http://www.quirksmode.org/blog/archives/2015/07/stop_pushing_th.html)
 
 An interesting read on the state of the web and how, just maybe, we should ponder slowing down for one second to consider the direction we’re headed in and contrast that with where and what we want the web to be. Of course to suggest “slowing down” is technological blasphemy. So the author correctly prefaces his article with “Fair warning. You’re going to hate this one.” 
 
@@ -35,9 +31,7 @@ Here are a few passages I enjoyed, in no particular order:
 
 > We’re pushing the web forward to emulate native more and more, but we can’t out-native native. We are weighed down by the millstone of an ever-expanding set of tools that polyfill everything we don’t understand — and that’s most of a browser’s features nowadays. This is not the future that I want to push the web forward to.
 
----
-
-## Site: [Computer Jargon](http://www.catb.org/jargon/html/go01.html)
+## Website: [“Computer Jargon”](http://www.catb.org/jargon/html/go01.html)
 
 A coworker showed me this resource around computer jargon — a hacker’s lexicon if you will (apparently it’s the online version of *The New Hacker’s Dictionary*).There are some funny terms in there. If you work in technology, you’ll probably enjoy these. 
 
@@ -58,9 +52,7 @@ Here are a few I enjoyed:
 [Ninety-nine rule](http://www.catb.org/jargon/html/N/Ninety-Ninety-Rule.html):  
 > “The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time.” ... Other maxims in the same vein include the law attributed to the early British computer scientist Douglas Hartree: “The time from now until the completion of the project tends to become constant.”
 
----
-
-## Article: [Can Computers Improvise?](http://www.roughtype.com/?p=6010)
+## Article: [“Can Computers Improvise?”](http://www.roughtype.com/?p=6010)
 
 Because, apparently, there’s so little to talk about anymore, it’s been announced that a computer has written lyrics that rival rap legend Eminem. As such, some have even claimed “rappers might soon lose their jobs to robots”. But as Nicholas Carr points out, that’s a little premature:
 
@@ -70,9 +62,7 @@ Personally, I find this especially true for computer illiterate people. My dad c
 
 As someone who works in tech, I find it laughable, borderline ridiculous that as soon as computers do the tiniest little thing “we jump to the conclusion that computers are mastering wordplay and, by implication, encroaching on the human facility for creativity and improvisation”.
 
----
-
-## Article: [Programming Sucks](http://www.stilldrinking.org/programming-sucks)
+## Article: [“Programming Sucks”](http://www.stilldrinking.org/programming-sucks)
 
 Fairly recently, Paul Ford wrote a piece called [*What is Code?*](http://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/) where he tried to explain programming. This is another piece that takes a different (shall we say realistic) view of programming. If Ford’s article is seeing programming as a cup half-full, this article is seeing programming as a cup half-empty. Both are true, it's just a matter of view point (or current mood). 
 

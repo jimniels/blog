@@ -23,7 +23,7 @@ This is inline with what [Alan Dye](http://www.bloomberg.com/features/2015-how-a
 
 The goal is to make it seem as if the designers at Apple can’t even control the form and function of their products because the end goal is so natural and logical, i.e. inevitable.
 
-## Article: [Miyazaki on Creative Dissatisfaction](Making films is all about—as soon as you’re finished—continually regretting what you’ve done. When we look at films we’ve made, all we can see are)
+## Article: [Miyazaki on Creative Dissatisfaction](https://www.fastcompany.com/3030423/how-to-avoid-the-curse-of-creative-perfectionism)
 
 Hay Miyazaki, a famous Japanese animation director who created classics such as *Spirited Away* and *Princess Mononoke*, described an aspect of his creative process that pinpoints how many of us feel in technology:
 
@@ -49,7 +49,7 @@ That last sentence of his is great: always rewriting, refining, simplifying, mak
 
 Later in the interview he talks about his relationship with his album producer how well they work together and compliment one another:
 
-> We’re a perfect match because he’s a good engineer but he’s got infinite patience. I’m a neophite, in a recording I’m not technical at all, so I need someone to sit there with me while I think about what I want to think about and who doesn’t engage me with what he wants to do, but just does what he wants to do. Some engineers are ambitious and want to talk about what they want to do, ”I’m going to do this, I’m going to do that, can we do this?”. I need somebody that’s much more ... patient. Someone who’s almost passive and who will allow me to move things around and turn the balances upside down. And things may remain out of balance for long periods of time and then [i’ll bring them back] ... In a funny way, we’re bystanders to each others’ work.
+> We’re a perfect match because he’s a good engineer but he’s got infinite patience. I’m a neophite, in a recording I’m not technical at all, so I need someone to sit there with me while I think about what I want to think about and who doesn’t engage me with what he wants to do, but just does what he wants to do. Some engineers are ambitious and want to talk about what they want to do, “I’m going to do this, I’m going to do that, can we do this?”. I need somebody that’s much more...patient. Someone who’s almost passive and who will allow me to move things around and turn the balances upside down. And things may remain out of balance for long periods of time and then [i’ll bring them back]...In a funny way, we’re bystanders to each others’ work.
 
 I love this idea he expresses about allowing yourself (and having your producer, co-worker, boss, etc. allow you) to put things out of order to discover possibilities so when you arrive at the final product, you know there’s no other way the thing could be because you’ve explored all possible permutations.
 
