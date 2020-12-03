@@ -208,3 +208,22 @@ All of this does make me wonder: does leveraging the system font give you free O
 Ok, phew. That was a lot of words. I hope A) you found something useful in here and B) it’s actually correct. Writing this blog post help me clarify my thoughts and reshape my mental model for font families in CSS. All of that said, this was an exercise in me reading the spec and attempting to articulate how the mechanics of the spec’s declarations play out—particularly on Apple devices. 
 
 Really, this is all a kind of “peering under the hood” at the complexity that lays between the operating system, the browser running on that operating system, and the generic-to-specific continuum of controls the browser tries to provide to CSS authors in spite of the almost infinite lack of surety about anything involving the environment in which someone might be viewing your web page.
+
+## Update 2020-12-03
+
+From [webplatform.news](https://webplatform.news/bonus-content) I found a link to [this post from Chris Siebenmann](https://utcc.utoronto.ca/~cks/space/blog/web/FirefoxUnixLittleFontBit) which talks about how Firefox clues you in a little bit more about how it handles defaults:
+
+> Firefox is...telling you what font [a family name] actually maps to. If you go into "Advanced..." and have not customized your font choices, you can see what all three of the magic names map to.
+
+I looked at this myself and its pretty neat. The settings pane clear lays out how Firefox is communicating its defaults and what those actually map to:
+
+<img src="https://cdn.jim-nielsen.com/blog/2020/font-family-firefox-settings.png" alt="Screenshot of the advanced font settings pane in Firefox showing what font families the default settings map to." width="698" height="511" />
+
+What’s cool is to see how the font family default mappings change as you change the language:
+
+<img src="https://cdn.jim-nielsen.com/blog/2020/font-family-firefox-settings-languages.png" alt="Three screenshots of the advanced font settings pane in Firefox showing how default font mappings change with the language chosen." width="1060" height="523" />
+
+Now what would be really neat is if it had a couple more settings panes (these ones non-configurable because you can’t change the system font, as noted in this article) that showed you what the system font mapped to. If you’re on a Mac, it’s probably well known what those settings would be. But if you were on some flavor of linux, who knows what it would be!
+
+<img src="https://cdn.jim-nielsen.com/blog/2020/font-family-firefox-settings-new.png" alt="Three screenshots of the advanced font settings pane in Firefox showing how default font mappings change with the language chosen." width="722" height="543" />
+
