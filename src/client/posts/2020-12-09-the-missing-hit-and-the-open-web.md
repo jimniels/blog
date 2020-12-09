@@ -1,3 +1,7 @@
+---
+tags: thoughts
+---
+
 # The Missing Hit and the Open Web
 
 > If it doesn’t appear in Google’s search results, does it really exist? — [Me](https://twitter.com/jimniels/status/1336750558888284160?s=20)
