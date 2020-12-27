@@ -1,3 +1,7 @@
+---
+tags: readingNotes
+---
+
 # Reading Notes, December 2020
 
 ## Article: [“Why it’s good for users that HTML, CSS and JS are separate languages”](https://hiddedevries.nl/en/blog/2020-11-25-why-its-good-for-users-that-html-css-and-js-are-separate-languages)
