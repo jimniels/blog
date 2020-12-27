@@ -2,7 +2,7 @@
 tags: readingNotes
 ---
 
-# Reading Notes, November
+# Reading Notes, November 2020
 
 ## Article: [“Don’t Be A Hero”](http://robinrendle.com/notes/dont-be-a-hero.html)
 
