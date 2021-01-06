@@ -1,5 +1,5 @@
 import { html } from "./utils.js";
-const GOAL = 78;
+const GOAL = 72;
 
 /**
  * Widget to display blog posts status message.
