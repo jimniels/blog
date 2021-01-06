@@ -64,7 +64,7 @@ export default function Index(site) {
   return PageCustom(
     { site, page },
     html`
-      ${BlogPostsStatus({ blogPosts: postsByYear[2020].length })}
+      ${BlogPostsStatus({ blogPosts: postsByYear[2021] && postsByYear[2021].length })}
 
       <h2>Latest</h2>
       ${PostList(recent)}

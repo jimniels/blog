@@ -1,4 +1,5 @@
 import { html } from "./utils.js";
+const GOAL = 78;
 
 /**
  * Widget to display blog posts status message.
@@ -12,7 +13,7 @@ const BlogPostsStatus = ({ blogPosts }) => html`
       border-radius: var(--border-radius);
       display: flex;
       align-items: flex-start;
-      font-size: 0.875rem;
+      font-size: 0.7777rem;
       max-width: 50em;
     }
     @media screen and (max-width: 520px) {
@@ -23,8 +24,11 @@ const BlogPostsStatus = ({ blogPosts }) => html`
       }
     }
     .blog-posts:before {
-      font-size: 32px;
+      font-size: 1.5rem;
       margin-right: 15px;
+    }
+    .blog-posts--complete:before {
+      content: "🎉";
     }
     .blog-posts--good:before {
       content: "👍";
@@ -41,10 +45,8 @@ const BlogPostsStatus = ({ blogPosts }) => html`
     <p>
       <strong data-blog-posts="${blogPosts}">${blogPosts} blog posts.</strong>
 
-      <a href="/2020/50-blog-posts-in-2020/"
-        >I’m trying to write 50 blog posts this year</a
-      >
-      (~1 per week). I expect you, dear reader, to
+      I’m trying to write ${GOAL} blog posts this year (~1.5 per week). I expect
+      you, dear reader, to
       <a href="https://twitter.com/jimniels" title="@jimniels on Twitter"
         >hold me accountable</a
       >
@@ -56,18 +58,33 @@ const BlogPostsStatus = ({ blogPosts }) => html`
     const $el = document.querySelector("[data-blog-posts]");
     const blogPosts = Number($el.dataset.blogPosts);
     const weekNumber = getWeekNumber();
-    const onPace = blogPosts >= weekNumber;
+    const goal = ${GOAL};
+
+    const metGoal = blogPosts >= goal;
+    const onPace = blogPosts >= weekNumber * 1.5;
 
     $el.innerHTML =
-      (onPace ? "On pace: " : "Falling behind: ") +
+      (metGoal
+        ? "Mission accomplished: "
+        : onPace
+        ? "On pace: "
+        : "Falling behind: ") +
       blogPosts +
       " posts in " +
       weekNumber +
-      " weeks.";
+      " week" +
+      (weekNumber !== 1 ? "s" : "") +
+      ".";
 
     document
       .querySelector(".blog-posts")
-      .classList.add(onPace ? "blog-posts--good" : "blog-posts--bad");
+      .classList.add(
+        metGoal
+          ? "blog-posts--complete"
+          : onPace
+          ? "blog-posts--good"
+          : "blog-posts--bad"
+      );
 
     // https://stackoverflow.com/questions/6117814/get-week-of-year-in-javascript-like-in-php
     function getWeekNumber() {
