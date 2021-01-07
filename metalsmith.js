@@ -9,7 +9,8 @@ import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-console.time("Site built");
+console.log("build");
+console.time("build");
 
 // Old posts use markdown for images `![]()` which nests them as <p><img></p>
 // in the output. Some of the newer posts just manually specify the `<img>`
@@ -56,6 +57,7 @@ marked.setOptions({
 });
 const isDevelopment = process.env.NODE_ENV !== "production";
 
+console.time("|-- build:setup");
 let App = Metalsmith(__dirname)
   .metadata({
     name: "Jim Nielsen’s Weblog",
@@ -66,19 +68,12 @@ let App = Metalsmith(__dirname)
   .destination("./build")
   .clean(true)
   .use(async (files, metalsmith, done) => {
-    /**
-     * Handle Drafts
-     * @TODO IF we are including drafts, move them to the "posts" folder
-     * for now we are just going to delete them.
-     */
-    multimatch(Object.keys(files), ["posts/drafts/**"]).forEach((file) => {
-      delete files[file];
-    });
-
+    console.timeEnd("|-- build:setup");
     /**
      * Handle Markdown
      * Convert all .md files to .html files
      */
+    console.time("|-- build:markdown");
     multimatch(Object.keys(files), "**/*.md").forEach((file) => {
       let fileContentsByLine = files[file].contents.toString().split("\n");
 
@@ -111,11 +106,13 @@ let App = Metalsmith(__dirname)
       files[file.replace(".md", ".html")] = files[file];
       delete files[file];
     });
+    console.timeEnd("|-- build:markdown");
 
     /**
      * Posts
      * Do stuff that we want to do with each post file
      */
+    console.time("|-- build:posts");
     multimatch(Object.keys(files), "posts/**").forEach((file) => {
       // An extra console to tell us if we've named a file wrong
       if (/[A-Z]/.test(file)) {
@@ -164,12 +161,14 @@ let App = Metalsmith(__dirname)
       files[`${year}/${slug}/index.html`] = files[file];
       delete files[file];
     });
+    console.timeEnd("|-- build:posts");
 
     /**
      * Handle Collections
      * Remember that anything happening here could be the first _or_ second
      * pass (so all the files or only one)
      */
+    console.time("|-- build:collections");
     const meta = metalsmith.metadata();
     // Doesn't exist yet, so all files are available
     meta.posts = Object.keys(files)
@@ -212,6 +211,7 @@ let App = Metalsmith(__dirname)
     meta.trendingPosts = trendingPostPermalinks.map((permalink) =>
       meta.posts.find((post) => post.permalink === permalink)
     );
+    console.timeEnd("|-- build:collections");
 
     /**
      * Handle Templating
@@ -224,6 +224,7 @@ let App = Metalsmith(__dirname)
      * render themselves.
      *   (site) => CustomLayout({ site, page: {...} }, children)
      */
+    console.time("|-- build:templates");
     const site = metalsmith.metadata();
     site.linksByDomain = linksByDomain;
 
@@ -265,13 +266,14 @@ let App = Metalsmith(__dirname)
         }
       })
     );
+    console.timeEnd("|-- build:templates");
 
     done();
   })
   .build((err) => {
     // build process
     if (err) throw err; // error handling is required
-    console.timeEnd("Site built");
+    console.timeEnd("build");
   });
 
 /**
