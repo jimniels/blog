@@ -375,7 +375,7 @@ header.markdown time {
 
 .markdown > pre {
   padding: 1.618rem 0;
-  max-width: 960px;
+  max-width: 100%;
   overflow-y: scroll;
   margin-bottom: 1.618rem;
   -webkit-overflow-scrolling: touch;
