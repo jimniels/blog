@@ -228,6 +228,7 @@ let App = Metalsmith(__dirname)
      */
     site.blogPostsStatus = await getBlogPostsStatus({
       goal: 78,
+      goalUrl: "#",
       moment: new Date(),
       allPosts: site.posts,
     });
