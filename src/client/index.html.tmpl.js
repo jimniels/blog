@@ -1,5 +1,4 @@
 import { PageCustom } from "../server/Layouts.js";
-import BlogPostsStatus from "../server/BlogPostsStatus.js";
 import { html, toDateUI, toDateUIMin } from "../server/utils.js";
 
 const page = {
@@ -64,7 +63,7 @@ export default function Index(site) {
   return PageCustom(
     { site, page },
     html`
-      ${BlogPostsStatus({ blogPosts: postsByYear[2021] && postsByYear[2021].length })}
+      ${site.blogPostsStatus}
 
       <h2>Latest</h2>
       ${PostList(recent)}

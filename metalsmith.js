@@ -6,6 +6,7 @@ import hljs from "highlight.js";
 import marked from "marked";
 import fetch from "node-fetch";
 import psl from "psl";
+import getBlogPostsStatus from "./src/server/blogPostsStatus.js";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
@@ -72,6 +73,10 @@ let App = Metalsmith(__dirname)
   .clean(true)
   .use(async (files, metalsmith, done) => {
     console.timeEnd("|-- build:setup");
+
+    // Setup data
+    const site = metalsmith.metadata();
+
     /**
      * Handle Markdown
      * Convert all .md files to .html files
@@ -217,6 +222,17 @@ let App = Metalsmith(__dirname)
     console.timeEnd("|-- build:collections");
 
     /**
+     * Handle blogPostsStatus generation
+     * Given a goal against a point in time along with some posts, see where
+     * my status is tracking.
+     */
+    site.blogPostsStatus = await getBlogPostsStatus({
+      goal: 78,
+      moment: new Date(),
+      allPosts: site.posts,
+    });
+
+    /**
      * Handle Templating
      * Render the templates and/or layouts for all applicable files
      *
@@ -228,7 +244,6 @@ let App = Metalsmith(__dirname)
      *   (site) => CustomLayout({ site, page: {...} }, children)
      */
     console.time("|-- build:templates");
-    const site = metalsmith.metadata();
     site.linksByDomain = linksByDomain;
 
     // Render templates first
@@ -271,78 +286,6 @@ let App = Metalsmith(__dirname)
     );
     console.timeEnd("|-- build:templates");
 
-    /**
-     * Handle image retrieval for <BlogPostStatus>
-     */
-    const postsByMonth = meta.postsByYear[2020].reduce((acc, post) => {
-      const month = post.date.getUTCMonth() + 1;
-      if (acc[month]) {
-        acc[month] += 1;
-      } else {
-        acc[month] = 1;
-      }
-      return acc;
-    }, {});
-    const monthlyPosts = Object.values(postsByMonth).reduce((acc, count) => {
-      const last = acc[acc.length - 1];
-      return acc.concat(last ? last + count : count);
-    }, []);
-    // console.log(monthlyPosts);
-    const graphData = {
-      type: "line",
-      data: {
-        labels: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-        datasets: [
-          {
-            label: "Goal Trajectory",
-            data: [4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48], //[6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72],
-            fill: true,
-            borderColor: "rgba(255,38,3,.2)",
-            backgroundColor: "rgba(255,38,3,.1)",
-          },
-          {
-            label: "Actual",
-            data: monthlyPosts,
-            fill: false,
-            borderColor: "rgba(255,38,3,1)",
-          },
-        ],
-      },
-      options: {
-        devicePixelRatio: 2,
-        // title: {
-        //   display: true,
-        //   text: "Trajectory to 72 posts in 2021 for blog.jim-nielsen.com",
-        // },
-      },
-    };
-    // prettier-ignore
-    const graphUrl = `https://quickchart.io/chart?c=${JSON.stringify(graphData).replace(/"/g, "'")}`;
-    try {
-      await fetch(graphUrl)
-        .then((res) => res.buffer())
-        .then((imgData) => {
-          files[`assets/img/blog-posts-status-graph.png`] = {
-            contents: imgData,
-          };
-        });
-    } catch (e) {
-      console.log("Failed to fetch <BlogPostsStatus> image.", e);
-    }
-
     done();
   })
   .build((err) => {
@@ -358,6 +301,7 @@ let App = Metalsmith(__dirname)
  * @property {Array.<Post>} trendingPosts
  * @property {Object} page
  * @property {Object.<string,Array[string]>} linksByDomain
+ * @property {string} blogPostsStatus
  */
 
 /**
