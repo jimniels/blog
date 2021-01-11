@@ -10,7 +10,7 @@ Ok, so, with that context in mind, I have this little boilerplate I’ve pieced 
 
 First, I have my root HTML file (`index.html`):
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>

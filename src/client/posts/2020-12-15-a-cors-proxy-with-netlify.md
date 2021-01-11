@@ -6,7 +6,7 @@ tags: netlify
 
 **tldr;** if you’re hosting with Netlify, you can use [their rewrites and proxies](https://docs.netlify.com/routing/redirects/rewrites-proxies/) functionality to bypass CORS issues when fetching resources with client-side JavaScript. In `netlify.toml`
 
-```
+```toml
 [[redirects]]
   from = "/cors-proxy/*"
   to = ":splat"
@@ -68,7 +68,7 @@ That’s essentially what CORS proxies like [cors-anywhere](https://cors-anywher
 
 I started to think I could use Netlify’s rewrites in combination with their headers to allow CORS requests from any domain. Something like this:
 
-```
+```toml
 [[redirects]]
   from = "/cors-proxy/*"
   to = ":splat"

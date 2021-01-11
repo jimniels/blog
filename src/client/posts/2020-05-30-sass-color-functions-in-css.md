@@ -79,7 +79,7 @@ Sass has the following functions, each of which essentially takes a color, puts 
 
 So if you looked at an implementation of these functions, conceptually you’d see something something like this:
 
-```sass
+```scss
 .element {
   background-color: lighten(#0000ff, 5%);
 }
@@ -165,7 +165,7 @@ You could take that a step further if you really wanted to and just cut out havi
 
 Now you have all the ingredients you need to mix-n-match how you want to declare your colors. This enables you to start using `calc()` to modify HSL values for your color palette on the fly.
 
-```
+```css
 :root {
   --h: 100;
   --s: 50%;

@@ -52,7 +52,7 @@ body {
 
 And this?
 
-```
+```css
 body {
   font-family: ui-sans-serif, sans-serif;
 }

@@ -72,7 +72,7 @@ Things have changed a bit since then. When you did “View Source” in the earl
 
 Adding something like that isn’t too difficult. In fact, I’m gonna do it. I’ll add a nice friendly HTML comment to my source that people will see when they “View Page Source” or open the DevTools. Something like this at the top of each HTML page:
 
-```
+```html
 <!--
   👋
   Want to read the code behind this code?
