@@ -454,3 +454,37 @@ ul.posts-list time {
   margin-left: calc(1.618rem * 0.333);
   white-space: nowrap;
 }
+
+/* =============================================================================
+   <BlogPostsStatus>
+   ========================================================================== */
+
+#bps {
+  background: var(--color-bg-sidebar);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.7777rem;
+  max-width: 50em;
+}
+
+#bps summary,
+#bps > div {
+  position: relative;
+  padding: 10px 15px;
+}
+
+#bps[open] summary:after {
+  content: "";
+  width: calc(100% - 30px);
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  background: var(--color-border);
+}
+
+#bps p {
+  text-align: center;
+  color: var(--color-text-light);
+}

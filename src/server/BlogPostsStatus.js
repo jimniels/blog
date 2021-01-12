@@ -108,41 +108,13 @@ export default async function BlogPostsStatus({
   }
 
   return html`
-    <style>
-      .blog-posts {
-        background: var(--color-bg-sidebar);
-        border-radius: var(--border-radius);
-        display: flex;
-        align-items: flex-start;
-        font-size: 0.7777rem;
-        max-width: 50em;
-      }
-      .blog-posts summary,
-      .blog-posts > div {
-        position: relative;
-        padding: 10px 15px;
-      }
-      .blog-posts[open] summary:after {
-        content: "";
-        width: calc(100% - 30px);
-        height: 1px;
-        position: absolute;
-        bottom: 0;
-        left: 15px;
-        background: var(--color-border);
-      }
-      .blog-posts p {
-        text-align: center;
-        color: var(--color-text-light);
-      }
-    </style>
-
-    <details class="blog-posts">
+    <details id="bps">
       <summary>
-        <strong>${posts.length} posts in ${year}</strong>
-        (<a href="${goalUrl}">my goal is ${goal}</a>). I expect you, dear
-        reader, to
-        <a href="https://twitter.com/jimniels">hold me accountable</a>.
+        <strong
+          >${posts.length} post${posts.length !== 1 && "s"} in ${year}.</strong
+        >
+        <a href="${goalUrl}">My goal is ${goal}</a>. I hope you, dear reader,
+        will <a href="https://twitter.com/jimniels">hold me accountable</a>.
       </summary>
       <div>
         ${img &&
@@ -151,8 +123,8 @@ export default async function BlogPostsStatus({
           alt="A graph showing that I’ve published ${posts.length} posts this year through ${currentMonth} months."
         />`}
         <p>
-          This shows my progress since my last published post.
-          <a href="#">Read more on how I made this</a>.
+          Progress since my last published post.
+          ${false && html`<a href="#">Read more on how I made this</a>.`}
         </p>
       </div>
     </details>

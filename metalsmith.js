@@ -226,8 +226,8 @@ let App = Metalsmith(__dirname)
      * my status is tracking.
      */
     site.blogPostsStatus = await getBlogPostsStatus({
-      goal: 78,
-      goalUrl: "#",
+      goal: 72,
+      goalUrl: "/2021/writing-in-2020-and-2021/",
       moment: new Date(),
       allPosts: site.posts,
     });
