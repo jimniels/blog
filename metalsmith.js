@@ -5,7 +5,7 @@ import multimatch from "multimatch";
 import hljs from "highlight.js";
 import marked from "marked";
 import psl from "psl";
-import getBlogPostsStatus from "./src/server/blogPostsStatus.js";
+import getBlogPostsStatus from "./src/server/BlogPostsStatus.js";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
