@@ -4,7 +4,6 @@ import { fileURLToPath } from "url";
 import multimatch from "multimatch";
 import hljs from "highlight.js";
 import marked from "marked";
-import fetch from "node-fetch";
 import psl from "psl";
 import getBlogPostsStatus from "./src/server/blogPostsStatus.js";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
