@@ -1,0 +1,186 @@
+/*===========================================================================
+   General
+
+   @color-text: #333
+   @color-text-light: #777
+   @color-text-lightest: #999
+   @color-background: #333
+   @color-yellow: #fffddf
+   @padding-left: 10%
+   @color-highlight: #FF0000;
+   @color-link: $color-twitter-blue;
+   =========================================================================== */
+
+:root {
+  /* 
+     Try accessible and non-accessible colors
+     https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/
+     @TODO consider vars for these, i.e.
+
+     --system-blue;
+     --system-blue-a11y;
+   */
+
+  /* default 
+   --color-link: rgb(0, 122, 255);
+   --color-link-visited: rgb(175, 82, 222);
+   --color-link-active: rgb(255, 59, 48); */
+
+  /* accessible */
+  --color-link: rgb(0, 64, 221);
+  --color-link-visited: rgb(137, 68, 171);
+  --color-link-active: rgb(215, 0, 21);
+
+  --color-gray: rgb(108, 108, 112);
+  --color-gray-2: rgb(142, 142, 147);
+  --color-gray-3: rgb(174, 174, 178);
+  --color-gray-4: rgb(188, 188, 192);
+  --color-gray-5: rgb(216, 216, 220);
+  --color-gray-6: rgb(236, 235, 240);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* default 
+     --color-link: rgb(10, 132, 255);
+     --color-link-visited: rgb(191, 90, 242);
+     --color-link-active: rgb(255, 69, 58); */
+
+    /* accessible */
+    --color-link: rgb(64, 156, 255);
+    --color-link-visited: rgb(218, 143, 255);
+    --color-link-active: rgb(255, 105, 97);
+
+    --color-gray: rgb(174, 174, 178);
+    --color-gray-2: rgb(124, 124, 128);
+    --color-gray-3: rgb(84, 84, 86);
+    --color-gray-4: rgb(68, 68, 70);
+    --color-gray-5: rgb(54, 54, 56);
+    --color-gray-6: rgb(36, 36, 38);
+  }
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+  font-size: 19px;
+  line-height: 1.618;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+@media screen and (min-width: 700px) {
+  html {
+    font-size: 21px; /* 24 originally */
+  }
+}
+
+/* Firefox doesn't support this natively */
+@supports not (color-scheme: light dark) {
+  html {
+    background: #fff;
+    color: #000;
+  }
+  @media screen and (prefers-color-scheme: dark) {
+    html {
+      background: #000;
+      color: #fff;
+    }
+  }
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+a {
+  text-decoration: none;
+  /* only cancel underlines on list items? */
+}
+
+a:link {
+  color: var(--color-link);
+}
+
+a:visited {
+  color: var(--color-link-visited);
+}
+
+a:active {
+  color: var(--color-link-active);
+}
+
+a:hover {
+  text-decoration: underline;
+  filter: brightness(70%);
+}
+
+.markdown a {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Images
+   ========================================================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  margin-top: 1em;
+  margin-bottom: 0.66666666em;
+}
+
+h1 {
+  font-size: 2.5rem; /* 60px */
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem; /* 48px */
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem; /* 36px */
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01rem;
+  font-weight: 700;
+}
+
+.copy > * {
+  max-width: 37rem; /* 900px */
+  margin-top: 0;
+  margin-bottom: 1.618rem;
+}
+
+.copy--full-width {
+  max-width: none;
+}
+
+.list-reset {
+  padding-left: 0;
+  list-style-type: none;
+}

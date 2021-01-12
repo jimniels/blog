@@ -3,20 +3,20 @@ import { html } from "./utils.js";
 const navItems = [
   {
     label: "Archive",
-    permalink: "/archive/"
+    permalink: "/archive/",
   },
   {
     label: "Tags",
-    permalink: "/tags/"
+    permalink: "/tags/",
   },
   {
     label: "About",
-    permalink: "/about/"
+    permalink: "/about/",
   },
   {
     label: "Feeds",
-    permalink: "/feeds/"
-  }
+    permalink: "/feeds/",
+  },
 ];
 
 // prettier-ignore
@@ -26,14 +26,12 @@ export default function Nav({ site, page }) {
       <img
         src="/favicon.ico"
         alt="Jim Nielsen favicon"
-        width="32"
-        height="32"
+        width="24"
+        height="24"
       />
     </a> 
 
-    <h1 class="nav__title">
-      <a href="/">blog.jim-nielsen.com</a>
-    </h1>
+    <a href="/">blog.jim-nielsen.com</a>
 
     <ul class="nav__links">
       ${navItems.map(navItem => html`

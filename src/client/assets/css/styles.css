@@ -16,9 +16,6 @@
   --color-bg: #fff;
   --color-bg-sidebar: rgba(0, 0, 0, 0.05);
   --color-border: rgba(0, 0, 0, 0.1);
-  --color-link: hsla(240, 100%, 50%, 1);
-  --color-link-visited: hsla(300, 100%, 25%, 1);
-  --color-link-active: hsla(0, 100%, 50%, 1);
   --border-radius: 7px;
 
   color-scheme: light dark;
@@ -31,9 +28,6 @@
     --color-bg: rgb(64, 63, 62);
     --color-border: rgba(255, 255, 255, 0.1);
     --color-bg-sidebar: rgba(0, 0, 0, 0.2);
-    --color-link: hsla(200, 100%, 50%, 1);
-    --color-link-visited: hsla(300, 95%, 65%, 1);
-    --color-link-active: hsla(0, 100%, 65%, 1);
   }
 }
 
@@ -73,44 +67,11 @@ pre {
   font-family: var(--font-family-monospace);
 }
 
-/* @TODO
-// https://stackoverflow.com/questions/4774022/whats-default-html-css-link-color */
-a {
-  text-decoration: none;
-}
-a:link {
-  color: var(--color-link);
-  text-decoration: none;
-  /* text-decoration-color: inherit; */
-}
-a:link:hover {
-  /* @TODO */
-  background-color: rgba(0, 0, 255, 0.05);
-  text-decoration: underline;
-}
-a:visited {
-  color: var(--color-link-visited);
-}
-a:visited:hover {
-  /* @TODO */
-  background-color: rgba(85, 26, 139, 0.05);
-}
-a:active {
-  color: var(--color-link-active);
-}
-a:active:hover {
-  /* @TODO */
-  background-color: rgba(255, 0, 0, 0.05);
-}
-.markdown a {
-  text-decoration: underline;
-}
-
 .nav {
   display: flex;
   align-items: center;
   margin-bottom: calc(1.618rem * 2);
-  font-size: 0.888888rem;
+  font-size: 0.75rem;
 }
 
 .nav > *,
@@ -133,8 +94,8 @@ a:active:hover {
   margin-right: calc(1.618rem / 4);
 }
 
-.nav h1 a {
-  color: inherit;
+.nav a[href="/"] {
+  color: var(--color-link-active);
 }
 
 .nav__links {
@@ -150,14 +111,15 @@ a:active:hover {
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  margin-right: 0.5em;
 }
 
 .nav__img img {
   display: block;
   width: 100%;
   height: auto;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
 }
 
 @media screen and (max-width: 650px) {
@@ -185,18 +147,18 @@ header.markdown h1 {
 header.markdown time {
   color: var(--color-text-light);
   display: block;
+  margin-bottom: -1em;
 }
 
 .markdown > * {
   max-width: 35rem;
   display: block;
-  margin-bottom: 1.618em;
+  /* margin-bottom: 1.618em; */
 }
 
 /*
-  // Headings
-  // ========================================
-  */
+  
+  
 
 .markdown h1,
 .markdown h2,
@@ -224,8 +186,9 @@ header.markdown time {
     opacity: 0.25;
   }
 }
+*/
 
-/* http://type-scale.com/ major third */
+/* http://type-scale.com/ major third 
 .markdown h1 {
   font-size: 1.618rem;
 }
@@ -241,6 +204,7 @@ header.markdown time {
 .markdown h4 {
   opacity: 0.75;
 }
+*/
 
 /*
   // h1 {
@@ -269,33 +233,6 @@ header.markdown time {
   //   display: block;
   // }
 
-  //
-  // Lists
-  // ========================================
-  */
-
-.markdown ul {
-  list-style-type: disc;
-}
-
-.markdown ol {
-  list-style-type: decimal;
-}
-
-.markdown ul,
-.markdown ol {
-  list-style-position: outside;
-  padding-left: 1.618rem;
-}
-
-.markdown ol ol,
-.markdown ol ol ol,
-.markdown ul ul,
-.markdown ul ul ul {
-  margin: 0;
-  margin-left: 1.618rem;
-}
-
 /*
   // Inline Text
   // ========================================
@@ -317,12 +254,8 @@ header.markdown time {
 .markdown blockquote {
   position: relative;
   border-left: 1px solid var(--color-text);
-  padding-left: 1rem;
+  padding-left: 1.618em;
   margin-left: 0;
-}
-
-.markdown blockquote em {
-  font-style: italic;
 }
 
 .markdown blockquote > * {
@@ -374,7 +307,6 @@ header.markdown time {
 }
 
 .markdown > pre {
-  padding: 1.618rem 0;
   max-width: 100%;
   overflow-y: scroll;
   margin-bottom: 1.618rem;
@@ -454,3 +386,6 @@ ul.posts-list time {
   margin-left: calc(1.618rem * 0.333);
   white-space: nowrap;
 }
+
+/* Additions
+   ========================================================================== */

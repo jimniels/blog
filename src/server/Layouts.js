@@ -48,6 +48,7 @@ const Layout = (props, children) => {
           />
           <link rel="stylesheet" href="/assets/css/normalize.css" />
           <link rel="stylesheet" href="/assets/css/styles.css" />
+          <link rel="stylesheet" href="/assets/css/base.css" />
           <link rel="canonical" href="${origin + permalink}" />
 
           ${layout === "Post" &&
