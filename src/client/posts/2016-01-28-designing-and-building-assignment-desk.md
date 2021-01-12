@@ -155,7 +155,7 @@ This module had a few different variations, which were styled by applying class 
 
 At their most simple level, each attribute-value list item was an `<li>` element whose logic was extracted into a shared React component. This allowed me to easily make tweaks (in both HTML structure and CSS styles) in one file and see the changes reflected across multiple entity views. For each data pair, I wrote a `<ListItemPair />` component and used that to pass in individual parameters:
 
-```
+```js
 <ListItemPair
   attr='Type'
   debug='$type[0].id'

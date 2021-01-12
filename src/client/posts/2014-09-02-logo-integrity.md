@@ -86,26 +86,32 @@ I kind of just naturally started using images in the prototyping stage, especial
 
 A great advantage to using SVGs is that you can blur them on the fly in the browser using SVG filters. For older browsers that don’t support SVG filters, I would just load an image for each logo and its blurred variations. Initially I though this would be simple. I could check the browser’s support for SVG filters using Modernizr and then display the logo by loading the supported file type as a background image using CSS, like this:
 
-    .svg-filters .logo {
-        background-image: url(nike-logo.svg);
-    }
-    .no-svg-filters .logo {
-        background-image: url(nike-logo.png)
-    }
+```css
+.svg-filters .logo {
+    background-image: url(nike-logo.svg);
+}
+.no-svg-filters .logo {
+    background-image: url(nike-logo.png)
+}
+```
 
 Simple and elegant no? Unfortunately, it’s not that simple. Even though browsers may support SVG filters, they don’t all support them in the same way. Some allow SVGs as `<img>` elements, others allow SVG elements directly inline with the HTML, while others allow SVG as background elements in CSS (as shown above). I found that the only truly cross-browser method for displaying SVG elements while simultaneously being able to apply filters to them was by embedding the SVG directly inline with the HTML. To accomplish this, I used javascript to load the element `<div class="logo"></div>`. If SVGs are not supported, the following CSS works for a static image fallback:
 
-    .no-svg-filters .logo {
-        background-image: url(nike-logo.png)
-    }
+```css
+.no-svg-filters .logo {
+    background-image: url(nike-logo.png)
+}
+```
 
 If SVGs are supported, however, then I directly inject the SVG element inside the `.logo` element using javascript. Because of this approach, the logos are not loaded into the page’s HTML by default. They are only visible depending on the HTML class applied by `modernizr.js` which means users with Javascript disabled won’t see any images, and that’s ok. The page’s markup still allows them to access the images if they want because each logo is linked to the PNG version of the image (which shows the logo and its blurred variants):
 
-    <li class="brand">
-        <h2 class="brand-name">
-            <a href="assets/images/build/logos/jpgs/nike-logo.jpg">Nike Logo</a>
-        </h2>
-    </li>
+```html
+<li class="brand">
+    <h2 class="brand-name">
+        <a href="assets/images/build/logos/jpgs/nike-logo.jpg">Nike Logo</a>
+    </h2>
+</li>
+```
 
 As you can see, I tried to progressively enhance this page as I went along. For users who didn't have javascript turned on, they could still access the blurred logo results of the experiment by clicking on each brand.
 
@@ -149,6 +155,8 @@ This approach allows easy image regeneration in the future. All I would have to 
 
 In creating this site, I had a collection of logos. The problem, however, was that I was maintaining separate lists of logos in HTML and CSS. If I removed, added, or changed a logo in one list I’d have to change it in the other as well. This became a headache. My solution? Create a “master” JSON file with the information I needed. Here’s an example:
 
+```json
+{
     "abc": [
         "ABC",
         "American Broadcasting Company"
@@ -156,27 +164,33 @@ In creating this site, I had a collection of logos. The problem, however, was th
     "addidas": [
         "Addidas"
     ]
+}
+```
 
 Because my development version of the site is written in PHP, I read in the JSON file and looped over it to create each logo’s HTML list node and corresponding information. For example, my rendered HTML looked something like this:
 
-    <li id="nike" data-answer="[Nike]"> ... Nike ... </li>
-		<li id="bps" data-answer="[PBS, Public Broadcasting Service]"> ... PBS ... </li>
+```html
+<li id="nike" data-answer="[Nike]"> ... Nike ... </li>
+<li id="bps" data-answer="[PBS, Public Broadcasting Service]"> ... PBS ... </li>
+```
 
 The `data-answer` attribute held an array of possible answer values. I used javascript to leverage these multiple values in determining whether the user had entered the correct name of the brand (if you saw the logo for “PBS” and entered “Public Broadcasting Service” as your answer, it would be correct).
 
 As for the CSS, I also used PHP to parse the JSON file and create a `.scss` partial which contained a list variable of all the logos being used. I could then use that list in SASS to create selectors for all the logos I was using in my project. Here’s an example:
 
-    // SVG filters not supported
-    .no-svgfilters {
-        @each $logo in $logos {
-            ##{$logo} {
-                .logo {
-                    background-image: image-url('logos/jpgs/#{$logo}.jpg');
-                    background-repeat: none;
-                }
+```scss
+// SVG filters not supported
+.no-svgfilters {
+    @each $logo in $logos {
+        ##{$logo} {
+            .logo {
+                background-image: image-url('logos/jpgs/#{$logo}.jpg');
+                background-repeat: none;
             }
         }
     }
+}
+```
 
 As you can see, having this “master” JSON file allowed me to easily add, remove, and modify logos in the project. Those modifications would then propagate to my various files. Adding a logo to the project was as simple as: 1) add the SVG file and run the image generation script, 2) add the logo’s name(s) to the JSON file, 3) drink some lemonade (this step was optional).
 

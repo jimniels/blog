@@ -43,7 +43,7 @@ Hereâ€™s the thing about this book: it covers a lot of information that, if youâ
 
 Ethan covers the topic of conditionally loading menus and other content via javascript (as opposed to serving *everything* on page load and then just showing/hiding parts via CSS). One method he gives for accomplishing this, which I had not seen but found to be quite clever and semantic, is the Filament Group's [Ajax-include pattern](https://github.com/filamentgroup/Ajax-Include-Pattern/). You can simply reference the HTML want you loaded in an HTML5 data attribute, like so:
 
-```
+```html
 <li data-append="/politics/latest-stories.html">
     <a href="/politics">Politics</a>
 </li>

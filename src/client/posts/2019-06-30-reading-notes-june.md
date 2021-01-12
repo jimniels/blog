@@ -73,7 +73,7 @@ I really liked the author’s points. Especially the idea of teaching general co
 
 An novel take on CSS selectors as if statements and for loops:
 
-```
+```css
 menu a {
   color:red;
 }
