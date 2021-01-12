@@ -484,7 +484,7 @@ ul.posts-list time {
   background: var(--color-border);
 }
 
-#bps p {
+#bps > div {
   text-align: center;
   color: var(--color-text-light);
 }

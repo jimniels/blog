@@ -93,12 +93,20 @@ export default async function BlogPostsStatus({
     },
   };
 
-  // prettier-ignore
-  const graphUrl = `https://quickchart.io/chart?c=${JSON.stringify(graphData).replace(/"/g, "'")}`;
+  // 500x300 is the default from the API, so 5:3 aspect ratio
+  const w = 600;
+  const h = 360;
+  const c = JSON.stringify(graphData).replace(/"/g, "'");
+
   let img;
   try {
-    await fetch(graphUrl)
-      .then((res) => res.buffer())
+    await fetch(`https://quickchart.io/chart?w=${w}&h=${h}&c=${c}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw Error("Server did not return an appropriate image (no 200).");
+        }
+        return res.buffer();
+      })
       .then((imgData) => {
         // write to disk?
         img = imgData.toString("base64");
@@ -121,6 +129,8 @@ export default async function BlogPostsStatus({
         html`<img
           src="data:image/png;base64, ${img}"
           alt="A graph showing that I’ve published ${posts.length} posts this year through ${currentMonth} months."
+          width="${w}"
+          height="${h}"
         />`}
         <p>
           Progress since my last published post.
