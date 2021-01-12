@@ -13,8 +13,8 @@
 
 :root {
   /* 
-     Try accessible and non-accessible colors
-     https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/
+     Currently using accessible+vibrant
+     https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
      @TODO consider vars for these, i.e.
 
      --system-blue;
@@ -27,9 +27,12 @@
    --color-link-active: rgb(255, 59, 48); */
 
   /* accessible */
-  --color-link: rgb(0, 64, 221);
-  --color-link-visited: rgb(137, 68, 171);
-  --color-link-active: rgb(215, 0, 21);
+  --color-blue: rgb(0, 64, 221);
+  --color-link: var(--color-blue);
+  --color-purple: rgb(137, 68, 171);
+  --color-link-visited: var(--color-purple);
+  --color-red: rgb(255, 0, 0); /* rgb(194, 6, 24);  rgb(215, 0, 21) */
+  --color-link-active: var(--color-link);
 
   --color-gray: rgb(108, 108, 112);
   --color-gray-2: rgb(142, 142, 147);
@@ -47,9 +50,9 @@
      --color-link-active: rgb(255, 69, 58); */
 
     /* accessible */
-    --color-link: rgb(64, 156, 255);
-    --color-link-visited: rgb(218, 143, 255);
-    --color-link-active: rgb(255, 105, 97);
+    --color-blue: rgb(64, 156, 255);
+    --color-purple: rgb(218, 143, 255);
+    --color-red: rgb(255, 65, 54);
 
     --color-gray: rgb(174, 174, 178);
     --color-gray-2: rgb(124, 124, 128);
@@ -72,8 +75,19 @@ html {
   color-scheme: light dark;
   font-size: 19px;
   line-height: 1.618;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* this comes in normalize
+  font-family: 
+    ui-sans-serif, 
+    system-ui, 
+    -system-ui, 
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto, Helvetica, Arial, 
+    sans-serif, 
+    "Apple Color Emoji"; */
+  /*
+  background: var(--color-bg);
+  color: var(--color-text); */
 }
 
 @media screen and (min-width: 700px) {
@@ -106,15 +120,15 @@ a {
 }
 
 a:link {
-  color: var(--color-link);
+  color: var(--color-blue);
 }
 
 a:visited {
-  color: var(--color-link-visited);
+  color: var(--color-purple);
 }
 
 a:active {
-  color: var(--color-link-active);
+  color: var(--color-red);
 }
 
 a:hover {
@@ -122,15 +136,20 @@ a:hover {
   filter: brightness(70%);
 }
 
+a.a--no-hover:hover {
+  filter: none;
+}
+
 .markdown a {
   text-decoration: underline;
 }
 
 /* ==========================================================================
-   Images
+   Images & Video
    ========================================================================== */
 
-img {
+img,
+video {
   max-width: 100%;
   height: auto;
 }
@@ -168,6 +187,11 @@ h4 {
   text-transform: uppercase;
   letter-spacing: 0.01rem;
   font-weight: 700;
+}
+
+code,
+pre {
+  font-family: ui-monospace, monospace;
 }
 
 .copy > * {

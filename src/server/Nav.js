@@ -1,4 +1,16 @@
+import fs from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 import { html } from "./utils.js";
+
+const svg = fs
+  .readFileSync(
+    join(
+      dirname(fileURLToPath(import.meta.url)),
+      "../client/assets/img/favicon.svg"
+    )
+  )
+  .toString();
 
 const navItems = [
   {
@@ -22,27 +34,22 @@ const navItems = [
 // prettier-ignore
 export default function Nav({ site, page }) {
   return html`
-    <a href="/" class="nav__img">
-      <img
-        src="/favicon.ico"
-        alt="Jim Nielsen favicon"
-        width="24"
-        height="24"
-      />
+    <a href="/" class="a--no-hover">
+      ${svg}
     </a> 
 
-    <a href="/">blog.jim-nielsen.com</a>
-
-    <ul class="nav__links">
-      ${navItems.map(navItem => html`
-        <li class="${page.permalink == navItem.permalink ? "active" : ""}">
-          ${page.permalink == navItem.permalink
-            ? navItem.label
-            : html`<a href="${navItem.permalink}">
-                ${navItem.label}
-              </a>`}
-        </li>
-      `)}
-    </ul>
+    
+    ${page.permalink === "/" && html`
+      <ul class="nav__links">
+        ${navItems.map(navItem => html`
+          <li class="${page.permalink == navItem.permalink ? "active" : ""}">
+            ${page.permalink == navItem.permalink
+              ? navItem.label
+              : html`<a href="${navItem.permalink}">
+                  ${navItem.label}
+                </a>`}
+          </li>
+        `)}
+      </ul>`}
   `;
 }

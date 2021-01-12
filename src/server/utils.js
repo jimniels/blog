@@ -27,12 +27,7 @@ const html = (strings, ...values) => {
 };
 
 const toDateUI = (date) => {
-  return date.toLocaleString("en-US", {
-    timeZone: "UTC",
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+  return date.toISOString().slice(0, 10);
 };
 const toDateUIMin = (date) => toDateUI(date).split(",")[0];
 

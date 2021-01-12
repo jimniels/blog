@@ -46,9 +46,9 @@ const Layout = (props, children) => {
             title="JSON Feed"
             href="/feed.json"
           />
-          <link rel="stylesheet" href="/assets/css/normalize.css" />
-          <link rel="stylesheet" href="/assets/css/styles.css" />
+          <link rel="stylesheet" href="/assets/css/modern-normalize.css" />
           <link rel="stylesheet" href="/assets/css/base.css" />
+          <link rel="stylesheet" href="/assets/css/styles.css" />
           <link rel="canonical" href="${origin + permalink}" />
 
           ${layout === "Post" &&
@@ -117,14 +117,13 @@ const Post = (props) => {
   // prettier-ignore
   return Layout(props, html`
     <article class="h-entry">
-
       <header class="markdown">
-        <time class="dt-published" datetime="${page.date.toISOString()}">
-          ${toDateUI(page.date)}
-        </time>
         <h1 class="p-name">
           ${page.title}
         </h1>
+        <time class="dt-published" datetime="${page.date.toISOString()}">
+          ${toDateUI(page.date)}
+        </time>
       </header>
 
       <div class="markdown e-content" id="js-post-content">

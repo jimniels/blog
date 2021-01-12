@@ -301,4 +301,5 @@ let App = Metalsmith(__dirname)
  * @typedef {Object} Page
  * @property {string} id
  * @property {string} title
+ * @property {string} permalink
  */
