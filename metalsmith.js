@@ -62,7 +62,7 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 console.time("|-- build:setup");
 let App = Metalsmith(__dirname)
   .metadata({
-    name: "Jim Nielsen’s Weblog",
+    name: "Jim Nielsen’s Blog",
     origin: "https://blog.jim-nielsen.com",
     isDevelopment,
   })

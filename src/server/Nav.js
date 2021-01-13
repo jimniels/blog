@@ -33,11 +33,11 @@ const navItems = [
 
 // prettier-ignore
 export default function Nav({ site, page }) {
+  const titleTag = page.permalink === "/" ? "strong" : "a";
   return html`
-    <a href="/" class="a--no-hover">
-      ${svg}
-    </a> 
-
+    <${titleTag} ${titleTag === "a" && "href='/'"} class="nav__site-name">
+      ${site.name}
+    </${titleTag}>
     
     ${page.permalink === "/" && html`
       <ul class="nav__links">

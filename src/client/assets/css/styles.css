@@ -17,16 +17,40 @@ body {
   }
 }
 
+/* =============================================================================
+   Site Navigation
+   ========================================================================== */
+
 .nav {
   display: flex;
   align-items: center;
   margin-bottom: calc(1.618rem * 1);
-  font-size: 0.75rem;
+  flex-wrap: wrap;
+  /* font-size: 0.75rem; */
 }
 
-.nav a[href="/"]:active {
-  position: relative;
-  top: 1px;
+.nav__site-name {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-right: 1.618rem;
+}
+
+a.nav__site-name:before {
+  content: "←";
+  margin-right: 0.5em;
+  font-size: 1.2em;
+  top: 0;
+}
+@media screen and (min-width: 650px) {
+  .nav__site-name {
+    position: relative;
+  }
+  a.nav__site-name:before {
+    position: absolute;
+    left: -1.5em;
+    top: -0.125em;
+  }
 }
 /* .nav svg:hover {
   position: relative;
@@ -45,18 +69,12 @@ body {
 }
 
 .nav__links {
-  margin: 0 0 0 1.618rem;
+  margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
   display: flex;
-  top: -3px;
-}
-
-.nav__links a {
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.025em;
+  font-size: 0.75em;
 }
 
 .nav__links li {
@@ -172,15 +190,11 @@ header.markdown time {
   border-left: 1px solid var(--color-text);
   padding-left: 1.618em;
   margin-left: 0;
+  font-style: italic;
 }
-
-.markdown blockquote > * {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.markdown blockquote > :last-child {
-  margin-bottom: 0;
+.markdown blockquote em,
+.markdown blockquote code {
+  font-style: normal;
 }
 
 /*
@@ -283,24 +297,40 @@ header.markdown time {
 }
 
 /**
- * Posts Lists
+ * Posts Lists - @TODO consider changing to something representing that it's 
+ * a flat key/val list
  */
-ul.posts-list {
+.posts-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-ul.posts-list li {
-  margin-bottom: calc(1.618 * 0.25rem);
-  padding-left: 1.618rem;
-  text-indent: -1.618rem;
+
+.posts-list li {
+  margin-bottom: calc(1.618rem / 2);
 }
 
-ul.posts-list time {
-  font-size: 0.75rem;
-  opacity: 0.5;
-  margin-left: calc(1.618rem * 0.333);
+.posts-list time {
+  display: block;
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  opacity: 0.5; /* @TODO change to gray */
+  margin-right: calc(1.618rem / 2);
   white-space: nowrap;
+}
+
+@media screen and (min-width: 520px) {
+  .posts-list li {
+    margin-bottom: calc(1.618rem / 4);
+    display: flex;
+    align-items: baseline;
+  }
+  .posts-list li a {
+    order: 2;
+  }
+  .posts-list time {
+    order: 1;
+  }
 }
 
 /* Additions
