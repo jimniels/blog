@@ -1,3 +1,6 @@
+@import "/assets/css/modern-normalize.css";
+@import "/assets/css/base.css";
+
 :root {
   --color-text: #212121;
   --color-text-light: #888888;
@@ -87,12 +90,22 @@ header.markdown time {
   margin: -1rem 0 1.618rem;
 }
 
-.markdown > *:not(table) {
+.markdown > *:not(table):not(pre) {
   max-width: 32rem;
   display: block;
 }
 .markdown > h1 {
   max-width: 40rem;
+}
+.markdown .image-container {
+  max-width: none;
+}
+.markdown .image-container span {
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.5;
+  max-width: 32rem;
+  display: block;
 }
 
 blockquote {
@@ -111,6 +124,8 @@ pre {
   max-width: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  margin-top: 1.618rem;
+  margin-bottom: 1.618rem;
 }
 
 hr {

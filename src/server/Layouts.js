@@ -46,10 +46,8 @@ const Layout = (props, children) => {
             title="JSON Feed"
             href="/feed.json"
           />
-          <link rel="stylesheet" href="/assets/css/modern-normalize.css" />
-          <link rel="stylesheet" href="/assets/css/base.css" />
-          <link rel="stylesheet" href="/assets/css/styles.css" />
           <link rel="canonical" href="${origin + permalink}" />
+          <link rel="stylesheet" href="/assets/css/styles.css" />
 
           ${layout === "Post" &&
           `
