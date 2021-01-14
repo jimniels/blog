@@ -102,3 +102,11 @@ I love old-school browser functionality like this. Can you imagine a feature lik
 
 All that said, if you want to read more, [this post has a perspective on the history of custom style sheets in Safari](http://theoveranalyzed.net/2018/3/16/safaris-custom-style-sheet#the-history-of-user-defined-style-sheets-in-desktop-safari) that you might find interesting.
 
+## Update 2020-01-14
+
+I received an email from [John P. Rouillard](https://www.cs.umb.edu/~rouilj/resume/) who read my question about having custom user scripts and said “You mean like greasemonkey or tapermonkey?”
+
+I realized when I wrote that paragraph that I was merely describing what browser extensions are for. What I was trying to get at is that it would be really cool if custom user scripts were a feature of the browser, i.e. adding a custom user script was as simple as adding a custom style sheet: select a `.js` file on disk and boom, you’re done.
+
+That said, maybe I’ll give one of these user scripts extensions a try. I’ve heard of greasemonkey and used it back in like 2012. But I’ve never heard of tampermonkey. Looks like it’s [open source](https://github.com/Tampermonkey/tampermonkey) and even available for [Safari](https://www.tampermonkey.net/?browser=safari). Thanks John!
+
