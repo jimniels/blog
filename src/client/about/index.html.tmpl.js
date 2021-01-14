@@ -39,7 +39,7 @@ export default function About(site) {
     { site, page },
     // prettier-ignorez
     html` <div class="markdown">
-        <h1>About Me and My Weblog</h1>
+        <h1>About Me and This Blog</h1>
 
         <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
 
@@ -95,7 +95,7 @@ export default function About(site) {
           />
         </p>
 
-        <h1>Links in this Weblog</h1>
+        <h1>Links in This Blog</h1>
 
         <p>
           I thought it would be interesting to

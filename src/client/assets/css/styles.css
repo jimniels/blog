@@ -32,7 +32,7 @@ body {
 .nav__site-name {
   display: flex;
   align-items: center;
-  font-size: 0.85rem;
+  /* font-size: 0.85rem; */
   margin-right: 1.618rem;
 }
 
@@ -74,12 +74,16 @@ a.nav__site-name:before {
   list-style: none;
   position: relative;
   display: flex;
-  font-size: 0.75em;
+  /* font-size: 0.75em; */
 }
 
 .nav__links li {
   margin-right: calc(1.618rem / 2);
 }
+
+/* .nav a {
+  color: var(--color-blue);
+} */
 
 /*
 // Markdown

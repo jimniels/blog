@@ -1,6 +1,6 @@
 import pt from "prop-types";
 import Nav from "./Nav.js";
-import { html, toDateUI } from "./utils.js";
+import { html, toDateUI, replyHtml } from "./utils.js";
 
 const comment = `
 <!--
@@ -130,13 +130,10 @@ const Post = (props) => {
         ${page.contents.toString()}
       </div>
 
-      ${Array.isArray(page.tags) && html`
-        <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
-          Tagged in: 
-          ${page.tags.map(tag => 
-            `<a href="/tags/#${tag}" class="tag">#${tag}</a>`
-          ).join(",&nbsp;")}
-        </footer>`}
+      
+      <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
+        ${replyHtml({ postTags: page.tags, postLink: page.permalink, siteOrigin: site.origin })}
+      </footer>
     </article>
   `);
 };

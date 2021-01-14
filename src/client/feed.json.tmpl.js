@@ -22,7 +22,13 @@ export default function JSONFeed(site) {
         title: post.title,
         url,
         tags: post.tags,
-        content_html: post.contents.toString() + replyHtml(url),
+        content_html:
+          post.contents.toString() +
+          replyHtml({
+            postTags: post.tags,
+            postLink: url,
+            siteOrigin: site.origin,
+          }),
       };
     }),
   });
