@@ -102,7 +102,7 @@ I love old-school browser functionality like this. Can you imagine a feature lik
 
 All that said, if you want to read more, [this post has a perspective on the history of custom style sheets in Safari](http://theoveranalyzed.net/2018/3/16/safaris-custom-style-sheet#the-history-of-user-defined-style-sheets-in-desktop-safari) that you might find interesting.
 
-## Update 2020-01-14
+## Update: 2020-01-14
 
 I received an email from [John P. Rouillard](https://www.cs.umb.edu/~rouilj/resume/) who read my question about having custom user scripts and said “You mean like greasemonkey or tapermonkey?”
 
