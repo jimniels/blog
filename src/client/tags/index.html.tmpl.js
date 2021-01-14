@@ -3,13 +3,13 @@ import { html, toDateUI } from "../../server/utils.js";
 
 const page = {
   title: "Tags",
-  permalink: "/tags/"
+  permalink: "/tags/",
 };
 
 export default function Tags(site) {
   const postsByTag = site.posts.reduce((acc, post) => {
     if (post.tags) {
-      post.tags.forEach(tag => {
+      post.tags.forEach((tag) => {
         if (acc[tag]) {
           acc[tag].push(post);
         } else {
@@ -24,7 +24,7 @@ export default function Tags(site) {
 
   // prettier-ignore
   return PageCustom({ site, page }, html`
-    <h1>Tags Index</h1>
+    <h1>Post Tags</h1>
     <ul>
       ${tags.map(
         tag => `

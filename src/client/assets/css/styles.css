@@ -81,10 +81,10 @@ a.nav__site-name:before {
   margin-right: calc(1.618rem / 2);
 }
 
-header.markdown time {
+.markdown time {
   color: var(--color-text-light);
   display: block;
-  margin: -1rem 0 1.618rem;
+  margin: -1.618rem 0 1.618rem;
 }
 
 .markdown > *:not(table):not(pre) {
@@ -92,7 +92,7 @@ header.markdown time {
   display: block;
 }
 .markdown > h1 {
-  max-width: 40rem;
+  max-width: 40rem !important;
 }
 .markdown .image-container {
   max-width: none;

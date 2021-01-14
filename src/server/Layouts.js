@@ -83,7 +83,7 @@ const Layout = (props, children) => {
         <body>
           <nav class="nav">${Nav(props)}</nav>
 
-          <main class="main">${children}</main>
+          <main>${children}</main>
 
           <script src="/assets/js/index.js" type="module"></script>
         </body>
@@ -117,16 +117,13 @@ const Post = (props) => {
   // prettier-ignore
   return Layout(props, html`
     <article class="h-entry">
-      <header class="markdown">
+      <div class="markdown e-content">
         <h1 class="p-name">
           ${page.title}
         </h1>
         <time class="dt-published" datetime="${page.date.toISOString()}">
           ${toDateUI(page.date)}
         </time>
-      </header>
-
-      <div class="markdown e-content" id="js-post-content">
         ${page.contents.toString()}
       </div>
 
