@@ -33,6 +33,7 @@
   --color-link-visited: var(--color-purple);
   --color-red: rgb(255, 0, 0); /* rgb(194, 6, 24);  rgb(215, 0, 21) */
   --color-link-active: var(--color-link);
+  --color-indigo: rgb(54, 52, 163);
 
   --color-gray: rgb(108, 108, 112);
   --color-gray-2: rgb(142, 142, 147);
@@ -53,6 +54,7 @@
     --color-blue: rgb(64, 156, 255);
     --color-purple: rgb(218, 143, 255);
     --color-red: rgb(255, 65, 54);
+    --color-indigo: rgb(125, 122, 255);
 
     --color-gray: rgb(174, 174, 178);
     --color-gray-2: rgb(124, 124, 128);
