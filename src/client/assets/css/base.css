@@ -92,7 +92,7 @@ html {
 
 @media screen and (min-width: 700px) {
   html {
-    font-size: 21px; /* 24 originally */
+    font-size: 22px; /* 24 originally */
   }
 }
 
@@ -119,6 +119,14 @@ a {
   /* only cancel underlines on list items? */
 }
 
+a {
+  color: var(--color-blue);
+  position: relative;
+}
+a:active {
+  top: 1px;
+}
+/*
 a:link {
   color: var(--color-blue);
 }
@@ -129,7 +137,7 @@ a:visited {
 
 a:active {
   color: var(--color-red);
-}
+}*/
 
 a:hover {
   text-decoration: underline;

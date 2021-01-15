@@ -29,70 +29,54 @@ body {
   /* font-size: 0.75rem; */
 }
 
-.nav__site-name {
+#back-nav {
   display: flex;
   align-items: center;
-  /* font-size: 0.85rem; */
-  margin-right: 1.618rem;
 }
 
-a.nav__site-name:before {
+#back-nav:before {
   content: "←";
   margin-right: 0.5em;
   font-size: 1.2em;
   top: 0;
 }
 @media screen and (min-width: 650px) {
-  .nav__site-name {
+  #back-nav {
     position: relative;
   }
-  a.nav__site-name:before {
+  #back-nav:before {
     position: absolute;
     left: -1.5em;
     top: -0.125em;
   }
 }
-/* .nav svg:hover {
-  position: relative;
-  top: -1px;
-} */
-.nav svg:hover path {
-  stroke-dasharray: 160;
-  animation: dash 6s linear infinite;
-  animation-direction: alternate;
+
+nav {
+  margin-bottom: 1em;
+}
+nav a:after {
+  content: "/";
+  opacity: 0.25;
+  color: inherit;
+  margin: 0 calc(1.618rem / 3);
+}
+nav a:last-child:after {
+  content: "";
 }
 
-@keyframes dash {
-  to {
-    stroke-dashoffset: 1000;
-  }
-}
-
-.nav__links {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  position: relative;
-  display: flex;
-  /* font-size: 0.75em; */
-}
-
-.nav__links li {
-  margin-right: calc(1.618rem / 2);
-}
-
-.markdown time {
+article header time {
   color: var(--color-text-light);
   display: block;
-  margin: -1.618rem 0 1.618rem;
+  margin: calc(-1.618rem / 2) 0 calc(1.618rem * 2);
+  font-family: ui-monospace, monospace;
 }
 
 .markdown > *:not(table):not(pre) {
   max-width: 32rem;
   display: block;
 }
-.markdown > h1 {
-  max-width: 40rem !important;
+article h1 {
+  max-width: 45rem !important;
 }
 .markdown .image-container {
   max-width: none;

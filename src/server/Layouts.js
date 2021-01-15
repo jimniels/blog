@@ -1,5 +1,4 @@
 import pt from "prop-types";
-import Nav from "./Nav.js";
 import { html, toDateUI, replyHtml } from "./utils.js";
 
 const comment = `
@@ -33,6 +32,7 @@ const Layout = (props, children) => {
 
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="author" content="p-author" />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
           <link
             rel="alternate"
@@ -81,9 +81,11 @@ const Layout = (props, children) => {
           `}
         </head>
         <body>
-          <nav class="nav">${Nav(props)}</nav>
-
-          <main>${children}</main>
+          ${permalink !== "/" &&
+          html`<nav>
+            <a href="/" id="back-nav">${name}</a>
+          </nav>`}
+          ${children}
 
           <script src="/assets/js/index.js" type="module"></script>
         </body>
@@ -117,21 +119,21 @@ const Post = (props) => {
   // prettier-ignore
   return Layout(props, html`
     <article class="h-entry">
-      <div class="markdown e-content">
+      <header>
         <h1 class="p-name">
           ${page.title}
         </h1>
-        <time class="dt-published" datetime="${page.date.toISOString()}">
+        <time class="dt-published" datetime="${page.date.toISOString()}" style="">
           ${toDateUI(page.date)}
         </time>
+      </header>
+      <div class="markdown e-content">
         ${page.contents.toString()}
       </div>
-
-      
-      <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
-        ${replyHtml({ postTags: page.tags, postLink: page.permalink, siteOrigin: site.origin })}
-      </footer>
     </article>
+    <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
+      ${replyHtml({ postTags: page.tags, postLink: page.permalink, siteOrigin: site.origin })}
+    </footer>
   `);
 };
 

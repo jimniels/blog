@@ -20,7 +20,8 @@ export default function Archive(site) {
           .map(
             (year) => html`
               <li>
-                <a href="#${year}">${year}</a> (${postsByYear[year].length})
+                <a href="#${year}">${year}</a>
+                <small>(${postsByYear[year].length})</small>
               </li>
             `
           )}
