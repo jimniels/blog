@@ -147,6 +147,9 @@ export default function About(site) {
           padding: 2px 10px;
           margin-bottom: 2px;
           border-radius: var(--border-radius);
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          -ms-word-break: break-all;
         }
         details summary:hover {
           background: var(--color-border);

@@ -12,7 +12,7 @@ export default function Archive(site) {
   return PageCustom(
     { site, page },
     html`
-      <h1>Archive of Posts by Year</h1>
+      <h1>Posts Archive</h1>
       <ul>
         ${Object.keys(postsByYear)
           .sort()

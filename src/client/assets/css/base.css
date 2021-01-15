@@ -175,6 +175,12 @@ h4 {
   line-height: 1.2;
   margin-top: 1em;
   margin-bottom: 0.66666666em;
+
+  /* Long headlines that are 1 word
+     https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
 }
 
 h1 {

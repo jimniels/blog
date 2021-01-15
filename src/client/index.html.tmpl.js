@@ -82,7 +82,7 @@ export default function Index(site) {
     html`
       <h1>${site.name}</h1>
 
-      <nav>
+      <nav class="site-nav">
         ${nav.map(({ label, permalink }) => html`
           <a href="${permalink}">${label}</a>
         `)}

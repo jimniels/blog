@@ -51,23 +51,23 @@ body {
   }
 }
 
-nav {
-  margin-bottom: 1em;
+.site-nav {
+  margin: -1.618rem 0 calc(1.618rem * 1.5);
 }
-nav a:after {
+.site-nav a:after {
   content: "/";
   opacity: 0.25;
   color: inherit;
   margin: 0 calc(1.618rem / 3);
 }
-nav a:last-child:after {
+.site-nav a:last-child:after {
   content: "";
 }
 
 article header time {
   color: var(--color-text-light);
   display: block;
-  margin: calc(-1.618rem / 2) 0 calc(1.618rem * 2);
+  margin: calc(-1.618rem / 1) 0 calc(1.618rem * 2);
   font-family: ui-monospace, monospace;
 }
 
