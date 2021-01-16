@@ -1,43 +1,38 @@
 :root {
+  --border-radius: 7px;
   /* 
-     Currently using accessible+vibrant
-     https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
-     @TODO consider vars for these, i.e.
-
-     --system-blue;
-     --system-blue-a11y;
+   * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
+   * accessible
    */
+  --c-blue-rgb: 6, 64, 221;
+  --c-blue: rgb(var(--c-blue-rgb));
+  --c-purple: rgb(137, 68, 171);
+  --c-red: rgb(255, 0, 0); /* rgb(194, 6, 24);  rgb(215, 0, 21) */
 
-  /* accessible */
-  --color-blue-rgb: 6, 64, 221;
-  --color-blue: rgb(var(--color-blue-rgb));
-  --color-purple: rgb(137, 68, 171);
-  --color-red: rgb(255, 0, 0); /* rgb(194, 6, 24);  rgb(215, 0, 21) */
+  --c-bg: rgb(255, 255, 255);
 
-  --color-indigo: rgb(54, 52, 163);
-
-  --color-gray: rgb(108, 108, 112);
-  --color-gray-2: rgb(142, 142, 147);
-  --color-gray-3: rgb(174, 174, 178);
-  --color-gray-4: rgb(188, 188, 192);
-  --color-gray-5: rgb(216, 216, 220);
-  --color-gray-6: rgb(236, 235, 240);
+  --c-gray-1: rgb(108, 108, 112);
+  --c-gray-2: rgb(142, 142, 147);
+  --c-gray-3: rgb(174, 174, 178);
+  --c-gray-4: rgb(188, 188, 192);
+  --c-gray-5: rgb(216, 216, 220);
+  --c-gray-6: rgb(236, 235, 240);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* accessible */
-    --color-blue: rgb(64, 156, 255);
-    --color-purple: rgb(218, 143, 255);
-    --color-red: rgb(255, 65, 54);
-    --color-indigo: rgb(125, 122, 255);
+    --c-blue: rgb(64, 156, 255);
+    --c-purple: rgb(218, 143, 255);
+    --c-red: rgb(255, 65, 54);
 
-    --color-gray: rgb(174, 174, 178);
-    --color-gray-2: rgb(124, 124, 128);
-    --color-gray-3: rgb(84, 84, 86);
-    --color-gray-4: rgb(68, 68, 70);
-    --color-gray-5: rgb(54, 54, 56);
-    --color-gray-6: rgb(36, 36, 38);
+    --c-bg: rgb(0, 0, 0);
+
+    --c-gray-1: rgb(174, 174, 178);
+    --c-gray-2: rgb(124, 124, 128);
+    --c-gray-3: rgb(84, 84, 86);
+    --c-gray-4: rgb(68, 68, 70);
+    --c-gray-5: rgb(54, 54, 56);
+    --c-gray-6: rgb(36, 36, 38);
   }
 }
 
@@ -91,7 +86,7 @@ html {
 
 a {
   text-decoration: none;
-  /* color: var(--color-blue); */
+  /* color: var(--c-blue); */
 }
 
 a:hover {
@@ -104,15 +99,15 @@ a:hover {
 }
 
 a:link {
-  color: var(--color-blue);
+  color: var(--c-blue);
 }
 
 a:visited {
-  color: var(--color-purple);
+  color: var(--c-purple);
 }
 
 a:active {
-  color: var(--color-red);
+  color: var(--c-red);
 }
 
 /* ==========================================================================
@@ -170,11 +165,6 @@ h4 {
    Misc. Elements
    ========================================================================== */
 
-code,
-pre {
-  font-family: ui-monospace, monospace;
-}
-
 blockquote {
   border-left: 1px solid;
   padding-left: 1em;
@@ -221,7 +211,7 @@ table th {
 }
 
 table tbody tr:nth-child(2n + 1) {
-  background-color: var(--color-bg-sidebar);
+  background-color: var(--c-bg-sidebar);
 }
 
 table th,

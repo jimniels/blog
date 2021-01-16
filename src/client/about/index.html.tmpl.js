@@ -141,7 +141,7 @@ export default function About(site) {
       <style>
         details summary {
           font-size: 0.8181rem;
-          background: var(--color-bg-sidebar);
+          background: var(--c-gray-6);
           padding: 2px 10px;
           margin-bottom: 2px;
           border-radius: var(--border-radius);
@@ -150,7 +150,7 @@ export default function About(site) {
           -ms-word-break: break-all;
         }
         details summary:hover {
-          background: var(--color-border);
+          background: var(--c-gray-5);
         }
         details ul {
           font-size: 0.6363rem;

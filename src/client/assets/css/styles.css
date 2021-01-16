@@ -1,16 +1,3 @@
-:root {
-  --color-bg-sidebar: rgba(0, 0, 0, 0.05);
-  --color-border: rgba(0, 0, 0, 0.1);
-  --border-radius: 7px;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  :root {
-    --color-bg-sidebar: rgba(255, 255, 255, 0.1);
-    --color-border: rgba(255, 255, 255, 0.15);
-  }
-}
-
 body {
   margin: 1.618rem calc(1.618 * 2rem);
 }
@@ -40,7 +27,7 @@ body {
   /* @TODO remove underline on hover */
   content: "/";
 
-  color: var(--color-border);
+  color: var(--c-gray-6);
   margin: 0 calc(1.618rem / 3);
 }
 
