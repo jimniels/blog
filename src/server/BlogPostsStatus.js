@@ -19,8 +19,6 @@ const BlogPostsStatus = ({ blogPosts }) => html`
     @media screen and (max-width: 520px) {
       .blog-posts {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
       }
     }
     .blog-posts:before {

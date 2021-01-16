@@ -1,16 +1,3 @@
-/*===========================================================================
-   General
-
-   @color-text: #333
-   @color-text-light: #777
-   @color-text-lightest: #999
-   @color-background: #333
-   @color-yellow: #fffddf
-   @padding-left: 10%
-   @color-highlight: #FF0000;
-   @color-link: $color-twitter-blue;
-   =========================================================================== */
-
 :root {
   /* 
      Currently using accessible+vibrant
@@ -21,18 +8,12 @@
      --system-blue-a11y;
    */
 
-  /* default 
-   --color-link: rgb(0, 122, 255);
-   --color-link-visited: rgb(175, 82, 222);
-   --color-link-active: rgb(255, 59, 48); */
-
   /* accessible */
-  --color-blue: rgb(0, 64, 221);
-  --color-link: var(--color-blue);
+  --color-blue-rgb: 6, 64, 221;
+  --color-blue: rgb(var(--color-blue-rgb));
   --color-purple: rgb(137, 68, 171);
-  --color-link-visited: var(--color-purple);
   --color-red: rgb(255, 0, 0); /* rgb(194, 6, 24);  rgb(215, 0, 21) */
-  --color-link-active: var(--color-link);
+
   --color-indigo: rgb(54, 52, 163);
 
   --color-gray: rgb(108, 108, 112);
@@ -41,15 +22,13 @@
   --color-gray-4: rgb(188, 188, 192);
   --color-gray-5: rgb(216, 216, 220);
   --color-gray-6: rgb(236, 235, 240);
+
+  --color-accent: var(--color-blue);
+  --color-accent-rgb: var(--color-blue-rgb);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* default 
-     --color-link: rgb(10, 132, 255);
-     --color-link-visited: rgb(191, 90, 242);
-     --color-link-active: rgb(255, 69, 58); */
-
     /* accessible */
     --color-blue: rgb(64, 156, 255);
     --color-purple: rgb(218, 143, 255);
@@ -75,7 +54,7 @@
 
 html {
   color-scheme: light dark;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.618;
   /* this comes in normalize
   font-family: 
@@ -87,9 +66,6 @@ html {
     Roboto, Helvetica, Arial, 
     sans-serif, 
     "Apple Color Emoji"; */
-  /*
-  background: var(--color-bg);
-  color: var(--color-text); */
 }
 
 @media screen and (min-width: 700px) {
@@ -118,16 +94,23 @@ html {
 
 a {
   text-decoration: none;
-  /* only cancel underlines on list items? */
-}
-
-a {
-  color: var(--color-blue);
+  color: var(--color-accent);
   position: relative;
 }
+
+a:hover {
+  text-decoration: underline;
+  filter: brightness(70%);
+}
+
 a:active {
   top: 1px;
 }
+
+article a {
+  text-decoration: underline;
+}
+
 /*
 a:link {
   color: var(--color-blue);
@@ -140,19 +123,6 @@ a:visited {
 a:active {
   color: var(--color-red);
 }*/
-
-a:hover {
-  text-decoration: underline;
-  filter: brightness(70%);
-}
-
-a.a--no-hover:hover {
-  filter: none;
-}
-
-.markdown a {
-  text-decoration: underline;
-}
 
 /* ==========================================================================
    Images & Video
@@ -205,22 +175,65 @@ h4 {
   font-weight: 700;
 }
 
+/* ==========================================================================
+   Misc. Elements
+   ========================================================================== */
+
 code,
 pre {
   font-family: ui-monospace, monospace;
 }
 
-.copy > * {
-  max-width: 37rem; /* 900px */
-  margin-top: 0;
+blockquote {
+  border-left: 1px solid;
+  padding-left: 1em;
+  margin-left: 0;
+  font-style: italic;
+}
+
+blockquote em,
+blockquote code {
+  font-style: normal;
+}
+
+pre {
+  max-width: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 1.618rem;
   margin-bottom: 1.618rem;
 }
 
-.copy--full-width {
+/* hr {
+  border: 0;
+  border-bottom: 1px solid transparent;
+  margin: 0 0 1.618rem 0;
+  width: 25%;
+  background:;
+} */
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+table {
   max-width: none;
+  display: block;
+  overflow: auto;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.85em;
 }
 
-.list-reset {
-  padding-left: 0;
-  list-style-type: none;
+table th {
+  text-align: left;
+}
+
+table tbody tr:nth-child(2n + 1) {
+  background-color: var(--color-bg-sidebar);
+}
+
+table th,
+table td {
+  padding: 0.325em 1em;
 }

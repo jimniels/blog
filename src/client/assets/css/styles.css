@@ -1,10 +1,14 @@
 :root {
-  --color-text: #212121;
-  --color-text-light: #888888;
-  --color-bg: #fff;
   --color-bg-sidebar: rgba(0, 0, 0, 0.05);
   --color-border: rgba(0, 0, 0, 0.1);
   --border-radius: 7px;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-sidebar: rgba(255, 255, 255, 0.1);
+    --color-border: rgba(255, 255, 255, 0.15);
+  }
 }
 
 body {
@@ -18,16 +22,28 @@ body {
 }
 
 /* =============================================================================
-   Site Navigation
+   Primary Site Navigation
    ========================================================================== */
 
-.nav {
-  display: flex;
-  align-items: center;
-  margin-bottom: calc(1.618rem * 1);
-  flex-wrap: wrap;
-  /* font-size: 0.75rem; */
+.site-nav {
+  margin: -1.618rem 0 calc(1.618rem * 1.5);
 }
+
+.site-nav a:after {
+  /* @TODO remove underline on hover */
+  content: "/";
+  opacity: 0.25;
+  color: inherit;
+  margin: 0 calc(1.618rem / 3);
+}
+
+.site-nav a:last-child:after {
+  content: "";
+}
+
+/* =============================================================================
+   Back Button
+   ========================================================================== */
 
 #back-nav {
   display: flex;
@@ -40,6 +56,7 @@ body {
   font-size: 1.2em;
   top: 0;
 }
+
 @media screen and (min-width: 650px) {
   #back-nav {
     position: relative;
@@ -51,33 +68,46 @@ body {
   }
 }
 
-.site-nav {
-  margin: -1.618rem 0 calc(1.618rem * 1.5);
+/* =============================================================================
+   Jim's Blog -> Jim Nielsen’s Blog
+   ========================================================================== */
+
+body > h1 span,
+nav [href="/"] span {
+  white-space: pre;
 }
-.site-nav a:after {
-  content: "/";
-  opacity: 0.25;
-  color: inherit;
-  margin: 0 calc(1.618rem / 3);
+
+@media screen and (max-width: 500px) {
+  body > h1 span,
+  nav [href="/"] span {
+    display: none;
+  }
 }
-.site-nav a:last-child:after {
-  content: "";
+
+/* =============================================================================
+   Article Header
+   ========================================================================== */
+
+article header h1 {
+  max-width: 45rem;
 }
 
 article header time {
-  color: var(--color-text-light);
+  opacity: 0.5;
   display: block;
   margin: calc(-1.618rem / 1) 0 calc(1.618rem * 2);
   font-family: ui-monospace, monospace;
 }
 
+/* =============================================================================
+   Markdown
+   ========================================================================== */
+
 .markdown > *:not(table):not(pre) {
   max-width: 32rem;
   display: block;
 }
-article h1 {
-  max-width: 45rem !important;
-}
+
 .markdown .image-container {
   max-width: none;
 }
@@ -89,57 +119,9 @@ article h1 {
   display: block;
 }
 
-blockquote {
-  border-left: 1px solid var(--color-text);
-  padding-left: 1em;
-  margin-left: 0;
-  font-style: italic;
-}
-
-blockquote em,
-blockquote code {
-  font-style: normal;
-}
-
-pre {
-  max-width: 100%;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  margin-top: 1.618rem;
-  margin-bottom: 1.618rem;
-}
-
-hr {
-  border: 0;
-  border-bottom: 1px solid transparent;
-  margin: 0 0 1.618rem 0;
-  width: 25%;
-  background: var(--color-text);
-}
-
-/* Tables */
-table {
-  max-width: none;
-  display: block;
-  overflow: auto;
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-size: 0.85em;
-}
-
-table th {
-  text-align: left;
-}
-
-table tbody tr:nth-child(2n + 1) {
-  background-color: var(--color-bg-sidebar);
-}
-
-table th,
-table td {
-  padding: 0.325em 1em;
-}
+/* =============================================================================
+   General
+   ========================================================================== */
 
 /**
  * Posts Lists - @TODO consider changing to something representing that it's 

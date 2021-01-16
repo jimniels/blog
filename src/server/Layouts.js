@@ -83,7 +83,7 @@ const Layout = (props, children) => {
         <body>
           ${permalink !== "/" &&
           html`<nav>
-            <a href="/" id="back-nav">${name}</a>
+            <a href="/" id="back-nav">Jim<span> Nielsen</span>’s Blog</a>
           </nav>`}
           ${children}
 

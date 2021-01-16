@@ -80,7 +80,7 @@ export default function Index(site) {
   return PageCustom(
     { site, page },
     html`
-      <h1>${site.name}</h1>
+      <h1>Jim<span> Nielsen</span>’s Blog</h1>
 
       <nav class="site-nav">
         ${nav.map(({ label, permalink }) => html`
