@@ -3,7 +3,7 @@
  * Find all the images in a post, grab their alt tags, and set it
  * as a caption to each image.
  */
-Array.from(document.querySelectorAll(".markdown img")).forEach(($img) => {
+Array.from(document.querySelectorAll(".copy img")).forEach(($img) => {
   // https://plainjs.com/javascript/manipulation/wrap-an-html-structure-around-an-element-28/
   const $parent = $img.parentNode;
   if ($parent.tagName === "P") {

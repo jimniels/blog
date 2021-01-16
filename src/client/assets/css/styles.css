@@ -29,15 +29,22 @@ body {
   margin: -1.618rem 0 calc(1.618rem * 1.5);
 }
 
-.site-nav a:after {
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+.site-nav li:after {
   /* @TODO remove underline on hover */
   content: "/";
-  opacity: 0.25;
-  color: inherit;
+
+  color: var(--color-border);
   margin: 0 calc(1.618rem / 3);
 }
 
-.site-nav a:last-child:after {
+.site-nav li:last-child:after {
   content: "";
 }
 
@@ -100,18 +107,18 @@ article header time {
 }
 
 /* =============================================================================
-   Markdown
+   Copy
    ========================================================================== */
 
-.markdown > *:not(table):not(pre) {
+.copy > *:not(table):not(pre) {
   max-width: 32rem;
   display: block;
 }
 
-.markdown .image-container {
+.copy .image-container {
   max-width: none;
 }
-.markdown .image-container span {
+.copy .image-container span {
   font-size: 0.75rem;
   font-style: italic;
   opacity: 0.5;

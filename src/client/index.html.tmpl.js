@@ -83,9 +83,11 @@ export default function Index(site) {
       <h1>Jim<span> Nielsen</span>’s Blog</h1>
 
       <nav class="site-nav">
+        <ul>
         ${nav.map(({ label, permalink }) => html`
-          <a href="${permalink}">${label}</a>
+          <li><a href="${permalink}">${label}</a></li>
         `)}
+        </ul>
       </nav>
       
       ${BlogPostsStatus({ blogPosts: postsByYear[2021] && postsByYear[2021].length })}

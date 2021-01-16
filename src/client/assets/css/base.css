@@ -22,9 +22,6 @@
   --color-gray-4: rgb(188, 188, 192);
   --color-gray-5: rgb(216, 216, 220);
   --color-gray-6: rgb(236, 235, 240);
-
-  --color-accent: var(--color-blue);
-  --color-accent-rgb: var(--color-blue-rgb);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -94,8 +91,7 @@ html {
 
 a {
   text-decoration: none;
-  color: var(--color-accent);
-  position: relative;
+  /* color: var(--color-blue); */
 }
 
 a:hover {
@@ -103,15 +99,10 @@ a:hover {
   filter: brightness(70%);
 }
 
-a:active {
-  top: 1px;
-}
-
-article a {
+.copy a {
   text-decoration: underline;
 }
 
-/*
 a:link {
   color: var(--color-blue);
 }
@@ -122,7 +113,7 @@ a:visited {
 
 a:active {
   color: var(--color-red);
-}*/
+}
 
 /* ==========================================================================
    Images & Video

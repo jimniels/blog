@@ -127,7 +127,7 @@ const Post = (props) => {
           ${toDateUI(page.date)}
         </time>
       </header>
-      <div class="markdown e-content">
+      <div class="copy e-content">
         ${page.contents.toString()}
       </div>
     </article>
@@ -142,7 +142,7 @@ const PageCustom = (props, children) => Layout(props, children);
 
 // prettier-ignore
 const Page = (props) => Layout(props, html`
-  <div class="markdown">
+  <div class="copy">
     ${props.page.contents.toString()}
   </div>
 `);

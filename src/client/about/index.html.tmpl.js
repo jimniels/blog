@@ -38,7 +38,7 @@ export default function About(site) {
   return PageCustom(
     { site, page },
     // prettier-ignorez
-    html` <div class="markdown">
+    html` <div class="copy">
         <h1>About Me and This Blog</h1>
 
         <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
@@ -139,10 +139,8 @@ export default function About(site) {
         </details>
       </div>
       <style>
-        .markdown details {
-          margin-bottom: 0;
-        }
         details summary {
+          font-size: 0.8181rem;
           background: var(--color-bg-sidebar);
           padding: 2px 10px;
           margin-bottom: 2px;
@@ -155,7 +153,7 @@ export default function About(site) {
           background: var(--color-border);
         }
         details ul {
-          font-size: 14px;
+          font-size: 0.6363rem;
         }
       </style>`
   );
