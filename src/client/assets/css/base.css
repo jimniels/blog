@@ -1,0 +1,220 @@
+:root {
+  --border-radius: 7px;
+  /* 
+   * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
+   * accessible
+   */
+  --c-blue-rgb: 6, 64, 221;
+  --c-blue: rgb(var(--c-blue-rgb));
+  --c-purple: rgb(137, 68, 171);
+  --c-red: rgb(255, 0, 0); /* rgb(194, 6, 24);  rgb(215, 0, 21) */
+
+  --c-bg: rgb(255, 255, 255);
+
+  --c-gray-1: rgb(108, 108, 112);
+  --c-gray-2: rgb(142, 142, 147);
+  --c-gray-3: rgb(174, 174, 178);
+  --c-gray-4: rgb(188, 188, 192);
+  --c-gray-5: rgb(216, 216, 220);
+  --c-gray-6: rgb(236, 235, 240);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-blue: rgb(64, 156, 255);
+    --c-purple: rgb(218, 143, 255);
+    --c-red: rgb(255, 65, 54);
+
+    --c-bg: rgb(0, 0, 0);
+
+    --c-gray-1: rgb(174, 174, 178);
+    --c-gray-2: rgb(124, 124, 128);
+    --c-gray-3: rgb(84, 84, 86);
+    --c-gray-4: rgb(68, 68, 70);
+    --c-gray-5: rgb(54, 54, 56);
+    --c-gray-6: rgb(36, 36, 38);
+  }
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+  font-size: 20px;
+  line-height: 1.618;
+  /* this comes in normalize
+  font-family: 
+    ui-sans-serif, 
+    system-ui, 
+    -system-ui, 
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto, Helvetica, Arial, 
+    sans-serif, 
+    "Apple Color Emoji"; */
+}
+
+@media screen and (min-width: 700px) {
+  html {
+    font-size: 22px; /* 24 originally */
+  }
+}
+
+/* Firefox doesn't support this natively */
+@supports not (color-scheme: light dark) {
+  html {
+    background: #fff;
+    color: #000;
+  }
+  @media screen and (prefers-color-scheme: dark) {
+    html {
+      background: #000;
+      color: #fff;
+    }
+  }
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+a {
+  text-decoration: none;
+  /* color: var(--c-blue); */
+}
+
+a:hover {
+  text-decoration: underline;
+  filter: brightness(70%);
+}
+
+.copy a {
+  text-decoration: underline;
+}
+
+a:link {
+  color: var(--c-blue);
+}
+
+a:visited {
+  color: var(--c-purple);
+}
+
+a:active {
+  color: var(--c-red);
+}
+
+/* ==========================================================================
+   Images & Video
+   ========================================================================== */
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  margin-top: 1em;
+  margin-bottom: 0.66666666em;
+
+  /* Long headlines that are 1 word
+     https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+}
+
+h1 {
+  font-size: 2.5rem; /* 60px */
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem; /* 48px */
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem; /* 36px */
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01rem;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Misc. Elements
+   ========================================================================== */
+
+blockquote {
+  border-left: 1px solid;
+  padding-left: 1em;
+  margin-left: 0;
+  font-style: italic;
+}
+
+blockquote em,
+blockquote code {
+  font-style: normal;
+}
+
+pre {
+  max-width: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 1.618rem;
+  margin-bottom: 1.618rem;
+}
+
+/* hr {
+  border: 0;
+  border-bottom: 1px solid transparent;
+  margin: 0 0 1.618rem 0;
+  width: 25%;
+  background:;
+} */
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+table {
+  max-width: none;
+  display: block;
+  overflow: auto;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.85em;
+}
+
+table th {
+  text-align: left;
+}
+
+table tbody tr:nth-child(2n + 1) {
+  background-color: var(--c-bg-sidebar);
+}
+
+table th,
+table td {
+  padding: 0.325em 1em;
+}

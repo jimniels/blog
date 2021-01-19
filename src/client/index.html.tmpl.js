@@ -3,8 +3,27 @@ import BlogPostsStatus from "../server/BlogPostsStatus.js";
 import { html, toDateUI, toDateUIMin } from "../server/utils.js";
 
 const page = {
-  permalink: "/"
+  permalink: "/",
 };
+
+const nav = [
+  {
+    label: "Archive",
+    permalink: "/archive/",
+  },
+  {
+    label: "Tags",
+    permalink: "/tags/",
+  },
+  {
+    label: "About",
+    permalink: "/about/",
+  },
+  {
+    label: "Feeds",
+    permalink: "/feeds/",
+  },
+];
 
 const favIds = [
   "/2017/the-analog-web/",
@@ -16,7 +35,7 @@ const favIds = [
   "/2019/designing-and-engineering-progressive-disclosure/",
   "/2019/how-to-create-a-macos-menu-bar-app-for-netlify/",
   "/2019/building-a-progressively-enhanced-site/",
-  "/2017/creating-ios-icon-masks-in-the-browser/"
+  "/2017/creating-ios-icon-masks-in-the-browser/",
 ];
 
 export default function Index(site) {
@@ -34,17 +53,13 @@ export default function Index(site) {
     .sort()
     .reverse()
     .map(
-      year => html`
-        <h2 id="y${year}">
-          ${year}
-        </h2>
+      (year) => html`
+        <h2 id="y${year}">${year}</h2>
         <ul class="posts-list">
           ${postsByYear[year].map(
-            post => html`
+            (post) => html`
               <li>
-                <a href="${post.permalink}">
-                  ${post.title}
-                </a>
+                <a href="${post.permalink}"> ${post.title} </a>
                 <time datetime="${post.date.toISOString()}">
                   ${toDateUIMin(post.date)}
                 </time>
@@ -57,13 +72,24 @@ export default function Index(site) {
     .join("");
 
   const recent = site.posts.slice(0, 10);
-  const favs = favIds.map(id => {
-    return site.posts.find(post => post.permalink === id);
+  const favs = favIds.map((id) => {
+    return site.posts.find((post) => post.permalink === id);
   });
 
+  // prettier-ignore
   return PageCustom(
     { site, page },
     html`
+      <h1>Jim<span> Nielsen</span>’s Blog</h1>
+
+      <nav class="site-nav">
+        <ul>
+        ${nav.map(({ label, permalink }) => html`
+          <li><a href="${permalink}">${label}</a></li>
+        `)}
+        </ul>
+      </nav>
+      
       ${BlogPostsStatus({ blogPosts: postsByYear[2021] && postsByYear[2021].length })}
 
       <h2>Latest</h2>
@@ -92,11 +118,9 @@ function PostList(posts) {
   return html`
     <ul class="posts-list">
       ${posts.map(
-        post => html`
+        (post) => html`
           <li>
-            <a href="${post.permalink}">
-              ${post.title}
-            </a>
+            <a href="${post.permalink}"> ${post.title} </a>
             <time datetime="${post.date.toISOString()}">
               ${toDateUI(post.date)}
             </time>

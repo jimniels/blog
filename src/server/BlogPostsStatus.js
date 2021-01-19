@@ -8,7 +8,7 @@ const GOAL = 72;
 const BlogPostsStatus = ({ blogPosts }) => html`
   <style>
     .blog-posts {
-      background: var(--color-bg-sidebar);
+      background: var(--c-gray-6);
       padding: 15px;
       border-radius: var(--border-radius);
       display: flex;
@@ -19,8 +19,6 @@ const BlogPostsStatus = ({ blogPosts }) => html`
     @media screen and (max-width: 520px) {
       .blog-posts {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
       }
     }
     .blog-posts:before {

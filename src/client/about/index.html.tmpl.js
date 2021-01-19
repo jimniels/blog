@@ -38,8 +38,8 @@ export default function About(site) {
   return PageCustom(
     { site, page },
     // prettier-ignorez
-    html` <div class="markdown">
-        <h1>About Me and My Weblog</h1>
+    html` <div class="copy">
+        <h1>About Me and This Blog</h1>
 
         <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
 
@@ -95,7 +95,7 @@ export default function About(site) {
           />
         </p>
 
-        <h1>Links in this Weblog</h1>
+        <h1>Links in This Blog</h1>
 
         <p>
           I thought it would be interesting to
@@ -139,20 +139,21 @@ export default function About(site) {
         </details>
       </div>
       <style>
-        .markdown details {
-          margin-bottom: 0;
-        }
         details summary {
-          background: var(--color-bg-sidebar);
+          font-size: 0.8181rem;
+          background: var(--c-gray-6);
           padding: 2px 10px;
           margin-bottom: 2px;
           border-radius: var(--border-radius);
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          -ms-word-break: break-all;
         }
         details summary:hover {
-          background: var(--color-border);
+          background: var(--c-gray-5);
         }
         details ul {
-          font-size: 14px;
+          font-size: 0.6363rem;
         }
       </style>`
   );

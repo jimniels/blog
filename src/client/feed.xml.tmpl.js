@@ -13,7 +13,7 @@ export default function XMLFeed(site) {
       ${site.posts.slice(0, 10).map(post => xml`
         <item>
             <title>${escapeXml(post.title)}</title>
-            <description>${escapeXml(post.contents.toString() + replyHtml(site.origin + post.permalink))}</description>
+            <description>${escapeXml(post.contents.toString() + replyHtml({ postTags: post.tags, postLink: site.origin + post.permalink, siteOrigin: site.origin }))}</description>
             <pubDate>${post.date.toUTCString()}</pubDate>
             <link>${site.origin + post.permalink}</link>
             <guid isPermaLink="true">${site.origin + post.permalink}</guid>

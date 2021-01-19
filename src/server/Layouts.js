@@ -1,6 +1,5 @@
 import pt from "prop-types";
-import Nav from "./Nav.js";
-import { html, toDateUI } from "./utils.js";
+import { html, toDateUI, replyHtml } from "./utils.js";
 
 const comment = `
 <!--
@@ -33,6 +32,7 @@ const Layout = (props, children) => {
 
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="author" content="p-author" />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
           <link
             rel="alternate"
@@ -46,9 +46,10 @@ const Layout = (props, children) => {
             title="JSON Feed"
             href="/feed.json"
           />
-          <link rel="stylesheet" href="/assets/css/normalize.css" />
-          <link rel="stylesheet" href="/assets/css/styles.css" />
           <link rel="canonical" href="${origin + permalink}" />
+          <link rel="stylesheet" href="/assets/css/modern-normalize.css" />
+          <link rel="stylesheet" href="/assets/css/base.css" />
+          <link rel="stylesheet" href="/assets/css/styles.css" />
 
           ${layout === "Post" &&
           `
@@ -80,9 +81,11 @@ const Layout = (props, children) => {
           `}
         </head>
         <body>
-          <nav class="nav">${Nav(props)}</nav>
-
-          <main class="main">${children}</main>
+          ${permalink !== "/" &&
+          html`<nav>
+            <a href="/" id="back-nav">Jim<span> Nielsen</span>’s Blog</a>
+          </nav>`}
+          ${children}
 
           <script src="/assets/js/index.js" type="module"></script>
         </body>
@@ -116,28 +119,21 @@ const Post = (props) => {
   // prettier-ignore
   return Layout(props, html`
     <article class="h-entry">
-
-      <header class="markdown">
-        <time class="dt-published" datetime="${page.date.toISOString()}">
-          ${toDateUI(page.date)}
-        </time>
+      <header>
         <h1 class="p-name">
           ${page.title}
         </h1>
+        <time class="dt-published" datetime="${page.date.toISOString()}" style="">
+          ${toDateUI(page.date)}
+        </time>
       </header>
-
-      <div class="markdown e-content" id="js-post-content">
+      <div class="copy e-content">
         ${page.contents.toString()}
       </div>
-
-      ${Array.isArray(page.tags) && html`
-        <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
-          Tagged in: 
-          ${page.tags.map(tag => 
-            `<a href="/tags/#${tag}" class="tag">#${tag}</a>`
-          ).join(",&nbsp;")}
-        </footer>`}
     </article>
+    <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
+      ${replyHtml({ postTags: page.tags, postLink: page.permalink, siteOrigin: site.origin })}
+    </footer>
   `);
 };
 
@@ -146,7 +142,7 @@ const PageCustom = (props, children) => Layout(props, children);
 
 // prettier-ignore
 const Page = (props) => Layout(props, html`
-  <div class="markdown">
+  <div class="copy">
     ${props.page.contents.toString()}
   </div>
 `);
