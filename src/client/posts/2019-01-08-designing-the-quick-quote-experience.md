@@ -1,7 +1,8 @@
 ---
-title: "Designing the “Quick Quote” Experience in Agent Portal"
 tags: designProcess insight
 ---
+
+# Designing the “Quick Quote” Experience in Agent Portal
 
 **Note:** I originally wrote this in August of 2017 but for some reason never published it. Figured I’d better ~~ship~~ publish it. It’s probably worth noting that this particular feature, as represented in this post, is basically gone now. We’ve since iterated and improved significantly on it. It’s a good historical piece nonetheless.
 

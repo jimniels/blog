@@ -1,7 +1,8 @@
 ---
-title: Moving from EJS to JSX
 tags: engineering
 ---
+
+# Moving from EJS to JSX
 
 As alluded to in [a previous post](https://blog.jim-nielsen.com/2019/improving-server-side-rendering-react/), I recently switched my templating system from EJS to JSX. Why? Allow me to quote myself:
 

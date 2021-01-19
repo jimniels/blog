@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, January 2019
 tags: readingNotes
 ---
+
+# Reading Notes, January 2019
 
 ## Article: [“Busy is the new stupid”](https://m.signalvnoise.com/busy-is-the-new-stupid/)
 

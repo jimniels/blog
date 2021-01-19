@@ -1,7 +1,8 @@
 ---
-title: "Book Notes: A Mathematician’s Lament"
 tags: bookNotes
 ---
+
+# Book Notes: A Mathematician’s Lament
 
 PDF: [“A Mathematician’s Lament”](https://www.maa.org/external_archive/devlin/LockhartsLament.pdf)
 

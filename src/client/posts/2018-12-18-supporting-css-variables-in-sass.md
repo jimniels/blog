@@ -1,7 +1,8 @@
 ---
-title: Supporting CSS Variables in Sass
 tags: engineering insight
 ---
+
+# Supporting CSS Variables in Sass
 
 I can’t say I’ve really been keeping up with the Sass scene. For personal projects, I’ve essentially stopped using it everywhere I can. Writing plain CSS files is much more friendly in the long game, as I can come back to a project in two years and not have to touch any build tools etc. and my CSS still works.
 

@@ -1,7 +1,8 @@
 ---
-title: Down the Rabbit Hole of Image Optimization Tooling
 tags: engineering
 ---
+
+# Down the Rabbit Hole of Image Optimization Tooling
 
 For some time, I’ve been powering the automation around adding a new icon to my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [sites](https://www.watchosicongallery.com) using a bash script. It’s not perfect, but it works. It’s basically a CLI script that does the following:
 

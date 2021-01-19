@@ -1,7 +1,8 @@
 ---
-title: How Apple Engineers Decided the App Icon Size for the Original iPhone
 tags: stories
 ---
+
+# How Apple Engineers Decided the App Icon Size for the Original iPhone
 
 Ken Kocienda was one of the engineers on “Project Purple”, the codename for the project behind the original iPhone. He pioneered the iPhone’s multitouch keyboard along with autosuggest. He tells that story – along with others – in his recent book ([which I just read](https://blog.jim-nielsen.com/2019/book-notes-creative-selection/)) titled: [“Creative Selection: Inside Apple's Design Process During the Golden Age of Steve Jobs”](https://www.amazon.com/Creative-Selection-Inside-Apples-Process/dp/1250194466).
 

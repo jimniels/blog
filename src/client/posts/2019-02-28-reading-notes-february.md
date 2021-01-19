@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, February 2019
 tags: readingNotes
 ---
+
+# Reading Notes, February 2019
 
 ## Article: [“Emoji Avatars for My Website”](https://aaronparecki.com/2019/02/25/9/emoji)
 

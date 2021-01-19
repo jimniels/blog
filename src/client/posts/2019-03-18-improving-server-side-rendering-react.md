@@ -1,7 +1,8 @@
 ---
-title: Improving Server-Side Rendering with React
 tags: engineering
 ---
+
+#  Improving Server-Side Rendering with React
 
 tldr: if you’re using `react-dom/server` to render a large number of static files and you’re seeing a significant degradation in performance, setting `NODE_ENV` to `production` could significantly improve your situation (this was true at the time of this writing—React 16.8.3).
 

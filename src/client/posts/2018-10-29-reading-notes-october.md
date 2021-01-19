@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, October 2018
 tags: readingNotes
 ---
+
+# Reading Notes, October 2018
 
 ## Article: [Design Principles – React](https://reactjs.org/docs/design-principles.html)
 

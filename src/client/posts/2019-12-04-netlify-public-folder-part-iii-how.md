@@ -1,7 +1,8 @@
 ---
-title: "Netlify Public Folder, Part III: How? The Winding Road to Making a Local Folder Sync to Netlify’s Global CDN"
 tags: engineering netlify
 ---
+
+# Netlify Public Folder, Part III: How? The Winding Road to Making a Local Folder Sync to Netlify’s Global CDN
 
 This is part final installment in a three part series:
 

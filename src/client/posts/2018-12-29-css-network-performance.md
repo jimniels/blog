@@ -1,13 +1,14 @@
 ---
-title: Personal Observations on “CSS and Network Performance” by Harry Roberts
 tags: engineering
 ---
+
+# Personal Observations on “CSS and Network Performance” by Harry Roberts
 
 First and foremost, this post is a reflection on [“CSS and Network Performance”](https://csswizardry.com/2018/11/css-and-network-performance/) by Harry Roberts via CSS Wizardry, which is a really interesting (and deep) look at all the ways CSS can affect the loading and rendering speed of an HTML document.
 
 ## `<script>`s Before `<link>`s
 
-> There is a fascinating behaviour present in all browsers that is intentional and expected, yet I have never met a single developer who knew about it. This is doubly surprising when you consider the huge performance impact that it can carry:
+> There is a fascinating behavior present in all browsers that is intentional and expected, yet I have never met a single developer who knew about it. This is doubly surprising when you consider the huge performance impact that it can carry:
 >
 > A browser will not execute a `<script>` if there is any currently-in flight CSS.
 
@@ -81,7 +82,7 @@ Now let’s talk about the relatively standard practice of putting all your CSS 
 
 The author explains one of core the benefits to this approach:
 
-> due to a recent change in Chrome (version 69, I believe), and behaviour already present in Firefox and IE/Edge, `<link rel="stylesheet" />`s will only block the rendering of subsequent content, rather than the whole page...In browsers that don’t currently support this new behaviour, we suffer no performance degradation: we fall back to the old behaviour where we’re only as fast as the slowest CSS file.
+> due to a recent change in Chrome (version 69, I believe), and behavior already present in Firefox and IE/Edge, `<link rel="stylesheet" />`s will only block the rendering of subsequent content, rather than the whole page...In browsers that don’t currently support this new behavior, we suffer no performance degradation: we fall back to the old behavior where we’re only as fast as the slowest CSS file.
 
 I actually found this a really interesting insight. It has a few parallels to the benefits gained with modern css-in-js approaches, like style and markup collocation. However, in this case, you can still maintain a ”separation of concerns”: styles in one file, markup in another. This approach allows you to write CSS that’s scoped to a specific set of DOM markup, yet “global” in the sense that it can still be used across pages. I find this to be an interesting convention in how you might structure a project, as it allows you to be disciplined in creating and maintaining componentized CSS files, knowing their context is scoped to a corresponding set of DOM markup (if it’s not related, it should be elevated to a “higher level” of CSS, the “core” stylesheet being the highest level). This keeps the separation between HTML/CSS/JS yet gives you a lot of the conveniences of componentization that you have today in single-page JS apps. Plus, as the author points out, it can actually result in a faster (at least perceptually) loading experience, as the DOM is loading and painting content as it goes down the page.
 

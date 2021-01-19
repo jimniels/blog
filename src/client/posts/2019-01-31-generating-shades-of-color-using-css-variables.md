@@ -1,7 +1,8 @@
 ---
-title: Generating Shades of Color Using CSS Variables
 tags: engineering
 ---
+
+# Generating Shades of Color Using CSS Variables
 
 Quite often I’ve found myself using [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) (a.k.a. CSS variables) for working with color values (especially when [doing dark themes](https://blog.jim-nielsen.com/2018/icon-galleries-dark-mode/)). This is usually the type of CSS I’ve written:
 

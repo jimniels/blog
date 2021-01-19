@@ -1,7 +1,8 @@
 ---
-title: "Book Notes: “Creative Selection” by Ken Kocienda"
 tags: bookNotes
 ---
+
+# Book Notes: “Creative Selection” by Ken Kocienda
 
 I recently finished reading Ken Kocienda’s book (fully titled) “Creative Selection: Inside Apple’s Design Process During the Golden Age of Steve Jobs”. Ken is a software engineer who, among other things, worked on “Project Purple”: Apple’s codename for the original iPhone.
 
