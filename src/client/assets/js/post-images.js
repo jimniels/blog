@@ -10,8 +10,9 @@ Array.from(document.querySelectorAll(".copy img")).forEach(($img) => {
     $parent.classList.add("image-container");
   }
 
-  const $caption = document.createElement("span");
-  $caption.textContent = $img.getAttribute("alt");
-  $caption.styles;
-  $parent.appendChild($caption);
+  // <img> alt as caption?
+  // const $caption = document.createElement("span");
+  // $caption.textContent = $img.getAttribute("alt");
+  // $caption.styles;
+  // $parent.appendChild($caption);
 });
