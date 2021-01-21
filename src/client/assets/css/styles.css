@@ -91,7 +91,6 @@ article header time {
   opacity: 0.5;
   display: block;
   margin: calc(-1.618rem / 1) 0 calc(1.618rem * 2);
-  font-family: ui-monospace, monospace;
 }
 
 /* =============================================================================
@@ -133,7 +132,7 @@ article header time {
 
 .posts-list time {
   display: block;
-  font-family: ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
   font-size: 0.7rem;
   opacity: 0.5; /* @TODO change to gray */
   margin-right: calc(1.618rem / 2);
