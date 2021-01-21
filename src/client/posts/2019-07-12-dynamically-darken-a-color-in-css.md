@@ -1,7 +1,8 @@
 ---
-title: Dynamically Darken a Color in CSS
 tags: engineering
 ---
+
+# Dynamically Darken a Color in CSS
 
 I’ve quite often found myself in a situation like the following:
 

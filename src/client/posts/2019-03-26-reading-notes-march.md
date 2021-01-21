@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, March 2019
 tags: readingNotes
 ---
+
+# Reading Notes, March 2019
 
 ## Website: [“Always Own Your Platform”](http://alwaysownyourplatform.com)
 

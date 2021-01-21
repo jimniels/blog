@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, June 2019
 tags: readingNotes
 ---
+
+# Reading Notes, June 2019
 
 ## Article: [“What I Learned Co-Founding Dribbble”](https://medium.com/dribbble/what-i-learned-co-founding-dribbble-8680f6816e3d) by Dan Cederholm
 
@@ -85,7 +86,7 @@ menu a:not(#current) {
 }
 ```
 
-Now do that imperatively in js
+Now do that imperatively in JS:
 
 ```
 for (all menus) {

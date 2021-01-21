@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, October 2019
 tags: readingNotes
 ---
+
+# Reading Notes, October 2019
 
 ## Article: [“Using the Platform”](https://timkadlec.com/remembers/2019-10-21-using-the-platform/) by Tim Kadlec
 

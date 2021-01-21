@@ -1,458 +1,157 @@
-:root {
-  /* prettier-ignore */
-  --font-family-sans-serif: 
-    ui-sans-serif, 
-    system-ui, 
-    -system-ui, 
-    -apple-system,
-    BlinkMacSystemFont,
-    Roboto, Helvetica, Arial, 
-    sans-serif, 
-    "Apple Color Emoji";
-  --font-family-monospace: ui-monospace, monospace;
-
-  --color-text: #212121;
-  --color-text-light: #888888;
-  --color-bg: #fff;
-  --color-bg-sidebar: rgba(0, 0, 0, 0.05);
-  --color-border: rgba(0, 0, 0, 0.1);
-  --color-link: hsla(240, 100%, 50%, 1);
-  --color-link-visited: hsla(300, 100%, 25%, 1);
-  --color-link-active: hsla(0, 100%, 50%, 1);
-  --border-radius: 7px;
-
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #eee;
-    --color-text-light: #999;
-    --color-bg: rgb(64, 63, 62);
-    --color-border: rgba(255, 255, 255, 0.1);
-    --color-bg-sidebar: rgba(0, 0, 0, 0.2);
-    --color-link: hsla(200, 100%, 50%, 1);
-    --color-link-visited: hsla(300, 95%, 65%, 1);
-    --color-link-active: hsla(0, 100%, 65%, 1);
-  }
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-html {
-  line-height: 1.618;
-  font-size: 1.125rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: var(--font-family-sans-serif);
-  margin: 1.618rem calc(1.618 * 2rem);
+  margin: 1.618rem calc(1.618 * 2rem) calc(1.618rem * 3);
 }
 
 @media screen and (max-width: 650px) {
   body {
     margin: calc(1.618rem / 2);
+    margin-bottom: calc(1.618rem * 3);
   }
 }
 
-img,
-video {
-  max-width: 100%;
-  height: auto;
+/* =============================================================================
+   Primary Site Navigation
+   ========================================================================== */
+
+.site-nav {
+  margin: -1.618rem 0 calc(1.618rem * 1.5);
 }
 
-code,
-pre {
-  font-family: var(--font-family-monospace);
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
 }
 
-/* @TODO
-// https://stackoverflow.com/questions/4774022/whats-default-html-css-link-color */
-a {
-  text-decoration: none;
-}
-a:link {
-  color: var(--color-link);
-  text-decoration: none;
-  /* text-decoration-color: inherit; */
-}
-a:link:hover {
-  /* @TODO */
-  background-color: rgba(0, 0, 255, 0.05);
-  text-decoration: underline;
-}
-a:visited {
-  color: var(--color-link-visited);
-}
-a:visited:hover {
-  /* @TODO */
-  background-color: rgba(85, 26, 139, 0.05);
-}
-a:active {
-  color: var(--color-link-active);
-}
-a:active:hover {
-  /* @TODO */
-  background-color: rgba(255, 0, 0, 0.05);
-}
-.markdown a {
-  text-decoration: underline;
+.site-nav li:after {
+  /* @TODO remove underline on hover */
+  content: "/";
+
+  color: var(--c-gray-6);
+  margin: 0 calc(1.618rem / 3);
 }
 
-.nav {
+.site-nav li:last-child:after {
+  content: "";
+}
+
+/* =============================================================================
+   Back Button
+   ========================================================================== */
+
+#back-nav {
   display: flex;
   align-items: center;
-  margin-bottom: calc(1.618rem * 2);
-  font-size: 0.888888rem;
 }
 
-.nav > *,
-.nav__links li {
-  margin-right: calc(1.618rem / 2);
+#back-nav:before {
+  content: "←";
+  margin-right: 0.5em;
+  font-size: 1.2em;
+  top: 0;
 }
 
-.nav h1 {
-  font-size: inherit;
-  line-height: 1.4;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.nav h1:after {
-  content: "·";
-  opacity: 0.5;
-  font-weight: normal;
-  margin-left: calc(1.618rem / 2);
-  margin-right: calc(1.618rem / 4);
-}
-
-.nav h1 a {
-  color: inherit;
-}
-
-.nav__links {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  position: relative;
-  display: flex;
-}
-
-.nav__img {
-  display: block;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-}
-
-.nav__img img {
-  display: block;
-  width: 100%;
-  height: auto;
-  width: 32px;
-  height: 32px;
-}
-
-@media screen and (max-width: 650px) {
-  .nav {
-    display: block;
+@media screen and (min-width: 650px) {
+  #back-nav {
+    position: relative;
   }
-  .nav h1:after {
+  #back-nav:before {
+    position: absolute;
+    left: -1.5em;
+    top: -0.125em;
+  }
+}
+
+/* =============================================================================
+   Jim's Blog -> Jim Nielsen’s Blog
+   ========================================================================== */
+
+body > h1 span,
+nav [href="/"] span {
+  white-space: pre;
+}
+
+@media screen and (max-width: 500px) {
+  body > h1 span,
+  nav [href="/"] span {
     display: none;
   }
-  .nav__img {
-    margin-bottom: calc(1.618rem / 4);
-  }
 }
 
-/*
-// Markdown
-// ======================================================================
-// Styles for markdown
-*/
+/* =============================================================================
+   Article Header
+   ========================================================================== */
 
-header.markdown h1 {
-  margin: 1.618rem 0;
+article header h1 {
+  max-width: 45rem;
 }
 
-header.markdown time {
-  color: var(--color-text-light);
+article header time {
+  opacity: 0.5;
+  display: block;
+  margin: calc(-1.618rem / 1) 0 calc(1.618rem * 2);
+  font-family: ui-monospace, monospace;
+}
+
+/* =============================================================================
+   Copy
+   ========================================================================== */
+
+.copy > *:not(table):not(pre) {
+  max-width: 32rem;
   display: block;
 }
-
-.markdown > * {
-  max-width: 35rem;
-  display: block;
-  margin-bottom: 1.618em;
+.copy .image-container {
+  max-width: none;
 }
-
-/*
-  // Headings
-  // ========================================
-  */
-
-.markdown h1,
-.markdown h2,
-.markdown h3,
-.markdown h4,
-.markdown h5 {
-  position: relative;
-  font-weight: 700;
-  margin-bottom: 0.382em;
-  line-height: 1.3;
-}
-
-.markdown:before {
-  display: none;
-}
-
-@media screen and (min-width: 45rem) {
-  .markdown:before {
-    display: block;
-    font-weight: normal;
-    position: absolute;
-    right: calc(100% + 1.618rem);
-    top: 0.3em;
-    font-size: 0.7em;
-    opacity: 0.25;
-  }
-}
-
-/* http://type-scale.com/ major third */
-.markdown h1 {
-  font-size: 1.618rem;
-}
-.markdown h2 {
-  font-size: 1.382rem;
-}
-.markdown h3,
-.markdown h4 {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
-}
-.markdown h4 {
-  opacity: 0.75;
-}
-
-/*
-  // h1 {
-  //   font-size: calc(1.618rem + (1rem/1));
-  // }
-
-  // h2 {
-  //   font-size: calc(1.618rem + (1rem/2));
-  // }
-
-  // h3 {
-  //   font-size: calc(1.618rem + (1rem/3));
-  // }
-
-  // h4 {
-  //   font-size: calc(1.618rem + (1rem/4));
-  // }
-  */
-
-/*
-  // Element Margins
-  // ========================================
-
-  // p, ul, ol, blockquote, hr, > object, > iframe, > div, > pre {
-  //   margin-bottom: 1.618em;
-  //   display: block;
-  // }
-
-  //
-  // Lists
-  // ========================================
-  */
-
-.markdown ul {
-  list-style-type: disc;
-}
-
-.markdown ol {
-  list-style-type: decimal;
-}
-
-.markdown ul,
-.markdown ol {
-  list-style-position: outside;
-  padding-left: 1.618rem;
-}
-
-.markdown ol ol,
-.markdown ol ol ol,
-.markdown ul ul,
-.markdown ul ul ul {
-  margin: 0;
-  margin-left: 1.618rem;
-}
-
-/*
-  // Inline Text
-  // ========================================
-  */
-
-.markdown strong {
-  font-weight: 700;
-}
-
-.markdown em {
+.copy .image-container span {
+  font-size: 0.75rem;
   font-style: italic;
-}
-
-/*
-  // Blockquote
-  // ========================================
-  */
-
-.markdown blockquote {
-  position: relative;
-  border-left: 1px solid var(--color-text);
-  padding-left: 1rem;
-  margin-left: 0;
-}
-
-.markdown blockquote em {
-  font-style: italic;
-}
-
-.markdown blockquote > * {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.markdown blockquote > :last-child {
-  margin-bottom: 0;
-}
-
-/*
-  // Code
-  // ========================================
-  */
-
-.markdown p code {
-  white-space: normal;
-}
-
-/* .markdown p code:before,
-.markdown p code:after,
-.markdown li code:before,
-.markdown li code:after {
-  content: "`";
-} */
-
-.markdown code {
-  white-space: nowrap;
-}
-
-.markdown pre {
-  line-height: 1rem;
-  tab-size: 2;
-  margin: 0;
-}
-
-.markdown pre code {
-  line-height: 1.5rem;
-  white-space: pre;
-
-  /* override inline code styles */
-  color: inherit;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-}
-
-.markdown > pre {
-  padding: 1.618rem 0;
-  max-width: 100%;
-  overflow-y: scroll;
-  margin-bottom: 1.618rem;
-  -webkit-overflow-scrolling: touch;
-}
-
-/*
-  // Horizontal Ruler
-  // ========================================
-  */
-
-.markdown hr {
-  border: 0;
-  border-bottom: 1px solid transparent;
-  margin: 0 0 1.618rem 0;
-  width: 3em;
-  background: var(--color-text);
-}
-
-/*
-  // Images
-  // ========================================
-  */
-
-.markdown img {
+  opacity: 0.5;
+  max-width: 32rem;
   display: block;
-  max-width: 100%;
-
-  /* Old way of outlining each image
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.075);
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.075);
-  */
 }
 
-/* Tables */
-.markdown table {
-  display: block;
-  overflow: auto;
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.markdown table tr {
-  background-color: var(--color-bg);
-  border-top: 1px solid var(--color-border);
-}
-
-.markdown table tr:nth-child(2n) {
-  background-color: var(--color-bg-sidebar);
-}
-
-.markdown table th,
-.markdown table td {
-  border: 1px solid var(--color-border);
-  padding: 6px 13px;
-}
+/* =============================================================================
+   General
+   ========================================================================== */
 
 /**
- * Posts Lists
+ * Posts Lists - @TODO consider changing to something representing that it's 
+ * a flat key/val list
  */
-ul.posts-list {
+.posts-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-ul.posts-list li {
-  margin-bottom: calc(1.618 * 0.25rem);
-  padding-left: 1.618rem;
-  text-indent: -1.618rem;
+
+.posts-list li {
+  margin-bottom: calc(1.618rem / 2);
 }
 
-ul.posts-list time {
-  font-size: 0.75rem;
-  opacity: 0.5;
-  margin-left: calc(1.618rem * 0.333);
+.posts-list time {
+  display: block;
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  opacity: 0.5; /* @TODO change to gray */
+  margin-right: calc(1.618rem / 2);
   white-space: nowrap;
+}
+
+@media screen and (min-width: 520px) {
+  .posts-list li {
+    margin-bottom: calc(1.618rem / 4);
+    display: flex;
+    align-items: baseline;
+  }
+  .posts-list li a {
+    order: 2;
+  }
+  .posts-list time {
+    order: 1;
+  }
 }
 
 /* =============================================================================

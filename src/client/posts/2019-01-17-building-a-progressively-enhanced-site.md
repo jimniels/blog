@@ -1,7 +1,8 @@
 ---
-title: Building a Progressively-Enhanced Site
 tags: engineering
 ---
+
+# Building a Progressively-Enhanced Site
 
 I recently added the ability to search for icons (by name) on my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [sites](https://www.watchosicongallery.com).
 

@@ -1,8 +1,8 @@
 ---
-title: "ECMAScript Modules in Node: My Own Personal Rabbit Hole"
-date: 2019-11-23
 tags: engineering
 ---
+
+# ECMAScript Modules in Node: My Own Personal Rabbit Hole
 
 I’ve been wanting to jump on the “run ES modules in node” train for a while. I really like the idea of writing modern JavaScript that can be easily shared between both server and client. Also, I really want to write JavaScript in one “dialect” everywhere. No transpilation. No compilation. Just plain (ES2015+) JavaScript that can be delivered and run on both the server and client without any build tooling involved. The dream!
 

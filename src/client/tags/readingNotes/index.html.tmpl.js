@@ -29,7 +29,7 @@ export default function Tags(site) {
         .map(post => html`
           <hr class="div-hr" />
           <a class="div-link" href="${post.permalink}">${post.title}</a>
-          <div class="markdown">${post.contents}</div>
+          <div class="copy">${post.contents}</div>
         `)}
     
   `);

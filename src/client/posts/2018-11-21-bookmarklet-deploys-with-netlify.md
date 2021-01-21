@@ -1,7 +1,8 @@
 ---
-title: Triggering a Deploy in Netlify With Bookmarklets
 tags: engineering netlify
 ---
+
+# Triggering a Deploy in Netlify With Bookmarklets
 
 Ok here’s the pitch: trigger a build of your Netlify site through a custom bookmarklet, then leverage bookmark syncing so you have one-click build triggers across all your devices.
 

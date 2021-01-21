@@ -39,7 +39,7 @@ I reviewed all the exisiting designs for these views looking for patterns I coul
 - Reset password form
 - Copyright & other text
 
-[![Overview of page patterns on old layout](https://cdn.jim-nielsen.com/blog/2016/admin-old-page-patterns.png "Discovering patterns across each of the old views helped know where and how to start designing.")](https://cdn.jim-nielsen.com/blog/2016/admin-old-page-patterns.png)
+![Overview of page patterns on old layout](https://cdn.jim-nielsen.com/blog/2016/admin-old-page-patterns.png "Discovering patterns across each of the old views helped know where and how to start designing.")
 
 I was able to design these component pieces individually and put them together to build each unique view. This not only made for a consistent UX, but from an engineering perspective I could easily write customizeable components in React and leverage them across various views.
 

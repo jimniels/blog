@@ -1,7 +1,8 @@
 ---
-title: JSX-Like Syntax for Tagged Template Literals in JavaScript
 tags: engineering
 ---
+
+# JSX-Like Syntax for Tagged Template Literals in JavaScript
 
 I recently moved my blog off Jekyll. Instead of choosing an off-the-shelf templating framework, I naively decided I would attempt rolling my own.
 
@@ -63,7 +64,7 @@ You can see in the example above, my function receives data about the page being
 1. `.map(...).join("")` - Joining arrays into a string 
 2. `boolean ? "echo this" : ""` - Ternaries with an empty string instead of a shortcut operator
 
-First, `.map()` in the example above is going to return _an array_ of strings. That would result in an array being inside a string, so the array is going to get coerced into a string which is not going to give me what I want. That’s why I have to add `.join("")` onto the end of it. It joins all the items in the array into a string. React knows how to handle arrays of children, so it works in JSX. But with template literals, you have to make sure every expression inside your backticks (`${expression}`) is going to result in a string. 
+First, `.map()` in the example above is going to return _an array_ of strings. That would result in an array being inside a string, so the array is going to get coerced into a string which is not going to give me what I want. That’s why I have to add `.join("")` onto the end of it. It joins all the items in the array into a string. React knows how to handle arrays of children, so it works in JSX. But with template literals, you have to make sure every expression inside your back-ticks (`${expression}`) is going to result in a string. 
 
 Allow me to illustrate:
 
@@ -149,7 +150,7 @@ To be honest, these workarounds to achieving a JSX-like syntax in template liter
 
 ## _Tagged_ Template Literals
 
-One cool thing about this new backtick syntax in JavaScript for template literals is that you can “tag” them. What does that mean? The best explanation I’ve found comes from [Wes Bos’ article](https://wesbos.com/tagged-template-literals/).
+One cool thing about this new back-tick syntax in JavaScript for template literals is that you can “tag” them. What does that mean? The best explanation I’ve found comes from [Wes Bos’ article](https://wesbos.com/tagged-template-literals/).
 
 > One feature that comes along with template literals, or template strings, is the ability to tag them.
 >
@@ -157,14 +158,14 @@ One cool thing about this new backtick syntax in JavaScript for template literal
 
 You really should read Wes’ entire article if you don’t understand how tagged template literals work, otherwise the rest of this post won’t make much sense.
 
-Read it? Ok so with tagged template literals you can control how the string inside the backticks gets made. In our case, that means we can support a more JSX-like syntax in our template literals. We can detect the value of the expression that was evaluated and, depending on its type, we can output the value we would expect. The code to do that would look something like this:
+Read it? Ok so with tagged template literals you can control how the string inside the back-ticks gets made. In our case, that means we can support a more JSX-like syntax in our template literals. We can detect the value of the expression that was evaluated and, depending on its type, we can output the value we would expect. The code to do that would look something like this:
 
 ```js
 /**
  * Tagged template literal function for coercing certain values to what
- * we would expcted for a more JSX-like syntax.
+ * we would expected for a more JSX-like syntax.
  * 
- * For values that we don't want to coerce, we just skip outputing them
+ * For values that we don't want to coerce, we just skip outputting them
  * Example:
  *   `class="${variable}"`
  * If the value of my variable was one of these types I don't want 
@@ -198,7 +199,7 @@ function jsx(strings, ...values) {
 };
 ```
 
-Now we can prefix our backticks with `jsx` and the expressions inside those backticks will be omitted as we specified in our function. Here’s an example:
+Now we can prefix our back-ticks with `jsx` and the expressions inside those back-ticks will be omitted as we specified in our function. Here’s an example:
 
 ```js
 const { jsx } = require("./utils.js");

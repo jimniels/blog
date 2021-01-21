@@ -1,7 +1,8 @@
 ---
-title: "One-Press Deploys: Triggering a Build in Netlify via an Amazon IoT Button"
 tags: engineering netlify
 ---
+
+# One-Press Deploys: Triggering a Build in Netlify via an Amazon IoT Button
 
 Forget one-click deploys, the new hotness is one-press deploys. 
 

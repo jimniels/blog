@@ -1,7 +1,8 @@
 ---
-title: Designing and Engineering for Progressive Disclosure
 tags: engineering design
 ---
+
+# Designing and Engineering for Progressive Disclosure
 
 I’ve had a couple ideas brewing in my head lately and they all came together into a single idea after reading Adam Silver’s [“Designing for actual performance”](https://adamsilver.io/articles/designing-for-actual-performance/). The author pokes holes in many modern “tricks” used to make JavaScript-powered web apps be perceived as fast.
 

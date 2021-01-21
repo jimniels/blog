@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, August 2019
 tags: readingNotes
 ---
+
+# Reading Notes, August 2019
 
 ## Article: [“Using a Custom OAuth Provider with NetlifyCMS”](https://tylergaw.com/articles/netlify-cms-custom-oath-provider/) by Tyler Gaw
 

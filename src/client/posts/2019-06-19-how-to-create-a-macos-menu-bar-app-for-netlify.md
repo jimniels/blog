@@ -1,7 +1,8 @@
 ---
-title: How to Create a macOS Menu Bar App for Netlify
 tags: engineering netlify
 ---
+
+# How to Create a macOS Menu Bar App for Netlify
 
 In case you don’t already know, I like Netlify. And I [build on it](https://blog.jim-nielsen.com/2019/trigger-build-in-netlify-from-aws-iot-button/) [quite](https://blog.jim-nielsen.com/2018/bookmarklet-deploys-with-netlify/) [a lot](https://blog.jim-nielsen.com/2018/netlibox-my-guest-post-on-netlify/).
 

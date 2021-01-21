@@ -1,9 +1,10 @@
 ---
-title: Using @import in CSS to Conditionally Load Syntax Highlighting Styles in Dark Mode
 tags: engineering darkMode
 ---
 
-I’ve been [playing around with dark mode](https://blog.jim-nielsen.com/2018/icon-galleries-dark-mode/) recently and found an interesting little trick I havent’t seen published anywhere. Let me tell you about  it.
+# Using @import in CSS to Conditionally Load Syntax Highlighting Styles in Dark Mode
+
+I’ve been [playing around with dark mode](https://blog.jim-nielsen.com/2018/icon-galleries-dark-mode/) recently and found an interesting little trick I haven’t seen published anywhere. Let me tell you about  it.
 
 You know how they always say “don’t use `@import` in CSS”? Well, that’s probably true in a lot of cases, but I recently found a case where using it actually makes a lot of sense, and is quite elegant in comparison to other similar solutions.
 

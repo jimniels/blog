@@ -1,7 +1,8 @@
 ---
-title: "Netlify Public Folder, Part II: Why? Netlify Large Media Wasn’t For Me, But Netlify Still Was"
 tags: engineering netlify
 ---
+
+# Netlify Public Folder, Part II: Why? Netlify Large Media Wasn’t For Me, But Netlify Still Was
 
 This is part two of a three part series:
 

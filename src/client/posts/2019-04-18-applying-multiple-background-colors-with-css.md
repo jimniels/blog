@@ -1,7 +1,8 @@
 ---
-title: Applying Multiple Background Colors with CSS
 tags: engineering
 ---
+
+# Applying Multiple Background Colors with CSS
 
 ## The Problem
 

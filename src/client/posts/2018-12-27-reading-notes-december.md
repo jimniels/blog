@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, December 2018
 tags: readingNotes
 ---
+
+# Reading Notes, December 2018
 
 ## Article: [“React v16.7: No, This Is Not The One With Hooks”](https://reactjs.org/blog/2018/12/19/react-v-16-7.html) via reactjs.org
 
@@ -9,7 +10,7 @@ I like how transparent and intentional the react team is with what they do. When
 
 This particular post is a great example of their thoroughness. They explain their theoretical position on semver and why they intentionally release the way they do. I love it.
 
-> Patches are the most important type of release because they sometimes contain critical bugfixes. That means patch releases have a higher bar for reliability. It’s unacceptable for a patch to introduce additional bugs, because if people come to distrust patches, it compromises our ability to fix critical bugs when they arise — for example, to fix a security vulnerability
+> Patches are the most important type of release because they sometimes contain critical bug fixes. That means patch releases have a higher bar for reliability. It’s unacceptable for a patch to introduce additional bugs, because if people come to distrust patches, it compromises our ability to fix critical bugs when they arise — for example, to fix a security vulnerability
 
 They also touched on their regret for how they versioned their recent releases: they conflated their software release version (“semver”) with their marketing release version (“hooks”) (and it came back to bite them in the butt). This is something we’d all do well to remember:
 

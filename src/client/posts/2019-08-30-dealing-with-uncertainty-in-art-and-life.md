@@ -1,7 +1,8 @@
 ---
-title: Dealing With Uncertainty in Art...and Life
 tags: bookNotes thoughts
 ---
+
+# Dealing With Uncertainty in Art...and Life
 
 Note: This post stems from my readings in the book “Art & Fear”.
 

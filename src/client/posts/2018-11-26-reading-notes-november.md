@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, November 2018
 tags: readingNotes
 ---
+
+# Reading Notes, November 2018
 
 ## Quote: On Software Development
 

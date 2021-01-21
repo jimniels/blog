@@ -1,7 +1,8 @@
 ---
-title: Leveraging Regexes and Git to Find/Replace Dates in Markdown Files
 tags: engineering
 ---
+
+# Leveraging Regexes and Git to Find/Replace Dates in Markdown Files
 
 Recently I’ve been moving my blog off Jekyll as a static site generator. Nothing against Jekyll, I love it. I just don’t want to deal with Ruby anymore. JavaScript all the way. In moving things over, I found a duplication of data I wanted to fix. In fixing it, I thought, “I better write this down...I might need to do this again some day...” so here it is.
 

@@ -1,7 +1,8 @@
 ---
-title: Design Principles Applied to the SF Fonts
 tags: design engineering 
 ---
+
+# Design Principles Applied to the SF Fonts
 
 I recently watched Apple’s [“Introducing the New System Fonts”](https://developer.apple.com/videos/play/wwdc2015/804/), which is a recording of a presentation at WWDC 2015 that introduced the San Francisco fonts. While the talk was focused on the SF font specifically, it provided an overview of a number of good typographic principles and how they were applied during the design and development of the SF fonts. 
 

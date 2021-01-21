@@ -1,7 +1,8 @@
 ---
-title: The Difference Between substring and substr in JavaScript
 tags: engineering
 ---
+
+# The Difference Between substring and substr in JavaScript
 
 ![substring vs. substr](https://cdn.jim-nielsen.com/blog/2019/substring-vs-substr.png)
 

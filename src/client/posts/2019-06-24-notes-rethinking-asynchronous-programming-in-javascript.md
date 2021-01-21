@@ -1,7 +1,8 @@
 ---
-title: Notes on “Rethinking Asynchronous Programming in JavaScript” by Kyle Simpson
 tags: generalNotes
 ---
+
+# Notes on “Rethinking Asynchronous Programming in JavaScript” by Kyle Simpson
 
 I first watched these videos in October of 2017 and took a bunch of notes. Somehow they got lost and I just recently rediscovered and reread them. There’s some good stuff in here. So I’m putting these up on my blog as notes I can reference later as needed.
 

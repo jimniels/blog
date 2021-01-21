@@ -1,7 +1,8 @@
 ---
-title: "Book Notes: “The Pun Also Rises” by John Pollack"
 tags: bookNotes
 ---
+
+# Book Notes: “The Pun Also Rises” by John Pollack
 
 Last Christmas, my sister got me this book because she knew I loved a good pun. I read it. It wasn’t an amazing, life-changing book. But it did have parts that made me smile. Like this simple statement about puns:
 

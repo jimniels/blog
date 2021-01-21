@@ -1,7 +1,8 @@
 ---
-title: Dark Mode on the Web via OS-Level Preferences
 tags: engineering darkMode css
 ---
+
+# Dark Mode on the Web via OS-Level Preferences
 
 This morning, I saw [this tweet from @rafahari](https://twitter.com/rafahari/status/1055463780812050432) who is a designer at Netlify teasing what a “dark mode” of Netlify’s user interface could look like. What was more compelling than the dark mode, though, was how the display of dark and light mode mode _in the web browser_ was being controlled not by a JavaScript button in the browser, but by the macOS system preferences.
 
@@ -40,7 +41,7 @@ After making my site’s colors controllable via CSS variables (something I shou
 
 I don’t know about you, but there’s something incredibly satisfying about this. A user preference at the OS-level is cascading down into the browser and hooked into by the website’s CSS, which is leveraging the power of the cascade along with variables to change color modes. And the OS adds an animation on top when transitioning. I love it!
 
-Throughout the day, I began to see more writeups about this on twitter and found [this insightful post](https://blog.iconfactory.com/2018/10/dark-mode-and-css/) from the good folks over at The Iconfactory. They note how this is another aspect of “responsive” web design — responsive, in this case, not narrowly meaning responding to changes in browser viewport but a more broad term encompassing the idea of responding to changes in a user’s environment:
+Throughout the day, I began to see more write-ups about this on twitter and found [this insightful post](https://blog.iconfactory.com/2018/10/dark-mode-and-css/) from the good folks over at The Iconfactory. They note how this is another aspect of “responsive” web design — responsive, in this case, not narrowly meaning responding to changes in browser viewport but a more broad term encompassing the idea of responding to changes in a user’s environment:
 
 > Dark Mode now becomes another aspect of responsive web design. As with device dimensions or color, the user’s environmental choices must be taken into account.
 

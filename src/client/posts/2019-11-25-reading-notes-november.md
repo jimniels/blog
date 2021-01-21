@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, November 2019
 tags: readingNotes
 ---
+
+# Reading Notes, November 2019
 
 ## Article: [“From public intellectual to public influencer”](http://www.roughtype.com/?p=8645) by Nicholas Carr
 

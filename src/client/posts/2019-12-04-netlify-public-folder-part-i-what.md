@@ -1,7 +1,8 @@
 ---
-title: "Netlify Public Folder, Part I: What? Recreating the Dropbox Public Folder With Netlify"
 tags: engineering netlify
 ---
+
+# Netlify Public Folder, Part I: What? Recreating the Dropbox Public Folder With Netlify
 
 This is part one of a three part series:
 
