@@ -85,8 +85,18 @@ export default async function BlogPostsStatus({
       ],
     },
     options: {
+      scales: {
+        yAxes: [{ ticks: { fontSize: 18 } }],
+        xAxes: [{ ticks: { fontSize: 18 } }],
+      },
+      legend: {
+        labels: {
+          fontSize: 18,
+        },
+      },
       devicePixelRatio: 2,
       title: {
+        fontSize: 21,
         display: true,
         text: `Blog Posts in ${year}`,
       },
@@ -94,13 +104,15 @@ export default async function BlogPostsStatus({
   };
 
   // 500x300 is the default from the API, so 5:3 aspect ratio
-  const w = 600;
-  const h = 360;
+  const w = 800;
+  const h = 480;
   const c = JSON.stringify(graphData).replace(/"/g, "'");
 
   let img;
   try {
-    await fetch(`https://quickchart.io/chart?w=${w}&h=${h}&c=${c}`)
+    await fetch(
+      `https://quickchart.io/chart?w=${w}&h=${h}&c=${c}&backgroundColor=rgb(255,255,255)`
+    )
       .then((res) => {
         if (!res.ok) {
           throw Error("Server did not return an appropriate image (no 200).");
@@ -134,7 +146,7 @@ export default async function BlogPostsStatus({
         />`}
         <p>
           Progress since my last published post.
-          ${false && html`<a href="#">Read more on how I made this</a>.`}
+          <a href="#">Read more on how I made this</a>.
         </p>
       </div>
     </details>

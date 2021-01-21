@@ -89,7 +89,7 @@ export default function Index(site) {
         </ul>
       </nav>
       
-      ${BlogPostsStatus({ blogPosts: postsByYear[2021] && postsByYear[2021].length })}
+      ${site.blogPostsStatus}
 
       <h2>Latest</h2>
       ${PostList(recent)}

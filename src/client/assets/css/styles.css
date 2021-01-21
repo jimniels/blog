@@ -159,7 +159,7 @@ article header time {
    ========================================================================== */
 
 #bps {
-  background: var(--color-bg-sidebar);
+  background: var(--c-gray-6);
   border-radius: var(--border-radius);
   display: flex;
   align-items: flex-start;
