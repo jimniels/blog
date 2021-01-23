@@ -1,3 +1,7 @@
+---
+tags: myBlog
+---
+
 # Email Replies in Feeds
 
 [Robin](https://www.robinrendle.com/notes/reply-links-in-rss-feeds) and [Jonnie](https://destroytoday.com/blog/reply-link-in-rss-feed-posts) have both written about adding “reply links” at the bottom of each post in their feeds. I think it’s a neat idea. Honestly, I don’t think I have the kind of following where people are going to actually email me; that said, I would love to hear the thoughts of anyone who subscribes to my feed. Occasionally I do get feedback on posts via email, twitter DMs, etc., and it has always been good. Hopefully this increases that kind of correspondence. 

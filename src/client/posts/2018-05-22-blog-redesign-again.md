@@ -1,6 +1,6 @@
 ---
 title: "Blog Redesign: Out with the Old, in with the Old"
-tags: designProcess
+tags: designProcess myBlog
 ---
 
 > Why, are expectations so high?  

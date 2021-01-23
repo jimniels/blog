@@ -1,3 +1,7 @@
+---
+tags: myBlog
+---
+
 # Indexing My Blog’s Links
 
 Sometime ago, I don’t know when, an idea struck me: what if I could see all the outbound links on my blog? Could I peer into which sites I link to most frequently? It seemed like a relatively feasible idea as my blog is powered by a [static site generator](https://metalsmith.io/). So I jotted down the idea and forgot about it.

@@ -1,3 +1,7 @@
+---
+tags: myBlog
+---
+
 # Feat: New Style
 
 I did a redesign of my blog.
