@@ -95,6 +95,14 @@ This might not be a good idea, but I like it for now.
 
 This is the only change you’ll see if you subscribe via RSS. I now have a unified footer, in both RSS and HTML, for individual blog post pages. It merely states how the post was tagged (if applicable) and provides links for folks to get in contact via email or on twitter. Occasionally folks reach out to me after I’ve written a post and I enjoy the casualness of it. So if you feel like reaching out, now’s as good a time as any.
 
+## Update: 2021-01-23
 
+After posting, I received this friendly note from [Matt Widmann](https://mattwidmann.net/):
 
+> I noticed that you typeset your dates in a monospace font. Is that because you want the numbers to line up? If so, you could use a proportional font but then specify this CSS to get tabular numbers:
+>
+> `font-variant-numeric: tabular-nums;`
 
+Matt nailed it: I was using a monospace font to ensure the numbers lined up. When I made my notes about the design principles behind the SF font family, I specifically cited one of the examples around [using proportional vs. monospace numbers](https://blog.jim-nielsen.com/2019/design-principles-applied-to-sf-fonts/#proportional-and-monospace-numbers). But I didn’t think you could actually achieve that kind of fixed-width spacing with a proportional font in the browser. Turns out you can! Big thanks Matt.
+
+<img src="https://cdn.jim-nielsen.com/blog/2021/new-design-monospace-proportional.gif" alt="Animation between a monospace and proportional font style." width="512" height="400" />
