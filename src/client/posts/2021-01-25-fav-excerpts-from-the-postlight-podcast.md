@@ -4,7 +4,7 @@ tags: generalNotes
 
 # Favorite Excerpts from the Postlight Podcast
 
-The Postlight Podcast, formerly known as Track Changes, is a podcast where “Postlight co-founders Paul Ford and Rich Ziade talk tech, business, ethics, and culture.” To be straightforward, it’s a marketing podcast for Postlight’s digital agency—and the hosts aren’t shy about making that known. But, unlike many pieces of marketing content, this content doesn’t feel diluted of authenticity, pragmatism, or common sense.
+The Postlight Podcast, formerly known as Track Changes, is a podcast where “Postlight co-founders Paul Ford and Rich Ziade talk tech, business, ethics, and culture.” To be straightforward, it’s a marketing podcast for Postlight’s digital agency—and the hosts aren’t shy about making that known. But, unlike many pieces of marketing content, this doesn’t feel diluted of authenticity, pragmatism, or common sense.
 
 The Rich/Paul duo is one of my favorites in podcasting. At one point in my listening, I realized there were so many great, laughable excerpts, that I needed to start writing them down. So I did (only later did I find out they had transcripts of each episode). 
 
