@@ -1,6 +1,6 @@
 ---
 title: Detective Work for the App Icon Book
-tags: designProcess
+tags: designProcess iconGalleries
 ---
 
 I’ve been designing, developing, and curating my icon gallery sites ([iosicongallery](http://www.iosicongallery.com), [macosicongallery](http://www.macosicongallery.com), [watchosicongallery](http://www.watchosicongallery.com)) since 2011, that’s 7+ years of work at the time of this writing. Over the last few years I’ve had this thought in the back of my head to collect the icon artwork I’ve curated for my iOS gallery and print it in a book. In my opinion, there could be a lot of interesting story lines in there: the aesthetic trend from skeumorphic to flat, the introduction of the “squircle” as the mask for icon designs in iOS7, the unique constraints of design icons for iOS, and more. But I never mustered the time to start breaking down the seemingly-giant task of “make a book” into concrete, actionable items.

@@ -1,6 +1,6 @@
 ---
 title: URL Design and Automated Redirects in Jekyll
-tags: engineering
+tags: engineering iconGalleries
 ---
 
 ## The Problem: Poor URL Design

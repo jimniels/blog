@@ -1,5 +1,5 @@
 ---
-tags: netlify engineering
+tags: netlify engineering iconGalleries
 ---
 
 # Deploying a (Wannbe) Monorepo in Netlify

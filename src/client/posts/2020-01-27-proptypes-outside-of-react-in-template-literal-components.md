@@ -1,5 +1,5 @@
 ---
-tags: engineering
+tags: engineering iconGalleries
 ---
 
 # Using PropTypes Outside of React in Template Literal Components

@@ -1,5 +1,5 @@
 ---
-tags: engineering
+tags: engineering iconGalleries
 ---
 
 # Static Site Templating: Switching from React & JSX to JavaScript & Template Literals

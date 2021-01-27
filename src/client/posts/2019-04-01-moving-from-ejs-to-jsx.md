@@ -1,5 +1,5 @@
 ---
-tags: engineering
+tags: engineering iconGalleries
 ---
 
 # Moving from EJS to JSX
