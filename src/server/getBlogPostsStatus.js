@@ -22,10 +22,14 @@ export default async function BlogPostsStatus({
 }) {
   const year = moment.getUTCFullYear();
   const currentMonth = moment.getUTCMonth() + 1;
+  // Use this to compare dates when filtering down posts
+  const d = moment.toISOString().slice(0, 10);
   const posts = allPosts.filter(
     // get everything from the moment's year (and before that month, which is
     // useful for when we want to draw a graph for a moment in the past)
-    (post) => post.date.getUTCFullYear() === year && post.date <= moment
+    (post) =>
+      post.date.getUTCFullYear() === year &&
+      post.date.toISOString().slice(0, 10) <= d
   );
 
   // prettier-ignore
@@ -110,9 +114,7 @@ export default async function BlogPostsStatus({
 
   let img;
   try {
-    await fetch(
-      `https://quickchart.io/chart?w=${w}&h=${h}&c=${c}&backgroundColor=rgb(255,255,255)`
-    )
+    await fetch(`https://quickchart.io/chart?w=${w}&h=${h}&c=${c}`)
       .then((res) => {
         if (!res.ok) {
           throw Error("Server did not return an appropriate image (no 200).");
@@ -146,7 +148,9 @@ export default async function BlogPostsStatus({
         />`}
         <p>
           Progress since my last published post.
-          <a href="#">Read more on how I made this</a>.
+          <a href="/2021/graphing-blog-post-goals/"
+            >Read more on how I made this</a
+          >.
         </p>
       </div>
     </details>
