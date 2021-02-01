@@ -5,6 +5,7 @@ import multimatch from "multimatch";
 import hljs from "highlight.js";
 import marked from "marked";
 import psl from "psl";
+import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
@@ -71,6 +72,10 @@ let App = Metalsmith(__dirname)
   .clean(true)
   .use(async (files, metalsmith, done) => {
     console.timeEnd("|-- build:setup");
+
+    // Setup data
+    const site = metalsmith.metadata();
+
     /**
      * Handle Markdown
      * Convert all .md files to .html files
@@ -216,6 +221,18 @@ let App = Metalsmith(__dirname)
     console.timeEnd("|-- build:collections");
 
     /**
+     * Handle blogPostsStatus generation
+     * Given a goal against a point in time along with some posts, see where
+     * my status is tracking.
+     */
+    site.blogPostsStatus = await getBlogPostsStatus({
+      goal: 72,
+      goalUrl: "/2021/writing-in-2020-and-2021/",
+      moment: new Date(),
+      allPosts: site.posts,
+    });
+
+    /**
      * Handle Templating
      * Render the templates and/or layouts for all applicable files
      *
@@ -227,7 +244,6 @@ let App = Metalsmith(__dirname)
      *   (site) => CustomLayout({ site, page: {...} }, children)
      */
     console.time("|-- build:templates");
-    const site = metalsmith.metadata();
     site.linksByDomain = linksByDomain;
 
     // Render templates first
@@ -285,6 +301,7 @@ let App = Metalsmith(__dirname)
  * @property {Array.<Post>} trendingPosts
  * @property {Object} page
  * @property {Object.<string,Array[string]>} linksByDomain
+ * @property {string} blogPostsStatus
  */
 
 /**
