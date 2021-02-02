@@ -20,7 +20,7 @@ If I remember correctly, my tweet came from a place of frustration and exhaustio
 Eventually I found the right incantation to break the spell of a failing build:  
 
 ```js
-// eslint-disable-next-line no-alert, no-console, yo-mamma
+// eslint-disable-next-line no-alert, no-console, please-and-thank-you
 ```
 
 This made me start to notice how frequently I read or even wrote code comments as tooling instructions (i.e. telling prettier to stop or telling webpack where to code split). Code comments for machines were more prevalent than code comments for humans. My code contained instructions for two masters: 1) the one that would parse, build, transpile, compile, or whatever else it, and 2) the one that would eventually execute it (the client).
