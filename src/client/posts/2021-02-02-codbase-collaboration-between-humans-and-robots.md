@@ -43,7 +43,7 @@ For this blog post, I went out and grabbed a few more examples:
 
 Take a moment to let this all soak in. Can you imagine having to setup, configure, update, and maintain all of these? Thank goodness somebody knows how. Every single one of those configs has `n` number of settings. Think of the incredible amount of work that would be required to read the docs for each config and understand A) what it’s doing, and B) what else is possible that isn’t yet configured.
 
-Side note: I’ll grant that these screenshots aren’t meant to be a perfectly accurate representation of managing robot collaborators vs. human ones. I’m sure I missed configs/tooling in some places and wrongly highlted them in others. Additionally, there’s no real science behind what constitutes being for machines or not (`.gitattributes` seems rationale and part of local file development, while `.circleci` is clearly for CI/CD). All that said, there’s a lot of commit messages in these repos relating to robot care and maintenance. Just look at these examples commit messages from a single repo:
+Side note: I’ll grant that these screenshots aren’t meant to be a perfectly accurate representation of managing robot collaborators vs. human ones. I’m sure I missed configs/tooling in some places and wrongly highlighted them in others. Additionally, there’s no real science behind what constitutes being for machines or not (`.gitattributes` seems rationale and part of local file development, while `.circleci` is clearly for CI/CD). All that said, there’s a lot of commit messages in these repos relating to robot care and maintenance. Just look at these examples commit messages from a single repo:
 
 - “Upgrade to prettier 2”
 - “upgrade examples to webpack-cli major 4”
