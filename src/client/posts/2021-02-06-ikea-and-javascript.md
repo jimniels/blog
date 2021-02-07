@@ -8,7 +8,7 @@ There’s [a tweet](https://twitter.com/kocienda/status/1355344814166876163) goi
 
 > Web browsers are not operating systems or application development environments. They’re document viewers. The effort to make them into something more than that has been one of the biggest wrong turns in the history of computing.
 
-And there are some [good responses](https://daverupert.com/2021/02/the-web-is-something-different/) to that tweet, including an [observation from Chris Coyier](https://css-tricks.com/the-web-is-for-more-than-document-viewing/) pointing out the irony of that tweet: the author is leveraging a platform that whole-heartedly leverages the application nature of the web to criticize the application nature of the web.
+And there are some good [responses](https://daverupert.com/2021/02/the-web-is-something-different/) to that tweet, including an [observation from Chris Coyier](https://css-tricks.com/the-web-is-for-more-than-document-viewing/) pointing out its irony: the author is leveraging a platform that whole-heartedly leverages the application nature of the web to criticize the application nature of the web.
 
 All this got me thinking on a tangential subject which I wrote about in a previous article titled: [“The Economics of the Front-end”](https://blog.jim-nielsen.com/2020/economics-of-the-front-end/). I think there’s an interesting perspective in which we can look at how value is delivered over the web that doesn’t solely focus the technical merits of one approach vs. another but rather considers parallel trends elsewhere in the world. 
 
