@@ -40,7 +40,7 @@ The point is: there is an aspect of self-service here. IKEA designs delivers you
 
 To recast the dichotomy of web site vs. web app in a different light, I think we’re seeing a form of self-service similar to IKEA show up in how business’ deliver value over the web.
 
-Traditionally, a customer (user) would ask a server (business) for something. Based on what the server knew about you, it would gather a bunch of data, stitch it all together, and deliver it to you in a nice HTML document. This worked fine, until the idea of scale crept into how we develop for the web, starting with the big internet companies.
+Traditionally, a customer (user) would ask a server (business) for something. Based on what the server knew about you, it would gather a bunch of data, stitch it all together, and deliver it to you in a nice HTML document. This worked fine, until the idea of scale crept into how to develop for the web, starting with the big internet companies.
 
 Let’s take Facebook for example. Here is a company with billions of users and every user’s newsfeed is unique. When you have billions of users, that's billions of different versions of Facebook which means billions of HTML documents. What does that mean? Billions of data requests to process, templating instructions to run, unique HTML documents to store, etc., all being done by Facebook’s servers. That means Facebook has to employ all that compute power. 
 
