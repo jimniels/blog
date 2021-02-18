@@ -38,13 +38,13 @@ The syntax is useful because the ordering of the named components gets reversed,
 
 For example, imagine a bunch of my web properties in a list sorted alphabetically:
 
-- blog.jim-nielsen.com
-- gimmiedaticon.jim-nielsen.com
-- sassme.jim-nielsen.com
-- www.iosicongallery.com
-- www.jim-nielsen.com
-- www.macosicongallery.com
-- www.watchosicongallery.com
+- `blog.jim-nielsen.com`
+- `gimmiedaticon.jim-nielsen.com`
+- `sassme.jim-nielsen.com`
+- `www.iosicongallery.com`
+- `www.jim-nielsen.com`
+- `www.macosicongallery.com`
+- `www.watchosicongallery.com`
 
 There’s no discernible meaning to this list of items.
 
@@ -52,13 +52,13 @@ However, there is an inherent grouping to these names since they originate from 
 
 If we rename these to follow the reverse-DNS notation and sort them alphabetically, the groupings surface:
 
-- com.jim-nielsen.blog
-- com.jim-nielsen.gimmiedaticon
-- com.jim-nielsen.sassme
-- com.jim-nielsen.www
-- com.iosicongallery.www
-- com.macosicongallery.www
-- com.watchosicongallery.www
+- `com.jim-nielsen.blog`
+- `com.jim-nielsen.gimmiedaticon`
+- `com.jim-nielsen.sassme`
+- `com.jim-nielsen.www`
+- `com.iosicongallery.www`
+- `com.macosicongallery.www`
+- `com.watchosicongallery.www`
 
 Now everything in the world makes sense.
 
