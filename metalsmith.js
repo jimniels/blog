@@ -5,6 +5,7 @@ import multimatch from "multimatch";
 import hljs from "highlight.js";
 import marked from "marked";
 import psl from "psl";
+import cheerio from "cheerio";
 import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
@@ -18,35 +19,45 @@ console.time("build");
 // on a new line. These don’t get parsed into images wrapped in <p>s, which is
 // what I need for a client-side script (and is semantically more correct
 // I suppose). So that’s what this is doing here.
-let renderer = new marked.Renderer();
-renderer.html = (html) => {
-  if (html.startsWith("<img")) {
-    return `<p>${html}</p>`;
-  }
-  return html;
-};
 let linksByDomain = {};
-renderer.link = (href, title, text) => {
-  let hostname;
+const renderer = {
+  html(html) {
+    if (html.startsWith("<img")) {
+      return `<p>${html}</p>`;
+    }
+    return html;
+  },
+  link(href, title, text) {
+    let hostname;
 
-  if (href.startsWith(".") || href.startsWith("/")) {
-    hostname = "blog.jim-nielsen.com";
-  } else {
-    hostname = new URL(href).hostname;
-  }
+    if (href.startsWith(".") || href.startsWith("/")) {
+      hostname = "blog.jim-nielsen.com";
+    } else {
+      hostname = new URL(href).hostname;
+    }
 
-  let domain = psl.get(hostname);
+    let domain = psl.get(hostname);
 
-  if (linksByDomain[domain]) {
-    linksByDomain[domain].push(href);
-  } else {
-    linksByDomain[domain] = [href];
-  }
+    if (linksByDomain[domain]) {
+      linksByDomain[domain].push(href);
+    } else {
+      linksByDomain[domain] = [href];
+    }
 
-  return `<a href="${href}" ${title ? `title="${title}"` : ""}>${text}</a>`;
+    return `<a href="${href}" ${title ? `title="${title}"` : ""}>${text}</a>`;
+  },
 };
 
-marked.setOptions({
+marked.use({
+  // Could disable autolinks in MD
+  // https://github.com/markedjs/marked/issues/882
+  // tokenizer: {
+  //   url(src) {
+  //     // marked.setOptions({ gfm: false })
+  //     // console.log(src);
+  //     // disable gfm autolinks
+  //   },
+  // },
   renderer,
   highlight: (code, language) => {
     const validLanguage = hljs.getLanguage(language) ? language : "plaintext";
@@ -285,6 +296,43 @@ let App = Metalsmith(__dirname)
       })
     );
     console.timeEnd("|-- build:templates");
+
+    /*
+    let readingNotes = [];
+    site.posts
+      .filter((post) => post.tags && post.tags.includes("readingNotes"))
+      .forEach((post, i) => {
+        if (i < 3) {
+          const $ = cheerio.load(post.contents);
+          $("h2").each((i, h2) => {
+            const $h2 = $(h2);
+            const heading = $h2.text();
+
+            let type = "";
+            let title = "";
+            try {
+              const regex = /(.*?): (.*)/g;
+              const res = regex.exec(heading);
+              type = res[1];
+              title = res[2];
+            } catch (e) {
+              console.log("Could not determine type for `%s`", title);
+            }
+
+            const url = $h2.find("a").attr("href");
+
+            let content = $h2
+              .nextUntil("h2")
+              .toArray()
+              .map((el) => $.html(el))
+              .join("");
+
+            readingNotes.push({ type, url, title, content });
+          });
+        }
+      });
+    files[`readingNotes.json`] = { contents: JSON.stringify(readingNotes) };
+    */
 
     done();
   })

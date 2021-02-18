@@ -8,15 +8,16 @@
     "node": ">=13.2.0"
   },
   "dependencies": {
-    "browser-sync": "^2.26.7",
-    "highlight.js": "^9.15.8",
-    "marked": "^0.7.0",
+    "browser-sync": "^2.26.14",
+    "cheerio": "^1.0.0-rc.5",
+    "highlight.js": "^10.6.0",
+    "marked": "^2.0.0",
     "metalsmith": "^2.3.0",
-    "multimatch": "^3.0.0",
-    "node-fetch": "^2.6.0",
-    "nodemon": "^2.0.1",
-    "psl": "^1.8.0",
-    "prop-types": "^15.7.2"
+    "multimatch": "^5.0.0",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7",
+    "prop-types": "^15.7.2",
+    "psl": "^1.8.0"
   },
   "devDependencies": {},
   "scripts": {
