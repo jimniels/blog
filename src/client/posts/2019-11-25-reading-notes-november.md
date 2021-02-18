@@ -44,7 +44,7 @@ An interesting post as always from Jeremy, but this line:
 
 > I know that it would make my life as a developer harder. But that’s of lesser importance. It would be better for the web.
 
-## Podcast (Transcript): [“You Can Learn A Lot For The Low Price Of Your Ego - With Shawn Wang”](https://kentcdodds.com/chats-with-kent-podcast/seasons/01/episodes/you-can-learn-a-lot-for-the-low-price-of-your-ego-with-shawn-wang)
+## Podcast: [“You Can Learn A Lot For The Low Price Of Your Ego - With Shawn Wang”](https://kentcdodds.com/chats-with-kent-podcast/seasons/01/episodes/you-can-learn-a-lot-for-the-low-price-of-your-ego-with-shawn-wang)
 
 I like Shawn and the unique perspectives he brings about learning to the world of webdev. I haven’t listented to this entire podcast yet, but I liked this excerpt from the transcript:
 
