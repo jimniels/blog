@@ -57,8 +57,8 @@ If we rename these to follow the reverse-DNS notation and sort them alphabetical
 - com.jim-nielsen.sassme
 - com.jim-nielsen.www
 - com.iosicongallery.www
-- com.watchosicongallery.www
 - com.macosicongallery.www
+- com.watchosicongallery.www
 
 Now everything in the world makes sense.
 
