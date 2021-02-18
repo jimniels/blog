@@ -11,7 +11,7 @@ The speaker does a really good job explaining the current problem React has due 
 
 It’s an interesting look at where we are with React and where we might go in the future. 
 
-## “[Some Lessons I Learned in 2013](https://www.frankchimero.com/archive/2014/2013-lessons/)” by Frank Chimero
+## Article: “[Some Lessons I Learned in 2013](https://www.frankchimero.com/archive/2014/2013-lessons/)” by Frank Chimero
 
 This is a couple years old now, but I found Frank’s “lessons learned” insightful:
 
@@ -36,7 +36,7 @@ This is a couple years old now, but I found Frank’s “lessons learned” insi
 19. Find a way to forgive your mistakes.
 20. You’ll never know enough. Oh well.
 
-## [Conversations with Technology Leaders: Erik Meijer](http://queue.acm.org/detail.cfm?id=3092954)
+## Article: [Conversations with Technology Leaders: Erik Meijer](http://queue.acm.org/detail.cfm?id=3092954)
 
 This is a Q&A article I stumbled on that has some good pieces of advice in it.
 
@@ -60,7 +60,7 @@ Lastly, I love this bit about finding questions before answers. I often have to 
 
 > first focus on finding the right questions, and then the answers.
 
-## [The art of throwing JavaScript errors](https://www.nczonline.net/blog/2009/03/03/the-art-of-throwing-javascript-errors/)
+## Article: [The art of throwing JavaScript errors](https://www.nczonline.net/blog/2009/03/03/the-art-of-throwing-javascript-errors/)
 
 There were two good reminder pieces for me in this article:
 
@@ -70,7 +70,7 @@ And
 
 > It helps to think of errors as built-in failure cases. It’s always easier to plan for a failure at a particular point in code than it is to anticipate failure everywhere.
 
-## [Design Better Data Tables](https://uxdesign.cc/design-better-data-tables-4ecc99d23356)
+## Article: [Design Better Data Tables](https://uxdesign.cc/design-better-data-tables-4ecc99d23356)
 
 A page full of gifs depicting interaction paradigms for designing data tables. Kind of an interesting little summary.
 

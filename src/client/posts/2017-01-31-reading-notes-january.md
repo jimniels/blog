@@ -3,13 +3,13 @@ title: Reading Notes, January 2017
 tags: readingNotes
 ---
 
-## [Tweet from @practicingdev](https://twitter.com/practicingdev/status/811956403745210368)
+## Tweet: [@practicingdev](https://twitter.com/practicingdev/status/811956403745210368)
 
 > The work of an experienced software developer... perception vs. reality.
 
 ![Perception vs. reality in software](https://pbs.twimg.com/media/C0SmBk6XcAQRVPH.jpg)
 
-## [The JavaScript Wars](http://cssence.com/blog/2016-11-the-javascript-wars)
+## Article: [The JavaScript Wars](http://cssence.com/blog/2016-11-the-javascript-wars)
 
 One interesting thought: HTML, CSS, and JavaScript are often called “the building blocks of the web”. But perhaps it’s worth considering URLs as the building blocks of the web:
 
@@ -17,7 +17,7 @@ One interesting thought: HTML, CSS, and JavaScript are often called “the build
 
 It’d be an interesting design exercise to work on building a site purely from URLs with no navigation, i.e. what would typically be your application header would just be one level up: in the browser URL bar.
 
-## [Your are not paid to write code](http://bravenewgeek.com/you-are-not-paid-to-write-code/)
+## Article: [Your are not paid to write code](http://bravenewgeek.com/you-are-not-paid-to-write-code/)
 
 New industry title: Front-end Systems Engineer. The responsibilities? You spend all your time updating dependencies of a project. 
 
@@ -33,7 +33,7 @@ Conclusion:
 
 > engineers should understand that they are not defined by their tools but rather the problems they solve and ultimately the value they add. But it’s important to spell out that this goes beyond things like commits, PRs, and other vanity metrics...you are not paid to write code. 
 
-## [Kiss My Classname](http://www.zeldman.com/2017/01/03/kiss-my-classname/) from Jeremy Zeldman
+## Article: [Kiss My Classname](http://www.zeldman.com/2017/01/03/kiss-my-classname/) from Jeremy Zeldman
 
 > The codebase on big sites isn’t impenetrable because developers slavishly followed arbitrary best practices. The codebase is broken because developers don’t talk to each other and don’t make style guides or pattern libraries. **And they don’t do those things because the people who hire them force them to work faster instead of better.** It starts at the top. (*emphasis added*)
 
@@ -43,7 +43,7 @@ I added that emphasis because I thought it was a great point. It’s easy to poi
 
 Great perspective, in my opinion, on organizational structure and effects on code. It’s always talked about how John or Jane Doe developer impacted the codebase, but people outside of the engineering department have an effect too. And that impact is not often talked about (or even perceived). 
 
-## [Software development: it's got nothing to do with computers](http://www.philipotoole.com/software-development-got-nothing-computers/)
+## Article: [Software development: it's got nothing to do with computers](http://www.philipotoole.com/software-development-got-nothing-computers/)
 
 > “When it comes to successful software development only the people matter.”
 
@@ -55,7 +55,7 @@ Code matters, but code is ultimately written by people. I think there were some 
 4. Do they derive pride from their work?
 5. How involved do they feel?
 
-## [On Getting Old(er) in Tech](http://corgibytes.com/blog/2016/12/06/getting-old-er-in-tech/)
+## Article: [On Getting Old(er) in Tech](http://corgibytes.com/blog/2016/12/06/getting-old-er-in-tech/)
 
 Don't love everything in this article, but a few pieces I think are solid. Like this: 
 
@@ -67,13 +67,13 @@ Don't love everything in this article, but a few pieces I think are solid. Like 
 
 For example, at my most recent job, a customer promise was made with significant business implications. I was asked to help lead the engineering effort through to completion. All I was given was a repository for a codebase nobody understood which was written in Ruby (a language I don’t know except for the occasional fiddling around with Jekyll). But hey, it was a problem that needed to be solved to add value to the business. So I dived in, recruited others to help, and saw it through. 
 
-## [Test Your Ideas (And Assumptions)](http://briangilham.com/blog/2016/11/7/test-your-ideas-and-assumptions)
+## Article: [Test Your Ideas (And Assumptions)](http://briangilham.com/blog/2016/11/7/test-your-ideas-and-assumptions)
 
 Idea of figuring out a basic prototype deliverable first. If people don’t get that right away, the extra work you would’ve invested wouldn’t have been enough to make it successful. Instead refine the conceptual idea more until the prototype is enough to convey and convince. 
 
 > Cut everything else out and share it with the world. Right now. It isn’t easy – you’ll worry it isn’t polished enough. But that’s the point. If your audience doesn’t “get it” in the rough stages, it’s unlikely a few extra hours of work will change their minds. You can always improve it later if the feedback is positive...Some of the more critical comments sting a little, at first. But I’d rather hear them now than ten episodes down the road.
 
-## [Web development as a hack of hacks](http://www.quirksmode.org/blog/archives/2016/09/web_development.html)
+## Article: [Web development as a hack of hacks](http://www.quirksmode.org/blog/archives/2016/09/web_development.html)
 
 An interesting commentary on a [hacker news thread](https://news.ycombinator.com/item?id=12477190). Front-end is often looked down on, but that looked down upon-ness stems mostly from real CS people who see the web stack (HTML, CSS, JavaScript) as suboptimal to their real stacks. 
 

@@ -14,7 +14,7 @@ What I actually really loved about this site and found rather witty and novel wa
 
 I found the anarchist, "freedom fighter" approach to this site’s open graph metadata rather novel and amusing.
 
-## Talk Deck: [“Webhooks and Events and Microservices, oh my!”](https://noti.st/philhawksworth/Vj0mid/webhooks-and-events-and-microservices-oh-my) from Phil Hawksworth
+## Talk: [“Webhooks and Events and Microservices, oh my!”](https://noti.st/philhawksworth/Vj0mid/webhooks-and-events-and-microservices-oh-my) from Phil Hawksworth
 
 Phil once heard someone say, “I wouldn’t use a minimum viable parachute” to which he responds “I would if I was in a situation where I needed a parachute”. His point being:
 

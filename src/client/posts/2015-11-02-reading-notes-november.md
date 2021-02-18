@@ -11,7 +11,7 @@ A great little piece of writing touching on the art of human relationships. It�
 
 > If I really want to change someone’s mind, then I need to make the effort to first understand their mind. That’s going to be far more productive than declaring that my own mind is made up. After all, if I show no willingness to consider alternative viewpoints, why should they?
 
-## Talk Transcript: [Haunted by Data](http://idlewords.com/talks/haunted_by_data.htm)
+## Talk: [Haunted by Data](http://idlewords.com/talks/haunted_by_data.htm)
 
 A very on-point lecture on the limitations and danger of the our digital mentality “collect everything and maybe we will use it later”.
 
@@ -35,7 +35,7 @@ Perhaps this story seems unreal, but the speaker provides a less fictitious exam
 > You thought observing the driver’s behavior would get you closer to reality, but instead you've put another layer between you and what's really going on.
 > These kinds of arms races are a symptom of data disease. We've seen them reach the point of absurdity in the online advertising industry, which unfortunately is also the economic cornerstone of the web. Advertisers have built a huge surveillance apparatus in the dream of perfect knowledge, only to find themselves in a hall of mirrors, where they can't tell who is real and who is fake.
 
-## Talk Transcript: [The Internet With A Human Face](http://idlewords.com/talks/internet_with_a_human_face.htm)
+## Talk: [The Internet With A Human Face](http://idlewords.com/talks/internet_with_a_human_face.htm)
 
 Love this assertion the speaker makes: very often data is just a mirror, it reflects whatever assumptions we bring to it.
 

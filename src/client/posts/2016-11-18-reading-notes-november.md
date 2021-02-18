@@ -3,7 +3,7 @@ title: Reading Notes, November 2016
 tags: readingNotes
 ---
 
-## [Rich Hickey Rails Conf Keynote: Simplicity Matters](https://www.youtube.com/watch?v=rI8tNMsozo0) via YouTube
+## Video: [Rich Hickey Rails Conf Keynote: Simplicity Matters](https://www.youtube.com/watch?v=rI8tNMsozo0)
 
 > specialization generally leads to optimization, not innovation
 
@@ -15,7 +15,7 @@ Is that simple or easy? It's easy — easy to get that complexity. Perhaps it wa
 
 > If you want everything to be familiar you’ll never learn anything new.
 
-## [One Behavior Separates The Successful From The Average](https://medium.com/the-mission/one-behavior-separates-the-successful-from-the-average-936f7ff04793#.s5dchyyfv) via Medium
+## Article: [One Behavior Separates The Successful From The Average](https://medium.com/the-mission/one-behavior-separates-the-successful-from-the-average-936f7ff04793#.s5dchyyfv)
 
 Generally I dislike articles with headlines like this. But the story in the article illustrates a characteristic of great employees that is sometimes difficult to articulate. The story goes something like this:
 
@@ -29,7 +29,7 @@ This short story illustrates a trait an admirable characteristic of great employ
 
 *You’re given a sphere of influence to act within. Act. Don’t simply be acted upon.*
 
-## [Advice on Management](https://twitter.com/marcprecipice/status/791737937448677376) via Twitter
+## Tweet: [Advice on Management](https://twitter.com/marcprecipice/status/791737937448677376)
 
 Mar Headland has been working as an engineering manager since 1994. Recently on Twitter he talked about how he gets lots of requests for management advice. So, based on the list of questions he’s compiled over the years, he generated the following advice (rolled out in ten tweets):
 
@@ -44,7 +44,7 @@ Mar Headland has been working as an engineering manager since 1994. Recently on 
 9. We talk a lot about diversity and inclusion. Here's my unpopular opinion: you, as a manager, have to force it to happen, or it won't ever.
 10. Usually when people ask, "Should I fire this person?" the answer is yes. But usually they do it dramatically more brutally than needed.
 
-## [How I Practice Resilience for the Unknown Trying Times Ahead](https://medium.com/@wilreynolds/practicing-resilience-e52814673db5) via Medium
+## Article: [How I Practice Resilience for the Unknown Trying Times Ahead](https://medium.com/@wilreynolds/practicing-resilience-e52814673db5)
 
 Here’s my paraphrase:
 
@@ -52,7 +52,7 @@ Sometimes, try taking the things that are against your typical behavior and inst
 
 It’s a really interesting and practical approach to day to day life. When things happen that are uncomfortable or unnatural to you, brace them as opportunities for practice. Rather than practicing your already refined skill of avoiding them.
 
-## [My Increasing Wariness of Dogmatism](https://css-tricks.com/increasing-wariness-dogmatism/) via Chris Coyer from CSS Tricks
+## Article: [My Increasing Wariness of Dogmatism](https://css-tricks.com/increasing-wariness-dogmatism/)
 
 > Hardly a day goes by I don't see a dogmatic statement about the web.
 

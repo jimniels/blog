@@ -3,7 +3,7 @@ title: Reading Notes, May 2017
 tags: readingNotes
 ---
 
-## "[Complexity and Strategy](https://hackernoon.com/complexity-and-strategy-325cd7f59a92)" by Terry Crowley, Former Microsoft Office Lead
+## Article: [“Complexity and Strategy”](https://hackernoon.com/complexity-and-strategy-325cd7f59a92) by Terry Crowley, Former Microsoft Office Lead
 
 Terry Crowley, a Microsoft engineer who lead Office development for over the last decade, reflects on the complexity of building software: from planning releases to technical strategy to dealing with market competition. There were two parts that stuck out to me I wanted to note:
 
@@ -24,7 +24,7 @@ Number two:
 I find that a very interesting long-term observation on leveraging frameworks in your codebase. You always see the benefits up front. But in the long run frameworks are “free as in puppy”: once the initial joy has subsided they leave you with responsibility.
 
 
-## "[Back to the Cave](https://www.frankchimero.com/writing/back-to-the-cave/)" by Frank Chimero
+## Article: [“Back to the Cave”](https://www.frankchimero.com/writing/back-to-the-cave/) by Frank Chimero
 
 I have to admit, when I first started reading this and the author was framing some important questions, I felt like I was going to barf a little when it seemed he was going to give a definitive answer for each (like almost every article on the internet it seems). But then he didn't. It was so refreshing. It reminded me how little things like that make me love Frank’s writing. The question he frames: is going off on your own worth it?
 
@@ -58,15 +58,15 @@ One last great point:
 
 > I mistake the work’s flaws for my own. Perhaps that’s something many of us have in common. The way to approach this issue is clear: we must acknowledge we are involved in our unsteadiness, but believe we are only part of its reason. If we allow room in our work for serendipity to occur, that same space must also be reserved for misfortune. We are the cause of neither.
 
-## A Quote
+## Quote: Sovling Problems
 
-A quote often attributed to Einstein, though [apparently sourced  from a nameless professor at Yale](http://quoteinvestigator.com/2014/05/22/solve/): 
+A quote often attributed to Einstein, though [apparently sourced from a nameless professor at Yale](http://quoteinvestigator.com/2014/05/22/solve/): 
  
 > If I had only one hour to solve a problem, I would spend up to two-thirds of that hour in attempting to define what the problem is.
 
 The more I work in software, the more I realize this is the way to go.
 
-## “[How technology created a global village—and put us at each others throats](https://www.bostonglobe.com/ideas/2017/04/21/how-technology-created-global-village-and-put-each-other-throats/pu7MyoAkdyVComb9aKyu6K/story.html)” by Nicholas Carr via The Boston Globe
+## Article: [“How technology created a global village—and put us at each others throats”](https://www.bostonglobe.com/ideas/2017/04/21/how-technology-created-global-village-and-put-each-other-throats/pu7MyoAkdyVComb9aKyu6K/story.html) by Nicholas Carr via The Boston Globe
 
 I don’t know how they get numbers like this, but it’s an interesting figure:
 
@@ -100,7 +100,7 @@ Carr concludes:
 
 > [technology doesn’t] make us better people. That’s a job we can’t offload on machines.
 
-## Video: “[The Post JavaScript Apocalypse](https://www.youtube.com/watch?v=NPB34lDZj3E)” by Douglas Crockford
+## Video: [“The Post JavaScript Apocalypse”](https://www.youtube.com/watch?v=NPB34lDZj3E) by Douglas Crockford
 
 Some thoughts about the direction of JavaScript, specifically  how to remove redundant constructs of today’s javascript from the language and leave ourselves with fewer methods of expression. You might think having fewer methods of expression would be a bad thing, but he argues that fewer is actually better because it lowers the cognitive dissonance you encounter when running into two things that are *mostly* similar but not identical, which you then have to expend mental energy differentiating (he illustrated this with an analogy to purging your life of things, which I thought was interesting). It’s a parallel for [Garrett’s law](http://www.garrettkalleberg.com/), which goes something like this: if two things are similar, either 1) accentuate the differences and make them more different, or 2) eliminate the differences and make them identical.
 
@@ -128,7 +128,7 @@ Service workers are another good example. When somebody loads your webpage for t
 
 It’s a really good way to build your UI’s, by building them around failure cases.
 
-## “[Mobile First, Desktop Worst – Prototyping: From UX to Front End](https://medium.com/@opdbrooks/mobile-first-desktop-worst-f900909ae9e2)” by Oliver Brooks, Creative Director at MetaLab
+## Article: [“Mobile First, Desktop Worst – Prototyping: From UX to Front End”](https://medium.com/@opdbrooks/mobile-first-desktop-worst-f900909ae9e2) by Oliver Brooks, Creative Director at MetaLab
 
 An interesting read which presents a challenge to the traditional mobile first thinking. The author contrasts “mobile first” design philosophy (at least as one of its definitions) to an analogy of physical product design:
 
@@ -136,7 +136,7 @@ An interesting read which presents a challenge to the traditional mobile first t
 
 I like the challenge he presents to the assunmption that “there is a consistent, linear relationship between complexity and form”. For some websites I think staring at mobile first and building up linearly works just fine. For others, however, I think it leaves *much* lacking.
 
-## "[Plainness and Sweetness](https://www.frankchimero.com/blog/2017/plainness-and-sweetness/)" by Frank Chimero
+## Article: [“Plainness and Sweetness”](https://www.frankchimero.com/blog/2017/plainness-and-sweetness/) by Frank Chimero
 
 > It’s human nature: I over-value where I have influence. Since I am a designer, this frequently means placing too much emphasis on how things look and work rather than the direction they are pointed. But reflecting on the other side of the issue is also interesting: I find that the more input I have in the content and strategy of the project, the less burden I place on the aesthetics. Perhaps this is because I believe the aesthetic of the work should be an extension of its objectives, so if you get the strategy right, the look follows. Since I like to tackle problems sideways, I must risk being plain and rely on direct visuals to keep the work comprehensible.
 
