@@ -27,6 +27,15 @@ export default function Archive(site) {
           )}
       </ul>
 
+      ${site.postsByYearChartPath &&
+      html`
+        <img
+          src="/${site.postsByYearChartPath}"
+          width="600"
+          height="400"
+          alt="Graph depicting the change in number of posts published per year, starting in 2012."
+        />
+      `}
       ${Object.keys(postsByYear)
         .sort()
         .reverse()

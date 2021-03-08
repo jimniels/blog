@@ -1,5 +1,6 @@
 import Metalsmith from "metalsmith";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 import multimatch from "multimatch";
 import hljs from "highlight.js";
@@ -9,6 +10,7 @@ import cheerio from "cheerio";
 import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
+import getPostsByYearChart from "./scripts/getPostsByYearChart.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 console.log("build");
@@ -242,6 +244,36 @@ let App = Metalsmith(__dirname)
       moment: new Date(),
       allPosts: site.posts,
     });
+
+    // Here’s how this works:
+    // We want to dynamically generate a chart at build time. But
+    // we don't want to generate one everytime there's a build (for dev)
+    // So, if the image already exists on disk, don't bother regenerating it.
+    // Otherwise go fetch it.
+    // Then we set the `meta` item, that way if the image fails to retrieve
+    // for some reason during the build process, it won't get displayed in the
+    // template output.
+    const postsByYearChartPath = "archive/posts-by-year-chart.png";
+    const fileOnDisk = path.join(metalsmith.source(), postsByYearChartPath);
+    if (fs.existsSync(fileOnDisk)) {
+      meta.postsByYearChartPath = postsByYearChartPath;
+    } else {
+      try {
+        const img = await getPostsByYearChart();
+        meta.postsByYearChartPath = postsByYearChartPath;
+        files[postsByYearChartPath] = {
+          contents: img
+        };
+        // Write to disk for caching if it's dev env
+        if (meta.isDevelopment) {
+          fs.writeFileSync(fileOnDisk, img);
+        }
+      } catch(e) {
+        console.error("Failed to retrieve chart.", e);
+        meta.postsByYearChartPath = "";
+      }
+    }
+    
 
     /**
      * Handle Templating
