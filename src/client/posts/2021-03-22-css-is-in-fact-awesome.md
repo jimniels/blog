@@ -12,7 +12,7 @@ Specifically, I really enjoyed Hidde’s shakedown of the “CSS is Awesome” m
 
 <img src="https://cdn.jim-nielsen.com/blog/2021/css-is-awesome-default.png" width="498" height="364" alt="The standard ‘CSS is awesome’ meme where the word ‘awesome’ flows outside of its containing box." />
 
-Hidde flips this joke on its head and points out that this joke  demonstrates how awesome CSS actually is.
+Hidde flips this joke on its head and points out that this joke actually demonstrates how awesome CSS is.
 
 What you see in the image is CSS _by default_. From this starting point, you have options. CSS doesn’t guess at what you’re trying to do.
 
@@ -36,7 +36,7 @@ So the dots Hidde connects, which I’d never put together, is that when we see 
 
 <img src="https://cdn.jim-nielsen.com/blog/2021/css-is-awesome-default.png" width="498" height="364" alt="The standard ‘CSS is awesome’ meme where the word ‘awesome’ flows outside of its containing box." />
 
-And we point and jest, that is merely us not liking—or understanding—the defaults inherent in CSS. The overflow is working here as specified. We simply haven’t learned or understood CSS on that deeper level. And we tend to make fun of what we don’t understand.
+And we point and jest, that is merely us not liking—or understanding—the defaults inherent in CSS. The overflow is working here as specified. We simply haven’t learned or understood CSS on that deeper level.
 
 This lack of understanding CSS at a deeper level has corollaries in JavaScript. For example, people will laugh at expressions in JavaScript like this:
 
@@ -44,7 +44,7 @@ This lack of understanding CSS at a deeper level has corollaries in JavaScript. 
 true == "true" // false
 ```
 
-On the surface, yes that’s odd. But if you look at the spec and understand the mechanisms that are at play deep in the language (coercion in this example), you’ll begin to understand how and why the spec is actually taking care of you.
+On the surface, yes that’s odd. But if you look at the spec and understand the mechanisms that are at play deep in the language (coercion in this example), you’ll begin to understand how and why the spec is written the way it is.
 
 This is precisely what Kyle Simpson argues in his eye-opening book [_You Don’t Know JS_](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/up%20%26%20going/ch1.md):
 
