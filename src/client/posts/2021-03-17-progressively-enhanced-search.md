@@ -31,7 +31,7 @@ Instead of merely a link, you could also capture the search query on your page a
 </form>
 ```
 
-Then use JS, where present, to prevent the default behavior of the form from submitting to Google and instead execute whatever client-side search functionality you dream up on your site.
+Then use JS, where present, to prevent the default behavior of the form from submitting to Google—or the search engine of your choice for the privacy minded—and instead execute whatever client-side search functionality you dream up on your site.
 
 I like this idea of being able to provide the core search functionality without JavaScript. It requires no additional lift on my part to leverage a search engine that’s already indexing my site.
 
