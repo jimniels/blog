@@ -22,7 +22,7 @@ Lucky for me, I’ve been tagging my monthly “Reading Notes” posts for years
 
 The problem here is the same one that Dave described: these are just chronologically-named posts that don’t give me any clue into their contents.
 
-“What would be great,” I thought “is if I could just see the contents of all these posts right here inline.” 
+“What would be great” I thought, “is if I could just see the contents of all these posts right here inline.” 
 
 How convenient for me that I control my own blog. And how convenient for me that my current URL scheme had a logical place for something like this to live:
 
