@@ -76,3 +76,8 @@ I didn’t mean to make this a rant. I wish I had answers to these kinds of prob
 
 All of this did get me thinking: imagine if we put the same amount of effort into supporting the humans who help build our projects as we do for the robots who help us? Maybe a few more of the cultural/social problems associated with programming would “magically” disappear.
 
+## Update 2021-03-31
+
+Dave Rupert [decided](https://twitter.com/davatron5000/status/1356704436391993345) to take this idea and put it into [code](https://gist.github.com/davatron5000/9db6a622a6f2203ec1f900512d6fae86). After seeing his gist, I thought “I should’ve done this when I was creating the graphics for this post!” (I was screenshotting Github and manually overlaying colors one by one.)
+
+Later, Dave took his gist and [turned it into an unpacked Chrome extension](https://twitter.com/davatron5000/status/1377261802778689537?s=20). You can see and download the code [on Github](https://github.com/davatron5000/humans-vs-robots). I’ve had the extension installed for a couple days and it’s really cool to be browsing projects on Github and see this distinction called out.
