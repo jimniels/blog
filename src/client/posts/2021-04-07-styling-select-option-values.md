@@ -30,7 +30,7 @@ For my case, the `<select>` makes sense because its a limited set of options.
 However, it would be nice if I could make the options more visual. For example: prefix every color’s textual value with a visual representation of the corresponding color, like what you see in the macOS settings for “Highlight color”:
 
 <img src="https://cdn.jim-nielsen.com/blog/2021/select-highlight-color.png" width="382" height="346" alt="Screenshot of the “Highlight color” setting in macOS system preferences, which is a dropdown of color values prefixed with a visual representation of the color itself." />
- 
+
 Wouldn’t it be nice if the `<select>` option in HTML allowed this kind of flexibility? Say, the ability to provide an image or icon? 
 
 Of course, you have to remember that the native `<select>` dropdown is not a “dropdown” in all scenarios. Different devices and operating systems handle this input differently. On macOS, for example, you see a dropdown when triggering a `<select>`. However, on iOS, you don’t see a dropdown appear on screen below the `<select>` but rather a kind of virtual keyboard tailored  for handling this type of input:
