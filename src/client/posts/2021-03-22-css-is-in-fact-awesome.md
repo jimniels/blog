@@ -59,3 +59,7 @@ This is right inline with an insightful sentiment expressed by Josh Comeau in hi
 > When we write code—in any language—we rely on our mental model of how that language works. If our mental model is incomplete or incorrect, there's a good chance that we won't get the result we were expecting. In CSS, those misalignments are super common, because of how implicit CSS is.
 
 This all falls right inline with [a sentiment I’ve expressed before](/2020/web-technologies-and-syntax/) about how “the working knowledge of [HTML/CSS/JS] are less about syntax and more about how things work.” CSS is, in fact, awesome. Familiarizing ourselves with its underlying rules and mechanisms allows us to fully recognize its awesomeness.
+
+## Update 2021-04-07
+
+[Chris linked to this post from CSS-Tricks](https://css-tricks.com/css-is-in-fact-awesome/) where he provides much more history behind the “CSS is Awesome” meme, including Brandon Michael writing about it [on CSS-Tricks](https://css-tricks.com/css-is-awesome/) circa 2017, Steven Frank, original creator of the meme, [commenting on Brandon’s post](https://css-tricks.com/css-is-awesome/#comment-1609829), and Mandy Michael [tweeting](https://twitter.com/Mandy_Kerr/status/985351593972252672) about it circa 2018. Lots of good history documented in Chris’ post.
