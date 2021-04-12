@@ -220,3 +220,8 @@ This was the long way of saying “How To Do iOS Icon Masks in the Browser”. I
 2. Define one border in SVG and apply everywhere, even in the case of responsiveness where the SVG shrinks
 
 Hope you enjoyed this exhaustive look at doing (what seems like) a simple thing.
+
+## Update 2021-04-12
+
+While you still can’t draw inner and outer border strokes in SVG, I did figure out a way to create a single iOS border shape that works across all my sizes. You can read more about it in my  post [“SVG Stroke Positioning, iOS Masks, and the Browser”](https://blog.jim-nielsen.com/2021/svg-stroke-positioning-ios-masks-browser/).
+
