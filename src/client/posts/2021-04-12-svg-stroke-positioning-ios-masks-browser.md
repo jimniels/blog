@@ -18,7 +18,7 @@ This wasn’t possible as a pure border in SVG because, while you can use `vecto
 
 My dilemma was that I could get a 1px _centered_ border at variable sizes, but I couldn’t get a 1px _inner_ border at variable sizes.
 
-In 2021, you can dictate the position of the border in a design tool like Sketch but not in the SVG file you export (image courtesy of Peter Nowell on Medium).
+In 2021, you can dictate the position of the border in a design tool like Sketch but not in the SVG file you export (image courtesy of [Peter Nowell](https://medium.com/sketch-app-sources/sketchs-brilliant-new-way-to-export-borders-as-svg-bc8fc5f6d5b1)).
 
 <img src="https://cdn.jim-nielsen.com/blog/2021/ios-icons-svg-borders.png" width="640" height="380" alt="Screenshot depicting inner, outer, and centered border positioning for vector strokes along with support for each by Sketch and the SVG spec." />
 
@@ -26,11 +26,11 @@ How to deal with this dilemma? [Peter Nowell has a great article](https://medium
 
 1. Outline your borders (this is what I did originally)
 2. Use centered borders, but manually reposition the points yourself
-3. Use centered borders, but double the width and mask the border overflow
+3. Use centered borders, but double the border width and mask the overflow
 
 ## Option 1 (What I Was Doing)
 
-Number one is what I did originally. It works, but the purist in me screams at having to create multiple sizes of the same image: that’s the very antithesis of vector images! 
+Number one is what I did originally. It works, but the purist in me doesn’t allow me to sleep at night when I have to create multiple sizes of the same image: that’s the very antithesis of vector images! 
 
 ## Option 2 (What Won’t Work in My Case)
 
@@ -38,7 +38,7 @@ Number two is interesting. In essence, you redraw the shape but slightly inset w
 
 <img src="https://cdn.jim-nielsen.com/blog/2021/ios-icons-respositioned-and-resized.png" width="1453" height="985" alt="Screenshot of Sketch showing a vector stroke aligned on a half pixel edge." />
 
-This works and is a neat trick. But it becomes problematic in my case as the SVG scales in size. When it goes from 128px to 512px in size, the half pixel positioning of the x/y edges fudges slightly. Not a ton, but just enough to become noticeable. Once I changed the SVG to be scalable to its containing box, notice how its position relative to its edges become flexible and no longer bleed to the edge:
+This works and is a neat trick. But it becomes problematic in my case as the SVG scales in size. When it goes from 128px to 512px in size, the half pixel positioning of the x/y edges fudges slightly. Not a ton, but just enough to become noticeable. Once I changed the SVG to be scalable to its containing box, notice how its position relative to its edges become flexible and no longer bleed to the edges:
 
 <img src="https://cdn.jim-nielsen.com/blog/2021/ios-icons-resized-position.png" width="947" height="981" alt="Screenshot of two different iOS borders, where the larger iOS border doesn’t bleed to the edge of the frame." />
 
@@ -54,4 +54,4 @@ When paired with `vector-effect="non-scaling-stroke"` and a resizable artboard, 
 
 This is what I’m doing today for my [iOS Icon Gallery](https://www.iosicongallery.com) and I can now sleep at night, knowing I’ve got a single vector image that can scale infinitely in size  to the needs of the context.
 
-The purist in me is content. Well, sort of. I still want inner, outer, or centered borders in SVG2 and when that comes along, I’m sure there will be another blog post where I switch to that so I can sleep even more soundly at night.
+As for the purist in me, well, he is sort of content. He still wants inner, outer, or centered borders supported natively in SVG. When that comes along, I’m sure there will be another blog post where I switch to that so I can sleep even more soundly at night.
