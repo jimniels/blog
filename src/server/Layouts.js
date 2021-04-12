@@ -82,7 +82,9 @@ const Layout = (props, children) => {
         </head>
         <body>
           ${permalink !== "/" &&
-          html`<nav><a href="/">Jim Nielsen’s Blog</a></nav>`}
+          html`<nav>
+            <a href="/">Jim<span class="nielsen"> Nielsen</span>’s Blog</a>
+          </nav>`}
           ${children}
 
           <script src="/assets/js/index.js" type="module"></script>

@@ -79,7 +79,7 @@ export default function Index(site) {
   return PageCustom(
     { site, page },
     html`
-      <h1>Jim<span> Nielsen</span>’s Blog</h1>
+      <h1>Jim<span class="nielsen"> Nielsen</span>’s Blog</h1>
 
       <nav class="site-nav">
         <ul>
