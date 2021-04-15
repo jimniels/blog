@@ -36,7 +36,7 @@ And we have’t even arrived at WASM yet.
 
 It’s ironic that one of the early signals of pride and craft for building on the web was “handcrafted” HTML and CSS, something altogether now replaced by the cryptic output of machines.
 
-Christian Hielman covers ground on this whole topic in his article about [teaching HTML and CSS](https://christianheilmann.com/2021/01/21/teaching-html-and-css/):
+Christian Heilman covers ground on this whole topic in his article about [teaching HTML and CSS](https://christianheilmann.com/2021/01/21/teaching-html-and-css/):
 
 > The information [about] what an HTML document needs to even allow the browser do its thing isn’t exciting.
 >
