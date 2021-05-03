@@ -1,5 +1,5 @@
 ---
-tags: html
+tags: html webComponents
 ---
 
 # Custom Elements Without JavaScript?

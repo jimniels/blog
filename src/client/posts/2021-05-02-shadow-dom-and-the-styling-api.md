@@ -1,5 +1,5 @@
 ---
-tags: html css
+tags: html css webComponents
 ---
 
 # Shadow DOM and Its Effect on the Unofficial Styling API
