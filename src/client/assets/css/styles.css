@@ -60,7 +60,7 @@ article header time {
    Copy
    ========================================================================== */
 
-.copy > *:not(table):not(pre):not(hr) {
+.copy > *:not(table):not(pre) {
   max-width: 32rem;
   display: block;
 }

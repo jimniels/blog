@@ -130,10 +130,10 @@ const Post = (props) => {
       <div class="copy e-content">
         ${page.contents.toString()}
       </div>
+      <footer class="copy">
+        ${replyHtml({ postTags: page.tags, postLink: page.permalink, siteOrigin: site.origin })}
+      </footer>
     </article>
-    <footer class="max-width-wrapper" style="margin-top: calc(1.618rem * 2)">
-      ${replyHtml({ postTags: page.tags, postLink: page.permalink, siteOrigin: site.origin })}
-    </footer>
   `);
 };
 

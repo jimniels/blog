@@ -186,13 +186,11 @@ pre {
   font-size: 0.9rem;
 }
 
-/* hr {
-  border: 0;
-  border-bottom: 1px solid transparent;
-  margin: 0 0 1.618rem 0;
-  width: 25%;
-  background:;
-} */
+hr {
+  /* border: 0; */
+  /* border-bottom: 1px solid transparent; */
+  margin: 1.618rem 0;
+}
 
 /* ==========================================================================
    Tables

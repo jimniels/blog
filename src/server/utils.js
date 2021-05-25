@@ -32,31 +32,32 @@ const toDateUI = (date) => {
 const toDateUIMin = (date) => toDateUI(date).split(",")[0];
 
 /**
- * The replyHtml that appears at the bottom of each post, both in feeds and in RSS
+ * The replyHtml that appears at the bottom of each post, both on the site
+ * as well as in the RSS feed
  * @param {Array<string>} postTags
  * @param {string} postLink
  * @param {string} siteOrigin
  */
 const replyHtml = ({ postTags, postLink, siteOrigin }) =>
+  // @TODO add a view random post feature
   html`
     <hr />
-    ${Array.isArray(postTags) &&
-    html`<p>
-      Tagged in:
-      ${postTags
-        .map((tag) => `<a href="${siteOrigin}/tags/#${tag}">#${tag}</a>`)
-        .join(",&nbsp;")}
-    </p>`}
-
-    <p>
-      Comment? Feedback? I like hearing your thoughts:
-      <a href="https://twitter.com/jimniels">@jimniels</a> on twitter, or
-      <a
-        href="mailto:jimniels@gmail.com?subject=Reply on blog.jim-nielsen.com&body=Source article ${postLink}"
-        >jimniels@gmail</a
-      >
-      on email.
-    </p>
+    <ul>
+      ${Array.isArray(postTags) &&
+      html`<li>
+        Tagged in:
+        ${postTags
+          .map((tag) => `<a href="${siteOrigin}/tags/#${tag}">#${tag}</a>`)
+          .join(",&nbsp;")}
+      </li>`}
+      <li>
+        <a
+          href="mailto:jimniels@gmail.com?subject=Reply on blog.jim-nielsen.com&body=Source article ${postLink}"
+          >Reply via email</a
+        >
+      </li>
+      <li><a href="https://twitter.com/jimniels">Reply on twitter</a></li>
+    </ul>
   `;
 
 export { html, toDateUI, toDateUIMin, replyHtml };
