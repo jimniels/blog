@@ -30,7 +30,7 @@ const renderer = {
   link(href, title, text) {
     let hostname;
 
-    if (href.startsWith(".") || href.startsWith("/")) {
+    if (href.startsWith(".") || href.startsWith("/") || href.startsWith("#")) {
       hostname = "blog.jim-nielsen.com";
     } else {
       hostname = new URL(href).hostname;
