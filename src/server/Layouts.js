@@ -1,5 +1,32 @@
+import fs from "fs";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 import pt from "prop-types";
 import { html, toDateUI, replyHtml } from "./utils.js";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const nav = [
+  {
+    label: "Archive",
+    id: "archive",
+  },
+  {
+    label: "Tags",
+    id: "tags",
+  },
+  {
+    label: "About",
+    id: "about",
+  },
+  {
+    label: "Feeds",
+    id: "feeds",
+  },
+].map((item) => ({
+  ...item,
+  permalink: `/${item.id}/`,
+  svg: fs.readFileSync(join(__dirname, `icon-${item.id}.svg`)).toString(),
+}));
 
 const comment = `
 <!--
@@ -52,27 +79,24 @@ const Layout = (props, children) => {
           <link rel="stylesheet" href="/assets/css/styles.css" />
 
           ${layout === "Post" &&
-          `
+          html`
             <!-- If it’s a post page, we’ll include meta info and code styling -->
             <meta property="og:title" content="${title}" />
             <meta property="og:type" content="article" />
             <meta property="og:url" content="${origin + permalink}" />
 
-            <meta name="twitter:card" content="summary">
-            <meta name="twitter:site" content="@jimniels">
-            <meta name="twitter:creator" content="@jimniels">
-            <meta name="twitter:title" content="${title}">
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:site" content="@jimniels" />
+            <meta name="twitter:creator" content="@jimniels" />
+            <meta name="twitter:title" content="${title}" />
             ${
               "" /*
               <meta name="twitter:image" content="https://blog.jim-nielsen.com/assets/img/twitter-card.png">
               <meta name="twitter:image:alt" content="Photo of Jim Nielsen saying stuff">
               */
             }
-            
-            <link
-              rel="stylesheet"
-              href="/assets/css/atom-one-light.css"
-            />
+
+            <link rel="stylesheet" href="/assets/css/atom-one-light.css" />
             <link
               rel="stylesheet"
               href="/assets/css/atom-one-dark.css"
@@ -81,10 +105,68 @@ const Layout = (props, children) => {
           `}
         </head>
         <body>
-          ${permalink !== "/" &&
-          html`<nav>
-            <a href="/">Jim<span class="nielsen"> Nielsen</span>’s Blog</a>
-          </nav>`}
+          <nav class="nav">
+            <a href="/">Jim Nielsen’s Blog</a>
+
+            ${nav.map(
+              ({ label, permalink }) => html`
+                <a class="js-hide" href="${permalink}">${label}</a>
+              `
+            )}
+            <div class="dropdown">
+              <button class="dropdown__trigger">
+                ${fs.readFileSync(join(__dirname, "icon-menu.svg")).toString()}
+              </button>
+              <ul class="dropdown__overlay" hidden>
+                ${nav.map(
+                  ({ label, permalink, svg }) => html`
+                    <li>
+                      <a href="${permalink}">${label} ${svg}</a>
+                    </li>
+                  `
+                )}
+              </ul>
+            </div>
+          </nav>
+
+          <script>
+            Array.from(document.querySelectorAll(".js-hide")).forEach((el) => {
+              console.log(el);
+              el.setAttribute("hidden", true);
+            });
+            const hideOpenDropdowns = () => {
+              const $visibleOverlay = document.querySelector(
+                ".dropdown__overlay:not([hidden])"
+              );
+              if ($visibleOverlay) {
+                $visibleOverlay.setAttribute("hidden", true);
+              }
+            };
+
+            Array.from(document.querySelectorAll(".dropdown")).forEach(
+              ($dropdown) => {
+                const $overlay = $dropdown.querySelector(".dropdown__overlay");
+
+                $dropdown
+                  .querySelector("button")
+                  .addEventListener("click", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    if ($overlay.hasAttribute("hidden")) {
+                      hideOpenDropdowns();
+                      $overlay.removeAttribute("hidden");
+                    } else {
+                      $overlay.setAttribute("hidden", true);
+                    }
+                  });
+              }
+            );
+
+            document.body.addEventListener("click", (e) => {
+              hideOpenDropdowns();
+            });
+          </script>
           ${children}
 
           <script src="/assets/js/index.js" type="module"></script>

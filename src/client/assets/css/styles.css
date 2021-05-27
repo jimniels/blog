@@ -9,37 +9,80 @@ body {
   }
 }
 
-@media screen and (max-width: 500px) {
-  .nielsen {
-    display: none;
-  }
-}
-
 /* =============================================================================
    Primary Site Navigation
    ========================================================================== */
 
-.site-nav {
-  margin: -1.618rem 0 calc(1.618rem * 1.5);
+.nav {
+  display: flex;
+  align-items: center;
+  color: var(--c-blue);
+  max-width: 32rem;
 }
 
-.site-nav ul {
+.nav a[href="/"] {
+  margin-right: calc(1.618rem / 4);
+}
+
+.nav svg {
+  fill: var(--c-highlight);
+}
+
+/* Dropdown
+   ========================================================================== */
+
+.dropdown {
+  position: relative;
+}
+.dropdown__overlay[hidden] {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+}
+.dropdown__overlay {
+  background: var(--c-bg);
+  border: 1px solid var(--c-gray-6);
+  border-radius: var(--border-radius);
+  list-style: none;
+  margin: 0;
+  box-shadow: 0 3px 10px var(--c-gray-3);
+  padding: calc(1.618rem / 3) calc(1.618rem / 2);
+  position: absolute;
+  width: 250px;
+  margin-left: -125px;
+  left: 50%;
+  top: 2rem;
+  transition: 0.2s ease all;
+  transform: scale(1);
+  transform-origin: 50% 0;
+  z-index: 100;
+}
+
+.dropdown button {
+  background: transparent;
+  border: none;
   margin: 0;
   padding: 0;
-  list-style-type: none;
+  color: var(--c-blue);
+  border-radius: var(--border-radius);
   display: flex;
+  align-items: center;
+  padding: calc(1.618rem / 6);
 }
 
-.site-nav li:after {
-  /* @TODO remove underline on hover */
-  content: "/";
-
-  color: var(--c-gray-6);
-  margin: 0 calc(1.618rem / 3);
+.dropdown button:hover {
+  background: var(--c-gray-6);
 }
 
-.site-nav li:last-child:after {
-  content: "";
+.dropdown a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(1.618rem / 8) 0;
+}
+.dropdown a svg {
+  fill: var(--c-blue);
 }
 
 /* =============================================================================
@@ -86,7 +129,7 @@ article header time {
 .posts-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 1.618rem 0;
 }
 
 .posts-list li {
