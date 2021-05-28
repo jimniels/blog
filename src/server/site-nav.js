@@ -3,57 +3,48 @@ class SiteNav extends HTMLElement {
     super();
 
     const links = Array.from(this.children);
-    this.innerHTML = `
-      <div class="dropdown">
-        <button class="dropdown__trigger" aria-label="Menu">
-          <svg class="icon">
-            <use xlink:href="#menu"></use>
-          </svg>
-        </button>
-        <ul class="dropdown__overlay" hidden>
-          ${links
-            .map(
-              ($a) => `
-              <li>
-                <a href="${$a.getAttribute("href")}">
-                  ${$a.text}
-                  <svg class="icon">
-                    <use xlink:href="#${$a.getAttribute("data-svg-id")}"></use>
-                  </svg>
-                </a>
-              </li>`
-            )
-            .join("")}
-        </ul>
-      </div>
+    this.innerHTML = /*html*/ `
+      <button aria-label="Menu">
+        <svg class="icon">
+          <use xlink:href="#menu"></use>
+        </svg>
+      </button>
+      <ul hidden>
+        ${links
+          .map(
+            ($a) => /*html*/ `
+            <li>
+              <a href="${$a.getAttribute("href")}">
+                ${$a.text}
+                <svg class="icon">
+                  <use xlink:href="#${$a.getAttribute("data-svg-id")}"></use>
+                </svg>
+              </a>
+            </li>`
+          )
+          .join("")}
+      </ul>
     `;
   }
 
   connectedCallback() {
-    const hideOpenDropdowns = () => {
-      const $visibleOverlay = this.querySelector(
-        ".dropdown__overlay:not([hidden])"
-      );
-      if ($visibleOverlay) {
-        $visibleOverlay.setAttribute("hidden", true);
-      }
-    };
-
-    const $overlay = this.querySelector(".dropdown__overlay");
+    const $dropdown = this.querySelector("site-nav ul");
     this.querySelector("button").addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
 
-      if ($overlay.hasAttribute("hidden")) {
-        hideOpenDropdowns();
-        $overlay.removeAttribute("hidden");
+      if ($dropdown.hasAttribute("hidden")) {
+        $dropdown.removeAttribute("hidden");
       } else {
-        $overlay.setAttribute("hidden", true);
+        $dropdown.setAttribute("hidden", true);
       }
     });
 
     document.body.addEventListener("click", (e) => {
-      hideOpenDropdowns();
+      const $visibleDropdown = this.querySelector("ul:not([hidden])");
+      if ($visibleDropdown) {
+        $visibleDropdown.setAttribute("hidden", true);
+      }
     });
   }
 }

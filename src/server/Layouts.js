@@ -27,7 +27,6 @@ const nav = [
 ].map((item) => ({
   ...item,
   permalink: `/${item.id}/`,
-  // svg: fs.readFileSync(join(__dirname, `icon-${item.id}.svg`)).toString(),
 }));
 
 const comment = `
