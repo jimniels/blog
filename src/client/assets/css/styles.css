@@ -16,16 +16,16 @@ body {
 .nav {
   display: flex;
   align-items: center;
-  color: var(--c-blue);
+  color: var(--c-primary);
   max-width: 32rem;
 }
 
 .nav a[href="/"] {
-  margin-right: calc(1.618rem / 4);
+  margin-right: calc(1.618rem / 2);
 }
 
 .nav svg {
-  fill: var(--c-highlight);
+  fill: var(--c-primary);
 }
 
 /* Dropdown
@@ -64,7 +64,7 @@ body {
   border: none;
   margin: 0;
   padding: 0;
-  color: var(--c-blue);
+  color: var(--c-primary);
   border-radius: var(--border-radius);
   display: flex;
   align-items: center;
@@ -82,7 +82,18 @@ body {
   padding: calc(1.618rem / 8) 0;
 }
 .dropdown a svg {
-  fill: var(--c-blue);
+  fill: var(--c-primary);
+}
+
+@media screen and (max-width: 500px) {
+  .nav {
+    justify-content: space-between;
+  }
+  .dropdown__overlay {
+    right: calc(-1.618rem / 3);
+    left: initial;
+    transform-origin: 85% 0;
+  }
 }
 
 /* =============================================================================
@@ -191,4 +202,13 @@ article header time {
 #bps > div {
   text-align: center;
   color: var(--color-text-light);
+}
+
+/* =============================================================================
+   SVG Icons
+   ========================================================================== */
+
+.icon {
+  width: 24px;
+  height: 24px;
 }

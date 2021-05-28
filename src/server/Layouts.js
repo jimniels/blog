@@ -4,6 +4,8 @@ import { fileURLToPath } from "url";
 import pt from "prop-types";
 import { html, toDateUI, replyHtml } from "./utils.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const importFile = (filepath) =>
+  fs.readFileSync(join(__dirname, filepath)).toString();
 
 const nav = [
   {
@@ -25,7 +27,7 @@ const nav = [
 ].map((item) => ({
   ...item,
   permalink: `/${item.id}/`,
-  svg: fs.readFileSync(join(__dirname, `icon-${item.id}.svg`)).toString(),
+  // svg: fs.readFileSync(join(__dirname, `icon-${item.id}.svg`)).toString(),
 }));
 
 const comment = `
@@ -105,68 +107,25 @@ const Layout = (props, children) => {
           `}
         </head>
         <body>
+          <!-- Icon Sprite -->
+          ${importFile("./icons.svg")}
+
           <nav class="nav">
             <a href="/">Jim Nielsen’s Blog</a>
 
-            ${nav.map(
-              ({ label, permalink }) => html`
-                <a class="js-hide" href="${permalink}">${label}</a>
-              `
-            )}
-            <div class="dropdown">
-              <button class="dropdown__trigger">
-                ${fs.readFileSync(join(__dirname, "icon-menu.svg")).toString()}
-              </button>
-              <ul class="dropdown__overlay" hidden>
-                ${nav.map(
-                  ({ label, permalink, svg }) => html`
-                    <li>
-                      <a href="${permalink}">${label} ${svg}</a>
-                    </li>
-                  `
-                )}
-              </ul>
-            </div>
+            <!-- Progressively enhance the site navigation -->
+            <site-nav>
+              ${nav.map(
+                ({ label, permalink, id }) => html`
+                  <a href="${permalink}" data-svg-id="${id}">${label}</a>
+                `
+              )}
+            </site-nav>
+            <script>
+              ${importFile("./site-nav.js")};
+            </script>
           </nav>
 
-          <script>
-            Array.from(document.querySelectorAll(".js-hide")).forEach((el) => {
-              console.log(el);
-              el.setAttribute("hidden", true);
-            });
-            const hideOpenDropdowns = () => {
-              const $visibleOverlay = document.querySelector(
-                ".dropdown__overlay:not([hidden])"
-              );
-              if ($visibleOverlay) {
-                $visibleOverlay.setAttribute("hidden", true);
-              }
-            };
-
-            Array.from(document.querySelectorAll(".dropdown")).forEach(
-              ($dropdown) => {
-                const $overlay = $dropdown.querySelector(".dropdown__overlay");
-
-                $dropdown
-                  .querySelector("button")
-                  .addEventListener("click", (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    if ($overlay.hasAttribute("hidden")) {
-                      hideOpenDropdowns();
-                      $overlay.removeAttribute("hidden");
-                    } else {
-                      $overlay.setAttribute("hidden", true);
-                    }
-                  });
-              }
-            );
-
-            document.body.addEventListener("click", (e) => {
-              hideOpenDropdowns();
-            });
-          </script>
           ${children}
 
           <script src="/assets/js/index.js" type="module"></script>

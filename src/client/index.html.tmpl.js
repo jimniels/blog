@@ -60,13 +60,13 @@ export default function Index(site) {
   return PageCustom(
     { site, page },
     html`
-      <h1>Blog Posts</h1>
+      <h1>Posts</h1>
 
       <h2>Latest</h2>
       ${PostList(recent)}
       ${site.blogPostsStatus}
 
-      <h2>Some Personal Favorites</h2>
+      <h2>Select Personal Favorites</h2>
       ${PostList(favs)}
       ${site.trendingPosts.length &&
         html`
