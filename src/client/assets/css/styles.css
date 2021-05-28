@@ -105,7 +105,7 @@ article header h1 {
 }
 
 article header time {
-  opacity: 0.5;
+  opacity: 0.625;
   display: block;
   margin: calc(-1.618rem / 1) 0 calc(1.618rem * 2);
 }

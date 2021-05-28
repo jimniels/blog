@@ -5,7 +5,7 @@ class SiteNav extends HTMLElement {
     const links = Array.from(this.children);
     this.innerHTML = `
       <div class="dropdown">
-        <button class="dropdown__trigger">
+        <button class="dropdown__trigger" aria-label="Menu">
           <svg class="icon">
             <use xlink:href="#menu"></use>
           </svg>
