@@ -19,7 +19,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --c-primary-hsl: 211, 100%, 63%;
+    --c-primary-hsl: 215, 100%, 64%;
     --c-primary: hsl(var(--c-primary-hsl));
 
     --c-bg: rgb(0, 0, 0);
