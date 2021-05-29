@@ -48,7 +48,7 @@ const replyHtml = ({ postTags, postLink, siteOrigin }) =>
         Tagged in:
         ${postTags
           .map((tag) => `<a href="${siteOrigin}/tags/#${tag}">#${tag}</a>`)
-          .join(",&nbsp;")}
+          .join(", ")}
       </li>`}
       <li>
         <a

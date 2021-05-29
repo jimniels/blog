@@ -5,25 +5,6 @@ const page = {
   permalink: "/",
 };
 
-const nav = [
-  {
-    label: "Archive",
-    permalink: "/archive/",
-  },
-  {
-    label: "Tags",
-    permalink: "/tags/",
-  },
-  {
-    label: "About",
-    permalink: "/about/",
-  },
-  {
-    label: "Feeds",
-    permalink: "/feeds/",
-  },
-];
-
 const favIds = [
   "/2017/the-analog-web/",
   "/2015/a-web-of-people/",
@@ -79,22 +60,13 @@ export default function Index(site) {
   return PageCustom(
     { site, page },
     html`
-      <h1>Jim<span class="nielsen"> Nielsen</span>’s Blog</h1>
-
-      <nav class="site-nav">
-        <ul>
-        ${nav.map(({ label, permalink }) => html`
-          <li><a href="${permalink}">${label}</a></li>
-        `)}
-        </ul>
-      </nav>
-      
-      ${site.blogPostsStatus}
+      <h1>Posts</h1>
 
       <h2>Latest</h2>
       ${PostList(recent)}
+      ${site.blogPostsStatus}
 
-      <h2>Some Personal Favorites</h2>
+      <h2>Select Personal Favorites</h2>
       ${PostList(favs)}
       ${site.trendingPosts.length &&
         html`

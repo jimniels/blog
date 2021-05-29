@@ -1,13 +1,11 @@
 :root {
   --border-radius: 7px;
+  --c-primary-hsl: 224, 95%, 45%;
+  --c-primary: hsl(var(--c-primary-hsl));
   /* 
    * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
    * accessible
    */
-  --c-blue-rgb: 6, 64, 221;
-  --c-blue: rgb(var(--c-blue-rgb));
-  --c-purple: rgb(137, 68, 171);
-  --c-red: rgb(255, 0, 0); /* rgb(194, 6, 24);  rgb(215, 0, 21) */
 
   --c-bg: rgb(255, 255, 255);
 
@@ -21,9 +19,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --c-blue: rgb(64, 156, 255);
-    --c-purple: rgb(218, 143, 255);
-    --c-red: rgb(255, 65, 54);
+    --c-primary-hsl: 211, 100%, 63%;
+    --c-primary: hsl(var(--c-primary-hsl));
 
     --c-bg: rgb(0, 0, 0);
 
@@ -86,7 +83,7 @@ html {
 
 a {
   text-decoration: none;
-  /* color: var(--c-blue); */
+  color: var(--c-primary);
 }
 
 a:hover {
@@ -94,20 +91,12 @@ a:hover {
   filter: brightness(70%);
 }
 
+a:active {
+  filter: brightness(50%);
+}
+
 .copy a {
   text-decoration: underline;
-}
-
-a:link {
-  color: var(--c-blue);
-}
-
-a:visited {
-  color: var(--c-purple);
-}
-
-a:active {
-  color: var(--c-red);
 }
 
 /* ==========================================================================

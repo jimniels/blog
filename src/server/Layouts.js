@@ -1,5 +1,33 @@
+import fs from "fs";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 import pt from "prop-types";
 import { html, toDateUI, replyHtml } from "./utils.js";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const importFile = (filepath) =>
+  fs.readFileSync(join(__dirname, filepath)).toString();
+
+const nav = [
+  {
+    label: "Archive",
+    id: "archive",
+  },
+  {
+    label: "Tags",
+    id: "tags",
+  },
+  {
+    label: "About",
+    id: "about",
+  },
+  {
+    label: "Feeds",
+    id: "feeds",
+  },
+].map((item) => ({
+  ...item,
+  permalink: `/${item.id}/`,
+}));
 
 const comment = `
 <!--
@@ -47,47 +75,63 @@ const Layout = (props, children) => {
             href="/feed.json"
           />
           <link rel="canonical" href="${origin + permalink}" />
-          <link rel="stylesheet" href="/assets/css/modern-normalize.css" />
-          <link rel="stylesheet" href="/assets/css/base.css" />
-          <link rel="stylesheet" href="/assets/css/styles.css" />
+
+          <!-- Inline all our styles -->
+          <style>
+            ${[
+              "../client/assets/css/modern-normalize.css",
+              "../client/assets/css/base.css",
+              "../client/assets/css/styles.css",
+              "../client/assets/css/atom-one-light.css",
+            ]
+              .map(importFile)
+              .join("")}
+
+            @media screen and (prefers-color-scheme: dark) {
+              ${importFile("../client/assets/css/atom-one-dark.css")}
+            }
+          </style>
 
           ${layout === "Post" &&
-          `
+          html`
             <!-- If it’s a post page, we’ll include meta info and code styling -->
             <meta property="og:title" content="${title}" />
             <meta property="og:type" content="article" />
             <meta property="og:url" content="${origin + permalink}" />
 
-            <meta name="twitter:card" content="summary">
-            <meta name="twitter:site" content="@jimniels">
-            <meta name="twitter:creator" content="@jimniels">
-            <meta name="twitter:title" content="${title}">
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:site" content="@jimniels" />
+            <meta name="twitter:creator" content="@jimniels" />
+            <meta name="twitter:title" content="${title}" />
             ${
               "" /*
               <meta name="twitter:image" content="https://blog.jim-nielsen.com/assets/img/twitter-card.png">
               <meta name="twitter:image:alt" content="Photo of Jim Nielsen saying stuff">
               */
             }
-            
-            <link
-              rel="stylesheet"
-              href="/assets/css/atom-one-light.css"
-            />
-            <link
-              rel="stylesheet"
-              href="/assets/css/atom-one-dark.css"
-              media="screen and (prefers-color-scheme: dark)"
-            />
           `}
         </head>
         <body>
-          ${permalink !== "/" &&
-          html`<nav>
-            <a href="/">Jim<span class="nielsen"> Nielsen</span>’s Blog</a>
-          </nav>`}
-          ${children}
+          <!-- Icon Sprite -->
+          ${importFile("./icons.svg")}
 
-          <script src="/assets/js/index.js" type="module"></script>
+          <nav class="nav">
+            <a href="/">Jim Nielsen’s Blog</a>
+
+            <!-- Progressively enhance the site navigation -->
+            <site-nav>
+              ${nav.map(
+                ({ label, permalink, id }) => html`
+                  <a href="${permalink}" data-svg-id="${id}">${label}</a>
+                `
+              )}
+            </site-nav>
+            <script>
+              ${importFile("./site-nav.js")};
+            </script>
+          </nav>
+
+          ${children}
         </body>
       </html>
     `
