@@ -75,6 +75,8 @@ const Layout = (props, children) => {
             href="/feed.json"
           />
           <link rel="canonical" href="${origin + permalink}" />
+
+          <!-- Inline all our styles -->
           <style>
             ${[
               "../client/assets/css/modern-normalize.css",
@@ -130,8 +132,6 @@ const Layout = (props, children) => {
           </nav>
 
           ${children}
-
-          <!-- <script src="/assets/js/index.js" type="module"></script> -->
         </body>
       </html>
     `
