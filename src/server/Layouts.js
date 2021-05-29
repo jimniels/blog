@@ -75,9 +75,20 @@ const Layout = (props, children) => {
             href="/feed.json"
           />
           <link rel="canonical" href="${origin + permalink}" />
-          <link rel="stylesheet" href="/assets/css/modern-normalize.css" />
-          <link rel="stylesheet" href="/assets/css/base.css" />
-          <link rel="stylesheet" href="/assets/css/styles.css" />
+          <style>
+            ${[
+              "../client/assets/css/modern-normalize.css",
+              "../client/assets/css/base.css",
+              "../client/assets/css/styles.css",
+              "../client/assets/css/atom-one-light.css",
+            ]
+              .map(importFile)
+              .join("")}
+
+            @media screen and (prefers-color-scheme: dark) {
+              ${importFile("../client/assets/css/atom-one-dark.css")}
+            }
+          </style>
 
           ${layout === "Post" &&
           html`
@@ -96,13 +107,6 @@ const Layout = (props, children) => {
               <meta name="twitter:image:alt" content="Photo of Jim Nielsen saying stuff">
               */
             }
-
-            <link rel="stylesheet" href="/assets/css/atom-one-light.css" />
-            <link
-              rel="stylesheet"
-              href="/assets/css/atom-one-dark.css"
-              media="screen and (prefers-color-scheme: dark)"
-            />
           `}
         </head>
         <body>
@@ -127,7 +131,7 @@ const Layout = (props, children) => {
 
           ${children}
 
-          <script src="/assets/js/index.js" type="module"></script>
+          <!-- <script src="/assets/js/index.js" type="module"></script> -->
         </body>
       </html>
     `
