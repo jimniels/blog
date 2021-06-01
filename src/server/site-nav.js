@@ -14,12 +14,7 @@ class SiteNav extends HTMLElement {
           .map(
             ($a) => /*html*/ `
             <li>
-              <a href="${$a.getAttribute("href")}">
-                ${$a.text}
-                <svg class="icon">
-                  <use xlink:href="#${$a.getAttribute("data-svg-id")}"></use>
-                </svg>
-              </a>
+              ${$a.outerHTML}
             </li>`
           )
           .join("")}

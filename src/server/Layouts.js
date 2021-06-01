@@ -7,28 +7,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
   fs.readFileSync(join(__dirname, filepath)).toString();
 
-const nav = [
-  {
-    label: "Archive",
-    id: "archive",
-  },
-  {
-    label: "Tags",
-    id: "tags",
-  },
-  {
-    label: "About",
-    id: "about",
-  },
-  {
-    label: "Feeds",
-    id: "feeds",
-  },
-].map((item) => ({
-  ...item,
-  permalink: `/${item.id}/`,
-}));
-
 const comment = `
 <!--
 
@@ -46,9 +24,35 @@ https://www.github.com/jimniels/blog/
 
 const Layout = (props, children) => {
   const {
-    site: { origin, name, isDevelopment },
+    site: { origin, tags, name, isDevelopment },
     page: { layout, permalink, title, id },
   } = props;
+
+  const nav = [
+    {
+      label: "Archive",
+      id: "archive",
+      details: "2012–" + new Date().getFullYear(),
+    },
+    {
+      label: "Tags",
+      id: "tags",
+      details: "#" + tags.length,
+    },
+    {
+      label: "About",
+      id: "about",
+      details: "Jim Nielsen",
+    },
+    {
+      label: "Feeds",
+      id: "feeds",
+      details: "RSS, JSON",
+    },
+  ].map((item) => ({
+    ...item,
+    permalink: `/${item.id}/`,
+  }));
 
   return (
     comment +
@@ -121,8 +125,8 @@ const Layout = (props, children) => {
             <!-- Progressively enhance the site navigation -->
             <site-nav>
               ${nav.map(
-                ({ label, permalink, id }) => html`
-                  <a href="${permalink}" data-svg-id="${id}">${label}</a>
+                ({ label, permalink, details }) => html`
+                  <a href="${permalink}" data-details="${details}">${label}</a>
                 `
               )}
             </site-nav>

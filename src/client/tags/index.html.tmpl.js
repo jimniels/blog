@@ -24,23 +24,30 @@ export default function Tags(site) {
 
   // prettier-ignore
   return PageCustom({ site, page }, html`
-    <h1>Post Tags</h1>
-    <ul>
+    <h1>Post Tags <small>(${tags.length})</small></h1>
+    <style>
+      @media screen and (min-width: 50rem) {
+        #post-tags { column-count: 2; max-width: 40rem;}
+      }
+    </style>
+    <ul id="post-tags">
       ${tags.map(
-        tag => `
+        tag => html`
           <li>
             <a href="#${tag}">#${tag}</a> (${postsByTag[tag].length})
           </li>
         `)}
     </ul>
 
+    <h2>Posts by Tag</h2>
+
     ${tags.map(tag => html`
-      <h2 id="${tag}" style="margin-bottom: 1rem;">
+      <h3 id="${tag}" style="margin-bottom: 1rem;">
         #${tag}
         <small style="font-weight: normal">
           (${postsByTag[tag].length})
         </small>
-      </h2>
+      </h3>
 
       <ul class="posts-list">
         ${postsByTag[tag].map(post => html`

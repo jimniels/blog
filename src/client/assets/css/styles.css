@@ -109,6 +109,11 @@ site-nav ul a {
   padding: calc(1.618rem / 8) 0;
 }
 
+site-nav ul a:after {
+  content: attr(data-details);
+  font-size: 0.725rem;
+}
+
 @media screen and (max-width: 500px) {
   .nav {
     justify-content: space-between;

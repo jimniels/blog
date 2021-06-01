@@ -229,6 +229,15 @@ let App = Metalsmith(__dirname)
     meta.trendingPosts = trendingPostPermalinks.map((permalink) =>
       meta.posts.find((post) => post.permalink === permalink)
     );
+
+    meta.tags = Array.from(
+      new Set(
+        meta.posts
+          .filter((post) => post.tags)
+          .map((post) => post.tags)
+          .flat()
+      )
+    );
     console.timeEnd("|-- build:collections");
 
     /**
