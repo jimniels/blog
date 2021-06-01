@@ -7,8 +7,6 @@
    * accessible
    */
 
-  --c-bg: rgb(255, 255, 255);
-
   --c-gray-1: rgb(108, 108, 112);
   --c-gray-2: rgb(142, 142, 147);
   --c-gray-3: rgb(174, 174, 178);
@@ -21,8 +19,6 @@
   :root {
     --c-primary-hsl: 215, 100%, 64%;
     --c-primary: hsl(var(--c-primary-hsl));
-
-    --c-bg: rgb(0, 0, 0);
 
     --c-gray-1: rgb(174, 174, 178);
     --c-gray-2: rgb(124, 124, 128);

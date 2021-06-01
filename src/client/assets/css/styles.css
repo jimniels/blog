@@ -41,7 +41,7 @@ site-nav ul[hidden] {
   transform: scale(0);
 }
 site-nav ul {
-  background: var(--c-bg);
+  background: Canvas;
   border: 1px solid var(--c-gray-6);
   border-radius: var(--border-radius);
   list-style: none;
