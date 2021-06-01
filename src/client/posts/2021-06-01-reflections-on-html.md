@@ -4,7 +4,7 @@ tags: html
 
 # Reflections on HTML
 
-I was [tipped off by the venerable d_run](https://twitter.com/d_run/status/1390991826384048129) to an article by Danny Guo titled [“What I Learned by Relearning HTML](https://www.dannyguo.com/blog/what-i-learned-by-relearning-html).
+I was [tipped off by the venerable d_run](https://twitter.com/d_run/status/1390991826384048129) to an article by Danny Guo titled [“What I Learned by Relearning HTML”](https://www.dannyguo.com/blog/what-i-learned-by-relearning-html).
 
 Which got me thinking.
 
