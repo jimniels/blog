@@ -107,11 +107,17 @@ site-nav ul a {
   justify-content: space-between;
   align-items: center;
   padding: calc(1.618rem / 8) 0;
+  position: relative;
 }
 
 site-nav ul a:after {
   content: attr(data-details);
   font-size: 0.725rem;
+  color: CanvasText;
+  opacity: 0.625;
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
 }
 
 @media screen and (max-width: 500px) {
