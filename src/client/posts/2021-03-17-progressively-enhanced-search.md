@@ -1,5 +1,5 @@
 ---
-tags: progressiveEnhancement
+tags: progressiveEnhancement theMoreYouKnow
 ---
 
 # A Simple Tactic For Progressively-Enhanced Search
