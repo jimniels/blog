@@ -120,3 +120,68 @@ Oh, and one last tidbit of information while we’re on the subject. There’s a
 > These color keywords have been deprecated, however, as they are insufficient for their original purpose (making website elements look like their native OS counterparts), represent a security risk by making it easier for a webpage to “spoof” a native OS dialog, and increase fingerprinting surface, compromising user privacy.
 
 Fascinating!
+
+## Update 2021-06-11
+
+Folks have [mentioned](https://twitter.com/tomayac/status/1403097455059779584?s=20) the lack of cross-browser support for this feature. It’s true, this won’t work perfectly (at the time of this writing) across all modern browsers.
+
+In my initial implementation, if `Canvas` wasn’t supported you’d get a nice big white dropdown in dark mode—looking at you [Safari on iOS](https://twitter.com/guyzmo/status/1402769388533649409?s=20).
+
+I was fine with this, as it doesn’t actually break anything. Where it’s supported, things look great! Where it’s not (yet) supported, things looks not as great but still function.
+
+But that 2000’s era web developer in me couldn’t let go of trying to make it more uniform across browsers.
+
+With a little extra CSS, you can detect support for system colors and use them accordingly. Granted, part of the entire rationale behind this approach (as I mention above) is to be able to take a “hands-off” approach to declaring colors yourself. However, if you want to go the extra mile something like this could get you started:
+
+```css
+/* First, declare your dark mode colors */
+:root {
+  --c-bg: #fff;
+  --c-text: #000;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg: #000;
+    --c-text: #fff;
+  }
+}
+
+/* For browsers that don’t support `color-scheme` and therefore
+   don't handle system dark mode for you automatically 
+   (Firefox), handle it for them. */
+@supports not (color-scheme: light dark) {
+  html {
+    background: var(--c-bg);
+    color: var(--c-text);
+  }
+}
+
+/* For browsers that support automatic dark/light mode
+   As well as system colors, set those */
+@supports (color-scheme: light dark)
+  and (background-color: Canvas)
+  and (color: CanvasText) {
+  :root {
+    --c-bg: Canvas;
+    --c-text: CanvasText;
+  }
+}
+
+/* For Safari on iOS. Hacky, but it works. */
+@supports (background-color: -apple-system-control-background)
+  and (color: text) {
+  :root {
+    --c-bg: -apple-system-control-background;
+    --c-text: text;
+  }
+}
+```
+
+A couple little notes I found while digging on this cross-browser approach:
+
+1. Safari _says_ it supports `Canvas`, which it does on macOS but then doesn’t on iOS. I’m guessing this is a bug. To get around this, we can leverage webkit-specific color values (the same ones used in [the UA stylesheet](https://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css)).
+2. Firefox says it supports CSS system colors like `Canvas` but then doesn’t support the `color-scheme` property. So we handle it as a special case.
+
+<img src="https://cdn.jim-nielsen.com/blog/2021/system-colors-firefox.png" width="311" height="175" alt="Screenshot of the console in Firefox denoting how CSS system colors like `Canvas` are supported but the `color-scheme` property is not." /> 
+
+None of the above is perfect or a comprehensive solution. It’s what I’m using _right now_ to accomplish the system-like style I have on my blog. It will change and evolve as browser support does. So, like all implicit disclaimers on a technical blog post, check this post’s date and consider further testing before your own implementation.
