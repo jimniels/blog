@@ -2,6 +2,9 @@
   --border-radius: 7px;
   --c-primary-hsl: 224, 95%, 45%;
   --c-primary: hsl(var(--c-primary-hsl));
+
+  --c-bg: #fff;
+  --c-text: #000;
   /* 
    * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
    * accessible
@@ -15,10 +18,16 @@
   --c-gray-6: rgb(236, 235, 240);
 }
 
+/* background-color: -apple-system-control-background;
+color: text */
+
 @media (prefers-color-scheme: dark) {
   :root {
     --c-primary-hsl: 215, 100%, 64%;
     --c-primary: hsl(var(--c-primary-hsl));
+
+    --c-bg: #000;
+    --c-text: #fff;
 
     --c-gray-1: rgb(174, 174, 178);
     --c-gray-2: rgb(124, 124, 128);
@@ -62,14 +71,21 @@ html {
 /* Firefox doesn't support this natively */
 @supports not (color-scheme: light dark) {
   html {
-    background: #fff;
-    color: #000;
+    background: var(--c-bg);
+    color: var(--c-text);
   }
-  @media screen and (prefers-color-scheme: dark) {
-    html {
-      background: #000;
-      color: #fff;
-    }
+}
+@supports (color-scheme: light dark) and (background-color: Canvas) and
+  (color: CanvasText) {
+  :root {
+    --c-bg: Canvas;
+    --c-text: CanvasText;
+  }
+}
+@supports (background-color: -apple-system-control-background) and (color: text) {
+  :root {
+    --c-bg: -apple-system-control-background;
+    --c-text: text;
   }
 }
 

@@ -41,7 +41,7 @@ site-nav ul[hidden] {
   transform: scale(0);
 }
 site-nav ul {
-  background-color: Canvas;
+  background-color: var(--c-bg);
   background-color: -apple-system-control-background;
   border: 1px solid var(--c-gray-6);
   border-radius: var(--border-radius);
@@ -114,8 +114,7 @@ site-nav ul a {
 site-nav ul a:after {
   content: attr(data-details);
   font-size: 0.725rem;
-  color: CanvasText;
-  color: text;
+  color: var(--c-text);
   opacity: 0.625;
   position: absolute;
   right: 0;
