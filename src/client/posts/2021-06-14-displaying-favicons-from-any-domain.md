@@ -73,7 +73,7 @@ What’s neat about Google’s service is they provide that ubiquitous “globe�
 
 I found a number of DuckDuckGo favicon service URLs<sup id="a2">[2](#f2)</sup>, all of which seem to work: 
 
-[icons.duckduckgo.com/ip3/blog.jim-nielsen.com.icon](https://icons.duckduckgo.com/ip3/blog.jim-nielsen.com.icon)
+[icons.duckduckgo.com/ip3/blog.jim-nielsen.com.ico](https://icons.duckduckgo.com/ip3/blog.jim-nielsen.com.ico)
 
 [icons.duckduckgo.com/ip2/blog.jim-nielsen.com.ico](http://icons.duckduckgo.com/ip2/blog.jim-nielsen.com.ico)
 
