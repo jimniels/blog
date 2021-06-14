@@ -1,4 +1,4 @@
-# Displaying Favicons From Any Domain
+# Displaying Favicons For Any Domain
 
 A little while back, I wrote about [indexing the links on my blog](https://blog.jim-nielsen.com/2020/indexing-my-blogs-links/). 
 
