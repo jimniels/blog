@@ -18,7 +18,7 @@ The final product is the result of this “endless winnowing” and “relentles
 
 Adapted to my experience as a designer on the web, I would rephrase the above passage this way:
 
-The unseen work of a designer is the endless refinement of visual elements and relationships,
+The unseen work of a visual designer is the endless refinement of elements and relationships,
 
 The relentless exploration of possibilities,
 
