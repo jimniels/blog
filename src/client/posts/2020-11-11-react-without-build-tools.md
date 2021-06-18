@@ -57,8 +57,7 @@ export {
     React,
     ReactDOM,
     PropTypes,
-    html, 
-    autosize    
+    html 
 }
 ```
 
