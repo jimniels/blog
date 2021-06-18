@@ -238,6 +238,13 @@ let App = Metalsmith(__dirname)
           .flat()
       )
     );
+
+    meta.tagz = meta.tags.map((tag) => ({
+      name: tag,
+      count: meta.posts.filter((post) => post.tags && post.tags.includes(tag))
+        .length,
+    }));
+
     console.timeEnd("|-- build:collections");
 
     /**
