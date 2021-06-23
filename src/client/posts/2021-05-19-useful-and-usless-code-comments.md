@@ -64,7 +64,7 @@ Taking this example a bit further, imagine this as code:
 ¿Como te llamas?
 
 // My name is Jim
-Me llamo Jim.
+Mi nombre es Jim.
 
 // Where is the library?
 ¿Donde esta la biblioteca?
