@@ -4,7 +4,7 @@ tags: iconGalleries
 
 # Courting WEBP
 
-Now that WEBP is supported across popular modern browsers—looking at you Safari for being [late](https://www.macrumors.com/2020/06/22/WEBP-safari-14/) to the party—I’ve been considering serving images in WEBP format across my [icon](https://www.iosicongallery.com) [gallery](www.macosicongallery.com) [sites](wwwwatchiosicongallery.com).
+Now that WEBP is supported across popular modern browsers—looking at you Safari for being [late](https://www.macrumors.com/2020/06/22/WEBP-safari-14/) to the party—I’ve been considering serving images in WEBP format across my [icon](https://www.iosicongallery.com) [gallery](https://www.macosicongallery.com) [sites](https://www.watchiosicongallery.com).
 
 Today I’m serving PNGs which I optimize via [the ImageOptim API](https://imageoptim.com/api). It does a pretty damn good job of doing lossless minification for the original icon designs.
 
