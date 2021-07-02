@@ -5,82 +5,38 @@ const page = {
   permalink: "/",
 };
 
-const favIds = [
-  "/2017/the-analog-web/",
-  "/2015/a-web-of-people/",
-  "/2019/good-things/",
-  "/2019/netlify-public-folder-part-i-what/",
-  "/2016/redesigning-and-engineering-timshel-admin/",
-  "/2019/thoughts-on-rich-harris-talk/",
-  "/2019/designing-and-engineering-progressive-disclosure/",
-  "/2019/how-to-create-a-macos-menu-bar-app-for-netlify/",
-  "/2019/building-a-progressively-enhanced-site/",
-  "/2017/creating-ios-icon-masks-in-the-browser/",
-];
-
 export default function Index(site) {
-  const postsByYear = site.posts.reduce((acc, post) => {
-    const year = post.date.getFullYear();
-    if (acc[year]) {
-      acc[year].push(post);
-    } else {
-      acc[year] = [post];
-    }
-    return acc;
-  }, {});
-
-  const postList = Object.keys(postsByYear)
-    .sort()
-    .reverse()
-    .map(
-      (year) => html`
-        <h2 id="y${year}">${year}</h2>
-        <ul class="posts-list">
-          ${postsByYear[year].map(
-            (post) => html`
-              <li>
-                <a href="${post.permalink}"> ${post.title} </a>
-                <time datetime="${post.date.toISOString()}">
-                  ${toDateUIMin(post.date)}
-                </time>
-              </li>
-            `
-          )}
-        </ul>
-      `
-    )
-    .join("");
-
   const recent = site.posts.slice(0, 10);
-  const favs = favIds.map((id) => {
-    return site.posts.find((post) => post.permalink === id);
-  });
+  const favorites = site.posts
+    .filter((post) => post.hasOwnProperty("favorites_index"))
+    .sort((a, b) => (a.favorites_index > b.favorites_index ? 1 : -1));
+  const trending = site.posts
+    .filter((post) => post.hasOwnProperty("pageviews"))
+    .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1));
 
-  // prettier-ignore
   return PageCustom(
     { site, page },
     html`
       <h1>Posts</h1>
 
       <h2>Latest</h2>
-      ${PostList(recent)}
-      ${site.blogPostsStatus}
+      ${PostList(recent)} ${site.blogPostsStatus}
 
       <h2>Select Personal Favorites</h2>
-      ${PostList(favs)}
-      ${site.trendingPosts.length &&
-        html`
-          <h2>
-            Popular This Month
-            <small style="font-weight: normal">
-              (<a
-                href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
-                >According to Netlify Analytics</a
-              >)</small
-            >
-          </h2>
-          ${PostList(site.trendingPosts)}
-        `}
+      ${PostList(favorites)}
+      ${trending.length > 0 &&
+      html`
+        <h2>
+          Popular This Month
+          <small style="font-weight: normal">
+            (<a
+              href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
+              >According to Netlify Analytics</a
+            >)</small
+          >
+        </h2>
+        ${PostList(trending)}
+      `}
     `
   );
 }
@@ -89,12 +45,18 @@ function PostList(posts) {
   return html`
     <ul class="posts-list">
       ${posts.map(
-        (post) => html`
+        ({ permalink, title, pageviews, date }) => html`
           <li>
-            <a href="${post.permalink}"> ${post.title} </a>
-            <time datetime="${post.date.toISOString()}">
-              ${toDateUI(post.date)}
-            </time>
+            <a href="${permalink}">${title}</a>
+            <time datetime="${date.toISOString()}">${toDateUI(date)}</time>
+            ${
+              /*pageviews &&
+            html`<small
+              >${pageviews > 1000
+                ? Math.round((pageviews / 1000) * 10) / 10 + "k"
+                : pageviews}</small
+            >`*/ ""
+            }
           </li>
         `
       )}

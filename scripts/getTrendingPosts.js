@@ -22,6 +22,10 @@ let oneMonthAgo = new Date();
 oneMonthAgo.setDate(oneMonthAgo.getDate() - 30);
 oneMonthAgo.setHours(0, 0, 0, 0);
 
+/**
+ * Get trending posts from Netlify and return a list of the permalinks sorted by their popularity
+ * @returns {Array.<{ resource: string, count: number }>
+ */
 export default function getTrendingPosts() {
   const cachedFile = path.join(__dirname, "./.trending-posts.json");
   if (fs.existsSync(cachedFile)) {
@@ -33,36 +37,44 @@ export default function getTrendingPosts() {
     {
       headers: {
         authorization: `Bearer ${token}`,
-        "content-type": "application/json"
-      }
+        "content-type": "application/json",
+      },
     }
   )
-    .then(res => res.json())
-    .then(json => {
+    .then((res) => res.json())
+    .then((json) => {
       /*
-      {
-        data: [
-          {
-            count: 123
-            resource: "/path/"
-          }
-        ]
-      }
-    */
-      const regex = /\/\d{4}\/.*/;
-      const postsByViews = json.data
-        .filter(({ resource }) => regex.test(resource))
-        .reduce(
-          (acc, { resource, count }) => ({ ...acc, [resource]: count }),
-          {}
-        );
+        Example data:
+        {
+          data: [
+            {
+              count: 100
+              resource: "/2019/my-post/"
+            },
+            {
+              count: 50
+              resource: "/tags/"
+            },
+            {
+              count: 210
+              resource: "/2020/another-post"
+            }
+          ]
+        }
+      */
 
-      const data = Object.keys(postsByViews).slice(0, 10);
-      fs.writeFileSync(cachedFile, JSON.stringify(data));
+      // Only get the resources that are blog posts, i.e. /:year/:id, then
+      // get the permalink
+      const regex = /\/\d{4}\/.*/;
+      const data = json.data.filter(({ resource }) => regex.test(resource));
+      // .map(({ resource }) => resource)
+      // .slice(0, 10);
+
+      // fs.writeFileSync(cachedFile, JSON.stringify(data));
 
       return data;
     })
-    .catch(e => {
+    .catch((e) => {
       console.error(e);
       return [];
     });

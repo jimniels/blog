@@ -128,9 +128,13 @@ let App = Metalsmith(__dirname)
 
     /**
      * Posts
-     * Do stuff that we want to do with each post file
      */
     console.time("|-- build:posts");
+
+    // Get our trending posts
+    const trendingPosts = await getTrendingPosts();
+
+    // Go through each post and apply metadata
     multimatch(Object.keys(files), "posts/**").forEach((file) => {
       // An extra console to tell us if we've named a file wrong
       if (/[A-Z]/.test(file)) {
@@ -153,6 +157,33 @@ let App = Metalsmith(__dirname)
       // Store some of the filename-derived data with the post
       files[file].slug = slug;
       files[file].permalink = `/${year}/${slug}/`;
+
+      // If the post is one of our favorites, indicating its index in the list of favorites
+      const favs = [
+        "/2017/the-analog-web/",
+        "/2015/a-web-of-people/",
+        "/2019/good-things/",
+        "/2019/netlify-public-folder-part-i-what/",
+        "/2016/redesigning-and-engineering-timshel-admin/",
+        "/2019/thoughts-on-rich-harris-talk/",
+        "/2019/designing-and-engineering-progressive-disclosure/",
+        "/2019/how-to-create-a-macos-menu-bar-app-for-netlify/",
+        "/2019/building-a-progressively-enhanced-site/",
+        "/2017/creating-ios-icon-masks-in-the-browser/",
+      ];
+      const favIndex = favs.indexOf(files[file].permalink);
+      if (favIndex !== -1) {
+        files[file].favorites_index = favIndex + 1;
+      }
+
+      // If the post is one of the trending ones, indicate its index in the list of trending posts
+      const trendingPost = trendingPosts.find(
+        (post) => post.resource === files[file].permalink
+      );
+      if (trendingPost) {
+        files[file].pageviews = trendingPost.count;
+      }
+
       // I don't store time information on my posts, so we'll make all posts
       // publish at the same time of day: noon mountain time.
       // Noon mountain time is UTC-7 (technically UTC-6 during daylight savings)
@@ -183,13 +214,11 @@ let App = Metalsmith(__dirname)
 
     /**
      * Handle Collections
-     * Remember that anything happening here could be the first _or_ second
-     * pass (so all the files or only one)
      */
     console.time("|-- build:collections");
-    const meta = metalsmith.metadata();
+
     // Doesn't exist yet, so all files are available
-    meta.posts = Object.keys(files)
+    site.posts = Object.keys(files)
       .filter((file) => files[file].layout === "Post")
       .map((file) => files[file])
       .sort((a, b) => {
@@ -214,8 +243,9 @@ let App = Metalsmith(__dirname)
           }
         }
       });
+
     // Add a postsByYear since it gets used in multiple places
-    meta.postsByYear = meta.posts.reduce((acc, post) => {
+    site.postsByYear = site.posts.reduce((acc, post) => {
       const year = post.date.getFullYear();
       if (acc[year]) {
         acc[year].push(post);
@@ -225,19 +255,15 @@ let App = Metalsmith(__dirname)
       return acc;
     }, {});
 
-    const trendingPostPermalinks = await getTrendingPosts();
-    meta.trendingPosts = trendingPostPermalinks.map((permalink) =>
-      meta.posts.find((post) => post.permalink === permalink)
-    );
-
-    meta.tags = Array.from(
+    site.tags = Array.from(
       new Set(
-        meta.posts
+        site.posts
           .filter((post) => post.tags)
           .map((post) => post.tags)
           .flat()
       )
     );
+
     console.timeEnd("|-- build:collections");
 
     /**
@@ -353,9 +379,10 @@ let App = Metalsmith(__dirname)
 
 /**
  * @typedef {Object} Site
+ *
  * @property {Array.<Post>} posts
- * @property {Object.<string,Post>} postsByYear
- * @property {Array.<Post>} trendingPosts
+ * @property {Object.<string,Array[Post]>} postsByYear
+ * @property {Array.<string>} tags
  * @property {Object} page
  * @property {Object.<string,Array[string]>} linksByDomain
  * @property {string} blogPostsStatus
@@ -363,16 +390,20 @@ let App = Metalsmith(__dirname)
 
 /**
  * @typedef {Object} Post
+ *
  * @property {string} title
  * @property {string} slug
  * @property {string} permalink
  * @property {Date} date
  * @property {string} tags
  * @property {string} redirect_from
+ * @property {number} pageviews - Number of pageviews according to netlify analytics
+ * @property {number} favorites_index - A number from 1-10 indicating how much of a favorite this is to me
  */
 
 /**
  * @typedef {Object} Page
+ *
  * @property {string} title
  * @property {string} permalink
  */

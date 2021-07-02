@@ -190,13 +190,26 @@ article header time {
   margin-bottom: calc(1.618rem / 2);
 }
 
-.posts-list time {
+.posts-list li a {
   display: block;
+}
+
+.posts-list time {
   font-variant-numeric: tabular-nums;
   font-size: 0.7rem;
   opacity: 0.5; /* @TODO change to gray */
-  margin-right: calc(1.618rem / 2);
   white-space: nowrap;
+}
+
+.posts-list small {
+  padding: 0 0.5em;
+  font-size: 0.6em;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-left: 0.5em;
+  order: 3;
+  opacity: 0.5; /* @TODO gray? matches <time> */
+  align-self: center;
 }
 
 @media screen and (min-width: 520px) {
@@ -210,6 +223,7 @@ article header time {
   }
   .posts-list time {
     order: 1;
+    margin-right: calc(1.618rem / 2);
   }
 }
 
