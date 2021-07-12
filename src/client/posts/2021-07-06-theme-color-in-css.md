@@ -219,3 +219,9 @@ Your theme color is likely going to match some other color in your UI—like bod
 All the above is pure (and fun) speculation on my part. There are caveats, use cases, and context that I am undoubtedly missing.
 
 However, the idea of ceding primary stylistic control to the technology that bears the word “Style” in it’s name (Cascading Style Sheets), rather than having to use HTML or JS, seems more [with the grain](https://frankchimero.com/blog/2015/the-webs-grain/) of the web.
+
+## Update 2021-07-12
+
+[@hj_chen pointed out on twitter](https://twitter.com/hj_chen/status/1413815862331543554) that some discussion on this topic has already taken place—a fact I might have discovered if I’d taken a moment to do some searching rather than publish a post on a whim.
+
+[Here’s one entry point to the conversation](https://github.com/w3c/csswg-drafts/issues/575). From there you can follow the rabbit hole as deeply as you like.
