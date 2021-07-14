@@ -2,7 +2,7 @@
 tags: css darkMode
 ---
 
-# Not So Fast: Conditional Style Loading
+# Conditional Style Loading? Not So Fast
 
 I wrote a post a while back about [conditionally loading styles using media queries](https://blog.jim-nielsen.com/2019/conditional-syntax-highlighting-in-dark-mode-with-css-imports/). 
 
