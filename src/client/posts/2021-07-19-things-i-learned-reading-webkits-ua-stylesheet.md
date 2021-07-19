@@ -282,4 +282,4 @@ section section article article article h1,
 
 ## Conclusion
 
-Reading the user agent stylesheet was intriguing. Maybe next I’ll compare and contrast those of [Chrome](https://chromium.googlesource.com/chromium/blink/+/refs/heads/main/Source/core/css/html.css) and [Firefox](https://searchfox.org/mozilla-central/source/layout/style/res/html.css) and see what I find!
+Reading the user agent stylesheet was intriguing. Maybe next I should compare and contrast those of [Chrome](https://chromium.googlesource.com/chromium/blink/+/refs/heads/main/Source/core/css/html.css) and [Firefox](https://searchfox.org/mozilla-central/source/layout/style/res/html.css) and see what I find!
