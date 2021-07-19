@@ -153,10 +153,6 @@ body:-webkit-full-page-media {
 }
 ```
 
-Many of these are so custom to the webkit codebase, you won’t even find any results for them in Google:
-
-<img src="https://cdn.jim-nielsen.com/blog/2021/ua-styles-google-search-results.png" width="688" height="356" alt="A Google search result showing 0 results for the keyword “-webkit-center”." /> 
-
 MDN even has a giant reference of [CSS “extensions” for Webkit](https://developer.mozilla.org/en-US/docs/Web/CSS/WebKit_Extensions) but not everything in the UA stylesheet is documented on MDN.
 
 If you really want to dive deeper, you can look at the [CSS value keywords file](https://github.com/WebKit/WebKit/blob/13e79e2e2f09579997106164ae66ad5499fc0a27/Source/WebCore/css/CSSValueKeywords.in#L341) and guess at what these non-standard values do when listed alongside their standardized siblings. For example, `-webkit-match-parent` appears to have something to do with aligning elements.
