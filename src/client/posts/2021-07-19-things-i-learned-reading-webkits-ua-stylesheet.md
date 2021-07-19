@@ -61,7 +61,9 @@ html {
 }
 ```
 
-Honestly, I’m not sure how these play out. It almost looks like they are executed/evaluated at runtime to apply conditional styling based on system-level configuration. Here’s another example:
+Honestly, I’m not sure how these play out. It almost looks like they are executed/evaluated at runtime to apply conditional styling based on system-level configuration (**update**: some [insider information](https://twitter.com/gsnedders/status/1417170253679824911) reveals this is “done at compile-time by running the stylesheet through [the C preprocessor](github.com/WebKit/WebKit/)”).
+
+Here’s another example:
 
 ```css
 video {
