@@ -252,8 +252,13 @@ I don’t think you can get a much higher z-index than that—UA stylesheet trum
 There are some crazy selectors in the UA stylesheet, like this for handling H1 tags nested five levels deep under any given combination of four different elements:
 
 ```css
-:is(article, aside, nav, section) :is(article, aside, nav, section) :is(article, aside, nav, section) :is(article, aside, nav, section) :is(article, aside, nav, section) h1 {
-  font-size: .67em;
+:is(article, aside, nav, section)
+  :is(article, aside, nav, section)
+  :is(article, aside, nav, section)
+  :is(article, aside, nav, section)
+  :is(article, aside, nav, section)
+  h1 {
+  font-size: 0.67em;
 }
 ```
 
