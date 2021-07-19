@@ -245,7 +245,7 @@ I found a site called [numbermatics.com](https://numbermatics.com/) which lets y
 - 2147483645 - [composite of three primes multiplied together](https://numbermatics.com/n/2147483645/)
 - 2147483647 - is not only a [prime number](https://numbermatics.com/n/2147483647/) but is “the maximum positive value for a 32-bit signed binary integer in computing. It is therefore the maximum value for variables declared as integers…in many programming languages” ([Wikipedia](https://en.wikipedia.org/wiki/2,147,483,647))
 
-Sounds like you can get much higher in z-index than that!
+I don’t think you can get a much higher z-index than that—UA stylesheet trumps all!
 
 ## Crazy Selectors
 
