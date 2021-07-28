@@ -1,0 +1,15 @@
+# ./.github/workflows/main.yml
+# https://answers.netlify.com/t/scheduling-builds-and-deploys-with-netlify/2563/19
+# Useful for showing pageviews
+
+name: Trigger Netlify Build
+on:
+  schedule:
+    - cron: "0 0 * * *" # Once a day
+jobs:
+  build:
+    name: Request Netlify Webhook
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST to Build Hook
+        run: curl -X POST -d {} https://api.netlify.com/build_hooks/6100df0adae651528435bacb

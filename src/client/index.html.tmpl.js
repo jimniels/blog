@@ -29,7 +29,7 @@ export default function Index(site) {
       ${trending.length > 0 &&
       html`
         <h2>Popular This Month</h2>
-        ${PostList(trending)}
+        ${PostList(trending, true)}
         <p style="font-size: 0.7777rem">
           Analytics are
           <a
@@ -42,7 +42,7 @@ export default function Index(site) {
   );
 }
 
-function PostList(posts) {
+function PostList(posts, showPageviews = false) {
   return html`
     <ul class="posts-list">
       ${posts.map(
@@ -50,14 +50,12 @@ function PostList(posts) {
           <li>
             <a href="${permalink}">${title}</a>
             <time datetime="${date.toISOString()}">${toDateUI(date)}</time>
-            ${
-              /*pageviews &&
+            ${showPageviews &&
             html`<small
               >${pageviews > 1000
                 ? Math.round((pageviews / 1000) * 10) / 10 + "k"
                 : pageviews}</small
-            >`*/ ""
-            }
+            >`}
           </li>
         `
       )}

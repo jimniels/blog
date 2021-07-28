@@ -10,3 +10,4 @@ src/client/assets/css/atom-one*
 .*
 !.gitignore
 !.prettierignore
+!.github
