@@ -48,6 +48,6 @@ It's kind of genius when you think about it. How do you get millions of third-pa
 
 “Use social share imagery to stand out—like everyone else.”
 
-Stand out, but not because of your a giant social media image that everyone else also has. Stand out because you do things differently, because your voice is different than everyone else. 
+Stand out, but not because of a giant social media image that everyone else has. Stand out because you do things differently, because your voice is different than everyone else. 
 
 Disclaimer: [I’ve been guilty](https://blog.jim-nielsen.com/2019/stuff-to-say-on-twitter/) of this. So what gives me the right to say anything? Nothing really, except I have my own blog where I can publish my own thoughts. I’m trying really hard right now to not have social share imagery. We’ll see how long I can hold out.
