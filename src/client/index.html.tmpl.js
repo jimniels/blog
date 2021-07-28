@@ -6,13 +6,15 @@ const page = {
 };
 
 export default function Index(site) {
-  const recent = site.posts.slice(0, 10);
+  const recent = site.posts.slice(0, 5);
   const favorites = site.posts
     .filter((post) => post.hasOwnProperty("favorites_index"))
-    .sort((a, b) => (a.favorites_index > b.favorites_index ? 1 : -1));
+    .sort((a, b) => (a.favorites_index > b.favorites_index ? 1 : -1))
+    .slice(0, 5);
   const trending = site.posts
     .filter((post) => post.hasOwnProperty("pageviews"))
-    .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1));
+    .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1))
+    .slice(0, 5);
 
   return PageCustom(
     { site, page },
@@ -26,16 +28,15 @@ export default function Index(site) {
       ${PostList(favorites)}
       ${trending.length > 0 &&
       html`
-        <h2>
-          Popular This Month
-          <small style="font-weight: normal">
-            (<a
-              href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
-              >According to Netlify Analytics</a
-            >)</small
-          >
-        </h2>
+        <h2>Popular This Month</h2>
         ${PostList(trending)}
+        <p style="font-size: 0.7777rem">
+          Analytics are
+          <a
+            href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
+            >home brewed from Netlify Analytics</a
+          >.
+        </p>
       `}
     `
   );

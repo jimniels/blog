@@ -232,12 +232,14 @@ article header time {
    ========================================================================== */
 
 #bps {
-  background: var(--c-gray-6);
   border-radius: var(--border-radius);
   display: flex;
   align-items: flex-start;
   font-size: 0.7777rem;
   max-width: 50em;
+}
+#bps[open] {
+  background: var(--c-gray-6);
 }
 
 #bps summary,
