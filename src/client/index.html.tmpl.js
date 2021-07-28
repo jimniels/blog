@@ -90,9 +90,9 @@ export default function Index(site) {
               ${i === 0 ? "checked" : ""}
             />
             <label for="${i}"
-              ><svg class="icon">
+              ><!--<svg class="icon">
                 <use xlink:href="#${icon}"></use></svg
-              >${label}</label
+              >-->${label}</label
             >
           `
         )}
