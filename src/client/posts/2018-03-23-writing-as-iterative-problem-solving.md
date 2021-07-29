@@ -1,6 +1,6 @@
 ---
 title: Writing as a Process for Iterative Problem Solving (and Thoughts on  Structuring a Small Redux Project)
-tags: engineering insight
+tags: engineering sagesure
 ---
 
 One of the things I like to do when I write code is document and explain my choices. It’s easy to sit in a code base and think “oh, I can change this and  refactor that” because while you’re in “the flow”, the code all makes sense up in your head. But after actually changing code, I like to try and explain the *why* in my pull request because writing the *why* usually helps me discover holes in my thinking. When you have to explain what you did to somebody else, you very quickly discover your own faulty logic or reasoning. Quite frequently I’ll write code, push it, open a PR and think “well this is probably ready to merge”. At that point, I try to stop myself from pinging a co-worker and saying “hey can you take a look at this?” Instead, I try to write in the PR description *what* was done and *why* it was done. Most of the time, in the process of writing that out, I’ll discover holes in my thinking that will likely require me to go back into the code and patch up holes from my own incomplete thinking or oversight. To be honest, it’s like my own QA process and it works *really* well for me. And not only does it help me complete work that is more fully thought out, but it helps my co-workers review my PRs much more easily in addition to leaving a detailed historical account about what changes happened in the codebase and why.
