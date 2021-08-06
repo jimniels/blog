@@ -1,4 +1,8 @@
-# Miscellaneous Thoughts on Browsers and Representation
+# Browsers and Representation
+
+**Disclaimer**: these are mostly thoughts I’m thinking out loud with no real coherence or point to drive home. Writing it all is a way to question what I actually believe myself in this piece, if anything.
+
+---
 
 > [the web] is for everyone. Not just for everyone to consume, but for everyone to make. — [Jeremy Keith](https://adactio.com/journal/18337)
 
