@@ -1,4 +1,4 @@
-# I Want Confirm a Prompt That We Stay Alert
+# I Want To Confirm a Prompt That We Stay Alert
 
 [Rich Harris wrote an incisive piece](https://dev.to/richharris/stay-alert-d) about the recent drama surrounding Chrome and its sudden breakage of certain JavaScript APIs (`confirm()`, `prompt()`, `alert()`) for cross origin iframes.
 
