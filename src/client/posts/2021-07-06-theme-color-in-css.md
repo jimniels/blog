@@ -37,9 +37,9 @@ You can even do different colors for light and dark mode using media queries (in
       media="(prefers-color-scheme: dark)">
 ```
 
-When I first saw this in Apple’s video, I thought “hmmm that’s interesting…style declarations and and media queries _in HTML_? Why not CSS?”
+When I first saw this in Apple’s video, I thought “hmmm that’s interesting…style declarations and media queries _in HTML_? Why not CSS?”
 
-It sort of made sense at first: the browser is going to want to know color info like this for the first paint. For the best effect, you’re going to want to stick this information in the first request that comes over the network—that is, in the HTML document.
+It sort of made sense at first: the browser is going to want to know color info like this for the first paint. For the best effect, you’re going to want to stick this information in the first request that comes over the network—that is, in the HTML document (or, dare I say, in an HTTP header).
 
 But then I noticed [Jeremy callout the same thing](https://adactio.com/journal/18252):
 
@@ -71,7 +71,7 @@ While Apple’s video does a good job of explaining this all, I’m willing to b
 
 What if these style controls were defined in CSS rather than HTML? This wouldn’t get around the problem of having the information available in the first network request—though you could, conceivably, recommend developers put it in a `<style>` tag in the head of the document.
 
-The purist in me wants to speculate on what a CSS API would look like. Granted I don’t understand any of the context and constraints browser vendors deal with on this problem—but if you use “CSS is where stylistic control is handled _first_” as the guiding principle, it’s fun to think about what that could look like.
+The purist in me wants to speculate on what a CSS API would look like. Granted I don’t understand any of the context and constraints browser vendors deal with on this problem—but with “CSS is where stylistic control is handled first” as the guiding principle, it’s fun to think about what that could look like.
 
 ### Keep the Same API, But Maninpulate HTML in CSS?
 
