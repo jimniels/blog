@@ -1,6 +1,6 @@
 # canistilluse.com
 
-There’s something beautiful about the website [caniuse.com](https://caniuse.com/) which I never fully appreciated until last week when news spread that `alert`, `prompt`, and `confirm` were in danger of being deprecated from the web platform.
+There’s something beautiful about the website [caniuse.com](https://caniuse.com/) which I never fully appreciated until last week when news spread that `alert`, `prompt`, and `confirm` are [in danger of being deprecated](https://groups.google.com/a/chromium.org/g/blink-dev/c/hTOXiBj3D6A/m/1Q0TjPwWAwAJ) from the web platform.
 
 When you lookup a certain feature on caniuse.com, there’s an incredible assumption many of us make when interpreting its UI: given enough time, most everything goes green.
 
