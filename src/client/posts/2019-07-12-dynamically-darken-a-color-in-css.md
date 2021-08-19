@@ -28,7 +28,7 @@ So how can you do that in CSS without defining a new color?
 
 ```css
 :root {
-  --color-link: 255, 0, 0;
+  --color-highlight: 255, 0, 0;
 }
 
 a {
@@ -47,7 +47,7 @@ a:hover {
 
 ```css
 :root {
-  --color-link: 255, 0, 0;
+  --color-highlight: 255, 0, 0;
 }
 
 a {
