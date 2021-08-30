@@ -1,5 +1,5 @@
 ---
-tags: myBlog
+tags: myBlog rss
 ---
 
 # Email Replies in Feeds
