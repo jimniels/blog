@@ -210,6 +210,14 @@ table th {
   text-align: left;
 }
 
+table thead {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+table tbody {
+  border-bottom: 1px solid;
+}
+
 table tbody tr:nth-child(2n + 1) {
   background-color: var(--c-bg-sidebar);
 }
