@@ -6,7 +6,7 @@ tags: bookNotes bookNotesThinkAgain
 
 My wife once recommended I listen to a podcast with guest Adam Grant, an organizational psychologist. I listened and liked it so much, [I wrote notes](https://blog.jim-nielsen.com/2020/follow-your-values-not-your-passions/). 
 
-Knowing how much I enjoyed Adam’s thoughts from that podcast, my wife later came across Adam’s book “Think Again” at the book store.
+Knowing how much I enjoyed Adam’s thoughts from that podcast, my wife later came across Adam’s book [_Think Again_](https://bookshop.org/books/think-again-the-power-of-knowing-what-you-don-t-know-9781984878106/9781984878106) at the book store.
 
 So she (lovingly) bought it for me.
 
