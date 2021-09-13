@@ -108,7 +108,7 @@ What if `theme-color` were a property in CSS and you declared it on the root ele
 }
 ```
 
-The problem here is that `theme-color` doesn’t work like every other standard CSS property because it’s only relevant to a single selector (`:root`). For example, the `background` property can be applied to any selector, from `:root` to `div` to `.classname`. But, in the example above, a `theme-color` property would only ever be applicable to the `:root` element—so making it a property doesn’t make a ton of sense.
+The problem here is that `theme-color` doesn’t work like every other standard CSS property because it’s only relevant to a single selector (`:root`/`html`). For example, the `background` property can be applied to any selector, from `:root` to `div` to `.classname`. But, in the example above, a `theme-color` property would only ever be applicable to the `:root` element—so making it a property doesn’t make a ton of sense.
 
 What other options could exist?
 
