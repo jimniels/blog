@@ -14,7 +14,7 @@ Last week, Apple [announced](https://www.apple.com/newsroom/2021/09/japan-fair-t
 
 > [Apple’s change in policy] will allow developers of “reader” apps to include an in-app link to their website for users to set up or manage an account.
 
-Shortly after that announcement, [the ruling in Epic vs. Apple](https://stratechery.com/2021/the-apple-v-epic-decision/) came out wherein the judge determined that “Apple’s anti-steering provision is anti-competitive”. In other words, under law it’s unfair for Apple to de-platform your app because you have a link to your website for signups.
+Shortly after that announcement, [the ruling in Epic vs. Apple](https://stratechery.com/2021/the-apple-v-epic-decision/) came out wherein the judge determined that “Apple’s anti-steering provision is anti-competitive”. In other words, under law it’s unfair for Apple to restrict your ability to link to your website for signups.
 
 After everything that’s happened—inquiries by congress in the United States, an investigation by the Japan Fair Trade Commission (JFTC), a corporate lawsuit of behemoths in Apple vs. Epic, millions of dollars in legal fees, hours and hours of human time and attention—we’ve decided it’s fair for people to underline (hyperlink) some text in an application.
 
