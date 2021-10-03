@@ -1,3 +1,7 @@
+---
+tags: readingNotes
+---
+
 # Reading Notes, August 2021
 
 ## Article: [“Agile at 20: The Failed Rebellion”](https://www.simplethread.com/agile-at-20-the-failed-rebellion/)
