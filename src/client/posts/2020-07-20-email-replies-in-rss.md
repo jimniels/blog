@@ -11,7 +11,7 @@ Doing this was straightforward. My blog is based on a static site generator ([me
 ```html
 <hr />
 <p>
-  <a href="mailto:jimniels@gmail.com?subject=RSS Reply&body=Source article ${postLink}">
+  <a href="mailto:my_email@gmail.com?subject=RSS Reply&body=Source article ${postLink}">
     Reply via email
   </a>
 </p>
