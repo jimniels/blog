@@ -31,10 +31,10 @@ export default function Index(site) {
         <h2>Popular This Month</h2>
         ${PostList(trending, true)}
         <p style="font-size: 0.7777rem">
-          Analytics are
+          Stats are
           <a
             href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
-            >home brewed from Netlify Analytics</a
+            >homebrewed from Netlify Analytics</a
           >.
         </p>
       `}
