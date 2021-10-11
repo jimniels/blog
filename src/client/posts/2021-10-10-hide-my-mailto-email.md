@@ -37,7 +37,7 @@ If you use iCloud for email, you can leverage Hide My Email to generate a random
 Then, you can expose that address publicly on the web using the `mailto` scheme.
 
 ```html
-<a href="mailto:random_email_address@icloud.com">
+<a href="mailto:my_random_email_address@icloud.com">
   Send me an email
 </a>
 ```
@@ -52,7 +52,7 @@ If I hit “Reply”, the radomly-generated email will continues to be the email
 
 To the person emailing me, they see:
 
-`random_email_address@icloud.com`
+`my_random_email_address@icloud.com`
 
 And to me, their email address appears as:
 
