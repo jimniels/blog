@@ -161,6 +161,9 @@ article header time {
   max-width: 32rem;
   display: block;
 }
+.copy > p code {
+  word-wrap: break-word;
+}
 .copy .image-container {
   max-width: none;
 }
