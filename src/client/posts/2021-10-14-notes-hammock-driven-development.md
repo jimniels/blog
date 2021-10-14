@@ -8,7 +8,7 @@ A classic. I’ve listened to it a few times, but never taken notes. I wanted to
 
 Note to self: everything he covers about “the waking mind” is great, i.e. the idea of giving your mind problems to solve in the background.
 
-You can watch the [video](https://www.youtube.com/watch?v=f84n5oFoZBc) or read [the transcript](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/HammockDrivenDev-mostly-text.md)
+You can watch the [video](https://www.youtube.com/watch?v=f84n5oFoZBc) or read [the transcript](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/HammockDrivenDev-mostly-text.md).
 
 **On waterfall and design:**
 
@@ -34,9 +34,9 @@ Also: type systems won’t let you know if you have a good idea.
 
 Be discerning when you look at possibilities and what others do. There are tradeoffs in everything:
 
-> It’s really easy to get excited about the good parts of what you do. But you should be looking for tradeoffs. The chances of there being no tradeoffs in what you do are slim.
+> Usually when [people talk] about tradeoffs in their software, they’re talking about the parts of their software that suck. “Oh well, I had to make these tradeoffs...”
 
-> Usually when they're talking about tradeoffs in their software, they're talking about the parts of their software that suck. “Oh well, I had to make these tradeoffs...”
+> It’s really easy to get excited about the good parts of what you do. But you should be looking for tradeoffs. The chances of there being no tradeoffs in what you do are slim.
 
 **On growing:**
 
