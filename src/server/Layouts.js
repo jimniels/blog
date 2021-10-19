@@ -102,8 +102,7 @@ const Layout = (props, children) => {
             <meta property="og:title" content="${title}" />
             <meta property="og:type" content="article" />
             <meta property="og:url" content="${origin + permalink}" />
-            ${
-              "" /*
+
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@jimniels" />
             <meta name="twitter:creator" content="@jimniels" />
@@ -116,8 +115,6 @@ const Layout = (props, children) => {
               name="twitter:image:alt"
               content="Jim Nielsen’s initials (JN) in a hand-written style."
             />
-            */
-            }
           `}
         </head>
         <body>
