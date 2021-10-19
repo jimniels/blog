@@ -51,3 +51,23 @@ It's kind of genius when you think about it. How do you get millions of third-pa
 Stand out, but not because of a giant social media image that everyone else has. Stand out because you do things differently, because your voice is different than everyone else. 
 
 Disclaimer: [I’ve been guilty](https://blog.jim-nielsen.com/2019/stuff-to-say-on-twitter/) of this. So what gives me the right to say anything? Nothing really, except I have my own blog where I can publish my own thoughts. I’m trying really hard right now to not have social share imagery. We’ll see how long I can hold out.
+
+## Update 2021-10-19
+
+Twitter tries to turn a link into a preview image. This appears to be the logic:
+
+- No meta tags? No card.
+- [Open graph](https://ogp.me) meta tags? Use those and display a placeholder image.
+- [Twitter-specific meta tags](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards)? Use those (and your custom graphic if supplied, otherwise the placeholder).
+
+You can see this all play out in the [Twitter card validator](https://cards-dev.twitter.com/validator).
+
+<img src="https://cdn.jim-nielsen.com/blog/2021/social-images-card-validator.png" width="1000" height="1140" alt="Three results shown in the Twitter Card Validator where  " /> 
+
+If you’ve got open graph meta tags but not Twitter-specific meta tags, a “card” is still going to display. In that scenario, you may as well supply a custom graphic because a graphic is going to be displayed in a card either way—might as well have it be your own.
+
+The only way, that I can tell, to have no preview at all is to have no open graph or twitter-specific meta info at all.
+
+<img src="https://cdn.jim-nielsen.com/blog/2021/social-images-twitter-no-preview.png" width="647" height="159" alt="Screenshot of a Tweet with no card preview." /> 
+
+It seems like a shame to remove the tags entirely (which would be my preferred Twitter experience) because they can be very useful in other contexts. I’m having a hard time deciding which choice I want to opt for…
