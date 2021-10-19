@@ -52,7 +52,7 @@ const replyHtml = ({ postTags, postLink, siteOrigin }) =>
       </li>`}
       <li>
         <a
-          href="mailto:spokes-probes.0w@icloud.com?subject=Re: blog.jim-nielsen.com&body=Source: ${postLink}"
+          href="mailto:spokes-probes.0w@icloud.com?subject=Re: blog.jim-nielsen.com${postLink}"
           >Reply via email</a
         >
       </li>
