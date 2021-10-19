@@ -107,12 +107,14 @@ const Layout = (props, children) => {
             <meta name="twitter:site" content="@jimniels" />
             <meta name="twitter:creator" content="@jimniels" />
             <meta name="twitter:title" content="${title}" />
-            ${
-              "" /*
-              <meta name="twitter:image" content="https://blog.jim-nielsen.com/assets/img/twitter-card.png">
-              <meta name="twitter:image:alt" content="Photo of Jim Nielsen saying stuff">
-              */
-            }
+            <meta
+              name="twitter:image"
+              content="https://blog.jim-nielsen.com/assets/img/twitter-card.png"
+            />
+            <meta
+              name="twitter:image:alt"
+              content="Jim Nielsen’s initials (JN) in a hand-written style."
+            />
           `}
         </head>
         <body>
