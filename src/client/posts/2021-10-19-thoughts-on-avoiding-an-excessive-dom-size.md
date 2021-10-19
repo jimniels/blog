@@ -63,3 +63,7 @@ As a simple illustration of what I’m trying to get at, consider the book _Moby
 The beauty of the web is that it’s bigger than any rules we try to draw around it. As [Rich Harris stated in his talk on transitional apps](https://www.youtube.com/watch?v=860d8usGC0o), “[the web is] a medium that by its very nature resists definitional boundaries.” 
 
 Perhaps there’s more room for nuance and range in our performance tools and metrics.
+
+## Update 2021-10-19
+
+[@anthony_ricaud hit me up on Twitter](https://twitter.com/anthony_ricaud/status/1450528308941230083?s=20) noting that the “Human” page on Wikipedia pales in comparison to the DOM size and depth of [the HTML spec](https://html.spec.whatwg.org/). It’s a single page of HTML with 278,148 elements!
