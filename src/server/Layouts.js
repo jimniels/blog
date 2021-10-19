@@ -96,7 +96,7 @@ const Layout = (props, children) => {
             }
           </style>
 
-          ${layout === "Post" &&
+          ${layout === "Postzzz" &&
           html`
             <!-- If it’s a post page, we’ll include meta info and code styling -->
             <meta property="og:title" content="${title}" />
