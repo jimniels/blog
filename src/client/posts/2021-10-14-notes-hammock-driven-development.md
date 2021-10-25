@@ -1,5 +1,5 @@
 ---
-tags: generalNotes
+tags: notesRichHickey
 ---
 
 # Notes: Hammock Driven Development by Rich Hickey
