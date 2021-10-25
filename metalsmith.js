@@ -14,6 +14,20 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 console.log("build");
 console.time("build");
 
+// Footnotes
+//
+// Rules of footnotes for my custom implementation:
+//   A paragraph of text[^1] with a footnote[^2].
+//
+//   [^1]: This is my footnote _with_ markdown.
+//   [^2]: No extra line between footnotes at bottom. Must be 1 paragraph.
+//
+// Initially borrowed from: https://github.com/markedjs/marked/issues/1562#issuecomment-643171344
+const footnoteMatch = /^\[\^([^\]]+)\]: ([\s\S]*)$/;
+const referenceMatch = /\[\^([^\]]+)\](?!\()/g;
+const referencePrefix = "fnref";
+const footnotePrefix = "fn";
+
 // Old posts use markdown for images `![]()` which nests them as <p><img></p>
 // in the output. Some of the newer posts just manually specify the `<img>`
 // on a new line. These don’t get parsed into images wrapped in <p>s, which is
@@ -21,12 +35,62 @@ console.time("build");
 // I suppose). So that’s what this is doing here.
 let linksByDomain = {};
 const renderer = {
+  // Footnotes
+  paragraph(text) {
+    if (text.match(footnoteMatch)) {
+      return (
+        "<hr><ol class='footnotes'>" +
+        // The no extra line between footnotes allows us to match this paragraph
+        // as a footnote but with all the footnotes in it.
+        // [^1]: ...
+        // [^2]: ...
+        // We then split them by line (NO NEW LINES IN FOOTNOTES OR YOU BREAK THIS)
+        text
+          .split("\n")
+          .map((paragraph) =>
+            paragraph.replace(
+              footnoteMatch,
+              /*
+                _: "[^1]: ..."
+                ref: "1"
+                text: "..."
+              */
+              (_, ref, text) =>
+                `<li id="${footnotePrefix}:${ref}">${text} <a href="#${referencePrefix}:${ref}" title="Jump back to footnote ${ref} in the text.">↩</a></li>`
+            )
+          )
+          .join("") +
+        "</ol>"
+      );
+    }
+    return false;
+  },
+  text(text) {
+    // Skip doing anything if it's the paragraph of footnotes
+    if (text.split("\n").some((line) => line.match(footnoteMatch))) {
+      return false;
+    }
+    if (text.match(referenceMatch)) {
+      // A paragraph of text that somewhere has[^1] a footnote in it.
+      return text.replace(
+        referenceMatch,
+        // _: A paragraph of text...
+        // ref: 1
+        (_, ref) =>
+          `<sup id="${referencePrefix}:${ref}"><a href="#${footnotePrefix}:${ref}">[${ref}]</a></sup>`
+      );
+    }
+    return false;
+  },
+
+  // Images
   html(html) {
     if (html.startsWith("<img")) {
       return `<p>${html}</p>`;
     }
     return html;
   },
+  // Links by domain
   link(href, title, text) {
     let hostname;
 

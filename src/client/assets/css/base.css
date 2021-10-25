@@ -111,6 +111,25 @@ a:active {
   text-decoration: underline;
 }
 
+/* Styles for footnotes */
+.copy a[href^="#fn"] {
+  text-decoration: none;
+}
+.copy a[href^="#fnref"] {
+  font-family: sans-serif; /* keep the backlink from displaying as an emoji */
+}
+:target {
+  background: hsla(var(--c-primary-hsl), 0.125);
+}
+@media (prefers-color-scheme: dark) {
+  :target {
+    background: hsla(var(--c-primary-hsl), 0.225);
+  }
+}
+.footnotes {
+  font-size: 0.91rem;
+}
+
 /* ==========================================================================
    Images & Video
    ========================================================================== */

@@ -16,7 +16,7 @@ And, unlike many things on the modern web, it’s fantastically simple and strai
 
 The wonderful thing about this pattern is that your email is accessible to everyone—humans, browsers, screen readers, you name it. 
 
-The downside is that your email is accessible to everyone, you name it. That includes bots and other bad actors who will harvest your email for spam—at least that’s the fear that’s been instilled in many of us through the years<sup id="a1">[1](#f1)</sup>.
+The downside is that your email is accessible to everyone, you name it. That includes bots and other bad actors who will harvest your email for spam—at least that’s the fear that’s been instilled in many of us through the years[^1].
 
 There have been [many-a-way to get around this problem](https://www.heartinternet.uk/blog/15-ways-to-hide-your-email-address/), the most famous likely being the “put your email in an image” technique which hides your email from being in the HTML while remaining visible on screen—though it’s not without its accessibility concerns, and you can’t use `mailto` to hyperlink the user’s email client.
 
@@ -68,6 +68,5 @@ Personally, once I parse the incoming email and determine it’s from a human I 
 
 I don’t know why, but I love small things like this.
 
----
 
-1. <span id="f1"></span>Is that still actually a problem? I’m not sure. I had a hard time finding any real modern commentary on it. I’ve had my email publicly accessible on my website in a `mailto` link for a few years and I’ve never had too big of a problem. Maybe that’s because spam filtering has gotten really good? Maybe it’s because that’s not really a vector for exploitation anymore? With modern OCR, I wonder if hiding your email in an image is still even plausible? Anyhow, I still like this solution.
+[^1]: Is that still actually a problem? I’m not sure. I had a hard time finding any real modern commentary on it. I’ve had my email publicly accessible on my website in a `mailto` link for a few years and I’ve never had too big of a problem. Maybe that’s because spam filtering has gotten really good? Maybe it’s because that’s not really a vector for exploitation anymore? With modern OCR, I wonder if hiding your email in an image is still even plausible? Anyhow, I still like this solution.

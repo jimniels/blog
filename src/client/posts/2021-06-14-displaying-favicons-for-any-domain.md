@@ -10,7 +10,7 @@ Herein I detail what I discovered attempting to display favicons for any site on
 
 ## Guess at the Favicon URL
 
-Since I had the domains of each site, i.e. `css-tricks.com`, my first thought was: assume the presence of a favicon at the root of the domain<sup id="a1">[1](#f1)</sup> and see where that gets you.
+Since I had the domains of each site, i.e. `css-tricks.com`, my first thought was: assume the presence of a favicon at the root of the domain[^1] and see where that gets you.
 
 Looping over each domain, my code looked like this for the favicon:
 
@@ -71,7 +71,7 @@ What’s neat about Google’s service is they provide that ubiquitous “globe�
 
 ### DuckDuckGo
 
-I found a number of DuckDuckGo favicon service URLs<sup id="a2">[2](#f2)</sup>, all of which seem to work: 
+I found a number of DuckDuckGo favicon service URLs[^2], all of which seem to work: 
 
 [icons.duckduckgo.com/ip3/blog.jim-nielsen.com.ico](https://icons.duckduckgo.com/ip3/blog.jim-nielsen.com.ico)
 
@@ -93,11 +93,10 @@ The Russian search engine Yandex is in on the game too. Uniquely, they can get y
 
 It’s pretty neat that this functionality of displaying a favicon for any site on the web _seems to be_ provided as complimentary  utility to web developers.
 
-However, as mentioned, I can’t find any official API documentation or terms of service for usage of these URLs. It’s definitely a “use at your own risk” kind of deal. 
+However, as mentioned, I can’t find any official API documentation or terms of service for usage of these URLs. It’s definitely a “use at your own risk” kind of deal.
 
 I’ve implemented displaying favicons for all the links I index on my blog. You can see that [here](https://blog.jim-nielsen.com/about/).
 
----
 
-1. <span id="f1"></span>One of the things I consistently see in my analytics (via Netlify) is how many requests come in for `/favicon.ico`, regardless of whether I specify its location using the `<link>` tag. Lesson? Unless you have a really good reason not to, just stick the favicon at the root of your domain. [↩](#a1)
-2. <span id="f2"></span>DuckDuckGo’s usage of their favicon service in their mobile browser apparently caused [some](https://news.ycombinator.com/item?id=23708166) [controversy](https://github.com/duckduckgo/Android/issues/527). Rather than get a site’s favicon from wherever the website said to get it, their browser [asked DuckDuckGo’s servers for it](https://latesthackingnews.com/2020/07/07/duckduckgo-collected-users-browsing-data-addressed-the-glitch/). This _looked like_ a form of user tracking, a serious violation of the privacy-minded DuckDuckGo. While it all seemed ultimately harmless and done in the name of performance, it nonetheless ended up being a bad look for DuckDuckGo. [↩](#a2)
+[^1]: One of the things I consistently see in my analytics (via Netlify) is how many requests come in for `/favicon.ico`, regardless of whether I specify its location using the `<link>` tag. Lesson? Unless you have a really good reason not to, just stick the favicon at the root of your domain.
+[^2]: DuckDuckGo’s usage of their favicon service in their mobile browser apparently caused [some](https://news.ycombinator.com/item?id=23708166) [controversy](https://github.com/duckduckgo/Android/issues/527). Rather than get a site’s favicon from wherever the website said to get it, their browser [asked DuckDuckGo’s servers for it](https://latesthackingnews.com/2020/07/07/duckduckgo-collected-users-browsing-data-addressed-the-glitch/). This _looked like_ a form of user tracking, a serious violation of the privacy-minded DuckDuckGo. While it all seemed ultimately harmless and done in the name of performance, it nonetheless ended up being a bad look for DuckDuckGo.
