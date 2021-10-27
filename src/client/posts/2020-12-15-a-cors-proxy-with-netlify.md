@@ -4,7 +4,9 @@ tags: netlify
 
 # Setup a CORS Proxy With Netlify
 
-**tldr;** if you’re hosting with Netlify, you can use [their rewrites and proxies](https://docs.netlify.com/routing/redirects/rewrites-proxies/) functionality to bypass CORS issues when fetching resources with client-side JavaScript. In `netlify.toml`
+**Update 2021-10-27**: Turns out Netlify has deprecated the ability to do this—and this post is specifically called out in [the deprecation announcement](https://answers.netlify.com/t/recent-change-open-proxy-deprecation/39921). Oops.
+
+_tldr_ if you’re hosting with Netlify, you can use [their rewrites and proxies](https://docs.netlify.com/routing/redirects/rewrites-proxies/) functionality to bypass CORS issues when fetching resources with client-side JavaScript. In `netlify.toml`
 
 ```toml
 [[redirects]]
