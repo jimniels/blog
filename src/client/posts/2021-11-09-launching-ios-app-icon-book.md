@@ -2,9 +2,9 @@
 tags: iconGalleries iconGalleriesBook
 ---
 
-# Launching The iOS App Icon Book
+# Launching “The iOS App Icon Book”
 
-Over three years ago [I wrote about some of the work I was doing on the app icon book](https://blog.jim-nielsen.com/2018/detecitve-work-for-app-icon-book/).
+Over three years ago [I wrote about some of the work I was doing on _The iOS App Icon Book_](https://blog.jim-nielsen.com/2018/detecitve-work-for-app-icon-book/).
 
 Since then, I’ve had a few things happen in life: became a first-time homeowner and moved cities, added a third child to the family, and lived through a global pandemic—to name a few.
 
