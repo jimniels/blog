@@ -114,7 +114,7 @@ Even if you defined the color variable as an rgb value, you still couldn’t int
 
 ```css
 :root {
-  --color-highlight: rgb(251, 0);
+  --color-highlight: rgb(251, 0, 0);
 }
 
 .selector {
