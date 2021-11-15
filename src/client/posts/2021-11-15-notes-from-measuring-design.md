@@ -1,3 +1,7 @@
+---
+tags: podcastNotes
+---
+
 # Podcast Notes: “Measuring Design” by Clearleft
 
 A couple weeks ago, I listened to the [“Measuring Design”](https://podcast.clearleft.com/season03/episode05/) episode of the Clearleft podcast.
@@ -9,7 +13,7 @@ When I say “listen”, what I was really doing was this:
 3. Hit pause, rewind, and take notes from what I heard and the impression(s) that came to mind.
 4. Repeat steps 1–3 for the entirety of the episode.
 
-Fortunately, there’s a transcript of the episode so I didn’t have to transcribe the excerpts that stood out to me while listening—thank you × 1,000,000 to whoever does that!
+Fortunately, there’s a transcript of the episode so I didn’t have to transcribe the excerpts that stood out to me while listening—thank you × 1,000,000 to whoever does that!
 
 Now I’ve come around to organizing my notes from the podcast and putting them into a blog post.
 
