@@ -1,7 +1,3 @@
----
-tags: podcastNotes
----
-
 # Podcast Notes: “Measuring Design” by Clearleft
 
 A couple weeks ago, I listened to the [“Measuring Design”](https://podcast.clearleft.com/season03/episode05/) episode of the Clearleft podcast.
