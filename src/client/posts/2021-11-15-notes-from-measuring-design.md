@@ -29,7 +29,7 @@ Ok, here are my notes from when I first listened to the podcast.
 
 > [MAITE] The thing about just conducting quantitative research, like AB testing, is that they tell you how many, but they don’t tell you why. So you might run an AB test and see that some elements perform better than others, but you don’t really know why. Then if you don’t know why it performs better how do you make that decision again for it to be successful if you don’t really know what it is?
 
-This is a great point. One-off quantitative research like this, A/B testing being a common one I've seen, can easily become a the “helicopter parenting” of product design: they make all the decisions for you. Nothing is left to your judgement, which inevitable will atrophy your instincts. “Please data, just tell me what to do.”
+This is a great point. One-off quantitative research like this, A/B testing being a common one I've seen, can easily become a the “helicopter parenting” of product design: they make all the decisions for you. Nothing is left to your judgement, which  will atrophy your instincts. “Please data, just tell me what to do.”
 
 You should be looking for insights that help you answer _why do a thing_, not decision making that tells you _what thing to do_.
 
