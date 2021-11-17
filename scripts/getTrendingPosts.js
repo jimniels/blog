@@ -33,7 +33,7 @@ export default function getTrendingPosts() {
   }
 
   return fetch(
-    `https://analytics.services.netlify.com/v1/2edb6cab-f1d8-4556-85ee-426ae71f5980/ranking/pages?from=${oneMonthAgo.getTime()}&to=${today.getTime()}&timezone=-0700&limit=15`,
+    `https://analytics.services.netlify.com/v2/2edb6cab-f1d8-4556-85ee-426ae71f5980/ranking/pages?from=${oneMonthAgo.getTime()}&to=${today.getTime()}&timezone=-0700&limit=15`,
     {
       headers: {
         authorization: `Bearer ${token}`,
