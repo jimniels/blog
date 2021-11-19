@@ -55,7 +55,7 @@ You can’t “coerce” a custom property’s color value from one type to anot
 }
 ```
 
-Dynamic colors in CSS using HEX color values is impossible. While you can [specify the alpha channel for a HEX color]((https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4)), you can only do so declaratively (i.e. `#ff000080`). CSS has no notion of concatenating strings.
+Dynamic colors in CSS using HEX color values is impossible. While you can [specify the alpha channel for a HEX color](https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4), you can only do so declaratively (i.e. `#ff000080`). CSS has no notion of concatenating strings.
 
 ```css
 :root {
