@@ -4,7 +4,7 @@ Here in the United States it’s Thanksgiving, which means it’s time to list t
 
 But hey, being grateful one time is better than no times #amirite?
 
-But seriously, in the spirit of Thanksgiving I wanted to take a moment to fire off a quick post listing all the things I’m grateful for—however cliche.
+But seriously, in the spirit of Thanksgiving I wanted to take a moment to fire off a quick post listing the things I’m grateful for—however cliche—that pop into my head as a I set a timer to write.
 
 So, with that said, here’s a quick list of things (and by extension people, since it’s _people_ who make the things) I’m grateful for:
 
