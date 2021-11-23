@@ -64,3 +64,17 @@ Granted that will change the entire appearance of the element, but for this part
 ![gif showing link color change on hover](https://cdn.jim-nielsen.com/blog/2019/css-filter-on-hover.gif)
 
 That’s it. That’s all I wanted to share.
+
+## Update 2021-11-13
+
+The ability to destructure the individual channels of any given color is coming in the form of [CSS relative colors](https://blog.jim-nielsen.com/2021/css-relative-colors/)! You can even leverage `calc()` to increase or decrease individual channels, like the `lightness` channel in `hsl()`. Example:
+
+```css
+:root {
+  --color-highlight: hsl(12, 15%, 40%);
+}
+
+a {
+  color: rgb(from var(--color-highlight) h s calc(l + 5%));
+}
+```
