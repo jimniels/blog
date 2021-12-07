@@ -1,5 +1,5 @@
 ---
-tags: data
+tags: data generalNotes
 ---
 
 # Notes on Metadata
