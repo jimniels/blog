@@ -62,7 +62,7 @@ const replyHtml = ({ postTags, postPath, siteOrigin }) =>
 
 const rssClubHtml = () => `
   <p style="font-family:monospace;">
-    It’s a secret to everyone! <a href="https://daverupert.com/rss-club/">Read more about RSS Club.</a>    
+    This post is a secret to everyone! <a href="https://daverupert.com/rss-club/">Read more about RSS Club.</a>    
   <p>
 `;
 
