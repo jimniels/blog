@@ -28,7 +28,7 @@ export default function JSONFeed(site) {
             post.contents.toString() +
             replyHtml({
               postTags: post.tags,
-              postLink: url,
+              postPath: post.permalink,
               siteOrigin: site.origin,
             }),
       };

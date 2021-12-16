@@ -35,10 +35,10 @@ const toDateUIMin = (date) => toDateUI(date).split(",")[0];
  * The replyHtml that appears at the bottom of each post, both on the site
  * as well as in the RSS feed
  * @param {Array<string>} postTags
- * @param {string} postLink
+ * @param {string} postPath - /2021/slug-to-post
  * @param {string} siteOrigin
  */
-const replyHtml = ({ postTags, postLink, siteOrigin }) =>
+const replyHtml = ({ postTags, postPath, siteOrigin }) =>
   // @TODO add a view random post feature
   html`
     <hr />
@@ -52,7 +52,7 @@ const replyHtml = ({ postTags, postLink, siteOrigin }) =>
       </li>`}
       <li>
         <a
-          href="mailto:spokes-probes.0w@icloud.com?subject=Re: blog.jim-nielsen.com${postLink}"
+          href="mailto:spokes-probes.0w@icloud.com?subject=Re: blog.jim-nielsen.com${postPath}"
           >Reply via email</a
         >
       </li>
