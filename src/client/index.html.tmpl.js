@@ -6,7 +6,9 @@ const page = {
 };
 
 export default function Index(site) {
-  const recent = site.posts.slice(0, 5);
+  const recent = site.posts
+    .filter((post) => !post?.tags.includes("rssClub"))
+    .slice(0, 5);
   const favorites = site.posts
     .filter((post) => post.hasOwnProperty("favorites_index"))
     .sort((a, b) => (a.favorites_index > b.favorites_index ? 1 : -1))

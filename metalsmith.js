@@ -268,6 +268,9 @@ let App = Metalsmith(__dirname)
         // Tags will come space separated, i.e. "readingNotes design"
         // So turn them into an array
         files[file].tags = tags.trim().split(" ");
+      } else {
+        // Setup empty tag if
+        files[file].tags = [];
       }
 
       // Rename all posts to their appropriate permalinks to slug output
@@ -309,15 +312,18 @@ let App = Metalsmith(__dirname)
       });
 
     // Add a postsByYear since it gets used in multiple places
-    site.postsByYear = site.posts.reduce((acc, post) => {
-      const year = post.date.getFullYear();
-      if (acc[year]) {
-        acc[year].push(post);
-      } else {
-        acc[year] = [post];
-      }
-      return acc;
-    }, {});
+    // And don't include rssClub posts
+    site.postsByYear = site.posts
+      .filter((post) => !post?.tags.includes("rssClub"))
+      .reduce((acc, post) => {
+        const year = post.date.getFullYear();
+        if (acc[year]) {
+          acc[year].push(post);
+        } else {
+          acc[year] = [post];
+        }
+        return acc;
+      }, {});
 
     site.tags = Array.from(
       new Set(

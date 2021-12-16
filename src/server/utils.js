@@ -60,4 +60,17 @@ const replyHtml = ({ postTags, postLink, siteOrigin }) =>
     </ul>
   `;
 
-export { html, toDateUI, toDateUIMin, replyHtml };
+const rssClubHtml = () => `
+  <pre style="font-size: 12px; font-family:monospace; line-height: 1.2; margin: 0;">
+_______________________    ______________ _____  _________ 
+___  __ \_  ___/_  ___/    __  ____/__  / __  / / /__  __ )
+__  /_/ /____ \_____ \     _  /    __  /  _  / / /__  __  |
+_  _, _/____/ /____/ /     / /___  _  /___/ /_/ / _  /_/ / 
+/_/ |_| /____/ /____/      \____/  /_____/\____/  /_____/                      
+  </pre>
+  <p style="font-size: 12px; font-family:monospace;">
+    It’s a secret to everyone! <a href="https://daverupert.com/rss-club/">Read more about RSS Club.</a>    
+  <p>
+`;
+
+export { html, toDateUI, toDateUIMin, replyHtml, rssClubHtml };
