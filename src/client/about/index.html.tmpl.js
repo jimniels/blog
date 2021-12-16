@@ -1,5 +1,5 @@
 import { PageCustom } from "../../server/Layouts.js";
-import { html, toDateUIMin } from "../../server/utils.js";
+import { html } from "../../server/utils.js";
 
 const page = {
   title: "About",

@@ -1,5 +1,5 @@
 import { PageCustom } from "../server/Layouts.js";
-import { html, toDateUI, toDateUIMin } from "../server/utils.js";
+import { html, toDateUI } from "../server/utils.js";
 
 const page = {
   permalink: "/",
