@@ -20,7 +20,9 @@ export default function Tags(site) {
     return acc;
   }, {});
 
-  const tags = Object.keys(postsByTag).sort();
+  let tags = Object.keys(postsByTag)
+    .sort()
+    .filter((tag) => tag !== "rssClub");
 
   // prettier-ignore
   return PageCustom({ site, page }, html`
