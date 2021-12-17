@@ -1,6 +1,6 @@
 ---
 title: Skinning the Idea Poster Anew
-tags: designProcess
+tags: designProcess kindling
 summary: "By anticipating customer desires, I quickly iterated on what was originally a proof-of-concept tool to make it a beautifully customizable product enhancement."
 redirect_from: /posts/skinning-the-idea-poster-anew/
 ---

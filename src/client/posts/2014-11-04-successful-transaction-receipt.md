@@ -1,6 +1,6 @@
 ---
 title: Designing a Successful Transaction Receipt
-tags: designProcess
+tags: designProcess kindling
 redirect_from: /posts/successful-transaction-receipt/
 ---
 

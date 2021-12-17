@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Creating Apple Touch Icons
-tags: designProcess
+tags: designProcess kindling
 summary: "Upon closer inspection, sometimes “flat” icons or graphics aren’t quite so flat. Introducing a few subtleties can go a long way."
 redirect_from: /posts/creating-apple-touch-icons/
 ---

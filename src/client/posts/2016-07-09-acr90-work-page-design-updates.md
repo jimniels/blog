@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Arc90 “Work” Page Design Updates
-tags: designProcess
+tags: designProcess arc90
 ---
 
 I’m going back in time on this post. Back in 2012, I moved to New York City and began working with some excellent folks at a small product shop named Arc90 (since acquired, but [their github](https://github.com/arc90) lives on). The client project I was initially hired to work on was cancelled about two weeks after I started. Fortunately, the good folks at Arc90 provided me some internal work to focus on until more client work came down the tube. So, as a way of documenting some of my first agency work, I write this post.

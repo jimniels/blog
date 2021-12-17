@@ -1,6 +1,6 @@
 ---
 title: "Words Have Meaning: Creating the “Let’s Talk Innovation” Page"
-tags: designProcess
+tags: designProcess kindling
 summary: "An innocent mistake in naming at the beginning of a project created distorted conclusions in design thinking and led us down a road of confusion. We had to retrace our steps and change our original naming choices in order to proceed forward."
 redirect_from: /posts/innovation-talk-page/
 ---
