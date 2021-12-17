@@ -1,5 +1,5 @@
 ---
-title: Detective Work for the App Icon Book
+title: Detective Work for “The App Icon Book”
 tags: designProcess iconGalleries iconGalleriesBook
 ---
 
