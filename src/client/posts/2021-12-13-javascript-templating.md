@@ -135,7 +135,7 @@ const Layout = ({ title }, children) => `<!doctype html>
       <title>${title}</title>
       <!--
         All the links to your stuff. Heck even accept
-        a `meta` prop which is a string of HTML <meta> tags
+        a "meta" prop which is a string of HTML <meta> tags
         specific to this page and dump it here if you want.
       -->
     </head>
