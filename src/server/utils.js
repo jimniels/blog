@@ -48,6 +48,7 @@ export function replyHtml({ postTags, postPath, siteOrigin }) {
     <hr />
     <ul>
       ${Array.isArray(postTags) &&
+      postTags.length &&
       html`<li>
         Tagged in:
         ${postTags
