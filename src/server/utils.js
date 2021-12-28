@@ -47,14 +47,14 @@ export function replyHtml({ postTags, postPath, siteOrigin }) {
   return html`
     <hr />
     <ul>
-      ${Array.isArray(postTags) &&
-      postTags.length &&
-      html`<li>
-        Tagged in:
-        ${postTags
-          .map((tag) => `<a href="${siteOrigin}/tags/#${tag}">#${tag}</a>`)
-          .join(", ")}
-      </li>`}
+      ${Array.isArray(postTags) && postTags.length
+        ? html`<li>
+            Tagged in:
+            ${postTags
+              .map((tag) => `<a href="${siteOrigin}/tags/#${tag}">#${tag}</a>`)
+              .join(", ")}
+          </li>`
+        : ""}
       <li>
         <a
           href="mailto:spokes-probes.0w@icloud.com?subject=Re: blog.jim-nielsen.com${postPath}"
