@@ -3,7 +3,6 @@ class SiteNav extends HTMLElement {
     super();
 
     const links = Array.from(this.children);
-    console.log(links);
     this.innerHTML = /*html*/ `
       <button aria-label="Menu">
         <svg class="icon">
