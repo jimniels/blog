@@ -43,7 +43,7 @@ site-nav ul[hidden] {
 site-nav ul {
   background-color: var(--c-bg);
   background-color: -apple-system-control-background;
-  border: 7px solid var(--c-gray-6);
+  border: 5px solid var(--c-gray-6);
   border-radius: var(--border-radius);
   list-style: none;
   margin: 0;
