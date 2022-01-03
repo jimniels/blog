@@ -127,8 +127,8 @@ const Layout = (props, children) => {
             <!-- Progressively enhance the site navigation -->
             <site-nav>
               ${nav.map(
-                ({ label, permalink, details }) => html`
-                  <a href="${permalink}" data-details="${details}">${label}</a>
+                ({ label, permalink, details, id }) => html`
+                  <a href="${permalink}" data-icon-id="${id}">${label} </a>
                 `
               )}
             </site-nav>

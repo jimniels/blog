@@ -26,7 +26,7 @@ export default function Tags(site) {
 
   // prettier-ignore
   return PageCustom({ site, page }, html`
-    <h1>Post Tags <small>(${tags.length})</small></h1>
+    <h1>Tags <small>(${tags.length})</small></h1>
     <style>
       @media screen and (min-width: 50rem) {
         #post-tags { column-count: 2; max-width: 40rem;}
@@ -41,15 +41,13 @@ export default function Tags(site) {
         `)}
     </ul>
 
-    <h2>Posts by Tag</h2>
-
     ${tags.map(tag => html`
-      <h3 id="${tag}" style="margin-bottom: 1rem;">
+      <h2 id="${tag}" style="margin-bottom: 1rem;">
         #${tag}
         <small style="font-weight: normal">
           (${postsByTag[tag].length})
         </small>
-      </h3>
+      </h2>
 
       <ul class="posts-list">
         ${postsByTag[tag].map(post => html`

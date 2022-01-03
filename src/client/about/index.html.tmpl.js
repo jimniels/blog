@@ -39,52 +39,23 @@ export default function About(site) {
     { site, page },
     // prettier-ignorez
     html` <div class="copy">
-        <h1>About Me and This Blog</h1>
+        <h1>About</h1>
 
         <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
 
         <p>
-          Let me tell you a bit about my approach to blogging at the moment. In
-          the past, I frequently put off writing blog posts because I found
-          myself unable to put forth my best effort in writing—that attitude of
-          “if you can’t do something right, don’t do it at all”—but lately I’ve
-          found myself regretting not writing at least <em>something</em>.
+          In the past, I put off writing because I was unable to do my best—“if
+          you can’t do something right, don’t do it at all”.
+        </p>
+        <p>
+          But lately I’ve found myself regretting not writing down at least
+          <em>something</em>.
         </p>
 
         <p>
-          This is the lens through which I’ve come to view my blog posts these
-          days, like a lax journal.
+          So my current posture towards blogging is: something is better than
+          nothing.
         </p>
-
-        <p>
-          I have all these ambitions to write but then I don’t. Now I’ve arrived
-          at this point of thinking “well something is better than nothing”. So,
-          many of the posts on my blog are me just trying to write something
-          down before I forget it all. I’ve found I enjoy the nostalgia of going
-          back after a year and being like “oh yeah, that thing”. Like a
-          nostalgic photograph.
-        </p>
-
-        <p>
-          On this blog, I sometimes don’t take the effort I should to craft what
-          I’m writing so by the end of the post I feel like “well I’ll just
-          publish it and maybe come back and do more proof reads” but at that
-          point I know I’m just lying to myself by saying that.
-        </p>
-
-        <p>
-          But hey, like I said, these days I’m aiming for my some of my posts to
-          merely be like a bad journal entry.
-        </p>
-
-        <p>
-          Note: the thoughts and opinions herein are my own. Although a few of
-          my writings are original, mostly I feel responsible for the ways in
-          which I misunderstand and mangle the ideas of other people far smarter
-          than I.
-        </p>
-
-        <p>— Jim (version of myself on April 16, 2018)</p>
 
         <p>
           <img
@@ -95,7 +66,7 @@ export default function About(site) {
           />
         </p>
 
-        <h1>Links in This Blog</h1>
+        <h2>Blog Links</h2>
 
         <p>
           I thought it would be interesting to
