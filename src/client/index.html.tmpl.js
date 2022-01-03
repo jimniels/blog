@@ -24,7 +24,7 @@ export default function Index(site) {
       <h1>Posts</h1>
 
       <h2>Latest</h2>
-      ${PostList(recent)} ${site.blogPostsStatus}
+      ${PostList(recent)}
 
       <h2>Select Personal Favorites</h2>
       ${PostList(favorites)}

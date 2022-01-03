@@ -6,7 +6,7 @@ import hljs from "highlight.js";
 import marked from "marked";
 import psl from "psl";
 import cheerio from "cheerio";
-import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
+// import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
@@ -341,12 +341,12 @@ let App = Metalsmith(__dirname)
      * Given a goal against a point in time along with some posts, see where
      * my status is tracking.
      */
-    site.blogPostsStatus = await getBlogPostsStatus({
-      goal: 72,
-      goalUrl: "/2021/writing-in-2020-and-2021/",
-      moment: new Date(),
-      allPosts: site.posts,
-    });
+    // site.blogPostsStatus = await getBlogPostsStatus({
+    //   goal: 0,
+    //   goalUrl: "/2021/writing-in-2020-and-2021/",
+    //   moment: new Date("2019-12-31"),
+    //   allPosts: site.posts,
+    // });
 
     /**
      * Handle Templating
