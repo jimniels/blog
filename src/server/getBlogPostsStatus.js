@@ -132,10 +132,9 @@ export default async function BlogPostsStatus({
   return html`
     <details id="bps">
       <summary>
-        <strong
-          >${posts.length} post${posts.length !== 1 && "s"} in ${year}.</strong
-        >
-        <a href="${goalUrl}">My goal is ${goal}</a>.
+        ${posts.length} post${posts.length !== 1 && "s"} in ${year}.
+        <a href="${goalUrl}">My goal is ${goal}</a>. You, dear reader, can
+        <a href="https://twitter.com/jimniels">hold me accountable</a>.
       </summary>
       <div>
         ${img &&

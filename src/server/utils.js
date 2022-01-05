@@ -1,4 +1,4 @@
-const html = (strings, ...values) => {
+export function html(strings, ...values) {
   let out = "";
   strings.forEach((string, i) => {
     const value = values[i];
@@ -24,26 +24,31 @@ const html = (strings, ...values) => {
     }
   });
   return out;
-};
+}
 
-const toDateUI = (date) => {
+/**
+ * Takes a date and returns how we format dates in the UI
+ * @param {Date} date
+ * @returns {string} - 2012-10-20
+ */
+export function toDateUI(date) {
   return date.toISOString().slice(0, 10);
-};
-const toDateUIMin = (date) => toDateUI(date).split(",")[0];
+}
 
 /**
  * The replyHtml that appears at the bottom of each post, both on the site
- * as well as in the RSS feed
- * @param {Array<string>} postTags
- * @param {string} postLink
- * @param {string} siteOrigin
+ * as well as in the RSS feed.
+ * @param {Array<string>} postTags - ["rssClub", "design"]
+ * @param {string} postPath - /2021/slug-to-post
+ * @param {string} siteOrigin - https://blog.jim-nielsen.com
  */
-const replyHtml = ({ postTags, postLink, siteOrigin }) =>
+export function replyHtml({ postTags, postPath, siteOrigin }) {
   // @TODO add a view random post feature
-  html`
+  return html`
     <hr />
     <ul>
       ${Array.isArray(postTags) &&
+      postTags.length > 0 &&
       html`<li>
         Tagged in:
         ${postTags
@@ -52,12 +57,23 @@ const replyHtml = ({ postTags, postLink, siteOrigin }) =>
       </li>`}
       <li>
         <a
-          href="mailto:jimniels@gmail.com?subject=Reply on blog.jim-nielsen.com&body=Source article ${postLink}"
+          href="mailto:spokes-probes.0w@icloud.com?subject=Re: blog.jim-nielsen.com${postPath}"
           >Reply via email</a
         >
       </li>
       <li><a href="https://twitter.com/jimniels">Reply on twitter</a></li>
     </ul>
   `;
+}
 
-export { html, toDateUI, toDateUIMin, replyHtml };
+/**
+ * Preface to any post published as part of RSS Club.
+ * @returns {string}
+ */
+export function rssClubHtml() {
+  return `
+    <p style="font-family:monospace;">
+      This post is a secret to everyone! <a href="https://daverupert.com/rss-club/">Read more about RSS Club.</a>    
+    <p>
+  `;
+}

@@ -2,7 +2,7 @@
   base = ""
   publish = "build"
   command = "npm run build"
-  environment = { NODE_VERSION = "13" }
+  environment = { NODE_VERSION = "16" }
 
 [[redirects]]
   from = "https://jimniels-blog.netlify.com/*"

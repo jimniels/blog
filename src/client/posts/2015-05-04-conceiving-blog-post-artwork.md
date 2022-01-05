@@ -1,6 +1,6 @@
 ---
 title: Conceiving Blog Post Artwork
-tags: designProcess
+tags: designProcess kindling
 redirect_from: /posts/conceiving-blog-post-artwork/
 ---
 

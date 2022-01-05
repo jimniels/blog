@@ -114,7 +114,7 @@ Even if you defined the color variable as an rgb value, you still couldn’t int
 
 ```css
 :root {
-  --color-highlight: rgb(251, 0);
+  --color-highlight: rgb(251, 0, 0);
 }
 
 .selector {
@@ -180,8 +180,6 @@ Consumers of our component library include our CSS in their app and then voilà!
 
 Pretty cool. Still can’t believe I didn’t figure this out until Jan 2019.
 
----
-
 ## Update Mar 27, 2019
 
 [Tyler](https://tylergaw.com/) ([@thegaw](https://twitter.com/tylergaw)) pinged me on twitter and dropped this little note:
@@ -235,8 +233,6 @@ How would you know that those are actually the same color, just expressed in the
 ```
 
 I think that makes it a little more obvious what’s going on. With that said, I started writing my colors on the web in HEX, so I’m much more fluent understanding what a color is by seeing it in HEX vs. RGB, so I may still end up rolling with Tyler’s suggestion.
-
----
 
 ## Update Jun 18, 2019
 
@@ -313,3 +309,16 @@ color: rgb(var(--red, var(--green, 0, 0, 255)));
 The browser first looks for `--red`. If it can’t find that, it looks for everything after the first `,` which in this case is `var(--green, 0, 0, 255)` and that is a valid value in CSS.
 
 ![Image depicting fallback pattern for CSS custom property values](https://cdn.jim-nielsen.com/blog/2019/css-variable-fallback.png)
+
+## Update 2021-11-13
+
+The ability to destructure the individual channels of any given color is coming in the form of [CSS relative colors](https://blog.jim-nielsen.com/2021/css-relative-colors/)! You can even leverage `calc()` to increase or decrease individual channels, like the `lightness` channel in `hsl()`. Example:
+
+```css
+:root {
+  --color-highlight: hsl(12, 15%, 40%);
+}
+a {
+  color: rgb(from var(--color-highlight) h s calc(l + 5%));
+}
+```

@@ -2,7 +2,7 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import pt from "prop-types";
-import { html, toDateUI, replyHtml } from "./utils.js";
+import { html, toDateUI, replyHtml, rssClubHtml } from "./utils.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
   fs.readFileSync(join(__dirname, filepath)).toString();
@@ -107,12 +107,14 @@ const Layout = (props, children) => {
             <meta name="twitter:site" content="@jimniels" />
             <meta name="twitter:creator" content="@jimniels" />
             <meta name="twitter:title" content="${title}" />
-            ${
-              "" /*
-              <meta name="twitter:image" content="https://blog.jim-nielsen.com/assets/img/twitter-card.png">
-              <meta name="twitter:image:alt" content="Photo of Jim Nielsen saying stuff">
-              */
-            }
+            <meta
+              name="twitter:image"
+              content="https://blog.jim-nielsen.com/assets/img/twitter-card.png"
+            />
+            <meta
+              name="twitter:image:alt"
+              content="Jim Nielsen’s initials (JN) in a hand-written style."
+            />
           `}
         </head>
         <body>
@@ -125,8 +127,8 @@ const Layout = (props, children) => {
             <!-- Progressively enhance the site navigation -->
             <site-nav>
               ${nav.map(
-                ({ label, permalink, details }) => html`
-                  <a href="${permalink}" data-details="${details}">${label}</a>
+                ({ label, permalink, details, id }) => html`
+                  <a href="${permalink}" data-icon-id="${id}">${label} </a>
                 `
               )}
             </site-nav>
@@ -176,6 +178,7 @@ const Post = (props) => {
         </time>
       </header>
       <div class="copy e-content">
+        ${page?.tags.includes("rssClub") ? rssClubHtml() : ""}
         ${page.contents.toString()}
       </div>
       <footer class="copy">

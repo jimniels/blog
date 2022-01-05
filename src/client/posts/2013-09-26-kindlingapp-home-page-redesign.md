@@ -1,6 +1,6 @@
 ---
 title: Home Page Redesign of kindlingapp.com
-tags: designProcess
+tags: designProcess kindling
 redirect_from: /posts/kindlingapp-home-page-redesign/
 ---
 

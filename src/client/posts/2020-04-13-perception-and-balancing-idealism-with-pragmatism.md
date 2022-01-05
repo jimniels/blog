@@ -1,5 +1,5 @@
 ---
-tags: design insight
+tags: design sagesure
 ---
 
 # Perception and Balancing Idealism with Pragmatism

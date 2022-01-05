@@ -1,3 +1,7 @@
+---
+tags: rss
+---
+
 # Making Your RSS Feeds Automatically Discoverable
 
 When I stumble on folks online whose writing I find interesting, I want to follow it. The easiest way to do that is add their website to my RSS reader.

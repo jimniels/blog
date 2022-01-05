@@ -1,18 +1,22 @@
 import { PageCustom } from "../server/Layouts.js";
-import { html, toDateUI, toDateUIMin } from "../server/utils.js";
+import { html, toDateUI } from "../server/utils.js";
 
 const page = {
   permalink: "/",
 };
 
 export default function Index(site) {
-  const recent = site.posts.slice(0, 10);
+  const recent = site.posts
+    .filter((post) => !post?.tags.includes("rssClub"))
+    .slice(0, 5);
   const favorites = site.posts
     .filter((post) => post.hasOwnProperty("favorites_index"))
-    .sort((a, b) => (a.favorites_index > b.favorites_index ? 1 : -1));
+    .sort((a, b) => (a.favorites_index > b.favorites_index ? 1 : -1))
+    .slice(0, 5);
   const trending = site.posts
     .filter((post) => post.hasOwnProperty("pageviews"))
-    .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1));
+    .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1))
+    .slice(0, 5);
 
   const filters = [
     {
@@ -152,7 +156,7 @@ export default function Index(site) {
   );
 }
 
-function PostList(posts) {
+function PostList(posts, showPageviews = false) {
   return html`
     <ul class="posts-list">
       ${posts.map(
@@ -163,13 +167,12 @@ function PostList(posts) {
             ${pageviews && `data-pageviews='${pageviews}'`}
           >
             <time datetime="${date.toISOString()}">${toDateUI(date)}</time>
-            ${pageviews &&
+            ${showPageviews &&
             html`<small
               >${pageviews > 1000
                 ? Math.round((pageviews / 1000) * 10) / 10 + "k"
                 : pageviews}</small
             >`}
-            <a href="${permalink}">${title}</a>
           </li>
         `
       )}

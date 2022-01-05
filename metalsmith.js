@@ -6,13 +6,27 @@ import hljs from "highlight.js";
 import marked from "marked";
 import psl from "psl";
 import cheerio from "cheerio";
-import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
+// import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
 import getTrendingPosts from "./scripts/getTrendingPosts.js";
 import * as layouts from "./src/server/Layouts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 console.log("build");
 console.time("build");
+
+// Footnotes
+//
+// Rules of footnotes for my custom implementation:
+//   A paragraph of text[^1] with a footnote[^2].
+//
+//   [^1]: This is my footnote _with_ markdown.
+//   [^2]: No extra line between footnotes at bottom. Must be 1 paragraph.
+//
+// Initially borrowed from: https://github.com/markedjs/marked/issues/1562#issuecomment-643171344
+const footnoteMatch = /^\[\^([^\]]+)\]: ([\s\S]*)$/;
+const referenceMatch = /\[\^([^\]]+)\](?!\()/g;
+const referencePrefix = "fnref";
+const footnotePrefix = "fn";
 
 // Old posts use markdown for images `![]()` which nests them as <p><img></p>
 // in the output. Some of the newer posts just manually specify the `<img>`
@@ -21,12 +35,62 @@ console.time("build");
 // I suppose). So that’s what this is doing here.
 let linksByDomain = {};
 const renderer = {
+  // Footnotes
+  paragraph(text) {
+    if (text.match(footnoteMatch)) {
+      return (
+        "<hr><ol class='footnotes'>" +
+        // The no extra line between footnotes allows us to match this paragraph
+        // as a footnote but with all the footnotes in it.
+        // [^1]: ...
+        // [^2]: ...
+        // We then split them by line (NO NEW LINES IN FOOTNOTES OR YOU BREAK THIS)
+        text
+          .split("\n")
+          .map((paragraph) =>
+            paragraph.replace(
+              footnoteMatch,
+              /*
+                _: "[^1]: ..."
+                ref: "1"
+                text: "..."
+              */
+              (_, ref, text) =>
+                `<li id="${footnotePrefix}:${ref}">${text} <a href="#${referencePrefix}:${ref}" title="Jump back to footnote ${ref} in the text.">↩</a></li>`
+            )
+          )
+          .join("") +
+        "</ol>"
+      );
+    }
+    return false;
+  },
+  text(text) {
+    // Skip doing anything if it's the paragraph of footnotes
+    if (text.split("\n").some((line) => line.match(footnoteMatch))) {
+      return false;
+    }
+    if (text.match(referenceMatch)) {
+      // A paragraph of text that somewhere has[^1] a footnote in it.
+      return text.replace(
+        referenceMatch,
+        // _: A paragraph of text...
+        // ref: 1
+        (_, ref) =>
+          `<sup id="${referencePrefix}:${ref}"><a href="#${footnotePrefix}:${ref}">[${ref}]</a></sup>`
+      );
+    }
+    return false;
+  },
+
+  // Images
   html(html) {
     if (html.startsWith("<img")) {
       return `<p>${html}</p>`;
     }
     return html;
   },
+  // Links by domain
   link(href, title, text) {
     let hostname;
 
@@ -204,6 +268,9 @@ let App = Metalsmith(__dirname)
         // Tags will come space separated, i.e. "readingNotes design"
         // So turn them into an array
         files[file].tags = tags.trim().split(" ");
+      } else {
+        // Setup empty tag if
+        files[file].tags = [];
       }
 
       // Rename all posts to their appropriate permalinks to slug output
@@ -245,15 +312,18 @@ let App = Metalsmith(__dirname)
       });
 
     // Add a postsByYear since it gets used in multiple places
-    site.postsByYear = site.posts.reduce((acc, post) => {
-      const year = post.date.getFullYear();
-      if (acc[year]) {
-        acc[year].push(post);
-      } else {
-        acc[year] = [post];
-      }
-      return acc;
-    }, {});
+    // And don't include rssClub posts
+    site.postsByYear = site.posts
+      .filter((post) => !post?.tags.includes("rssClub"))
+      .reduce((acc, post) => {
+        const year = post.date.getFullYear();
+        if (acc[year]) {
+          acc[year].push(post);
+        } else {
+          acc[year] = [post];
+        }
+        return acc;
+      }, {});
 
     site.tags = Array.from(
       new Set(
@@ -271,12 +341,12 @@ let App = Metalsmith(__dirname)
      * Given a goal against a point in time along with some posts, see where
      * my status is tracking.
      */
-    site.blogPostsStatus = await getBlogPostsStatus({
-      goal: 72,
-      goalUrl: "/2021/writing-in-2020-and-2021/",
-      moment: new Date(),
-      allPosts: site.posts,
-    });
+    // site.blogPostsStatus = await getBlogPostsStatus({
+    //   goal: 0,
+    //   goalUrl: "/2021/writing-in-2020-and-2021/",
+    //   moment: new Date("2019-12-31"),
+    //   allPosts: site.posts,
+    // });
 
     /**
      * Handle Templating

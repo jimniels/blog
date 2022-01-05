@@ -1,5 +1,5 @@
 import { PageCustom } from "../../server/Layouts.js";
-import { html, toDateUIMin } from "../../server/utils.js";
+import { html } from "../../server/utils.js";
 
 const page = {
   title: "Archive",
@@ -12,7 +12,7 @@ export default function Archive(site) {
   return PageCustom(
     { site, page },
     html`
-      <h1>Posts Archive</h1>
+      <h1>Archive</h1>
       <ul>
         ${Object.keys(postsByYear)
           .sort()
