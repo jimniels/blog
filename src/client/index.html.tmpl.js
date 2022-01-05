@@ -131,7 +131,11 @@ export default function Index(site) {
       </form>
 
       <datalist id="tag-suggestions">
-        ${site.tags.map((tag) => html`<option value="#${tag}"></option>`)}
+        <option value=":Popular"></option>
+        <option value=":Personal Favorites"></option>
+        ${site.tags
+          .sort()
+          .map((tag) => html`<option value="#${tag}"></option>`)}
       </datalist>
 
       ${PostList(site.posts, true)}
@@ -183,30 +187,52 @@ export default function Index(site) {
           .querySelector("form input[type=text]")
           .addEventListener("input", (e) => {
             console.log("Filter");
+            const value = e.target.value;
             $lis.forEach(($li) => {
               // @TODO <datalist> of tags to match
               // @TODO do better string matching
               const title = $li.querySelector("a").textContent.toLowerCase();
               const date = $li.getAttribute("data-date");
 
-              // @TODO fix logic handling
-              if (e.target.value.startsWith("#")) {
-                const tags = $li.getAttribute("data-tags");
-                const q = e.target.value.split("#")[1];
-                console.log(q, tags);
-                if (tags.indexOf(q) !== -1) {
-                  $li.removeAttribute("hidden");
-                } else {
-                  $li.setAttribute("hidden", true);
-                }
-              } else if (
-                title.indexOf(e.target.value.toLowerCase()) !== -1 ||
-                e.target.value.startsWith(date.slice(0, 4))
-              ) {
-                $li.removeAttribute("hidden");
-              } else {
-                $li.setAttribute("hidden", true);
+              switch (value[0]) {
+                case "#":
+                  const tags = $li.getAttribute("data-tags");
+                  const q = value.split("#")[1];
+
+                  if (tags.indexOf(q) !== -1) {
+                    $li.removeAttribute("hidden");
+                  } else {
+                    $li.setAttribute("hidden", true);
+                  }
+                  break;
+                case ":":
+                  console.log("Filter by", value);
+                  if (value.includes("Favorites")) {
+                    if ($li.hasAttribute("data-favorites")) {
+                      $li.removeAttribute("hidden");
+                    } else {
+                      $li.setAttribute("hidden", true);
+                    }
+                  }
+                  if (value.includes("Popular")) {
+                    if ($li.hasAttribute("data-pageviews")) {
+                      $li.removeAttribute("hidden");
+                    } else {
+                      $li.setAttribute("hidden", true);
+                    }
+                  }
+                  break;
+                default:
+                  if (
+                    title.indexOf(value.toLowerCase()) !== -1 ||
+                    value.startsWith(date.slice(0, 4))
+                  ) {
+                    $li.removeAttribute("hidden");
+                  } else {
+                    $li.setAttribute("hidden", true);
+                  }
               }
+              // @TODO fix logic handling
             });
           });
 
