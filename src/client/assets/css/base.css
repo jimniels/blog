@@ -1,6 +1,6 @@
 :root {
   --border-radius: 7px;
-  --c-primary-hsl: 224, 95%, 45%;
+  --c-primary-hsl: var(--c-theme-blue);
   --c-primary: hsl(var(--c-primary-hsl));
 
   --c-bg: #fff;
@@ -16,6 +16,20 @@
   --c-gray-4: rgb(188, 188, 192);
   --c-gray-5: rgb(216, 216, 220);
   --c-gray-6: rgb(236, 235, 240);
+
+  --c-theme-blue: 223 100% 43%;
+  --c-theme-red: 354 100% 42%;
+  --c-theme-green: 135 59% 34%;
+  --c-theme-yellow: 27 100% 35%;
+  --c-theme-purple: 280 43% 47%;
+  --c-theme-pink: 343 87% 44%;
+  --c-theme-orange: 16 100% 39%;
+  /* not supported yet */
+  --c-theme-mint: 177 83% 28%;
+  --c-theme-teal: 189 100% 30%;
+  --c-theme-cyan: 199 100% 32%;
+  --c-theme-indigo: 241 52% 42%;
+  --c-theme-brown: 33 30% 38%;
 }
 
 /* background-color: -apple-system-control-background;
@@ -23,9 +37,6 @@ color: text */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --c-primary-hsl: 215, 100%, 64%;
-    --c-primary: hsl(var(--c-primary-hsl));
-
     --c-bg: #000;
     --c-text: #fff;
 
@@ -35,6 +46,20 @@ color: text */
     --c-gray-4: rgb(68, 68, 70);
     --c-gray-5: rgb(54, 54, 56);
     --c-gray-6: rgb(36, 36, 38);
+
+    --c-theme-blue: 211 100% 63%;
+    --c-theme-red: 3 100% 69%;
+    --c-theme-green: 135 70% 52%;
+    --c-theme-yellow: 48 100% 57%;
+    --c-theme-purple: 280 100% 78%;
+    --c-theme-pink: 348 100% 70%;
+    --c-theme-orange: 36 100% 63%;
+    /* not supported yet */
+    --c-theme-mint: 177 56% 62%;
+    --c-theme-teal: 189 100% 68%;
+    --c-theme-cyan: 197 100% 72%;
+    --c-theme-indigo: 241 100% 72%;
+    --c-theme-brown: 34 34% 56%;
   }
 }
 
@@ -48,8 +73,8 @@ color: text */
 
 html {
   color-scheme: light dark;
-  font-size: 20px;
-  line-height: 1.618;
+  font-size: 19px;
+  line-height: 1.5;
   /* this comes in normalize
   font-family: 
     ui-sans-serif, 
@@ -100,7 +125,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-  filter: brightness(70%);
+  filter: brightness(115%) saturate(1.15);
 }
 
 a:active {
@@ -148,8 +173,8 @@ h1,
 h2,
 h3,
 h4 {
-  line-height: 1.2;
-  margin-top: 1em;
+  line-height: 1.1;
+  margin-top: 1rem;
   margin-bottom: 0.66666666em;
 
   /* Long headlines that are 1 word
@@ -207,8 +232,10 @@ pre {
 }
 
 hr {
-  /* border: 0; */
-  /* border-bottom: 1px solid transparent; */
+  border: 0;
+  border-bottom: 1px solid;
+  width: 80%;
+  max-width: 400px !important;
   margin: 1.618rem 0;
 }
 
