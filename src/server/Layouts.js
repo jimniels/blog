@@ -121,21 +121,18 @@ const Layout = (props, children) => {
           <!-- Icon Sprite -->
           ${importFile("./icons.svg")}
 
-          <nav class="nav">
+          <site-nav>
             <a href="/">Jim Nielsen’s Blog</a>
+            ${nav.map(
+              ({ label, permalink, details, id }) => html`
+                <a href="${permalink}" data-icon-id="${id}">${label} </a>
+              `
+            )}
+          </site-nav>
 
-            <!-- Progressively enhance the site navigation -->
-            <site-nav>
-              ${nav.map(
-                ({ label, permalink, details, id }) => html`
-                  <a href="${permalink}" data-icon-id="${id}">${label} </a>
-                `
-              )}
-            </site-nav>
-            <script>
-              ${importFile("./site-nav.js")};
-            </script>
-          </nav>
+          <script>
+            ${importFile("./site-nav.js")};
+          </script>
 
           ${children}
         </body>
