@@ -31,28 +31,21 @@ const Layout = (props, children) => {
   const nav = [
     {
       label: "Archive",
-      id: "archive",
-      details: "2012–" + new Date().getFullYear(),
+      path: "/archive/",
     },
     {
       label: "Tags",
-      id: "tags",
-      details: "#" + tags.length,
+      path: "/tags/",
     },
     {
       label: "About",
-      id: "about",
-      details: "Jim Nielsen",
+      path: "/about/",
     },
     {
       label: "Feeds",
-      id: "feeds",
-      details: "RSS, JSON",
+      path: "/feeds/",
     },
-  ].map((item) => ({
-    ...item,
-    permalink: `/${item.id}/`,
-  }));
+  ];
 
   return (
     comment +
@@ -121,21 +114,16 @@ const Layout = (props, children) => {
           <!-- Icon Sprite -->
           ${importFile("./icons.svg")}
 
-          <nav class="nav">
+          <site-nav>
             <a href="/">Jim Nielsen’s Blog</a>
+            ${nav.map(
+              ({ label, path }) => html`<a href="${path}">${label}</a>`
+            )}
+          </site-nav>
 
-            <!-- Progressively enhance the site navigation -->
-            <site-nav>
-              ${nav.map(
-                ({ label, permalink, details, id }) => html`
-                  <a href="${permalink}" data-icon-id="${id}">${label} </a>
-                `
-              )}
-            </site-nav>
-            <script>
-              ${importFile("./site-nav.js")};
-            </script>
-          </nav>
+          <script>
+            ${importFile("./site-nav.js")};
+          </script>
 
           ${children}
         </body>

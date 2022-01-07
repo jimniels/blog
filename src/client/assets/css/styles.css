@@ -13,78 +13,80 @@ body {
    Primary Site Navigation
    ========================================================================== */
 
-.nav {
+/* When there's no JS */
+site-nav {
   display: flex;
   align-items: center;
-  color: var(--c-primary);
-  max-width: 32rem;
+  gap: calc(1.618rem / 4);
 }
 
-.nav a[href="/"] {
+site-nav a[href="/"] {
   margin-right: calc(1.618rem / 2);
 }
 
-.nav svg {
+site-nav svg {
   fill: var(--c-primary);
+}
+
+site-nav[has-js] {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.sn-top {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 599px) {
+  .sn-top {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.sn-bottom {
+  display: none;
+  padding: calc(1.618rem / 2);
+  background: var(--c-gray-6);
+  gap: calc(1.618rem / 2);
+  flex-wrap: wrap;
+  margin-left: calc(1.618rem / -2);
+  padding-left: calc(1.618rem / 2);
+  width: calc(100% + calc(1.618rem / 1));
+}
+site-nav[has-js][open] .sn-bottom {
+  display: flex;
+}
+
+@media screen and (min-width: 600px) {
+  .sn-bottom {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    gap: 1.618rem;
+    flex-wrap: nowrap;
+    margin-left: calc(1.618rem * -2);
+    padding-left: calc(1.618rem * 2);
+    padding-right: calc(1.618rem * 2);
+    width: auto;
+  }
+}
+@media screen and (min-width: 960px) {
+  .sn-bottom-section {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 /* Site Navigation
    ========================================================================== */
 
-site-nav {
-  position: relative;
-}
-site-nav ul[hidden] {
-  display: block;
-  visibility: hidden;
-  opacity: 0;
-  transform: scale(0);
-}
-site-nav ul {
-  background-color: var(--c-bg);
-  background-color: -apple-system-control-background;
-  border: 5px solid var(--c-gray-6);
-  border-radius: var(--border-radius);
-  list-style: none;
+site-nav[has-js] ul {
+  list-style-type: none;
   margin: 0;
-  padding: calc(1.618rem / 3) calc(1.618rem / 2);
-  position: absolute;
-  width: 250px;
-  margin-left: -130px;
-  left: 50%;
-  top: 2rem;
-  transition: 0.2s ease all;
-  transform: scale(1);
-  transform-origin: 50% 0;
-  z-index: 100;
+  padding: 0;
+  display: flex;
+  gap: calc(1.618rem / 2);
 }
-
-/*
-site-nav ul:before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 12px solid var(--c-gray-6);
-  position: absolute;
-  top: -12px;
-  margin-left: -7px;
-  left: 50%;
-}
-site-nav ul:after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid white;
-  position: absolute;
-  top: -10px;
-  margin-left: -5px;
-  left: 50%;
-}
-*/
 
 site-nav button {
   background: transparent;
@@ -106,29 +108,53 @@ site-nav ul a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: calc(1.618rem / 8) 0;
+
   position: relative;
 }
 
-@media screen and (max-width: 500px) {
-  .nav {
-    justify-content: space-between;
+site-nav[has-js] h5 {
+  font-size: 1rem;
+  margin: 0 calc(1.618rem / 4) 0 0;
+}
+
+site-nav[has-js] h5:after {
+  content: ":";
+}
+
+.sn-color-picker {
+  display: flex;
+  align-items: center;
+  gap: calc(1.618rem / 2);
+  position: relative;
+  top: 2px;
+}
+
+.sn-color-picker input {
+  display: none;
+}
+
+.sn-color-picker label {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--c-gray-6);
+  display: block;
+  text-indent: -9999px;
+  border-radius: 50%;
+}
+
+.sn-color-picker input:checked + label {
+  box-shadow: 0 0 0 2px var(--c-primary);
+}
+
+@media screen and (min-width: 600px) {
+  .sn-color-picker {
+    gap: calc(1.618rem / 4);
   }
-  site-nav ul {
-    right: calc(-1.618rem / 3);
-    left: initial;
-    transform-origin: 85% 0;
+  .sn-color-picker label {
+    width: 21px;
+    height: 21px;
+    border-width: 2px;
   }
-  site-nav ul a {
-    padding: calc(1.618rem / 3) 0;
-  }
-  /*
-  site-nav ul:before,
-  site-nav ul:after {
-    margin-left: 0;
-    left: initial;
-    right: calc(1.618rem / 2);
-  } */
 }
 
 /* =============================================================================
@@ -137,12 +163,12 @@ site-nav ul a {
 
 article header h1 {
   max-width: 45rem;
+  margin-bottom: calc(1.618rem / 4);
 }
 
 article header time {
   opacity: 0.625;
   display: block;
-  margin: calc(-1.618rem / 1) 0 calc(1.618rem * 2);
 }
 
 /* =============================================================================
