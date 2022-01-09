@@ -193,7 +193,7 @@ Amazing! Sass color functions, let me show you the door.
 
 ## Conclusion
 
-Desctructuring? Type coercion? Do those words belong in a post about CSS? [Is CSS a programming language?](https://css-tricks.com/is-css-a-programming-language/)
+Destructuring? Type coercion? Do those words belong in a post about CSS? [Is CSS a programming language?](https://css-tricks.com/is-css-a-programming-language/)
 
 The only thing we need now is the ability to have [user defined custom functions in CSS](https://github.com/w3c/css-houdini-drafts/issues/1007)—then you could create your own reusable `lighten()` and `darken()` functions.
 
