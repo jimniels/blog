@@ -174,6 +174,7 @@ function PostList(posts) {
             data-date="${date.toISOString().slice(0, 10)}"
             ${tags && `data-tags="${tags.join(" ")}"`}
           >
+            <a href="${permalink}">${title}</a>
             <time datetime="${date.toISOString()}">${toDateUI(date)}</time>
             ${pageviews &&
             html`<small
@@ -182,7 +183,6 @@ function PostList(posts) {
                 ? Math.round((pageviews / 1000) * 10) / 10 + "k"
                 : pageviews}</small
             >`}
-            <a href="${permalink}">${title}</a>
           </li>
         `
       )}

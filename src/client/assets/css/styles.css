@@ -231,6 +231,7 @@ article header time {
   order: 3;
   opacity: 0.5; /* @TODO gray? matches <time> */
   align-self: center;
+  white-space: nowrap;
 }
 
 @media screen and (min-width: 520px) {
