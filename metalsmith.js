@@ -124,9 +124,10 @@ marked.use({
   // },
   renderer,
   highlight: (code, language) => {
-    const language = hljs.getLanguage(language) ? language : "plaintext";
     // https://github.com/markedjs/marked/blob/master/docs/USING_ADVANCED.md
-    return hljs.highlight(code, { language }).value;
+    return hljs.highlight(code, {
+      language: hljs.getLanguage(language) ? language : "plaintext",
+    }).value;
   },
   gfm: true, // github flavored markdown
   // breaks: false,
