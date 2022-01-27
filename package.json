@@ -10,16 +10,15 @@
   "dependencies": {
     "browser-sync": "^2.26.14",
     "cheerio": "^1.0.0-rc.5",
-    "highlight.js": "^10.6.0",
-    "marked": "^2.0.0",
+    "highlight.js": "^11.4.0",
+    "marked": "^4.0.12",
     "metalsmith": "^2.3.0",
     "multimatch": "^5.0.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.2.0",
     "nodemon": "^2.0.7",
     "prop-types": "^15.7.2",
     "psl": "^1.8.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "browser_sync": "browser-sync start --server build --browser=chrome",

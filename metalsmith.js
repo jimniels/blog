@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import multimatch from "multimatch";
 import hljs from "highlight.js";
-import marked from "marked";
+import { marked } from "marked";
 import psl from "psl";
 import cheerio from "cheerio";
 // import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
@@ -124,9 +124,9 @@ marked.use({
   // },
   renderer,
   highlight: (code, language) => {
-    const validLanguage = hljs.getLanguage(language) ? language : "plaintext";
+    const language = hljs.getLanguage(language) ? language : "plaintext";
     // https://github.com/markedjs/marked/blob/master/docs/USING_ADVANCED.md
-    return hljs.highlight(validLanguage, code).value;
+    return hljs.highlight(code, { language }).value;
   },
   gfm: true, // github flavored markdown
   // breaks: false,
