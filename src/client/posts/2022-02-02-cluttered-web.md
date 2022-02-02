@@ -75,6 +75,6 @@ And when you combine all the above—app banner prompts, GDPR acknowledgments, n
 
 What’s even nuttier is the interactive experience of these sites which can’t be captured in static screenshots. There’s often so much layout shift on these pages it’s disorienting. The initial load often comes in displaying the page’s primary content, but give it a few seconds for all those third-party scripts to load and the primary content is soon obfuscated. I would hazard a guess that “First Contentful Paint” gets satisfied as a metric, but doesn’t convert to a good website experience (imagine that—metrics are met but outcomes are lacking).
 
-<video src="https://cdn.jim-nielsen.com/blog/2022/cluttered-web-page-load.mp4" loop controls width="296" height="640" />
+<video src="https://cdn.jim-nielsen.com/blog/2022/cluttered-web-page-load.mp4" loop controls width="296" height="640"></video>
 
 I suppose it’s no wonder people are interested in the idea of “web3” and trying to find more efficient ways of monetizing everything. I would venture to guess all of these design decisions are being made with revenue as the primary motivator. It’s hard, I get it. Maybe we’ll figure this out. In the meantime, I have a scrapbook page capturing the current state of the mobile web in 2022.
