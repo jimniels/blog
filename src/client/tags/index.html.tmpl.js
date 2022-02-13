@@ -27,12 +27,7 @@ export default function Tags(site) {
   // prettier-ignore
   return PageCustom({ site, page }, html`
     <h1>Tags <small>(${tags.length})</small></h1>
-    <style>
-      @media screen and (min-width: 50rem) {
-        #post-tags { column-count: 2; max-width: 40rem;}
-      }
-    </style>
-    <ul id="post-tags">
+    <ul class="list-2col">
       ${tags.map(
         tag => html`
           <li>

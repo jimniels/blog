@@ -13,7 +13,7 @@ export default function Archive(site) {
     { site, page },
     html`
       <h1>Archive</h1>
-      <ul>
+      <ul class="list-2col">
         ${Object.keys(postsByYear)
           .sort()
           .reverse()
