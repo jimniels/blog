@@ -25,21 +25,20 @@ export default function Index(site) {
 
       <h2>Latest</h2>
       ${PostList(recent)}
-
-      <h2>Select Personal Favorites</h2>
-      ${PostList(favorites)}
       ${trending.length > 0 &&
       html`
         <h2>Popular This Month</h2>
         ${PostList(trending, true)}
-        <p style="font-size: 0.7777rem">
-          Stats are
+        <p style="margin-bottom: 2.5rem; font-size: .8rem">
           <a
             href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
-            >homebrewed from Netlify Analytics</a
-          >.
+            >Stats homebrewed from Netlify Analytics</a
+          >
         </p>
       `}
+
+      <h2>Select Personal Favorites</h2>
+      ${PostList(favorites)}
     `
   );
 }
