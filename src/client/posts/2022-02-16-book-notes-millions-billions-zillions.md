@@ -4,7 +4,7 @@ tags: bookNotes
 
 # Book Notes: “Millions, Billions, Zillions” by Brian Kernighan
 
-I recently finished [this book](https://bookshop.org/books/millions-billions-zillions-defending-yourself-in-a-world-of-too-many-numbers/9780691209098) and, in an effort to try remember what I actually read, I’m making some more [#bookNotes](https://blog.jim-nielsen.co/tags#bookNotes).
+I recently finished [this book](https://bookshop.org/books/millions-billions-zillions-defending-yourself-in-a-world-of-too-many-numbers/9780691209098) and, in an effort to try remember what I actually read, I’m making some more [#bookNotes](https://blog.jim-nielsen.com/tags#bookNotes).
 
 ---
 
@@ -38,7 +38,7 @@ However much we’d like to believe it, you can’t boil everything down to a ra
 
 > If you combine approximate data, sometimes not even numerical, with arbitrary weighting factors, you can produce rankings that are good for starting spirited discussions but nearly useless for drawing meaningful conclusion. Treat all ranking schemes with a grain of salt.
 
-Besides presenting what is can be a facade of objectivity, numbers can also paint a shiny but misleading veneer of precision.
+Besides presenting what can be a facade of objectivity, numbers can also paint a shiny but misleading veneer of precision.
 
 > When a number is expressed with high precision, that suggests that it is in some way more accurate than if it were written with lower precision, and thus that the number is more important or significant. It has subliminally acquired an unwarranted authority.
 
