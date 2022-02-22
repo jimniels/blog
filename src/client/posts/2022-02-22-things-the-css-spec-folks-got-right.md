@@ -56,7 +56,7 @@ But what about when you need something between a 4 (Regular) and a 5 (Medium)? 4
 
 “Ok, let’s go with a scale of 100-900 to represent `font-weight`” — which is precisely what [they originally came up with](https://www.w3.org/TR/CSS1/#font-weight).
 
-Could the original spec writers have envisioned what we have today with variable fonts? Perhaps not, but their foresight  in enumerating `font-weight` values and anticipating a path for growth was spot in hindsight.
+Could the original spec writers have envisioned what we have today with variable fonts? I can’t say. Regardless, their foresight in enumerating `font-weight` values and anticipating a path for growth was spot on in hindsight.
 
 ## CSS Imports
 
@@ -71,7 +71,7 @@ CSS was doing imports way before JS.
 
 Granted, there is a lot of advice out there recommending you avoid CSS imports due to render blocking. But nobody stops using `<script type="module">` because it’s render blocking. In the right circumstances, CSS imports are just as powerful as JS imports, allowing you to author and deliver code in a componentized, asynchronous fashion (for example: [importing styles conditionally](https://blog.jim-nielsen.com/2021/conditional-style-loading-not-so-fast/)).
 
-In hindsight it looks as though the CSS spec authors were total hipsters: they did imports before it was cool.
+In hindsight it looks as though the CSS spec authors were total hipsters: doing imports before it was cool.
 
 ## Font Family
 
