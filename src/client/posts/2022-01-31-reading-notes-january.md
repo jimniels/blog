@@ -18,7 +18,7 @@ I love this idea of going “al naturel” and, through that choice, finding som
 
 > the ‘burbling’ effect [of water washing over hot metal is] a very difficult thing to do with computer graphics because it’s in the realm of fluid dynamics which are very hard to calculate. They’re some of the most challenging elements of computer graphics to execute and you can wait days and days for some frames to render. Whereas, if you’re on a set and you have REAL hot, molten metals and super cold water interacting with this, you’re almost CERTAINLY going to get some surprising visual effect which — on camera — will look really great, particularly if it’s shot at 5000 frames a second.
 
-## Article: [“54 Years Ago, A Computer Programmer Fixed a Massive Bug — And Created an Existential Crsis”](https://www.inverse.com/innovation/blinking-cursor-history)
+## Article: [“54 Years Ago, A Computer Programmer Fixed a Massive Bug — And Created an Existential Crisis”](https://www.inverse.com/innovation/blinking-cursor-history)
 
 Fun story about the history of the blinking cursor. I particularly enjoyed this note:
 
