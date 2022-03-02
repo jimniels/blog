@@ -1,3 +1,7 @@
+---
+tags: readingNotes
+---
+
 # Reading Notes, February 2022
 
 ## Article: [“Five years of quitting Twitter”](https://nolanlawson.com/2022/02/02/five-years-of-quitting-twitter/)
