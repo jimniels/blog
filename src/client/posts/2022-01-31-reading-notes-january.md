@@ -60,7 +60,7 @@ The entire thing is worth a read. Also love the quote in there from [@TerribleMi
 
 > Large companies find HTML & CSS frustrating “at scale” because the web is a fundamentally anti-capitalist mashup art experiment, designed to give consumers all the power.
 
-# Article: [“The web starts on page four”](https://christianheilmann.com/2021/12/20/the-web-starts-on-page-four/)
+## Article: [“The web starts on page four”](https://christianheilmann.com/2021/12/20/the-web-starts-on-page-four/)
 
 > there is a lot more gamification and “growth hacking” at play than publishing good content and hoping for an audience.
 
