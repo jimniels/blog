@@ -62,7 +62,7 @@ Why do you care so much about setting and overriding (see: dictating) someone el
 Well, when you put it that way…
 
 
-# Article: [“Thoughts On Markdown”](https://www.smashingmagazine.com/2022/02/thoughts-on-markdown/)
+## Article: [“Thoughts On Markdown”](https://www.smashingmagazine.com/2022/02/thoughts-on-markdown/)
 
 > I suspect that the prominence of Markdown has held back innovation and progress for digital content.
 
@@ -86,7 +86,7 @@ That said, I can also get behind this idea:
 
 > The hard truth is this; your Figma docs should be treated like a sketch on the back of a napkin. It should be somewhat accurate but it’s a tool that reflects the front-end, but: it ain’t your design system.
 
-# Article: [“My first impressions of web3”](https://moxie.org/2022/01/07/web3-first-impressions.html)
+## Article: [“My first impressions of web3”](https://moxie.org/2022/01/07/web3-first-impressions.html)
 
 > software projects require an enormous amount of human effort. Even relatively simple apps require a group of people to sit in front of a computer for eight hours a day, every day, forever
 
