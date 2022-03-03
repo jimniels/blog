@@ -1,7 +1,8 @@
 ---
-title: Assignment Desk Logo
 tags: designProcess postlight
 ---
+
+# Assignment Desk Logo
 
 At [Postlight](http://www.postlight.com) I’ve been working on an internal application for a large enterprise company. In a nutshell, what we’ve been doing is updating their current internal software (which looks more than a decade old) to a modern web application. A small part of what my teammates and I are bringing to the table is a sense of holistic design consistency where we argue for a product-centric approach to designing the application to help imbue it with a sense of care.
 

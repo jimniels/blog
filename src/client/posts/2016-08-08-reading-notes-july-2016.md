@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, July 2016
 tags: readingNotes
 ---
+
+# Reading Notes, July 2016
 
 ## Article [The Law of Leaky Abstractions](http://www.joelonsoftware.com/articles/LeakyAbstractions.html)
 

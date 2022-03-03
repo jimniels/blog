@@ -1,7 +1,8 @@
 ---
-title: Going the Extra Mile with Tasks and Feature Requests
 tags: designProcess tips postlight
 ---
+
+# Going the Extra Mile with Tasks and Feature Requests
 
 You know what really makes a product, team, or organization great? Responsibility and initiative – when people take tasks they were handed and own them. It’s so easy to define boundaries for ourselves and say “I am responsible for X thing and that’s what I will do. But anything beyond that is not my responsibility.” It gives us less responsibility and protects us when things fail.
 

@@ -1,7 +1,8 @@
 ---
-title: Designing and Building the Assignment Desk Application
 tags: designProcess engineering postlight
 ---
+
+# Designing and Building the Assignment Desk Application
 
 A recent project brought me in touch with Time Inc., the parent company of iconic magazines like TIME, Sports Illustrated, People, and [more](http://www.timeinc.com/brands/). In conjunction with one of my favorite front-end developers ([damassi](http://damassi.github.io)), we had the task of building a web application on an extremely tight deadline. A lot of the infrastructure was already in place in terms of a back-end service. Our task was to build a front-end layer for getting and putting data to this platform.
 
