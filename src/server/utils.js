@@ -44,25 +44,25 @@ export function toDateUI(date) {
  */
 export function replyHtml({ postTags, postPath, siteOrigin }) {
   // @TODO add a view random post feature
+  const divider = "&nbsp; · &nbsp;";
   return html`
-    <hr />
-    <ul>
+    <br />
+    <br />
+    <p>
+      &lt;/&gt;${divider}Reply via:
+      <a
+        href="mailto:spokes-probes.0w@icloud.com?subject=Re: blog.jim-nielsen.com${postPath}"
+        >Email</a
+      >,
+      <a href="https://twitter.com/jimniels">Twitter</a>
+
       ${Array.isArray(postTags) &&
       postTags.length > 0 &&
-      html`<li>
-        Tagged in:
-        ${postTags
-          .map((tag) => `<a href="${siteOrigin}/tags/#${tag}">#${tag}</a>`)
-          .join(", ")}
-      </li>`}
-      <li>
-        <a
-          href="mailto:spokes-probes.0w@icloud.com?subject=Re: blog.jim-nielsen.com${postPath}"
-          >Reply via email</a
-        >
-      </li>
-      <li><a href="https://twitter.com/jimniels">Reply on twitter</a></li>
-    </ul>
+      html`${divider}Tagged:
+      ${postTags
+        .map((tag) => html`<a href="${siteOrigin}/tags/#${tag}">#${tag}</a>`)
+        .join(", ")} `}
+    </p>
   `;
 }
 

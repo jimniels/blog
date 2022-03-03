@@ -169,7 +169,7 @@ const Post = (props) => {
         ${page?.tags.includes("rssClub") ? rssClubHtml() : ""}
         ${page.contents.toString()}
       </div>
-      <footer class="copy">
+      <footer>
         ${replyHtml({ postTags: page.tags, postLink: page.permalink, siteOrigin: site.origin })}
       </footer>
     </article>

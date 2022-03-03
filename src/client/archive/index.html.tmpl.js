@@ -32,7 +32,10 @@ export default function Archive(site) {
         .reverse()
         .map(
           (year) => html`
-            <h2 id="${year}">
+            <h2
+              id="${year}"
+              style="position: sticky; top: 0px; background: var(--c-bg); z-index: 10;"
+            >
               ${year}
               <small style="font-weight: normal">
                 (${postsByYear[year].length})

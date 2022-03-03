@@ -1,29 +1,42 @@
 :root {
-  --border-radius: 7px;
-  --c-primary-hsl: var(--c-theme-blue);
-  --c-primary: hsl(var(--c-primary-hsl));
+  --border-radius: 10px;
 
-  --c-bg: #fff;
-  --c-text: #000;
+  /* Theme color that gets set by default but is configurable by the user */
+  --c-theme-h: var(--c-blue-h);
+  --c-theme-s: var(--c-blue-s);
+  --c-theme-l: var(--c-blue-l);
+  --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
+
+  --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 100%);
+  --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 97%);
+  --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 5%);
+
   /* 
    * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
    * accessible
    */
+  --c-blue-h: 223;
+  --c-blue-s: 100%;
+  --c-blue-l: 43%;
+  --c-red-h: 354;
+  --c-red-s: 100%;
+  --c-red-l: 42%;
+  --c-green-h: 135;
+  --c-green-s: 59%;
+  --c-green-l: 34%;
+  --c-yellow-h: 27;
+  --c-yellow-s: 100%;
+  --c-yellow-l: 35%;
+  --c-purple-h: 280;
+  --c-purple-s: 43%;
+  --c-purple-l: 47%;
+  --c-pink-h: 343;
+  --c-pink-s: 87%;
+  --c-pink-l: 44%;
+  --c-orange-h: 16;
+  --c-orange-s: 100%;
+  --c-orange-l: 39%;
 
-  --c-gray-1: rgb(108, 108, 112);
-  --c-gray-2: rgb(142, 142, 147);
-  --c-gray-3: rgb(174, 174, 178);
-  --c-gray-4: rgb(188, 188, 192);
-  --c-gray-5: rgb(216, 216, 220);
-  --c-gray-6: rgb(236, 235, 240);
-
-  --c-theme-blue: 223 100% 43%;
-  --c-theme-red: 354 100% 42%;
-  --c-theme-green: 135 59% 34%;
-  --c-theme-yellow: 27 100% 35%;
-  --c-theme-purple: 280 43% 47%;
-  --c-theme-pink: 343 87% 44%;
-  --c-theme-orange: 16 100% 39%;
   /* not supported yet */
   --c-theme-mint: 177 83% 28%;
   --c-theme-teal: 189 100% 30%;
@@ -37,23 +50,32 @@ color: text */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --c-bg: #000;
-    --c-text: #fff;
+    --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
+    --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 6%);
+    --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
 
-    --c-gray-1: rgb(174, 174, 178);
-    --c-gray-2: rgb(124, 124, 128);
-    --c-gray-3: rgb(84, 84, 86);
-    --c-gray-4: rgb(68, 68, 70);
-    --c-gray-5: rgb(54, 54, 56);
-    --c-gray-6: rgb(36, 36, 38);
+    --c-blue-h: 211;
+    --c-blue-s: 100%;
+    --c-blue-l: 63%;
+    --c-red-h: 3;
+    --c-red-s: 100%;
+    --c-red-l: 69%;
+    --c-green-h: 135;
+    --c-green-s: 70%;
+    --c-green-l: 52%;
+    --c-yellow-h: 48;
+    --c-yellow-s: 100%;
+    --c-yellow-l: 57%;
+    --c-purple-h: 280;
+    --c-purple-s: 100%;
+    --c-purple-l: 78%;
+    --c-pink-h: 348;
+    --c-pink-s: 100%;
+    --c-pink-l: 70%;
+    --c-orange-h: 36;
+    --c-orange-s: 100%;
+    --c-orange-l: 63%;
 
-    --c-theme-blue: 211 100% 63%;
-    --c-theme-red: 3 100% 69%;
-    --c-theme-green: 135 70% 52%;
-    --c-theme-yellow: 48 100% 57%;
-    --c-theme-purple: 280 100% 78%;
-    --c-theme-pink: 348 100% 70%;
-    --c-theme-orange: 36 100% 63%;
     /* not supported yet */
     --c-theme-mint: 177 56% 62%;
     --c-theme-teal: 189 100% 68%;
@@ -75,6 +97,8 @@ html {
   color-scheme: light dark;
   font-size: 19px;
   line-height: 1.5;
+  background: var(--c-bg);
+  color: var(--c-text);
   /* this comes in normalize
   font-family: 
     ui-sans-serif, 
@@ -93,34 +117,13 @@ html {
   }
 }
 
-/* Firefox doesn't support this natively */
-@supports not (color-scheme: light dark) {
-  html {
-    background: var(--c-bg);
-    color: var(--c-text);
-  }
-}
-@supports (color-scheme: light dark) and (background-color: Canvas) and
-  (color: CanvasText) {
-  :root {
-    --c-bg: Canvas;
-    --c-text: CanvasText;
-  }
-}
-@supports (background-color: -apple-system-control-background) and (color: text) {
-  :root {
-    --c-bg: -apple-system-control-background;
-    --c-text: text;
-  }
-}
-
 /* ==========================================================================
    Links
    ========================================================================== */
 
 a {
   text-decoration: none;
-  color: var(--c-primary);
+  color: var(--c-theme);
 }
 
 a:hover {
@@ -142,14 +145,6 @@ a:active {
 }
 .copy a[href^="#fnref"] {
   font-family: sans-serif; /* keep the backlink from displaying as an emoji */
-}
-:target {
-  background: hsla(var(--c-primary-hsl), 0.125);
-}
-@media (prefers-color-scheme: dark) {
-  :target {
-    background: hsla(var(--c-primary-hsl), 0.225);
-  }
 }
 .footnotes {
   font-size: 0.91rem;

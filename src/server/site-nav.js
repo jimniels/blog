@@ -61,7 +61,7 @@ class SiteNav extends HTMLElement {
                 >
                 <label
                   for="color-${color}"
-                  style="background-color: hsl(var(--c-theme-${color}))">
+                  style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">
                   ${color}
                 </label>
             `
@@ -100,8 +100,16 @@ class SiteNav extends HTMLElement {
   setColor(color) {
     localStorage.setItem("theme-color", color);
     document.documentElement.style.setProperty(
-      `--c-primary`,
-      `hsl(var(--c-theme-${color}))`
+      `--c-theme-h`,
+      `var(--c-${color}-h)`
+    );
+    document.documentElement.style.setProperty(
+      `--c-theme-s`,
+      `var(--c-${color}-s)`
+    );
+    document.documentElement.style.setProperty(
+      `--c-theme-l`,
+      `var(--c-${color}-l)`
     );
   }
 }

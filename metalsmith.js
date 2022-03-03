@@ -164,6 +164,7 @@ let App = Metalsmith(__dirname)
       // this point in time. In some cases, we add the `title` of the post
       // as the first <h1> in the document, instead of in the YAML front-matter
       // In those cases, we need to pull that out and add it as a meta item.
+      // @TODO data cleanup on this
       if (!files[file].title) {
         // capture the line the title is on
         for (let i = 0; i < fileContentsByLine.length; i++) {

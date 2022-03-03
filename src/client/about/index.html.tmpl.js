@@ -70,7 +70,7 @@ export default function About(site) {
 
         <p>
           I thought it would be interesting to
-          <a href="https://blog.jim-nielsen.com/2020/indexing-my-blogs-links/"
+          <a href="/2020/indexing-my-blogs-links/"
             >index all the links on my blog</a
           >
           and keep it as a running list.
@@ -119,7 +119,7 @@ export default function About(site) {
           border-radius: calc(var(--border-radius) + 1px);
         }
         details[open] {
-          border-color: var(--c-gray-6);
+          border-color: var(--c-fg);
         }
         details[open] summary {
           border-bottom-left-radius: 0;
@@ -127,15 +127,12 @@ export default function About(site) {
         }
         details summary {
           font-size: 0.8181rem;
-          background: var(--c-gray-6);
+          background: var(--c-fg);
           padding: 2px 10px;
           border-radius: var(--border-radius);
           overflow-wrap: break-word;
           word-wrap: break-word;
           -ms-word-break: break-all;
-        }
-        details summary:hover {
-          background: var(--c-gray-5);
         }
         details ol {
           font-size: 0.6363rem;

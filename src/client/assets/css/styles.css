@@ -1,5 +1,5 @@
 body {
-  margin: 1.618rem calc(1.618 * 2rem) calc(1.618rem * 3);
+  margin: 1.618rem calc(1.618 * 2rem);
 }
 
 @media screen and (max-width: 650px) {
@@ -25,7 +25,7 @@ site-nav a[href="/"] {
 }
 
 site-nav svg {
-  fill: var(--c-primary);
+  fill: var(--c-theme);
 }
 
 site-nav[has-js] {
@@ -48,7 +48,7 @@ site-nav[has-js] {
 .sn-bottom {
   display: none;
   padding: calc(1.618rem / 2);
-  background: var(--c-gray-6);
+  background: var(--c-fg);
   gap: calc(1.618rem / 2);
   flex-wrap: wrap;
   margin-left: calc(1.618rem / -2);
@@ -93,7 +93,7 @@ site-nav button {
   border: none;
   margin: 0;
   padding: 0;
-  color: var(--c-primary);
+  color: var(--c-theme);
   border-radius: var(--border-radius);
   display: flex;
   align-items: center;
@@ -101,7 +101,7 @@ site-nav button {
 }
 
 site-nav button:hover {
-  background: var(--c-gray-6);
+  background: var(--c-fg);
 }
 
 site-nav ul a {
@@ -136,14 +136,14 @@ site-nav[has-js] h5:after {
 .sn-color-picker label {
   width: 24px;
   height: 24px;
-  border: 3px solid var(--c-gray-6);
+  border: 3px solid var(--c-fg);
   display: block;
   text-indent: -9999px;
   border-radius: 50%;
 }
 
 .sn-color-picker input:checked + label {
-  box-shadow: 0 0 0 2px var(--c-primary);
+  box-shadow: 0 0 0 2px var(--c-theme);
 }
 
 @media screen and (min-width: 600px) {
@@ -261,7 +261,7 @@ article header time {
   max-width: 50em;
 }
 #bps[open] {
-  background: var(--c-gray-6);
+  background: var(--c-fg);
 }
 
 #bps summary,
