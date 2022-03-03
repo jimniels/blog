@@ -1,8 +1,9 @@
 ---
-title: "Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio"
 tags: tips engineering iconGalleries
 redirect_from: /posts/ios-border-radius/
 ---
+
+# Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio
 
 So you've got to create an icon for the iOS ecosystem, where do you start? You probably realized quickly you'll have to supply a couple different sizes for the various contexts in which the icon will be used. Apple details these requirements in their [iOS Human Interface Guidelines][iconSizes]:
 

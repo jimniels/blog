@@ -1,8 +1,9 @@
 ---
-title: "Understanding Comes in Stages"
 tags: thoughts
 redirect_from: /posts/understanding-comes-in-stages/
 ---
+
+# Understanding Comes in Stages
 
 In a radio series from the 1940’s, author E.M. Forster [stated](http://www.rzim.org/a-slice-of-infinity/two-staged-miracles/) that the books which truly influence us are the ones we are prepared to read, namely those “which have gone a little further down our particular path than we have yet got ourselves.” Hence a truly moving reading experience is the culmination of not just *what* you read but *when* you read it.
 

@@ -1,9 +1,9 @@
 ---
-title: "Words Have Meaning: Creating the “Let’s Talk Innovation” Page"
 tags: designProcess kindling
-summary: "An innocent mistake in naming at the beginning of a project created distorted conclusions in design thinking and led us down a road of confusion. We had to retrace our steps and change our original naming choices in order to proceed forward."
 redirect_from: /posts/innovation-talk-page/
 ---
+
+# Words Have Meaning: Creating the “Let’s Talk Innovation” Page
 
 As part of an effort to bring relevant video content to existing and potential customers, we produced and edited in-house a set of video conversations on innovation. When the idea was born, we called it “Kindling Academy Live” because, well, we needed a name for it and one of the employees in the videos was the head of Kindling Academy. So that name seemed sufficient.
 
