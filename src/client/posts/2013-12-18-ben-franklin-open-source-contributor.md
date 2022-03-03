@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Benjamin Franklin, an Open Source Contributor?
 tags: thoughts
 redirect_from: /posts/ben-franklin-open-source-contributor/

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Stop Using the Term “Pixel Perfect”, Start Focusing on Experiences"
 tags: thoughts
 ---

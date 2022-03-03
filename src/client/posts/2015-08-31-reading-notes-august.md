@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Reading Notes, August 2015
 tags: readingNotes
 summary: "Notes, impressions, and excerpts from a few articles, sites, and books I recently encountered."

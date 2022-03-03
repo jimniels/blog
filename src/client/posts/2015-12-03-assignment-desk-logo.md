@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Assignment Desk Logo
 tags: designProcess postlight
 ---

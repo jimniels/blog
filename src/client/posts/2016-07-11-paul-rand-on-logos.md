@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Paul Rand on Logos
 tags: thoughts
 ---

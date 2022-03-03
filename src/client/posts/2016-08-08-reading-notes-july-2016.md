@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Reading Notes, July 2016
 tags: readingNotes
 ---

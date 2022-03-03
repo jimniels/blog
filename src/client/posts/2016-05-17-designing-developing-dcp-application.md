@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Designing and Developing the DCP Application
 tags: designProcess engineering postlight
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Going the Extra Mile with Tasks and Feature Requests
 tags: designProcess tips postlight
 ---

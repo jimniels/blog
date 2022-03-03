@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Designing and Building the Assignment Desk Application
 tags: designProcess engineering postlight
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Innovation Sales Sheet
 tags: designProcess
 summary: "The process behind turning a textual Google Doc into a visual sales sheet."

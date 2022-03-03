@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Arc90 “Work” Page Design Updates
 tags: designProcess arc90
 ---
