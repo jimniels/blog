@@ -1,7 +1,6 @@
 ---
 title: Designing Kindling’s Pricing Page
 tags: designProcess kindling
-summary: "Designing Kindling’s pricing page was as much about defining and visually designing a web page as it was about defining and designing our internal culture."
 ---
 
 A while back, we at Kindling decided to put our software’s pricing schema online. Now, you might be thinking “You put your pricing online? Big deal.”. But up to that point in time nobody else in the “Sass enterprise idea-management software” space had done it. If you wanted to know how much the software cost, you had to get on the phone with a salesperson. So the answer to the question, “how much does this software cost?” was always “well that depends.” Depends on what? How much you were willing to pay, how big of a company you worked at, etc. The salesperson would feel that out on the call, then you would get a number. And usually that number was different from the next guy who called, and the next guy, and the next guy. You had to do “the dance” as our CEO put it.

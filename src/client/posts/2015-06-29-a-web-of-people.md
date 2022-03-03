@@ -1,7 +1,6 @@
 ---
 title: A Web of People
 tags: thoughts
-summary: "Thoughts around the web as both a medium and a profession."
 redirect_from: /posts/a-web-of-people/
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Reading Notes, December 2015
 tags: readingNotes
-summary: "Notes, impressions, and excerpts from things I’ve encountered this month."
 ---
 
 ## Article: [Helpful Talk Tips by Paul Ford](https://posts.postlight.com/helpful-talk-tips-5347ea7c2745)

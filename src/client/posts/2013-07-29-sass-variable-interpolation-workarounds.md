@@ -1,7 +1,6 @@
 ---
 title: Workarounds to Variable Interpolation in Sass
 tags: thoughts engineering
-summary: "Variable interpolation is currently not supported in Sass. If you want to map key value pairs for something such as a brand to its color, you can create a lookup function to do the trick."
 redirect_from: /posts/sass-variable-interpolation-workarounds/
 ---
 

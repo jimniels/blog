@@ -1,7 +1,6 @@
 ---
 title: Reading Notes, September 2015
 tags: readingNotes
-summary: "Notes, impressions, and excerpts from things I’ve encountered this month."
 ---
 
 ## Video: [The Sound Design Behind *Interstellar*](http://player.vimeo.com/video/112098660)
