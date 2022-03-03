@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, January 2017
 tags: readingNotes
 ---
+
+# Reading Notes, January 2017
 
 ## Tweet: [@practicingdev](https://twitter.com/practicingdev/status/811956403745210368)
 

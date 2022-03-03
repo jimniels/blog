@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, May 2017
 tags: readingNotes
 ---
+
+# Reading Notes, May 2017
 
 ## Article: [“Complexity and Strategy”](https://hackernoon.com/complexity-and-strategy-325cd7f59a92) by Terry Crowley, Former Microsoft Office Lead
 

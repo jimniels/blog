@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, June 2018
 tags: readingNotes
 ---
+
+# Reading Notes, June 2018
 
 ## Article: [“My Three Steps”](https://ethanmarcotte.com/wrote/my-three-steps/) by Ethan Marcotte
 

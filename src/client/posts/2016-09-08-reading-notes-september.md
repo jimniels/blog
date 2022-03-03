@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, September 2016
 tags: readingNotes
 ---
+
+# Reading Notes, September 2016
 
 ## Book: [Git for Humans](https://abookapart.com/products/git-for-humans) from A Book Apart
 

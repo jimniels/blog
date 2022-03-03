@@ -1,7 +1,8 @@
 ---
-title: Designing Cross-Application Login Screens (and Business Relationships)
 tags: designProcess sagesure
 ---
+
+# Designing Cross-Application Login Screens (and Business Relationships)
 
 One of the tasks I’m tackling at Insight is bringing coherence and consistency to the plethora of user-facing applications that the company offers to its customers. A few of my colleagues dedicatedly worked on officially documententing what exactly our offerings are as a company and how those offerings relate to each another. Once those definitions began to take form, I was able to enter the scene and start playing with the visual aspect of product defintion in order to sell the future direction of the company’s product lines to company stakeholders. It’s easier to communicate to stakeholders the importance and value of internal product consistency with visuals than it is with words; truly an image is worth a thousand words.
 

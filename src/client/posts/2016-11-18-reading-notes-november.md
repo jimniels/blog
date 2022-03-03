@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, November 2016
 tags: readingNotes
 ---
+
+# Reading Notes, November 2016
 
 ## Video: [Rich Hickey Rails Conf Keynote: Simplicity Matters](https://www.youtube.com/watch?v=rI8tNMsozo0)
 

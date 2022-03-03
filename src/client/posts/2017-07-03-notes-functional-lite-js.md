@@ -1,7 +1,8 @@
 ---
-title: Notes on “Functional Lite Javascript” by Kyle Simpson
 tags: generalNotes
 ---
+
+# Notes on “Functional Lite Javascript” by Kyle Simpson
 
 I recently watched the course “Functional Lite Javascript” by Kyle Simpson (author of the excellent [“You don’t know JS” book series](https://github.com/getify/You-Dont-Know-JS)). If you have a paid subscription (which I dont’t but my employer does) you can watch the video series on [Safari Books Online](https://www.safaribooksonline.com/library/view/functional-lite-javascript/9781491967508/). If you don’t have the dough for an O’Reilly subscription, Kyle also made [a book available on Github](https://github.com/getify/Functional-Light-JS) that, at least to my cursory glance, seems to cover the same subjects from the video series.
 

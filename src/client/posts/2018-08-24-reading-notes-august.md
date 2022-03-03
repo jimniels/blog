@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, August 2018
 tags: readingNotes
 ---
+
+# Reading Notes, August 2018
 
 ## Video: [Steve Jobs responds to an Insult](https://www.youtube.com/watch?v=FF-tKLISfPE)
 

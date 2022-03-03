@@ -1,7 +1,8 @@
 ---
-title: Choosing a Static Site Generator
 tags: engineering iconGalleries
 ---
+
+# Choosing a Static Site Generator
 
 For probably the past three or four years, my icon gallery sites ([iosicongallery](http://www.iosicongallery.com/), [macosicongallery](http://www.macosicongallery.com/), and [watchosicongallery](http://www.watchosicongallery.com/)) have been powered by Jekyll. Each icon on the site is a “post” in Jekyll without any body content, i.e.
 

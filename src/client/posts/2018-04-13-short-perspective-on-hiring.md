@@ -1,7 +1,8 @@
 ---
-title: A Short Perspective on Hiring
 tags: thoughts
 ---
+
+# A Short Perspective on Hiring
 
 **Disclaimer**: by no means am I a hiring expert. Consider yourself disclaimed. I’m just a person who likes to think about interacting with other people and not paper representations of people.
 

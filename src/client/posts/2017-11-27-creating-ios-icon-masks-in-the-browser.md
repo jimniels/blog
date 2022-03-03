@@ -1,7 +1,8 @@
 ---
-title: Creating iOS Icon Masks in the Browser
 tags: engineering tips iconGalleries
 ---
+
+# Creating iOS Icon Masks in the Browser
 
 For some time I’ve been maintaining [iOS Icon Gallery](http://iosicongallery.com), a site dedicated to showcasing great icon designs from the iOS ecosystem. This post takes a look at just one aspect of front-end engineering for that site: how I recreated the rounded icon effect of iOS in the browser.
 

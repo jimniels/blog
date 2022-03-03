@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, October 2017
 tags: readingNotes
 ---
+
+# Reading Notes, October 2017
 
 ## Video: [Effective Programs - 10 Years of Clojure Keynote by Rich Hickey](https://youtu.be/2V1FtfBDsLU)
 

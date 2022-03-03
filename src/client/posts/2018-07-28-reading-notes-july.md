@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, July 2018
 tags: readingNotes
 ---
+
+# Reading Notes, July 2018
 
 ## Article: [“Removing Babel's Stage Presets”](https://babeljs.io/blog/2018/07/27/removing-babels-stage-presets.html) via babeljs.io
 

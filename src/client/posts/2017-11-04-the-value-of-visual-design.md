@@ -1,7 +1,8 @@
 ---
-title: The Value of Visual Design
 tags: thoughts
 ---
+
+# The Value of Visual Design
 
 > Rhodora! if the sages ask thee why  
 > This charm is wasted on the earth and sky,  

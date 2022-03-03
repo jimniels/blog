@@ -1,7 +1,8 @@
 ---
-title: Migrating Away from Compass and Susy to Sass Exclusively
 tags: engineering sagesure
 ---
+
+# Migrating Away from Compass and Susy to Sass Exclusively
 
 One of the problems I encountered at my new job was that nobody knew how styles were compiled for one of our applications. Looking at the code base, I could glean the following Ruby dependencies were required in order to compile all `.scss` files:
 

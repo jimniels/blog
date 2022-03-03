@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, June 2017
 tags: readingNotes
 ---
+
+# Reading Notes, June 2017
 
 ## Video: [Andrew Clark Keynote @ ReactEurope 2017](https://www.youtube.com/watch?v=QW5TE4vrklU)
 

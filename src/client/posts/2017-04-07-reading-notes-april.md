@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, April 2017
 tags: readingNotes
 ---
+
+# Reading Notes, April 2017
 
 ## “[The end of the black turtleneck](http://zurb.com/article/1448/the-end-of-the-black-turtleneck)” via zurb.com
 

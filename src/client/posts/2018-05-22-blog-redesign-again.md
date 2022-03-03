@@ -1,7 +1,8 @@
 ---
-title: "Blog Redesign: Out with the Old, in with the Old"
 tags: designProcess myBlog
 ---
+
+# Blog Redesign: Out with the Old, in with the Old
 
 > Why, are expectations so high?  
 > Is it the bar I set?  

@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, January 2018
 tags: readingNotes
 ---
+
+# Reading Notes, January 2018
 
 ## Song: ["No Phone"](https://www.youtube.com/watch?v=I93XzY8nRso) by Cake
 

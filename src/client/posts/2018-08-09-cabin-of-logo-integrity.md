@@ -1,7 +1,8 @@
 ---
-title: My Little Cabin in the Woods of Logo Integrity
 tags: stories
 ---
+
+# My Little Cabin in the Woods of Logo Integrity
 
 Back in December (of 2017) I received [a tweet from @ycparak](https://twitter.com/ycparak/status/940646088389939201) out of the blue:
 

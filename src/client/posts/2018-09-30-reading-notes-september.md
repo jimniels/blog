@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, September 2018
 tags: readingNotes
 ---
+
+# Reading Notes, September 2018
 
 ## Article: [The Rise and Rise of JSON](https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html)
 

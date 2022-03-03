@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, March 2018
 tags: readingNotes
 ---
+
+# Reading Notes, March 2018
 
 ## Article: [“The Loveliest Living Fossil”](https://www.typography.com/blog/the-loveliest-living-fossil) via typography.com
 

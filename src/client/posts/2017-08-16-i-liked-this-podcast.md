@@ -1,7 +1,8 @@
 ---
-title: "I Liked this Podcast"
 tags: designProcess
 ---
+
+# I Liked this Podcast
 
 Podcast: “[This Idea Must Die Full](http://freakonomics.com/podcast/this-idea-must-die-a-new-freakonomics-radio-podcast/)” from Freakanomics ([Transcript](http://freakonomics.com/2015/03/05/this-idea-must-die-full-transcript/?preview=true))
 

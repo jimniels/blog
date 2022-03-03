@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, October 2016
 tags: readingNotes
 ---
+
+# Reading Notes, October 2016
 
 ## “[Typography Is Impossible](https://medium.engineering/typography-is-impossible-5872b0c7f891)” by Marcin Wichary via Medium
 

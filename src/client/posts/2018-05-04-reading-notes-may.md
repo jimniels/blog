@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, May 2018
 tags: readingNotes
 ---
+
+# Reading Notes, May 2018
 
 ## Article: [“A modest guide to productivity”](https://www.frankchimero.com/blog/2018/productivity-guide/) by Frank Chimero
 

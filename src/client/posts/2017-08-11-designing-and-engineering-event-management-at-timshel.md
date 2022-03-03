@@ -1,7 +1,8 @@
 ---
-title: "Designing and Engineering Event Management for Timshel’s “Admin” Web Application"
 tags: timshel designProcess
 ---
+
+# Designing and Engineering Event Management for Timshel’s “Admin” Web Application
 
 Allow me to preface this piece of writing by saying this post has been a long time coming. It’s been almost a year since I departed [Timshel](https://timshel.com) / [The Groundwork](https://thegroundwork.com) (I miss the people there very mucho), so my recollections of around the “events” of what happened (pun intended) might be a little fuzzy. Nevertheless, I wanted to get some words (and pictures) into a post about the engineering and design work I did while I was there.
 

@@ -1,7 +1,8 @@
 ---
-title: Notes from Fluent Conference
 tags: generalNotes
 ---
+
+# Notes from Fluent Conference
 
 I recently attended [Fluent Conference 2017](https://conferences.oreilly.com/fluent/fl-ca) in San Jose. Like a good student, I took notes during the sessions and am posting them here.
 

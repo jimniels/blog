@@ -1,7 +1,8 @@
 ---
-title: Scriptogram Logo in Vector Form (.svg)
 redirect_from: /posts/scriptogram-vector-logo/
 ---
+
+# Scriptogram Logo in Vector Form (.svg)
 
 While working on a recent design, I suddenly needed a vector version of the [scriptogram](http://scriptogr.am/) logo. I couldn't find one on the web, so I made one myself.
 
