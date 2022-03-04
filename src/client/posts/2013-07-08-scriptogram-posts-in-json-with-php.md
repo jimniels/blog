@@ -1,8 +1,10 @@
 ---
-title: Retrieving Recent Posts from Scriptogram in JSON Format Using PHP
-tags: engineering
 redirect_from: /posts/scriptogram-posts-in-JSON-with-php/
 ---
+
+#engineering
+
+# Retrieving Recent Posts from Scriptogram in JSON Format Using PHP
 
 Do you use [Scriptogr.am](http://scriptogr.am/)? Do you want to programmatically retrieve your most recent posts from the service using PHP? It's not as simple as an API call, but it can be done.
 

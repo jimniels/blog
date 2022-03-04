@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, August 2015
 tags: readingNotes
 ---
+
+# Reading Notes, August 2015
 
 ## Book: [The Complete Far Side Vol 1](http://www.amazon.com/gp/product/1449460046/)
 

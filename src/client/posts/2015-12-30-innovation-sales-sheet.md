@@ -1,7 +1,8 @@
 ---
-title: Innovation Sales Sheet
 tags: designProcess
 ---
+
+# Innovation Sales Sheet
 
 A while back, I got a request to take some existing copy describing a possible new feature and turn it into a sales sheet which would be used in casual 1-on-1 conversations with existing clients to determine their degree of interest.
 

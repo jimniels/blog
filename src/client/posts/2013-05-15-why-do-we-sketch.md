@@ -1,8 +1,10 @@
 ---
-title: Why Do We Sketch?
-tags: tips
 redirect_from: /posts/why-do-we-sketch/
 ---
+
+#tips
+
+# Why Do We Sketch?
 
 When an idea strikes, what do you do with it? The commonly-held belief is that you sketch the idea on paper, as a sort of refinement process. Why? Because ideas, especially visual ones, are conceptually rough and difficult to articulate. Sketching an idea on paper can be a process of refinement. Through sketching, an idea becomes sufficiently polished to warrant actual implementation.
 

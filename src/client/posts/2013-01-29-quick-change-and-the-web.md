@@ -1,8 +1,10 @@
 ---
-title: Quick Change and the Web
-tags: thoughts
 redirect_from: /posts/quick-change-and-the-web/
 ---
+
+#thoughts
+
+# Quick Change and the Web
 
 Can you really change the world over night?
 

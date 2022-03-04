@@ -1,8 +1,10 @@
 ---
-title: Changes to max_upload_filesize not working in php.ini? Restart Apache!
-tags: tips
 redirect_from: /posts/max-upload-filesize-restart-apache/
 ---
+
+#tips
+
+# Changes to max_upload_filesize not working in php.ini? Restart Apache!
 
 I was trying to import a SQL database into a local copy of Wordpress. The SQL file was larger than the standard 2MB upload limit, so Wordpress wouldn't let me upload it.
 

@@ -1,8 +1,10 @@
 ---
-title: Reading Notes, November 2012
-tags: readingNotes
 redirect_from: /posts/reading-notes-november/
 ---
+
+#readingNotes
+
+# Reading Notes, November 2012
 
 ## Article: [“The Flight From Conversation”](https://www.nytimes.com/2012/04/22/opinion/sunday/the-flight-from-conversation.html)
 

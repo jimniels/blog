@@ -1,8 +1,10 @@
 ---
-title: Stop Direct Spam Comments in Wordpress
-tags: tips
 redirect_from: /posts/stop-direct-spam-comments-in-wordpress/
 ---
+
+#tips
+
+# Stop Direct Spam Comments in Wordpress
 
 I recently redesigned my wordpress theme for [iOS Icon Gallery](http://iosicongallery.com) and [Mac Icon Gallery](http://macicongallery.com).
 

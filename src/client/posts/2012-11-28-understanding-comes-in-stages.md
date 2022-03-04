@@ -1,7 +1,8 @@
 ---
-tags: thoughts
 redirect_from: /posts/understanding-comes-in-stages/
 ---
+
+#thoughts
 
 # Understanding Comes in Stages
 

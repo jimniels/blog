@@ -1,8 +1,9 @@
 ---
-title: Creating Apple Touch Icons
 tags: designProcess kindling
 redirect_from: /posts/creating-apple-touch-icons/
 ---
+
+# Creating Apple Touch Icons
 
 With Yosemite and iOS8 having just been released, I decided it was time to update the [`apple-touch-icon`](https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) for the Kindling web app. FYI: these icons are now being used not just on the springboard for iOS devices, but also as bookmarklet icons for Safari on iOS *and* Mac.
 

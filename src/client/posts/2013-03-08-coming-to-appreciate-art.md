@@ -1,8 +1,10 @@
 ---
-title: Coming to Appreciate Art
-tags: thoughts
 redirect_from: /posts/coming-to-appreciate-art/
 ---
+
+#thoughts
+
+# Coming to Appreciate Art
 
 I have a confession: for some time now I've been cynical of art. More specifically modern art. For example, here is a piece of art I encountered at the Museum of Modern Art in New York City:
 

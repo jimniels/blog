@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, November 2015
 tags: readingNotes
 ---
+
+# Reading Notes, November 2015
 
 ## Article: [Mind Set](https://adactio.com/journal/9688) by Jeremy Keith
 

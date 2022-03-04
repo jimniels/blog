@@ -1,8 +1,9 @@
 ---
-title: Skinning the Idea Poster Anew
 tags: designProcess kindling
 redirect_from: /posts/skinning-the-idea-poster-anew/
 ---
+
+# Skinning the Idea Poster Anew
 
 A few years ago, we somewhat hastily released a side project to Kindling called “the idea poster” (obviously we were very thoughtful about its naming). It was a one-off type of project, built almost more as a proof-of-concept rather than as any kind of customer-facing product. However, as time has gone by, more and more people are voicing their need for a tool like the prototype “idea poster” we built because it allows soliciting ideas from a user base outside of Kindling.
 

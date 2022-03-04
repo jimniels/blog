@@ -1,8 +1,10 @@
 ---
-title: Workarounds to Variable Interpolation in Sass
-tags: thoughts engineering
 redirect_from: /posts/sass-variable-interpolation-workarounds/
 ---
+
+#thoughts #engineering
+
+# Workarounds to Variable Interpolation in Sass
 
 Currently in Sass, interpolating list values in variable names is not supported (although maps are [supposedly slated for Sass 3.3](https://github.com/nex3/sass/issues/132#issuecomment-17581804)). However, there is a workaround solution until maps come. Allow me to elaborate:
 

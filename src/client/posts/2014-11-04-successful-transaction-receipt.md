@@ -1,8 +1,9 @@
 ---
-title: Designing a Successful Transaction Receipt
 tags: designProcess kindling
 redirect_from: /posts/successful-transaction-receipt/
 ---
+
+# Designing a Successful Transaction Receipt
 
 We were working on getting people to sign up for Kindling through the website and the question came up, “what happens when someone *actually* signs up? Where do they go? What do they see?” We decided to send people to a “transaction success” page which would reiterate that they had successfully signed up and provide them with additional content to explore. When the page was pushed to our test server, it looked something like this:
 

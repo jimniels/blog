@@ -1,8 +1,10 @@
 ---
-title: Team Color Codes
-tags: designProcess
 redirect_from: /posts/teamcolors/
 ---
+
+#designProcess
+
+# Team Color Codes
 
 **Update:** Team Colors 2.0 is out! You can see it live at it’s original url [teamcolors.ar90.com](http://teamcolors.arc90.com/) or read the blog post about it “[Team Colors 2.0](http://jim-nielsen.com/blog/2015/team-colors-2-0)”.
 

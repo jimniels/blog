@@ -1,8 +1,10 @@
 ---
-title: When Advertising Became About the Buyer, Not the Product
-tags: thoughts
 redirect_from: /posts/advertising-for-the-buyer/
 ---
+
+#thoughts
+
+# When Advertising Became About the Buyer, Not the Product
 
 Neil Postman, in his book *[Technopoly: The Surrender of Culture to Technology](http://www.amazon.com/Technopoly-The-Surrender-Culture-Technology/dp/0679745408)*, tells the story of how advertisers in the late 1800's began to realize marketing products isn't about extolling the benefits of the products themselves. Rather, effective advertising is, as Postman remarks, about using the persuasive power of language and photographs:
 

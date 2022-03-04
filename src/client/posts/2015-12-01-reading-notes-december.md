@@ -1,7 +1,8 @@
 ---
-title: Reading Notes, December 2015
 tags: readingNotes
 ---
+
+# Reading Notes, December 2015
 
 ## Article: [Helpful Talk Tips by Paul Ford](https://posts.postlight.com/helpful-talk-tips-5347ea7c2745)
 

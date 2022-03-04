@@ -1,8 +1,9 @@
 ---
-title: Conceiving Blog Post Artwork
 tags: designProcess kindling
 redirect_from: /posts/conceiving-blog-post-artwork/
 ---
+
+# Conceiving Blog Post Artwork
 
 At [Kindling](http://www.kindlingapp.com/) I’ve recently been experimenting with an aesthetic that mixes hand-drawn imagery with digital typography, illustration, and photography. It has been going rather well thus far, even though the last thing in the world I would consider myself is an “illustrator”. We decided our blog would be a good place to begin playing with, testing, and possibly introducing this aesthetic into our brand because it allows us to easily abandon the idea in the future.
 

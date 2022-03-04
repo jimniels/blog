@@ -1,8 +1,10 @@
 ---
-title: Seemly Selectors
-tags: tips
 redirect_from: /posts/seemly-selectors/
 ---
+
+#tips #css
+
+# Seemly Selectors
 
 Take a look at this:
 

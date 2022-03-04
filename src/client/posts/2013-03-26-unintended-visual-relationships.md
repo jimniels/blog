@@ -1,8 +1,10 @@
 ---
-title: Unintended Visual Relationships
-tags: tips
 redirect_from: /posts/unintended-visual-relationships/
 ---
+
+#tips
+
+# Unintended Visual Relationships
 
 Establishing a grid is a great way to organize and structure design elements. In addition, by breaking the organization and structure of the grid you can emphasize visual relationships between design elements.
 

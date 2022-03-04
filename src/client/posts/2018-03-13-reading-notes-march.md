@@ -8,7 +8,7 @@ tags: readingNotes
 
 A really interesting article that looks at the fluctuating meanings behind punctuations in typography:
 
-> At its leading edge, punctuation is volcanically active, giving shape to concepts that move far faster than words. Anyone communicating today has seen #topics and #themes and #categories identified this way, using a symbol that was intuitively understood and replicated even before it was first called a hashtag in 2007. The symbol and its meaning are now universally recognized, transcending even the locality of language, but their use is scarcely a decade old — an astounding accomplishment for a bit of lexical fluff
+> At its leading edge, punctuation is volcanically active, giving shape to concepts that move far faster than words. Anyone communicating today has seen \#topics and \#themes and \#categories identified this way, using a symbol that was intuitively understood and replicated even before it was first called a hashtag in 2007. The symbol and its meaning are now universally recognized, transcending even the locality of language, but their use is scarcely a decade old — an astounding accomplishment for a bit of lexical fluff
 
 But the “#” symbol has a myriad of different meanings:
 

@@ -1,8 +1,9 @@
 ---
-title: Logo Integrity Brought into Focus
 tags: designProcess engineering
 redirect_from: /posts/logo-integrity/
 ---
+
+# Logo Integrity Brought into Focus
 
 **tldr;** An analysis of my experiment (<a href="http://jim-nielsen.com/logo-integrity">http://jim-nielsen.com/logo-integrity</a>) in testing iconic logos and their visual integrity against a gaussian blur. Additionally, a technical behind-the-scenes breakdown of how I built the experiment.
 

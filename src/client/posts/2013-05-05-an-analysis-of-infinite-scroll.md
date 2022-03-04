@@ -1,8 +1,10 @@
 ---
-title: An Analysis of Infinte Scrolling
-tags: thoughts
 redirect_from: /posts/an-analysis-of-infinite-scrolling/
 ---
+
+#thoughts
+
+# An Analysis of Infinte Scrolling
 
 Have you ever felt exhausted by infinite scrolling?
 

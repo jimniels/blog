@@ -1,8 +1,10 @@
 ---
-title: Preserving CSS Comments For Wordpress During Sass Compression
-tags: engineering
 redirect_from: /posts/preserving-CSS-comments-during-compression/
 ---
+
+#engineering
+
+# Preserving CSS Comments For Wordpress During Sass Compression
 
 Compressing your CSS for production websites is a best-practice, especially if you're using a CSS preprocessor like Compass. If you don't compress your CSS, all your comments (along with stuff from Compass) will show up in your final CSS file.
 

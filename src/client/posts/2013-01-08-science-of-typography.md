@@ -1,7 +1,8 @@
 ---
-tags: thoughts
 redirect_from: /posts/science-of-typography/
 ---
+
+#thoughts
 
 # Science Speaks: Good Typography = Good Mood
 

@@ -1,8 +1,10 @@
 ---
-title: Miscellaneous Unicode Symbols, Font Stacks, and You
-tags: tips
 redirect_from: /posts/unicode-symbols-and-font-stacks/
 ---
+
+#tips
+
+# Miscellaneous Unicode Symbols, Font Stacks, and You
 
 I needed a star symbol in my design. That's how this all started. I wanted to use something other than an image to display the star on screen for various reasons:
 

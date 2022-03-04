@@ -1,8 +1,10 @@
 ---
-title: Modularize Your PSDs by Embedding Them Inside Each Other
-tags: tips
 redirect_from: /posts/modularize-your-psds/
 ---
+
+#tips
+
+# Modularize Your PSDs by Embedding Them Inside Each Other
 
 If you've ever used InDesign you've no doubt used the "Links" panel. It allows you to link and embedd files in your document layout. InDesign keeps track of all the files you've embedded and where they live on your hard drive. This gives you the power to relink files, updated modified files, edit the original files, and so forth. For example, say you embedd a logo in InDesign but then you want to modify it. You can go to the Links panel and click "edit original". Illustrator (or whatever logo editing software you've used) will open the file. You make your changes, save it, and go back to InDesign and the logo's changes will automatically update in your layout.
 

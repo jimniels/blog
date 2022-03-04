@@ -1,8 +1,9 @@
 ---
-title: Everything But Visual Design
 tags: designProcess
 redirect_from: /posts/everything-but-visual-design/
 ---
+
+# Everything But Visual Design
 
 As our product has matured, our team has expanded, and our marketing site’s information has evolved, we’ve discovered a need to holistically re-approach [our public facing marketing site](http://kindlingapp.com). So I’ve recently been doing some initial design thinking around what we’re internally calling “Marketing Site 2.0”.
 
