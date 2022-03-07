@@ -6,7 +6,7 @@ There are so many ways to template now-a-days. Each one of these files has its o
 
 - `.jsx`
 - `.vue`
-- `.svelete`
+- `.svelte`
 - `.astro`
 - `.njk`
 - `.liquid`
