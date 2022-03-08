@@ -158,11 +158,9 @@ let App = Metalsmith(__dirname)
      */
     console.time("|-- build:markdown");
     multimatch(Object.keys(files), "**/*.md").forEach((file) => {
-      let fileContentsByLine = files[file].contents
-        .toString()
-        .split("\n")
-        // shouldn’t ever be looking deeper than 20 lines in any given files
-        .slice(0, 20);
+      let fileContentsByLine = files[file].contents.toString().split("\n");
+      // shouldn’t ever be looking deeper than 20 lines in any given files
+      // .slice(0, 20);
 
       // The post `title` is added as the first <h1> in the document
       // We need to pull that data out and add it as a meta item for use
