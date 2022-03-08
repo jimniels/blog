@@ -41,3 +41,7 @@ The real-life impact of our technical decisions really hit home to me once again
 Reminds me of this line, which I love, from [the W3C’s design principles](https://www.w3.org/TR/design-principles/):
 
 > The internet is for end users: any change made to the web platform has the potential to affect vast numbers of people, and may have a profound impact on any person’s life.
+
+## Update 2022-03-07
+
+When [talking about this article with Chris and Dave](https://shoptalkshow.com/504/), Chris helped me see the irony of this story: the optional chaining operator is often used to program defensively, to keep JavaScript from crashing the page. And yet, in this case, it’s the presence of the optional chaining operator that crashed the page.
