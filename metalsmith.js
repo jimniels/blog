@@ -290,6 +290,39 @@ let App = Metalsmith(__dirname)
     console.timeEnd("|-- build:posts");
 
     /**
+     * Handle Links
+     */
+    console.time("|-- build:links");
+    site.links = [];
+    multimatch(Object.keys(files), "links/**").forEach((file, i) => {
+      const filename = path.basename(file, path.extname(file));
+      // if (i === 0) {
+      files[file].layout = "Post";
+      files[file].date = new Date(file.slice(0, 10));
+      files[file].tags = [];
+      files[file].permalink = `/links/${filename}/`;
+      let title = marked.parseInline(files[file].title, {
+        renderer: {
+          link: (href, title, text) => {
+            files[file].href = href;
+            files[file].domain = psl.get(new URL(href).hostname);
+            return text;
+          },
+          text: (string) => string,
+          em: (string) => string,
+          html: (string) => string,
+        },
+      });
+      files[file].title = title;
+
+      files[`links/${filename}/index.html`] = files[file];
+      site.links.push({ ...files[file] });
+      delete files[file];
+      // }
+    });
+    console.timeEnd("|-- build:links");
+
+    /**
      * Handle Collections
      */
     console.time("|-- build:collections");
@@ -486,4 +519,16 @@ let App = Metalsmith(__dirname)
  *
  * @property {string} title
  * @property {string} permalink
+ */
+
+/**
+ * @typedef {Object} Note (or link?)
+ *
+ * @property {string} title
+ * @property {Date} date
+ * @property {string} href - https://www.theverge.com/2022/imac-studio-is-great @TODO rename to URL
+ * @property {string} domain - theverge.com
+ * @property {string} permalink - /links/:id, i.e. /links/2022-01-09T09:34
+ * @property {Array.<string>} [tags]
+ * @property {string} contents - A string of markdown representing the body of the post
  */
