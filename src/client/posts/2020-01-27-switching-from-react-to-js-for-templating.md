@@ -1,6 +1,4 @@
----
-tags: engineering iconGalleries
----
+#engineering #iconGalleries #jsTemplating
 
 # Static Site Templating: Switching from React & JSX to JavaScript & Template Literals
 

@@ -1,3 +1,5 @@
+#jsTemplating
+
 # Templating in JavaScript, From Zero Dependencies on Up
 
 Imagine you want to do some simple templating. By simple I mean: you have some data and you want to turn it into HTML. No interactivity or event handlers. No virtual DOM. Just data turned into HTML, server- or client-side.

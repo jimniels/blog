@@ -1,6 +1,4 @@
----
-tags: engineering myBlog
----
+#engineering #myBlog #jsTemplating
 
 # JSX-Like Syntax for Tagged Template Literals in JavaScript
 

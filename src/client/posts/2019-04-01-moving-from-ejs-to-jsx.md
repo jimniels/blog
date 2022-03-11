@@ -1,6 +1,4 @@
----
-tags: engineering iconGalleries
----
+#engineering #iconGalleries #jsTemplating
 
 # Moving from EJS to JSX
 
