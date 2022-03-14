@@ -48,6 +48,8 @@ If you swap out the engine, now all of the sudden the parts connected to the eng
 
 So. Many. Questions. From that one decision. (I’m not a car designer, forgive any ignorance there.)
 
+If your data shows people hate the car, is it because they prefer gas over electric? Or is it because you didn’t design for the electric vehicle as a whole?
+
 The summation of all the interconnected parts _and their relationships with each other_ are what make up the end experience which, from the standpoint of design, strives to be a unified and cohesive whole.
 
 This is what I mean when I say “design happens in an ecosystem”. Like an ecologist, designers seek to reveal the interconnectedness of the world and then to present a vision for a unified whole—“E pluribus unum”, out of the many, one. 
