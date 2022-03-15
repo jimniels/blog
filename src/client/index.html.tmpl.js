@@ -9,10 +9,10 @@ export default function Index(site) {
   const recent = site.posts
     .filter((post) => !post?.tags.includes("rssClub"))
     .slice(0, 5);
-  const favorites = site.posts
-    .filter((post) => post.hasOwnProperty("favorites_index"))
-    .sort((a, b) => (a.favorites_index > b.favorites_index ? 1 : -1))
-    .slice(0, 5);
+  // const favorites = site.posts
+  //   .filter((post) => post.hasOwnProperty("favorites_index"))
+  //   .sort((a, b) => (a.favorites_index > b.favorites_index ? 1 : -1))
+  //   .slice(0, 5);
   const trending = site.posts
     .filter((post) => post.hasOwnProperty("pageviews"))
     .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1))
@@ -36,9 +36,6 @@ export default function Index(site) {
           >
         </p>
       `}
-
-      <h2>Select Personal Favorites</h2>
-      ${PostList(favorites)}
     `
   );
 }

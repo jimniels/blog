@@ -1,3 +1,5 @@
+#deno
+
 # Deno is Webby
 
 > Deno is trying not to be an API. It is trying to be the Web API.
