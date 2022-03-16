@@ -42,10 +42,6 @@ const Layout = (props, children) => {
       label: "About",
       path: "/about/",
     },
-    {
-      label: "Feeds",
-      path: "/feeds/",
-    },
   ];
 
   return (
@@ -120,6 +116,12 @@ const Layout = (props, children) => {
             ${nav.map(
               ({ label, path }) => html`<a href="${path}">${label}</a>`
             )}
+            <a href="/feed.xml" title="RSS Feed"
+              >${importFile("./feed-rss.svg")}</a
+            >
+            <a href="/feed.json" title="JSON Feed"
+              >${importFile("./feed-json.svg")}</a
+            >
           </site-nav>
 
           <script>

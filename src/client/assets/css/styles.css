@@ -104,6 +104,11 @@ site-nav button:hover {
   background: var(--c-fg);
 }
 
+site-nav ul li {
+  display: flex;
+  align-items: center;
+}
+
 site-nav ul a {
   display: flex;
   justify-content: space-between;
