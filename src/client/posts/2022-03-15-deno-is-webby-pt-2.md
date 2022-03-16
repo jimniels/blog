@@ -27,7 +27,7 @@ console.log("%cHello World", "color: red");
 
 <img src="https://cdn.jim-nielsen.com/blog/2022/deno-examples-console-log.png" width="803" height="771" alt="Screenshot of Safari with the developer tools open on examples.deno.land showing a console.log command with colors." /> 
 
-The point is: You Might Not Need NPM™. Deno strives to mimic web platform APIs wherever possible. Commands like `alert` and `console.log` are available as globals in Deno (and all non-standard web APIs are under the `Deno` global).
+The point is: You Might Not Need NPM™. Deno strives to mimic web platform APIs wherever possible. Commands like `alert` and `console.log` are available as globals in Deno (while non-standard web APIs you’ll find under the `Deno` global).
 
 It reminds me of [Ryan Florence’s](https://remix.run/blog/not-another-framework) article where he touts one of the benefits of Remix is that you learn the web platform as you learn Remix. It’s not all proprietary framework knowledge that will one day go extinct.
 
