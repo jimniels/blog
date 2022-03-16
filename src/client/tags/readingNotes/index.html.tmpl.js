@@ -3,7 +3,7 @@ import { html, toDateUI } from "../../../server/utils.js";
 
 const page = {
   title: "Posts tagged #readingNotes",
-  permalink: "/tags/readingNotes/",
+  path: "/tags/readingNotes/",
 };
 
 export default function Tags(site) {
@@ -28,7 +28,7 @@ export default function Tags(site) {
         .filter(post => post.tags && post.tags.includes("readingNotes"))
         .map(post => html`
           <hr class="div-hr" />
-          <a class="div-link" href="${post.permalink}">${post.title}</a>
+          <a class="div-link" href="${post.path}">${post.title}</a>
           <div class="copy">${post.contents}</div>
         `)}
     

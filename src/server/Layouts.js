@@ -25,8 +25,9 @@ https://www.github.com/jimniels/blog/
 const Layout = (props, children) => {
   const {
     site: { origin, tags, name, isDevelopment },
-    page: { layout, permalink, title, id },
+    page: { layout, path, title, id },
   } = props;
+  const permalink = origin + path;
 
   const nav = [
     {
@@ -71,7 +72,7 @@ const Layout = (props, children) => {
             title="JSON Feed"
             href="/feed.json"
           />
-          <link rel="canonical" href="${origin + permalink}" />
+          <link rel="canonical" href="${permalink}" />
 
           <!-- Inline all our styles -->
           <style>
@@ -94,7 +95,7 @@ const Layout = (props, children) => {
             <!-- If it’s a post page, we’ll include meta info and code styling -->
             <meta property="og:title" content="${title}" />
             <meta property="og:type" content="article" />
-            <meta property="og:url" content="${origin + permalink}" />
+            <meta property="og:url" content="${permalink}" />
 
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@jimniels" />
@@ -170,7 +171,7 @@ const Post = (props) => {
         ${page.contents.toString()}
       </div>
       <footer>
-        ${replyHtml({ postTags: page.tags, postLink: page.permalink, siteOrigin: site.origin })}
+        ${replyHtml({ postTags: page.tags, postPath: page.path, siteOrigin: site.origin })}
       </footer>
     </article>
   `);

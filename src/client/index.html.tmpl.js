@@ -2,7 +2,7 @@ import { PageCustom } from "../server/Layouts.js";
 import { html, toDateUI } from "../server/utils.js";
 
 const page = {
-  permalink: "/",
+  path: "/",
 };
 
 export default function Index(site) {
@@ -40,9 +40,9 @@ function PostList(posts, showPageviews = false) {
   return html`
     <ul class="posts-list">
       ${posts.map(
-        ({ permalink, title, pageviews, date }) => html`
+        ({ path, title, pageviews, date }) => html`
           <li>
-            <a href="${permalink}">${title}</a>
+            <a href="${path}">${title}</a>
             <time datetime="${date.toISOString()}">${toDateUI(date)}</time>
             ${showPageviews &&
             html`<small

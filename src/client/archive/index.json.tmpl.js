@@ -6,7 +6,7 @@ export default function ArchiveJSON(site) {
       .filter((post) => !post?.tags.includes("rssClub"))
       .map(({ title, permalink, date, tags }) => ({
         title,
-        permalink: origin + permalink,
+        permalink,
         date,
         tags,
       }))

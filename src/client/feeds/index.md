@@ -1,7 +1,7 @@
 ---
 layout: Page
 title: Feeds
-permalink: /feeds/
+path: /feeds/
 ---
 
 # Feeds

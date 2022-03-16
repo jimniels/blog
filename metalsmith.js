@@ -229,11 +229,12 @@ let App = Metalsmith(__dirname)
 
       // Store some of the filename-derived data with the post
       files[file].slug = slug;
-      files[file].permalink = `/${year}/${slug}/`;
+      files[file].path = `/${year}/${slug}/`;
+      files[file].permalink = site.origin + files[file].path;
 
       // If the post is one of the trending ones, indicate its index in the list of trending posts
       const trendingPost = trendingPosts.find(
-        (post) => post.resource === files[file].permalink
+        (post) => post.resource === files[file].path
       );
       if (trendingPost) {
         files[file].pageviews = trendingPost.count;
@@ -455,7 +456,8 @@ let App = Metalsmith(__dirname)
  *
  * @property {string} title
  * @property {string} slug
- * @property {string} permalink
+ * @property {string} path - Path to the post, i.e. `/posts/my-post-2012-01-01/`
+ * @property {string} permalink - Fully qualified URL (site.origin + post.path)
  * @property {Date} date
  * @property {string} tags
  * @property {string} redirect_from
@@ -467,5 +469,5 @@ let App = Metalsmith(__dirname)
  * @typedef {Object} Page
  *
  * @property {string} title
- * @property {string} permalink
+ * @property {string} path
  */

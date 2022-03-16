@@ -13,10 +13,10 @@ export default function XMLFeed(site) {
       ${site.posts.slice(0, 10).map(post => xml`
         <item>
             <title>${escapeXml(post.title)}</title>
-            <description>${escapeXml((post?.tags.includes("rssClub") ? rssClubHtml() : "") + post.contents.toString() + replyHtml({ postTags: post.tags, postLink: post.permalink, siteOrigin: site.origin }))}</description>
+            <description>${escapeXml((post?.tags.includes("rssClub") ? rssClubHtml() : "") + post.contents.toString() + replyHtml({ postTags: post.tags, postPath: post.path, siteOrigin: site.origin }))}</description>
             <pubDate>${post.date.toUTCString()}</pubDate>
-            <link>${site.origin + post.permalink}</link>
-            <guid isPermaLink="true">${site.origin + post.permalink}</guid>
+            <link>${post.permalink}</link>
+            <guid isPermaLink="true">${post.permalink}</guid>
         </item>
       `)}
     </channel>

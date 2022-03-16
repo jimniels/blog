@@ -3,7 +3,7 @@ import { html, toDateUI } from "../../server/utils.js";
 
 const page = {
   title: "Tags",
-  permalink: "/tags/",
+  path: "/tags/",
 };
 
 export default function Tags(site) {
@@ -47,7 +47,7 @@ export default function Tags(site) {
       <ul class="posts-list">
         ${postsByTag[tag].map(post => html`
           <li class="post-wrapper">
-            <a href="${post.permalink}">${post.title}</a>
+            <a href="${post.path}">${post.title}</a>
             <time class="date post-date" datetime="${post.date.toISOString()}">
               ${toDateUI(post.date)}
             </time>

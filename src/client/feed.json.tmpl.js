@@ -12,15 +12,12 @@ export default function JSONFeed(site) {
     },
     items: site.posts.slice(0, 10).map((post) => {
       const shortIsoDate = post.date.toISOString().slice(0, 10);
-      const url = site.origin + post.permalink;
 
       return {
-        // You can phase this out once you have at least 10 posts newer than
-        // the date below (as that was the old ID)
-        id: shortIsoDate > "2019-07-03" ? post.permalink : shortIsoDate,
+        id: post.path,
         date_published: post.date.toISOString(),
         title: post.title,
-        url,
+        url: post.permalink,
         tags: post.tags,
         content_html: post?.tags.includes("rssClub")
           ? rssClubHtml()
@@ -28,7 +25,7 @@ export default function JSONFeed(site) {
             post.contents.toString() +
             replyHtml({
               postTags: post.tags,
-              postPath: post.permalink,
+              postPath: post.path,
               siteOrigin: site.origin,
             }),
       };

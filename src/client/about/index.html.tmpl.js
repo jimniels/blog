@@ -3,7 +3,7 @@ import { html } from "../../server/utils.js";
 
 const page = {
   title: "About",
-  permalink: "/about/",
+  path: "/about/",
 };
 
 export default function About(site) {
