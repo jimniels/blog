@@ -41,3 +41,5 @@ So you can:
 2. Or, learn the tool and, in the process, learn nothing else — when the tool fades, so does your knowledge.
 
 This is what I love about Deno: always bet on the web.
+
+> Deno’s overarching philosophy is bringing server-side JavaScript closer to browser JavaScript. – [Ryan Dahl, creator of Deno](https://www.youtube.com/watch?v=vBd4tPUBUQo)
