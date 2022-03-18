@@ -1,6 +1,4 @@
----
-tags: design generalNotes
----
+#design #generalNotes
 
 # Notes on “The Ugly Truth about Design Systems” by Mark Boulton
 

@@ -1,6 +1,4 @@
----
-tags: engineering iconGalleries
----
+#engineering #iconGalleries
 
 # Choosing a Static Site Generator
 

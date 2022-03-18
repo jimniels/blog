@@ -1,6 +1,4 @@
----
-tags: iconGalleries iconGalleriesBook
----
+#iconGalleries #iconGalleriesBook
 
 # Launching “The iOS App Icon Book”
 

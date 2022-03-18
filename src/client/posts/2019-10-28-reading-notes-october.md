@@ -1,6 +1,4 @@
----
-tags: readingNotes
----
+#readingNotes
 
 # Reading Notes, October 2019
 

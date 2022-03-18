@@ -1,6 +1,4 @@
----
-tags: css
----
+#css
 
 # Notes from Josh Comeau’s Article on Stacking Contexts
 

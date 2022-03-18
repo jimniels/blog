@@ -1,6 +1,4 @@
----
-tags: designProcess
----
+#designProcess
 
 # Innovation Sales Sheet
 

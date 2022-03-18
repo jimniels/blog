@@ -1,6 +1,4 @@
----
-tags: theMoreYouKnow
----
+#theMoreYouKnow
 
 # Credentials in URLs
 

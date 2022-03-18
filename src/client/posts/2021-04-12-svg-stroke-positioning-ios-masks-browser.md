@@ -1,6 +1,4 @@
----
-tags: engineering iconGalleries
----
+#engineering #iconGalleries
 
 # SVG Stroke Positioning, iOS Masks, and the Browser
 

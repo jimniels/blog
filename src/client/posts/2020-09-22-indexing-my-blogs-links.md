@@ -1,6 +1,4 @@
----
-tags: myBlog
----
+#myBlog
 
 # Indexing My Blog’s Links
 

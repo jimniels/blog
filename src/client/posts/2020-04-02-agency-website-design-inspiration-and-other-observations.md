@@ -1,6 +1,4 @@
----
-tags: design
----
+#design
 
 # Visual Design Inspiration from Agency Websites–And Other Tangential Observations
 

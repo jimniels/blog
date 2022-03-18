@@ -1,7 +1,3 @@
----
-redirect_from: /posts/thoughts-from-on-writing-well/
----
-
 #thoughts #tips
 
 # Thoughts from “On Writing Well”

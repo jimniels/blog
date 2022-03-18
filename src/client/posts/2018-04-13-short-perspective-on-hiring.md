@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # A Short Perspective on Hiring
 

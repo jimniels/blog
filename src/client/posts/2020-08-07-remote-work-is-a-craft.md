@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Remote Work is a Craft
 

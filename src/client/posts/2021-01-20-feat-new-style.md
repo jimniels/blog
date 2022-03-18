@@ -1,6 +1,4 @@
----
-tags: myBlog
----
+#myBlog
 
 # Feat: New Style
 

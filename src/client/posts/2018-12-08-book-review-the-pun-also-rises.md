@@ -1,6 +1,4 @@
----
-tags: bookNotes
----
+#bookNotes
 
 # Book Notes: “The Pun Also Rises” by John Pollack
 

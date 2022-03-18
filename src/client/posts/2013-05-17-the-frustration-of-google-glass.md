@@ -1,7 +1,3 @@
----
-redirect_from: /posts/the-frustration-of-google-glass/
----
-
 #thoughts
 
 # The Incredible (Frustrating) Potential of Google Glass

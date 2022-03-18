@@ -1,6 +1,4 @@
----
-tags: thoughts bookNotes bookNotesBeethoven
----
+#thoughts #bookNotes #bookNotesBeethoven
 
 # Growth, Creativity, and You
 

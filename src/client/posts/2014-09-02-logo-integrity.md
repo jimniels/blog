@@ -1,7 +1,4 @@
----
-tags: designProcess engineering
-redirect_from: /posts/logo-integrity/
----
+#designProcess #engineering
 
 # Logo Integrity Brought into Focus
 

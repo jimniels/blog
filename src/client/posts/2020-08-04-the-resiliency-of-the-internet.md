@@ -1,6 +1,4 @@
----
-tags: thoughts css html
----
+#thoughts #css #html
 
 # The Resiliency of the Internet
 

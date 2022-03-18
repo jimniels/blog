@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Sites v. Apps: A Reverie
 

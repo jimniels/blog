@@ -1,6 +1,4 @@
----
-tags: css
----
+#css
 
 # Propagating Up in CSS
 

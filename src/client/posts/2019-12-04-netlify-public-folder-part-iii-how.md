@@ -1,6 +1,4 @@
----
-tags: engineering netlify
----
+#engineering #netlify
 
 # Netlify Public Folder, Part III: How? The Winding Road to Making a Local Folder Sync to Netlify’s Global CDN
 

@@ -1,6 +1,4 @@
----
-tags: engineering myBlog
----
+#engineering #myBlog
 
 # Leveraging Regexes and Git to Find/Replace Dates in Markdown Files
 

@@ -1,7 +1,4 @@
----
-tags: thoughts
-redirect_from: /posts/logo-the-image-of-a-company/
----
+#thoughts
 
 # A Logo Is an Image, The Image of a Company
 

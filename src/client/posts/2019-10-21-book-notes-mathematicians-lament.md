@@ -1,6 +1,4 @@
----
-tags: bookNotes
----
+#bookNotes
 
 # Book Notes: A Mathematician’s Lament
 

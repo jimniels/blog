@@ -1,6 +1,4 @@
----
-tags: generalNotes
----
+#generalNotes
 
 # Favorite Excerpts from the Postlight Podcast
 

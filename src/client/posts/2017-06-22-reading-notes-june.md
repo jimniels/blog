@@ -1,6 +1,4 @@
----
-tags: readingNotes
----
+#readingNotes
 
 # Reading Notes, June 2017
 

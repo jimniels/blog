@@ -1,6 +1,4 @@
----
-tags: netlify
----
+#netlify
 
 # Building a Netlify Analytics Email Digest
 

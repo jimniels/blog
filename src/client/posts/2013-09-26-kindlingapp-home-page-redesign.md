@@ -1,7 +1,4 @@
----
-tags: designProcess kindling
-redirect_from: /posts/kindlingapp-home-page-redesign/
----
+#designProcess #kindling
 
 # Home Page Redesign of kindlingapp.com
 

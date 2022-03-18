@@ -1,6 +1,4 @@
----
-tags: designProcess sagesure
----
+#designProcess #sagesure
 
 # Designing the “Quick Quote” Experience in Agent Portal
 

@@ -1,7 +1,3 @@
----
-redirect_from: /posts/advertising-for-the-buyer/
----
-
 #thoughts
 
 # When Advertising Became About the Buyer, Not the Product

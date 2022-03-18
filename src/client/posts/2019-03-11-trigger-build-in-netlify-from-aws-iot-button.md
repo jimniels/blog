@@ -1,6 +1,4 @@
----
-tags: engineering netlify
----
+#engineering #netlify
 
 # One-Press Deploys: Triggering a Build in Netlify via an Amazon IoT Button
 

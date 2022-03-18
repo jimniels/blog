@@ -1,6 +1,4 @@
----
-tags: designProcess sagesure engineering
----
+#designProcess #sagesure #engineering
 
 # Designing and Engineering Color Usage in Agent Portal
 

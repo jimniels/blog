@@ -1,7 +1,4 @@
----
-tags: designProcess kindling
-redirect_from: /posts/creating-apple-touch-icons/
----
+#designProcess #kindling
 
 # Creating Apple Touch Icons
 

@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # IKEA, JavaScript, and Assembling Things Yourself
 

@@ -1,6 +1,4 @@
----
-tags: thoughts bookNotes bookNotesCoders
----
+#thoughts #bookNotes #bookNotesCoders
 
 # Writing vs. Coding
 

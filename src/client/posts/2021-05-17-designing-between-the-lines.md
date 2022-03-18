@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Designing Between the Lines
 

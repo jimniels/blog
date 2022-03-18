@@ -1,6 +1,4 @@
----
-tags: bookNotes
----
+#bookNotes
 
 # Book Notes: “Demand Side Sales” by Bob Moesta
 

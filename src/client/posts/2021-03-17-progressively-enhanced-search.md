@@ -1,6 +1,4 @@
----
-tags: progressiveEnhancement theMoreYouKnow
----
+#progressiveEnhancement #theMoreYouKnow
 
 # A Simple Tactic For Progressively-Enhanced Search
 

@@ -1,7 +1,4 @@
----
-tags: thoughts
-redirect_from: /posts/wireframes-and-gravity/
----
+#thoughts
 
 # Wireframes and Gravity
 

@@ -1,6 +1,4 @@
----
-tags: engineering netlify
----
+#engineering #netlify
 
 # Triggering a Deploy in Netlify With Bookmarklets
 

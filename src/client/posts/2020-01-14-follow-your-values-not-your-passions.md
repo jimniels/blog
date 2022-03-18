@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Follow Your Values, Not Your Passions
 

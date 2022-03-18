@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Thoughts on Designing a UI Driven By User-Controlled, System-Level Preferences
 

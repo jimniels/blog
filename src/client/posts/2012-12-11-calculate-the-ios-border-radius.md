@@ -1,7 +1,3 @@
----
-redirect_from: /posts/ios-border-radius/
----
-
 #tips #engineering #iconGalleries
 
 # Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio

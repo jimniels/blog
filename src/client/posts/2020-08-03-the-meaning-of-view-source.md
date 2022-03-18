@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Webster’s Dictionary Defines “View Source” As...
 

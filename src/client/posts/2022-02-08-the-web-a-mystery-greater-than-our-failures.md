@@ -1,6 +1,4 @@
----
-tags: rssClub
----
+#rssClub
 
 # The Web: A “Mystery Greater Than Our Failures”
 

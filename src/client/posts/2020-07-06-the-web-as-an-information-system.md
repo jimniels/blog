@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # The Web as an Information System
 

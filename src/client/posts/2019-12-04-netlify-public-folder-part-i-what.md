@@ -1,6 +1,4 @@
----
-tags: engineering netlify
----
+#engineering #netlify
 
 # Netlify Public Folder, Part I: What? Recreating the Dropbox Public Folder With Netlify
 

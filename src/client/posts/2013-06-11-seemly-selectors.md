@@ -1,7 +1,3 @@
----
-redirect_from: /posts/seemly-selectors/
----
-
 #tips #css
 
 # Seemly Selectors

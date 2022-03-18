@@ -1,6 +1,4 @@
----
-tags: iconGalleriesBook
----
+#iconGalleriesBook
 
 # Exporting and Parsing Emails for “The iOS App Icon Book”
 

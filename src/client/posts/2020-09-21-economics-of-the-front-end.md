@@ -1,6 +1,4 @@
----
-tags: thoughts javascript
----
+#thoughts #javascript
 
 # The Economics of the Front-End
 

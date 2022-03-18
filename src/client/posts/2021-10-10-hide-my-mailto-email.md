@@ -1,6 +1,4 @@
----
-tags: html
----
+#html
 
 # Hide My mailto: Email
 

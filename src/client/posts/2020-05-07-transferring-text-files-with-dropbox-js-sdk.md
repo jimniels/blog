@@ -1,6 +1,4 @@
----
-tags: engineering
----
+#engineering
 
 # Downloading and Uploading Text Files Using the Dropbox JavaScript SDK
 

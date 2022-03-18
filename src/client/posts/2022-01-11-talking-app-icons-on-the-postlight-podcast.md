@@ -1,6 +1,4 @@
----
-tags: iconGalleriesBook
----
+#iconGalleriesBook
 
 # Talking App Icons on the Postlight Podcast
 

@@ -1,6 +1,4 @@
----
-tags: bookNotes bookNotesBeethoven
----
+#bookNotes #bookNotesBeethoven
 
 # The Predispositions of Inexperienced Talent
 

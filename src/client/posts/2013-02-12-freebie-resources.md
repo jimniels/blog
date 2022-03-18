@@ -1,7 +1,3 @@
----
-redirect_from: /posts/freebie-resources/
----
-
 #tips
 
 # Freebie Resources - Don’t Assume, Double Check

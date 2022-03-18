@@ -1,7 +1,3 @@
----
-redirect_from: /posts/coming-to-appreciate-art/
----
-
 #thoughts
 
 # Coming to Appreciate Art

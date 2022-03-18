@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # The Missing Hit and the Open Web
 

@@ -1,7 +1,3 @@
----
-redirect_from: /posts/unicode-symbols-and-font-stacks/
----
-
 #tips
 
 # Miscellaneous Unicode Symbols, Font Stacks, and You

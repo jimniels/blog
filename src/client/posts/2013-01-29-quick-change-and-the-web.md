@@ -1,7 +1,3 @@
----
-redirect_from: /posts/quick-change-and-the-web/
----
-
 #thoughts
 
 # Quick Change and the Web

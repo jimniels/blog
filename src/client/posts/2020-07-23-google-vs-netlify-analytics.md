@@ -1,6 +1,4 @@
----
-tags: netlify
----
+#netlify
 
 # Comparing Data in Google and Netlify Analytics
 

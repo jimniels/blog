@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # One Algorithm to Rule Them All
 

@@ -1,6 +1,4 @@
----
-tags: engineering design iconGalleries
----
+#engineering #design #iconGalleries
 
 # Designing and Engineering for Progressive Disclosure
 

@@ -1,7 +1,4 @@
----
-tags: designProcess kindling
-redirect_from: /posts/kindling-rubber-stamp/
----
+#designProcess #kindling
 
 # Kindling Rubber Stamp
 

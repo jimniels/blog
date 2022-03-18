@@ -1,6 +1,4 @@
----
-tags: javascript
----
+#javascript
 
 # React Without Build Tools
 

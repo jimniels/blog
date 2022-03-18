@@ -1,7 +1,4 @@
----
-tags: thoughts
-redirect_from: /posts/kinda-sorta-looks-like-the-internet/
----
+#thoughts
 
 # The “Kinda-Sorta Looks Like the Internet” Internet
 

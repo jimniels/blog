@@ -1,6 +1,4 @@
----
-tags: css
----
+#css
 
 # CSS Is, In Fact, Awesome
 

@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Programming Pairs Well With Other Disciplines
 

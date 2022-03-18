@@ -1,6 +1,4 @@
----
-tags: bookNotes
----
+#bookNotes
 
 # Book Notes: “Creative Selection” by Ken Kocienda
 

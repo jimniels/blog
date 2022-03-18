@@ -1,6 +1,4 @@
----
-tags: css
----
+#css
 
 # Custom Style Sheets in Safari
 

@@ -1,6 +1,4 @@
----
-tags: bookNotes
----
+#bookNotes
 
 # Book Notes: “Millions, Billions, Zillions” by Brian Kernighan
 

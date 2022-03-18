@@ -1,6 +1,4 @@
----
-tags: engineering tips iconGalleries
----
+#engineering tips iconGalleries
 
 # Creating iOS Icon Masks in the Browser
 

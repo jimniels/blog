@@ -1,6 +1,4 @@
----
-tags: netlify engineering iconGalleries
----
+#netlify #engineering #iconGalleries
 
 # Deploying a (Wannbe) Monorepo in Netlify
 

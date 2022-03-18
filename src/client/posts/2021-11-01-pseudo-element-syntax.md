@@ -1,6 +1,4 @@
----
-tags: css
----
+#css
 
 # Hairsplitting the Pseudo-Element Syntax
 

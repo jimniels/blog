@@ -1,7 +1,3 @@
----
-redirect_from: /posts/an-analysis-of-infinite-scrolling/
----
-
 #thoughts
 
 # An Analysis of Infinte Scrolling

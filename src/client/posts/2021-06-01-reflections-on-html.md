@@ -1,6 +1,4 @@
----
-tags: html
----
+#html
 
 # Reflections on HTML
 

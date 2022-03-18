@@ -1,7 +1,3 @@
----
-redirect_from: /posts/preserving-CSS-comments-during-compression/
----
-
 #engineering
 
 # Preserving CSS Comments For Wordpress During Sass Compression

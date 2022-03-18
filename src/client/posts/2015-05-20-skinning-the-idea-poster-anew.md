@@ -1,7 +1,4 @@
----
-tags: designProcess kindling
-redirect_from: /posts/skinning-the-idea-poster-anew/
----
+#designProcess #kindling
 
 # Skinning the Idea Poster Anew
 

@@ -1,6 +1,4 @@
----
-tags: bookNotes bookNotesThinkAgain
----
+#bookNotes #bookNotesThinkAgain
 
 # Book Notes: “Think Again” by Adam Grant
 

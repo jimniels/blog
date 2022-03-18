@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Design Systems and Airplanes
 
