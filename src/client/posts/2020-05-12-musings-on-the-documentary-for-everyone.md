@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#openWeb
 
 # Musings on the Documentary “For Everyone”
 
