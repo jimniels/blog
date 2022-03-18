@@ -2,51 +2,41 @@ export default function Redirects(site) {
   const { postsByYear } = site;
   const years = Object.keys(postsByYear);
 
-  // Whereas everything now does: /:year/:slug
-  // Maybe someday we switch everything back to being under the noun `posts`
-
-  /*
-    /archive/ -> /posts/ (/posts/#2015)
-    /tags/ -> /posts/tags/
-
-    /posts/a-web-of-people-20120629
-    /posts/a-web-of-people-2012-06-29
-    /posts/2012-06-29-a-web-of-people
-    /posts/20120629-a-web-of-people
-    /posts/a-web-of-people-120629
-
-    /links/2205010915
-    /links/220501T0915
-    /links/20220501T0915
-    /links/2022-05-01T09-15
-    /links/2022-05-01-09-15
-    /links/2022-05-01-theverge.com
-    THIS DOESN'T WORK
-    /links/2022-05-01-youtube.com
-    /links/2022-05-01-youtube.com
-  */
-  // return site.posts
-  //   .filter((post) => post.redirect_from)
-  //   .map((post) => `${post.redirect_from} ${post.permalink} 301`)
-  //   .concat(years.map((year) => `/${year}/ /archive/#${year} 301`))
-  //   .join("\n");
-
-  // @TODO RSS feed item IDs will change if you change the path, be aware of that!!
-
-  // Everything at 2015-06-29-a-web-of-people.md and before
-  // used the pattern `/posts/:slug/`
-  // which at one point in time redirected to `/:year/:slug`
-  // But we changed to `/posts/:slug-:date`
+  // Every post from `2015-06-29-a-web-of-people.md` on back needs this redirect rule
+  // These used to live on every post as `redirect_from` but we can apply in batch here
+  // Previous pattern: `/posts/:slug/`
+  // New pattern: `/:year/:slug/`
   const oldRedirects = site.posts
-    .filter((post) => post.date.toISOString().slice(0, 10) < "2015-06-29")
+    .filter((post) => post.date.toISOString().slice(0, 10) <= "2015-06-29")
     .map((post) => {
       const { date, slug } = post;
-      const dateStr = date.toISOString().slice(0, 10);
+      const year = date.toISOString().slice(0, 4);
       // /posts/:slug/ -> /posts/:slug-:date
-      return `/posts/${slug}/ /posts/${slug}-${dateStr}/ 301`;
+      return `/posts/${slug}/ /${year}/${slug}/ 301`;
     })
     .join("\n");
+  // One-off redirects for old posts
+  // These were mispelled or didn’t match the pattern of the initial redirects
+  // transformation, so they have to be manually hard-coded here (rather than)
+  // in the individual file
+  const oneOffOldRedirects = [
+    "/2019/thuoghts-on-jeremy-keiths-split/ /2019/thoughts-on-jeremy-keiths-split/ 301",
+    // Technically, these ones are replacements for the "oldRedirects" above,
+    // as they got fixed when we did this set of redirects. But we'll just add
+    // them here for convenience's sake.
+    "/posts/evoluation-of-creativity/ /2013/evolution-of-creativity/ 301",
+    "/posts/preserving-CSS-comments-during-compression/ /2013/preserving-css-comments-during-compression/ 301",
+    "/posts/scriptogram-posts-in-JSON-with-php/ /2013/scriptogram-posts-in-json-with-php/ 301",
+    "/posts/an-analysis-of-infinite-scrolling/ /2013/an-analysis-of-infinite-scroll/ 301",
+    "/posts/ios-border-radius/ /2012/calculate-the-ios-border-radius/ 301",
+  ].join("\n");
 
+  return [oneOffOldRedirects, oldRedirects].join("\n");
+
+  /*
+  // FUTURE REDIRECTS
+  //
+  // How many unique /posts/:id exist?
   // site.posts.reduce((acc, post) => {
   //   const id = post.slug + "-" + post.date.toISOString().slice(0, 10);
   //   if (acc[post.slug]) {
@@ -57,10 +47,8 @@ export default function Redirects(site) {
   //   }
   //   return acc;
   // }, {});
-
-  // /posts/:id
-  // /links/:id
-
+  //
+  // @TODO RSS feed item IDs will change if you change the path, be aware of that!!
   // Everything at X date forward
   // Used to be `/:year/:slug`
   // But we changed it to `/posts/:slug-:date`
@@ -76,4 +64,5 @@ export default function Redirects(site) {
     .join("\n");
 
   return oldRedirects + newRedirects;
+  */
 }
