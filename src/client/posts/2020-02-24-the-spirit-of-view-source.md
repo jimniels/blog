@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # The Spirit of “View Source”
 

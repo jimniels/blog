@@ -1,6 +1,4 @@
----
-tags: engineering
----
+#engineering
 
 # Dynamically Darken a Color in CSS
 

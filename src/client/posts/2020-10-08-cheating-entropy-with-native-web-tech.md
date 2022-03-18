@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Cheating Entropy with Native Web Technologies
 

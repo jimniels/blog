@@ -1,6 +1,4 @@
----
-tags: rssClub
----
+#rssClub
 
 # Disposition of Negativity
 

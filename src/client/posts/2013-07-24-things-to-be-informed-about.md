@@ -1,7 +1,3 @@
----
-redirect_from: /posts/things-to-be-informed-about/
----
-
 #thoughts
 
 # Things to Be Informed About in Life

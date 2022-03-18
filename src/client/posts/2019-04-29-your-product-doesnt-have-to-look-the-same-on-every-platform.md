@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Your Product Doesn’t Have to Look the Same On Every Platform
 

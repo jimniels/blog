@@ -1,7 +1,3 @@
----
-redirect_from: /posts/putting-the-user-first/
----
-
 #thoughts
 
 # Once Again, It’s About Putting the User First

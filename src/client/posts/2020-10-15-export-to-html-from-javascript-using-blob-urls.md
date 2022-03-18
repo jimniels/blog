@@ -1,6 +1,4 @@
----
-tags: javascript
----
+#javascript
 
 # Exporting to HTML from JavaScript Using Blob URLs
 

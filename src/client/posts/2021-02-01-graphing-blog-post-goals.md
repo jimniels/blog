@@ -1,6 +1,4 @@
----
-tags: myBlog
----
+#myBlog
 
 
 # Graphing My Blog Post Goals

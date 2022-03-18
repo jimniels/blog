@@ -1,6 +1,4 @@
----
-tags: css typography
----
+#css #typography
 
 # Font Size and Control
 

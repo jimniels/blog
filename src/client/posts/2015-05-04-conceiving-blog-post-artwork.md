@@ -1,7 +1,4 @@
----
-tags: designProcess kindling
-redirect_from: /posts/conceiving-blog-post-artwork/
----
+#designProcess #kindling
 
 # Conceiving Blog Post Artwork
 

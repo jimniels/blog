@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Ten Anti-Principles of Good Design
 

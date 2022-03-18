@@ -1,7 +1,3 @@
----
-redirect_from: /posts/scriptogram-posts-in-JSON-with-php/
----
-
 #engineering
 
 # Retrieving Recent Posts from Scriptogram in JSON Format Using PHP

@@ -1,6 +1,4 @@
----
-tags: engineering myBlog
----
+#engineering #myBlog
 
 # Progressively Enhancing a Small Widget
 

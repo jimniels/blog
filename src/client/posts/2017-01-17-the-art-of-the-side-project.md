@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # The Art of the Side Project
 

@@ -1,6 +1,4 @@
----
-tags: design engineering typography
----
+#design #engineering #typography
 
 # Design Principles Applied to the SF Fonts
 

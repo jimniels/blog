@@ -1,6 +1,4 @@
----
-tags: thoughts 
----
+#thoughts
 
 # Limitations in Software
 

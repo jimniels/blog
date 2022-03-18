@@ -1,6 +1,4 @@
----
-tags: netlify
----
+#netlify
 
 # Wisdom From the Forums: “The Gap Between Expectations and Reality”
 

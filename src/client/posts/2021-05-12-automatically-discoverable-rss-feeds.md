@@ -1,6 +1,4 @@
----
-tags: rss
----
+#rss
 
 # Making Your RSS Feeds Automatically Discoverable
 

@@ -1,6 +1,4 @@
----
-tags: engineering netlify
----
+#engineering #netlify
 
 # How to Create a macOS Menu Bar App for Netlify
 

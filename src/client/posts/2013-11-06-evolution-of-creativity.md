@@ -1,7 +1,4 @@
----
-tags: thoughts
-redirect_from: /posts/evoluation-of-creativity/
----
+#thoughts
 
 # The Evolution of Creativity
 

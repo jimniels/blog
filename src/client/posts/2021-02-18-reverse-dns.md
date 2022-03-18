@@ -1,6 +1,4 @@
----
-tags: theMoreYouKnow
----
+#theMoreYouKnow
 
 # Reverse Domain Name Notation
 

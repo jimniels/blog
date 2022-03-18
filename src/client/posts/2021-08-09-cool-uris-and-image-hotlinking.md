@@ -1,6 +1,4 @@
----
-tags: html
----
+#html
 
 # Cool URIs and Image Hotlinking
 

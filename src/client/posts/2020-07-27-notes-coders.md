@@ -1,6 +1,4 @@
----
-tags: bookNotes bookNotesCoders
----
+#bookNotes #bookNotesCoders
 
 # Book Notes: “Coders” by Clive Thompson
 

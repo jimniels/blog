@@ -1,6 +1,4 @@
----
-tags: podcastNotes
----
+#podcastNotes
 
 # Podcast Notes: “Measuring Design” by Clearleft
 

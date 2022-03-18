@@ -1,7 +1,3 @@
----
-redirect_from: /posts/stop-direct-spam-comments-in-wordpress/
----
-
 #tips
 
 # Stop Direct Spam Comments in Wordpress

@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # The World Wide Web of People at My Disposal
 

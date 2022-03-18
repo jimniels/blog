@@ -1,6 +1,4 @@
----
-tags: readingNotes
----
+#readingNotes
 
 # Reading Notes, November 2018
 

@@ -1,7 +1,3 @@
----
-redirect_from: /posts/reading-notes-november/
----
-
 #readingNotes
 
 # Reading Notes, November 2012

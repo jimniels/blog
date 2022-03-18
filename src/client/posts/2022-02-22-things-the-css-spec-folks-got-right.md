@@ -1,6 +1,4 @@
----
-tags: css
----
+#css
 
 # Things the CSS Spec Folks Got Right
 

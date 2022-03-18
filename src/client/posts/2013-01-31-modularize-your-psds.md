@@ -1,7 +1,3 @@
----
-redirect_from: /posts/modularize-your-psds/
----
-
 #tips
 
 # Modularize Your PSDs by Embedding Them Inside Each Other

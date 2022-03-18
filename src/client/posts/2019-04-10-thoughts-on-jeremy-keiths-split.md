@@ -1,7 +1,4 @@
----
-tags: thoughts engineering
-redirect_from: /2019/thuoghts-on-jeremy-keiths-split/
----
+#thoughts #engineering
 
 # Thoughts on Jeremy Keith’s “Split”
 

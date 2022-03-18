@@ -1,6 +1,4 @@
----
-tags: thoughts notesRichHickey
----
+#thoughts #notesRichHickey
 
 # A Note to Self on Churn
 

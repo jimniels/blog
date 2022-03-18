@@ -1,6 +1,4 @@
----
-tags: engineering javascript
----
+#engineering #javascript
 
 # Approaches to Using autosize.js to Automatically Resize a textarea on User Input
 

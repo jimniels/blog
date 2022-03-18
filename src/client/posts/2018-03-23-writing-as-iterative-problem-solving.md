@@ -1,6 +1,4 @@
----
-tags: engineering sagesure
----
+#engineering #sagesure
 
 # Writing as a Process for Iterative Problem Solving (and Thoughts on  Structuring a Small Redux Project)
 

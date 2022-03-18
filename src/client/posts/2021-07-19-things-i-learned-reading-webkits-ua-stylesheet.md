@@ -1,6 +1,4 @@
----
-tags: css
----
+#css
 
 # Things I Learned Reading Webkit’s UA Stylesheet
 

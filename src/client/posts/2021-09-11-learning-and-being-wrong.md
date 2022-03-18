@@ -1,6 +1,4 @@
----
-tags: bookNotes bookNotesThinkAgain
----
+#bookNotes #bookNotesThinkAgain
 
 # Learning and Being Wrong
 

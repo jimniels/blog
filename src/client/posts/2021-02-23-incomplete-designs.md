@@ -1,6 +1,4 @@
----
-tags: design engineering
----
+#design #engineering
 
 # “Incomplete” Designs & Miscellaneous Thoughts
 

@@ -1,6 +1,4 @@
----
-tags: generalNotes
----
+#generalNotes
 
 # Notes on “Rethinking Asynchronous Programming in JavaScript” by Kyle Simpson
 

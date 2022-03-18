@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # The Power of Prototypes in the Creative Process
 

@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Software and Home Renovation 
 

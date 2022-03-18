@@ -1,6 +1,4 @@
----
-tags: designProcess iconGalleries iconGalleriesBook
----
+#designProcess #iconGalleries #iconGalleriesBook
 
 # Detective Work for “The App Icon Book”
 

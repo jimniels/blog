@@ -1,6 +1,4 @@
----
-tags: stories
----
+#stories
 
 # My Little Cabin in the Woods of Logo Integrity
 

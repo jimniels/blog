@@ -1,6 +1,4 @@
----
-tags: data generalNotes
----
+#data #generalNotes
 
 # Notes on Metadata
 

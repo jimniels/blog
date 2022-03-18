@@ -1,6 +1,4 @@
----
-tags: thoughts html css
----
+#thoughts #html #css
 
 
 # Web Technologies and Syntax 

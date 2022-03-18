@@ -1,7 +1,4 @@
----
-tags: designProcess kindling
-redirect_from: /posts/successful-transaction-receipt/
----
+#designProcess #kindling
 
 # Designing a Successful Transaction Receipt
 

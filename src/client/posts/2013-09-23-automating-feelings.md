@@ -1,7 +1,3 @@
----
-redirect_from: /posts/automating-feelings/
----
-
 #thoughts
 
 # Automating Feelings

@@ -1,6 +1,4 @@
----
-tags: bookNotes bookNotesThinkAgain
----
+#bookNotes #bookNotesThinkAgain
 
 # Job Titles: What You Do vs. Who You Are
 

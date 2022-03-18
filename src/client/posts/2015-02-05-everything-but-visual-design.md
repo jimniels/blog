@@ -1,7 +1,4 @@
----
-tags: designProcess
-redirect_from: /posts/everything-but-visual-design/
----
+#designProcess
 
 # Everything But Visual Design
 

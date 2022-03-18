@@ -1,6 +1,4 @@
----
-tags: engineering netlify
----
+#engineering #netlify
 
 # Netlify Public Folder, Part II: Why? Netlify Large Media Wasn’t For Me, But Netlify Still Was
 

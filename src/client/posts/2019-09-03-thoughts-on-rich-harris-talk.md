@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Thoughts on Rich Harris’ “Metaphysics and JavaScript”
 

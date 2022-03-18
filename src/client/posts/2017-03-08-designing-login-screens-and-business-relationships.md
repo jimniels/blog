@@ -1,6 +1,4 @@
----
-tags: designProcess sagesure
----
+#designProcess #sagesure
 
 # Designing Cross-Application Login Screens (and Business Relationships)
 

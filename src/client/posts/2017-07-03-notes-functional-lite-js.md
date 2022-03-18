@@ -1,6 +1,4 @@
----
-tags: generalNotes
----
+#generalNotes
 
 # Notes on “Functional Lite Javascript” by Kyle Simpson
 

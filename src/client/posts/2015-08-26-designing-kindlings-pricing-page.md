@@ -1,6 +1,4 @@
----
-tags: designProcess kindling
----
+#designProcess #kindling
 
 # Designing Kindling’s Pricing Page
 

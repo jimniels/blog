@@ -1,6 +1,4 @@
----
-tags: thoughts html
----
+#thoughts #html
 
 # Web Languages as Compile Targets
 

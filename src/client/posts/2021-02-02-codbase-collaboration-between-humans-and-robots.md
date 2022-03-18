@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Codebase Collaboration Between Humans and Robots
 

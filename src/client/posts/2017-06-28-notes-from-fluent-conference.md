@@ -1,6 +1,4 @@
----
-tags: generalNotes
----
+#generalNotes
 
 # Notes from Fluent Conference
 

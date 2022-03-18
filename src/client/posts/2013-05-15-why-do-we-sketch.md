@@ -1,7 +1,3 @@
----
-redirect_from: /posts/why-do-we-sketch/
----
-
 #tips
 
 # Why Do We Sketch?

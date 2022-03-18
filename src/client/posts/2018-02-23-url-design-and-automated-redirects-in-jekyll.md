@@ -1,6 +1,4 @@
----
-tags: engineering iconGalleries
----
+#engineering #iconGalleries
 
 # URL Design and Automated Redirects in Jekyll
 

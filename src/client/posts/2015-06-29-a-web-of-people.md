@@ -1,7 +1,4 @@
----
-tags: thoughts
-redirect_from: /posts/a-web-of-people/
----
+#thoughts
 
 # A Web of People
 

@@ -1,6 +1,4 @@
----
-tags: netlify
----
+#netlify
 
 # Setup a CORS Proxy With Netlify
 

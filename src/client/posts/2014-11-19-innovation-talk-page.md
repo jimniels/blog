@@ -1,7 +1,4 @@
----
-tags: designProcess kindling
-redirect_from: /posts/innovation-talk-page/
----
+#designProcess #kindling
 
 # Words Have Meaning: Creating the “Let’s Talk Innovation” Page
 

@@ -1,6 +1,4 @@
----
-tags: designProcess myBlog
----
+#designProcess #myBlog
 
 # Blog Redesign: Out with the Old, in with the Old
 

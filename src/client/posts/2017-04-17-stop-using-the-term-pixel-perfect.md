@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Stop Using the Term “Pixel Perfect”, Start Focusing on Experiences
 

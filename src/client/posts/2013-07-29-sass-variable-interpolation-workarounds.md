@@ -1,7 +1,3 @@
----
-redirect_from: /posts/sass-variable-interpolation-workarounds/
----
-
 #thoughts #engineering
 
 # Workarounds to Variable Interpolation in Sass

@@ -1,6 +1,4 @@
----
-tags: engineering iconGalleries
----
+#engineering #iconGalleries
 
 # Down the Rabbit Hole of Image Optimization Tooling
 

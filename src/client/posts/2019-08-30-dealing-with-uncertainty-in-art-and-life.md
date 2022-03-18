@@ -1,6 +1,4 @@
----
-tags: bookNotes thoughts
----
+#bookNotes #thoughts
 
 # Dealing With Uncertainty in Art...and Life
 

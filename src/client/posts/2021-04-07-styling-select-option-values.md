@@ -1,6 +1,4 @@
----
-tags: html
----
+#html
 
 # Giving Style to Select Option Values
 

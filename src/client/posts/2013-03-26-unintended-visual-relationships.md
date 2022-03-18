@@ -1,7 +1,3 @@
----
-redirect_from: /posts/unintended-visual-relationships/
----
-
 #tips
 
 # Unintended Visual Relationships

@@ -1,7 +1,3 @@
----
-redirect_from: /posts/teamcolors/
----
-
 #designProcess
 
 # Team Color Codes

@@ -1,6 +1,4 @@
----
-tags: bookNotes
----
+#bookNotes
 
 # Book Notes: “Martin Luther King, Jr.” by Marshall Frady
 

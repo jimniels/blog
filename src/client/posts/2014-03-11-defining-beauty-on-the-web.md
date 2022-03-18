@@ -1,7 +1,4 @@
----
-tags: thoughts
-redirect_from: /posts/defining-beauty-on-the-web/
----
+#thoughts
 
 # Defining Beauty on the Web
 

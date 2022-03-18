@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Paul Rand on Logos
 

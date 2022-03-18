@@ -1,7 +1,3 @@
----
-redirect_from: /posts/safari-tab-preview/
----
-
 # Safari 6 Tab Preview: Show Me More! (In Quantity, Not Size)
 
 Apple's Safari 6 introduced a new tab switching experience. By activating the feature, Safari presents you with a bird's-eye view of open tabs. 100% of the active tab is previewable while only about 15% of it's left and right sibilings are previeweable.

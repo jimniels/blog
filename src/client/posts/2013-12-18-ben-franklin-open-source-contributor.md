@@ -1,7 +1,4 @@
----
-tags: thoughts
-redirect_from: /posts/ben-franklin-open-source-contributor/
----
+#thoughts
 
 # Benjamin Franklin, an Open Source Contributor?
 

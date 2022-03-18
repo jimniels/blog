@@ -1,6 +1,4 @@
----
-tags: design sagesure
----
+#design #sagesure
 
 # Perception and Balancing Idealism with Pragmatism
 

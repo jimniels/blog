@@ -1,7 +1,4 @@
----
-tags: thoughts
-redirect_from: /posts/ostentatious-design-and-profanity/
----
+#thoughts
 
 # Ostentatious Design & Profanity
 

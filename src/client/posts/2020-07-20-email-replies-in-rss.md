@@ -1,6 +1,4 @@
----
-tags: myBlog rss
----
+#myBlog #rss
 
 # Email Replies in Feeds
 

@@ -1,7 +1,3 @@
----
-redirect_from: /posts/said-no-user-ever/
----
-
 #thoughts
 
 # Said No Normal User, Ever

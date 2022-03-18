@@ -1,6 +1,4 @@
----
-tags: thoughts
----
+#thoughts
 
 # Judo Throw the Hype
 
