@@ -73,16 +73,16 @@ const Layout = (props, children) => {
           <!-- Inline all our styles -->
           <style>
             ${[
-              "../client/assets/css/modern-normalize.css",
-              "../client/assets/css/base.css",
-              "../client/assets/css/styles.css",
-              "../client/assets/css/atom-one-light.css",
+              "./styles/modern-normalize.css",
+              "./styles/base.css",
+              "./styles/styles.css",
+              "./styles/atom-one-light.css",
             ]
               .map(importFile)
               .join("")}
 
             @media screen and (prefers-color-scheme: dark) {
-              ${importFile("../client/assets/css/atom-one-dark.css")}
+              ${importFile("./styles/atom-one-dark.css")}
             }
           </style>
 
@@ -109,7 +109,7 @@ const Layout = (props, children) => {
         </head>
         <body>
           <!-- Icon Sprite -->
-          ${importFile("./icons.svg")}
+          ${importFile("./svgs/icons.svg")}
 
           <site-nav>
             <a href="/">Jim Nielsen’s Blog</a>
@@ -117,10 +117,10 @@ const Layout = (props, children) => {
               ({ label, path }) => html`<a href="${path}">${label}</a>`
             )}
             <a href="/feed.xml" title="RSS Feed"
-              >${importFile("./feed-rss.svg")}</a
+              >${importFile("./svgs/feed-rss.svg")}</a
             >
             <a href="/feed.json" title="JSON Feed"
-              >${importFile("./feed-json.svg")}</a
+              >${importFile("./svgs/feed-json.svg")}</a
             >
           </site-nav>
 

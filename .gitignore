@@ -5,7 +5,7 @@ _site/*
 Gemfile.lock
 node_modules/
 build/
-src/client/assets/css/atom-one*
+atom-one*.css
 
 .*
 !.gitignore
