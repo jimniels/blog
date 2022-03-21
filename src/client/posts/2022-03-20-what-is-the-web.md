@@ -32,7 +32,7 @@ But, as Bohn says, “links aren't the complicated part; it's the part where you
 
 It’s funny: if you apply this test to a few things traditionally considered “of the web”, they might fail.
 
-For example: consider a web page you visit in your browser. If that web page fails to load because there’s too much modern JavaScript and you’re on an older client (like a [dead evergreen browser](https://css-tricks.com/evergreen-does-not-mean-immediately-available/)), is that “the web”?
+For example: consider a web page you visit in your browser. If that web page fails to load because there’s [too much modern JavaScript](https://blog.jim-nielsen.com/2022/a-web-for-all/) and you’re on an older client (like a [dead evergreen browser](https://css-tricks.com/evergreen-does-not-mean-immediately-available/)), is that “the web”?
 
 Or, put aside the question of access for an “outdated” client. What if you have a “modern” client and you visit a web page ([like YouTube TV at one point](https://9to5google.com/2021/11/08/youtube-tv-safari-mac/)) that says “this page only works in Chrome”. It’s a URL you type into a browser, so it sounds like the web, but it’s only accessible by a specific client. Is that “of the web” or is it more akin to something from a proprietary app store?
 
