@@ -25,7 +25,7 @@ https://www.github.com/jimniels/blog/
 const Layout = (props, children) => {
   const {
     site: { origin, tags, name, isDevelopment },
-    page: { layout, path, title, id },
+    page: { layout, path, title },
   } = props;
   const permalink = origin + path;
 
