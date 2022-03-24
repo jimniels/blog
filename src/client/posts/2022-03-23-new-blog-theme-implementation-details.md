@@ -14,11 +14,11 @@ Additionally, I decided to derive the other colors on my site — which were tra
 
 For example: in dark mode, rather than selecting “white” (`#fff`) for my text color (red line in the graphic below), I select an off-white which contains a bit of the hue from my accent color (green line in the graphic below).
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/blog-theme-hued-colors.png" width="947" height="612" alt="Screenshot of blog.jim-nielsen.com with a green arrow pointing from the text to a spot on the color picker indicating a white with a slight hue of blue in it." /> 
+<img src="https://cdn.jim-nielsen.com/blog/2022/blog-theme-hued-colors.png" width="474" height="306" alt="Screenshot of blog.jim-nielsen.com with a green arrow pointing from the text to a spot on the color picker indicating a white with a slight hue of blue in it." /> 
 
 Same idea with the background colors. Rather than pure white or a neutral shade of black, I get a color with a slight hue of my accent color infused.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/blog-theme-color-samples.png" width="1718" height="1216" alt="Screenshot of blog.jim-nielsen.com on mobile with different colored themes." /> 
+<img src="https://cdn.jim-nielsen.com/blog/2022/blog-theme-color-samples.png" width="1429" height="1216" alt="Screenshot of blog.jim-nielsen.com on mobile with different colored themes." /> 
 
 As an example, if you look closely at the image above you’ll notice the black background in each of those screenshots is not the same black. Each black takes on a slight hue of the active theme color. When the accent color is blue, the background is a black with a hue of blue in it.
 
