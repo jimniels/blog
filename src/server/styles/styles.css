@@ -188,7 +188,7 @@ article header time {
   word-wrap: break-word;
 }
 .copy .image-container {
-  max-width: none;
+  max-width: 1200px;
 }
 .copy .image-container span {
   font-size: 0.75rem;
