@@ -74,6 +74,7 @@ const Layout = (props, children) => {
           <style>
             ${[
               "./styles/modern-normalize.css",
+              "./styles/utopia.css",
               "./styles/base.css",
               "./styles/styles.css",
               "./styles/atom-one-light.css",

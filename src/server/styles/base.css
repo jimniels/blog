@@ -95,7 +95,7 @@ color: text */
 
 html {
   color-scheme: light dark;
-  font-size: 19px;
+  font-size: var(--step-0);
   line-height: 1.5;
   background: var(--c-bg);
   color: var(--c-text);
@@ -109,12 +109,6 @@ html {
     Roboto, Helvetica, Arial, 
     sans-serif, 
     "Apple Color Emoji"; */
-}
-
-@media screen and (min-width: 700px) {
-  html {
-    font-size: 22px; /* 24 originally */
-  }
 }
 
 /* ==========================================================================
@@ -180,22 +174,22 @@ h4 {
 }
 
 h1 {
-  font-size: 2.5rem; /* 60px */
+  font-size: var(--step-4); /* 60px */
   font-weight: 700;
 }
 
 h2 {
-  font-size: 2rem; /* 48px */
+  font-size: var(--step-3); /* 48px */
   font-weight: 600;
 }
 
 h3 {
-  font-size: 1.5rem; /* 36px */
+  font-size: var(--step-2); /* 36px */
   font-weight: 500;
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: var(--step-1);
   text-transform: uppercase;
   letter-spacing: 0.01rem;
   font-weight: 700;
