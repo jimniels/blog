@@ -2,7 +2,9 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import pt from "prop-types";
-import { html, toDateUI, replyHtml, rssClubHtml } from "./utils.js";
+import { html, toDateUI } from "./utils.js";
+import ReplyHtml from "./ReplyHtml.js";
+import RssClub from "./RssClub.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
   fs.readFileSync(join(__dirname, filepath)).toString();
@@ -24,7 +26,7 @@ https://www.github.com/jimniels/blog/
 
 const Layout = (props, children) => {
   const {
-    site: { origin, tags, name, isDevelopment },
+    site: { origin, tags, name },
     page: { layout, path, title },
   } = props;
   const permalink = origin + path;
@@ -143,11 +145,10 @@ const Post = (props) => {
       site: pt.shape({
         name: pt.string.isRequired,
         origin: pt.string.isRequired,
-        isDevelopment: pt.bool.isRequired,
       }),
       page: pt.shape({
         title: pt.string.isRequired,
-        date: pt.instanceOf(Date),
+        date: pt.string.isRequired,
         contents: pt.oneOfType([pt.instanceOf(Buffer), pt.string]),
         tags: pt.arrayOf(pt.string),
       }),
@@ -164,16 +165,16 @@ const Post = (props) => {
         <h1 class="p-name">
           ${page.title}
         </h1>
-        <time class="dt-published" datetime="${page.date.toISOString()}" style="">
+        <time class="dt-published" datetime="${page.date}" style="">
           ${toDateUI(page.date)}
         </time>
       </header>
       <div class="copy e-content">
-        ${page?.tags.includes("rssClub") ? rssClubHtml() : ""}
+        ${page?.tags.includes("rssClub") ? RssClub() : ""}
         ${page.contents.toString()}
       </div>
       <footer>
-        ${replyHtml({ postTags: page.tags, postPath: page.path, siteOrigin: site.origin })}
+        ${ReplyHtml({ postTags: page.tags, postPath: page.path, siteOrigin: site.origin })}
       </footer>
     </article>
   `);

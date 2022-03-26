@@ -46,8 +46,8 @@ export default function Archive(site) {
                 (post) => html`
                   <li>
                     <a href="${post.path}"> ${post.title} </a>
-                    <time datetime="${post.date.toISOString()}">
-                      ${post.date.toISOString().slice(5, 10)}
+                    <time datetime="${post.date}">
+                      ${post.date.slice(5, 10)}
                     </time>
                   </li>
                 `

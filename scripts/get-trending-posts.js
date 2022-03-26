@@ -27,11 +27,6 @@ oneMonthAgo.setHours(0, 0, 0, 0);
  * @returns {Array.<{ resource: string, count: number }>
  */
 export default function getTrendingPosts() {
-  const cachedFile = path.join(__dirname, "./.trending-posts.json");
-  if (fs.existsSync(cachedFile)) {
-    return JSON.parse(fs.readFileSync(cachedFile));
-  }
-
   return fetch(
     `https://analytics.services.netlify.com/v2/2edb6cab-f1d8-4556-85ee-426ae71f5980/ranking/pages?from=${oneMonthAgo.getTime()}&to=${today.getTime()}&timezone=-0700&limit=15`,
     {

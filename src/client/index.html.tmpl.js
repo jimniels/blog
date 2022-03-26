@@ -43,7 +43,7 @@ function PostList(posts, showPageviews = false) {
         ({ path, title, pageviews, date }) => html`
           <li>
             <a href="${path}">${title}</a>
-            <time datetime="${date.toISOString()}">${toDateUI(date)}</time>
+            <time datetime="${date}">${toDateUI(date)}</time>
             ${showPageviews &&
             html`<small
               >${pageviews > 1000
