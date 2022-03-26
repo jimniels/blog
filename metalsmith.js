@@ -8,9 +8,7 @@ import multimatch from "multimatch";
 import * as layouts from "./src/server/Layouts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-console.log("|-- build");
 console.time("|-- build");
-
 console.time("|-- build:setup");
 let App = Metalsmith(__dirname)
   .source("./src/client")
