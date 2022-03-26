@@ -3,7 +3,7 @@ import path from "path";
 import parseMarkdown from "./parse-markdown.js";
 import getTrendingPosts from "./get-trending-posts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-const POSTS_DIR = path.join(__dirname, "../src/client/posts");
+const POSTS_DIR = path.join(__dirname, "../posts");
 
 try {
   fs.writeFileSync(
