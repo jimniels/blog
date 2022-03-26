@@ -28,11 +28,11 @@ export function html(strings, ...values) {
 
 /**
  * Takes a date and returns how we format dates in the UI
- * @param {Date} date
+ * @param {string} ISO8601 date
  * @returns {string} - 2012-10-20
  */
 export function toDateUI(date) {
-  return date.toISOString().slice(0, 10);
+  return date.slice(0, 10);
 }
 
 /**

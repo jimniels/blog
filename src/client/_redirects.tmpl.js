@@ -7,10 +7,10 @@ export default function Redirects(site) {
   // Previous pattern: `/posts/:slug/`
   // New pattern: `/:year/:slug/`
   const oldRedirects = site.posts
-    .filter((post) => post.date.toISOString().slice(0, 10) <= "2015-06-29")
+    .filter((post) => post.date.slice(0, 10) <= "2015-06-29")
     .map((post) => {
       const { date, slug } = post;
-      const year = date.toISOString().slice(0, 4);
+      const year = date.slice(0, 4);
       // /posts/:slug/ -> /posts/:slug-:date
       return `/posts/${slug}/ /${year}/${slug}/ 301`;
     })

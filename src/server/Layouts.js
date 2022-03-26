@@ -24,7 +24,7 @@ https://www.github.com/jimniels/blog/
 
 const Layout = (props, children) => {
   const {
-    site: { origin, tags, name, isDevelopment },
+    site: { origin, tags, name },
     page: { layout, path, title },
   } = props;
   const permalink = origin + path;
@@ -143,11 +143,10 @@ const Post = (props) => {
       site: pt.shape({
         name: pt.string.isRequired,
         origin: pt.string.isRequired,
-        isDevelopment: pt.bool.isRequired,
       }),
       page: pt.shape({
         title: pt.string.isRequired,
-        date: pt.instanceOf(Date),
+        date: pt.string.isRequired,
         contents: pt.oneOfType([pt.instanceOf(Buffer), pt.string]),
         tags: pt.arrayOf(pt.string),
       }),
@@ -164,7 +163,7 @@ const Post = (props) => {
         <h1 class="p-name">
           ${page.title}
         </h1>
-        <time class="dt-published" datetime="${page.date.toISOString()}" style="">
+        <time class="dt-published" datetime="${page.date}" style="">
           ${toDateUI(page.date)}
         </time>
       </header>

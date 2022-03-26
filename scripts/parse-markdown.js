@@ -2,6 +2,8 @@ import hljs from "highlight.js";
 import { marked } from "marked";
 import psl from "psl";
 
+let linksByDomain = {};
+
 // Footnotes
 //
 // Rules of footnotes for my custom implementation:
@@ -21,7 +23,6 @@ const footnotePrefix = "fn";
 // on a new line. These don’t get parsed into images wrapped in <p>s, which is
 // what I need for a client-side script (and is semantically more correct
 // I suppose). So that’s what this is doing here.
-let linksByDomain = {};
 const renderer = {
   // Footnotes
   paragraph(text) {
@@ -39,10 +40,10 @@ const renderer = {
             paragraph.replace(
               footnoteMatch,
               /*
-								_: "[^1]: ..."
-								ref: "1"
-								text: "..."
-							*/
+              _: "[^1]: ..."
+              ref: "1"
+              text: "..."
+            */
               (_, ref, text) =>
                 `<li id="${footnotePrefix}:${ref}">${text} <a href="#${referencePrefix}:${ref}" title="Jump back to footnote ${ref} in the text.">↩</a></li>`
             )
@@ -78,6 +79,7 @@ const renderer = {
     }
     return html;
   },
+
   // Links by domain
   link(href, title, text) {
     let hostname;
@@ -101,15 +103,6 @@ const renderer = {
 };
 
 marked.use({
-  // Could disable autolinks in MD
-  // https://github.com/markedjs/marked/issues/882
-  // tokenizer: {
-  //   url(src) {
-  //     // marked.setOptions({ gfm: false })
-  //     // console.log(src);
-  //     // disable gfm autolinks
-  //   },
-  // },
   renderer,
   highlight: (code, language) => {
     // https://github.com/markedjs/marked/blob/master/docs/USING_ADVANCED.md
@@ -117,10 +110,24 @@ marked.use({
       language: hljs.getLanguage(language) ? language : "plaintext",
     }).value;
   },
-  gfm: true, // github flavored markdown
-  // breaks: false,
+  gfm: true,
   smartLists: true,
   langPrefix: "language language-",
+  // FYI: if you want, you could disable autolinks in MD
+  // https://github.com/markedjs/marked/issues/882
 });
 
-export { marked as default, linksByDomain };
+/**
+ * Take a string of markdown and return the parsed HTML with an object
+ * denoting the links in that markdown
+ * @param {string} markdown
+ * @returns {{ html: string, linksByDomain: LinksByDomain }}
+ */
+export default function parseMarkdown(markdown) {
+  // Reset the global each time you run this
+  linksByDomain = {};
+
+  const html = marked(markdown);
+
+  return { html, linksByDomain };
+}

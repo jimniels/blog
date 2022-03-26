@@ -13,71 +13,41 @@ console.time("|-- build");
 
 console.time("|-- build:setup");
 let App = Metalsmith(__dirname)
-  .metadata({
-    name: "Jim Nielsen’s Blog",
-    origin: "https://blog.jim-nielsen.com",
-    isDevelopment: process.env.NODE_ENV !== "production",
-  })
   .source("./src/client")
   .destination("./build")
   .clean(true)
   .use(async (files, metalsmith, done) => {
+    /**
+     * Site data
+     * Get the data for the site and stick it in metalsmith's global metadata
+     * This data is cached. Rather than parsing/creating it upon each build,
+     * it is parsed/created once upon "prebuild" and then used on each
+     * subsequent build.
+     */
+
+    /** @type {Site} */
+    const site = JSON.parse(
+      fs.readFileSync(path.join(__dirname, "./.cache/data.json")).toString()
+    );
+
+    // We have to modify this data just slight to make our templates work right
+    // @TODO fix this one day?
+    site.posts = site.posts.map((post) => ({
+      ...post,
+      layout: "Post",
+    }));
+
     console.timeEnd("|-- build:setup");
-
-    const site = metalsmith.metadata();
-
-    // const {posts, linksByDomain} = getSiteData();
 
     /**
      * Posts
      */
     console.time("|-- build:posts");
-    const { linksByDomain, posts } = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "./.cache/data.json")).toString()
-    );
-    site.linksByDomain = linksByDomain;
-    site.posts = posts.map((post) => ({
-      ...post,
-      // This is a string in JSON, so we make it a Date object because that's
-      // what everything else expects.
-      // @TODO fix this one day?
-      date: new Date(post.date),
-      layout: "Post",
-      permalink: site.origin + post.path,
-    }));
     site.posts.forEach((post) => {
       // Remove the leading slash in the path, i.e. `/2019/slug/` => `2019/slug/`
       files[`${post.path.slice(1)}index.html`] = post;
     });
     console.timeEnd("|-- build:posts");
-
-    /**
-     * Collections
-     */
-    console.time("|-- build:collections");
-    // Add a postsByYear since it gets used in multiple places
-    // And don't include rssClub posts
-    site.postsByYear = site.posts
-      .filter((post) => !post?.tags.includes("rssClub"))
-      .reduce((acc, post) => {
-        const year = post.date.getFullYear();
-        if (acc[year]) {
-          acc[year].push(post);
-        } else {
-          acc[year] = [post];
-        }
-        return acc;
-      }, {});
-
-    site.tags = Array.from(
-      new Set(
-        site.posts
-          .filter((post) => post.tags)
-          .map((post) => post.tags)
-          .flat()
-      )
-    );
-    console.timeEnd("|-- build:collections");
 
     /**
      * Handle blogPostsStatus generation
@@ -188,33 +158,3 @@ let App = Metalsmith(__dirname)
     if (err) throw err; // error handling is required
     console.timeEnd("|-- build");
   });
-
-/**
- * @typedef {Object} Site
- *
- * @property {Array.<Post>} posts
- * @property {Object.<string,Array[Post]>} postsByYear
- * @property {Array.<string>} tags
- * @property {Object} page
- * @property {Object.<string,Array[string]>} linksByDomain
- * @property {string} blogPostsStatus
- */
-
-/**
- * @typedef {Object} Post
- *
- * @property {string} title
- * @property {string} slug - Slug of post, i.e. `my-post`
- * @property {string} path - Path to the post, i.e. `/2019/my-post/`
- * @property {string} permalink - Fully qualified URL (site.origin + post.path)
- * @property {Date} date
- * @property {string} tags
- * @property {number} pageviews - Number of pageviews according to netlify analytics
- */
-
-/**
- * @typedef {Object} Page
- *
- * @property {string} title
- * @property {string} path
- */

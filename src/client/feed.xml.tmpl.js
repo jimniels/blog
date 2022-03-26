@@ -14,7 +14,7 @@ export default function XMLFeed(site) {
         <item>
             <title>${escapeXml(post.title)}</title>
             <description>${escapeXml((post?.tags.includes("rssClub") ? rssClubHtml() : "") + post.contents.toString() + replyHtml({ postTags: post.tags, postPath: post.path, siteOrigin: site.origin }))}</description>
-            <pubDate>${post.date.toUTCString()}</pubDate>
+            <pubDate>${new Date(post.date).toUTCString()}</pubDate>
             <link>${post.permalink}</link>
             <guid isPermaLink="true">${post.permalink}</guid>
         </item>

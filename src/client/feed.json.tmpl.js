@@ -11,11 +11,9 @@ export default function JSONFeed(site) {
       url: "https://jim-nielsen.com/",
     },
     items: site.posts.slice(0, 10).map((post) => {
-      const shortIsoDate = post.date.toISOString().slice(0, 10);
-
       return {
         id: post.path,
-        date_published: post.date.toISOString(),
+        date_published: post.date,
         title: post.title,
         url: post.permalink,
         tags: post.tags,

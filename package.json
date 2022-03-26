@@ -23,7 +23,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "browser_sync": "browser-sync start --server build --browser=chrome",
     "copy-css": "cp node_modules/highlight.js/styles/atom-one-*.css src/server/styles/",
-    "pre": "npm run copy-css && node scripts/get-site-data.js",
+    "pre": "npm run copy-css && node scripts/cache-site-data.js",
     "prestart": "npm run pre",
     "start": "netlify dev --dir build & NODE_ENV=development nodemon --exec 'node metalsmith'",
     "prebuild": "npm run pre",
