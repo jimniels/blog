@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import Metalsmith from "metalsmith";
-import { fileURLToPath } from "url";
 import multimatch from "multimatch";
 // import cheerio from "cheerio";
 // import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
