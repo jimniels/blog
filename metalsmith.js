@@ -25,7 +25,9 @@ let App = Metalsmith(__dirname)
 
     /** @type {Site} */
     const site = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "./.cache/data.json")).toString()
+      fs
+        .readFileSync(path.join(__dirname, "./.site-data.cache.json"))
+        .toString()
     );
 
     // We have to modify this data just slight to make our templates work right
@@ -97,6 +99,8 @@ let App = Metalsmith(__dirname)
     );
 
     // Render layouts last of all
+    // Looks at file metadata for `layout` key and matches that to a
+    // corresponding component from Layouts.js, i.e. "Post", "Page", etc.
     const layoutFiles = Object.keys(files).filter((file) => files[file].layout);
     await Promise.all(
       layoutFiles.map(async (file) => {

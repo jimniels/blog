@@ -7,7 +7,7 @@ const POSTS_DIR = path.join(__dirname, "../src/client/posts");
 
 try {
   fs.writeFileSync(
-    path.join(__dirname, "../.cache/data.json"),
+    path.join(__dirname, "../.site-data.cache.json"),
     JSON.stringify(await getSiteData(), null, 2)
   );
 } catch (e) {
