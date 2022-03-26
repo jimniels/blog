@@ -75,7 +75,7 @@ const renderer = {
   // Images
   html(html) {
     if (html.startsWith("<img")) {
-      return `<p>${html}</p>`;
+      return `<p class="image-container">${html}</p>`;
     }
     return html;
   },

@@ -2,7 +2,9 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import pt from "prop-types";
-import { html, toDateUI, replyHtml, rssClubHtml } from "./utils.js";
+import { html, toDateUI } from "./utils.js";
+import ReplyHtml from "./ReplyHtml.js";
+import RssClub from "./RssClub.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
   fs.readFileSync(join(__dirname, filepath)).toString();
@@ -168,11 +170,11 @@ const Post = (props) => {
         </time>
       </header>
       <div class="copy e-content">
-        ${page?.tags.includes("rssClub") ? rssClubHtml() : ""}
+        ${page?.tags.includes("rssClub") ? RssClub() : ""}
         ${page.contents.toString()}
       </div>
       <footer>
-        ${replyHtml({ postTags: page.tags, postPath: page.path, siteOrigin: site.origin })}
+        ${ReplyHtml({ postTags: page.tags, postPath: page.path, siteOrigin: site.origin })}
       </footer>
     </article>
   `);

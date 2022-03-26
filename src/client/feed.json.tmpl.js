@@ -1,4 +1,5 @@
-import { replyHtml, rssClubHtml } from "../server/utils.js";
+import RssClub from "../server/RssClub.js";
+import ReplyHtml from "../server/ReplyHtml.js";
 
 export default function JSONFeed(site) {
   return JSON.stringify({
@@ -18,10 +19,10 @@ export default function JSONFeed(site) {
         url: post.permalink,
         tags: post.tags,
         content_html: post?.tags.includes("rssClub")
-          ? rssClubHtml()
+          ? RssClub()
           : "" +
             post.contents.toString() +
-            replyHtml({
+            ReplyHtml({
               postTags: post.tags,
               postPath: post.path,
               siteOrigin: site.origin,
