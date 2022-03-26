@@ -18,15 +18,14 @@ export default function JSONFeed(site) {
         title: post.title,
         url: post.permalink,
         tags: post.tags,
-        content_html: post?.tags.includes("rssClub")
-          ? RssClub()
-          : "" +
-            post.contents.toString() +
-            ReplyHtml({
-              postTags: post.tags,
-              postPath: post.path,
-              siteOrigin: site.origin,
-            }),
+        content_html:
+          (post?.tags.includes("rssClub") ? RssClub() : "") +
+          post.contents.toString() +
+          ReplyHtml({
+            postTags: post.tags,
+            postPath: post.path,
+            siteOrigin: site.origin,
+          }),
       };
     }),
   });
