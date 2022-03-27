@@ -3,7 +3,7 @@ import { html } from "../../server/utils.js";
 
 const page = {
   title: "Archive",
-  permalink: "/archive/",
+  path: "/archive/",
 };
 
 export default function Archive(site) {
@@ -45,9 +45,9 @@ export default function Archive(site) {
               ${postsByYear[year].map(
                 (post) => html`
                   <li>
-                    <a href="${post.permalink}"> ${post.title} </a>
-                    <time datetime="${post.date.toISOString()}">
-                      ${post.date.toISOString().slice(5, 10)}
+                    <a href="${post.path}"> ${post.title} </a>
+                    <time datetime="${post.date}">
+                      ${post.date.slice(5, 10)}
                     </time>
                   </li>
                 `

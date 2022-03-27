@@ -1,4 +1,6 @@
-import { html as xml, replyHtml, rssClubHtml } from "../server/utils.js";
+import { html as xml } from "../server/utils.js";
+import ReplyHtml from "../server/ReplyHtml.js";
+import RssClub from "../server/RssClub.js";
 
 // prettier-ignore
 export default function XMLFeed(site) {
@@ -13,10 +15,10 @@ export default function XMLFeed(site) {
       ${site.posts.slice(0, 10).map(post => xml`
         <item>
             <title>${escapeXml(post.title)}</title>
-            <description>${escapeXml((post?.tags.includes("rssClub") ? rssClubHtml() : "") + post.contents.toString() + replyHtml({ postTags: post.tags, postLink: post.permalink, siteOrigin: site.origin }))}</description>
-            <pubDate>${post.date.toUTCString()}</pubDate>
-            <link>${site.origin + post.permalink}</link>
-            <guid isPermaLink="true">${site.origin + post.permalink}</guid>
+            <description>${escapeXml((post?.tags.includes("rssClub") ? RssClub() : "") + post.contents.toString() + ReplyHtml({ postTags: post.tags, postPath: post.path, siteOrigin: site.origin }))}</description>
+            <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+            <link>${post.permalink}</link>
+            <guid isPermaLink="true">${post.permalink}</guid>
         </item>
       `)}
     </channel>

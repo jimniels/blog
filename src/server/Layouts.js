@@ -2,7 +2,9 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import pt from "prop-types";
-import { html, toDateUI, replyHtml, rssClubHtml } from "./utils.js";
+import { html, toDateUI } from "./utils.js";
+import ReplyHtml from "./ReplyHtml.js";
+import RssClub from "./RssClub.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
   fs.readFileSync(join(__dirname, filepath)).toString();
@@ -24,9 +26,10 @@ https://www.github.com/jimniels/blog/
 
 const Layout = (props, children) => {
   const {
-    site: { origin, tags, name, isDevelopment },
-    page: { layout, permalink, title, id },
+    site: { origin, tags, name },
+    page: { layout, path, title },
   } = props;
+  const permalink = origin + path;
 
   const nav = [
     {
@@ -40,10 +43,6 @@ const Layout = (props, children) => {
     {
       label: "About",
       path: "/about/",
-    },
-    {
-      label: "Feeds",
-      path: "/feeds/",
     },
   ];
 
@@ -71,21 +70,21 @@ const Layout = (props, children) => {
             title="JSON Feed"
             href="/feed.json"
           />
-          <link rel="canonical" href="${origin + permalink}" />
+          <link rel="canonical" href="${permalink}" />
 
           <!-- Inline all our styles -->
           <style>
             ${[
-              "../client/assets/css/modern-normalize.css",
-              "../client/assets/css/base.css",
-              "../client/assets/css/styles.css",
-              "../client/assets/css/atom-one-light.css",
+              "./styles/modern-normalize.css",
+              "./styles/base.css",
+              "./styles/styles.css",
+              "./styles/atom-one-light.css",
             ]
               .map(importFile)
               .join("")}
 
             @media screen and (prefers-color-scheme: dark) {
-              ${importFile("../client/assets/css/atom-one-dark.css")}
+              ${importFile("./styles/atom-one-dark.css")}
             }
           </style>
 
@@ -94,7 +93,7 @@ const Layout = (props, children) => {
             <!-- If it’s a post page, we’ll include meta info and code styling -->
             <meta property="og:title" content="${title}" />
             <meta property="og:type" content="article" />
-            <meta property="og:url" content="${origin + permalink}" />
+            <meta property="og:url" content="${permalink}" />
 
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@jimniels" />
@@ -112,13 +111,19 @@ const Layout = (props, children) => {
         </head>
         <body>
           <!-- Icon Sprite -->
-          ${importFile("./icons.svg")}
+          ${importFile("./svgs/icons.svg")}
 
           <site-nav>
             <a href="/">Jim Nielsen’s Blog</a>
             ${nav.map(
               ({ label, path }) => html`<a href="${path}">${label}</a>`
             )}
+            <a href="/feed.xml" title="RSS Feed"
+              >${importFile("./svgs/feed-rss.svg")}</a
+            >
+            <a href="/feed.json" title="JSON Feed"
+              >${importFile("./svgs/feed-json.svg")}</a
+            >
           </site-nav>
 
           <script>
@@ -140,11 +145,10 @@ const Post = (props) => {
       site: pt.shape({
         name: pt.string.isRequired,
         origin: pt.string.isRequired,
-        isDevelopment: pt.bool.isRequired,
       }),
       page: pt.shape({
         title: pt.string.isRequired,
-        date: pt.instanceOf(Date),
+        date: pt.string.isRequired,
         contents: pt.oneOfType([pt.instanceOf(Buffer), pt.string]),
         tags: pt.arrayOf(pt.string),
       }),
@@ -161,16 +165,16 @@ const Post = (props) => {
         <h1 class="p-name">
           ${page.title}
         </h1>
-        <time class="dt-published" datetime="${page.date.toISOString()}" style="">
+        <time class="dt-published" datetime="${page.date}" style="">
           ${toDateUI(page.date)}
         </time>
       </header>
       <div class="copy e-content">
-        ${page?.tags.includes("rssClub") ? rssClubHtml() : ""}
+        ${page?.tags.includes("rssClub") ? RssClub() : ""}
         ${page.contents.toString()}
       </div>
       <footer>
-        ${replyHtml({ postTags: page.tags, postLink: page.permalink, siteOrigin: site.origin })}
+        ${ReplyHtml({ postTags: page.tags, postPath: page.path, siteOrigin: site.origin })}
       </footer>
     </article>
   `);

@@ -1,11 +1,10 @@
-_site/*
-.sass-cache
 .DS_STORE
-.jekyll-metadata
-Gemfile.lock
+.git
+.cache
+.nova
 node_modules/
 build/
-src/client/assets/css/atom-one*
+atom-one*.css
 
 .*
 !.gitignore

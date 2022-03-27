@@ -2,16 +2,12 @@ import { PageCustom } from "../server/Layouts.js";
 import { html, toDateUI } from "../server/utils.js";
 
 const page = {
-  permalink: "/",
+  path: "/",
 };
 
 export default function Index(site) {
   const recent = site.posts
     .filter((post) => !post?.tags.includes("rssClub"))
-    .slice(0, 5);
-  const favorites = site.posts
-    .filter((post) => post.hasOwnProperty("favorites_index"))
-    .sort((a, b) => (a.favorites_index > b.favorites_index ? 1 : -1))
     .slice(0, 5);
   const trending = site.posts
     .filter((post) => post.hasOwnProperty("pageviews"))
@@ -36,9 +32,6 @@ export default function Index(site) {
           >
         </p>
       `}
-
-      <h2>Select Personal Favorites</h2>
-      ${PostList(favorites)}
     `
   );
 }
@@ -47,10 +40,10 @@ function PostList(posts, showPageviews = false) {
   return html`
     <ul class="posts-list">
       ${posts.map(
-        ({ permalink, title, pageviews, date }) => html`
+        ({ path, title, pageviews, date }) => html`
           <li>
-            <a href="${permalink}">${title}</a>
-            <time datetime="${date.toISOString()}">${toDateUI(date)}</time>
+            <a href="${path}">${title}</a>
+            <time datetime="${date}">${toDateUI(date)}</time>
             ${showPageviews &&
             html`<small
               >${pageviews > 1000

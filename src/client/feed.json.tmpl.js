@@ -1,4 +1,5 @@
-import { replyHtml, rssClubHtml } from "../server/utils.js";
+import RssClub from "../server/RssClub.js";
+import ReplyHtml from "../server/ReplyHtml.js";
 
 export default function JSONFeed(site) {
   return JSON.stringify({
@@ -11,26 +12,20 @@ export default function JSONFeed(site) {
       url: "https://jim-nielsen.com/",
     },
     items: site.posts.slice(0, 10).map((post) => {
-      const shortIsoDate = post.date.toISOString().slice(0, 10);
-      const url = site.origin + post.permalink;
-
       return {
-        // You can phase this out once you have at least 10 posts newer than
-        // the date below (as that was the old ID)
-        id: shortIsoDate > "2019-07-03" ? post.permalink : shortIsoDate,
-        date_published: post.date.toISOString(),
+        id: post.path,
+        date_published: post.date,
         title: post.title,
-        url,
+        url: post.permalink,
         tags: post.tags,
-        content_html: post?.tags.includes("rssClub")
-          ? rssClubHtml()
-          : "" +
-            post.contents.toString() +
-            replyHtml({
-              postTags: post.tags,
-              postPath: post.permalink,
-              siteOrigin: site.origin,
-            }),
+        content_html:
+          (post?.tags.includes("rssClub") ? RssClub() : "") +
+          post.contents.toString() +
+          ReplyHtml({
+            postTags: post.tags,
+            postPath: post.path,
+            siteOrigin: site.origin,
+          }),
       };
     }),
   });
