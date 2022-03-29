@@ -2,7 +2,7 @@
 
 # Reading Notes, October 2016
 
-## “[Typography Is Impossible](https://medium.engineering/typography-is-impossible-5872b0c7f891)” by Marcin Wichary via Medium
+## Article: “[Typography Is Impossible](https://medium.engineering/typography-is-impossible-5872b0c7f891)” by Marcin Wichary via Medium
 
 This was an interesting post on digital typography and, although a lot of it presented quirks and peculiarities I am already familiar with, I wanted to document a few notes I found novel.
 
@@ -58,7 +58,7 @@ At the end of the day, lots of these typographic guidelines are here because tha
 
 If you’re going to break those norms, do it for a reason. Design intentionally.
 
-## “[Extensible Web Components](https://adactio.com/journal/11052)” by Jeremy Keith via Adactio
+## Article: “[Extensible Web Components](https://adactio.com/journal/11052)” by Jeremy Keith via Adactio
 
 As always, insightful progressive enhancement thoughts around service workers vs. web components:
 
@@ -68,7 +68,7 @@ As always, insightful progressive enhancement thoughts around service workers vs
 
 > It’s so much easier to get excited about implementing service workers. You’ve literally got nothing to lose and everything to gain.
 
-## “[The Future of the Web](http://alistapart.com/article/the-future-of-the-web)” by Matt Griffin via A List Apart
+## Article: “[The Future of the Web](http://alistapart.com/article/the-future-of-the-web)” by Matt Griffin via A List Apart
 
 Why it’s ok to be failing while trying to find your way:
 
@@ -76,7 +76,7 @@ Why it’s ok to be failing while trying to find your way:
 
 Love that last bit: the only way to get good is to be bad.
 
-## [Why we use progressive enhancement to build GOV.UK](https://gdstechnology.blog.gov.uk/2016/09/19/why-we-use-progressive-enhancement-to-build-gov-uk/) by Robin Whittleton via GOV.UK
+## Article: [Why we use progressive enhancement to build GOV.UK](https://gdstechnology.blog.gov.uk/2016/09/19/why-we-use-progressive-enhancement-to-build-gov-uk/) by Robin Whittleton via GOV.UK
 
 This article is more interesting views on progressive enhancement, though there’s not a lot of novelty here. Progressive enhancement, though arguably not for everyone, seems ideal for a government website.
 

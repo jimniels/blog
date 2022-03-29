@@ -30,7 +30,7 @@ So much of my web dev work for the last couple years, both via my employer and o
 Love that articulation. Love all of Frank’s words. Looking forward to following this little project he’s started.
 
 
-## Online eBook: [“Modest JS: Upgrading (the idea of) dependencies”](https://modestjs.works/book/part-1/upgrading-idea-of-dependencies/) 
+## eBook: [“Modest JS: Upgrading (the idea of) dependencies”](https://modestjs.works/book/part-1/upgrading-idea-of-dependencies/) 
 
 This is a little excerpt from an online book about “modest JavaScript”. I liked this particular paragraph which brings into focus the more general meaning of the word “dependency” then circles back to its usage in the context software:
 
