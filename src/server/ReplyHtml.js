@@ -9,24 +9,27 @@ import { html } from "./utils.js";
  */
 export default function ReplyHtml({ postTags, postPath, siteOrigin }) {
   // @TODO add a view random post feature
-  const divider = "&nbsp; · &nbsp;";
   return html`
     <br />
     <br />
+    <p>&lt;/&gt;</p>
     <p>
-      &lt;/&gt;${divider}Reply via:
+      Reply via:
       <a
         href="mailto:spokes-probes.0w@icloud.com?subject=Re: blog.jim-nielsen.com${postPath}"
         >Email</a
       >,
       <a href="https://twitter.com/jimniels">Twitter</a>
-
-      ${Array.isArray(postTags) &&
-      postTags.length > 0 &&
-      html`${divider}Tagged:
-      ${postTags
-        .map((tag) => html`<a href="${siteOrigin}/tags/#${tag}">#${tag}</a>`)
-        .join(", ")} `}
     </p>
+    ${Array.isArray(postTags) &&
+    postTags.length > 0 &&
+    html`
+      <p>
+        Tagged:
+        ${postTags
+          .map((tag) => html`<a href="${siteOrigin}/tags/#${tag}">#${tag}</a>`)
+          .join(", ")}
+      </p>
+    `}
   `;
 }
