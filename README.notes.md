@@ -1,8 +1,8 @@
 # Proposal
 
 Filenames
-  - Posts: `2019-05-12-a-web-of-people.md`
-  - Notes: `2019-05-12T1335.md`
+  - `posts/2019-05-12-a-web-of-people.md`
+  - `notes/2019-05-12T1335.md`
 
 URLs:
   - Posts:
