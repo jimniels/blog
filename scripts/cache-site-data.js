@@ -90,10 +90,14 @@ async function getSiteData() {
     const markdownSansTagsAndTitle = markdownByLine.join("\n");
     const { html, linksByDomain } = parseMarkdown(markdownSansTagsAndTitle);
     post.contents = html;
-    site.linksByDomain = {
-      ...site.linksByDomain,
-      ...linksByDomain,
-    };
+
+    Object.keys(linksByDomain).forEach((domain) => {
+      if (site.linksByDomain[domain]) {
+        site.linksByDomain[domain].push(linksByDomain[domain]);
+      } else {
+        site.linksByDomain[domain] = linksByDomain[domain];
+      }
+    });
 
     // "2019-06-12-my-post-slug.md" -> "2019-06-12-my-post-slug"
     const filename = file.replace(".md", "");
