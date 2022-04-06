@@ -89,7 +89,7 @@ Fortunately, Hexo and I were still dating and we hadn’t gotten married, so I s
   - Little activity on the core project (in fact [it appears](https://github.com/segmentio/metalsmith/issues/288) segment, who built Metalsmith, recently used Gatsby for their static site)
   - Community plugins are hit and miss in terms of activity/support
 
-I had actually been introduced to Metalsmith on a [prior project](http://jim-nielsen.com/blog/2015/marketing2/) a few years back by my friend [damassi](https://github.com/damassi), but my JS skills back then weren’t polished enough to really understand it. When I dug through Metalsmith’s docs, what really struck me about the framework wasn’t so much what technologies they were using under the hood (or rather which ones they weren’t using, no React, no Webpack, no Babel, etc) but the ideas behind the code. Metalsmith is built on the idea that (their take on) a static site generator operates on this simple premise:
+I had actually been introduced to Metalsmith on a [prior project](/2015/marketing2/) a few years back by my friend [damassi](https://github.com/damassi), but my JS skills back then weren’t polished enough to really understand it. When I dug through Metalsmith’s docs, what really struck me about the framework wasn’t so much what technologies they were using under the hood (or rather which ones they weren’t using, no React, no Webpack, no Babel, etc) but the ideas behind the code. Metalsmith is built on the idea that (their take on) a static site generator operates on this simple premise:
 
 1. Take a directory of files
 2. Manipulate those files in a variety of ways

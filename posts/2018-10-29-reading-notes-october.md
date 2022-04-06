@@ -64,7 +64,7 @@ Then later:
 
 >  The demands of excellence are at war with what we call freedom. For to permit yourself to do only that which you are good at is to be trapped in a cage
 
-This probably stuck out to me because of my post [“The Art of the Side Project”](http://jim-nielsen.com/blog/2017/the-art-of-the-side-project/) I wrote back at the beginning of 2017. Still seems relevant.
+This probably stuck out to me because of my post [“The Art of the Side Project”](/2017/the-art-of-the-side-project/) I wrote back at the beginning of 2017. Still seems relevant.
 
 ## Article: [“Netlify DX Q&A: Gatsby v2 with Jason Lengstorf”](https://www.netlify.com/blog/2018/09/24/netlify-dx-qa-gatsby-v2-with-jason-lengstorf/) via Netlify
 

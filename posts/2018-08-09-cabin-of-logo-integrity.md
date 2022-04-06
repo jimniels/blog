@@ -6,7 +6,7 @@ Back in December (of 2017) I received [a tweet from @ycparak](https://twitter.co
 
 > @jimniels Found Logo Integrity, it's really quite cool, well done. Posted it to Designer News and it's trending.
 
-My immediate reaction was: “oh, that old thing?” My [logo integrity project](http://jim-nielsen.com/logo-integrity/) was [something I had built back in 2014](http://jim-nielsen.com/blog/2014/logo-integrity/). A few people tweeted about it back then (and by a few, I mean like [two](https://twitter.com/gooeyblob/status/507615539586273280) [people](https://twitter.com/LeBinoclard/status/507553432488529920)) and then it faded into obscurity. I was ok with that. I didn’t make it for anyone except myself. It was a fun experiment for me, and at the time, probably the most complex ~~JavaScript~~ jQuery “app” I had ever built. I mean look at the repo:
+My immediate reaction was: “oh, that old thing?” My [logo integrity project](http://jim-nielsen.com/logo-integrity/) was [something I had built back in 2014](/2014/logo-integrity/). A few people tweeted about it back then (and by a few, I mean like [two](https://twitter.com/gooeyblob/status/507615539586273280) [people](https://twitter.com/LeBinoclard/status/507553432488529920)) and then it faded into obscurity. I was ok with that. I didn’t make it for anyone except myself. It was a fun experiment for me, and at the time, probably the most complex ~~JavaScript~~ jQuery “app” I had ever built. I mean look at the repo:
 
 ![Screenshot of codebase](https://cdn.jim-nielsen.com/blog/2018/logo-integrity-code.png)
 

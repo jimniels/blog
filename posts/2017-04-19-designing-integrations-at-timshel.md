@@ -2,7 +2,7 @@
 
 # Designing Integrations for the Admin Application at Timshel
 
-One of the tasks I had while working at [Timshel](https://timshel.com/) (a.k.a [The Groudwork](https://thegroundwork.com/)) was to design the flow for setting up integrations in our customer-facing application named “[Admin](http://jim-nielsen.com/blog/2016/redesigning-and-engineering-timshel-admin/)”. The very first integration we decided to build was for Stripe, but the idea was to  design a general process that would account for setting up integrations with other services in the future.
+One of the tasks I had while working at [Timshel](https://timshel.com/) (a.k.a [The Groudwork](https://thegroundwork.com/)) was to design the flow for setting up integrations in our customer-facing application named “[Admin](/2016/redesigning-and-engineering-timshel-admin/)”. The very first integration we decided to build was for Stripe, but the idea was to  design a general process that would account for setting up integrations with other services in the future.
 
 To begin, I got a walkthrough of the initial work a coworker had completed on the feature. I took that information, along with a list of feature requirements, and internalized them. Once I had a mental model for how the feature was going to work, I began sketching through ideas. These sketches helped me work through visual aesthetics as well as UI functionality and flow. Though some sketches were unique to the specific Stripe implementation I was building, I made sure to generalize any designs so they could be utilized by other integrations planned for future releases.
 

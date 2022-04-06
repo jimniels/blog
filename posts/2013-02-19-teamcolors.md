@@ -2,13 +2,13 @@
 
 # Team Color Codes
 
-**Update:** Team Colors 2.0 is out! You can see it live at it’s original url [teamcolors.ar90.com](http://teamcolors.arc90.com/) or read the blog post about it “[Team Colors 2.0](http://jim-nielsen.com/blog/2015/team-colors-2-0)”.
+**Update:** Team Colors 2.0 is out! You can see it live at it’s original url [teamcolors.ar90.com](http://teamcolors.arc90.com/) or read the blog post about it “[Team Colors 2.0](/2015/team-colors-2-0)”.
 
 I recently participated in the [Arc90 Hackathon](http://lab.arc90.com/hackathon/2012/). I originally volunteered for a different project as part of a team, but due to scheduling conflicts my team disbanded. I was left with the option to work on a solo project, which resulted in [Team Colors][http://teamcolors.arc90.com/]: a single-page website that serves as a reference for HEX values for professional sport teams:
 
 ![Screenshot of Team Colors, an Arc90 Hackathon Project](https://cdn.jim-nielsen.com/blog/2013/team-colors.png)
 
-Unfortunately, the Hackathon took place while I was absent from the office (travelling to Utah for the Christmas break). So a lot of my work was done on a plane and working from home. I started Team Colors by sketching out some ideas for the page hierarchy and navigation:
+Unfortunately, the Hackathon took place while I was absent from the office (traveling to Utah for the Christmas break). So a lot of my work was done on a plane and working from home. I started Team Colors by sketching out some ideas for the page hierarchy and navigation:
 
 ![Sketch of Team Colors](https://cdn.jim-nielsen.com/blog/2013/team-colors-sketch.jpg)
 
