@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import Metalsmith from "metalsmith";
 import multimatch from "multimatch";
-// import cheerio from "cheerio";
+import cheerio from "cheerio";
 // import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
 import * as layouts from "./src/server/Layouts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
@@ -114,42 +114,54 @@ let App = Metalsmith(__dirname)
     );
     console.timeEnd("|-- build:templates");
 
-    /*
     let readingNotes = [];
     site.posts
       .filter((post) => post.tags && post.tags.includes("readingNotes"))
       .forEach((post, i) => {
-        if (i < 3) {
-          const $ = cheerio.load(post.contents);
-          $("h2").each((i, h2) => {
-            const $h2 = $(h2);
-            const heading = $h2.text();
+        // if (i < 3) {
+        const $ = cheerio.load(post.contents);
+        $("h2").each((i, h2) => {
+          const $h2 = $(h2);
+          const heading = $h2.text();
 
-            let type = "";
-            let title = "";
-            try {
-              const regex = /(.*?): (.*)/g;
-              const res = regex.exec(heading);
-              type = res[1];
-              title = res[2];
-            } catch (e) {
-              console.log("Could not determine type for `%s`", title);
-            }
+          let type = "";
+          let title = "";
+          try {
+            const regex = /(.*?): (.*)/g;
+            const res = regex.exec(heading);
+            type = res[1];
+            title = res[2];
+          } catch (e) {
+            console.log(
+              "Could not determine type for `%s`",
+              post.title,
+              heading
+            );
+          }
 
-            const url = $h2.find("a").attr("href");
+          const url = $h2.find("a").attr("href");
 
-            let content = $h2
-              .nextUntil("h2")
-              .toArray()
-              .map((el) => $.html(el))
-              .join("");
+          let content = $h2
+            .nextUntil("h2")
+            .toArray()
+            .map((el) => $.html(el))
+            .join("");
 
-            readingNotes.push({ type, url, title, content });
-          });
-        }
+          readingNotes.push({ type, url, title, content });
+        });
+        // }
       });
-    files[`readingNotes.json`] = { contents: JSON.stringify(readingNotes) };
-    */
+    // files[`readingNotes.json`] = { contents: JSON.stringify(readingNotes) };
+    console.log("posts:", readingNotes.length);
+    console.log(
+      readingNotes.reduce(
+        (acc, n) =>
+          acc[n.type]
+            ? { ...acc, [n.type]: acc[n.type] + 1 }
+            : { ...acc, [n.type]: 1 },
+        {}
+      )
+    );
 
     done();
   })

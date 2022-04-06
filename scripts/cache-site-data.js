@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { marked } from "marked";
 import parseMarkdown from "./parse-markdown.js";
 import getTrendingPosts from "./get-trending-posts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
@@ -26,6 +27,7 @@ async function getSiteData() {
     linksByDomain: {},
     posts: [],
     postsByYear: {},
+    readingNotes: [],
     tags: [],
   };
 
@@ -122,6 +124,100 @@ async function getSiteData() {
 
     // Add it to our collection
     site.posts.push(post);
+
+    // If this is a note,
+    if (post.tags.includes("readingNotes")) {
+      let readingNote = {
+        title: "",
+        date: post.date,
+        url: "",
+        domain: "",
+        content: "",
+        type: "",
+      };
+
+      // markdownByLines.reduce((startNewNote, line) => {
+      //   if (line.startsWith("## ")) {
+      //     return acc;
+      //   }
+      // }, false)
+
+      // const regex = /^## (.*)((.|\n|\r)*)## /gm;
+
+      let startedCollecting = false;
+      let getNote = () => ({ title: "", content: "" });
+      let n = getNote();
+      for (let i = 0; i < markdownByLine.length; i++) {
+        if (markdownByLine[i].startsWith("## ")) {
+          if (!startedCollecting) {
+            startedCollecting = true;
+          } else {
+            site.readingNotes.push(n);
+            n = getNote();
+          }
+          n.title = markdownByLine[i];
+        } else if (!startedCollecting) {
+          continue;
+        } else if (markdownByLine[i]) {
+          n.content += markdownByLine[i];
+        }
+
+        i++;
+      }
+      // const readingNotes = markdownSansTagsAndTitle.split("## ");
+      // const out = parseCustomMd()
+
+      /*
+      const readingNotes = markdownSansTagsAndTitle.split("## ");
+
+      readingNotes.forEach((note) => {
+        try {
+          const regex = /^## (.*?): (.*)/g;
+          const res = regex.exec(note);
+          console.log(res);
+          readingNote.type = res[1];
+          // readingNote.title = res[2];
+          readingNote.title = marked.parseInline(res[2], {
+            renderer: {
+              link: (href, title, text) => {
+                readingNote.url = href;
+                readingNote.domain = psl.get(new URL(href).hostname);
+                return text;
+              },
+              text: (string) => string,
+              em: (string) => string,
+              html: (string) => string,
+            },
+          });
+        } catch (e) {
+          console.log(
+            "Could not derive readingNote data for post: `%s`",
+            post.title,
+            e
+          );
+        }
+      });
+
+      // markdown.split(/\n## /).forEach((section, i) => {
+      //   if (section.startsWith("#")) {
+      //   } else {
+      //     readingNote.title = console.log(section);
+      //     readingNote.title = marked.parseInline(section.split("\n")[0], {
+      //       renderer: {
+      //         link: (href, title, text) => {
+      //           readingNote.url = href;
+      //           readingNote.domain = psl.get(new URL(href).hostname);
+      //           return text;
+      //         },
+      //         text: (string) => string,
+      //         em: (string) => string,
+      //         html: (string) => string,
+      //       },
+      //     });
+      //   }
+      // });
+      */
+    }
   });
 
   // Sort our collection of posts
@@ -184,6 +280,18 @@ async function getSiteData() {
  * @property {Array.<Post>} posts
  * @property {Object.<string, Array.<Post>>} postsByYear
  * @property {Array.<string>} tags
+ * @property {Array.<ReadingNote>} readingNotes
+ */
+
+/**
+ * Model for collection of notes made from my 'reading notes' posts
+ * @typedef {Object} ReadingNote
+ * @property {string} type - enumerated set of values
+ * @property {string} url
+ * @property {string} domain
+ * @property {string} title
+ * @property {string} content
+ * @property {string} date
  */
 
 /**
@@ -204,3 +312,41 @@ async function getSiteData() {
  * @property {string} title
  * @property {string} path
  */
+
+function parseCustomMd(markdown, opts = { heading: "# " }) {
+  let out = {
+    title: "",
+    contents: "",
+    tags: [],
+  };
+
+  let markdownByLine = markdown.split("\n");
+  for (let i = 0; i < markdownByLine.length; i++) {
+    let line = markdownByLine[i];
+    // If there are tags, split the into an array without the `#`
+    // #html #css #js -> ["html", "css", "js"]
+    if (/#[a-z]/.test(line)) {
+      out.tags = line.split(" ").map((tag) => tag.slice(1));
+      // Remove the line
+      markdownByLine.splice(i, 1);
+    }
+    // If it's the heading, extract it
+    else if (line.startsWith(opts.heading)) {
+      out.title = line.replace(opts.heading, "");
+      // #@TODO parse it
+      // Remove the line
+      markdownByLine.splice(i, 1);
+      break;
+    }
+  }
+  out.contents = markdownByLine.join("\n");
+  // If we didn't get a title, throw because that's bad data
+  if (!out.title) {
+    throw new Error("Could not find a `title` for:");
+  }
+  if (!out.contents) {
+    throw new Error("Could not find `contents` for:");
+  }
+
+  return out;
+}
