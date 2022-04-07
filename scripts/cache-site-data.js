@@ -23,7 +23,7 @@ async function getSiteData() {
   let site = {
     name: "Jim Nielsen’s Blog",
     origin: "https://blog.jim-nielsen.com",
-    linksByDomain: {},
+    outboundLinksByDomain: {},
     posts: [],
     postsByYear: {},
     tags: [],
@@ -88,14 +88,18 @@ async function getSiteData() {
 
     // Convert markdown to HTML & get links data
     const markdownSansTagsAndTitle = markdownByLine.join("\n");
-    const { html, linksByDomain } = parseMarkdown(markdownSansTagsAndTitle);
+    const { html, outboundLinksByDomain } = parseMarkdown(
+      markdownSansTagsAndTitle
+    );
     post.contents = html;
 
-    Object.keys(linksByDomain).forEach((domain) => {
-      if (site.linksByDomain[domain]) {
-        site.linksByDomain[domain].push(linksByDomain[domain]);
+    Object.keys(outboundLinksByDomain).forEach((domain) => {
+      if (site.outboundLinksByDomain[domain]) {
+        site.outboundLinksByDomain[domain].push(
+          ...outboundLinksByDomain[domain]
+        );
       } else {
-        site.linksByDomain[domain] = linksByDomain[domain];
+        site.outboundLinksByDomain[domain] = outboundLinksByDomain[domain];
       }
     });
 
@@ -184,7 +188,7 @@ async function getSiteData() {
  * @typedef {Object} Site
  * @property {string} name
  * @property {string} origin
- * @property {Object.<string, Array.<string>>} linksByDomain
+ * @property {Object.<string, Array.<string>>} outboundLinksByDomain
  * @property {Array.<Post>} posts
  * @property {Object.<string, Array.<Post>>} postsByYear
  * @property {Array.<string>} tags

@@ -2,7 +2,7 @@ import hljs from "highlight.js";
 import { marked } from "marked";
 import psl from "psl";
 
-let linksByDomain = {};
+let outboundLinksByDomain = {};
 
 // Footnotes
 //
@@ -80,22 +80,26 @@ const renderer = {
     return html;
   },
 
-  // Links by domain
+  // Purely to get links by domain
   link(href, title, text) {
-    let hostname;
+    // If this is a jim-nielsen.com link, ignore it. Otherwise, push it to our
+    // set of outbound links.
+    if (
+      !(
+        href.startsWith(".") ||
+        href.startsWith("/") ||
+        href.startsWith("#") ||
+        href.includes("jim-nielsen.com")
+      )
+    ) {
+      const hostname = new URL(href).hostname;
+      const domain = psl.get(hostname);
 
-    if (href.startsWith(".") || href.startsWith("/") || href.startsWith("#")) {
-      hostname = "blog.jim-nielsen.com";
-    } else {
-      hostname = new URL(href).hostname;
-    }
-
-    let domain = psl.get(hostname);
-
-    if (linksByDomain[domain]) {
-      linksByDomain[domain].push(href);
-    } else {
-      linksByDomain[domain] = [href];
+      if (outboundLinksByDomain[domain]) {
+        outboundLinksByDomain[domain].push(href);
+      } else {
+        outboundLinksByDomain[domain] = [href];
+      }
     }
 
     return `<a href="${href}" ${title ? `title="${title}"` : ""}>${text}</a>`;
@@ -121,13 +125,13 @@ marked.use({
  * Take a string of markdown and return the parsed HTML with an object
  * denoting the links in that markdown
  * @param {string} markdown
- * @returns {{ html: string, linksByDomain: LinksByDomain }}
+ * @returns {{ html: string, outboundLinksByDomain: Object.<string, Array.<string>> }}
  */
 export default function parseMarkdown(markdown) {
   // Reset the global each time you run this
-  linksByDomain = {};
+  outboundLinksByDomain = {};
 
   const html = marked(markdown);
 
-  return { html, linksByDomain };
+  return { html, outboundLinksByDomain };
 }

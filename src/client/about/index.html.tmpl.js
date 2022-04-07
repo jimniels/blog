@@ -7,32 +7,34 @@ const page = {
 };
 
 export default function About(site) {
-  const domains = Object.keys(site.linksByDomain).sort((domainA, domainB) => {
-    // First sort by number of links under that domain
-    const aCount = site.linksByDomain[domainA].length;
-    const bCount = site.linksByDomain[domainB].length;
-    if (aCount < bCount) {
-      return 1;
-    }
-    if (aCount > bCount) {
-      return -1;
-    }
+  const domains = Object.keys(site.outboundLinksByDomain).sort(
+    (domainA, domainB) => {
+      // First sort by number of links under that domain
+      const aCount = site.outboundLinksByDomain[domainA].length;
+      const bCount = site.outboundLinksByDomain[domainB].length;
+      if (aCount < bCount) {
+        return 1;
+      }
+      if (aCount > bCount) {
+        return -1;
+      }
 
-    // if counts match, sort alphabetically by domain
-    if (domainA < domainB) {
-      return -1;
+      // if counts match, sort alphabetically by domain
+      if (domainA < domainB) {
+        return -1;
+      }
+      if (domainA > domainB) {
+        return 1;
+      }
+      return 0;
     }
-    if (domainA > domainB) {
-      return 1;
-    }
-    return 0;
-  });
+  );
 
   const domainsOfMoreThanOne = domains.filter(
-    (domain) => site.linksByDomain[domain].length > 1
+    (domain) => site.outboundLinksByDomain[domain].length > 1
   );
   const domainsOfOnlyOne = domains.filter(
-    (domain) => site.linksByDomain[domain].length === 1
+    (domain) => site.outboundLinksByDomain[domain].length === 1
   );
 
   return PageCustom(
@@ -71,7 +73,7 @@ export default function About(site) {
         <p>
           I thought it would be interesting to
           <a href="/2020/indexing-my-blogs-links/"
-            >index all the links on my blog</a
+            >index all the outbound links on my blog</a
           >
           and keep it as a running list.
         </p>
@@ -87,10 +89,12 @@ export default function About(site) {
                   alt="Favicon for ${domain}"
                 />
                 <span class="domain">${domain}</span>
-                <span class="count">${site.linksByDomain[domain].length}</span>
+                <span class="count"
+                  >${site.outboundLinksByDomain[domain].length}</span
+                >
               </summary>
               <ol>
-                ${site.linksByDomain[domain].map(
+                ${site.outboundLinksByDomain[domain].map(
                   (link) => html` <li><a href="${link}">${link}</a></li> `
                 )}
               </ol>
@@ -104,8 +108,8 @@ export default function About(site) {
             ${domainsOfOnlyOne.map(
               (d) => html`
                 <li>
-                  <a href="${site.linksByDomain[d][0]}"
-                    >${site.linksByDomain[d][0]}</a
+                  <a href="${site.outboundLinksByDomain[d][0]}"
+                    >${site.outboundLinksByDomain[d][0]}</a
                   >
                 </li>
               `
