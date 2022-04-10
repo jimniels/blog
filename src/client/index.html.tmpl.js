@@ -21,14 +21,16 @@ export default function Index(site) {
       ${PostList(recent)}
       ${trending.length > 0 &&
       html`
-        <h1>Popular Posts This Month</h1>
-        ${PostList(trending, true)}
-        <p style="margin-bottom: 2.5rem; font-size: .8rem">
-          <a
-            href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
-            >Stats homebrewed from Netlify Analytics</a
+        <h1>
+          Popular Posts This Month
+          <small
+            >(<a
+              href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
+              >According to the Data</a
+            >)</small
           >
-        </p>
+        </h1>
+        ${PostList(trending, true)}
       `}
       ${
         /*
