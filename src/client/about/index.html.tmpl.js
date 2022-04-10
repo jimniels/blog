@@ -1,4 +1,4 @@
-import { PageCustom } from "../../server/Layouts.js";
+import { Page } from "../../server/Layouts.js";
 import { html } from "../../server/utils.js";
 
 const page = {
@@ -37,9 +37,8 @@ export default function About(site) {
     (domain) => site.outboundLinksByDomain[domain].length === 1
   );
 
-  return PageCustom(
+  return Page(
     { site, page },
-    // prettier-ignorez
     html` <div class="copy">
         <h1>About</h1>
 
@@ -77,46 +76,47 @@ export default function About(site) {
           >
           and keep it as a running list.
         </p>
-
-        ${domainsOfMoreThanOne.map(
-          (domain) => html`
-            <details>
-              <summary>
-                <img
-                  src="https://www.google.com/s2/favicons?domain=${domain}&sz=32"
-                  width="16"
-                  height="16"
-                  alt="Favicon for ${domain}"
-                />
-                <span class="domain">${domain}</span>
-                <span class="count"
-                  >${site.outboundLinksByDomain[domain].length}</span
-                >
-              </summary>
-              <ol>
-                ${site.outboundLinksByDomain[domain].map(
-                  (link) => html` <li><a href="${link}">${link}</a></li> `
-                )}
-              </ol>
-            </details>
-          `
-        )}
-
-        <details>
-          <summary>...all others with only one occurence</summary>
-          <ol>
-            ${domainsOfOnlyOne.map(
-              (d) => html`
-                <li>
-                  <a href="${site.outboundLinksByDomain[d][0]}"
-                    >${site.outboundLinksByDomain[d][0]}</a
-                  >
-                </li>
-              `
-            )}
-          </ol>
-        </details>
       </div>
+
+      ${domainsOfMoreThanOne.map(
+        (domain) => html`
+          <details>
+            <summary>
+              <img
+                src="https://www.google.com/s2/favicons?domain=${domain}&sz=32"
+                width="16"
+                height="16"
+                alt="Favicon for ${domain}"
+              />
+              <span class="domain">${domain}</span>
+              <span class="count"
+                >${site.outboundLinksByDomain[domain].length}</span
+              >
+            </summary>
+            <ol>
+              ${site.outboundLinksByDomain[domain].map(
+                (link) => html` <li><a href="${link}">${link}</a></li> `
+              )}
+            </ol>
+          </details>
+        `
+      )}
+
+      <details>
+        <summary>...all others with only one occurence</summary>
+        <ol>
+          ${domainsOfOnlyOne.map(
+            (d) => html`
+              <li>
+                <a href="${site.outboundLinksByDomain[d][0]}"
+                  >${site.outboundLinksByDomain[d][0]}</a
+                >
+              </li>
+            `
+          )}
+        </ol>
+      </details>
+
       <style>
         details {
           border: 1px solid transparent;

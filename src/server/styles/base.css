@@ -7,7 +7,7 @@
   --c-theme-l: var(--c-blue-l);
   --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
 
-  --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 100%);
+  --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
   --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 97%);
   --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 5%);
 
@@ -33,6 +33,9 @@
   --c-pink-h: 343;
   --c-pink-s: 87%;
   --c-pink-l: 44%;
+  --c-none-h: 0;
+  --c-none-s: 0%;
+  --c-none-l: 0%;
   --c-orange-h: 16;
   --c-orange-s: 100%;
   --c-orange-l: 39%;
@@ -72,6 +75,9 @@ color: text */
     --c-pink-h: 348;
     --c-pink-s: 100%;
     --c-pink-l: 70%;
+    --c-none-h: 0;
+    --c-none-s: 0%;
+    --c-none-l: 100%;
     --c-orange-h: 36;
     --c-orange-s: 100%;
     --c-orange-l: 63%;
@@ -95,7 +101,7 @@ color: text */
 
 html {
   color-scheme: light dark;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.5;
   background: var(--c-bg);
   color: var(--c-text);
@@ -109,12 +115,6 @@ html {
     Roboto, Helvetica, Arial, 
     sans-serif, 
     "Apple Color Emoji"; */
-}
-
-@media screen and (min-width: 700px) {
-  html {
-    font-size: 22px; /* 24 originally */
-  }
 }
 
 /* ==========================================================================
@@ -135,6 +135,7 @@ a:active {
   filter: brightness(50%);
 }
 
+footer a,
 .copy a {
   text-decoration: underline;
 }
@@ -180,18 +181,18 @@ h4 {
 }
 
 h1 {
-  font-size: 2.5rem; /* 60px */
+  font-size: 1.5rem; /* 24px */
   font-weight: 700;
 }
 
 h2 {
-  font-size: 2rem; /* 48px */
-  font-weight: 600;
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
 }
 
 h3 {
   font-size: 1.5rem; /* 36px */
-  font-weight: 500;
+  font-weight: 700;
 }
 
 h4 {

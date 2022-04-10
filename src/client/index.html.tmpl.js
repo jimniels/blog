@@ -1,4 +1,4 @@
-import { PageCustom } from "../server/Layouts.js";
+import { Page } from "../server/Layouts.js";
 import { html, toDateUI } from "../server/utils.js";
 
 const page = {
@@ -14,16 +14,14 @@ export default function Index(site) {
     .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1))
     .slice(0, 5);
 
-  return PageCustom(
+  return Page(
     { site, page },
     html`
-      <h1>Posts</h1>
-
-      <h2>Latest</h2>
+      <h1>Latest Posts</h1>
       ${PostList(recent)}
       ${trending.length > 0 &&
       html`
-        <h2>Popular This Month</h2>
+        <h1>Popular Posts This Month</h1>
         ${PostList(trending, true)}
         <p style="margin-bottom: 2.5rem; font-size: .8rem">
           <a
@@ -32,6 +30,26 @@ export default function Index(site) {
           >
         </p>
       `}
+      ${
+        /*
+      <h1>Praise For My Blog</h1>
+      <div class="copy">
+        <blockquote>
+          <p>
+            <a href="">Jeremy Keith</a>: “damn, do I enjoy reading [Jim’s] blog.
+            Last year alone, I ended up linking to [his] posts ten different
+            times.”
+          </p>
+        </blockquote>
+        <blockquote>
+          <p>
+            <a href="">Sara Soueidan:</a>: “I, for one, love seeing [Jim’s]
+            posts in my RSS reader.”
+          </p>
+        </blockquote>
+      </div>
+      */ ""
+      }
     `
   );
 }
@@ -42,8 +60,8 @@ function PostList(posts, showPageviews = false) {
       ${posts.map(
         ({ path, title, pageviews, date }) => html`
           <li>
-            <a href="${path}">${title}</a>
             <time datetime="${date}">${toDateUI(date)}</time>
+            <a href="${path}">${title}</a>
             ${showPageviews &&
             html`<small
               >${pageviews > 1000
