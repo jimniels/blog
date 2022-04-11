@@ -46,9 +46,11 @@ export default function Archive(site) {
                 (post) => html`
                   <li>
                     <a href="${post.path}"> ${post.title} </a>
-                    <time datetime="${post.date}">
-                      ${post.date.slice(5, 10)}
-                    </time>
+                    <small
+                      ><time datetime="${post.date}">
+                        ${post.date.slice(5, 10)}
+                      </time></small
+                    >
                   </li>
                 `
               )}

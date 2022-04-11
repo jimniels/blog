@@ -6,7 +6,7 @@ const colors = [
   "yellow",
   // "pink",
   "purple",
-  "none",
+  // "none",
   // "orange",
   // not supported as UI themes—yet
   // "mint",

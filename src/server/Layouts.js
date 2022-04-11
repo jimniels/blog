@@ -125,7 +125,7 @@ const Layout = (props, children) => {
             </nav>
           </site-nav>
 
-          <script type="module">
+          <script>
             ${importFile("./site-nav.js")};
           </script>
 

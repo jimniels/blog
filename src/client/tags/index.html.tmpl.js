@@ -48,9 +48,11 @@ export default function Tags(site) {
         ${postsByTag[tag].map(post => html`
           <li class="post-wrapper">
             <a href="${post.path}">${post.title}</a>
-            <time class="date post-date" datetime="${post.date}">
-              ${toDateUI(post.date)}
-            </time>
+            <small>
+              <time class="date post-date" datetime="${post.date}">
+                ${toDateUI(post.date)}
+              </time>
+            </small>
           </li>
         `)}
       </ul>

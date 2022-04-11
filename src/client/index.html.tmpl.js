@@ -22,13 +22,10 @@ export default function Index(site) {
       ${trending.length > 0 &&
       html`
         <h1>
-          Popular Posts This Month
-          <small
-            >(<a
-              href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
-              >According to the Data</a
-            >)</small
-          >
+          Popular Posts This Month (<a
+            href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
+            >According to the Data</a
+          >)
         </h1>
         ${PostList(trending, true)}
       `}
@@ -62,14 +59,15 @@ function PostList(posts, showPageviews = false) {
       ${posts.map(
         ({ path, title, pageviews, date }) => html`
           <li>
-            <time datetime="${date}">${toDateUI(date)}</time>
             <a href="${path}">${title}</a>
-            ${showPageviews &&
-            html`<small
-              >${pageviews > 1000
-                ? Math.round((pageviews / 1000) * 10) / 10 + "k"
-                : pageviews}</small
-            >`}
+            <small>
+              <time datetime="${date}">${toDateUI(date)}</time>
+              ${showPageviews
+                ? pageviews > 1000
+                  ? Math.round((pageviews / 1000) * 10) / 10 + "k"
+                  : pageviews
+                : ""}
+            </small>
           </li>
         `
       )}
