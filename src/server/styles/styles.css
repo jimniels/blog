@@ -184,6 +184,7 @@ blockquote code {
 }
 
 pre {
+  font-size: 0.9rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   background: rgba(0, 0, 0, 0.0333);
@@ -350,10 +351,6 @@ site-nav nav {
   gap: calc(1.618rem / 2);
 }
 
-site-nav nav a[href="/"] {
-  font-weight: 700;
-}
-
 @media screen and (max-width: 42rem) {
   site-nav {
     flex-direction: column;
@@ -367,7 +364,7 @@ site-nav nav a[href="/"] {
   site-nav nav {
     gap: calc(1.618rem / 4) calc(1.618rem / 2);
   }
-  site-nav nav a[href="/"] {
+  site-nav nav > :first-child {
     flex-basis: 100%;
     text-align: right;
   }

@@ -39,44 +39,42 @@ export default function About(site) {
 
   return Page(
     { site, page },
-    html` <div class="copy">
-        <h1>About</h1>
+    html` <h1>About</h1>
 
-        <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
+      <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
 
-        <p>
-          In the past, I put off writing because I was unable to do my best—“if
-          you can’t do something right, don’t do it at all”.
-        </p>
-        <p>
-          But lately I’ve found myself regretting not writing down at least
-          <em>something</em>.
-        </p>
+      <p>
+        In the past, I put off writing because I was unable to do my best—“if
+        you can’t do something right, don’t do it at all”.
+      </p>
+      <p>
+        But lately I’ve found myself regretting not writing down at least
+        <em>something</em>.
+      </p>
 
-        <p>
-          So my current posture towards blogging is: something is better than
-          nothing.
-        </p>
+      <p>
+        So my current posture towards blogging is: something is better than
+        nothing.
+      </p>
 
-        <p>
-          <img
-            src="https://cdn.jim-nielsen.com/shared/jim-nielsen-portrait.jpg"
-            width="300"
-            height="300"
-            alt="Portrait of Jim Nielsen"
-          />
-        </p>
+      <p>
+        <img
+          src="https://cdn.jim-nielsen.com/shared/jim-nielsen-portrait.jpg"
+          width="300"
+          height="300"
+          alt="Portrait of Jim Nielsen"
+        />
+      </p>
 
-        <h2>Blog Links</h2>
+      <h2>Blog Links</h2>
 
-        <p>
-          I thought it would be interesting to
-          <a href="/2020/indexing-my-blogs-links/"
-            >index all the outbound links on my blog</a
-          >
-          and keep it as a running list.
-        </p>
-      </div>
+      <p>
+        I thought it would be interesting to
+        <a href="/2020/indexing-my-blogs-links/"
+          >index all the outbound links on my blog</a
+        >
+        and keep it as a running list.
+      </p>
 
       ${domainsOfMoreThanOne.map(
         (domain) => html`
