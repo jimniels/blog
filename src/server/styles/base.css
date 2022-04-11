@@ -189,7 +189,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem; /* 36px */
+  font-size: 1.125rem; /* 18px */
   font-weight: 700;
 }
 
@@ -205,8 +205,7 @@ h4 {
    ========================================================================== */
 
 blockquote {
-  border-left: 1px solid;
-  padding-left: 1em;
+  padding-left: 1.618rem;
   margin-left: 0;
   font-style: italic;
 }
@@ -223,6 +222,16 @@ pre {
   margin-top: 1.618rem;
   margin-bottom: 1.618rem;
   font-size: 0.9rem;
+  padding: 2rem 3rem;
+  background: rgba(0, 0, 0, 0.0333);
+  border-radius: 10px;
+  max-width: 42rem !important;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  pre {
+    background: rgba(255, 255, 255, 0.0333);
+  }
 }
 
 hr {

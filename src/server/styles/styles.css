@@ -1,4 +1,4 @@
-/* work with text colors more, right blacks etc */
+/* @TODO work with text colors more, right blacks etc */
 
 body {
   line-height: 1.618;
@@ -6,35 +6,11 @@ body {
   margin-right: calc(1.618rem / 2);
 }
 
-.e-content > *:not(.image-container),
+.copy > *:not(.image-container),
 .wrapper {
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
-}
-
-.image-container {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-blockquote {
-  border-left: none;
-  padding-left: 1.618rem;
-}
-
-pre {
-  padding: 2rem 3rem;
-  background: rgba(0, 0, 0, 0.0333);
-  border-radius: 10px;
-  max-width: 42rem !important;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  pre {
-    background: rgba(255, 255, 255, 0.0333);
-  }
 }
 
 /* =============================================================================
@@ -143,7 +119,7 @@ article header {
 }
 
 article header h1 {
-  margin: calc(1.618rem / 4) 0 calc(1.618rem / 4);
+  order: 2;
 }
 
 article header time {
@@ -155,15 +131,14 @@ article header time {
    Copy
    ========================================================================== */
 
-.copy > *:not(table):not(pre) {
-  max-width: 32rem;
-  display: block;
-}
 .copy > p code {
   word-wrap: break-word;
 }
 .copy .image-container {
   max-width: 1200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .copy .image-container span {
   font-size: 0.75rem;
@@ -260,15 +235,6 @@ article header time {
 #bps > div {
   text-align: center;
   color: var(--color-text-light);
-}
-
-/* =============================================================================
-   SVG Icons
-   ========================================================================== */
-
-.icon {
-  width: 24px;
-  height: 24px;
 }
 
 /* =============================================================================
