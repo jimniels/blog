@@ -19,9 +19,11 @@ For example, imagine I have the following folder structure:
 
 That folder’s contents sync to a site on Netlify hosted at a particular domain, in my case: `cdn.jim-nielsen.com`. Once synced, every one of those files becomes available at a path matching the structure of that folder, i.e.
 
-- `cdn.jim-nielsen.com/blog/screenshot.png`
-- `cdn.jim-nielsen.com/other/screenshot.png`
-- `cdn.jim-nielsen.com/blog/some-image.jpg`
+```
+cdn.jim-nielsen.com/blog/screenshot.png
+cdn.jim-nielsen.com/other/screenshot.png
+cdn.jim-nielsen.com/blog/some-image.jpg
+```
 
 Like any workflow, this has its benefits and drawbacks. But it has served me well for a few years now.
 
