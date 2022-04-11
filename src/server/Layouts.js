@@ -80,7 +80,6 @@ const Layout = (props, children) => {
           <style>
             ${[
               "./styles/modern-normalize.css",
-              "./styles/base.css",
               "./styles/styles.css",
               "./styles/atom-one-light.css",
             ]
@@ -117,8 +116,8 @@ const Layout = (props, children) => {
           ${/* icon sprite importFile("./svgs/icons.svg") */ ""}
 
           <site-nav>
-            <header><a href="/">Jim Nielsen’s Blog</a></header>
             <nav>
+              <a href="/">Jim Nielsen’s Blog</a>
               ${nav.map(
                 ({ label, path }) => html`<a href="${path}">${label}</a>`
               )}
