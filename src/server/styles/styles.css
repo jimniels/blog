@@ -31,13 +31,13 @@ site-nav a[href="/"] {
 site-nav nav {
   display: flex;
   align-items: center;
-  gap: calc(1.618rem / 4);
 }
 
 @media screen and (max-width: 639px) {
   site-nav {
     flex-direction: column;
     margin: calc(1.618rem * 1) auto calc(1.618rem * 2);
+    align-items: flex-end;
   }
   site-nav form {
     margin-top: calc(1.618rem / 4);
@@ -45,6 +45,9 @@ site-nav nav {
     right: 20px;
     top: 10px;
     flex-direction: column; */
+  }
+  site-nav nav {
+    gap: calc(1.618rem / 2);
   }
 }
 
@@ -65,6 +68,7 @@ site-nav nav {
   site-nav nav {
     order: 3;
     justify-content: flex-end;
+    gap: calc(1.618rem / 4);
   }
   site-nav form {
     order: 2;
@@ -78,7 +82,7 @@ site-nav nav {
 site-nav form {
   display: flex;
   align-items: center;
-  gap: calc(1.618rem / 3);
+  gap: calc(1.618rem / 2);
 }
 
 site-nav form input {
@@ -88,7 +92,7 @@ site-nav form input {
 site-nav form label {
   width: 24px;
   height: 24px;
-  border: 3px solid var(--c-fg);
+  border: 2px solid var(--c-bg);
   display: block;
   text-indent: -9999px;
   border-radius: 50%;
