@@ -61,7 +61,7 @@ Overall, this makes writing blog posts in markdown with images even more automat
 2. Choose “Copy img markup" from actions menu
 3. Paste markup in a text file
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/shortcuts-automation-ia-writer-screenshot.png" width="1400" height="875" alt="Screenshot of iA Writer and Finder on macOS with text and arrows overlaying the screen, showing one can generate the markup for an img tag from a file in the Finder." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/shortcuts-automation-ia-writer-screenshot.png" width="1422" height="878" alt="Screenshot of iA Writer and Finder on macOS with text and arrows overlaying the screen, showing one can generate the markup for an img tag from a file in the Finder." />
 
 Sure, it’s a bit convoluted. But it works for me.
 
