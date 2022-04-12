@@ -20,7 +20,10 @@ class SiteNav extends HTMLElement {
   constructor() {
     super();
 
-    let initialColor = localStorage.getItem("theme-color") || "blue";
+    let initialColor = localStorage.getItem("theme-color");
+    if (!colors.includes(initialColor)) {
+      initialColor = "blue";
+    }
     this.setColor(initialColor);
 
     this.$form = document.createElement("form");
@@ -49,10 +52,34 @@ class SiteNav extends HTMLElement {
   }
 
   connectedCallback() {
-    this.querySelector("form").addEventListener("change", (e) => {
-      const color = e.target.value;
-      this.setColor(color);
+    // Handle clicking outside the color picker to collapse it
+    document.documentElement.addEventListener("click", (e) => {
+      if (this.$form.classList.contains("is-expanded")) {
+        this.toggleVisibility();
+      }
     });
+    // Handle expanding/collapsing the color picker through the <form>
+    this.$form.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // If it's an <input>
+      if (e.target.value) {
+        // If we're setting a new value, set it
+        if (e.target.value !== localStorage.getItem("theme-color")) {
+          const color = e.target.value;
+          this.setColor(color);
+        }
+        // Toggle visibility of options
+        this.toggleVisibility();
+      }
+    });
+  }
+
+  toggleVisibility() {
+    if (this.$form.classList.contains("is-expanded")) {
+      this.$form.classList.remove("is-expanded");
+    } else {
+      this.$form.classList.add("is-expanded");
+    }
   }
 
   setColor(color) {

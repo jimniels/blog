@@ -277,7 +277,8 @@ pre {
    Copy
    ========================================================================== */
 
-.copy > p code {
+.copy > p code,
+.copy > ul code {
   word-wrap: break-word;
 }
 
@@ -358,9 +359,6 @@ site-nav nav {
     margin-bottom: calc(1.618rem * 2);
     align-items: flex-end;
   }
-  site-nav form {
-    margin-top: calc(1.618rem / 4);
-  }
   site-nav nav {
     gap: calc(1.618rem / 4) calc(1.618rem / 2);
   }
@@ -394,7 +392,6 @@ site-nav nav {
 site-nav form {
   display: flex;
   align-items: center;
-  gap: calc(1.618rem / 2);
 }
 
 site-nav form input {
@@ -408,15 +405,44 @@ site-nav form label {
   display: block;
   text-indent: -9999px;
   border-radius: 50%;
+  display: none;
 }
 
 site-nav form input:checked + label {
+  order: 1;
   box-shadow: 0 0 0 2px var(--c-theme);
+  display: inline;
+}
+
+site-nav form.is-expanded label {
+  display: inline;
+}
+
+@media screen and (max-width: 42rem) {
+  site-nav {
+    position: relative;
+  }
+  site-nav form {
+    position: absolute;
+    left: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 0;
+    padding: 0 calc(1.618rem / 2);
+    background: var(--c-bg);
+    height: 100%;
+  }
+  site-nav form.is-expanded {
+    width: 100%;
+  }
+  site-nav form label {
+    order: 2;
+  }
 }
 
 @media screen and (min-width: 42rem) {
   site-nav form {
-    gap: calc(1.618rem / 4);
+    gap: calc(1.618rem / 2);
   }
   site-nav form label {
     width: 21px;
