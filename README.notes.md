@@ -1,3 +1,18 @@
+Idea: what about enhancing the current text and deeplinking?
+
+```md
+## Article: [“This is my title”]()
+
+#design
+
+Start talking about what these notes are.
+
+> block quote here to soething
+
+## Video: [“Something”]()
+```
+
+
 # Proposal
 
 Filenames
