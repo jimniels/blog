@@ -5,6 +5,48 @@ const page = {
   path: "/",
 };
 
+const qs = [
+  {
+    blogLink: "https://blog.jim-nielsen.com/2021/css-system-colors/",
+    title: "CSS System Colors",
+    person: "Scott Jehl",
+    link: "https://twitter.com/scottjehl/status/1403045035940139010?s=20&t=xulk0AxlwJ-FDvmo_s-NOg",
+    quote:
+      "This post about CSS system colors by @jimniels is very cool. Had no idea about these!",
+  },
+  {
+    blogLink:
+      "https://blog.jim-nielsen.com/2021/defining-basic-javascript-terms/",
+    title: "Defining Basic JavaScript Terms: map, filter, and reduce",
+    person: "Sara Soueidan",
+    link: "https://twitter.com/scottjehl/status/1403045035940139010?s=20&t=xulk0AxlwJ-FDvmo_s-NOg",
+    quote:
+      "I can’t help but think how much easier JavaScript would have been to learn for beginners if all concepts were explained as friendly as ⁦@jimniels explains map, filter and reduce",
+  },
+  {
+    blogLink: "",
+    title: "The Optional Chaining Operator, “Modern” Browsers, and My Mom",
+    person: "Eric Bailey",
+    link: "",
+    quote: "@jimniels is a great writer. Y'all should follow him.",
+  },
+  {
+    blogLink: "",
+    title: "Inspecting Web Views in macOS",
+    person: "Guillermo Rauch",
+    link: "",
+    quote: "Wild! ⚛️",
+  },
+  {
+    blogLink: "",
+    title: "Codebase Collaboration Between Humans and Robots",
+    person: "Dave Rupert",
+    link: "",
+    quote:
+      "🧡 This post by @jimniels is everything! I love the distinction between code for humans and code for robots.",
+  },
+];
+
 export default function Index(site) {
   const recent = site.posts
     .filter((post) => !post?.tags.includes("rssClub"))
@@ -29,26 +71,32 @@ export default function Index(site) {
         </h1>
         ${PostList(trending, true)}
       `}
-      ${
-        /*
-      <h1>Praise For My Blog</h1>
+      <h1>Posts With Endorsements</h1>
       <div class="copy">
-        <blockquote>
-          <p>
-            <a href="">Jeremy Keith</a>: “damn, do I enjoy reading [Jim’s] blog.
-            Last year alone, I ended up linking to [his] posts ten different
-            times.”
-          </p>
-        </blockquote>
-        <blockquote>
-          <p>
-            <a href="">Sara Soueidan:</a>: “I, for one, love seeing [Jim’s]
-            posts in my RSS reader.”
-          </p>
-        </blockquote>
+        ${qs.map(
+          (q) => html`
+            <p>
+              <a href="${q.link}">${q.person}</a> on
+              <a href="${q.blogLink}">${q.title}</a>: “${q.quote}”
+            </p>
+          `
+        )}
       </div>
-      */ ""
-      }
+
+      <!--
+      <h1>Endorsing My Blog</h1>
+      <div class="copy">
+        <p><a href="">Jeremy Keith</a>:</p>
+        <blockquote>
+          damn, do I enjoy reading [Jim’s] blog. Last year alone, I ended up
+          linking to [his] posts ten different times.
+        </blockquote>
+
+        <p><a href="">Sara Soueidan:</a></p>
+        <blockquote>
+          I, for one, love seeing [Jim’s] posts in my RSS reader.
+        </blockquote>
+      </div>-->
     `
   );
 }
