@@ -13,6 +13,7 @@
 
   --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
   --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 97%);
+  --c-bg-opaque: rgba(0, 0, 0, 0.05);
   --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 8%);
 
   /* 
@@ -54,6 +55,7 @@
     --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
     --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 6%);
     --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
+    --c-bg-opaque: rgba(255, 255, 255, 0.05);
 
     --c-blue-h: 211;
     --c-blue-s: 100%;
@@ -187,13 +189,7 @@ pre {
   font-size: 0.9rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  background: rgba(0, 0, 0, 0.0333);
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  pre {
-    background: rgba(255, 255, 255, 0.0333);
-  }
+  background: var(--c-bg-opaque);
 }
 
 hr {
@@ -280,6 +276,10 @@ pre {
 .copy > p code,
 .copy > ul code {
   word-wrap: break-word;
+  word-break: keep-all;
+  background-color: var(--c-bg-opaque);
+  padding: calc(1.618rem / 12) calc(1.618rem / 6);
+  border-radius: 10px;
 }
 
 .copy .image-container {
