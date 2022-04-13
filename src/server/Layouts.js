@@ -44,6 +44,10 @@ const Layout = (props, children) => {
       label: "About",
       path: "/about/",
     },
+    {
+      label: "RSS",
+      path: "/feed.xml",
+    },
   ];
 
   return (
@@ -76,7 +80,6 @@ const Layout = (props, children) => {
           <style>
             ${[
               "./styles/modern-normalize.css",
-              "./styles/base.css",
               "./styles/styles.css",
               "./styles/atom-one-light.css",
             ]
@@ -110,20 +113,19 @@ const Layout = (props, children) => {
           `}
         </head>
         <body>
-          <!-- Icon Sprite -->
-          ${importFile("./svgs/icons.svg")}
+          ${/* icon sprite importFile("./svgs/icons.svg") */ ""}
 
           <site-nav>
-            <a href="/">Jim Nielsen’s Blog</a>
-            ${nav.map(
-              ({ label, path }) => html`<a href="${path}">${label}</a>`
-            )}
-            <a href="/feed.xml" title="RSS Feed"
-              >${importFile("./svgs/feed-rss.svg")}</a
-            >
-            <a href="/feed.json" title="JSON Feed"
-              >${importFile("./svgs/feed-json.svg")}</a
-            >
+            <nav>
+              ${path === "/"
+                ? `<strong>Jim Nielsen’s Blog</strong>`
+                : `<a href="/"><strong>Jim Nielsen’s Blog</strong></a>`}
+              ${nav.map(({ label, path: navItemPath }) =>
+                navItemPath === path
+                  ? html`<span>${label}</span>`
+                  : html`<a href="${navItemPath}">${label}</a>`
+              )}
+            </nav>
           </site-nav>
 
           <script>
@@ -161,7 +163,7 @@ const Post = (props) => {
   // prettier-ignore
   return Layout(props, html`
     <article class="h-entry">
-      <header>
+      <header class="wrapper">
         <h1 class="p-name">
           ${page.title}
         </h1>
@@ -173,21 +175,14 @@ const Post = (props) => {
         ${page?.tags.includes("rssClub") ? RssClub() : ""}
         ${page.contents.toString()}
       </div>
-      <footer>
+      <footer class="wrapper">
         ${ReplyHtml({ postTags: page.tags, postPath: page.path, siteOrigin: site.origin })}
       </footer>
     </article>
   `);
 };
 
-// prettier-ignore
-const PageCustom = (props, children) => Layout(props, children);
+const Page = (props, children) =>
+  Layout(props, html`<main class="wrapper">${children}</main>`);
 
-// prettier-ignore
-const Page = (props) => Layout(props, html`
-  <div class="copy">
-    ${props.page.contents.toString()}
-  </div>
-`);
-
-export { Post, Page, PageCustom };
+export { Post, Page };

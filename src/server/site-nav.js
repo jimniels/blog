@@ -4,9 +4,10 @@ const colors = [
   "red",
   "green",
   "yellow",
-  "pink",
+  // "pink",
   "purple",
-  "orange",
+  // "none",
+  // "orange",
   // not supported as UI themes—yet
   // "mint",
   // "teal",
@@ -19,82 +20,66 @@ class SiteNav extends HTMLElement {
   constructor() {
     super();
 
-    let initialColor = localStorage.getItem("theme-color") || "blue";
+    let initialColor = localStorage.getItem("theme-color");
+    if (!colors.includes(initialColor)) {
+      initialColor = "blue";
+    }
     this.setColor(initialColor);
 
-    const links = Array.from(this.children);
-    const homeLink = links.filter((el) => el.getAttribute("href") === "/")[0];
-    const otherLinks = links.filter((el) => el.getAttribute("href") !== "/");
-
-    this.setAttribute("has-js", true);
-
-    this.innerHTML = /*html*/ `
-      <div class="sn-top">
-        ${homeLink.outerHTML}
-        <button aria-label="Menu">
-          <svg class="icon">
-            <use xlink:href="#menu"></use>
-          </svg>
-        </button>
-      </div>
-      <div class="sn-bottom">
-        <div class="sn-bottom-section">
-          <h5>Menu</h5>
-          <ul>
-            ${otherLinks
-              .map(($a) => /*html*/ `<li>${$a.outerHTML}</li>`)
-              .join("")}
-          </ul>
-        </div>
-        <div class="sn-bottom-section">
-          <h5>Theme</h5>
-          <form class="sn-color-picker">
-            ${colors
-              .map(
-                (color) => /*html*/ `
-                <input
-                  id="color-${color}"
-                  type="radio"
-                  name="color"
-                  value="${color}"
-                  ${color === initialColor ? "checked" : ""}
-                >
-                <label
-                  for="color-${color}"
-                  style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">
-                  ${color}
-                </label>
-            `
-              )
-              .join("")}
-          </form>
-        </div>
-      </div>
+    this.$form = document.createElement("form");
+    this.$form.innerHTML = /*html*/ `
+        ${colors
+          .map(
+            (color) => /*html*/ `
+            <input
+              id="color-${color}"
+              type="radio"
+              name="color"
+              value="${color}"
+              ${color === initialColor ? "checked" : ""}
+            >
+            <label
+              title="${color}"
+              for="color-${color}"
+              style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">
+              ${color}
+            </label>
+        `
+          )
+          .join("")}
     `;
+    this.appendChild(this.$form);
   }
 
   connectedCallback() {
-    const $button = this.querySelector('button[aria-label="Menu"]');
-    const $use = $button.querySelector("svg use");
-    $button.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (this.hasAttribute("open")) {
-        this.removeAttribute("open");
-        $use.setAttribute("xlink:href", "#menu");
-      } else {
-        this.setAttribute("open", true);
-        $use.setAttribute("xlink:href", "#menu-close");
+    // Handle clicking outside the color picker to collapse it
+    document.documentElement.addEventListener("click", (e) => {
+      if (this.$form.classList.contains("is-expanded")) {
+        this.toggleVisibility();
       }
     });
+    // Handle expanding/collapsing the color picker through the <form>
+    this.$form.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // If it's an <input>
+      if (e.target.value) {
+        // If we're setting a new value, set it
+        if (e.target.value !== localStorage.getItem("theme-color")) {
+          const color = e.target.value;
+          this.setColor(color);
+        }
+        // Toggle visibility of options
+        this.toggleVisibility();
+      }
+    });
+  }
 
-    document
-      .querySelector(".sn-color-picker")
-      .addEventListener("change", (e) => {
-        const color = e.target.value;
-        this.setColor(color);
-      });
+  toggleVisibility() {
+    if (this.$form.classList.contains("is-expanded")) {
+      this.$form.classList.remove("is-expanded");
+    } else {
+      this.$form.classList.add("is-expanded");
+    }
   }
 
   setColor(color) {

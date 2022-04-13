@@ -1,4 +1,4 @@
-import { PageCustom } from "../../../server/Layouts.js";
+import { Page } from "../../../server/Layouts.js";
 import { html } from "../../../server/utils.js";
 
 const page = {
@@ -8,7 +8,7 @@ const page = {
 
 export default function Tags(site) {
   // prettier-ignore
-  return PageCustom({ site, page }, html`
+  return Page({ site, page }, html`
     <h1>Index of All Reading Notes</h1>
 
       <style>

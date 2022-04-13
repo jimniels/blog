@@ -1,4 +1,4 @@
-import { PageCustom } from "../../server/Layouts.js";
+import { Page } from "../../server/Layouts.js";
 import { html, toDateUI } from "../../server/utils.js";
 
 const page = {
@@ -25,7 +25,7 @@ export default function Tags(site) {
     .filter((tag) => tag !== "rssClub");
 
   // prettier-ignore
-  return PageCustom({ site, page }, html`
+  return Page({ site, page }, html`
     <h1>Tags <small>(${tags.length})</small></h1>
     <ul class="list-2col">
       ${tags.map(
@@ -48,9 +48,11 @@ export default function Tags(site) {
         ${postsByTag[tag].map(post => html`
           <li class="post-wrapper">
             <a href="${post.path}">${post.title}</a>
-            <time class="date post-date" datetime="${post.date}">
-              ${toDateUI(post.date)}
-            </time>
+            <small>
+              <time class="date post-date" datetime="${post.date}">
+                ${toDateUI(post.date)}
+              </time>
+            </small>
           </li>
         `)}
       </ul>

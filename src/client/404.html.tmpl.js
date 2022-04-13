@@ -3,13 +3,17 @@ import { html } from "../server/utils.js";
 
 export default function Page404(site) {
   const title = "404: Page Not Found";
-  return Page({
-    site,
-    page: {
-      title,
-      path: "/404/",
-      layout: "Page",
-      contents: html`
+  return Page(
+    {
+      site,
+      page: {
+        title,
+        path: "/404/",
+        layout: "Page",
+      },
+    },
+    html`
+      <main class="copy wrapper">
         <h1>${title}</h1>
 
         <p>
@@ -31,7 +35,7 @@ export default function Page404(site) {
               alt="Picture of a pie I made and posted on Instagram"
           /></a>
         </p>
-      `,
-    },
-  });
+      </main>
+    `
+  );
 }

@@ -1,4 +1,4 @@
-import { PageCustom } from "../../server/Layouts.js";
+import { Page } from "../../server/Layouts.js";
 import { html } from "../../server/utils.js";
 
 const page = {
@@ -9,7 +9,7 @@ const page = {
 export default function Archive(site) {
   const { postsByYear } = site;
 
-  return PageCustom(
+  return Page(
     { site, page },
     html`
       <h1>Archive</h1>
@@ -46,9 +46,11 @@ export default function Archive(site) {
                 (post) => html`
                   <li>
                     <a href="${post.path}"> ${post.title} </a>
-                    <time datetime="${post.date}">
-                      ${post.date.slice(5, 10)}
-                    </time>
+                    <small
+                      ><time datetime="${post.date}">
+                        ${post.date.slice(5, 10)}
+                      </time></small
+                    >
                   </li>
                 `
               )}
