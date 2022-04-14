@@ -12,6 +12,17 @@ Start talking about what these notes are.
 ## Video: [“Something”]()
 ```
 
+# Posts
+
+`/2019/:slug` -> `/posts/:slug`
+`/2019/reading-notes-january` -> `/reading-notes-january-2019`
+
+`/posts/deno-is-webby`
+
+Which would allow different namespaces in the future, i.e.
+
+`/notes/:id`
+
 
 # Proposal
 
