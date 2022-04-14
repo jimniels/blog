@@ -352,6 +352,26 @@ site-nav nav {
   gap: calc(1.618rem / 2);
 }
 
+site-nav nav > :first-child {
+  padding: calc(1.618rem / 8) calc(1.618rem / 2);
+  border-radius: 0 20px 0;
+  color: var(--c-bg);
+  position: relative;
+  margin-left: calc(-1.618rem / 2);
+  display: flex;
+  align-items: center;
+}
+site-nav nav > :first-child:before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: var(--c-theme);
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  transform: skew(-20deg) rotate(-0.5deg);
+}
+
 @media screen and (max-width: 42rem) {
   site-nav {
     flex-direction: column;
