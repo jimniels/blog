@@ -353,7 +353,7 @@ site-nav nav {
 }
 
 site-nav nav > :first-child > * {
-  padding: calc(1.618rem / 8) calc(1.618rem / 2);
+  padding: calc(1.618rem / 9) calc(1.618rem / 3);
   border-radius: 0 20px 0;
   color: var(--c-bg);
   position: relative;
