@@ -352,16 +352,16 @@ site-nav nav {
   gap: calc(1.618rem / 2);
 }
 
-site-nav nav > :first-child {
+site-nav nav > :first-child > * {
   padding: calc(1.618rem / 8) calc(1.618rem / 2);
   border-radius: 0 20px 0;
   color: var(--c-bg);
   position: relative;
   margin-left: calc(-1.618rem / 2);
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
-site-nav nav > :first-child:before {
+site-nav nav > :first-child > *:before {
   width: 100%;
   height: 100%;
   content: "";
