@@ -18,7 +18,7 @@ export default function Index(site) {
     { site, page },
     html`
       <h1>Latest Posts</h1>
-      ${PostList(recent)}
+      ${PostList(recent, { showAllLink: true })}
       ${trending.length > 0 &&
       html`
         <h1>
@@ -27,7 +27,7 @@ export default function Index(site) {
             >According to the Data</a
           >)
         </h1>
-        ${PostList(trending, true)}
+        ${PostList(trending, { showPageViews: true })}
       `}
       ${
         /*
@@ -53,7 +53,10 @@ export default function Index(site) {
   );
 }
 
-function PostList(posts, showPageviews = false) {
+function PostList(
+  posts,
+  { showPageviews, showAllLink } = { showPageviews: false, showAllLink: false }
+) {
   return html`
     <ul class="posts-list">
       ${posts.map(
@@ -71,6 +74,7 @@ function PostList(posts, showPageviews = false) {
           </li>
         `
       )}
+      ${showAllLink && html`<li><a href="/archive/">View all →</a></li>`}
     </ul>
   `;
 }
