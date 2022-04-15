@@ -11,7 +11,7 @@ export default function Archive(site) {
 
   return Page(
     { site, page },
-    html`
+    html` <main class="wrapper">
       <h1>Archive</h1>
       <ul class="list-2col">
         ${Object.keys(postsByYear)
@@ -57,6 +57,6 @@ export default function Archive(site) {
             </ul>
           `
         )}
-    `
+    </main>`
   );
 }

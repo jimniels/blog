@@ -39,7 +39,8 @@ export default function About(site) {
 
   return Page(
     { site, page },
-    html` <h1>About</h1>
+    html` <main class="copy">
+      <h1>About</h1>
 
       <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
 
@@ -155,6 +156,7 @@ export default function About(site) {
         }
         summary .domain {
         }
-      </style>`
+      </style>
+    </main>`
   );
 }
