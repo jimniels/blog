@@ -7,30 +7,35 @@ const page = {
 };
 
 export default function Tags(site) {
-  // prettier-ignore
-  return Page({ site, page }, html`
-    <h1>Index of All Reading Notes</h1>
+  return Page(
+    { site, page },
+    html`
+      <main class="wrapper">
+        <h1>Index of All Reading Notes</h1>
 
-      <style>
-        .div-link {
-          position: relative;
-          background: #fff;
-          z-index: 1;
-          padding-right: 10px;
-          font-size: .85em;
-        }
-        .div-hr {
-          position: relative;
-          top: 1.5rem;
-        }
-      </style>
-      ${site.posts
-        .filter(post => post.tags && post.tags.includes("readingNotes"))
-        .map(post => html`
-          <hr class="div-hr" />
-          <a class="div-link" href="${post.path}">${post.title}</a>
-          <div class="copy">${post.contents}</div>
-        `)}
-    
-  `);
+        <style>
+          .div-link {
+            position: relative;
+            background: #fff;
+            z-index: 1;
+            padding-right: 10px;
+            font-size: 0.85em;
+          }
+          .div-hr {
+            position: relative;
+            top: 1.5rem;
+          }
+        </style>
+        ${site.posts
+          .filter((post) => post.tags && post.tags.includes("readingNotes"))
+          .map(
+            (post) => html`
+              <hr class="div-hr" />
+              <a class="div-link" href="${post.path}">${post.title}</a>
+              <div class="copy">${post.contents}</div>
+            `
+          )}
+      </main>
+    `
+  );
 }

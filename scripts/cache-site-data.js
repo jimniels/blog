@@ -24,6 +24,7 @@ async function getSiteData() {
     name: "Jim Nielsen’s Blog",
     origin: "https://blog.jim-nielsen.com",
     outboundLinksByDomain: {},
+    internalLinksByPath: {},
     posts: [],
     postsByYear: {},
     tags: [],
@@ -88,7 +89,7 @@ async function getSiteData() {
 
     // Convert markdown to HTML & get links data
     const markdownSansTagsAndTitle = markdownByLine.join("\n");
-    const { html, outboundLinksByDomain } = parseMarkdown(
+    const { html, outboundLinksByDomain, internalLinks } = parseMarkdown(
       markdownSansTagsAndTitle
     );
     post.contents = html;
@@ -113,6 +114,9 @@ async function getSiteData() {
     post.slug = slug;
     post.path = `/${year}/${slug}/`;
     post.permalink = site.origin + post.path;
+    if (internalLinks.length) {
+      site.internalLinksByPath[post.path] = internalLinks;
+    }
 
     // I don't store time information on my posts, so we'll make all posts
     // publish at the same time of day: noon mountain time.

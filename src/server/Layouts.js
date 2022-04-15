@@ -184,7 +184,7 @@ const Post = (props) => {
   `);
 };
 
-const Page = (props, children) =>
-  Layout(props, html`<main class="wrapper">${children}</main>`);
+// Children will do: Page({}, html`<main {class="{wrapper|copy}"}?>...</main>`)
+const Page = (props, children) => Layout(props, children);
 
 export { Post, Page };
