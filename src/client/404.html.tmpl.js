@@ -13,7 +13,7 @@ export default function Page404(site) {
       },
     },
     html`
-      <main class="copy wrapper">
+      <main class="copy">
         <h1>${title}</h1>
 
         <p>
