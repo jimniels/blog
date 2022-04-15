@@ -16,7 +16,7 @@ export default function Index(site) {
 
   return Page(
     { site, page },
-    html`<main class="wrapper">
+    html` <main class="wrapper">
       <h1>Latest Posts</h1>
       ${PostList(recent, { showAllLink: true })}
       ${trending.length > 0 &&

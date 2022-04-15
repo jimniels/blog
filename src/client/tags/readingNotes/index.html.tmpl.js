@@ -12,7 +12,6 @@ export default function Tags(site) {
     html`
       <main class="wrapper">
         <h1>Index of All Reading Notes</h1>
-
         <style>
           .div-link {
             position: relative;
