@@ -32,10 +32,14 @@ export default function Index(site) {
       <main>
         <div class="wrapper">
           <h1>${page.title}</h1>
-          <p>Something describing what i'm doing here</p>
           <p>
-            Note: I need to make this better and make it easy to pan/zoom on
-            this content. An addition for another day.
+            A visual representation of the relationship between posts on my
+            blog. It uses viz.js to draw the graph. You can learn more about how
+            I did this in my <a href="">my blog post (coming soon).</a>
+          </p>
+          <p>
+            <strong>Note:</strong> I need to make this better and make it easy
+            to pan/zoom on this content. An addition for another day.
           </p>
           <noscript style="color: red">
             You must have JavaScript enabled to use this chart.
