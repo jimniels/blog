@@ -2,7 +2,7 @@
 
 # Having Fun Writing APIs With Glitch
 
-I’ve been having a lot of fun lately writing server-side request/response code with [Glitch](https://glitch.com). [Me on Twitter](https://twitter.com/jimniels/status/1360427857693007872) a little while ago:
+I’ve been having a lot of fun lately writing server-side request/response code with [Glitch](https://glitch.com). [Me on Twitter](https://twitter.com/jimniels/status/1360427857693007872):
 
 > API design is a helluva drug
 > 
