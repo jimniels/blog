@@ -16,7 +16,7 @@ export default function ReplyHtml({ postTags, postPath, siteOrigin }) {
     <br />
     Reply via:
     <a
-      href="mailto:spokes-probes.0w@icloud.com?subject=Re: blog.jim-nielsen.com${postPath}"
+      href="mailto:jimniels+blog@gmail.com?subject=Re: blog.jim-nielsen.com${postPath}"
       >Email</a
     >,
     <a href="https://twitter.com/jimniels">Twitter</a>
