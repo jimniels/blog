@@ -2,11 +2,7 @@
 
 # Having Fun Writing APIs With Glitch
 
-I’ve been having a lot of fun lately writing server-side request/response code with [Glitch](https://glitch.com). [Me on Twitter](https://twitter.com/jimniels/status/1360427857693007872):
-
-> API design is a helluva drug
-> 
-> Way over my head ATM designing an API for myself like I know what I’m doing and it’s too much fun. Think I’m gonna hang up the “designer” label and trade in sketch/figma for a REST client.
+I’ve been having [a lot of fun](https://twitter.com/jimniels/status/1360427857693007872) lately writing server-side request/response code with [Glitch](https://glitch.com).
 
 With the Jamstack I rarely do this because the paradigm is:
 
