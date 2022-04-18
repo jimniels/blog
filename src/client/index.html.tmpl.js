@@ -27,7 +27,7 @@ export default function Index(site) {
             >According to the Data</a
           >)
         </h1>
-        ${PostList(trending, { showPageViews: true })}
+        ${PostList(trending, { showPageviews: true })}
       `}
       ${
         /*
