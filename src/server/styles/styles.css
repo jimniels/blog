@@ -120,8 +120,16 @@ a:hover {
   filter: brightness(115%) saturate(1.15);
 }
 
+a:has(img):hover {
+  filter: none;
+}
+
 a:active {
   filter: brightness(50%);
+}
+
+a[href=""] {
+  cursor: not-allowed;
 }
 
 /* Images & Video

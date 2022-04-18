@@ -3,6 +3,7 @@ import { marked } from "marked";
 import psl from "psl";
 
 let outboundLinksByDomain = {};
+let internalLinks = [];
 
 // Footnotes
 //
@@ -82,16 +83,32 @@ const renderer = {
 
   // Purely to get links by domain
   link(href, title, text) {
-    // If this is a jim-nielsen.com link, ignore it. Otherwise, push it to our
-    // set of outbound links.
-    if (
-      !(
-        href.startsWith(".") ||
-        href.startsWith("/") ||
-        href.startsWith("#") ||
-        href.includes("jim-nielsen.com")
-      )
-    ) {
+    // Make sure we're only including links to other blog posts,
+    // not internal links "/" or "/tags/"
+    const isInternalBlogPostLink = (str) => {
+      return /\/\d{4}\/*/.test(str);
+    };
+
+    // Relative links "." or anchor links "#" shouldn’t exist for us, so we'll
+    // log in case I do that — yell at myself.
+    if (href.startsWith(".") || href.startsWith("#")) {
+      console.log(
+        "Warning: you have a link that starts with `.` or `#`: ",
+        href
+      );
+      // Otherwise, check for self-referential links
+    } else if (href.startsWith("/")) {
+      if (isInternalBlogPostLink(href)) {
+        internalLinks.push(href);
+      }
+    } else if (href.includes("blog.jim-nielsen.com")) {
+      if (isInternalBlogPostLink(href)) {
+        const { pathname } = new URL(href);
+        internalLinks.push(pathname);
+      }
+
+      // Otherwise we're dealing with outbound links
+    } else {
       const hostname = new URL(href).hostname;
       const domain = psl.get(hostname);
 
@@ -130,8 +147,9 @@ marked.use({
 export default function parseMarkdown(markdown) {
   // Reset the global each time you run this
   outboundLinksByDomain = {};
+  internalLinks = [];
 
   const html = marked(markdown);
 
-  return { html, outboundLinksByDomain };
+  return { html, outboundLinksByDomain, internalLinks };
 }
