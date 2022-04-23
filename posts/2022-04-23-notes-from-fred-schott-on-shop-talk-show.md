@@ -1,0 +1,13 @@
+#podcastNotes #useThePlatform
+
+# Podcast Notes: Fred Schott on the Shop Talk Show
+
+I recently listened to [Fred Schott](https://twitter.com/fredkschott) on [Shop Talk Show Ep. 510](https://shoptalkshow.com/510/). Fred has great insights. Anytime [he’s been on STS](https://shoptalkshow.com/448/) I’ve always walked away with my mind opened to new horizons. Previously he has worked on pika, snowpack, and skypack. Now he’s doing [Astro](https://astro.build) and has great perspective on building for the web. 
+
+These were my high-level takeaways from his convo with Dave and Chris.
+
+**Everyone is going web standards.** [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) and [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) interfaces are standardizing across server/client platforms￼. And don’t forget about Fetch: it’s everywhere you want to be (just [shipped natively in node 18](https://nodejs.org/en/blog/announcements/v18-release-announce/)). It’s a great time to be learning and investing in the primitives of the web platform over transitory framework abstractions. 
+
+**JSX everywhere might not be so great…** It was originally intended as a client side language for rich interactivity. Moving JSX to the server has costs, which may be hard to recognize given that it’s a thing originally intended for expressivity in a highly interactive environment (the client) and is moving to an environment where a lot of that disappears (the server). The innovation in Astro is their new `.astro` syntax which allows you to write code that _might_ run on both client and server. (Remix has this too, where server and client code live next to each other in the same file, so interactivity can be understood in proximity _and_ it all functions with or without JavaScript — progressive enhancement for free!)
+
+**SSG sites are SSRs sites with a warmed cache.** Is it time to update our mental model for SSGs? What’s the difference between 1) a statically generated site and, 2) a server rendered site that runs a script to hit every endpoint and warm the cache? (A question for the reader to ponder.) The server option does give you unlimited flexibility into the future. The static one can be constraining. That constraint can be good if it’s all you need (no extra overhead). But it is a limitation you may hit up against if/when you grow. Consider your [trade-offs](https://tech.sagesure.com/blog/2021-11-30-design-systems-and-trade-offs/).
