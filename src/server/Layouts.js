@@ -27,7 +27,7 @@ https://www.github.com/jimniels/blog/
 const Layout = (props, children) => {
   const {
     site: { origin, tags, name },
-    page: { layout, path, title },
+    page: { head = "", layout, path, title },
   } = props;
   const permalink = origin + path;
 
@@ -111,6 +111,9 @@ const Layout = (props, children) => {
               content="Jim Nielsen’s initials (JN) in a hand-written style."
             />
           `}
+
+          <!-- Dynamic <head> content where applicable -->
+          ${head}
         </head>
         <body>
           ${/* icon sprite importFile("./svgs/icons.svg") */ ""}
