@@ -34,7 +34,7 @@ In this sense, third-party code and abstractions can be wonderful polyfills for 
 
 This trust in, and primary dependence on, the web platform could benefit developers a lot more than we might think. It can free you from learning transient idioms as frameworks come and go. [Learn web platform features](https://remix.run/blog/not-another-framework) and carry that knowledge with you between frameworks (whether client or server).
 
-I’m optimistic that trust in browser-native features and APIs is being resorted. Libraries, frameworks, and tools (like [Remix](https://remix.run) and [Deno](https://deno.land)) are converging on standardization across the client and server and they’re choosing browser APIs to do it. I ventured [a few predictions on this point](https://blog.jim-nielsen.com/2022/web-predictions-on-a-whim/).
+I’m optimistic that trust in browser-native features and APIs is being restored. Libraries, frameworks, and tools (like [Remix](https://remix.run) and [Deno](https://deno.land)) are converging on standardization across the client and server and they’re choosing browser APIs to do it. I ventured [a few predictions on this point](https://blog.jim-nielsen.com/2022/web-predictions-on-a-whim/).
 
 > Rather than create [their] own conventions and APIs that deviate from web standards, [they are] converging towards the idea of a single web platform with a unified set of APIs, no matter the environment or runtime. For example, eschew the variety of different APIs for doing async HTTP requests and instead standardized around the fetch API everywhere.
 
