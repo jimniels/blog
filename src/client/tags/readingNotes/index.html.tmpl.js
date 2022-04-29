@@ -6,12 +6,29 @@ const page = {
   path: "/tags/readingNotes/",
 };
 
+/*
+[
+  {
+    page: ""
+    notes: [
+      {
+        title: "",
+        type: "",
+        url: "",
+        content: ""
+      }
+    ]
+]
+
+<select>Types: Article (57) | Talk (52) |</select>
+<input>Reocurring Domain</input> Adactio (52) | Github (2) | </input>
+*/
+
 export default function Tags(site) {
   return Page(
     { site, page },
     html`
       <main class="wrapper">
-        
         <style>
           hr {
             margin: calc(1.618rem * 2) auto;
@@ -44,7 +61,6 @@ export default function Tags(site) {
           Array.from(document.querySelectorAll("main h2 a")).forEach($a => {
             const { host, hostname } = new URL($a.getAttribute("href"));
             $a.parentNode.insertAdjacentHTML("beforebegin", "<small class=url>" + hostname + "</small>");
-
           });
         </script>
       </main>
