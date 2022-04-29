@@ -11,29 +11,42 @@ export default function Tags(site) {
     { site, page },
     html`
       <main class="wrapper">
-        <h1>Index of All Reading Notes</h1>
+        
         <style>
-          .div-link {
-            position: relative;
-            background: #fff;
-            z-index: 1;
-            padding-right: 10px;
-            font-size: 0.85em;
+          hr {
+            margin: calc(1.618rem * 2) auto;
+            border-width: 4px;
           }
-          .div-hr {
-            position: relative;
-            top: 1.5rem;
+          .title {
+            position: sticky;
+            top: 0;
+            background: var(--c-bg);
+          }
+          .url {
+            opacity: .5;
+            margin-top: calc(1.618rem * 2);
+            display: block;
+          }
+          .copy h2 {
+            margin-top: 0;
           }
         </style>
         ${site.posts
           .filter((post) => post.tags && post.tags.includes("readingNotes"))
           .map(
             (post) => html`
-              <hr class="div-hr" />
-              <a class="div-link" href="${post.path}">${post.title}</a>
+              <h1 class="title"><a href="${post.path}">${post.title}</a></h1>
               <div class="copy">${post.contents}</div>
+              <hr />
             `
           )}
+        <script>
+          Array.from(document.querySelectorAll("main h2 a")).forEach($a => {
+            const { host, hostname } = new URL($a.getAttribute("href"));
+            $a.parentNode.insertAdjacentHTML("beforebegin", "<small class=url>" + hostname + "</small>");
+
+          });
+        </script>
       </main>
     `
   );
