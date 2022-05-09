@@ -2,9 +2,9 @@
 
 # Podcast Notes: Michael Jackson on devMode.fm
 
-I recently listened to [this podcast with Michael](https://devmode.fm/episodes/leverage-the-web-platform-with-remix-run) and a few things stood out I wanted write down.
+No, it wasn’t _that_ Michael Jackson on the FM radio. It was [this Michael Jackson](https://twitter.com/mjackson) on [a podcast with “FM” in the title](https://devmode.fm/episodes/leverage-the-web-platform-with-remix-run) (I’ll never tire of these jokes).
 
-First, here’s Michael talking about React:
+A few things stood out I wanted write down. First, here’s Michael talking about React:
 
 > React is this very capable tool that you can build really, really terrible experiences with.
 
