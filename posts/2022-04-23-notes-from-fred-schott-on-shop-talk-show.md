@@ -1,4 +1,4 @@
-#podcastNotes #useThePlatform #remix
+#podcastNotes #webPlatform #remix
 
 # Podcast Notes: Fred Schott on the Shop Talk Show
 
