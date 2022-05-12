@@ -98,23 +98,42 @@ In an insightful post, [Sarah pointed out that this is already happening with ap
 
 There’s a cascading set of user preferences happening in a situation like this. 
 
-- OS-level
+- System-level
 - App-level (i.e. an RSS reader with a built-in browser)
 
 In a scenario like this, preferences might override each other. For example:
 
-- OS-level preference: light; App-level preference: [not set]
+- System-level preference: light; App-level preference: [not set]
 	- `@prefers-color-scheme` for the active site: light
-- OS-level preference: light; App-level preference: dark
+- System-level preference: light; App-level preference: dark
 	- `@prefers-color-scheme` for the active site: dark
 
-So a proposal might be to add another layer in this cascade of user preferences:
+So a proposal might be to add another layer ([or actually two](https://twitter.com/jimniels/status/1483946701245370370)) in this cascade of user preferences:
 
-- OS-level
+- System-level
 - App-level (RSS reader w/built-in browser)
-- Site-level (Browser)
+- Browser-level (Browser)
+- Site-level (Webpage)
 
 So, for example: if the OS preference is dark mode, the app preference is dark mode, and the browser knows that origin `example.com` has a preference for light mode, then `@prefers-color-scheme` would be `light` in that case.
+
+This is probably easier to visualize, so I put together these graphics using Firefox Nightly, [which already implements a browser-level preference](https://twitter.com/jasondmoss/status/1524724407641403393?s=21&t=jnFpywm2ziTHu4Td0bNzng) (and to simplify, I combined the preference tiers of “App” and “Browser” into one, because when your app _is_ the browser, those preferences are one and the same). 
+
+First, there’s the color scheme set to light mode at the system level, which everything else inherits from.
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/color-mode-override-cascade-1.png" width="804" height="347" alt="Screenshot of the system preferences in macOS showing an appearance preference of 'light', Firefox settings showing a preference of 'system', and a website shown in 'light' mode because it inherits from the browser, which inherits from the system." />
+
+Then you change the color scheme preference at the system level to dark, and again, everything inherits from that.
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/color-mode-override-cascade-2.png" width="804" height="351" alt="Screenshot of the system preferences in macOS showing an appearance preference of 'dark', Firefox settings showing a preference of 'system', and a website shown in 'dark' mode because it inherits from the browser, which inherits from the system." />
+
+Then you change the color scheme preference at the app/browser level to light, so now all websites in the browser inherit from that setting rather than the system one which remains in dark.
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/color-mode-override-cascade-3.png" width="804" height="346" alt="Screenshot of the system preferences in macOS showing an appearance preference of 'dark', Firefox settings showing a preference of 'light', and a website shown in 'light' mode because it inherits from the browser, which overrides the  system." />
+
+Then, last of all and theoretically, you change the color scheme preference at the website level to dark and it overrides the app/browser preference as well as the system preference.
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/color-mode-override-cascade-4.png" width="804" height="344" alt="Screenshot of the system preferences in macOS showing an appearance preference of 'dark', Firefox settings showing a preference of 'light', and a website shown in 'dark' mode because it’s settings override the browser and the system." />
 
 ## But What About…
 
@@ -124,9 +143,22 @@ I get it, there are outliers that support more than just light or dark mode, lik
 
 And those sites will have to continue to do it their way. The idea of a cascading set of preferences isn’t negated there:
 
-- OS-level (a preference in the OS somewhere)
+- System-level (a preference in the OS somewhere)
 - App-level (a preference in the app somewhere)
-- Site-level (a preference in the browser somewhere)
+- Browser-level (a preference in the browser)
+- Site-level (a preference in the browser for an individual website somewhere)
 - Brand-level (a preference in the website UI somewhere)
 
 It all seems logical to me, but I’m sure it’s more complicated than I imagine. However, I had some thoughts for this kind of browser-level choice (and [it sounds like I’m not the only one](https://twitter.com/davatron5000/status/1523297871566499842)), so I decided to just publish ’em.
+
+## Update 2022-05-12
+
+I added some extra visuals throughout the post to try and better explain visually what I’m talking about textually. I also tried to clarify the distinction between a browser-level color scheme preferences, and a website-level color scheme preference within the browser.
+
+I also learned that the browser-level preference is [available in Firefox Nightly](https://twitter.com/jasondmoss/status/1524724407641403393).
+
+[@sergiodxa](https://twitter.com/sergiodxa/status/1524611412756205569) also pointed out that, perhaps, a good way to think of the more complex appearance settings, like Twitter, is to think of a distinction between a “theme” (default, high contrast, etc.) and then color scheme preferences (light/dark) within each theme.
+
+> I think what they need are themes, so they could have the default, high contrast, etc and make each one support light and dark, so the user choose the theme within the app, and scheme at browser or OS
+
+An interesting distinction indeed!
