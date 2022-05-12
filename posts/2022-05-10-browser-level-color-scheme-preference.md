@@ -48,13 +48,29 @@ A few examples on how sites might vary in their custom implementations to overri
 - **Preference location**
     - Maybe it’s in the “User Preferences” section of an app. Maybe it’s in a slide-out navigation drawer. Maybe it’s in a header (and maybe that header is sticky so it’s always on page). Maybe it’s in the footer.
 
-In this world, the implementations for toggling light/dark mode become infinitely variable putting a burden on users due to conflicting or inconsistent UI patterns across websites.
+Just to illustrate a few quick examples, here’s a site that uses an icon in the header as a toggle for overriding the color scheme preference:
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/color-mode-override-example-gethalfmoon.png" width="661" height="461" alt="Screenshot of a website with an arrow pointing to the UI toggle with a moon icon for overriding the color scheme preference." />
+
+And here’s one that uses a textual link in the footer:
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/color-mode-override-example-macrumors.png" width="661" height="461" alt="Screenshot of a website with an arrow pointing to a link in the footer to override the color scheme preference." />
+
+And here’s another that uses radio inputs inside the application’s user settings.
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/color-mode-override-example-netlify.png" width="661" height="461" alt="Screenshot of a website with an arrow pointing to radio inputs to override the color scheme preference." />
+
+As you can see, the implementations for toggling light/dark mode on a site-by-site basis become infinitely variable which puts a burden on users due to conflicting or inconsistent UI patterns across websites.
 
 ## Why It Should Be a Site-Level Preference in the Browser
 
 `@prefers-color-scheme` is a user-level preference _at the OS-level_ that the browser can surface to website developers for individual sites. For a given OS/device, this preference is controllable in a uniform, consistent way.
 
 If a user wants to override that preference _at the browser level_ on a site-by-site basis, I believe that preference should live at the level of the browser such that it’s usable and accessible in a consistent and uniform way across websites.
+
+[Precedent exists in browsers for site-level preferences](https://twitter.com/jimniels/status/1483935534124879877), so this isn’t necessarily a novel idea. For example, Safari already has site-level preferences available via the “website preferences” toggle in the toolbar. Imagine if there was one more item in that dropdown for setting your color mode preference. Example:
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/color-mode-override-safari-preference.png" width="723" height="475" alt="Screenshot of Safari’s “Website preferences” toolbar dropdown with an altered mockup showing an option to choose the color scheme for an individual website." />
 
 Today, the burden is placed on site owners to give users the ability to customize their color scheme preference on a site-by-site basis. Every website in the world has to:
 
