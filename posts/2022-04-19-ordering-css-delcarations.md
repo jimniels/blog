@@ -145,11 +145,11 @@ The background color of this element will be red. However, if the selector’s p
 
 Do you know the background color of this element in this context? It’s not red, it’s transparent! The `background` shorthand expects a color value and, if it doesn’t get one, the default will apply (transparent). So even though you are not explicitly overriding the `background-color` with the presence of a color value in the shorthand declaration, you’re still overriding the value of the preceding `background-color` declaration.
 
-The difference between these sort orders matters, as they result it two different renderings of a UI.
+The difference between these sort orders matters, as they result in two different renderings of a UI.
 
 ## Remember: Property Order Matters
 
-Granted, a lot of these examples aren’t particularly thorny problems to solve. Duplicate properties? That might result in misapplied styles, but alphabetical ordering could help surface the source of the problem. Vendor prefixes? Maybe you should use an automated tool for adding those (if even need them at all).
+Granted, a lot of these examples aren’t particularly thorny problems to solve. Duplicate properties? That might result in misapplied styles, but alphabetical ordering could help surface the source of the problem. Vendor prefixes? Maybe you should use an automated tool for adding those (if you even need them at all).
 
 The point is: not ordering rules in CSS doesn’t mean they are “unordered” or that there is “no order”. **In CSS, property declarations are always ordered – however implicitly – and that ordering carries meaning**. It might be a mindless order that means nothing to you as the author, but it means something to the browser.
 
@@ -161,4 +161,4 @@ All that said, I like the thrust of Eric’s argument: we too often think we can
 
 If you came into a codebase where all the declarations were sorted alphabetically, you’d assume meaning and intent in that choice. And if you then came across a set of declarations that weren’t ordered alphabetically, you’d likely assume one of two things about the code: 1) a careless mistake was made, or 2) there’s some good underlying reason for the pattern-breaking order.
 
-When you find CSS written with care, it reinforces that CSS is worthy of writing with care. And care matters in CSS because, as we’ve seen, property delcaration order matters. 
+When you find CSS written with care, it reinforces that CSS is worthy of writing with care. And care matters in CSS because, as we’ve seen, property declaration order matters. 
