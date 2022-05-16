@@ -28,6 +28,8 @@ Now, as we begin to enter this new world of displays with wider color gamuts, I�
 
 As a designer, is it possible for me to make design decisions around these new color gamuts without actually owning a display capable of displaying them? How do you pick a suitable color if you can’t see it? Can you? Should you?
 
+Conversely, if all you have is a wider gamut display, how do you know if your color choices will degrade gracefully to sRGB?
+
 As a really basic example of what I’m trying to get at, if I’m on an device that only allows looking at sRGB, can I: 
 
 - choose a vibrant, accessible red in the rgb gamut,
