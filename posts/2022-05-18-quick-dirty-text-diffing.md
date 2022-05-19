@@ -61,3 +61,15 @@ Then a new tab opens showing my diff (similar to what you’d see if you can `co
 <img src="https://cdn.jim-nielsen.com/blog/2022/diff-tool-vscode-diff.png" width="1319" height="1124" alt="" />
 
 It’s a great solution that gains an upperhand by being integrated right into my code editor.
+
+## Update 2022-05-19
+
+Turns out, you don’t even need an extension to do this!
+
+[@chrisofspades came late to the party](https://twitter.com/chrisofspades/status/1527322594285740037) noting that you can do ephemeral text diffing in vscode without any extensions at all.
+
+1. Copy/paste to untitled doc1
+2. Copy/paste to untitled doc2
+3. `CMD + Shift + P` “Compare active file with…” and select doc 1.
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/diff-tools-vscode-native.gif" width="488" height="360" alt="Animated gif showing the command palette in vscode running the “compare active file...” diff command." />
