@@ -72,4 +72,4 @@ Turns out, you don’t even need an extension to do this!
 2. Copy/paste to untitled doc2
 3. `CMD + Shift + P` “Compare active file with…” and select doc 1.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/diff-tools-vscode-native.gif" width="488" height="360" alt="Animated gif showing the command palette in vscode running the “compare active file...” diff command." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/diff-tools-vscode-native.gif" width="976" height="720" alt="Animated gif showing the command palette in vscode running the “compare active file...” diff command." />
