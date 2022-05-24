@@ -22,4 +22,6 @@ It’s an intriguing idea: you can’t make users’ computers or networks faste
 
 > You can make your server fast, but you can't control the user's network…The only thing you can do is decrease the amount of stuff you send over the network. Less JavaScript, less JSON, less CSS. This is easiest when you have a server that you can move the logic to, and a framework that favors progressive enhancement [like Remix].
 
-Part of a progressively-enhanced experience might just be: for less capable devices, offload the CPU cycles and network calls to other, more capable devices.
+We already have `@prefers-reduced-data`, maybe we need a `@prefers-reduced-compute` or even a `@prefers-no-javascript` media query ha!
+
+Joking aside, I don’t think it’s crazy to consider lots of data fetching and on-device compute as part of a progressively-enhanced experience. In other words: for less capable devices, offload the CPU cycles and network calls to other, more capable computers.
