@@ -15,8 +15,8 @@ Here’s what I was seeing: when in dark mode, I’d see the page flash from lig
 <video
   controls
 	src="https://cdn.jim-nielsen.com/blog/2022/fart-white-flash.mp4"
-	width="523"
-	height="360">
+	width="1046"
+	height="720">
 </video>
 
 There’s no synchronous JavaScript at play here applying dark mode classes or the like. It’s only `@media (prefers-color-scheme)`. So why is it flashing like this?
@@ -26,8 +26,8 @@ My first thought was, “I don’t think I knew about [color-scheme](https://blo
 <video
   controls
 	src="https://cdn.jim-nielsen.com/blog/2022/fart-dark-flash.mp4"
-	width="528"
-	height="360">
+	width="1056"
+	height="720">
 </video>
 
 Interesting—but I’m still seeing the flash, so problem not solved.
@@ -39,8 +39,8 @@ Sure enough, that fixed the problem!
 <video
   controls
 	src="https://cdn.jim-nielsen.com/blog/2022/fart-no-flash.mp4"
-	width="516"
-	height="360">
+	width="1032"
+	height="720">
 </video>
 
 So: if you’re seeing a flash of color as you transition between pages in dark mode (and you’re not doing anything sophisticated like applying dark mode classes via JavaScript) chances are you might just be applying your page’s background color to the wrong element! Put it on `:root` or `html` element, not on the `body`!
