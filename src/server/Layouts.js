@@ -122,8 +122,8 @@ const Layout = (props, children) => {
             <nav>
               <strong>
                 ${path === "/"
-                  ? `<span>Jim Nielsen’s Blog</span>`
-                  : `<a href="/">Jim Nielsen’s Blog</a>`}
+                  ? `<span class="highlight">Jim Nielsen’s Blog</span>`
+                  : `<a href="/" class="highlight">Jim Nielsen’s Blog</a>`}
               </strong>
               ${nav.map(({ label, path: navItemPath }) =>
                 navItemPath === path

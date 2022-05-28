@@ -365,7 +365,7 @@ site-nav nav {
   gap: calc(1.618rem / 2);
 }
 
-site-nav nav > :first-child > * {
+.highlight {
   padding: calc(1.618rem / 9) calc(1.618rem / 3);
   border-radius: 0 20px 0;
   color: var(--c-bg);
@@ -374,7 +374,7 @@ site-nav nav > :first-child > * {
   display: inline-flex;
   align-items: center;
 }
-site-nav nav > :first-child > *:before {
+.highlight:before {
   width: 100%;
   height: 100%;
   content: "";
