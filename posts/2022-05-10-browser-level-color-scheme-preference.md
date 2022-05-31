@@ -162,3 +162,5 @@ I also learned that the browser-level preference is [available in Firefox Nightl
 > I think what they need are themes, so they could have the default, high contrast, etc and make each one support light and dark, so the user choose the theme within the app, and scheme at browser or OS
 
 An interesting distinction indeed!
+
+Also: [bram.us](https://www.bram.us/2022/05/25/dark-mode-toggles-should-be-a-browser-feature/) goes into even more technical detail as to why this is a problem today and why we should have browser- and site-level presences built in. 
