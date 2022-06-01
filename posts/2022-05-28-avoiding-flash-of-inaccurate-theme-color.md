@@ -2,6 +2,8 @@
 
 # Avoiding Flash of Inaccurate Theme Color
 
+**Update**: I probably fired off this post too quickly without fully understanding everything at play here. Further research on my part is required, which I will do when I'm back from vacation. Until then, don't read into this too much. 
+
 [Firing off a quick post here about a rather simple problem I suppose I should’ve known the answer to, but didn’t. So I’m documenting it in case, someday, somebody else has the same question.]
 
 Are you running into a nasty case of [flash of inAccurate coloR Theme (FART)](https://css-tricks.com/flash-of-inaccurate-color-theme-fart/)?
