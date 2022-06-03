@@ -2,7 +2,11 @@
 
 # Avoiding Flash of Inaccurate Theme Color
 
-**Update**: I probably fired off this post too quickly without fully understanding everything at play here. Further research on my part is required, which I will do when I'm back from vacation. Until then, don't read into this too much. 
+**Update 2021-06-02**: I fired off this post _too_ quickly. I got some good feedback on Twitter, including [a note from @zcorpan](https://twitter.com/zcorpan/status/1531299212553502720) about a detail I missed: I had a `transition` property on the `body`! When I moved the `background-color` from `body` to `html`, the flash disappeared _because the transition wasn’t taking effect_. 
+
+Upon further investigation, I realized that **it doesn’t matter if the background color is on the body or the root** — as long as you don’t have a `transition` on either. But if you do have a `transition`, there’s some interesting behavior on how the document transitions based on whether you have the `color-scheme` property set. So I learned that — plus to consider a self-imposed delay when firing off posts late at night.
+
+---
 
 [Firing off a quick post here about a rather simple problem I suppose I should’ve known the answer to, but didn’t. So I’m documenting it in case, someday, somebody else has the same question.]
 
