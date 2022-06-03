@@ -1,6 +1,6 @@
 #css
 
-# Avoiding Flash of Inaccurate Theme Color
+# Avoiding Flash of Inaccurate Theme Color [Edit: I Was Wrong]
 
 **Update 2021-06-02**: I fired off this post _too_ quickly. I got some good feedback on Twitter, including [a note from @zcorpan](https://twitter.com/zcorpan/status/1531299212553502720) about a detail I missed: I had a `transition` property on the `body`! When I moved the `background-color` from `body` to `html`, the flash disappeared _because the transition wasn’t taking effect_. 
 
