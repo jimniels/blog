@@ -22,7 +22,7 @@ It makes me think skiing. There’s the groomed runs if you’re starting out an
 
 I see good design systems a bit like ski resorts: they groom well-trodden areas, make room for and encourage exploration around the groomed areas, and set limits for exploration beyond logical boundaries which prevent a unified cohesion of the overall whole.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/design-system-boundary-sign-die.jpg" width="1000" height="1088" alt="A photograph of a sign on a ski slope with a skull and bones which has been Photoshopped to say (in all caps) “You are leaving the design system. You can die. This is your decision.”" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/design-system-boundary-sign-die.jpg" width="600" height="653" alt="A photograph of a sign on a ski slope with a skull and bones which has been Photoshopped to say (in all caps) “You are leaving the design system. You can die. This is your decision.”" />
 
 Lastly, I really liked this this observation from Jeremy about design tools:
 
