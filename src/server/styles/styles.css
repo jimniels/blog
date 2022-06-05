@@ -373,6 +373,7 @@ site-nav nav {
   margin-left: calc(-1.618rem / 2);
   display: inline-flex;
   align-items: center;
+  font-weight: 700;
 }
 .highlight:before {
   width: 100%;
