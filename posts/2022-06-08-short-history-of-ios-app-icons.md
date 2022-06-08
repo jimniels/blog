@@ -12,7 +12,7 @@ _The following was originally written by me and published as a chapter in [“Th
 
 This is an iconic shape — pun intended. Like a logo, it has come to be associated with a single brand. Put a couple of them together on a grid, and you begin to see how recognizable the shape is.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/app-icon-book-grid.png" width="276" height="427" alt="A grid of black icons on a white backgrounding, resembling the silhouette of the iPhone’s springboard." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/app-icon-book-grid.png" width="375" height="610" alt="A grid of black icons on a white backgrounding, resembling the silhouette of the iPhone’s springboard." />
 
 Since the iPhone’s public reveal in 2007, iOS applications have been primarily identified, embodied, and personified by a single piece of artwork: the app icon, a square piece of artwork with masked corner radii.
 
