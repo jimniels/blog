@@ -93,4 +93,4 @@ There’s still a lot of room for improvement in these, like more natural suppor
 
 Overall, I had lots of fun going from idea (how can I visualize the links between all my blogs?) to execution (a graph of interconnected nodes generated from metadata extracted from my blog). 
 
-[Checkout the live example here.](/about/internal-links)
+[Check out the live example here.](/about/internal-links)
