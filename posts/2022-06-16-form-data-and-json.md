@@ -4,7 +4,7 @@
 
 > …I guess it's true that you learn web standards by learning remix — [@ovstoica](https://twitter.com/ovstoica/status/1521776397588520960)
 
-I’m working on rebuilding a side project in Remix. Right now it’s pure client-side, meaning no JavaScript = no functionality. Why did I build it that way? Honestly, because it’s the only way I knew how. But now with Remix I feel empowered to build it with progressively-enhancement in mind: it works _before_ JavaScript loads, then when (or _if_) the JS loads, the page gets enhanced.
+I’m working on rebuilding a side project in Remix. Right now it’s pure client-side, meaning no JavaScript = no functionality. Why did I build it that way? Honestly, because it’s the only way I knew how. But now with Remix I feel empowered to build it with progressive-enhancement in mind: it works _before_ JavaScript loads, then when (or _if_) the JS loads, the page gets enhanced.
 
 So far, [it’s going really well](https://twitter.com/jimniels/status/1530059286826582016). I’m learning a lot along the way—often [more about the web platform than about Remix the framework](https://twitter.com/jimniels/status/1532929935370817538).
 
