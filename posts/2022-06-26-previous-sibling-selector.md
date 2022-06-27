@@ -111,7 +111,7 @@ Here’s the selector I ended up writing:
 
 `p:has(+ hr) a:only-child {`
 
-It only works in [browsers that support `:has()`](https://caniuse.com/css-has) (Safari at the time of this writing), but that was ok for my use case. Want to see an example in action? [Check out the Codepen](https://codepen.io/jimniels/pen/PoQMPeO?editors=1100).
+It only works in [browsers that support `:has()`](https://caniuse.com/css-has) (Safari at the time of this writing), but that was ok for my use case (this style is an enhancement to the page after all—if it’s not there, no big deal because nothing breaks, but with each passing day it’ll become more likely that browsers will have `:has()` support). Want to see an example in action? [Check out the Codepen](https://codepen.io/jimniels/pen/PoQMPeO?editors=1100).
 
 <img src="https://cdn.jim-nielsen.com/blog/2022/prev-sibling-selector-received.png" width="564" height="558" alt="" />
 
