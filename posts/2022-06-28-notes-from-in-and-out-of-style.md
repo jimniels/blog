@@ -18,7 +18,7 @@ I think there are also conceptual polyfills. Many programmatic polyfills start o
 
 > Frameworks can point the way to a shared context in the future but they themselves are not the future...Use frameworks and libraries as scaffolding to help you build. They are not a foundation. Web standards in the browser are the foundation to build upon.
 
-I like this framing and it’s what I find so exciting about some of the newer abstractions like Remix and Deno which seek to start with web platform APIs [and principles](https://blog.jim-nielsen.com/2022/permeating-principles-of-the-web/) as their foundations for building. They start by asking: does this abstraction already exist, in some form or fashion, in the web platform?[^2] They look to fill the gaps of the platform and extend it, rather than reinvent anew its foundations.
+I like this framing and it’s what I find so exciting about some of the newer abstractions like Remix and Deno which seek to start with web platform APIs [and principles](https://blog.jim-nielsen.com/2022/permeating-principles-of-the-web/) as their foundations for building. They start by asking: does this abstraction already exist, in some form or fashion, in the web platform?[^2] They look to fill the gaps of the platform and extend it (along the grain of its principles), rather than reinvent anew its foundations.
 
 ---
 
