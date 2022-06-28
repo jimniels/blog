@@ -105,7 +105,7 @@ But how do I select _the previous sibling_ of an element? Something like `p:befo
 
 I found a question about a “previous sibling selector” on StackOverflow. While the top-voted answer basically said “there is no such thing”, a few answers down I found [this gem](https://stackoverflow.com/a/15503444) which said you can do it with the new `:has()` selector!
 
-(**Aside**: I’d heard that some folks were hesitant to call `:has()` the “parent selector” — even though it does let you select elements with a specific parent — but I was never sure why. This particular case helped me understand why because it helped me target a sibling not a parent!)
+(**Aside**: some folks say [don’t call `:has()` the “parent selector”](https://www.bram.us/2021/12/21/the-css-has-selector-is-way-more-than-a-parent-selector/) — even though it does let you select elements with a specific parent — and this particular case illustrates why: I’m targeting a sibling not a parent!)
 
 Here’s the selector I ended up writing:
 
