@@ -22,10 +22,12 @@ export default function Index(site) {
       ${trending.length > 0 &&
       html`
         <h1>
-          Popular Posts This Month (<a
+          Recently Popular
+          <a
+            style="font-size: .875rem; font-weight: normal;"
             href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
-            >According to the Data</a
-          >)
+            >(Data courtesy of Netlify)</a
+          >
         </h1>
         ${PostList(trending, { showPageviews: true })}
       `}
@@ -53,10 +55,7 @@ export default function Index(site) {
   );
 }
 
-function PostList(
-  posts,
-  { showPageviews, showAllLink } = { showPageviews: false, showAllLink: false }
-) {
+function PostList(posts, { showPageviews } = { showPageviews: false }) {
   return html`
     <ul class="posts-list">
       ${posts.map(
@@ -74,7 +73,6 @@ function PostList(
           </li>
         `
       )}
-      ${showAllLink && html`<li><a href="/archive/">View all →</a></li>`}
     </ul>
   `;
 }

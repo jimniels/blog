@@ -58,7 +58,7 @@
     --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 6%);
     --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
     --c-bg-opaque: hsl(
-      var(--c-theme-h) calc(var(--c-theme-s) - 0%) var(--c-theme-l) / 0.0666
+      var(--c-theme-h) var(--c-theme-s) var(--c-theme-l) / 0.0666
     );
 
     --c-blue-h: 211;
@@ -364,7 +364,6 @@ site-nav {
 site-nav nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   flex-wrap: wrap;
   gap: calc(1.618rem / 2);
 }
@@ -395,14 +394,13 @@ site-nav nav {
     flex-direction: column;
     margin-top: calc(1.618rem * 1);
     margin-bottom: calc(1.618rem * 2);
-    align-items: flex-end;
   }
   site-nav nav {
     gap: calc(1.618rem / 4) calc(1.618rem / 2);
   }
   site-nav nav > :first-child {
     flex-basis: 100%;
-    text-align: right;
+    margin-left: 1rem;
   }
 }
 
@@ -416,9 +414,7 @@ site-nav nav {
     margin-left: auto;
     margin-right: auto;
   }
-  site-nav nav {
-    justify-content: flex-end;
-  }
+
   site-nav form {
     justify-content: center;
   }
@@ -462,7 +458,7 @@ site-nav form.is-expanded label {
   }
   site-nav form {
     position: absolute;
-    left: 0;
+    right: 0;
     flex-direction: row;
     justify-content: space-between;
     top: 0;
@@ -472,9 +468,6 @@ site-nav form.is-expanded label {
   }
   site-nav form.is-expanded {
     width: 100%;
-  }
-  site-nav form label {
-    order: 2;
   }
 }
 
