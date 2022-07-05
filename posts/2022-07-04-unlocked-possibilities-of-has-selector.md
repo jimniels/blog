@@ -50,7 +50,7 @@ You pretty much _have to_ write your markup that way. If, for example, you nest 
 
 With `:has()`, targeting an element at any level of the DOM tree based on state anywhere else in the DOM tree becomes incredibly easy. This frees you to structure your HTML in the most semantic form possible, not due to some constraint of available CSS selectors.
 
-```
+```html
 <form>
   <label>
     <input type="checkbox">
