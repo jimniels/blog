@@ -12,49 +12,49 @@ At one point, he shows a slide that displays the character “a” set in variou
 
 What really intrigues me is the visualization that accompanies his presentation.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-animation.gif" width="408" height="228" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-animation.gif" width="816" height="456" alt="Animation showing a 9x4 grid of the letter 'a' set in San Francisco but in varying weights and families, with a radial emphasis in opacity from the middle outwards to the edges." />
 
 What he’s describing I sort-of know intuitively from years of setting type in designs. When working on a design, I’ll often step through variations of a font until I hit the right amount of attention or emphasis that I want to provide for a given element. 
 
 However, my mental model for stepping through variations in type is tied to the font picker UI in my design tools: a dropdown list. For example, I might go up or down the list of weights to see if I like the outcome:
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-list-variants.png" width="218" height="267" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-list-variants.png" width="218" height="267" alt="A linear, top-down list of font weights from Ultralight to Black with 'Regular' being selected." />
 
 If that’s leaving me unsatisfied, I might switch to going up or down the list of families:
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-list-families.png" width="218" height="160" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-list-families.png" width="218" height="160" alt="A linear, top-down list of font families from Condensed to Expanded with 'Regular' being selected." />
 
 Ultimately, what I have in my head is two distinct, one-dimensional scales from which I alternate choosing.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-list.png" width="600" height="323" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-list.png" width="600" height="323" alt="Two flat lists of type choices for font familiy and weight, with 'Regular' being selected in both lists." />
 
 You may understand, now, why putting these options in a two-dimensional grid was so intriguing to me: it visualizes a concept I only ever grasped intuitively — this is what great graphic design does!
 
 You have a two-dimensional grid of stylistic type choices.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid.png" width="800" height="460" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid.png" width="800" height="460" alt="A 9x4 grid of the letter 'a' set in San Francisco but in varying weights and families." />
 
 The center focal point of the grid represents design choices for a more natural voice.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-middle.png" width="800" height="460" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-middle.png" width="800" height="460" alt="A 9x4 grid of the letter 'a' set in San Francisco but in varying weights and families, with a radial emphasis in opacity from the middle outwards to the edges." />
 
 While the outer edges of the grid represent more extreme design choices, granting more expressiveness and garnering more attention.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-outer.png" width="800" height="460" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-outer.png" width="800" height="460" alt="A 9x4 grid of the letter 'a' set in San Francisco but in varying weights and families, with a radial emphasis in opacity from the outside inward to the middle." />
 
 This visual depiction illustrates the spectrum of selecting type. The more drastically you step between family and weight variations, the more contrast and visual emphasis will show up in your designs.
 
 For example, if you start with type towards the center of the grid you can then jump one row or column to an adjacent cell for subtle but effective type variation in some design contexts.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-step-close.png" width="800" height="460" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-step-close.png" width="800" height="460" alt="A 9x4 grid of the letter 'a' set in San Francisco but in varying weights and families. The middle letter 'a' is highlighted and has an arrow drawn to an adjacent cell in the row above it." />
 
 The further you cross cells, the more juxtaposition your text will have.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-step-middle.png" width="800" height="460" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-step-middle.png" width="800" height="460" alt="A 9x4 grid of the letter 'a' set in San Francisco but in varying weights and families. The middle letter 'a' is highlighted and has an arrow drawn across adjacent cells two rows above it and two columns to the left." />
 
 Until ultimately, you reach the outer boundaries of the “stylistic map” and can’t go any further; thus providing the most contrast and variation possible short of switching to a new font entirely.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-step-far.png" width="800" height="460" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/sf-font-grid-step-far.png" width="800" height="460" alt="A 9x4 grid of the letter 'a' set in San Francisco but in varying weights and families. The middle letter 'a' is highlighted and has an arrow drawn to the furthest most cell three columns up and four columns over." />
 
 Seeing the character “a” laid out on a grid with radial variations expanding outwards in a continuum of expressiveness and contrast is an intriguing visualization that resonates with my own intuition for picking fonts. Somehow I’d never really seen this kind of visualization. So here I am blogging about it.
 
