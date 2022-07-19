@@ -1,3 +1,5 @@
+#bookNotesStevenKing
+
 # My Office Space
 
 I’ve always had an internal struggle with my office workspace. I see lots of pictures of beautiful workspaces. I sit on zoom calls with people who have wonderful backgrounds. I watch recordings of people who appear to have the complete setup. I read articles about new office spaces. All of it leaves me wanting more from my own space. 
