@@ -1,6 +1,6 @@
 #bookNotesStevenKing
 
-# There is No Bar — But Having One Is Good Too
+# There Is No Bar — But Having One is Good Too
 
 As it relates to blogging, I’ve seen encouragement to Just Publish It™️. Matt says [just put stuff out there](https://matthiasott.com/notes/just-put-stuff-out-there) while Chris adds that [there is no bar](https://chriscoyier.net/2022/06/27/there-is-no-bar/) for the quality of a blog post.
 
