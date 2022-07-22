@@ -1,4 +1,4 @@
-#myBlog
+#myBlog #quickChartIo
 
 # Visualizing My Blog’s Internal Links
 
