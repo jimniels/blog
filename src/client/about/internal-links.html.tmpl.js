@@ -30,19 +30,18 @@ export default function Index(site) {
     { site, page },
     html`
       <main>
-        <div class="wrapper">
+        <div class="wrapper copy">
           <h1>${page.title}</h1>
           <p>
             A visual representation of the relationship between posts on my
             blog. It uses viz.js to draw the graph. You can learn more about how
             I did this in my
-            <a href="/2022/visualizing-my-blogs-links/"
-              >my blog post (coming soon).</a
-            >
+            <a href="/2022/visualizing-my-blogs-links/">my blog post</a> (or
+            <a href="/about#stats">check out my other stats</a>).
           </p>
           <p>
-            <strong>Note:</strong> I need to make this better and make it easy
-            to pan/zoom on this content. An addition for another day.
+            <strong>FYI:</strong> I need to make this better and make it easy to
+            pan/zoom on this content. An addition for another day.
           </p>
           <noscript style="color: red">
             You must have JavaScript enabled to use this chart.

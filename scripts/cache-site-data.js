@@ -7,7 +7,7 @@ const POSTS_DIR = path.join(__dirname, "../posts");
 
 try {
   fs.writeFileSync(
-    path.join(__dirname, "../.site-data.cache.json"),
+    path.join(__dirname, "../.cache/site.json"),
     JSON.stringify(await getSiteData(), null, 2)
   );
 } catch (e) {
@@ -17,20 +17,22 @@ try {
 
 /**
  * Get global data available for the site.
- * @returns {Site}
+ * @returns {import("../types").Site}
  */
 async function getSiteData() {
+  /** @type { import("../types").Site } */
   let site = {
     name: "Jim Nielsen’s Blog",
     origin: "https://blog.jim-nielsen.com",
-    outboundLinksByDomain: {},
+    externalLinksByDomain: {},
     internalLinksByPath: {},
     posts: [],
     postsByYear: {},
-    tags: [],
+    tagIds: [],
+    tagsById: {},
   };
 
-  // Get the rending posts from Netlify. We'll add info from this to our posts
+  // Get the trending posts from Netlify. We'll add info from this to our posts
   const trendingPosts = await getTrendingPosts();
 
   // All our post files
@@ -45,15 +47,17 @@ async function getSiteData() {
 
   // Loop over each file and add it to our site data
   files.forEach((file) => {
+    /** @type { import("../types").Post } */
     let post = {
       title: "",
-      tags: [],
-      contents: "",
-      date: undefined, // Date
+      date: "",
       slug: "",
       path: "",
-      // pageviews added dynamically where relevant
-      // permalink added at build time
+      permalink: "",
+      tags: [],
+      wordCount: 0,
+      contents: "",
+      // `pageviews` added dynamically where relevant
     };
 
     // Extract `title` and `tags` from the markdown document
@@ -89,18 +93,19 @@ async function getSiteData() {
 
     // Convert markdown to HTML & get links data
     const markdownSansTagsAndTitle = markdownByLine.join("\n");
-    const { html, outboundLinksByDomain, internalLinks } = parseMarkdown(
+    const { html, externalLinksByDomain, internalLinks } = parseMarkdown(
       markdownSansTagsAndTitle
     );
+    post.wordCount = markdownSansTagsAndTitle.split(" ").length;
     post.contents = html;
 
-    Object.keys(outboundLinksByDomain).forEach((domain) => {
-      if (site.outboundLinksByDomain[domain]) {
-        site.outboundLinksByDomain[domain].push(
-          ...outboundLinksByDomain[domain]
+    Object.keys(externalLinksByDomain).forEach((domain) => {
+      if (site.externalLinksByDomain[domain]) {
+        site.externalLinksByDomain[domain].push(
+          ...externalLinksByDomain[domain]
         );
       } else {
-        site.outboundLinksByDomain[domain] = outboundLinksByDomain[domain];
+        site.externalLinksByDomain[domain] = externalLinksByDomain[domain];
       }
     });
 
@@ -174,45 +179,56 @@ async function getSiteData() {
       return acc;
     }, {});
 
-  // All site tags
-  site.tags = Array.from(
+  // Tags are sorted, by default, in the same way `tagsById` are: by occurence
+  site.tagsById = Array.from(
     new Set(
       site.posts
         .filter((post) => post.tags)
         .map((post) => post.tags)
         .flat()
     )
-  );
+  )
+    .map((tagId) => ({
+      id: tagId,
+      count: site.posts.filter((post) => post.tags.includes(tagId)).length,
+    }))
+    .sort((a, b) => (a.count < b.count ? 1 : a.count > b.count ? -1 : 0))
+    .reduce((acc, tag) => ({ ...acc, [tag.id]: tag }), {});
+  site.tagIds = Object.keys(site.tagsById);
+
+  // Sort this thing so we don't have to elsewhere
+  site.externalLinksByDomain = Object.entries(site.externalLinksByDomain)
+    .sort(([domainA, linksA], [domainB, linksB]) => {
+      // First sort by number of links under that domain
+      const aCount = linksA.length;
+      const bCount = linksB.length;
+      if (aCount < bCount) {
+        return 1;
+      }
+      if (aCount > bCount) {
+        return -1;
+      }
+
+      // if counts match, sort alphabetically by domain
+      if (domainA < domainB) {
+        return -1;
+      }
+      if (domainA > domainB) {
+        return 1;
+      }
+      return 0;
+    })
+    .reduce((acc, [domain, links]) => ({ ...acc, [domain]: links }), {});
+
+  site.internalLinksByPath = Object.entries(site.internalLinksByPath)
+    .sort(([pathA, linksA], [pathB, linksB]) => {
+      return linksA.length < linksB.length
+        ? 1
+        : linksA.length > linksB.length
+        ? -1
+        : 0;
+    })
+    .reduce((acc, [path, links]) => ({ ...acc, [path]: links }), {});
 
   return site;
 }
-
-/**
- * Data model for all data part of the site. This should be stingify-able
- * @typedef {Object} Site
- * @property {string} name
- * @property {string} origin
- * @property {Object.<string, Array.<string>>} outboundLinksByDomain
- * @property {Array.<Post>} posts
- * @property {Object.<string, Array.<Post>>} postsByYear
- * @property {Array.<string>} tags
- */
-
-/**
- * The post created from raw markdown data and stringified to JSON
- * @typedef {Object} Post
- * @property {string} title
- * @property {string} date - ISO8601 datestring
- * @property {string} slug - Slug of post, i.e. `my-post`
- * @property {string} path - Path to the post, i.e. `/2019/my-post/`
- * @property {string} permalink - Fully qualified URL (site.origin + post.path)
- * @property {Array.<string>} tags
- * @property {number} pageviews? - Pageviews according to netlify analytics
- */
-
-/**
- * @typedef {Object} Page
- *
- * @property {string} title
- * @property {string} path
- */

@@ -2,52 +2,33 @@ import { Page } from "../../server/Layouts.js";
 import { html } from "../../server/utils.js";
 
 const page = {
-  title: "Outbound Links",
+  title: "External Links",
   path: "/about/links/",
 };
 
 export default function About(site) {
-  const domains = Object.keys(site.outboundLinksByDomain).sort(
-    (domainA, domainB) => {
-      // First sort by number of links under that domain
-      const aCount = site.outboundLinksByDomain[domainA].length;
-      const bCount = site.outboundLinksByDomain[domainB].length;
-      if (aCount < bCount) {
-        return 1;
-      }
-      if (aCount > bCount) {
-        return -1;
-      }
-
-      // if counts match, sort alphabetically by domain
-      if (domainA < domainB) {
-        return -1;
-      }
-      if (domainA > domainB) {
-        return 1;
-      }
-      return 0;
-    }
-  );
+  const domains = Object.keys(site.externalLinksByDomain);
 
   const domainsOfMoreThanOne = domains.filter(
-    (domain) => site.outboundLinksByDomain[domain].length > 1
+    (domain) => site.externalLinksByDomain[domain].length > 1
   );
   const domainsOfOnlyOne = domains.filter(
-    (domain) => site.outboundLinksByDomain[domain].length === 1
+    (domain) => site.externalLinksByDomain[domain].length === 1
   );
 
   return Page(
     { site, page },
     html` <main class="copy">
-      <h1>Outbound Links From My Blog</h1>
+      <h1>External Links From My Blog</h1>
 
       <p>
         I thought it would be interesting to
         <a href="/2020/indexing-my-blogs-links/"
-          >index all the outbound links on my blog</a
+          >index all the external links on my blog</a
         >
-        and keep it as a running list.
+        and keep it as a running list (<a href="/about#stats"
+          >see my other stats</a
+        >).
       </p>
 
       ${domainsOfMoreThanOne.map(
@@ -62,11 +43,11 @@ export default function About(site) {
               />
               <span class="domain">${domain}</span>
               <span class="count"
-                >${site.outboundLinksByDomain[domain].length}</span
+                >${site.externalLinksByDomain[domain].length}</span
               >
             </summary>
             <ol>
-              ${site.outboundLinksByDomain[domain].map(
+              ${site.externalLinksByDomain[domain].map(
                 (link) => html` <li><a href="${link}">${link}</a></li> `
               )}
             </ol>
@@ -80,8 +61,8 @@ export default function About(site) {
           ${domainsOfOnlyOne.map(
             (d) => html`
               <li>
-                <a href="${site.outboundLinksByDomain[d][0]}"
-                  >${site.outboundLinksByDomain[d][0]}</a
+                <a href="${site.externalLinksByDomain[d][0]}"
+                  >${site.externalLinksByDomain[d][0]}</a
                 >
               </li>
             `
