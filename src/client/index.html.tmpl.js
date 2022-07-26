@@ -65,9 +65,10 @@ function PostList(posts, { showPageviews } = { showPageviews: false }) {
             <small>
               <time datetime="${date}">${toDateUI(date)}</time>
               ${showPageviews
-                ? pageviews > 1000
-                  ? Math.round((pageviews / 1000) * 10) / 10 + "k"
-                  : pageviews
+                ? "↑ " +
+                  (pageviews > 1000
+                    ? Math.round((pageviews / 1000) * 10) / 10 + "k"
+                    : pageviews)
                 : ""}
             </small>
           </li>
