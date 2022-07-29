@@ -119,3 +119,11 @@ Not only might they perform better, but they might have a smaller payload, fewer
 “But they don’t look as good,” we will say. 
 
 Maybe it’s time we let go. As Buddha said, you can only lose what you cling to.
+
+## Update 2022-07-29
+
+Shortly after publishing, I began to notice [the bell curve meme](https://knowyourmeme.com/memes/iq-bell-curve-midwit) making the rounds with commentary on technology choices ([todo lists](https://twitter.com/levelsio/status/1552666734376665089), [notes](https://twitter.com/andreyzagoruiko/status/1552086187489107969?s=21&t=ol5_lXdx2S8Bt-8rdwZmsg), [php/js](https://twitter.com/swyx/status/1552730861052628992?s=21&t=ol5_lXdx2S8Bt-8rdwZmsg), etc.).
+
+That meme captures quite well what I was trying to get across in this post, so I had to make one for HTML email and include it here.
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/html-emails-meme.png" width="540" height="500" alt="Meme showing " />
