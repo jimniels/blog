@@ -2,7 +2,7 @@ import hljs from "highlight.js";
 import { marked } from "marked";
 import psl from "psl";
 
-let outboundLinksByDomain = {};
+let externalLinksByDomain = {};
 let internalLinks = [];
 
 // Footnotes
@@ -106,16 +106,17 @@ const renderer = {
         const { pathname } = new URL(href);
         internalLinks.push(pathname);
       }
-
+    } else if (href.includes("jim-nielsen.com")) {
+      // Do nothing
       // Otherwise we're dealing with outbound links
     } else {
       const hostname = new URL(href).hostname;
       const domain = psl.get(hostname);
 
-      if (outboundLinksByDomain[domain]) {
-        outboundLinksByDomain[domain].push(href);
+      if (externalLinksByDomain[domain]) {
+        externalLinksByDomain[domain].push(href);
       } else {
-        outboundLinksByDomain[domain] = [href];
+        externalLinksByDomain[domain] = [href];
       }
     }
 
@@ -142,14 +143,14 @@ marked.use({
  * Take a string of markdown and return the parsed HTML with an object
  * denoting the links in that markdown
  * @param {string} markdown
- * @returns {{ html: string, outboundLinksByDomain: Object.<string, Array.<string>> }}
+ * @returns {{ html: string, externalLinksByDomain: Object.<string, Array.<string>> }}
  */
 export default function parseMarkdown(markdown) {
   // Reset the global each time you run this
-  outboundLinksByDomain = {};
+  externalLinksByDomain = {};
   internalLinks = [];
 
   const html = marked(markdown);
 
-  return { html, outboundLinksByDomain, internalLinks };
+  return { html, externalLinksByDomain, internalLinks };
 }

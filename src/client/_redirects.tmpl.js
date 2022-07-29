@@ -31,7 +31,11 @@ export default function Redirects(site) {
     "/posts/ios-border-radius/ /2012/calculate-the-ios-border-radius/ 301",
   ].join("\n");
 
-  return [oneOffOldRedirects, oldRedirects].join("\n");
+  return [
+    oneOffOldRedirects,
+    oldRedirects,
+    "/about/outbound-links/ /about/external-links/ 301",
+  ].join("\n");
 
   /*
   // FUTURE REDIRECTS

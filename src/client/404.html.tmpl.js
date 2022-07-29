@@ -9,7 +9,6 @@ export default function Page404(site) {
       page: {
         title,
         path: "/404/",
-        layout: "Page",
       },
     },
     html`

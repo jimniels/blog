@@ -27,9 +27,8 @@ https://www.github.com/jimniels/blog/
 const Layout = (props, children) => {
   const {
     site: { origin, tags, name },
-    page: { head = "", layout, path, title },
+    page: { head = "", path, title },
   } = props;
-  const permalink = origin + path;
 
   const nav = [
     {
@@ -74,7 +73,6 @@ const Layout = (props, children) => {
             title="JSON Feed"
             href="/feed.json"
           />
-          <link rel="canonical" href="${permalink}" />
 
           <!-- Inline all our styles -->
           <style>
@@ -90,27 +88,6 @@ const Layout = (props, children) => {
               ${importFile("./styles/atom-one-dark.css")}
             }
           </style>
-
-          ${layout === "Post" &&
-          html`
-            <!-- If it’s a post page, we’ll include meta info and code styling -->
-            <meta property="og:title" content="${title}" />
-            <meta property="og:type" content="article" />
-            <meta property="og:url" content="${permalink}" />
-
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:site" content="@jimniels" />
-            <meta name="twitter:creator" content="@jimniels" />
-            <meta name="twitter:title" content="${title}" />
-            <meta
-              name="twitter:image"
-              content="https://blog.jim-nielsen.com/assets/img/twitter-card.png"
-            />
-            <meta
-              name="twitter:image:alt"
-              content="Jim Nielsen’s initials (JN) in a hand-written style."
-            />
-          `}
 
           <!-- Dynamic <head> content where applicable -->
           ${head}
@@ -144,47 +121,76 @@ const Layout = (props, children) => {
   );
 };
 
-const Post = (props) => {
-  const { site, page } = props;
-
+// Takes the site data and the post data, then renders a page for it
+const Post = (site, post) => {
   pt.checkPropTypes(
     {
       site: pt.shape({
         name: pt.string.isRequired,
         origin: pt.string.isRequired,
       }),
-      page: pt.shape({
+      post: pt.shape({
         title: pt.string.isRequired,
         date: pt.string.isRequired,
         contents: pt.oneOfType([pt.instanceOf(Buffer), pt.string]),
         tags: pt.arrayOf(pt.string),
       }),
     },
-    props,
+    { site, post },
     "prop",
     "Post"
   );
 
-  // prettier-ignore
-  return Layout(props, html`
-    <article class="h-entry">
-      <header class="wrapper">
-        <h1 class="p-name">
-          ${page.title}
-        </h1>
-        <time class="dt-published" datetime="${page.date}" style="">
-          ${toDateUI(page.date)}
-        </time>
-      </header>
-      <div class="copy e-content">
-        ${page?.tags.includes("rssClub") ? RssClub() : ""}
-        ${page.contents.toString()}
-      </div>
-      <footer class="wrapper">
-        ${ReplyHtml({ postTags: page.tags, postPath: page.path, siteOrigin: site.origin })}
-      </footer>
-    </article>
-  `);
+  return Layout(
+    {
+      site,
+      page: {
+        title: post.title,
+        path: post.path,
+        head: html`
+          <link rel="canonical" href="${post.permalink}" />
+
+          <meta property="og:title" content="${post.title}" />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content="${post.permalink}" />
+
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@jimniels" />
+          <meta name="twitter:creator" content="@jimniels" />
+          <meta name="twitter:title" content="${post.title}" />
+          <meta
+            name="twitter:image"
+            content="https://blog.jim-nielsen.com/assets/img/twitter-card.png"
+          />
+          <meta
+            name="twitter:image:alt"
+            content="Jim Nielsen’s initials (JN) in a hand-written style."
+          />
+        `,
+      },
+    },
+    html`
+      <article class="h-entry">
+        <header class="wrapper">
+          <h1 class="p-name">${post.title}</h1>
+          <time class="dt-published" datetime="${post.date}" style="">
+            ${toDateUI(post.date)}
+          </time>
+        </header>
+        <div class="copy e-content">
+          ${post?.tags.includes("rssClub") ? RssClub() : ""}
+          ${post.contents.toString()}
+        </div>
+        <footer class="wrapper">
+          ${ReplyHtml({
+            postTags: post.tags,
+            postPath: post.path,
+            siteOrigin: site.origin,
+          })}
+        </footer>
+      </article>
+    `
+  );
 };
 
 // Children will do: Page({}, html`<main {class="{wrapper|copy}"}?>...</main>`)

@@ -1,9 +1,10 @@
+// @ts-check
 import fs from "fs";
 import path from "path";
 import Metalsmith from "metalsmith";
 import multimatch from "multimatch";
+import fetch from "node-fetch";
 // import cheerio from "cheerio";
-// import getBlogPostsStatus from "./src/server/getBlogPostsStatus.js";
 import * as layouts from "./src/server/Layouts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -22,71 +23,47 @@ let App = Metalsmith(__dirname)
      * subsequent build.
      */
 
-    /** @type {Site} */
+    /** @type { import("./types").Site } */
     const site = JSON.parse(
-      fs
-        .readFileSync(path.join(__dirname, "./.site-data.cache.json"))
-        .toString()
+      fs.readFileSync(path.join(__dirname, ".cache/site.json")).toString()
     );
-
-    // We have to modify this data just slight to make our templates work right
-    // @TODO fix this one day?
-    site.posts = site.posts.map((post) => ({
-      ...post,
-      layout: "Post",
-    }));
-
     console.timeEnd("|-- build:setup");
 
     /**
-     * Posts
-     */
-    console.time("|-- build:posts");
-    site.posts.forEach((post) => {
-      // Remove the leading slash in the path, i.e. `/2019/slug/` => `2019/slug/`
-      files[`${post.path.slice(1)}index.html`] = post;
-    });
-    console.timeEnd("|-- build:posts");
-
-    /**
-     * Handle blogPostsStatus generation
-     * Given a goal against a point in time along with some posts, see where
-     * my status is tracking.
-     */
-    // site.blogPostsStatus = await getBlogPostsStatus({
-    //   goal: 0,
-    //   goalUrl: "/2021/writing-in-2020-and-2021/",
-    //   moment: new Date("2019-12-31"),
-    //   allPosts: site.posts,
-    // });
-
-    /**
-     * Templating
-     * Render the templates and/or layouts for all applicable files
+     * Pages
+     * Render the templates for all "pages" (files with `.tmpl.js` in them)
      *
-     * Any files (.md) with front-matter in them that indicate a `layout` get
-     * rendered with that layout with `site` AND `page` data.
+     * Note: posts get `site` AND `page` data.
      *   ({ site, page }) => {}
-     * Any files marked as templates get passed ONLY the `site` data so they can
-     * render themselves.
+     * Pages ONLY get `site` data, so they can render themselves.
      *   (site) => CustomLayout({ site, page: {...} }, children)
      */
-    console.time("|-- build:templates");
-    // Render templates first
-    // We run our templating on the `.tmpl.js` files first because some of them
-    // depend on getting *ONLY* the content of a post. So we want to render our
-    // post templates last (otherwise our feeds will contain the entire HTML of
-    // an individual post, including the <!DOCTYPE> )
+    console.time("|-- build:pages");
     const getFilePath = (filepath) =>
       path.join(metalsmith._directory, metalsmith._source, filepath);
     const templateFiles = multimatch(Object.keys(files), "**/*.tmpl.js");
     await Promise.all(
       templateFiles.map(async (file) => {
         try {
-          const fn = await import(getFilePath(file)).then(
-            (module) => module.default
+          // If there's a `loader` function, we'll execute it and pass in the
+          // async data as the second parameter to the Component.
+          // Note: each loader should be responsible for supply it's own `catch`
+          // and data in the case of a failure.
+          const { default: Component, loader } = await import(
+            getFilePath(file)
           );
-          files[file].contents = fn(site);
+          let loaderData = undefined;
+          if (loader) {
+            try {
+              loaderData = await loader(site);
+            } catch (e) {
+              console.error(
+                `Uncaught error: failed to fetch loader data for \`${file}\`. You should catch your own errors and supply fallback data for a failed loader.`,
+                e
+              );
+            }
+          }
+          files[file].contents = Component(site, loaderData);
           const newFilename = file.replace(".tmpl.js", "");
           files[newFilename] = files[file];
           delete files[file];
@@ -96,23 +73,23 @@ let App = Metalsmith(__dirname)
         }
       })
     );
+    console.timeEnd("|-- build:pages");
 
-    // Render layouts last of all
-    // Looks at file metadata for `layout` key and matches that to a
-    // corresponding component from Layouts.js, i.e. "Post", "Page", etc.
-    const layoutFiles = Object.keys(files).filter((file) => files[file].layout);
-    await Promise.all(
-      layoutFiles.map(async (file) => {
-        const fn = layouts[files[file].layout];
-        if (fn) {
-          files[file].contents = fn({
-            site,
-            page: files[file],
-          });
-        }
-      })
-    );
-    console.timeEnd("|-- build:templates");
+    /**
+     * Posts
+     *
+     */
+    console.time("|-- build:posts");
+    site.posts.forEach((post) => {
+      // Create a new entry in metalsmith for each post.
+      // Ensure the leading slash is absent in the file name, i.e. `2019/slug/index.html`
+      const file = `${post.path.slice(1)}index.html`;
+      files[file] = {
+        ...post,
+        contents: layouts.Post(site, post),
+      };
+    });
+    console.timeEnd("|-- build:posts");
 
     /*
     let readingNotes = [];
@@ -153,7 +130,6 @@ let App = Metalsmith(__dirname)
 
     done();
   })
-
   .build((err) => {
     // build process
     if (err) throw err; // error handling is required

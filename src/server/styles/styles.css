@@ -12,7 +12,7 @@
   --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
 
   --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
-  --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 97%);
+  --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 96%);
   --c-bg-opaque: hsl(
     var(--c-theme-h) var(--c-theme-s) var(--c-theme-l) / 0.0333
   );
@@ -55,7 +55,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
-    --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 6%);
+    --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 12%);
     --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
     --c-bg-opaque: hsl(
       var(--c-theme-h) var(--c-theme-s) var(--c-theme-l) / 0.0666
@@ -172,7 +172,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
