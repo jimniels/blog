@@ -126,4 +126,4 @@ Shortly after publishing, I began to notice [the bell curve meme](https://knowyo
 
 That meme captures quite well what I was trying to get across in this post, so I had to make one for HTML email and include it here.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/html-emails-meme.png" width="540" height="500" alt="Meme showing " />
+<img src="https://cdn.jim-nielsen.com/blog/2022/html-emails-meme.png" width="1080" height="1000" alt="Bell curve meme with plain text email on the novice/expert sides and screenshots of a bunch of HTML email products, code, clients, etc., in the middle." />
