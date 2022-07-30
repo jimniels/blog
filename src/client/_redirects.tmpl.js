@@ -1,7 +1,4 @@
 export default function Redirects(site) {
-  const { postsByYear } = site;
-  const years = Object.keys(postsByYear);
-
   // Every post from `2015-06-29-a-web-of-people.md` on back needs this redirect rule
   // These used to live on every post as `redirect_from` but we can apply in batch here
   // Previous pattern: `/posts/:slug/`
