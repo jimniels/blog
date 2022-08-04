@@ -116,3 +116,12 @@ It only works in [browsers that support `:has()`](https://caniuse.com/css-has) (
 <img src="https://cdn.jim-nielsen.com/blog/2022/prev-sibling-selector-received.png" width="564" height="558" alt="" />
 
 I can remember a time when it was difficult to find  selectors that would target all your use cases. But now-a-days, with the powerful new selectors we’re getting in CSS like `:where()`, `:is()`, `:not()`, and `:has()`, I rarely need to target something for which I cannot find a selector. It’s amazing!
+
+## Update 2022-08-04
+
+I got an email from a reader asking for a little help getting the previous sibling selector working on a Codepen example. I sent back [my tweaks](https://codepen.io/jimniels/pen/OJvxVWp) to [their example](https://codepen.io/pouriversal/pen/yLvdwQW), which is now pretty neat.
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/prev-sibling-selector-codepen.gif" width="640" height="230" alt="GIF showing a mouse hover over elements in a line. The active element grows in size as the house moves and the elements before and after the active element shrink in size." />
+
+Chris also [tweeted](https://twitter.com/chriscoyier/status/1555260029938421766) a [similar Codepen example](https://codepen.io/chriscoyier/pen/qBoogaX) and, well, it’s pretty cool the effects you can get.
+
