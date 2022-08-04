@@ -18,6 +18,8 @@ const page = {
         display: block;
         margin-bottom: -1rem;
         margin-top: 4rem;
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
       /* Change line graph line color */
       .copy svg path[style*="stroke-opacity:1"] {
