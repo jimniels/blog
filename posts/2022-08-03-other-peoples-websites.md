@@ -26,4 +26,4 @@ Google has stood on top of the success of communities. Groups of people who writ
 
 So much online activity is less public now as companies strive to capture the value we create being online with each other — the value I’m creating right now by writing this and linking to other things, things not on Discord or Slack or Confluence but on other peoples’ websites.
 
-Other people’s websites: the OG social network.
+Other people’s websites are the OG social network, and the optimist in me is going to riff on MLK’s quote: the social arc of the internet is long, but it bends towards individual websites.
