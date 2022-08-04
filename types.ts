@@ -4,15 +4,13 @@ export type Site = {
   origin: string;
   externalLinksByDomain: { [domain: string]: Array<string> };
   posts: Array<Post>;
-  postsByYear: { [year: number]: Array<Post> };
 
   /**
    * An array of tags which are their own unique IDs. Tags _do not_ include the
    * hastag symbol (`#`) in them,  e.g. `readingNotes`
    * Default sort for tags is by count (most common -> least common)
    */
-  tagIds: Array<string>;
-  tagsById: { [id: string]: { id: string; count: number } };
+  tags: Array<{ name: string; count: number }>;
 };
 
 export type Post = {

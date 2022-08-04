@@ -27,9 +27,7 @@ async function getSiteData() {
     externalLinksByDomain: {},
     internalLinksByPath: {},
     posts: [],
-    postsByYear: {},
-    tagIds: [],
-    tagsById: {},
+    tags: [],
   };
 
   // Get the trending posts from Netlify. We'll add info from this to our posts
@@ -37,12 +35,16 @@ async function getSiteData() {
 
   // All our post files
   const files = fs.readdirSync(POSTS_DIR).filter((file) => {
+    if (!file.endsWith(".md")) {
+      return false;
+    }
+
     // An extra console to tell us if we've named a file wrong
     if (/[A-Z]/.test(file)) {
       console.warn("⚠️ You've got an uppercase slug ", file);
     }
 
-    return file.endsWith(".md");
+    return true;
   });
 
   // Loop over each file and add it to our site data
@@ -165,22 +167,8 @@ async function getSiteData() {
     }
   });
 
-  // Posts by year, since this is used in multiple places
-  // (don't include rssClub posts)
-  site.postsByYear = site.posts
-    .filter((post) => !post?.tags.includes("rssClub"))
-    .reduce((acc, post) => {
-      const year = post.date.slice(0, 4);
-      if (acc[year]) {
-        acc[year].push(post);
-      } else {
-        acc[year] = [post];
-      }
-      return acc;
-    }, {});
-
-  // Tags are sorted, by default, in the same way `tagsById` are: by occurence
-  site.tagsById = Array.from(
+  // By default, the collection of tags is sorted by occurence
+  site.tags = Array.from(
     new Set(
       site.posts
         .filter((post) => post.tags)
@@ -188,13 +176,11 @@ async function getSiteData() {
         .flat()
     )
   )
-    .map((tagId) => ({
-      id: tagId,
-      count: site.posts.filter((post) => post.tags.includes(tagId)).length,
+    .map((tag) => ({
+      name: tag,
+      count: site.posts.filter((post) => post.tags.includes(tag)).length,
     }))
-    .sort((a, b) => (a.count < b.count ? 1 : a.count > b.count ? -1 : 0))
-    .reduce((acc, tag) => ({ ...acc, [tag.id]: tag }), {});
-  site.tagIds = Object.keys(site.tagsById);
+    .sort((a, b) => (a.count < b.count ? 1 : a.count > b.count ? -1 : 0));
 
   // Sort this thing so we don't have to elsewhere
   site.externalLinksByDomain = Object.entries(site.externalLinksByDomain)

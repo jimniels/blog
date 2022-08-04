@@ -7,7 +7,17 @@ const page = {
 };
 
 export default function Archive(site) {
-  const { postsByYear } = site;
+  const postsByYear = site.posts
+    .filter((post) => !post?.tags.includes("rssClub"))
+    .reduce((acc, post) => {
+      const year = post.date.slice(0, 4);
+      if (acc[year]) {
+        acc[year].push(post);
+      } else {
+        acc[year] = [post];
+      }
+      return acc;
+    }, {});
 
   return Page(
     { site, page },

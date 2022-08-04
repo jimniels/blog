@@ -135,7 +135,7 @@ export default function About(site, loaderData) {
                 .reduce((acc, post) => acc + post.wordCount, 0)
                 .toLocaleString(),
             ],
-            ["Tags", site.tagIds.length.toLocaleString()],
+            ["Tags", site.tags.length.toLocaleString()],
             [
               "External Links",
               Object.entries(site.externalLinksByDomain)
@@ -223,13 +223,24 @@ function uniquezSvg(svg = "", id) {
  * @returns
  */
 export async function loader(site) {
+  // Posts by year (don't include rssClub posts)
+  const postsByYear = site.posts.reduce((acc, post) => {
+    const year = post.date.slice(0, 4);
+    if (acc[year]) {
+      acc[year].push(post);
+    } else {
+      acc[year] = [post];
+    }
+    return acc;
+  }, {});
+
   const pageLoaderData = [
     {
       label: "Posts / Words Per Year",
       link: "",
       id: "posts-per-year",
       listType: "ul",
-      list: Object.entries(site.postsByYear).map(([year, posts]) => [
+      list: Object.entries(postsByYear).map(([year, posts]) => [
         year,
         posts.length +
           " / ~" +
@@ -241,11 +252,11 @@ export async function loader(site) {
       quickChartQuery: {
         type: "line",
         data: {
-          labels: Object.keys(site.postsByYear),
+          labels: Object.keys(postsByYear),
           datasets: [
             {
               label: "Posts Per Year",
-              data: Object.entries(site.postsByYear).map(
+              data: Object.entries(postsByYear).map(
                 ([year, posts]) => posts.length
               ),
               fill: false,
@@ -255,7 +266,7 @@ export async function loader(site) {
             {
               type: "bar",
               label: "Words Per Year (1,000’s)",
-              data: Object.entries(site.postsByYear).map(
+              data: Object.entries(postsByYear).map(
                 ([year, posts]) =>
                   Math.ceil(
                     posts.reduce((acc, post) => acc + post.wordCount, 0)
@@ -274,19 +285,15 @@ export async function loader(site) {
       link: "/tags",
       id: "chart-top-tags",
       listType: "ol",
-      list: Object.entries(site.tagsById)
-        .slice(0, 10)
-        .map(([id, { count }]) => [id, count]),
+      list: site.tags.slice(0, 10).map(({ name, count }) => [name, count]),
       quickChartQuery: {
         type: "horizontalBar",
         data: {
-          labels: site.tagIds.slice(0, 10),
+          labels: site.tags.slice(0, 10).map(({ name }) => name),
           datasets: [
             {
               label: "Top Tags",
-              data: Object.entries(site.tagsById).map(
-                ([id, { count }]) => count
-              ),
+              data: site.tags.slice(0, 10).map(({ count }) => count),
             },
           ],
         },
