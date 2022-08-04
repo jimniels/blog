@@ -1,5 +1,3 @@
-#thoughts
-
 # Science Speaks: Good Typography = Good Mood
 
 Jon Tan, in a [recent article at 24 Ways](http://24ways.org/2012/science/), talks about the science behind the positive effects of good typography. In his article, he references a study by Dr Kevin Larson of Microsoft and Dr Rosalind Picard of MIT that explored the effects of good typography on mood:

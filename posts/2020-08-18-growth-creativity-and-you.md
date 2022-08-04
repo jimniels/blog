@@ -1,4 +1,4 @@
-#thoughts #bookNotes #bookNotesBeethoven
+#bookNotes #bookNotesBeethoven
 
 # Growth, Creativity, and You
 

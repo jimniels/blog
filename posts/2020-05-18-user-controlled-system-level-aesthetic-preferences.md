@@ -1,5 +1,3 @@
-#thoughts
-
 # Thoughts on Designing a UI Driven By User-Controlled, System-Level Preferences
 
 I’ve been playing with an idea for a side project (more on that another time). Without diving too much into the existential questions a from-scratch project makes you ask yourself, I decided to try a new approach on the visual design of this particular project.

@@ -1,5 +1,3 @@
-#thoughts
-
 # Cheating Entropy with Native Web Technologies
 
 > 90% of my computer usage is updating computers. – Paul Ford, [Postlight Podcast](https://postlight.com/podcast)

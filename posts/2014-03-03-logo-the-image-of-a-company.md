@@ -1,5 +1,3 @@
-#thoughts
-
 # A Logo Is an Image, The Image of a Company
 
 *The following passage is an excerpt that has been rewritten and repurposed from a magazine advertisement by Westinghouse Electric in 1963 describing symbols.*

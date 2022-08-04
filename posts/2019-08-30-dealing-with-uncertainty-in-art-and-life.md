@@ -1,4 +1,4 @@
-#bookNotes #thoughts
+#bookNotes
 
 # Dealing With Uncertainty in Art...and Life
 

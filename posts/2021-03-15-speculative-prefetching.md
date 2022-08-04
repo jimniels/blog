@@ -1,5 +1,3 @@
-#thoughts
-
 # Speculative Prefetching
  
 > You have to admit it's clever  

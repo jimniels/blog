@@ -1,5 +1,3 @@
-#thoughts
-
 # Ten Anti-Principles of Good Design
 
 I saw [this tweet](https://twitter.com/johnnie/status/1030488024906313728?s=12) forever ago and thought “hey, that’d be kinda fun to write that...”:

@@ -1,5 +1,3 @@
-#thoughts
-
 # Automating Feelings
 
 > It’s been hard not to feel a deepening of the soul as the palette of online emotion signifiers has expanded from sparse typographic emoticons to colorful and animated emoji. (Nicolas Carr, “[Automating the feels](http://www.roughtype.com/?p=3693)”)

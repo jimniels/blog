@@ -1,5 +1,3 @@
-#thoughts
-
 # Your Product Doesn’t Have to Look the Same On Every Platform
 
 In case you couldn’t tell from the title, this post is a hot take.

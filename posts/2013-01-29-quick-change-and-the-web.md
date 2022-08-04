@@ -1,5 +1,3 @@
-#thoughts
-
 # Quick Change and the Web
 
 Can you really change the world over night?

@@ -1,5 +1,3 @@
-#thoughts
-
 # Things to Be Informed About in Life
 
 Somewhat recently on Quora, someone asked "[What are the top 10 things that we should be informed about, in life?](http://www.quora.com/Life/What-are-the-top-10-things-that-we-should-be-informed-about-in-life)"

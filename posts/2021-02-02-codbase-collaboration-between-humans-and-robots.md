@@ -1,5 +1,3 @@
-#thoughts
-
 # Codebase Collaboration Between Humans and Robots
 
 Back in 2017, [I tweeted](https://twitter.com/jimniels/status/889921238809837568?s=20):

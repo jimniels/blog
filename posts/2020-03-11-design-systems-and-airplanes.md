@@ -1,5 +1,3 @@
-#thoughts
-
 # Design Systems and Airplanes
 
 > All our invention and progress seem to result in endowing material forces with intellectual life, and stultifying human life into a material force. – Karl Marx

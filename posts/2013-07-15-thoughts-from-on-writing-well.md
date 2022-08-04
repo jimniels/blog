@@ -1,5 +1,3 @@
-#thoughts #tips
-
 # Thoughts from “On Writing Well”
 
 Fact: the book [*On Writing Well*](http://www.amazon.com/dp/0060891548) by William Zinsser is simply stellar. His advice on writing is insightful and succinct. In addition, his thoughts on writing spill into other areas of life.

@@ -1,5 +1,3 @@
-#thoughts
-
 # Make Me Think
 
 > For many years now, the rallying cry of digital designers has been epitomised by the title of Steve Krug’s terrific book, Don’t Make Me Think. But what happens when that rallying cry is taken too far? What happens when it stops being “don’t make think while I’m trying to complete a task” to simply “don’t make me think” full stop? — Jeremy Keith, [“Seams”](https://adactio.com/journal/6786) 

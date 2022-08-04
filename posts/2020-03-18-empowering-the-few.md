@@ -1,5 +1,3 @@
-#thoughts
-
 # Empowering the Few
 
 While going through some old text files, I stumbled on this old draft of a blog post. How old? Well, in it I talk about having read something from Readability, a now (unfortunately) defunct service. So probably about 2014? Nonetheless, I liked re-reading and it still feels relevant. In fact, my friend [Michael Flarup](https://twitter.com/flarup) recently [expressed a similar sentiment](https://twitter.com/flarup/status/1240323082474176512?s=20) when he released his app icon design course for free:

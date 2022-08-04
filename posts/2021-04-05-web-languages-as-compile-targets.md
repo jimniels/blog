@@ -1,4 +1,4 @@
-#thoughts #html
+#html
 
 # Web Languages as Compile Targets
 

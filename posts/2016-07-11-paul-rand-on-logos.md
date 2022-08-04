@@ -1,5 +1,3 @@
-#thoughts
-
 # Paul Rand on Logos
 
 It seems like every six months or so, some company does a logo redesign and then it seemingly becomes the talk of the entire online community. Headlines start rolling in which look something like:

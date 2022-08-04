@@ -1,4 +1,4 @@
-#thoughts #javascript
+#javascript
 
 # The Economics of the Front-End
 

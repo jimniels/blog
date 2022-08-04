@@ -1,5 +1,3 @@
-#thoughts
-
 # Software and Home Renovation 
 
 My wife and I recently decided to try our hands at a little home renovation. It’s worth noting up front that I didn’t want to; or rather, I wanted to have a new bathroom but, like the animals in the story of “The Little Red Hen”, I did not want anything to do with the hard work required to get the desired output. I just wanted to pay someone to “make it look good”. My wife had other ideas. In the end, we decided on hiring a contractor to do most of the work, but we picked out the style and aesthetic we wanted in our new bathrooms.

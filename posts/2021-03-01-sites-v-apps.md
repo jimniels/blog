@@ -1,5 +1,3 @@
-#thoughts
-
 # Sites v. Apps: A Reverie
 
 Websites and web apps: a dichotomy that lives in a fantasy world of well-defined forms of content delivered over the web.

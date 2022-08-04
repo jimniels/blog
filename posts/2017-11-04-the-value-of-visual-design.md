@@ -1,5 +1,3 @@
-#thoughts
-
 # The Value of Visual Design
 
 > Rhodora! if the sages ask thee why  

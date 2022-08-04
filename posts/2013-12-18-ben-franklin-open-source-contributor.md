@@ -1,5 +1,3 @@
-#thoughts
-
 # Benjamin Franklin, an Open Source Contributor?
 
 I was recently reading “The Autobiography of Benjamin Franklin” and came across an interesting little story that made me think of Benjamin Franklin as a believer in open source.

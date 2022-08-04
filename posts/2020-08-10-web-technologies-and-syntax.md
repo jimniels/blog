@@ -1,5 +1,4 @@
-#thoughts #html #css
-
+#html #css
 
 # Web Technologies and Syntax 
 

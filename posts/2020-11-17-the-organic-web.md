@@ -1,5 +1,3 @@
-#thoughts
-
 # The Organic Web
 
 > If we lived close to nature in an agricultural society, the seasons as metaphor and fact would continually frame our lives. But the master metaphor for our era does not come from agriculture—it comes from manufacturing. We do not believe  that we “grow” our lives—we believe that we “make” them. Just listen to how we use the word in everyday speech: we make time, make friends, make meaning, make money, make a living, make love. — Parker Palmer, “Let Your Life Speak” (97)

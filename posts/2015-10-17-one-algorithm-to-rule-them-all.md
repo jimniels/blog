@@ -1,5 +1,3 @@
-#thoughts
-
 # One Algorithm to Rule Them All
 
 During a recent Q&A session on Facebook, Mark Zuckerberg was asked a question by the famous cosmologist Stephen Hawking
