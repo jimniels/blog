@@ -25,4 +25,4 @@ Again, you can’t make a user’s network faster. Nor can you make their device
 
 In this way, you don’t always put the onus on the user’s device and network connection to [self serve](https://blog.jim-nielsen.com/2021/ikea-and-javascript/) to your website or platform.
 
-As the famous saying goes: “Grant me the serenity to accept the things I cannot change”, like a user’s workload on their network and hardware, “the courage to change the things I can,” like my server’s workload on its network and hardware, “and wisdom to know the difference.”
+As the famous saying goes: “Grant me the serenity to accept the things I cannot change”, like a user’s network and hardware, “the courage to change the things I can,” like my server’s workload on its network and hardware, “and wisdom to know the difference.”
