@@ -505,20 +505,15 @@ site-nav form.is-expanded label {
 .posts-list small {
   opacity: 0.5;
   font-size: 0.7rem;
-  display: flex;
-  gap: calc(1.618rem / 2);
+  white-space: nowrap;
+}
+.posts-list small a {
+  color: inherit;
 }
 
 .posts-list time {
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-}
-
-.posts-list li a {
-  order: 2;
-}
-.posts-list small {
-  order: 1;
 }
 
 @media screen and (min-width: 520px) {
@@ -530,15 +525,8 @@ site-nav form.is-expanded label {
     gap: calc(1.618rem / 2);
     flex-direction: row;
   }
-  .posts-list li a {
-    order: 1;
+  .posts-list li > a {
     flex-grow: 1;
-  }
-  .posts-list time {
-    order: 3;
-  }
-  .posts-list small {
-    order: 2;
   }
 }
 

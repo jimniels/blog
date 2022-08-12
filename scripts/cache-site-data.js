@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import parseMarkdown from "./parse-markdown.js";
 import getTrendingPosts from "./get-trending-posts.js";
+import getHackerNewsPosts from "./get-hacker-news-posts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const POSTS_DIR = path.join(__dirname, "../posts");
 
@@ -30,8 +31,10 @@ async function getSiteData() {
     tags: [],
   };
 
-  // Get the trending posts from Netlify. We'll add info from this to our posts
+  // Get the trending posts from Netlify & Hacker News.
+  // We'll add info from these to our posts.
   const trendingPosts = await getTrendingPosts();
+  const hackerNewsPosts = await getHackerNewsPosts();
 
   // All our post files
   const files = fs.readdirSync(POSTS_DIR).filter((file) => {
@@ -137,6 +140,14 @@ async function getSiteData() {
     );
     if (trendingPost) {
       post.pageviews = trendingPost.count;
+    }
+
+    const hackerNewsPost = hackerNewsPosts.find(({ url }) =>
+      url.includes(post.path)
+    );
+    if (hackerNewsPost) {
+      post.hackerNewsUrl = `https://news.ycombinator.com/item?id=${hackerNewsPost.objectID}`;
+      post.hackerNewsComments = hackerNewsPost.num_comments;
     }
 
     // Add it to our collection

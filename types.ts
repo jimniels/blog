@@ -23,6 +23,8 @@ export type Post = {
   tags: Array<string>;
   wordCount?: number;
   pageviews?: number; // Pageviews according to netlify analytics
+  hackerNewsUrl?: string;
+  hackerNewsComments?: number;
 };
 
 export type Page = {
