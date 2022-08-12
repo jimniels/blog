@@ -3,6 +3,7 @@ export type Site = {
   name: string;
   origin: string;
   externalLinksByDomain: { [domain: string]: Array<string> };
+  internalLinksByPath: { [path: string]: Array<string> };
   posts: Array<Post>;
 
   /**
