@@ -24,3 +24,5 @@ A server can make a better user experience, in some cases, because it can [do co
 Again, you can’t make a user’s network faster. Nor can you make their device hardware faster. However you can make the experience on their network and hardware perceptually faster  through a smaller workload on their network and device aided by heavier lifting by your server.
 
 In this way, you don’t always put the onus on the user’s device and network connection to [self serve](https://blog.jim-nielsen.com/2021/ikea-and-javascript/) to your website or platform.
+
+As the famous saying goes: “Grant me the serenity to accept the things I cannot change”, like a user’s workload on their network and hardware, “the courage to change the things I can,” like my server’s workload on its network and hardware, “and wisdom to know the difference.”
