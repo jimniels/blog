@@ -25,6 +25,7 @@ export type Post = {
   pageviews?: number; // Pageviews according to netlify analytics
   hackerNewsUrl?: string;
   hackerNewsComments?: number;
+  isFav: boolean;
 };
 
 export type Page = {

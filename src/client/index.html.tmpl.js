@@ -8,24 +8,26 @@ const page = {
 export default function Index(site) {
   const recent = site.posts
     .filter((post) => !post?.tags.includes("rssClub"))
-    .slice(0, 5);
+    .slice(0, 3);
   const trending = site.posts
     .filter((post) => post.hasOwnProperty("pageviews"))
     .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1))
-    .slice(0, 5);
+    .slice(0, 3);
   const hackerNews = site.posts
     .filter((post) => post.hackerNewsUrl && post.hackerNewsComments > 100)
     .sort((a, b) => (a.hackerNewsComments > b.hackerNewsComments ? -1 : 1))
-    .slice(0, 5);
+    .slice(0, 3);
+  const favs = site.posts
+    .filter((post) => post.isFav)
+    .map((post) => ({ ...post, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .slice(0, 3);
 
   return Page(
     { site, page },
     html` <main class="wrapper">
       <h1>Latest</h1>
-      ${PostList(
-        recent,
-        ({ date }) => html`<time datetime="${date}">${toDateUI(date)}</time>`
-      )}
+      ${PostList(recent)}
       ${trending.length > 0 &&
       html`
         <h1>
@@ -55,6 +57,8 @@ export default function Index(site) {
           >`
         )}
       `}
+      <h1>Personal Favorites</h1>
+      ${PostList(favs)}
       ${
         /*
       <h1>Praise For My Blog</h1>
@@ -79,7 +83,10 @@ export default function Index(site) {
   );
 }
 
-function PostList(posts, fn) {
+function PostList(
+  posts,
+  fn = ({ date }) => html`<time datetime="${date}">${toDateUI(date)}</time>`
+) {
   return html`
     <ul class="posts-list">
       ${posts.map(
