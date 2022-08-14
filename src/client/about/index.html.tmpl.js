@@ -78,6 +78,12 @@ const page = {
   `,
 };
 
+/**
+ *
+ * @param {import("../../../types").Site} site
+ * @param {*} loaderData
+ * @returns
+ */
 export default function About(site, loaderData) {
   return Page(
     { site, page },
@@ -138,8 +144,8 @@ export default function About(site, loaderData) {
             ["Tags", site.tags.length.toLocaleString()],
             [
               "External Links",
-              Object.entries(site.externalLinksByDomain)
-                .reduce((acc, [domain, links]) => acc + links.length, 0)
+              site.externalLinks
+                .reduce((acc, { count }) => acc + count, 0)
                 .toLocaleString(),
             ],
             [
@@ -304,21 +310,17 @@ export async function loader(site) {
       link: "/about/external-links/",
       id: "chart-top-external-links",
       listType: "ol",
-      list: Object.entries(site.externalLinksByDomain)
+      list: site.externalLinks
         .slice(0, 10)
-        .map(([domain, links]) => [domain, links.length]),
+        .map(({ domain, count }) => [domain, count]),
       quickChartQuery: {
         type: "horizontalBar",
         data: {
-          labels: Object.entries(site.externalLinksByDomain)
-            .slice(0, 10)
-            .map(([domain]) => domain),
+          labels: site.externalLinks.slice(0, 10).map(({ domain }) => domain),
           datasets: [
             {
               label: "Top External Links",
-              data: Object.entries(site.externalLinksByDomain)
-                .slice(0, 10)
-                .map(([domain, links]) => links.length),
+              data: site.externalLinks.slice(0, 10).map(({ count }) => count),
             },
           ],
         },

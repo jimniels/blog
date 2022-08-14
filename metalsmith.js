@@ -91,6 +91,21 @@ let App = Metalsmith(__dirname)
     });
     console.timeEnd("|-- build:posts");
 
+    files[".well-known/links/404.json"] = {
+      contents: JSON.stringify({ error: "Domain not found" }),
+    };
+    // Maybe this should just be a flat list of links, e.g.
+    //   [{sourceUrl: "", targetUrl: ""}, {...}]
+    // But we'll leave that question for another day
+    files[".well-known/links/index.json"] = {
+      contents: JSON.stringify(site.externalLinks),
+    };
+    site.externalLinks.forEach((item) => {
+      files[`.well-known/links/${item.domain}.json`] = {
+        contents: JSON.stringify(item),
+      };
+    });
+
     /*
     let readingNotes = [];
     site.posts

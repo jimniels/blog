@@ -32,6 +32,9 @@ export default function Redirects(site) {
     oneOffOldRedirects,
     oldRedirects,
     "/about/outbound-links/ /about/external-links/ 301",
+    "/.well-known/links domain=:domain /.well-known/links/:domain.json 200",
+    "/.well-known/links /.well-known/links/index.json 200",
+    // "/.well-known/links /.well-known/links/404.json 404!",
   ].join("\n");
 
   /*

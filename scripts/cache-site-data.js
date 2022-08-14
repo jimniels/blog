@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import psl from "psl";
 import parseMarkdown from "./parse-markdown.js";
 import getTrendingPosts from "./get-trending-posts.js";
 import getHackerNewsPosts from "./get-hacker-news-posts.js";
@@ -38,7 +39,7 @@ async function getSiteData() {
   let site = {
     name: "Jim Nielsen’s Blog",
     origin: "https://blog.jim-nielsen.com",
-    externalLinksByDomain: {},
+    externalLinks: [],
     internalLinksByPath: {},
     posts: [],
     tags: [],
@@ -112,21 +113,11 @@ async function getSiteData() {
 
     // Convert markdown to HTML & get links data
     const markdownSansTagsAndTitle = markdownByLine.join("\n");
-    const { html, externalLinksByDomain, internalLinks } = parseMarkdown(
+    const { html, externalLinks, internalLinks } = parseMarkdown(
       markdownSansTagsAndTitle
     );
     post.wordCount = markdownSansTagsAndTitle.split(" ").length;
     post.contents = html;
-
-    Object.keys(externalLinksByDomain).forEach((domain) => {
-      if (site.externalLinksByDomain[domain]) {
-        site.externalLinksByDomain[domain].push(
-          ...externalLinksByDomain[domain]
-        );
-      } else {
-        site.externalLinksByDomain[domain] = externalLinksByDomain[domain];
-      }
-    });
 
     // "2019-06-12-my-post-slug.md" -> "2019-06-12-my-post-slug"
     const filename = file.replace(".md", "");
@@ -144,6 +135,13 @@ async function getSiteData() {
     if (internalLinks.length) {
       site.internalLinksByPath[post.path] = internalLinks;
     }
+
+    site.externalLinks.push(
+      ...externalLinks.map((link) => ({
+        sourceUrl: post.permalink,
+        targetUrl: link,
+      }))
+    );
 
     // I don't store time information on my posts, so we'll make all posts
     // publish at the same time of day: noon mountain time.
@@ -170,6 +168,44 @@ async function getSiteData() {
     // Add it to our collection
     site.posts.push(post);
   });
+
+  site.externalLinks = Object.entries(
+    site.externalLinks.reduce((acc, { sourceUrl, targetUrl }) => {
+      const hostname = new URL(targetUrl).hostname;
+      const domain = psl.get(hostname);
+      if (acc[domain]) {
+        acc[domain].links.push({ sourceUrl, targetUrl });
+        acc[domain].count += 1;
+      } else {
+        acc[domain] = {
+          domain,
+          count: 1,
+          links: [{ sourceUrl, targetUrl }],
+        };
+      }
+      return acc;
+    }, {})
+  )
+    .map(([_, linkObj]) => linkObj)
+    .sort((a, b) => {
+      // Sort by count
+      if (a.count < b.count) {
+        return 1;
+      }
+      if (a.count > b.count) {
+        return -1;
+      }
+
+      // Otherwise, alphabetically by domain name
+      if (a.domain < b.domain) {
+        return -1;
+      }
+      if (a.domain > b.domain) {
+        return 1;
+      }
+
+      return 0;
+    });
 
   // Sort our collection of posts
   site.posts.sort((a, b) => {
@@ -209,30 +245,6 @@ async function getSiteData() {
       count: site.posts.filter((post) => post.tags.includes(tag)).length,
     }))
     .sort((a, b) => (a.count < b.count ? 1 : a.count > b.count ? -1 : 0));
-
-  // Sort this thing so we don't have to elsewhere
-  site.externalLinksByDomain = Object.entries(site.externalLinksByDomain)
-    .sort(([domainA, linksA], [domainB, linksB]) => {
-      // First sort by number of links under that domain
-      const aCount = linksA.length;
-      const bCount = linksB.length;
-      if (aCount < bCount) {
-        return 1;
-      }
-      if (aCount > bCount) {
-        return -1;
-      }
-
-      // if counts match, sort alphabetically by domain
-      if (domainA < domainB) {
-        return -1;
-      }
-      if (domainA > domainB) {
-        return 1;
-      }
-      return 0;
-    })
-    .reduce((acc, [domain, links]) => ({ ...acc, [domain]: links }), {});
 
   site.internalLinksByPath = Object.entries(site.internalLinksByPath)
     .sort(([pathA, linksA], [pathB, linksB]) => {

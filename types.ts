@@ -2,7 +2,13 @@
 export type Site = {
   name: string;
   origin: string;
-  externalLinksByDomain: { [domain: string]: Array<string> };
+  externalLinks: Array<{
+    domain: string;
+    count: number;
+    // In theory, one day, there could be more info here, e.g.
+    // { sourceUrl: "...", sourceText: "click here", targetUrl: "...", }
+    links: Array<{ sourceUrl: string; targetUrl: string }>;
+  }>;
   internalLinksByPath: { [path: string]: Array<string> };
   posts: Array<Post>;
 

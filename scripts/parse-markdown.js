@@ -2,8 +2,36 @@ import hljs from "highlight.js";
 import { marked } from "marked";
 import psl from "psl";
 
-let externalLinksByDomain = {};
+/**
+ * @typedef {Array<string>} ExternalLinks - Fully qualified external URLs, i.e. https://twitter.com/...
+ * @type {ExternalLinks}
+ */
+let externalLinks = [];
+/**
+ * @typedef {Array<string>} InternalLinks - Absolute paths for internal links, i.e. /2019/blog-post
+ * @type {InternalLinks}
+ */
 let internalLinks = [];
+
+/**
+ * Take a string of markdown and return the parsed HTML with an object
+ * denoting the links in that markdown
+ * @param {string} markdown
+ * @returns {{
+ *   html: string,
+ *   externalLinks: ExternalLinks,
+ *   internalLinks: InternalLinks
+ * }}
+ */
+export default function parseMarkdown(markdown) {
+  // Reset the global each time you run this
+  internalLinks = [];
+  externalLinks = [];
+
+  const html = marked(markdown);
+
+  return { html, externalLinks, internalLinks };
+}
 
 // Footnotes
 //
@@ -106,18 +134,11 @@ const renderer = {
         const { pathname } = new URL(href);
         internalLinks.push(pathname);
       }
-    } else if (href.includes("jim-nielsen.com")) {
+    } else if (href.includes("jim-nielsen.com") || href.includes("mailto:")) {
       // Do nothing
       // Otherwise we're dealing with outbound links
     } else {
-      const hostname = new URL(href).hostname;
-      const domain = psl.get(hostname);
-
-      if (externalLinksByDomain[domain]) {
-        externalLinksByDomain[domain].push(href);
-      } else {
-        externalLinksByDomain[domain] = [href];
-      }
+      externalLinks.push(href);
     }
 
     return `<a href="${href}" ${title ? `title="${title}"` : ""}>${text}</a>`;
@@ -138,19 +159,3 @@ marked.use({
   // FYI: if you want, you could disable autolinks in MD
   // https://github.com/markedjs/marked/issues/882
 });
-
-/**
- * Take a string of markdown and return the parsed HTML with an object
- * denoting the links in that markdown
- * @param {string} markdown
- * @returns {{ html: string, externalLinksByDomain: Object.<string, Array.<string>> }}
- */
-export default function parseMarkdown(markdown) {
-  // Reset the global each time you run this
-  externalLinksByDomain = {};
-  internalLinks = [];
-
-  const html = marked(markdown);
-
-  return { html, externalLinksByDomain, internalLinks };
-}

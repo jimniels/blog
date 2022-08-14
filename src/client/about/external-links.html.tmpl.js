@@ -6,15 +6,12 @@ const page = {
   path: "/about/links/",
 };
 
+/**
+ * @param {import("../../../types").Site} site
+ * @returns {string}
+ */
 export default function About(site) {
-  const domains = Object.keys(site.externalLinksByDomain);
-
-  const domainsOfMoreThanOne = domains.filter(
-    (domain) => site.externalLinksByDomain[domain].length > 1
-  );
-  const domainsOfOnlyOne = domains.filter(
-    (domain) => site.externalLinksByDomain[domain].length === 1
-  );
+  const format = (str) => str.replace(/https?:\/\/(www.)?/, "");
 
   return Page(
     { site, page },
@@ -31,42 +28,47 @@ export default function About(site) {
         >).
       </p>
 
-      ${domainsOfMoreThanOne.map(
-        (domain) => html`
-          <details>
-            <summary>
-              <img
-                src="https://www.google.com/s2/favicons?domain=${domain}&sz=32"
-                width="16"
-                height="16"
-                alt="Favicon for ${domain}"
-              />
-              <span class="domain">${domain}</span>
-              <span class="count"
-                >${site.externalLinksByDomain[domain].length}</span
-              >
-            </summary>
-            <ol>
-              ${site.externalLinksByDomain[domain].map(
-                (link) => html` <li><a href="${link}">${link}</a></li> `
-              )}
-            </ol>
-          </details>
-        `
-      )}
+      ${site.externalLinks
+        .filter(({ count }) => count > 1)
+        .map(
+          ({ domain, count, links }) => html`
+            <details>
+              <summary>
+                <img
+                  src="https://www.google.com/s2/favicons?domain=${domain}&sz=32"
+                  width="16"
+                  height="16"
+                  alt="Favicon for ${domain}"
+                />
+                <span class="domain">${domain}</span>
+                <span class="count">${count}</span>
+              </summary>
+              <ol>
+                ${links.map(
+                  ({ targetUrl }) =>
+                    html` <li>
+                      <a href="${targetUrl}">${format(targetUrl)}</a>
+                    </li>`
+                )}
+              </ol>
+            </details>
+          `
+        )}
 
       <details>
         <summary>...all others with only one occurence</summary>
         <ol>
-          ${domainsOfOnlyOne.map(
-            (d) => html`
-              <li>
-                <a href="${site.externalLinksByDomain[d][0]}"
-                  >${site.externalLinksByDomain[d][0]}</a
-                >
-              </li>
-            `
-          )}
+          ${site.externalLinks
+            .filter(({ count }) => count === 1)
+            .map(
+              ({ links }) => html`
+                <li>
+                  <a href="${links[0].targetUrl}"
+                    >${format(links[0].targetUrl)}</a
+                  >
+                </li>
+              `
+            )}
         </ol>
       </details>
 
