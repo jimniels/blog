@@ -11,7 +11,13 @@ const page = {
  * @returns {string}
  */
 export default function About(site) {
-  const format = (str) => str.replace(/https?:\/\/(www.)?/, "");
+  const format = (str) => {
+    // return str.replace(/https?:\/\/(www.)?/, "");
+    const url = new URL(str);
+    return url.pathname;
+  };
+
+  const allOthers = site.externalLinks.filter(({ count }) => count === 1);
 
   return Page(
     { site, page },
@@ -31,7 +37,7 @@ export default function About(site) {
       ${site.externalLinks
         .filter(({ count }) => count > 1)
         .map(
-          ({ domain, count, links }) => html`
+          ({ domain, count, links }, i) => html`
             <details>
               <summary>
                 <img
@@ -39,67 +45,81 @@ export default function About(site) {
                   width="16"
                   height="16"
                   alt="Favicon for ${domain}"
+                  loading="lazy"
                 />
                 <span class="domain">${domain}</span>
                 <span class="count">${count}</span>
               </summary>
-              <ol>
-                ${links.map(
-                  ({ targetUrl }) =>
-                    html` <li>
-                      <a href="${targetUrl}">${format(targetUrl)}</a>
-                    </li>`
-                )}
-              </ol>
+              <table>
+                <thead>
+                  <th></th>
+                  <th>blog.jim-nielsen.com</th>
+                  <th></th>
+                  <th>${domain}</th>
+                </thead>
+                <tbody>
+                  ${links.map(
+                    ({ targetUrl, sourceUrl }, i) =>
+                      html`<tr>
+                        <td>${i + 1}.</td>
+                        <td><a href="${sourceUrl}">${format(sourceUrl)}</a></td>
+                        <td style="opacity: .25">→</td>
+                        <td><a href="${targetUrl}">${format(targetUrl)}</a></td>
+                      </tr>`
+                  )}
+                </tbody>
+              </table>
             </details>
           `
         )}
 
       <details>
-        <summary>...all others with only one occurence</summary>
-        <ol>
-          ${site.externalLinks
-            .filter(({ count }) => count === 1)
-            .map(
-              ({ links }) => html`
-                <li>
-                  <a href="${links[0].targetUrl}"
-                    >${format(links[0].targetUrl)}</a
+        <summary>...others with only one occurence</summary>
+        <table>
+          <thead>
+            <th></th>
+            <th>blog.jim-nielsen.com</th>
+            <th>Target</th>
+          </thead>
+          <tbody>
+            ${allOthers.map(
+              ({ links }, i) => html`<tr>
+                <td>${i + 1}.</td>
+                <td>
+                  <a href="${links[0].sourceUrl}"
+                    >${format(links[0].sourceUrl)}</a
                   >
-                </li>
-              `
+                </td>
+                <td>
+                  <a href="${links[0].targetUrl}"
+                    >${links[0].targetUrl.replace(/https?:\/\/(www.)?/, "")}</a
+                  >
+                </td>
+              </tr>`
             )}
-        </ol>
+          </tbody>
+        </table>
       </details>
 
       <style>
-        details {
-          border: 1px solid transparent;
-          border-radius: calc(var(--border-radius) + 1px);
+        .copy {
+          margin-bottom: 4rem;
         }
-        details[open] {
-          border-color: var(--c-fg);
-        }
-        details[open] summary {
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
-        }
+
         details summary {
           font-size: 0.8181rem;
+          background: var(--c-bg);
+          padding: 4px 10px;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          -ms-word-break: break-all;
+          position: sticky;
+          top: 0;
+          z-index: 1;
+          border-bottom: 1px solid var(--c-fg);
+        }
+        details summary:hover {
           background: var(--c-fg);
-          padding: 2px 10px;
-          border-radius: var(--border-radius);
-          overflow-wrap: break-word;
-          word-wrap: break-word;
-          -ms-word-break: break-all;
-        }
-        details ol {
-          font-size: 0.6363rem;
-        }
-        details ol a {
-          overflow-wrap: break-word;
-          word-wrap: break-word;
-          -ms-word-break: break-all;
         }
         summary img {
           position: relative;
@@ -110,7 +130,13 @@ export default function About(site) {
           float: right;
           opacity: 0.5;
         }
-        summary .domain {
+
+        details table {
+          font-size: 0.6363rem;
+        }
+
+        table tbody td:first-child {
+          text-align: right;
         }
       </style>
     </main>`

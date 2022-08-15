@@ -227,18 +227,20 @@ table {
 
 table th {
   text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.03rem;
 }
 
 table thead {
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  /* border-top: 1px solid; */
+  /* border-bottom: 1px solid; */
 }
 table tbody {
-  border-bottom: 1px solid;
+  /* border-bottom: 1px solid; */
 }
 
 table tbody tr:nth-child(2n + 1) {
-  background-color: var(--c-bg-sidebar);
+  background-color: var(--c-fg);
 }
 
 table th,
