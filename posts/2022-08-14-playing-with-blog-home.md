@@ -67,7 +67,7 @@ What’s fun about these lists is how dynamic they are. If a post goes and gets 
 
 It kind of makes me want to add a few more lists, I’m just trying to think of what those could be?
 
-It’d be neat to be able to surface (credible) sites that are linking to my posts, like, "[Post Foo] linked from the Sidebar.io newsletter” or, “[Post Bar] linked from css-tricks.com". I’m not sure how you’d do that without some form of human curation — "an automated tool that indexes the web and surfaces credible sites linking to yours” sounds a lot like rebuilding Google.
+It’d be neat to be able to surface (credible) sites that are linking to my posts, like, “[Post Foo] linked from the Sidebar.io newsletter” or, “[Post Bar] linked from css-tricks.com”. I’m not sure how you’d do that without some form of human curation — "an automated tool that indexes the web and surfaces credible sites linking to yours” sounds a lot like rebuilding Google.
 
 If I had webmentions setup, maybe I could pull some interesting stats out of that for the home page? Like:
 
