@@ -121,6 +121,9 @@ export default function About(site) {
         details summary:hover {
           background: var(--c-fg);
         }
+        details[open] summary {
+          border-bottom: none;
+        }
         summary img {
           position: relative;
           top: 2px;
