@@ -22,7 +22,8 @@ https://www.github.com/jimniels/blog/
 -->
 `;
 
-const Layout = (props, children) => {
+// Children will do: Page({...}, html`<main {class="{wrapper|copy}"}?>...</main>`)
+export function Page(props, children) {
   const {
     site: { origin, tags, name },
     page: { head = "", path, title },
@@ -48,9 +49,9 @@ const Layout = (props, children) => {
   ];
 
   return (
+    "<!DOCTYPE html>" +
     comment +
     html`
-      <!DOCTYPE html>
       <html lang="en-us" id="top">
         <head>
           <title>${title && `${title} - `}${name}</title>
@@ -117,9 +118,4 @@ const Layout = (props, children) => {
       </html>
     `
   );
-};
-
-// Children will do: Page({}, html`<main {class="{wrapper|copy}"}?>...</main>`)
-const Page = (props, children) => Layout(props, children);
-
-export { Page };
+}
