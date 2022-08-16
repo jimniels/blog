@@ -34,6 +34,15 @@ export default function About(site) {
         >).
       </p>
 
+      <p>
+        This is available as raw data at
+        <a href="/.well-known/links"><code>/.well-known/links</code></a
+        >. You can also read my post about the
+        <a href="/2022/well-known-links-resource/"
+          >the idea of public, raw link data</a
+        >.
+      </p>
+
       ${site.externalLinks
         .filter(({ count }) => count > 1)
         .map(
