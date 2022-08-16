@@ -1,10 +1,6 @@
 import { Page } from "../server/Layouts.js";
 import { html, toDateUI } from "../server/utils.js";
 
-const page = {
-  path: "/",
-};
-
 export default function Index(site) {
   const recent = site.posts
     .filter((post) => !post?.tags.includes("rssClub"))
@@ -24,7 +20,7 @@ export default function Index(site) {
     .slice(0, 3);
 
   return Page(
-    { site, page },
+    { site, page: { path: "/" } },
     html` <main class="wrapper">
       <h1>Latest</h1>
       ${PostList(recent)}

@@ -1,3 +1,4 @@
+// Used by jim-nielsen.com to pull in all posts...?
 export default function ArchiveJSON(site) {
   const { origin, posts } = site;
 

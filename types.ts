@@ -39,3 +39,8 @@ export type Page = {
   title: string;
   path: string;
 };
+
+export type DynamicPage = {
+  path: string;
+  contents: string;
+};
