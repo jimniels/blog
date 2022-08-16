@@ -1,7 +1,53 @@
-import PropTypes from "prop-types";
 import path from "path";
 import multimatch from "multimatch";
 
+/**
+ * How this works:
+ *
+ * Any file you want to get picked up by the renderer should follow the pattern:
+ *   `$file-name.ext.js`
+ * The `$` indicates that this is a file we want to render dynamically
+ * The `.ext.js` indicates that it's a `.js` file before being processed, and
+ * a `.ext` file after being processed (you're responsible to supply the real
+ * file suffix where applicable present).
+ *
+ *
+ * There are two ways to render files:
+ * 1. Static template rendering (1 file -> 1 page)
+ * 2. Dynamic template rendering (1 file -> `n` pages)
+ *
+ * Example of how it works under the hood:
+ *   1. Static, single page
+ *      import { default: Component } from "path/to/$index.html.js"
+ *      Component(model) -> index.html
+ *
+ *   2. Dynamic pages
+ *      import { getPages } from "path/to/$posts.js"
+ *      getPages(model) => Array.<{ path: string, contents: string }>
+ *      Array.forEach(path, contents => files[path] = contents)
+ *
+ * 1. Static template rendering
+ *
+ * In this case, the default export is a "Component": a function that takes the
+ * model data and renders a string representing a page.
+ *
+ * It can be async if you need to do network requests in the component. The
+ * plugin will know how to handle that case.
+ *
+ *
+ * 2. Dynamic template rendering
+ *
+ * We pass the model data, it returns `n` number of pages, each of which has
+ * the file's 1) path and 2) contents.
+ *
+ * Note: We don't tie these to the `export default Component` because they
+ * might need to vary in their output and putting a switch statement
+ * in the component based on the `path` seems unnecessary. Just let each
+ * render it's own thing.
+ *
+ * Note: leading slash should be absent for the path, e.g. `path/to/$index.html.js`
+ *
+ */
 export default function renderTemplates() {
   return async (files, metalsmith, done) => {
     const log = {
@@ -28,22 +74,12 @@ export default function renderTemplates() {
           getFilePath(file)
         );
 
-        // Dynamic page rendering (multiple pages per template)
-        // getPages: (model) => Array.<{ path: string, component: () => string }>
-        // We pass the model data, it is responsible for giving back a path
-        // and a component for rendering. Function is async in case needed.
-        //
-        // We don't tie these to the `export default Component` because they
-        // might need to vary in their output and putting a switch statement
-        // in the component based on the `path` seems unnecessary. Just let each
-        // render it's own thing.
+        // Dynamic templates
         if (getPages) {
           try {
             const pages = await getPages(model);
             log["Dynamic Templates"]++;
 
-            // Each entry from `getPages` is responsible to supply the model
-            // to any of its sub-components. We just call it here
             // @TODO wrap this in a try{}
             pages.forEach(({ path, contents }) => {
               files[path] = {
@@ -59,27 +95,9 @@ export default function renderTemplates() {
           }
         }
 
-        // Otherwise, it's a 1:1 relationship: 1 component, 1 page
-        // Anything with `$` in the filename gets templated,
-        // But you're responsible to supply it's real file suffix (if present)
-        // e.g. `$filename.html.js`.
-        //
-        // Note: leading slash should be abset, e.g. `path/to/$index.html.js`
-        //
-        // Component(metadata, [loaderData])
-        //
-        // Examples:
-        //   Single page
-        //     import { default: Component } from "$index.html.js"
-        //     Component(model) -> index.html
-        //
-        //   Single page that fetches its own data at build time
-        //     import { default: Component, loader } from "$index.html.js";
-        //     Component(model, loaderData) -> index.html
-
+        // Static template
         try {
-          // Overwrite the exisiting file's contents
-          // Note: components are responsible to `catch` their failiures and
+          // @TODO components are responsible to `catch` their failiures and
           // supply backup data. Or maybe we make the build fail?
 
           // https://stackoverflow.com/questions/38508420/how-to-know-if-a-function-is-async
