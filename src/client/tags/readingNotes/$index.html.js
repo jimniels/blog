@@ -40,7 +40,7 @@ export default function Tags(site) {
             background: var(--c-bg);
           }
           .url {
-            opacity: .5;
+            opacity: 0.5;
             margin-top: calc(1.618rem * 2);
             display: block;
           }
@@ -58,9 +58,12 @@ export default function Tags(site) {
             `
           )}
         <script>
-          Array.from(document.querySelectorAll("main h2 a")).forEach($a => {
+          Array.from(document.querySelectorAll("main h2 a")).forEach(($a) => {
             const { host, hostname } = new URL($a.getAttribute("href"));
-            $a.parentNode.insertAdjacentHTML("beforebegin", "<small class=url>" + hostname + "</small>");
+            $a.parentNode.insertAdjacentHTML(
+              "beforebegin",
+              "<small class=url>" + hostname + "</small>"
+            );
           });
         </script>
       </main>

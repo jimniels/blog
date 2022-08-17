@@ -84,7 +84,8 @@ const page = {
  * @param {*} loaderData
  * @returns
  */
-export default function About(site, loaderData) {
+export default async function About(site) {
+  const loaderData = await loader(site);
   return Page(
     { site, page },
     html`
@@ -228,7 +229,7 @@ function uniquezSvg(svg = "", id) {
  * @param {import("../../../types").Site} site
  * @returns
  */
-export async function loader(site) {
+async function loader(site) {
   // Posts by year (don't include rssClub posts)
   const postsByYear = site.posts.reduce((acc, post) => {
     const year = post.date.slice(0, 4);
@@ -422,7 +423,7 @@ async function getQuickChart({ query, options, id }) {
 
   let img;
   try {
-    console.log(`Fetching chart: \`${id}\`\n%s`, url);
+    console.log(`Fetching chart: \`${id}\`.svg`);
     const res = await fetch(url);
     // const data = await res.buffer();
     const data = await res.text();
