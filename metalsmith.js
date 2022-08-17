@@ -31,7 +31,9 @@ let App = Metalsmith(__dirname)
     // build process
     if (err) throw err; // error handling is required
     console.timeEnd("Build time");
-    console.log(Object.keys(files).filter((file) => file.startsWith(".")));
+    console.log(
+      Object.keys(files).filter((file) => file.includes("well-known"))
+    );
   });
 
 /*
