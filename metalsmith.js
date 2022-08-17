@@ -27,10 +27,11 @@ let App = Metalsmith(__dirname)
   )
   .clean(true)
   .use(renderTemplates())
-  .build((err) => {
+  .build((err, files) => {
     // build process
     if (err) throw err; // error handling is required
     console.timeEnd("Build time");
+    console.log(Object.keys(files).filter((file) => file.startsWith(".")));
   });
 
 /*
