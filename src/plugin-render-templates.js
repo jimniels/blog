@@ -1,5 +1,7 @@
 import path from "path";
 import multimatch from "multimatch";
+import debg from "debug";
+const debug = debg("plugin-render-templates");
 
 /**
  * How this works:
@@ -50,11 +52,12 @@ import multimatch from "multimatch";
  */
 export default function renderTemplates() {
   return async (files, metalsmith, done) => {
+    debug("start");
     const log = {
-      "Static Templates": 0,
-      "Static Async Templates": 0,
-      "Dynamic Templates": 0,
-      "Dynamic Template Pages": 0,
+      "static templates": 0,
+      "static async templates": 0,
+      "dynamic templates": 0,
+      "dynamic template pages": 0,
     };
 
     const model = metalsmith.metadata();
@@ -78,14 +81,14 @@ export default function renderTemplates() {
         if (getPages) {
           try {
             const pages = await getPages(model);
-            log["Dynamic Templates"]++;
+            log["dynamic templates"]++;
 
             // @TODO wrap this in a try{}
             pages.forEach(({ path, contents }) => {
               files[path] = {
                 contents,
               };
-              log["Dynamic Template Pages"]++;
+              log["dynamic template pages"]++;
             });
 
             delete files[file];
@@ -103,15 +106,15 @@ export default function renderTemplates() {
           // https://stackoverflow.com/questions/38508420/how-to-know-if-a-function-is-async
           if (Component[Symbol.toStringTag] === "AsyncFunction") {
             files[file].contents = await Component(model);
-            log["Static Async Templates"]++;
+            log["static async templates"]++;
           } else {
             files[file].contents = Component(model);
-            log["Static Templates"]++;
+            log["static templates"]++;
           }
 
           // Rename the file from `${filename.ext}.js` to `filename.ext`
           // @TODO maybe should use a regex here? i.e. \$(.*).js
-          const newFilename = file.replace("$", "").replace(".js", "");
+          const newFilename = file.replace(/\$(.*)(.js)$/, "$1");
           files[newFilename] = files[file];
 
           // Delete the old file
@@ -125,9 +128,9 @@ export default function renderTemplates() {
     );
 
     // @TODO some kind of logging for how many things we rendered.
-    console.log("Templating stats:");
+    debug("finish");
     Object.entries(log).forEach(([key, value]) => {
-      console.log("  " + key + ": " + value);
+      debug(`rendered: ${value.toLocaleString()} ${key}`);
     });
 
     done();
