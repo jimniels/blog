@@ -19,3 +19,5 @@ Perhaps we too often equate job titles with jobs-to-done, e.g. “Oh, we have a 
 Like Dave I don’t have answers. Only questions — and observations. Speaking of observations, this one by Dave about job titles for CSS folks is spot on: comedic yet stingingly acute.
 
 > I’d argue for a “CSS Engineer” title, someone who knows the ins-and-outs of good CSS architecture that can save your app thousands of lines of code. But that title probably wouldn’t pay enough, so it’d need to be more official sounding like “Render Optimization Engineer Level 6” or something. Now that’ll get the Amazon bucks.
+
+Note: published shortly after, don’t miss [part II of this post](https://blog.jim-nielsen.com/2022/re-web-harsh-manager-pt-ii/).
