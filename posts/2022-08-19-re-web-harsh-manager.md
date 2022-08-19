@@ -1,4 +1,4 @@
-# Re: “The Web is a harsh manager"
+# Re: “The web is a harsh manager”
 
 Dave had [a great post](https://daverupert.com/2022/08/web-is-a-harsh-manager/) about the increasing demand for “front-end”, whatever that means (which is kind of the point). 
 
