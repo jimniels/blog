@@ -1,7 +1,71 @@
 import { Page } from "../../server/Layouts.js";
 import { html, toDateUI } from "../../server/utils.js";
 
-const page = { title: "Internal Links", path: "/about/internal-links/" };
+const page = {
+  title: "Internal Links",
+  path: "/about/internal-links/",
+  head: html`<style>
+    #root {
+      display: block;
+      margin-top: 1.618rem;
+      padding-top: 1.618rem;
+    }
+    #root svg {
+      width: 100%;
+      height: auto;
+    }
+    #root svg [fill="#ffffff"] {
+      fill: transparent;
+    }
+    #root svg [stroke="#000000"] {
+      stroke: var(--c-theme);
+    }
+    #root svg [fill="#000000"] {
+      fill: var(--c-text);
+    }
+    #root .loading {
+      opacity: 0.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.618rem;
+    }
+    form label {
+      font-weight: 700;
+    }
+    /* Thank you https://tobiasahlin.com/spinkit/ */
+    .spinner {
+      display: block;
+      width: 40px;
+      height: 40px;
+      margin: 100px auto;
+      background-color: var(--c-theme);
+      border-radius: 100%;
+      -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+      animation: sk-scaleout 1s infinite ease-in-out;
+    }
+    @-webkit-keyframes sk-scaleout {
+      0% {
+        -webkit-transform: scale(0);
+      }
+      100% {
+        -webkit-transform: scale(1);
+        opacity: 0;
+      }
+    }
+    @keyframes sk-scaleout {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+  </style>`,
+};
 
 // https://quickchart.io/documentation/graphviz-api/
 const graphLayoutEngines = [
@@ -54,7 +118,7 @@ export default function Index(site) {
             <select id="layout-engine">
               ${graphLayoutEngines.map(
                 (engine, i) =>
-                  html`<option value="${engine}" ${i === 0 ? "checked" : ""}>
+                  html`<option value="${engine}" ${i === 0 ? "selected" : ""}>
                     ${engine}
                   </option>`
               )}
@@ -62,7 +126,7 @@ export default function Index(site) {
           </form>
         </div>
         <output id="root">
-          <div class="spinner"></div>
+          <span class="spinner"></span>
         </output>
       </main>
 
@@ -119,66 +183,6 @@ export default function Index(site) {
           }, 100);
         });
       </script>
-      <style>
-        #root {
-          display: block;
-          margin-top: 1.618rem;
-          padding-top: 1.618rem;
-        }
-        #root svg {
-          width: 100%;
-          height: auto;
-        }
-        #root svg [fill="#ffffff"] {
-          fill: transparent;
-        }
-        #root svg [stroke="#000000"] {
-          stroke: var(--c-theme);
-        }
-        #root svg [fill="#000000"] {
-          fill: var(--c-text);
-        }
-        #root .loading {
-          opacity: 0.5;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 1.618rem;
-        }
-        form label {
-          font-weight: 700;
-        }
-        /* Thank you https://tobiasahlin.com/spinkit/ */
-        .spinner {
-          width: 40px;
-          height: 40px;
-          margin: 100px auto;
-          background-color: var(--c-theme);
-          border-radius: 100%;
-          -webkit-animation: sk-scaleout 1s infinite ease-in-out;
-          animation: sk-scaleout 1s infinite ease-in-out;
-        }
-        @-webkit-keyframes sk-scaleout {
-          0% {
-            -webkit-transform: scale(0);
-          }
-          100% {
-            -webkit-transform: scale(1);
-            opacity: 0;
-          }
-        }
-        @keyframes sk-scaleout {
-          0% {
-            -webkit-transform: scale(0);
-            transform: scale(0);
-          }
-          100% {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            opacity: 0;
-          }
-        }
-      </style>
     `
   );
 }

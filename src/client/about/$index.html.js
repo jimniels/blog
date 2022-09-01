@@ -162,7 +162,8 @@ export default async function About(site) {
             title: label + (link ? html` <a href="${link}">View all</a>` : ""),
             list,
             listType,
-            svg: uniquezSvg(svg, id),
+            // Strip the <?xml ... ?> prolog since we're embedding these
+            svg: uniquezSvg(svg, id).replace(/<\?xml.*\?>/, ""),
           })
         )}
       </main>

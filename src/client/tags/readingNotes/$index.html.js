@@ -4,6 +4,25 @@ import { html } from "../../../server/utils.js";
 const page = {
   title: "Posts tagged #readingNotes",
   path: "/tags/readingNotes/",
+  head: html`<style>
+    hr {
+      margin: calc(1.618rem * 2) auto;
+      border-width: 4px;
+    }
+    .title {
+      position: sticky;
+      top: 0;
+      background: var(--c-bg);
+    }
+    .url {
+      opacity: 0.5;
+      margin-top: calc(1.618rem * 2);
+      display: block;
+    }
+    .copy h2 {
+      margin-top: 0;
+    }
+  </style>`,
 };
 
 /*
@@ -29,25 +48,6 @@ export default function Tags(site) {
     { site, page },
     html`
       <main class="wrapper">
-        <style>
-          hr {
-            margin: calc(1.618rem * 2) auto;
-            border-width: 4px;
-          }
-          .title {
-            position: sticky;
-            top: 0;
-            background: var(--c-bg);
-          }
-          .url {
-            opacity: 0.5;
-            margin-top: calc(1.618rem * 2);
-            display: block;
-          }
-          .copy h2 {
-            margin-top: 0;
-          }
-        </style>
         ${site.posts
           .filter((post) => post.tags && post.tags.includes("readingNotes"))
           .map(

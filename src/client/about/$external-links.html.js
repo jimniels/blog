@@ -4,6 +4,49 @@ import { html } from "../../server/utils.js";
 const page = {
   title: "External Links",
   path: "/about/links/",
+  head: html`
+    <style>
+      .copy {
+        margin-bottom: 4rem;
+      }
+
+      details summary {
+        font-size: 0.8181rem;
+        background: var(--c-bg);
+        padding: 4px 10px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        border-bottom: 1px solid var(--c-fg);
+      }
+      details summary:hover {
+        background: var(--c-fg);
+      }
+      details[open] summary {
+        border-bottom: none;
+      }
+      summary img {
+        position: relative;
+        top: 2px;
+        margin-right: 6px;
+      }
+      summary .count {
+        float: right;
+        opacity: 0.5;
+      }
+
+      details table {
+        font-size: 0.6363rem;
+      }
+
+      table tbody td:first-child {
+        text-align: right;
+      }
+    </style>
+  `,
 };
 
 /**
@@ -61,10 +104,12 @@ export default function About(site) {
               </summary>
               <table>
                 <thead>
-                  <th></th>
-                  <th>blog.jim-nielsen.com</th>
-                  <th></th>
-                  <th>${domain}</th>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">blog.jim-nielsen.com</th>
+                    <th scope="col"></th>
+                    <th scope="col">${domain}</th>
+                  </tr>
                 </thead>
                 <tbody>
                   ${links.map(
@@ -86,9 +131,11 @@ export default function About(site) {
         <summary>...others with only one occurence</summary>
         <table>
           <thead>
-            <th></th>
-            <th>blog.jim-nielsen.com</th>
-            <th>Target</th>
+            <tr>
+              <th></th>
+              <th>blog.jim-nielsen.com</th>
+              <th>Target</th>
+            </tr>
           </thead>
           <tbody>
             ${allOthers.map(
@@ -109,48 +156,6 @@ export default function About(site) {
           </tbody>
         </table>
       </details>
-
-      <style>
-        .copy {
-          margin-bottom: 4rem;
-        }
-
-        details summary {
-          font-size: 0.8181rem;
-          background: var(--c-bg);
-          padding: 4px 10px;
-          overflow-wrap: break-word;
-          word-wrap: break-word;
-          -ms-word-break: break-all;
-          position: sticky;
-          top: 0;
-          z-index: 1;
-          border-bottom: 1px solid var(--c-fg);
-        }
-        details summary:hover {
-          background: var(--c-fg);
-        }
-        details[open] summary {
-          border-bottom: none;
-        }
-        summary img {
-          position: relative;
-          top: 2px;
-          margin-right: 6px;
-        }
-        summary .count {
-          float: right;
-          opacity: 0.5;
-        }
-
-        details table {
-          font-size: 0.6363rem;
-        }
-
-        table tbody td:first-child {
-          text-align: right;
-        }
-      </style>
     </main>`
   );
 }
