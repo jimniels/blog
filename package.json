@@ -11,6 +11,7 @@
     "browser-sync": "^2.26.14",
     "cheerio": "^1.0.0-rc.5",
     "highlight.js": "^11.4.0",
+    "html-validate": "^7.3.3",
     "marked": "^4.0.12",
     "metalsmith": "^2.3.0",
     "multimatch": "^5.0.0",
@@ -27,7 +28,8 @@
     "prestart": "npm run pre",
     "start": "netlify dev --dir build & NODE_ENV=development nodemon --exec 'node metalsmith'",
     "prebuild": "npm run pre",
-    "build": "NODE_ENV=production node metalsmith.js"
+    "build": "NODE_ENV=production node metalsmith.js",
+    "validate": "html-validate build/"
   },
   "repository": {
     "type": "git",
