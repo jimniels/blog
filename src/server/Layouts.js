@@ -94,24 +94,20 @@ export function Page(props, children) {
         <body>
           ${/* icon sprite importFile("./svgs/icons.svg") */ ""}
 
-          <site-nav>
-            <nav>
-              <strong>
-                ${path === "/"
-                  ? `<span class="highlight">Jim Nielsen’s Blog</span>`
-                  : `<a href="/" class="highlight">Jim Nielsen’s Blog</a>`}
-              </strong>
+          <nav>
+            <div>
+              ${path === "/"
+                ? `<span class="highlight">Jim Nielsen’s Blog</span>`
+                : `<a href="/" class="highlight">Jim Nielsen’s Blog</a>`}
+            </div>
+            <div>
               ${nav.map(({ label, path: navItemPath }) =>
                 navItemPath === path
                   ? html`<span>${label}</span>`
                   : html`<a href="${navItemPath}">${label}</a>`
               )}
-            </nav>
-          </site-nav>
-
-          <script>
-            ${importFile("./site-nav.js")};
-          </script>
+            </div>
+          </nav>
 
           ${children}
         </body>
