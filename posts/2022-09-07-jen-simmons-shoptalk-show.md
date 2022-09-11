@@ -4,7 +4,7 @@
 
 I just finished listening to [ShopTalk Show Ep. 529](https://shoptalkshow.com/529/) with [Jen Simmons](https://twitter.com/jensimmons), Apple Evangelist on the Web Developer Experience team for Safari & Webkit.
 
-This episode covered a lot of new stuff coming to CSS — and I mean _a lot_, including container queries, cascade layers, `.has()` selector, nesting proposal, scoping, subgrid, and more.
+This episode covered a lot of new stuff coming to CSS — and I mean _a lot_, including container queries, cascade layers, `:has()` selector, nesting proposal, scoping, subgrid, and more.
 
 While listening to Chris, Dave, and Jen discuss the array of new things coming to CSS, what stuck out to me was how much these new things aren’t necessarily about addressing specific concerns around technological capability — e.g. when will we get IF statements in CSS? — but rather about addressing organizational and cultural concerns that arise from humans trying to work together to build software — e.g. how can teams of people write, maintain, and refactor CSS?
 
