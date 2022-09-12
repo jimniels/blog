@@ -10,6 +10,15 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/test"
+  to = "/preferences"
+
+[[headers]]
+  for = "/test*"
+  [headers.values]
+    X-Jim = "WORKS"
+
 # [[redirects]]
 #   from = "/preferences"
 #   to = "/.netlify/functions/preferences"
