@@ -4,6 +4,7 @@ import path from "path";
 import Metalsmith from "metalsmith";
 import multimatch from "multimatch";
 import fetch from "node-fetch";
+import { JSDOM } from "jsdom";
 // import cheerio from "cheerio";
 import renderTemplates from "./src/plugin-render-templates.js";
 import * as layouts from "./src/server/Layouts.js";
@@ -27,6 +28,35 @@ let App = Metalsmith(__dirname)
   )
   .clean(true)
   .use(renderTemplates())
+  .use((files, metalsmith, done) => {
+    multimatch(Object.keys(files), "**/*.html")
+      // .slice(0, 2)
+      .forEach((file) => {
+        const dom = new JSDOM(files[file].contents);
+        const document = dom.window.document;
+
+        Array.from(document.querySelectorAll("script, style")).forEach((el) => {
+          el.remove();
+        });
+        // @TODO add back base styles, then do `fidelity-md`
+        // contents: dom.serialize()
+        // Then strip the style out again
+
+        // @TODO images go from <img> to <a></a>
+        Array.from(document.querySelectorAll("img")).forEach((img) => {
+          let a = document.createElement("a");
+          a.href = img.src;
+          a.text = img.alt;
+          img.insertAdjacentElement("beforebegin", a);
+          img.remove();
+        });
+        // console.log();
+        files[`fidelity-low/${file}`] = {
+          contents: dom.serialize(),
+        };
+      });
+    done();
+  })
   .build((err, files) => {
     // build process
     if (err) throw err; // error handling is required

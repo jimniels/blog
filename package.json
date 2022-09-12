@@ -12,6 +12,7 @@
     "cheerio": "^1.0.0-rc.5",
     "highlight.js": "^11.4.0",
     "html-validate": "^7.3.3",
+    "jsdom": "^20.0.0",
     "marked": "^4.0.12",
     "metalsmith": "^2.3.0",
     "multimatch": "^5.0.0",

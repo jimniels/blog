@@ -4,6 +4,17 @@
 
 :root {
   --border-radius: 10px;
+  --s-4: calc(4rem / 18);
+  --s-8: calc(8rem / 18);
+  --s-12: calc(12rem / 18);
+  --s-16: calc(16rem / 18);
+  --s-24: calc(24rem / 18);
+  --s-32: calc(32rem / 18);
+  --s-40: calc(40rem / 18);
+  --s-48: calc(48rem / 18);
+  --s-64: calc(64rem / 18);
+  --s-80: calc(80rem / 18);
+  --s-96: calc(96rem / 18);
 
   /* Theme color that gets set by default but is configurable by the user */
   --c-theme-h: var(--c-blue-h);
@@ -255,8 +266,8 @@ table td {
 .copy > *:not(.image-container):not(pre),
 .wrapper {
   max-width: 36rem;
-  margin-left: calc(1.618rem / 2);
-  margin-right: calc(1.618rem / 2);
+  margin-left: var(--s-16);
+  margin-right: var(--s-16);
 }
 
 @media screen and (min-width: 42rem) {
@@ -358,17 +369,17 @@ footer a,
 nav {
   max-width: 36rem;
   display: flex;
-  margin: 1px auto calc(1.618rem * 1.5);
+  margin: 0px auto var(--s-48);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: calc(1.618rem / 2);
+  gap: var(--s-16);
 }
 
 @media screen and (max-width: 42rem) {
   nav {
-    margin-left: calc(1.618rem / 2);
-    margin-right: calc(1.618rem / 2);
+    margin-left: var(--s-16);
+    margin-right: var(--s-16);
   }
 }
 
@@ -378,15 +389,15 @@ nav > :first-child {
 
 nav > :nth-child(2) {
   display: flex;
-  gap: calc(1.618rem / 2);
+  gap: var(--s-16);
   align-self: flex-end;
 }
 
 .highlight {
-  padding: calc(1.618rem / 5) calc(1.618rem / 1.25);
+  padding: var(--s-8) var(--s-24);
   color: var(--c-bg);
   position: relative;
-  margin-left: calc(-1.618rem / 1.25);
+  margin-left: calc(var(--s-24) * -1);
   display: inline-flex;
   align-items: center;
   font-weight: 700;

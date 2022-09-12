@@ -35,12 +35,12 @@ export function Page(props, children) {
       path: "/archive/",
     },
     {
-      label: "Tags",
-      path: "/tags/",
-    },
-    {
       label: "About",
       path: "/about/",
+    },
+    {
+      label: "Preferences",
+      path: "/preferences/",
     },
     {
       label: "RSS",
@@ -93,6 +93,10 @@ export function Page(props, children) {
         </head>
         <body>
           ${/* icon sprite importFile("./svgs/icons.svg") */ ""}
+          <script>
+            ${importFile("./theme-color.js")};
+          </script>
+          <theme-color></theme-color>
 
           <nav>
             <div>

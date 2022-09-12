@@ -4,8 +4,8 @@ const colors = [
   "red",
   "green",
   "yellow",
-  // "pink",
   "purple",
+  // "pink",
   // "none",
   // "orange",
   // not supported as UI themes—yet

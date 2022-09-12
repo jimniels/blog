@@ -9,3 +9,17 @@
   to = "https://blog.jim-nielsen.com/:splat"
   status = 301
   force = true
+
+# [[redirects]]
+#   from = "/preferences"
+#   to = "/.netlify/functions/preferences"
+#   status = 200
+
+# Redirect anything with the right cookie...
+[[redirects]]
+  from = "/*"
+  to = "/fidelity-low/:splat"
+  status = 200
+  force = true
+  conditions = { Cookie = ["fidelity-low"] }
+
