@@ -101,9 +101,9 @@ export default function Preferences(site) {
             { id: "med", title: "Minimal" },
             { id: "low", title: "Text-Only" },
           ].map(
-            ({ id, title, q }) => html`
+            ({ id, title }) => html`
               <a
-                href="/.netlify/functions/preferences?fidelity=${q}"
+                href="/.netlify/functions/preferences?fidelity=${id}"
                 id="${id}"
               >
                 ${title}
