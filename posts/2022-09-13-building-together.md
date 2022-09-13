@@ -12,7 +12,7 @@ I love this idea of a story being something that we construct together, storytel
 
 I can’t help but think of this idea but carried over to software.[^1]
 
-Great software produces helps produce a story we tell together. I am given a tool and a hope. I use it within, and often beyond, the bounds imagined by its original creator. And it amplifies my ability to re-shape and re-make my own world, often in ways that could have never been imagined by its original creator.
+Great software helps produce a story we tell together. I am given a tool and a hope. I use it within, and often beyond, the bounds imagined by its original creator. And it amplifies my ability to re-shape and re-make my own world, often in ways that could have never been imagined by its original creator.
 
 The result is something we build together, software author and user.
 
