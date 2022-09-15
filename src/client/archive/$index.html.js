@@ -4,6 +4,16 @@ import { html } from "../../server/utils.js";
 const page = {
   title: "Archive",
   path: "/archive/",
+  head: html`
+    <style>
+      main h2 {
+        position: sticky;
+        top: 0px;
+        background: var(--c-bg);
+        z-index: 10;
+      }
+    </style>
+  `,
 };
 
 export default function Archive(site) {
@@ -45,12 +55,7 @@ export default function Archive(site) {
         .reverse()
         .map(
           (year) => html`
-            <h2
-              id="${year}"
-              style="position: sticky; top: 0px; background: var(--c-bg); z-index: 10;"
-            >
-              ${year}
-            </h2>
+            <h2 id="${year}">${year}</h2>
             <ul class="posts-list">
               ${postsByYear[year].map(
                 (post) => html`

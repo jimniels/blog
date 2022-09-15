@@ -35,22 +35,46 @@ let App = Metalsmith(__dirname)
         const dom = new JSDOM(files[file].contents);
         const document = dom.window.document;
 
+        /**
+         * Generated the `fidelity/med/*` files
+         */
+        // Remove all inline <script> and <style> tags from the default fidelity
         Array.from(document.querySelectorAll("script, style")).forEach((el) => {
           el.remove();
         });
-        // @TODO add back base styles, then do `fidelity-md`
-        // contents: dom.serialize()
-        // Then strip the style out again
 
-        // @TODO images go from <img> to <a></a>
+        // Add a back a basic set of styles
+        let $basicStyles = document.createElement("style");
+        $basicStyles.innerHTML = fs
+          .readFileSync(path.join(__dirname, "./src/server/styles/basic.css"))
+          .toString();
+        document.querySelector("head").appendChild($basicStyles);
+
+        files[`fidelity-med/${file}`] = {
+          contents: dom.serialize(),
+        };
+
+        /**
+         * Generated the `fidelity/low/*` files
+         */
+
+        // Rip out the <style> tag again
+        document.querySelector("style").remove();
+
+        // Make images available as links
         Array.from(document.querySelectorAll("img")).forEach((img) => {
           let a = document.createElement("a");
           a.href = img.src;
-          a.text = img.alt;
+          a.text = `[Image: ${img.alt}]`;
           img.insertAdjacentElement("beforebegin", a);
           img.remove();
         });
-        // console.log();
+
+        // Remove inline SVGs entirely (shouldn't be relying on these)
+        Array.from(document.querySelectorAll("svg")).forEach((svg) => {
+          svg.remove();
+        });
+
         files[`fidelity-low/${file}`] = {
           contents: dom.serialize(),
         };

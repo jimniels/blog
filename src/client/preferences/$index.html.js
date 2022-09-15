@@ -7,6 +7,27 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
   fs.readFileSync(path.join(__dirname, filepath)).toString();
 
+const fidelities = [
+  {
+    id: "high",
+    title: "Default",
+    description:
+      "All the bells and whistles (yet still lean and mean). Custom theme color selection, styled motifs, and any extra flair — including JavaScript",
+  },
+  {
+    id: "med",
+    title: "Minimal",
+    description:
+      "Minimal enhancements for the core reading experience. HTML includes inline images, and a base stylesheet is included for improved layout, but otherwise nothing else. No JavaScript.",
+  },
+  {
+    id: "low",
+    title: "Text-Only",
+    description:
+      "Leanest experience possible. No styles, no interactivity, or inline images. Saves bandwidth, CPU, and battery.",
+  },
+];
+
 export default function Preferences(site) {
   const title = "Site Preferences";
   return Page(
@@ -90,47 +111,33 @@ export default function Preferences(site) {
         <h1>${title}</h1>
 
         <h2>Theme</h2>
-        <div id="theme-root">This feature requires JavaScript.</div>
+        <div id="theme-root">
+          This feature requires the default site fidelity (see below) as well as
+          JavaScript.
+        </div>
         <!-- prettier-ignore -->
         <script>${importFile("./index.js")}</script>
 
         <h2>Fidelity</h2>
         <div id="fidelity">
-          ${[
-            { id: "high", title: "Default" },
-            { id: "med", title: "Minimal" },
-            { id: "low", title: "Text-Only" },
-          ].map(
+          ${fidelities.map(
             ({ id, title }) => html`
               <a
                 href="/.netlify/functions/preferences?fidelity=${id}"
                 id="${id}"
+                >${title}</a
               >
-                ${title}
-              </a>
             `
           )}
         </div>
-        <p>
-          This is a concept whose implemenation I explain in
-          <a href="">this post.</a> Here’s a more technical explanation of what
-          these preferences mean:
-        </p>
 
-        <p>
-          <em>Default:</em> all the bells and whistles (yet still lean and
-          mean). Custom theme color selection, styled motifs, and any extra
-          flair — including JavaScript.
-        </p>
-        <p>
-          <em>Basic:</em> minimal enhancements for the core reading experience.
-          HTML includes inline images, and a base stylesheet is included for
-          improved layout, but otherwise nothing else. No JavaScript.
-        </p>
-        <p>
-          <em>Minimal:</em> leanest experience possible. No styles, no
-          interactivity, or inline images. Saves bandwidth, CPU, and battery.
-        </p>
+        ${fidelities.map(
+          ({ title, description }) => html`
+            <p><strong>${title}</strong> – ${description}</p>
+          `
+        )}
+
+        <p>Read more about <a href="">my idea of website fidelity</a>.</p>
       </main>
     `
   );

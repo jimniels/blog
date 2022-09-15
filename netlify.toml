@@ -10,14 +10,6 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/test"
-  to = "/preferences"
-
-[[headers]]
-  for = "/test*"
-  [headers.values]
-    X-Jim = "WORKS"
 
 # [[redirects]]
 #   from = "/preferences"
@@ -31,4 +23,11 @@
   status = 200
   force = true
   conditions = { Cookie = ["fidelity-low"] }
+
+[[redirects]]
+  from = "/*"
+  to = "/fidelity-med/:splat"
+  status = 200
+  force = true
+  conditions = { Cookie = ["fidelity-med"] }
 

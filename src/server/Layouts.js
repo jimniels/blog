@@ -107,8 +107,8 @@ export function Page(props, children) {
             <div>
               ${nav.map(({ label, path: navItemPath }) =>
                 navItemPath === path
-                  ? html`<span>${label}</span>`
-                  : html`<a href="${navItemPath}">${label}</a>`
+                  ? html`<span>${label}</span> `
+                  : html`<a href="${navItemPath}">${label}</a> `
               )}
             </div>
           </nav>
