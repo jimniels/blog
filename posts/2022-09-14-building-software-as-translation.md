@@ -34,7 +34,7 @@ Design is a creative act, full of intention born out of research, synthesis, and
 
 Unfortunately, we often conflate “good communication” in the hand-off phase with the use of commercial software tools meant to facilitate this phase of the work. “Oh, my Figma file has everything you’ll need. Just look at ‘Inspect’ tab for anything you think is missing.” The entire context, and therefore intent, can easily get lost for people downstream of visual design — code and prose being perceived as artifacts that can merely be “plugged in” later in the process.
 
-Each discipline — design, front-end, copywriting, etc. — is part of the creative act of building software. Without good communication, the original intent — which is likely full discipline-centric insight and research — is too easily lost along the way.
+Each discipline — design, front-end, copywriting, etc. — is part of the creative act of building software. Without good communication, the original intent — which is likely full of discipline-centric insight and research — is too easily lost along the way.
 
 I suppose some might say this is where Product (with a capital “P”) comes in. They are the ones responsible for defining, communicating, and vetting the intent of any solution through the process of making software across a multitude of disciplines. In practice, however, I’m not so convinced it plays out this way.
 
@@ -44,7 +44,7 @@ Better, in my opinion, to follow the idea of small, iterative demos which can pr
 
 It’s easy for meaning to be lost when translating from one language to another. The original author’s intent is invariably interpreted by the person doing the translation. They cannot know the author’s original intent or thoughts and therefore the translation is always an interpretation of the original work, not a copy merely expressed in a different language.
 
-Similarly, in software work, design intent — whether in visuals or code or words — can easily be lost through the chain of hand-offs. The more software production looks like an assembly line, where people from individual disciplines are given a pre-fabricated widget and expected to merely plug-in their part, the more intent (again, informed by research and discipline knowledge) is lost.
+Similarly, in software work, design intent — whether in visuals or code or words — can easily be lost through the chain of hand-offs. The more software production looks like an assembly line, where people from individual disciplines are given a pre-fabricated widget and expected to merely plug-in their part, the more intent (again, informed by research and discipline-specific knowledge) is lost.
 
 This is the value I see in interdisciplinary roles like design engineering, where individuals can span traditionally disparate disciplines and help reduce the seams where intent can be lost.
 
