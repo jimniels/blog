@@ -110,6 +110,13 @@ export function Page(props, children) {
                   ? html`<span>${label}</span> `
                   : html`<a href="${navItemPath}">${label}</a> `
               )}
+              <details>
+                <summary>Preferences</summary>
+                <div>
+                  <h3>Theme</h3>
+                  <h3>Fidelity</h3>
+                </div>
+              </details>
             </div>
           </nav>
 

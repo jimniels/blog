@@ -1,9 +1,11 @@
 exports.handler = async function (event, context) {
   const {
-    headers: { cookie },
+    headers: { cookie, referer },
     rawUrl,
     queryStringParameters: { fidelity },
   } = event;
+
+  console.log(event);
 
   const { origin } = new URL(rawUrl);
 
@@ -22,7 +24,11 @@ exports.handler = async function (event, context) {
   }
 
   // If there's no cookie present, set one with the appropriate request
-  const Location = origin + "/preferences";
+  const Location =
+    referer.includes("//blog.jim-nielsen.com") ||
+    referer.includes("//localhost")
+      ? referer
+      : "https://blog.jim-nielsen.com";
   if (fidelity === "low" || fidelity === "med") {
     console.log(`Set cookie \`fidelity-${fidelity}=active`);
     return {
