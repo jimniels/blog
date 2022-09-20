@@ -7,6 +7,27 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
   fs.readFileSync(join(__dirname, filepath)).toString();
 
+const fidelities = [
+  {
+    id: "high",
+    title: "Default",
+    description:
+      "All the bells and whistles (yet still lean and mean). Custom theme color selection, styled motifs, and any extra flair — including JavaScript",
+  },
+  {
+    id: "med",
+    title: "Minimal",
+    description:
+      "Minimal enhancements for the core reading experience. HTML includes inline images, and a base stylesheet is included for improved layout, but otherwise nothing else. No JavaScript.",
+  },
+  {
+    id: "low",
+    title: "Text-Only",
+    description:
+      "Leanest experience possible. No styles, no interactivity, or inline images. Saves bandwidth, CPU, and battery.",
+  },
+];
+
 const comment = `
 <!--
 
@@ -37,10 +58,6 @@ export function Page(props, children) {
     {
       label: "About",
       path: "/about/",
-    },
-    {
-      label: "Preferences",
-      path: "/preferences/",
     },
     {
       label: "RSS",
@@ -95,29 +112,65 @@ export function Page(props, children) {
           ${/* icon sprite importFile("./svgs/icons.svg") */ ""}
           <script>
             ${importFile("./theme-color.js")};
+            document.write("<theme-color></theme-color>");
           </script>
-          <theme-color></theme-color>
 
           <nav>
-            <div>
-              ${path === "/"
-                ? `<span class="highlight">Jim Nielsen’s Blog</span>`
-                : `<a href="/" class="highlight">Jim Nielsen’s Blog</a>`}
-            </div>
-            <div>
-              ${nav.map(({ label, path: navItemPath }) =>
-                navItemPath === path
-                  ? html`<span>${label}</span> `
-                  : html`<a href="${navItemPath}">${label}</a> `
-              )}
-              <details>
-                <summary>Preferences</summary>
-                <div>
-                  <h3>Theme</h3>
-                  <h3>Fidelity</h3>
-                </div>
-              </details>
-            </div>
+            ${path === "/"
+              ? html`<b class="highlight">Jim Nielsen’s Blog</b>`
+              : html`<a href="/" class="highlight"
+                  ><b>Jim Nielsen’s Blog</b></a
+                >`}
+            ${nav.map(({ label, path: navItemPath }) =>
+              navItemPath === path
+                ? html`<span>${label}</span> `
+                : html`<a href="${navItemPath}">${label}</a> `
+            )}
+            <details open>
+              <summary>Site Preferences</summary>
+              <div>
+                <form id="color">
+                  <fieldset>
+                    <legend>Theme:</legend>
+                    <span id="theme-root">
+                      This feature requires the default site fidelity (see
+                      below) as well as JavaScript.
+                    </span>
+                  </fieldset>
+                </form>
+                <!-- prettier-ignore -->
+                <script>${importFile("../client/preferences/index.js")}</script>
+                <form id="fidelity" action="/.netlify/functions/preferences">
+                  <fieldset>
+                    <legend>Fidelity: (<a href="">What is this?</a>)</legend>
+
+                    <span>
+                      ${fidelities.map(
+                        ({ id, title }, i) => html`
+                          <label id="${id}">
+                            <input
+                              type="radio"
+                              name="fidelity"
+                              value="${id}"
+                              ${i === 0 ? "checked" : ""}
+                            />
+                            ${title}
+                          </label>
+                        `
+                      )}
+                    </span>
+                    <button type="submit">Update</button>
+                  </fieldset>
+                </form>
+                <script>
+                  const $fidelityForm = document.querySelector("form#fidelity");
+                  $fidelityForm.addEventListener("change", (e) => {
+                    $fidelityForm.submit();
+                  });
+                  $fidelityForm.querySelector("button").style.display = "none";
+                </script>
+              </div>
+            </details>
           </nav>
 
           ${children}

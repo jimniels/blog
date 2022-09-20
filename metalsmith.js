@@ -29,12 +29,26 @@ let App = Metalsmith(__dirname)
   .clean(true)
   .use(renderTemplates())
   .use((files, metalsmith, done) => {
+    if (process.argv.includes("--fast")) {
+      done();
+      return;
+    }
+
     multimatch(Object.keys(files), "**/*.html")
       // .slice(0, 2)
       .forEach((file) => {
         const dom = new JSDOM(files[file].contents);
         const document = dom.window.document;
 
+        const setActiveFidelity = (fid) => {
+          // remove current chekced
+          document
+            .querySelector("[name=fidelity][checked]")
+            ?.removeAttribute("checked");
+          document
+            .querySelector(`[name=fidelity][value=${fid}]`)
+            ?.setAttribute("checked", "");
+        };
         /**
          * Generated the `fidelity/med/*` files
          */
@@ -42,6 +56,7 @@ let App = Metalsmith(__dirname)
         Array.from(document.querySelectorAll("script, style")).forEach((el) => {
           el.remove();
         });
+        setActiveFidelity("med");
 
         // Add a back a basic set of styles
         let $basicStyles = document.createElement("style");
@@ -57,6 +72,7 @@ let App = Metalsmith(__dirname)
         /**
          * Generated the `fidelity/low/*` files
          */
+        setActiveFidelity("low");
 
         // Rip out the <style> tag again
         document.querySelector("style").remove();
