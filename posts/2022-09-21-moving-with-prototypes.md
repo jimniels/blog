@@ -10,7 +10,7 @@ Jason on why [moving in business is hard](https://world.hey.com/jason/just-get-m
 
 Maybe it’s because Dave’s been [blogging](https://daverupert.com/2022/09/prototyping-to-learn/) about [prototyping](https://daverupert.com/2022/09/30-minute-study-model/) lately, but when I read this I think: prototypes!
 
-Prototyping _is_ moving. It’s the meeting, the considering, and the conceptualizing, but with iterative progress in a concrete artifact. When you’re done, you’re left with something tangible — as well as experimental knowledge — rather than just a bunch of meeting notes and perceived agreement.
+Prototyping _is_ moving. It’s the meeting, the considering, and the conceptualizing, but with iterative progress in a concrete artifact. When you’re done, you’re left with something tangible — as well as experiential knowledge — rather than just a bunch of meeting notes and perceived agreement.
 
 Words, in the form of speaking or notes, are nice but they’re founded in language which can be fuzzy, subjective to each individual. “I thought we meant _A_ when we said/wrote that, not _B_.”
 
