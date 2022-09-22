@@ -14,7 +14,7 @@ Prototyping _is_ moving. It’s the meeting, the considering, and the conceptual
 
 Words, in the form of speaking or notes, are nice but they’re founded in language which can be fuzzy, subjective to each individual. “I thought we meant _A_ when we said/wrote that, not _B_.”
 
-In contrast, a prototype is a tangible artifact that leaves much less room for [meaning, purpose, and intent](https://blog.jim-nielsen.com/2022/good-design/) to be subject to individual interpretation. Words are fuzzy. Prototypes are crisp and clear — however “wrong” they you may discover them to be along the way, which is kind of the point!
+In contrast, a prototype is a tangible artifact that leaves much less room for [meaning, purpose, and intent](https://blog.jim-nielsen.com/2022/good-design/) to be subject to individual interpretation. Words are fuzzy. Prototypes are crisp and clear — however “wrong” you may discover them to be along the way, which is kind of the point!
 
 Prototypes are powerful tools to remove ambiguity and individual interpretation from any perceivedly-shared understanding. Ken Kocienda [illustrates this perfect in his “Which puppy is cuter?” example](https://blog.jim-nielsen.com/2019/the-power-of-prototypes-in-the-creative-process/):
 
