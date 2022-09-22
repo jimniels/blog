@@ -1,3 +1,5 @@
+#prototyping
+
 # The Power of Prototypes in the Creative Process
 
 As [mentioned on this blog](https://blog.jim-nielsen.com/2019/book-notes-creative-selection/), I recently finished reading Ken Kocienda’s book “Creative Selection”.
