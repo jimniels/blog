@@ -1,9 +1,8 @@
 // Show/hide the stuff if JS is present
-const $root = document.querySelector("#theme-root");
+const $root = document.querySelector("#js-color-root");
 const $theme = document.querySelector("theme-color");
 
 $root.innerHTML = /*html*/ `
-  <form id="color">
   ${$theme
     .getAttribute("supported-values")
     .split(" ")
@@ -19,11 +18,10 @@ $root.innerHTML = /*html*/ `
       `
     )
     .join("")}
-  </form>
 `;
 
 // Check the active color in the UI
-const $form = document.querySelector("form#color");
+const $form = document.querySelector("form#js-color");
 $form.querySelector(
   "input[value=" + $theme.getAttribute("value") + "]"
 ).checked = true;
@@ -39,4 +37,10 @@ $form.addEventListener("click", (e) => {
       $theme.setAttribute("value", color);
     }
   }
+});
+
+const $formFidelity = document.querySelector("form#js-fidelity");
+$formFidelity.querySelector("button").style.display = "none";
+$formFidelity.addEventListener("change", () => {
+  $formFidelity.submit();
 });

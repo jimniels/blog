@@ -109,7 +109,6 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          ${/* icon sprite importFile("./svgs/icons.svg") */ ""}
           <script>
             ${importFile("./theme-color.js")};
             document.write("<theme-color></theme-color>");
@@ -121,55 +120,60 @@ export function Page(props, children) {
               : html`<a href="/" class="highlight"
                   ><b>Jim Nielsen’s Blog</b></a
                 >`}
-            ${nav.map(({ label, path: navItemPath }) =>
-              navItemPath === path
-                ? html`<span>${label}</span> `
-                : html`<a href="${navItemPath}">${label}</a> `
-            )}
-            <details open>
-              <summary>Site Preferences</summary>
-              <div>
-                <form id="color">
-                  <fieldset>
-                    <legend>Theme:</legend>
-                    <span id="theme-root">
-                      This feature requires the default site fidelity (see
-                      below) as well as JavaScript.
-                    </span>
-                  </fieldset>
-                </form>
-                <!-- prettier-ignore -->
-                <script>${importFile("../client/preferences/index.js")}</script>
-                <form id="fidelity" action="/.netlify/functions/preferences">
-                  <fieldset>
-                    <legend>Fidelity: (<a href="">What is this?</a>)</legend>
+            <span
+              >${nav.map(({ label, path: navItemPath }) =>
+                navItemPath === path
+                  ? html`<span>${label}</span> `
+                  : html`<a href="${navItemPath}">${label}</a> `
+              )}
+            </span>
+            <details open class="prefs">
+              <summary>
+                <span style="display: none"
+                  >${importFile("./svgs/preferences.svg")}</span
+                >
+                <span>Preferences</span>
+              </summary>
 
-                    <span>
-                      ${fidelities.map(
-                        ({ id, title }, i) => html`
-                          <label id="${id}">
-                            <input
-                              type="radio"
-                              name="fidelity"
-                              value="${id}"
-                              ${i === 0 ? "checked" : ""}
-                            />
-                            ${title}
-                          </label>
-                        `
-                      )}
-                    </span>
-                    <button type="submit">Update</button>
-                  </fieldset>
-                </form>
-                <script>
-                  const $fidelityForm = document.querySelector("form#fidelity");
-                  $fidelityForm.addEventListener("change", (e) => {
-                    $fidelityForm.submit();
-                  });
-                  $fidelityForm.querySelector("button").style.display = "none";
-                </script>
-              </div>
+              <form id="js-color">
+                <fieldset>
+                  <legend>Theme:</legend>
+                  <span id="js-color-root" class="prefs__content prefs-color">
+                    This feature requires JavaScript as well as the default site
+                    fidelity (see below).
+                  </span>
+                </fieldset>
+              </form>
+
+              <form id="js-fidelity" action="/.netlify/functions/preferences">
+                <fieldset>
+                  <legend>Fidelity:</legend>
+                  <p>
+                    Controls the level of style and functionality of the site, a
+                    lower fidelity meaning less bandwidth, battery, and CPU
+                    usage. <a href="">Learn more</a>.
+                  </p>
+                  <span class="prefs__content prefs-fidelity">
+                    ${fidelities.map(
+                      ({ id, title }, i) => html`
+                        <label id="${id}">
+                          <input
+                            type="radio"
+                            name="fidelity"
+                            value="${id}"
+                            ${i === 0 ? "checked" : ""}
+                          />
+                          ${title}
+                        </label>
+                      `
+                    )}
+                  </span>
+                  <button type="submit">Update</button>
+                </fieldset>
+              </form>
+              <script>
+                ${importFile("./preferences.js")};
+              </script>
             </details>
           </nav>
 

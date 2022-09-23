@@ -1,13 +1,10 @@
+// `?fidelity=(low|med)` the default being 'high'
 exports.handler = async function (event, context) {
   const {
     headers: { cookie, referer },
     rawUrl,
     queryStringParameters: { fidelity },
   } = event;
-
-  console.log(event);
-
-  const { origin } = new URL(rawUrl);
 
   // If there's a cookie present, unset it and then redirect back here with
   // the same request for a new cookie
@@ -23,14 +20,15 @@ exports.handler = async function (event, context) {
     };
   }
 
-  // If there's no cookie present, set one with the appropriate request
+  // If there's no cookie present, set one if one of the enumerated fidelity
+  // values was requested, i.e. ?fidelity=low
+  // Once set, send them back to the original location
   const Location =
     referer.includes("//blog.jim-nielsen.com") ||
     referer.includes("//localhost")
       ? referer
       : "https://blog.jim-nielsen.com";
   if (fidelity === "low" || fidelity === "med") {
-    console.log(`Set cookie \`fidelity-${fidelity}=active`);
     return {
       statusCode: 303,
       headers: {
@@ -40,7 +38,8 @@ exports.handler = async function (event, context) {
     };
   }
 
-  // fidelity=* or no query params will just redirect to the preferences page
+  // Default behaviour is to send back to the original location (default
+  // fidelity is 'high' and has no cookie)
   return {
     statusCode: 303,
     headers: {

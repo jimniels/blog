@@ -2,6 +2,7 @@
 export type Site = {
   name: string;
   origin: string;
+  fidelity: "default" | "med" | "low";
   externalLinks: Array<{
     domain: string;
     count: number;

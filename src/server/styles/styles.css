@@ -3,7 +3,7 @@
    ========================================================================== */
 
 :root {
-  --border-radius: 10px;
+  --border-radius: 4px;
   --s-4: calc(4rem / 18);
   --s-8: calc(8rem / 18);
   --s-12: calc(12rem / 18);
@@ -25,7 +25,7 @@
   --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
   --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 96%);
   --c-bg-opaque: hsl(
-    var(--c-theme-h) var(--c-theme-s) var(--c-theme-l) / 0.0333
+    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
   );
   --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 8%);
 
@@ -69,7 +69,7 @@
     --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 12%);
     --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
     --c-bg-opaque: hsl(
-      var(--c-theme-h) var(--c-theme-s) var(--c-theme-l) / 0.0666
+      var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
     );
 
     --c-blue-h: 211;
@@ -368,19 +368,19 @@ footer a,
 
 nav {
   max-width: 36rem;
-  display: flex;
   margin: 0px auto var(--s-48);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--s-16);
+  column-gap: var(--s-16);
+  row-gap: var(--s-8);
   position: relative;
+  padding: 0 var(--s-16);
 }
 
-@media screen and (max-width: 42rem) {
+@media screen and (min-width: 42rem) {
   nav {
-    margin-left: var(--s-16);
-    margin-right: var(--s-16);
+    padding: 0;
   }
 }
 
@@ -389,21 +389,56 @@ nav > a > b {
 }
 
 nav > details {
-  width: calc(100% + var(--s-48));
+  /* width: calc(100% + var(--s-48));
+  margin: 0 calc(var(--s-24) * -1); */
   background: var(--c-bg-opaque);
-
-  margin: 0 calc(var(--s-24) * -1);
   border-radius: var(--border-radius);
+  /* margin: 0 calc(var(--s-32) * -1); */
+  /* overflow: hidden; */
 }
 
+/* only when open or you get weirdness with the <summary> */
 nav > details[open] {
-  padding: var(--s-24);
+  padding: var(--s-16) var(--s-32);
 }
 
 nav > details > summary {
   position: absolute;
-  top: 0.25rem;
-  right: 0;
+  top: 0.475rem;
+  right: var(--s-16);
+  padding: var(--s-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-theme);
+  border-radius: var(--border-radius);
+}
+nav > details[open] > summary,
+nav > details > summary:hover {
+  background-color: var(--c-bg-opaque);
+}
+nav > details > summary > :first-child {
+  display: flex !important;
+}
+nav > details > summary > :last-child {
+  display: none;
+}
+nav > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+nav > details[open] > summary {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
+  border-radius: calc(var(--border-radius) / 2);
+}
+
+nav > details > summary {
+}
+
+nav > span {
+  display: flex;
+  gap: var(--s-16);
+  margin-right: var(--s-48);
 }
 
 .highlight {
@@ -520,41 +555,73 @@ nav > details > summary {
   }
 }
 
-#color {
-  display: flex;
-  gap: var(--s-12);
+/* =============================================================================
+   Preferences
+   ========================================================================== */
+
+.prefs form:last-of-type {
+  margin-top: var(--s-24);
 }
-#color label {
+.prefs fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.prefs legend {
+  font-weight: 700;
+  margin: 0;
+}
+.prefs__content {
+  display: flex;
+  width: 100%;
+  gap: var(--s-16);
+  margin-top: var(--s-12);
+}
+.prefs fieldset p {
+  font-size: 0.777rem; /* 14 */
+  display: block;
+  font-weight: 400;
+  opacity: 0.5;
+  margin: 0;
+}
+.prefs fieldset p a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.prefs-color label {
   width: 20%;
 }
-#color span {
+.prefs-color label span {
   display: block;
   height: var(--s-40);
   border-radius: var(--border-radius);
   text-indent: -9999px;
 }
-#color input {
+.prefs-color label input {
   display: none;
 }
-#color input:checked ~ span {
+.prefs-color label input:checked ~ span {
   box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
 }
 
-#fidelity {
+.prefs-fidelity {
   display: flex;
-  gap: var(--s-16);
   text-align: center;
 }
-#fidelity > a {
+.prefs-fidelity input {
+  display: none;
+}
+.prefs-fidelity > label {
   width: 33.3333%;
   color: inherit;
   text-decoration: none;
 }
-#fidelity > a:hover {
+.prefs-fidelity > label:hover {
   filter: none;
 }
 
-#fidelity > a:before {
+.prefs-fidelity > label:before {
   content: "";
   background-color: white;
   background-position: 50% 0;
@@ -566,32 +633,21 @@ nav > details > summary {
   justify-content: center;
   margin-bottom: var(--s-4);
 }
-#fidelity > a:hover:before {
+.prefs-fidelity > label:hover:before {
   box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-fg);
 }
 /* Putting active here only applies styles to 
                the default theme, as its the only one that gets styles */
-#fidelity > a#high:before {
+.prefs-fidelity > label#high:before {
   box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
 }
 
-#fidelity > a#high:before {
-  background-image: url(/preferences/fidelity-high.svg);
+.prefs-fidelity > label#high:before {
+  background-image: url(/assets/img/fidelity-high.svg);
 }
-#fidelity > a#med:before {
-  background-image: url(/preferences/fidelity-med.svg);
+.prefs-fidelity > label#med:before {
+  background-image: url(/assets/img/fidelity-med.svg);
 }
-#fidelity > a#low:before {
-  background-image: url(/preferences/fidelity-low.svg);
-}
-
-.pref {
-  display: flex;
-  margin-bottom: var(--s-24);
-}
-.pref > :nth-child(1) {
-  min-width: 5rem;
-}
-.pref > :nth-child(2) {
-  flex-grow: 1;
+.prefs-fidelity > label#low:before {
+  background-image: url(/assets/img/fidelity-low.svg);
 }

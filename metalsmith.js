@@ -28,73 +28,73 @@ let App = Metalsmith(__dirname)
   )
   .clean(true)
   .use(renderTemplates())
+  // @TODO move this logic into the templates
   .use((files, metalsmith, done) => {
     if (process.argv.includes("--fast")) {
       done();
       return;
     }
 
-    multimatch(Object.keys(files), "**/*.html")
-      // .slice(0, 2)
-      .forEach((file) => {
-        const dom = new JSDOM(files[file].contents);
-        const document = dom.window.document;
+    multimatch(Object.keys(files), "**/*.html").forEach((file) => {
+      const dom = new JSDOM(files[file].contents);
+      const document = dom.window.document;
 
-        const setActiveFidelity = (fid) => {
-          // remove current chekced
-          document
-            .querySelector("[name=fidelity][checked]")
-            ?.removeAttribute("checked");
-          document
-            .querySelector(`[name=fidelity][value=${fid}]`)
-            ?.setAttribute("checked", "");
-        };
-        /**
-         * Generated the `fidelity/med/*` files
-         */
-        // Remove all inline <script> and <style> tags from the default fidelity
-        Array.from(document.querySelectorAll("script, style")).forEach((el) => {
-          el.remove();
-        });
-        setActiveFidelity("med");
+      const setActiveFidelityForPrefsPage = (fid) => {
+        // remove current chekced
+        document
+          .querySelector("[name=fidelity][checked]")
+          ?.removeAttribute("checked");
+        document
+          .querySelector(`[name=fidelity][value=${fid}]`)
+          ?.setAttribute("checked", "");
+      };
 
-        // Add a back a basic set of styles
-        let $basicStyles = document.createElement("style");
-        $basicStyles.innerHTML = fs
-          .readFileSync(path.join(__dirname, "./src/server/styles/basic.css"))
-          .toString();
-        document.querySelector("head").appendChild($basicStyles);
-
-        files[`fidelity-med/${file}`] = {
-          contents: dom.serialize(),
-        };
-
-        /**
-         * Generated the `fidelity/low/*` files
-         */
-        setActiveFidelity("low");
-
-        // Rip out the <style> tag again
-        document.querySelector("style").remove();
-
-        // Make images available as links
-        Array.from(document.querySelectorAll("img")).forEach((img) => {
-          let a = document.createElement("a");
-          a.href = img.src;
-          a.text = `[Image: ${img.alt}]`;
-          img.insertAdjacentElement("beforebegin", a);
-          img.remove();
-        });
-
-        // Remove inline SVGs entirely (shouldn't be relying on these)
-        Array.from(document.querySelectorAll("svg")).forEach((svg) => {
-          svg.remove();
-        });
-
-        files[`fidelity-low/${file}`] = {
-          contents: dom.serialize(),
-        };
+      /**
+       * Generated the `_fidelity/med/*` files
+       */
+      // Remove all inline <script> and <style> tags from the default fidelity
+      Array.from(document.querySelectorAll("script, style")).forEach((el) => {
+        el.remove();
       });
+      setActiveFidelityForPrefsPage("med");
+
+      // Add a back a basic set of styles
+      let $basicStyles = document.createElement("style");
+      $basicStyles.innerHTML = fs
+        .readFileSync(path.join(__dirname, "./src/server/styles/basic.css"))
+        .toString();
+      document.querySelector("head").appendChild($basicStyles);
+
+      files[`_fidelity/med/${file}`] = {
+        contents: dom.serialize(),
+      };
+
+      /**
+       * Generated the `_fidelity/low/*` files
+       */
+      setActiveFidelityForPrefsPage("low");
+
+      // Rip out the <style> tag again
+      document.querySelector("style").remove();
+
+      // Make images available as links
+      Array.from(document.querySelectorAll("img")).forEach((img) => {
+        let a = document.createElement("a");
+        a.href = img.src;
+        a.text = `[Image: ${img.alt}]`;
+        img.insertAdjacentElement("beforebegin", a);
+        img.remove();
+      });
+
+      // Remove inline SVGs entirely (shouldn't be relying on these)
+      Array.from(document.querySelectorAll("svg")).forEach((svg) => {
+        svg.remove();
+      });
+
+      files[`_fidelity/low/${file}`] = {
+        contents: dom.serialize(),
+      };
+    });
     done();
   })
   .build((err, files) => {
