@@ -25,7 +25,8 @@ exports.handler = async function (event, context) {
   // Once set, send them back to the original location
   const Location =
     referer.includes("//blog.jim-nielsen.com") ||
-    referer.includes("//localhost")
+    referer.includes("//localhost") ||
+    referer.includes("netlify.app")
       ? referer
       : "https://blog.jim-nielsen.com";
   if (fidelity === "low" || fidelity === "med") {
