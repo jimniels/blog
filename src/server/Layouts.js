@@ -127,7 +127,7 @@ export function Page(props, children) {
                   : html`<a href="${navItemPath}">${label}</a> `
               )}
             </span>
-            <details open class="prefs">
+            <details class="prefs">
               <summary>
                 <span style="display: none"
                   >${importFile("./svgs/preferences.svg")}</span
