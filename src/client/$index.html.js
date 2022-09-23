@@ -44,7 +44,7 @@ export default function Index(site) {
       `}
       ${hackerNews.length > 0 &&
       html`
-        <h1>HackerNews Hits</h1>
+        <h1>Hacker News Hits</h1>
         ${PostList(
           hackerNews,
           ({ hackerNewsUrl, hackerNewsComments }) => html`<a

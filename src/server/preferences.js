@@ -6,17 +6,18 @@ $root.innerHTML = /*html*/ `
   ${$theme
     .getAttribute("supported-values")
     .split(" ")
-    .map(
-      (color) => /*html*/ `
+    .map((color) => {
+      const prop = `hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))`;
+      return /*html*/ `
         <label>
           <input type="radio" name="color" value="${color}" />
           <span
-            style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"
+            style="color: ${prop}; background-color: ${prop};"
             >${color}</span
           >
         </label>
-      `
-    )
+      `;
+    })
     .join("")}
 `;
 

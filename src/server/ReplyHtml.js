@@ -12,7 +12,7 @@ export default function ReplyHtml({ postTags, postPath, siteOrigin }) {
   return html`
     <br />
     <br />
-    --› Reply via
+    /* Reply via
     <a
       href="mailto:jimniels+blog@gmail.com?subject=Re:%20blog.jim-nielsen.com${postPath}"
       >email</a
@@ -26,6 +26,7 @@ export default function ReplyHtml({ postTags, postPath, siteOrigin }) {
         .map((tag) => html`<a href="${siteOrigin}/tags/#${tag}">#${tag}</a>`)
         .join(", ")}.
     `}
+    */
     <br />
     <br />
   `;

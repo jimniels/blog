@@ -116,10 +116,8 @@ export function Page(props, children) {
 
           <nav>
             ${path === "/"
-              ? html`<b class="highlight">Jim Nielsen’s Blog</b>`
-              : html`<a href="/" class="highlight"
-                  ><b>Jim Nielsen’s Blog</b></a
-                >`}
+              ? html`<b>Jim Nielsen’s Blog</b>`
+              : html`<a href="/"><b>Jim Nielsen’s Blog</b></a>`}
             <span
               >${nav.map(({ label, path: navItemPath }) =>
                 navItemPath === path
@@ -128,7 +126,7 @@ export function Page(props, children) {
               )}
             </span>
             <details class="prefs">
-              <summary>
+              <summary class="prefs__trigger">
                 <span style="display: none"
                   >${importFile("./svgs/preferences.svg")}</span
                 >

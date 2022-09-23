@@ -363,7 +363,7 @@ footer a,
 }
 
 /* =============================================================================
-   Primary Site Navigation
+   Navigation
    ========================================================================== */
 
 nav {
@@ -384,25 +384,57 @@ nav {
   }
 }
 
-nav > a > b {
-  font-weight: 700;
+/* Logo */
+nav > :first-child {
+  padding: var(--s-8) var(--s-24);
+  color: var(--c-bg);
+  position: relative;
+  margin-left: calc(var(--s-24) * -1);
+  display: inline-flex;
+  align-items: center;
+}
+nav > :first-child:before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: var(--c-theme);
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  transform: skew(-16deg);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
-nav > details {
-  /* width: calc(100% + var(--s-48));
-  margin: 0 calc(var(--s-24) * -1); */
+/* Navigation links */
+nav > span {
+  display: flex;
+  gap: var(--s-16);
+  margin-right: var(--s-48);
+}
+
+/* Preferences Element & Trigger
+   ========================================================================== */
+
+/* details */
+.prefs {
   background: var(--c-bg-opaque);
   border-radius: var(--border-radius);
-  /* margin: 0 calc(var(--s-32) * -1); */
-  /* overflow: hidden; */
 }
 
 /* only when open or you get weirdness with the <summary> */
-nav > details[open] {
-  padding: var(--s-16) var(--s-32);
+.prefs[open] {
+  padding: var(--s-16) var(--s-16);
+  margin: 0 calc(var(--s-16) * -1);
 }
 
-nav > details > summary {
+@media screen and (min-width: 42rem) {
+  .prefs[open] {
+    padding: var(--s-16) var(--s-32);
+    margin: 0 calc(var(--s-32) * -1);
+  }
+}
+
+.prefs__trigger {
   position: absolute;
   top: 0.475rem;
   right: var(--s-16);
@@ -413,51 +445,120 @@ nav > details > summary {
   color: var(--c-theme);
   border-radius: var(--border-radius);
 }
-nav > details[open] > summary,
-nav > details > summary:hover {
+.prefs__trigger:hover {
+  filter: brightness(115%) saturate(1.15);
+}
+.prefs[open] .prefs__trigger,
+.prefs__trigger:hover {
   background-color: var(--c-bg-opaque);
 }
-nav > details > summary > :first-child {
+.prefs__trigger > :first-child {
   display: flex !important;
 }
-nav > details > summary > :last-child {
+.prefs__trigger > :last-child {
   display: none;
 }
-nav > details > summary::-webkit-details-marker {
+.prefs__trigger::-webkit-details-marker {
   display: none;
 }
 
-nav > details[open] > summary {
+.prefs[open] .prefs__trigger {
   box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
   border-radius: calc(var(--border-radius) / 2);
 }
 
-nav > details > summary {
-}
+/* Preferences Elements
+   ========================================================================== */
 
-nav > span {
+.prefs form:last-of-type {
+  margin-top: var(--s-24);
+}
+.prefs fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.prefs legend {
+  font-weight: 700;
+  margin: 0;
+}
+.prefs__content {
   display: flex;
+  width: 100%;
   gap: var(--s-16);
-  margin-right: var(--s-48);
+  margin-top: var(--s-12);
+}
+.prefs fieldset p {
+  font-size: 0.777rem; /* 14 */
+  display: block;
+  font-weight: 400;
+  opacity: 0.5;
+  margin: 0;
+}
+.prefs fieldset p a {
+  color: inherit;
+  text-decoration: underline;
 }
 
-.highlight {
-  padding: var(--s-8) var(--s-24);
-  color: var(--c-bg);
-  position: relative;
-  margin-left: calc(var(--s-24) * -1);
-  display: inline-flex;
-  align-items: center;
+.prefs-color label {
+  width: 20%;
 }
-.highlight:before {
-  width: 100%;
-  height: 100%;
+.prefs-color label span {
+  display: block;
+  height: var(--s-40);
+  border-radius: var(--border-radius);
+  text-indent: -9999px;
+}
+.prefs-color label input {
+  display: none;
+}
+.prefs-color label:hover span {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px; /* inherits from inline style */
+}
+.prefs-color label input:checked ~ span {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
+}
+
+.prefs-fidelity {
+  display: flex;
+  text-align: center;
+}
+.prefs-fidelity input {
+  display: none;
+}
+.prefs-fidelity > label {
+  width: 33.3333%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.prefs-fidelity > label:before {
   content: "";
-  background: var(--c-theme);
-  position: absolute;
-  left: 0;
-  z-index: -1;
-  transform: skew(-16deg);
+  background-color: white;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  border: 1px solid var(--c-fg);
+  border-radius: var(--border-radius);
+  height: 98px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--s-4);
+}
+.prefs-fidelity > label:hover:before,
+/* Putting active here only applies styles to 
+   the default theme, as its the only one that gets styles */
+.prefs-fidelity > label#high:before {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
+}
+
+.prefs-fidelity > label#high:before {
+  background-image: url(/assets/img/fidelity-high.svg);
+}
+.prefs-fidelity > label#med:before {
+  background-image: url(/assets/img/fidelity-med.svg);
+}
+.prefs-fidelity > label#low:before {
+  background-image: url(/assets/img/fidelity-low.svg);
 }
 
 /* =============================================================================
@@ -509,42 +610,6 @@ nav > span {
 }
 
 /* =============================================================================
-   <BlogPostsStatus>
-   ========================================================================== */
-
-#bps {
-  border-radius: var(--border-radius);
-  display: flex;
-  align-items: flex-start;
-  font-size: 0.7777rem;
-  max-width: 50em;
-}
-#bps[open] {
-  background: var(--c-fg);
-}
-
-#bps summary,
-#bps > div {
-  position: relative;
-  padding: 10px 15px;
-}
-
-#bps[open] summary:after {
-  content: "";
-  width: calc(100% - 30px);
-  height: 1px;
-  position: absolute;
-  bottom: 0;
-  left: 15px;
-  background: var(--color-border);
-}
-
-#bps > div {
-  text-align: center;
-  color: var(--color-text-light);
-}
-
-/* =============================================================================
    Other
    ========================================================================== */
 
@@ -553,101 +618,4 @@ nav > span {
     column-count: 2;
     max-width: 40rem;
   }
-}
-
-/* =============================================================================
-   Preferences
-   ========================================================================== */
-
-.prefs form:last-of-type {
-  margin-top: var(--s-24);
-}
-.prefs fieldset {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-.prefs legend {
-  font-weight: 700;
-  margin: 0;
-}
-.prefs__content {
-  display: flex;
-  width: 100%;
-  gap: var(--s-16);
-  margin-top: var(--s-12);
-}
-.prefs fieldset p {
-  font-size: 0.777rem; /* 14 */
-  display: block;
-  font-weight: 400;
-  opacity: 0.5;
-  margin: 0;
-}
-.prefs fieldset p a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-.prefs-color label {
-  width: 20%;
-}
-.prefs-color label span {
-  display: block;
-  height: var(--s-40);
-  border-radius: var(--border-radius);
-  text-indent: -9999px;
-}
-.prefs-color label input {
-  display: none;
-}
-.prefs-color label input:checked ~ span {
-  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
-}
-
-.prefs-fidelity {
-  display: flex;
-  text-align: center;
-}
-.prefs-fidelity input {
-  display: none;
-}
-.prefs-fidelity > label {
-  width: 33.3333%;
-  color: inherit;
-  text-decoration: none;
-}
-.prefs-fidelity > label:hover {
-  filter: none;
-}
-
-.prefs-fidelity > label:before {
-  content: "";
-  background-color: white;
-  background-position: 50% 0;
-  background-repeat: no-repeat;
-  border: 1px solid var(--c-fg);
-  border-radius: var(--border-radius);
-  height: 98px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--s-4);
-}
-.prefs-fidelity > label:hover:before {
-  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-fg);
-}
-/* Putting active here only applies styles to 
-               the default theme, as its the only one that gets styles */
-.prefs-fidelity > label#high:before {
-  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
-}
-
-.prefs-fidelity > label#high:before {
-  background-image: url(/assets/img/fidelity-high.svg);
-}
-.prefs-fidelity > label#med:before {
-  background-image: url(/assets/img/fidelity-med.svg);
-}
-.prefs-fidelity > label#low:before {
-  background-image: url(/assets/img/fidelity-low.svg);
 }
