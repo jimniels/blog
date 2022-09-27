@@ -2,7 +2,7 @@
 
 # Creating Custom RSS Feeds For Following Others
 
-Part of the work curating my icon gallery sites is staying abreast of new icon designs. This means following individual icon designers in order to keep tabs on when they post new work, people like [Michael Flarup](https://twitter.com/flarup), [Gavin Nelson](https://twitter.com/Gavmn), [Matthew Skiles](https://twitter.com/matthewskiles), and [Yannick Lung](https://twitter.com/yannicklu).
+Part of the work curating my icon gallery sites is staying abreast of new icon designs. This means following individual icon designers in order to keep tabs on when they post new work, people like [Michael Flarup](https://flarup.co/), [Gavin Nelson](https://nelson.co/), [Matthew Skiles](https://www.matthewskiles.com/), and [Yannick Lung](https://yannicklung.com/).
 
 But how do you keep up with the creative work of individuals without missing something?
 
