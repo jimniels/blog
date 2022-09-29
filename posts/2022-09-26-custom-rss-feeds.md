@@ -86,3 +86,7 @@ It’s pretty neat that I understand enough of the web to be able to empower mys
 But this way, I never miss a beat. Their new shots come right into my RSS reader for consumption by me at my time of choosing.
 
 If you got a problem, yo RSS will solve it.
+
+## Update 2022-09-28
+
+[Pawel did this same thing, but for Bandcamp](https://pawelgrzybek.com/generate-rss-feed-for-bandcamp-artists-using-deno-deploy/), and he did it on Deno Deploy which is pretty neat. Check it out.
