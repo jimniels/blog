@@ -26,13 +26,13 @@ To reframe Josh’s statement: React’s main job is to keep its state in sync w
 
 React makes it easy to fetch data, store it as state, and render UI from it. _But_ as soon as you need to pull that state back out of React, persist it to a database somewhere, and then synchronize/validate it back into your application — well, you’re on your own.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/react-remix-state-1.png" width="574" height="340" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/react-remix-state-1.png" width="574" height="340" alt="Hand drawing of a browser on the left, a server + database on the right, and a network in between them. It has the word “YOU” connected to the network transaction happening, indicating you are responsible for syncing state between React and your application." />
 
 Enter Remix: [Remix handles the full state lifecycle for you](https://remix.run/blog/remix-data-flow) while React is an implementation detail to reconcile state with the DOM.
 
 Whereas React’s job is to keep its own ephemeral state in sync with the UI (on the client), Remix’s job is to keep your application’s state — server logic, database data, etc. — in sync with the UI _across the network_ (on both the client and server).
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/react-remix-state-2.png" width="562" height="356" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/react-remix-state-2.png" width="562" height="356" alt="Hand drawing of a browser on the left, a server + database on the right, and a network in between them. It has the Remix logo connected to the network transaction happening, illustrating how Remix helps keep application state in sync from client, across the network, to server + database." />
 
 For illustration purposes, it’s almost like you can think of Remix’s component structure as a tree where your client-side components (which are implemented in Remix today with React) get wrapped in `<Server>` and `<Network>` components. When needed, and through the use of Remix conventions, state changes in nested components (i.e. nested routes) propagate all the way up through your client-side application, across the network, and to the server, where the state change is handled and then reconciled back through the entirety of your application — from database to server to client and back again, all across the network.
 
