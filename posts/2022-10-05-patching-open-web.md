@@ -12,15 +12,15 @@ I find myself doing this a lot, so I figured I’d document a couple recent exam
 
 I often come across a video I want to watch, but it’s embedded in the site design at a really small size.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/patchable-web-video-small.png" width="1366" height="1029" alt="Screenshot of a website with a small video embed." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/patchable-web-video-small.png" width="970" height="731" alt="Screenshot of a website with a small video embed." />
 
 I don’t want to click the “full screen” control on the video player because then it’ll overtake my entire screen. I simply want it bigger in its current context. Nothing a little CSS tweaking in the developer tools can’t fix.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/patchable-web-video-big-styles.png" width="1366" height="1029" alt="Screenshot of a website with the developer tools opened and the `max-width` property being adjusted on the container for a video embed, making the video larger." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/patchable-web-video-big-styles.png" width="970" height="731" alt="Screenshot of a website with the developer tools opened and the `max-width` property being adjusted on the container for a video embed, making the video larger." />
 
 Boom! A video at the size I want in the window I want.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/patchable-web-video-big.png" width="1366" height="1029" alt="Screenshot of a website with a large video embed." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/patchable-web-video-big.png" width="970" height="731" alt="Screenshot of a website with a large video embed." />
 
 ## Snagging Archived Content
 
