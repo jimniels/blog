@@ -58,6 +58,10 @@ What about [Headlines from Matthew Skiles](https://www.iosicongallery.com/icons/
 
 Not a lot of interesting stuff here when you work back from the finished product. I suppose that makes sense, these tools are probably more about ideating in a case like this.
 
+This version of [1Password icon by Gavin Nelson](https://www.iosicongallery.com/icons/1password-8-password-manager-2022-09-22/) is interesting because even though rounded corners are not in the original image, somehow the AI is trying to insert them on the corners — perhaps that pattern is in the model from lots of other iOS icon artwork?
+
+<img src="https://cdn.jim-nielsen.com/blog/2022/dall-e-1password.png" width="1078" height="732" alt="The “1Password” app icon with 4 AI-generated variations alongside it." />
+
 Let’s end by circling back to Twitter-related icons. The folks at The Iconfactory have the wonderful [Twitterific](https://www.iosicongallery.com/icons/twitterrific-tweet-your-way-2019-07-19/) app, I wonder how it fares?
 
 <img src="https://cdn.jim-nielsen.com/blog/2022/dall-e-twitterific.png" width="1076" height="722" alt="The original “Twitterific” app icon with 4 AI-generated variations alongside it." />
