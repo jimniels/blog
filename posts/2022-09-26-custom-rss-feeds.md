@@ -28,56 +28,15 @@ If you visit a user’s page on Dribbble — e.g. `dribbble.com/USER`, like [dri
 
 That’s the content I need, I just want it funneled into my RSS reader. 
 
-So I wrote a little script on Glitch that takes a Dribbble username, fetches that user’s profile page in HTML, parses it, and transforms it to an individualized feed I can subscribe to.
+So I wrote a little script on ~~Glitch~~ Deno that takes a Dribbble username, fetches that user’s profile page in HTML, parses it, and transforms it to an individualized feed I can subscribe to.
 
-Glitch makes this super easy because you use their GUI to write a little JavaScript (Node.js) code, make it available at a public URL, and use their servers to run it.
+~~Glitch~~ Deno makes this super easy because you use their GUI to write a little JavaScript (Node.js) code, make it available at a public URL, and use their servers to run it.
 
-In my case, if I want to follow someone on Dribbble in my RSS reader, I take their username and subscribe via my Glitch script endpoint: 
+In my case, if I want to follow someone on Dribbble in my RSS reader, I take their username and subscribe via my ~~Glitch~~ Deno script endpoint: 
 
-[`jimniels-api.glitch.me/dribbble?user=jimniels`](https://jimniels-api.glitch.me/dribbble?user=jimniels)
+[`jimniels-dribbble.deno.dev/?user=matthewskiles`](https://jimniels-dribbble.deno.dev/?user=matthewskiles)
 
-That returns an individualized [JSON feed](https://www.jsonfeed.org/) for each user. Below is some example code to illustrate how the process (roughly) works:
-
-```js
-// This is using an express server in Glitch
-module.exports = (request, response) => {
-  // Get the user from the URL
-  const { user } = request.query;
-  
-  // Setup a JSON feed we’ll fill in
-  let jsonFeed = {
-    version: "https://jsonfeed.org/version/1.1",
-    title: `Dribbble: ${user}`,
-    home_page_url: `https://dribbble.com/${user}`,
-    feed_url: `https://jimniels-api.glitch.me/dribbble?user=${user}`,
-    favicon: "https://www.google.com/s2/favicons?domain=dribbble.com",
-    items: [],
-  };
-
-  // Fetch the user from Dribbble
-  // Parse the HTML into something we can use
-  const res = await fetch(`https://dribbble.com/${user}`);
-  const html = await res.text();
-  const { window: { document } } = new JSDOM(html);
-  
-  // Get 10 latest shots from HTML
-  const $lis = Array.from(
-    document.querySelectorAll("#main ol.dribbbles li.shot-thumbnail")
-  ).slice(0, 10);
-
-  // Pull out what we need for each feed item
-  $lis.forEach(($li) => {
-    jsonFeed.items.push({
-      title: $li.querySelector(".shot-title").textContent,
-      url: $li.querySelector(".shot-thumbnail-link").getAttribute("href"),
-      content_html: `<img src="${$li.querySelector("img").getAttribute("src")}">`,
-    });
-  });
-  
-  // Send back a 200 with "application/feed+json" and
-  // JSON.stringify(jsonFeed) as the body
-};
-```
+That returns an individualized [JSON feed](https://www.jsonfeed.org/) for each user. You can see the functioning code in [the Deno Dev playground](https://dash.deno.com/playground/jimniels-dribbble).
 
 Granted this is hard-coded to work in conjunction with Dribbble’s HTML responses, so there are no guarantees against breakage, but I’ve been using it for a couple months and nothing has broken (knock on wood).
 
@@ -89,4 +48,6 @@ If you got a problem, yo RSS will solve it.
 
 ## Update 2022-09-28
 
-[Pawel did this same thing, but for Bandcamp](https://pawelgrzybek.com/generate-rss-feed-for-bandcamp-artists-using-deno-deploy/), and he did it on Deno Deploy which is pretty neat. Check it out.
+[Pawel did this same thing, but for Bandcamp](https://pawelgrzybek.com/generate-rss-feed-for-bandcamp-artists-using-deno-deploy/), and he did it on Deno Deploy which is pretty neat.
+
+I originally wrote my version using Glitch, but always wanted to use Deno Deploy. I’ve since updated the post with the Deno Deploy links.
