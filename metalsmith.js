@@ -28,7 +28,8 @@ let App = Metalsmith(__dirname)
   )
   .clean(true)
   .use(renderTemplates())
-  // @TODO move this logic into the templates
+  // @TODO Replace this with a render-time variable like 'fidelity=low'
+  // and move the logic for this into the templates themselves
   .use((files, metalsmith, done) => {
     if (process.argv.includes("--fast")) {
       done();
@@ -39,24 +40,26 @@ let App = Metalsmith(__dirname)
       const dom = new JSDOM(files[file].contents);
       const document = dom.window.document;
 
-      const setActiveFidelityForPrefsPage = (fid) => {
+      // Set the active fidelity value in the DOM for rendered pages
+      const setActiveFidelityForPrefs = (fid) => {
         // remove current chekced
         document
           .querySelector("[name=fidelity][checked]")
           ?.removeAttribute("checked");
+        // add current checked
         document
           .querySelector(`[name=fidelity][value=${fid}]`)
           ?.setAttribute("checked", "");
       };
 
       /**
-       * Generated the `_fidelity/med/*` files
+       * Generate the `_fidelity/med/*` files
        */
       // Remove all inline <script> and <style> tags from the default fidelity
       Array.from(document.querySelectorAll("script, style")).forEach((el) => {
         el.remove();
       });
-      setActiveFidelityForPrefsPage("med");
+      setActiveFidelityForPrefs("med");
 
       // Add a back a basic set of styles
       let $basicStyles = document.createElement("style");
@@ -70,11 +73,11 @@ let App = Metalsmith(__dirname)
       };
 
       /**
-       * Generated the `_fidelity/low/*` files
+       * Generate the `_fidelity/low/*` files
        */
-      setActiveFidelityForPrefsPage("low");
+      setActiveFidelityForPrefs("low");
 
-      // Rip out the <style> tag again
+      // Rip out the <style> tag we just added
       document.querySelector("style").remove();
 
       // Make images available as links
