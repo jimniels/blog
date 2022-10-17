@@ -149,7 +149,7 @@ export function Page(props, children) {
                   <p>
                     Controls the level of style and functionality of the site, a
                     lower fidelity meaning less bandwidth, battery, and CPU
-                    usage. <a href="">Learn more</a>.
+                    usage. <a href="/2022/website-fidelity/">Learn more</a>.
                   </p>
                   <span class="prefs__content prefs-fidelity">
                     ${fidelities.map(
