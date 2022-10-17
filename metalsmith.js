@@ -4,6 +4,7 @@ import path from "path";
 import Metalsmith from "metalsmith";
 import multimatch from "multimatch";
 import fetch from "node-fetch";
+import { JSDOM } from "jsdom";
 // import cheerio from "cheerio";
 import renderTemplates from "./src/plugin-render-templates.js";
 import * as layouts from "./src/server/Layouts.js";
@@ -27,6 +28,78 @@ let App = Metalsmith(__dirname)
   )
   .clean(true)
   .use(renderTemplates())
+  // @TODO Replace this with a render-time variable like 'fidelity=low'
+  // and move the logic for this into the templates themselves
+  .use((files, metalsmith, done) => {
+    if (process.argv.includes("--fast")) {
+      done();
+      return;
+    }
+
+    multimatch(Object.keys(files), "**/*.html").forEach((file) => {
+      const dom = new JSDOM(files[file].contents);
+      const document = dom.window.document;
+
+      // Set the active fidelity value in the DOM for rendered pages
+      const setActiveFidelityForPrefs = (fid) => {
+        // remove current chekced
+        document
+          .querySelector("[name=fidelity][checked]")
+          ?.removeAttribute("checked");
+        // add current checked
+        document
+          .querySelector(`[name=fidelity][value=${fid}]`)
+          ?.setAttribute("checked", "");
+      };
+
+      /**
+       * Generate the `_fidelity/med/*` files
+       */
+      // Remove all inline <script> and <style> tags from the default fidelity
+      Array.from(document.querySelectorAll("script, style")).forEach((el) => {
+        el.remove();
+      });
+      setActiveFidelityForPrefs("med");
+
+      // Add a back a basic set of styles
+      let $basicStyles = document.createElement("style");
+      $basicStyles.innerHTML = fs
+        .readFileSync(path.join(__dirname, "./src/server/styles/basic.css"))
+        .toString();
+      document.querySelector("head").appendChild($basicStyles);
+
+      files[`_fidelity/med/${file}`] = {
+        contents: dom.serialize(),
+      };
+
+      /**
+       * Generate the `_fidelity/low/*` files
+       */
+      setActiveFidelityForPrefs("low");
+
+      // Rip out the <style> tag we just added
+      document.querySelector("style").remove();
+
+      // Make images available as links
+      Array.from(document.querySelectorAll("img")).forEach((img) => {
+        let a = document.createElement("a");
+        a.href = img.src;
+        a.text = `[Image: ${img.alt}]`;
+        img.insertAdjacentElement("beforebegin", a);
+        img.remove();
+      });
+
+      // Remove inline SVGs entirely (shouldn't be relying on these)
+      Array.from(document.querySelectorAll("svg")).forEach((svg) => {
+        svg.remove();
+      });
+
+      files[`_fidelity/low/${file}`] = {
+        contents: dom.serialize(),
+      };
+    });
+    done();
+  })
   .build((err, files) => {
     // build process
     if (err) throw err; // error handling is required

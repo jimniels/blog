@@ -12,6 +12,7 @@
     "cheerio": "^1.0.0-rc.5",
     "highlight.js": "^11.4.0",
     "html-validate": "^7.3.3",
+    "jsdom": "^20.0.0",
     "marked": "^4.0.12",
     "metalsmith": "^2.3.0",
     "multimatch": "^5.0.0",
@@ -26,7 +27,7 @@
     "copy-css": "cp node_modules/highlight.js/styles/atom-one-*.css src/server/styles/",
     "pre": "mkdir -p .cache && npm run copy-css && node scripts/cache-site-data.js",
     "prestart": "npm run pre",
-    "start": "netlify dev --dir build & NODE_ENV=development nodemon --exec 'node metalsmith'",
+    "start": "netlify dev --dir build --port 3000 & NODE_ENV=development nodemon --exec 'node metalsmith'",
     "prebuild": "npm run pre",
     "build": "NODE_ENV=production node metalsmith.js",
     "validate": "html-validate build/"

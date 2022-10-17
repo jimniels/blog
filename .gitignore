@@ -10,3 +10,6 @@ atom-one*.css
 !.gitignore
 !.prettierignore
 !.github
+
+# Local Netlify folder
+.netlify

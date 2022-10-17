@@ -3,7 +3,18 @@
    ========================================================================== */
 
 :root {
-  --border-radius: 10px;
+  --border-radius: 4px;
+  --s-4: calc(4rem / 18);
+  --s-8: calc(8rem / 18);
+  --s-12: calc(12rem / 18);
+  --s-16: calc(16rem / 18);
+  --s-24: calc(24rem / 18);
+  --s-32: calc(32rem / 18);
+  --s-40: calc(40rem / 18);
+  --s-48: calc(48rem / 18);
+  --s-64: calc(64rem / 18);
+  --s-80: calc(80rem / 18);
+  --s-96: calc(96rem / 18);
 
   /* Theme color that gets set by default but is configurable by the user */
   --c-theme-h: var(--c-blue-h);
@@ -14,7 +25,7 @@
   --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
   --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 96%);
   --c-bg-opaque: hsl(
-    var(--c-theme-h) var(--c-theme-s) var(--c-theme-l) / 0.0333
+    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
   );
   --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 8%);
 
@@ -58,7 +69,7 @@
     --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 12%);
     --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
     --c-bg-opaque: hsl(
-      var(--c-theme-h) var(--c-theme-s) var(--c-theme-l) / 0.0666
+      var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
     );
 
     --c-blue-h: 211;
@@ -255,8 +266,8 @@ table td {
 .copy > *:not(.image-container):not(pre),
 .wrapper {
   max-width: 36rem;
-  margin-left: calc(1.618rem / 2);
-  margin-right: calc(1.618rem / 2);
+  margin-left: var(--s-16);
+  margin-right: var(--s-16);
 }
 
 @media screen and (min-width: 42rem) {
@@ -352,35 +363,37 @@ footer a,
 }
 
 /* =============================================================================
-   Primary Site Navigation
+   Navigation
    ========================================================================== */
 
-site-nav {
+nav {
   max-width: 36rem;
-  display: flex;
-  gap: calc(1.618rem / 4);
-  margin-left: calc(1.618rem / 2);
-  margin-right: calc(1.618rem / 2);
-}
-
-site-nav nav {
+  margin: 0px auto var(--s-48);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: calc(1.618rem / 2);
+  column-gap: var(--s-16);
+  row-gap: var(--s-8);
+  position: relative;
+  padding: 0 var(--s-16);
 }
 
-.highlight {
-  padding: calc(1.618rem / 9) calc(1.618rem / 3);
-  border-radius: 0 20px 0;
+@media screen and (min-width: 42rem) {
+  nav {
+    padding: 0;
+  }
+}
+
+/* Logo */
+nav > :first-child {
+  padding: var(--s-8) var(--s-24);
   color: var(--c-bg);
   position: relative;
-  margin-left: calc(-1.618rem / 2);
+  margin-left: calc(var(--s-24) * -1);
   display: inline-flex;
   align-items: center;
-  font-weight: 700;
 }
-.highlight:before {
+nav > :first-child:before {
   width: 100%;
   height: 100%;
   content: "";
@@ -388,100 +401,164 @@ site-nav nav {
   position: absolute;
   left: 0;
   z-index: -1;
-  transform: skew(-20deg) rotate(-0.5deg);
+  transform: skew(-16deg);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
-@media screen and (max-width: 42rem) {
-  site-nav {
-    flex-direction: column;
-    margin-top: calc(1.618rem * 1);
-    margin-bottom: calc(1.618rem * 2);
-  }
-  site-nav nav {
-    gap: calc(1.618rem / 4) calc(1.618rem / 2);
-  }
-  site-nav nav > :first-child {
-    flex-basis: 100%;
-    margin-left: 1rem;
-  }
+/* Navigation links */
+nav > span {
+  display: flex;
+  gap: var(--s-16);
+  margin-right: var(--s-48);
 }
 
-@media screen and (min-width: 42rem) {
-  site-nav {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: calc(1.618rem * 1.5);
-    margin-bottom: calc(1.618rem * 3);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  site-nav form {
-    justify-content: center;
-  }
-}
-
-/* Form color picker
+/* Preferences Element & Trigger
    ========================================================================== */
 
-site-nav form {
-  display: flex;
-  align-items: center;
+/* details */
+.prefs {
+  background: var(--c-bg-opaque);
+  border-radius: var(--border-radius);
 }
 
-site-nav form input {
-  display: none;
-}
-
-site-nav form label {
-  width: 24px;
-  height: 24px;
-  border: 2px solid var(--c-bg);
-  display: block;
-  text-indent: -9999px;
-  border-radius: 50%;
-  display: none;
-}
-
-site-nav form input:checked + label {
-  order: 1;
-  box-shadow: 0 0 0 2px var(--c-theme);
-  display: inline;
-}
-
-site-nav form.is-expanded label {
-  display: inline;
-}
-
-@media screen and (max-width: 42rem) {
-  site-nav {
-    position: relative;
-  }
-  site-nav form {
-    position: absolute;
-    right: 0;
-    flex-direction: row;
-    justify-content: space-between;
-    top: 0;
-    padding: 0 calc(1.618rem / 2);
-    background: var(--c-bg);
-    height: 100%;
-  }
-  site-nav form.is-expanded {
-    width: 100%;
-  }
+/* only when open or you get weirdness with the <summary> */
+.prefs[open] {
+  padding: var(--s-16) var(--s-16);
+  margin: 0 calc(var(--s-16) * -1);
 }
 
 @media screen and (min-width: 42rem) {
-  site-nav form {
-    gap: calc(1.618rem / 2);
+  .prefs[open] {
+    padding: var(--s-16) var(--s-32);
+    margin: 0 calc(var(--s-32) * -1);
   }
-  site-nav form label {
-    width: 21px;
-    height: 21px;
-    border-width: 2px;
-  }
+}
+
+.prefs__trigger {
+  position: absolute;
+  top: 0.475rem;
+  right: var(--s-16);
+  padding: var(--s-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-theme);
+  border-radius: var(--border-radius);
+}
+.prefs__trigger:hover {
+  filter: brightness(115%) saturate(1.15);
+}
+.prefs[open] .prefs__trigger,
+.prefs__trigger:hover {
+  background-color: var(--c-bg-opaque);
+}
+.prefs__trigger > :first-child {
+  display: flex !important;
+}
+.prefs__trigger > :last-child {
+  display: none;
+}
+.prefs__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.prefs[open] .prefs__trigger {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
+  border-radius: calc(var(--border-radius) / 2);
+}
+
+/* Preferences Elements
+   ========================================================================== */
+
+.prefs form:last-of-type {
+  margin-top: var(--s-24);
+}
+.prefs fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.prefs legend {
+  font-weight: 700;
+  margin: 0;
+}
+.prefs__content {
+  display: flex;
+  width: 100%;
+  gap: var(--s-16);
+  margin-top: var(--s-12);
+}
+.prefs fieldset p {
+  font-size: 0.777rem; /* 14 */
+  display: block;
+  font-weight: 400;
+  opacity: 0.5;
+  margin: 0;
+}
+.prefs fieldset p a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.prefs-color label {
+  width: 20%;
+}
+.prefs-color label span {
+  display: block;
+  height: var(--s-40);
+  border-radius: var(--border-radius);
+  text-indent: -9999px;
+}
+.prefs-color label input {
+  display: none;
+}
+.prefs-color label:hover span {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px; /* inherits from inline style */
+}
+.prefs-color label input:checked ~ span {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
+}
+
+.prefs-fidelity {
+  display: flex;
+  text-align: center;
+}
+.prefs-fidelity input {
+  display: none;
+}
+.prefs-fidelity > label {
+  width: 33.3333%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.prefs-fidelity > label:before {
+  content: "";
+  background-color: white;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  border: 1px solid var(--c-fg);
+  border-radius: var(--border-radius);
+  height: 98px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--s-4);
+}
+.prefs-fidelity > label:hover:before,
+/* Putting active here only applies styles to 
+   the default theme, as its the only one that gets styles */
+.prefs-fidelity > label#high:before {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
+}
+
+.prefs-fidelity > label#high:before {
+  background-image: url(/assets/img/fidelity-high.svg);
+}
+.prefs-fidelity > label#med:before {
+  background-image: url(/assets/img/fidelity-med.svg);
+}
+.prefs-fidelity > label#low:before {
+  background-image: url(/assets/img/fidelity-low.svg);
 }
 
 /* =============================================================================
@@ -533,42 +610,6 @@ site-nav form.is-expanded label {
 }
 
 /* =============================================================================
-   <BlogPostsStatus>
-   ========================================================================== */
-
-#bps {
-  border-radius: var(--border-radius);
-  display: flex;
-  align-items: flex-start;
-  font-size: 0.7777rem;
-  max-width: 50em;
-}
-#bps[open] {
-  background: var(--c-fg);
-}
-
-#bps summary,
-#bps > div {
-  position: relative;
-  padding: 10px 15px;
-}
-
-#bps[open] summary:after {
-  content: "";
-  width: calc(100% - 30px);
-  height: 1px;
-  position: absolute;
-  bottom: 0;
-  left: 15px;
-  background: var(--color-border);
-}
-
-#bps > div {
-  text-align: center;
-  color: var(--color-text-light);
-}
-
-/* =============================================================================
    Other
    ========================================================================== */
 
@@ -577,8 +618,4 @@ site-nav form.is-expanded label {
     column-count: 2;
     max-width: 40rem;
   }
-}
-
-footer {
-  margin-bottom: calc(1.618rem * 2);
 }

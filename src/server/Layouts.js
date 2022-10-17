@@ -7,6 +7,27 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
   fs.readFileSync(join(__dirname, filepath)).toString();
 
+const fidelities = [
+  {
+    id: "high",
+    title: "Default",
+    description:
+      "All the bells and whistles (yet still lean and mean). Custom theme color selection, styled motifs, and any extra flair — including JavaScript",
+  },
+  {
+    id: "med",
+    title: "Minimal",
+    description:
+      "Minimal enhancements for the core reading experience. HTML includes inline images, and a base stylesheet is included for improved layout, but otherwise nothing else. No JavaScript.",
+  },
+  {
+    id: "low",
+    title: "Text-Only",
+    description:
+      "Leanest experience possible. No styles, no interactivity, or inline images. Saves bandwidth, CPU, and battery.",
+  },
+];
+
 const comment = `
 <!--
 
@@ -33,10 +54,6 @@ export function Page(props, children) {
     {
       label: "Archive",
       path: "/archive/",
-    },
-    {
-      label: "Tags",
-      path: "/tags/",
     },
     {
       label: "About",
@@ -92,26 +109,71 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          ${/* icon sprite importFile("./svgs/icons.svg") */ ""}
-
-          <site-nav>
-            <nav>
-              <strong>
-                ${path === "/"
-                  ? `<span class="highlight">Jim Nielsen’s Blog</span>`
-                  : `<a href="/" class="highlight">Jim Nielsen’s Blog</a>`}
-              </strong>
-              ${nav.map(({ label, path: navItemPath }) =>
-                navItemPath === path
-                  ? html`<span>${label}</span>`
-                  : html`<a href="${navItemPath}">${label}</a>`
-              )}
-            </nav>
-          </site-nav>
-
           <script>
-            ${importFile("./site-nav.js")};
+            ${importFile("./theme-color.js")};
+            document.write("<theme-color></theme-color>");
           </script>
+
+          <nav>
+            ${path === "/"
+              ? html`<b>Jim Nielsen’s Blog</b>`
+              : html`<a href="/"><b>Jim Nielsen’s Blog</b></a>`}
+            <span
+              >${nav.map(({ label, path: navItemPath }) =>
+                navItemPath === path
+                  ? html`<span>${label}</span> `
+                  : html`<a href="${navItemPath}">${label}</a> `
+              )}
+            </span>
+            <details class="prefs">
+              <summary class="prefs__trigger">
+                <span style="display: none"
+                  >${importFile("./svgs/preferences.svg")}</span
+                >
+                <span>Preferences</span>
+              </summary>
+
+              <form id="js-color">
+                <fieldset>
+                  <legend>Theme:</legend>
+                  <span id="js-color-root" class="prefs__content prefs-color">
+                    This feature requires JavaScript as well as the default site
+                    fidelity (see below).
+                  </span>
+                </fieldset>
+              </form>
+
+              <form id="js-fidelity" action="/.netlify/functions/preferences">
+                <fieldset>
+                  <legend>Fidelity:</legend>
+                  <p>
+                    Controls the level of style and functionality of the site, a
+                    lower fidelity meaning less bandwidth, battery, and CPU
+                    usage. <a href="">Learn more</a>.
+                  </p>
+                  <span class="prefs__content prefs-fidelity">
+                    ${fidelities.map(
+                      ({ id, title }, i) => html`
+                        <label id="${id}">
+                          <input
+                            type="radio"
+                            name="fidelity"
+                            value="${id}"
+                            ${i === 0 ? "checked" : ""}
+                          />
+                          ${title}
+                        </label>
+                      `
+                    )}
+                  </span>
+                  <button type="submit">Update</button>
+                </fieldset>
+              </form>
+              <script>
+                ${importFile("./preferences.js")};
+              </script>
+            </details>
+          </nav>
 
           ${children}
         </body>

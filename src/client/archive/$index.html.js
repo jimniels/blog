@@ -4,6 +4,16 @@ import { html } from "../../server/utils.js";
 const page = {
   title: "Archive",
   path: "/archive/",
+  head: html`
+    <style>
+      main h2 {
+        position: sticky;
+        top: 0px;
+        background: var(--c-bg);
+        z-index: 10;
+      }
+    </style>
+  `,
 };
 
 export default function Archive(site) {
@@ -23,34 +33,29 @@ export default function Archive(site) {
     { site, page },
     html` <main class="wrapper">
       <h1>Archive</h1>
-      <ul class="list-2col">
+      <p>
+        Tags (i.e. things I’ve written about more than once):
+        ${site.tags
+          .map(({ name }) => name)
+          .sort()
+          .map((name) => html`<a href="/tags#${name}">${name}</a>`)
+          .join(", ")}
+      </p>
+      <p>
+        Years:
         ${Object.keys(postsByYear)
           .sort()
           .reverse()
-          .map(
-            (year) => html`
-              <li>
-                <a href="#${year}">${year}</a>
-                <small>(${postsByYear[year].length})</small>
-              </li>
-            `
-          )}
-      </ul>
+          .map((year) => html`<a href="#${year}">${year}</a>`)
+          .join(", ")}
+      </p>
 
       ${Object.keys(postsByYear)
         .sort()
         .reverse()
         .map(
           (year) => html`
-            <h2
-              id="${year}"
-              style="position: sticky; top: 0px; background: var(--c-bg); z-index: 10;"
-            >
-              ${year}
-              <small style="font-weight: normal">
-                (${postsByYear[year].length})
-              </small>
-            </h2>
+            <h2 id="${year}">${year}</h2>
             <ul class="posts-list">
               ${postsByYear[year].map(
                 (post) => html`
