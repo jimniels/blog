@@ -78,7 +78,7 @@ The controls for this fidelity preference vary, based on which version of the si
 
 “Default” is the experience you get if you have no preference set (how the web works today). “Minimal” is set around the core experience of reading the site: no JavaScript and just a few basic styles. Text-only is my theoretical “fidelity 0”: no styles, no JavaScript, no inline images, as small a site as can be.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/fidelity-images-example.png" width="1436" height="623" alt="Screenshot of my blog in Default, Minimal, and Text-Only fidelity (with the Text-Only fidelity showing how inline images were removed)." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/fidelity-images-example.png" width="1282" height="623" alt="Screenshot of my blog in Default, Minimal, and Text-Only fidelity (with the Text-Only fidelity showing how inline images were removed)." />
 
 Because I wanted this feature to work without JavaScript — that is, after all, part of the essence of the feature — it works by setting a cookie which persists across requests. Choosing a preference sets a cookie and the server knows which version of the site to serve based on the presence of a given cookie (a browser-level request header in the future would be nice, something that’s present upon every client request).
 
