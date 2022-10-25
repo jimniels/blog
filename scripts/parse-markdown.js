@@ -127,7 +127,15 @@ const renderer = {
       // Otherwise, check for self-referential links
     } else if (href.startsWith("/")) {
       if (isInternalBlogPostLink(href)) {
-        internalLinks.push(href);
+        let hrefNormalized = href;
+        if (hrefNormalized.substr(-1) != "/") {
+          console.log(
+            "Warning: there's no traililng slash on an internal link to `%s`",
+            href
+          );
+          hrefNormalized += "/";
+        }
+        internalLinks.push(hrefNormalized);
       }
     } else if (href.includes("blog.jim-nielsen.com")) {
       if (isInternalBlogPostLink(href)) {
