@@ -15,7 +15,7 @@ export default function XMLFeed(site) {
       ${site.posts.slice(0, 10).map(post => xml`
         <item>
             <title>${escapeXml(post.title)}</title>
-            <description>${escapeXml((post?.tags.includes("rssClub") ? RssClub() : "") + post.contents.toString() + ReplyHtml({ postTags: post.tags, postPath: post.path, siteOrigin: site.origin }))}</description>
+            <description>${escapeXml((post?.tags.includes("rssClub") ? RssClub() : "") + post.contents.toString() + ReplyHtml({ post, site }))}</description>
             <pubDate>${new Date(post.date).toUTCString()}</pubDate>
             <link>${post.permalink}</link>
             <guid isPermaLink="true">${post.permalink}</guid>

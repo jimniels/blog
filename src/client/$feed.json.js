@@ -21,11 +21,7 @@ export default function JSONFeed(site) {
         content_html:
           (post?.tags.includes("rssClub") ? RssClub() : "") +
           post.contents.toString() +
-          ReplyHtml({
-            postTags: post.tags,
-            postPath: post.path,
-            siteOrigin: site.origin,
-          }),
+          ReplyHtml({ post, site }),
       };
     }),
   });

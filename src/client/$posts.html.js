@@ -44,13 +44,7 @@ export default function Post({ site, post }) {
           ${post?.tags.includes("rssClub") ? RssClub() : ""}
           ${post.contents.toString()}
         </div>
-        <footer class="wrapper">
-          ${ReplyHtml({
-            postTags: post.tags,
-            postPath: post.path,
-            siteOrigin: site.origin,
-          })}
-        </footer>
+        <footer class="copy wrapper">${ReplyHtml({ post, site })}</footer>
       </article>
     `
   );

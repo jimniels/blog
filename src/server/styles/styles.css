@@ -218,9 +218,8 @@ pre {
 hr {
   border: 0;
   border-bottom: 1px solid;
-  width: 80%;
-  max-width: 400px !important;
-  margin: 1.618rem 0;
+  margin: var(--s-32) 0;
+  opacity: 0.125;
 }
 
 /* Tables
@@ -358,6 +357,7 @@ footer a,
 .copy a[href^="#fnref"] {
   font-family: sans-serif; /* keep the backlink from displaying as an emoji */
 }
+footer,
 .footnotes {
   font-size: 0.91rem;
 }
