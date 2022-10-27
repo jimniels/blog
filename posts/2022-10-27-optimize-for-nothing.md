@@ -1,4 +1,4 @@
-# Optimize for Nothing
+# Optimize For Nothing
 
 > Anything new is by nature without precedent — meaning, without data to know whether it will work or not.
 
