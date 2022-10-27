@@ -18,6 +18,6 @@ And yet, after arguing against optimization, they themselves say they are optimi
 
 Maybe that’s inevitable. If you want to run a business, you have to optimize for _something_ to turn a profit? I’m no good at business, so don’t ask me.
 
-But for argument’s sake, what would push this piece further is to hear a claim like: “We’re not optimizing for anything. Rather than optimize around a metric, we are building something based on our own sensibilities and opinions of what makes the world more enjoyable to us.”
+But for argument’s sake, what would push this piece further is to hear a claim like: “We’re not optimizing for anything. Rather than optimize around metrics or feelings from our users, we are building something based on our own sensibilities and opinions of what makes the world more enjoyable to us.”
 
 What I find profound and universal about anyone’s work is what they observe in themselves and, in turn, reflect in their work to the world — not any one optimization.
