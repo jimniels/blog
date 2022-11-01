@@ -27,9 +27,13 @@ export default function ReplyHtml({ post, site }) {
     <ul>
       <li>
         Reply via:
-
+        ${
+          /* Trippy: we gotta encode the "+" or we get bit by outlook
+             https://webmasters.stackexchange.com/questions/15920/should-plus-be-encoded-in-mailto-hyperlinks */
+          ""
+        }
         <a
-          href="mailto:jimniels+blog@gmail.com?subject=Re:%20blog.jim-nielsen.com${postPath}"
+          href="mailto:jimniels%2Bblog@gmail.com?subject=Re:%20blog.jim-nielsen.com${postPath}"
           >Email</a
         >, <a href="https://twitter.com/jimniels">Twitter</a>
       </li>
