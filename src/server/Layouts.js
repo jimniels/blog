@@ -6,25 +6,22 @@ import { html } from "./utils.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
   fs.readFileSync(join(__dirname, filepath)).toString();
+const avatar = fs
+  .readFileSync(join(__dirname, "avatar.png"))
+  .toString("base64");
 
 const fidelities = [
   {
     id: "high",
     title: "Default",
-    description:
-      "All the bells and whistles (yet still lean and mean). Custom theme color selection, styled motifs, and any extra flair — including JavaScript",
   },
   {
     id: "med",
     title: "Minimal",
-    description:
-      "Minimal enhancements for the core reading experience. HTML includes inline images, and a base stylesheet is included for improved layout, but otherwise nothing else. No JavaScript.",
   },
   {
     id: "low",
     title: "Text-Only",
-    description:
-      "Leanest experience possible. No styles, no interactivity, or inline images. Saves bandwidth, CPU, and battery.",
   },
 ];
 
@@ -114,20 +111,28 @@ export function Page(props, children) {
             document.write("<theme-color></theme-color>");
           </script>
 
-          <nav>
-            ${path === "/"
-              ? html`<b>Jim Nielsen’s Blog</b>`
-              : html`<a href="/"><b>Jim Nielsen’s Blog</b></a>`}
-            <span
-              >${nav.map(({ label, path: navItemPath }) =>
+          <header class="header">
+            <a
+              href="/"
+              class="header__brand"
+              style="--avatar: url('data:image/jpeg;base64,${avatar}');"
+            >
+              <span>
+                <b>Jim Nielsen’s Blog</b>
+                ${importFile("./svgs/check-mark.svg")}
+              </span>
+              <span>Verified & Official ($10/year for the domain)</span>
+            </a>
+            <nav class="header__nav">
+              ${nav.map(({ label, path: navItemPath }) =>
                 navItemPath === path
                   ? html`<span>${label}</span> `
                   : html`<a href="${navItemPath}">${label}</a> `
               )}
-            </span>
+            </nav>
             <details class="prefs">
               <summary class="prefs__trigger">
-                <span style="display: none"
+                <span style="display: none" aria-hidden="true"
                   >${importFile("./svgs/preferences.svg")}</span
                 >
                 <span>Preferences</span>
@@ -173,7 +178,7 @@ export function Page(props, children) {
                 ${importFile("./preferences.js")};
               </script>
             </details>
-          </nav>
+          </header>
 
           ${children}
         </body>
