@@ -363,14 +363,15 @@ footer,
 }
 
 /* =============================================================================
-   Navigation
+   Header
    ========================================================================== */
 
-nav {
+.header {
   max-width: 36rem;
-  margin: 0px auto var(--s-48);
+  margin: var(--s-16) auto var(--s-48);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+
   flex-wrap: wrap;
   column-gap: var(--s-16);
   row-gap: var(--s-8);
@@ -379,37 +380,83 @@ nav {
 }
 
 @media screen and (min-width: 42rem) {
-  nav {
+  .header {
     padding: 0;
+    flex-direction: row;
+    align-items: center;
   }
 }
 
 /* Logo */
-nav > :first-child {
-  padding: var(--s-8) var(--s-24);
-  color: var(--c-bg);
+.header__brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  background-repeat: no-repeat;
+  background-size: 48px;
+  height: 48px;
+  justify-content: center;
   position: relative;
-  margin-left: calc(var(--s-24) * -1);
-  display: inline-flex;
-  align-items: center;
+  color: inherit;
+
+  margin-top: 56px;
 }
-nav > :first-child:before {
-  width: 100%;
-  height: 100%;
+
+.header__brand::before {
   content: "";
-  background: var(--c-theme);
+  background-image: var(--avatar);
+  background-size: 100%;
+  width: 48px;
+  height: 48px;
   position: absolute;
+
   left: 0;
-  z-index: -1;
-  transform: skew(-16deg);
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  top: -56px;
+}
+
+@media screen and (min-width: 42rem) {
+  .header__brand {
+    padding-left: 56px;
+    margin-top: 0;
+  }
+  .header__brand::before {
+    top: 0;
+  }
+}
+
+.header__brand:hover {
+  text-decoration: none;
+}
+
+.header__brand svg {
+  fill: var(--c-theme);
+  width: 18px;
+  height: 18px;
+}
+
+.header__brand > :first-child {
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+}
+
+.header__brand > :nth-child(2) {
+  font-size: 0.777777rem;
+  opacity: 0.5;
+  color: var(--c-text);
 }
 
 /* Navigation links */
-nav > span {
+.header__nav {
   display: flex;
   gap: var(--s-16);
   margin-right: var(--s-48);
+  flex-grow: 2;
+}
+@media screen and (min-width: 42rem) {
+  .header__nav {
+    justify-content: flex-end;
+  }
 }
 
 /* Preferences Element & Trigger
@@ -417,26 +464,36 @@ nav > span {
 
 /* details */
 .prefs {
-  background: var(--c-bg-opaque);
+  background-color: var(--c-bg);
   border-radius: var(--border-radius);
+  position: absolute;
+  top: calc(var(--s-16) * -1);
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 8px 56px rgb(0 0 0 / 10%);
+}
+
+/* Kinda hacky, but it works */
+@media screen and (prefers-color-scheme: dark) {
+  .prefs {
+    box-shadow: 0 8px 56px rgb(255 255 255 / 13%);
+  }
 }
 
 /* only when open or you get weirdness with the <summary> */
 .prefs[open] {
-  padding: var(--s-16) var(--s-16);
-  margin: 0 calc(var(--s-16) * -1);
+  padding: var(--s-32) var(--s-16) var(--s-16);
 }
 
 @media screen and (min-width: 42rem) {
   .prefs[open] {
-    padding: var(--s-16) var(--s-32);
     margin: 0 calc(var(--s-32) * -1);
   }
 }
 
 .prefs__trigger {
   position: absolute;
-  top: 0.475rem;
+  top: var(--s-24);
   right: var(--s-16);
   padding: var(--s-4);
   display: flex;
@@ -444,6 +501,19 @@ nav > span {
   justify-content: center;
   color: var(--c-theme);
   border-radius: var(--border-radius);
+}
+@media screen and (min-width: 42rem) {
+  .prefs[open] {
+    padding-left: var(--s-32);
+    padding-right: var(--s-32);
+  }
+
+  .prefs__trigger {
+    right: 0;
+  }
+  .prefs[open] .prefs__trigger {
+    right: var(--s-32);
+  }
 }
 .prefs__trigger:hover {
   filter: brightness(115%) saturate(1.15);
