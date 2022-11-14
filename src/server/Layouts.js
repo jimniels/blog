@@ -121,7 +121,7 @@ export function Page(props, children) {
                 <b>Jim Nielsen’s Blog</b>
                 ${importFile("./svgs/check-mark.svg")}
               </span>
-              <span>Verified & Official ($10/year for the domain)</span>
+              <span>Verified ($10/year for the domain)</span>
             </a>
             <nav class="header__nav">
               ${nav.map(({ label, path: navItemPath }) =>

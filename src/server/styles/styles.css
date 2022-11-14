@@ -470,7 +470,14 @@ footer,
   top: calc(var(--s-16) * -1);
   right: 0;
   z-index: 100;
-  box-shadow: 0 8px 56px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 56px rgb(0 0 0 / 10%);
+}
+
+/* Kinda hacky, but it works */
+@media screen and (prefers-color-scheme: dark) {
+  .prefs {
+    box-shadow: 0 8px 56px rgb(255 255 255 / 13%);
+  }
 }
 
 /* only when open or you get weirdness with the <summary> */
