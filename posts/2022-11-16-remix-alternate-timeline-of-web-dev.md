@@ -6,7 +6,7 @@ There’s [a scene](https://www.youtube.com/watch?v=W3LwlSlo5cw) in “Back to t
 
 <img src="https://cdn.jim-nielsen.com/blog/2022/web-dev-alternate-timeline.jpg" width="800" height="533" alt="" />
 
-A related analogy struck me in trying to illustrate the conceptual goals of Remix. To understand Remix, you must first understand how we got to where we are in web development because I think Remix and its founders are a bit like Doc Brown: trying to convince us that, at a point in the past, the timeline for web development skewed into the tangent we are in today — our reality — but it doesn’t have to be that way.
+A related analogy struck me in trying to illustrate the conceptual goals of Remix. To better understand Remix, you must understand how we got to where we are in web development because I think Remix and its founders are a bit like Doc Brown: trying to convince us that, at a point in the past, the timeline for web development skewed into the tangent we are in today — our reality — but it doesn’t have to be that way.
 
 <img src="https://cdn.jim-nielsen.com/blog/2022/web-dev-doc-brown.png" width="843" height="621" alt="" />
 
@@ -33,7 +33,7 @@ In the early days, if you had a static page that allowed you to link to more inf
 
 Then along came JavaScript and XHR, which allowed you to prevent loading an entirely new page just to pull in the new information. For example, got a “Notifications” link on your website? Instead of linking to an entirely new page and necessitating a full page reload, JavaScript + XHR would let you pull that information into the existing page.
 
-But wait, previously your server would render that “Notifications” HTML page by fetching JSON data from an API or DB. If you’re going to `e.preventDefault()` on a link in the client, the client will now have to do that same work, i.e. fetch JSON and render HTML based on logic.
+But wait, previously your server would render that “Notifications” HTML page by fetching JSON data from an API or DB. If you’re going to `e.preventDefault()` on a link in the client, the client will now have to do that same work, i.e. fetch data and render HTML based on logic.
 
 So now, to support a a progressively-enhanced experience, you need to duplicate all the logic on your server and put it on the client.
 
@@ -41,7 +41,7 @@ That’s hard. Not just duplicating all the server logic, but keeping it in sync
 
 This was one of the big points of friction against supporting a progressively-enhanced experience, as it felt like you had to write your app twice: once on the client, once on the server.
 
-So, to address that issue and only have to write apps once, we just accepted having all that logic in only one place — and that became the client, making experiences sans-JavaScript impossible.
+So, to address that issue and only have to write apps once, we just accepted having all that logic in only one place — and that became the client, making experiences sans-JavaScript impossible. ([Sending JSON, by definition, requires JavaScript](https://blog.jim-nielsen.com/2022/browsers-json-formdata/).)
 
 ## Progressive Enhancement + Remix: Writing Your App Once!
 
@@ -76,7 +76,7 @@ In this way, you can write apps once with progressive enhancement: HTML that wor
 
 ## An Incredible Pattern
 
-As someone who never knew exactly how to do progressive enhancement in a way that allowed the server to provide different responses depending on the capabilities of the client, [I was blown away](https://twitter.com/jimniels/status/1484316461652856832) when I first saw it [explained](https://www.youtube.com/watch?v=jd_bin5HPrw):
+As someone who never knew exactly how to do progressive enhancement in a way that allowed the server to provide different responses depending on the capabilities of the client, [I was blown away](https://twitter.com/jimniels/status/1484316461652856832) when I first saw this [explained in a video by Ryan](https://www.youtube.com/watch?v=jd_bin5HPrw):
 
 > [This] blew my mind. The power of being able to declaratively 1) use JS to get back JSON which transitions states in your UI _while simultaneously_ 2) supporting use of native browser functionality to get back HTML _on the same route_ is 🤯
 
@@ -88,8 +88,8 @@ It’s worth noting again how Remix solves this thorny problem around progressiv
 	- The server fetches the data, passes it to the component, and renders it returning HTML, or
 	- The client fetches the data from server (as JSON), passes it to the component, and React reconciles it into the DOM.
 
-Sidenote: this is impossible with SSG (although I suppose you can shoehorn anything) because SSG is, by its very nature, a 1:1 paradigm for routing. Every request corresponds to a file on disk. You can’t do query params to modify the request without a special redirect to point that query-parameterized request to a different file on disk. Anything beyond this (lambdas, etc.) is an escape hatch from the fundamental pattern (and value-add) of SSG: predictable file hosting based on a “route-to-file” paradigm.
+Side note: this is impossible with SSG (although I suppose you can shoehorn anything) because SSG is, by its very nature, a 1:1 paradigm for routing. Every request corresponds to a file on disk. You can’t do query params to modify the request without a special redirect to point that query-parameterized request to a different file on disk. Anything beyond this (lambdas, etc.) is an escape hatch from the fundamental pattern (and value-add) of SSG: predictable file hosting based on a “route-to-file” paradigm.
 
 (For an even more technical explanation of how Remix works under the hood, you can [read more in the Remix docs](https://remix.run/docs/en/v1/pages/technical-explanation).)
 
-This pattern that supports progressive enhancement by default is one of the reasons why I see, like Doc Brown, an alternate timeline. Remix takes me back to the fork in the road where progressive enhancement was a good idea before it became seemingly impossible because of the “code duplication” problem. It shows us a different future that could’ve been and can still be!
+This pattern that supports progressive enhancement by default is one of the reasons why I see, like Doc Brown, an alternate timeline. Remix takes me back to the fork in the road where progressive enhancement was a good idea before it became seemingly impossible because of the “you have to write your app twice” problem. It shows us a different future that could’ve been and can still be!
