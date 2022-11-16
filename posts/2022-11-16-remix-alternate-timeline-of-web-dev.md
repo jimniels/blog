@@ -1,3 +1,5 @@
+#remix #progressiveEnhancement
+
 # Remix and the Alternate Timeline of Web Development
 
 There’s [a scene](https://www.youtube.com/watch?v=W3LwlSlo5cw) in “Back to the Future” where Doc Brown tries to describe the idea of time travel and the possibility of an alternative timeline of events.
