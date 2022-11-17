@@ -29,7 +29,7 @@ That’s pretty wild when you think about it. Why are there _so many_ APIs that 
 
 I can’t help but think: only once we start building web APIs that speak in the default communication idiom of browsers will be able to break out of a complete reliance on JavaScript.
 
-To put in bluntly: there’s no progressive enhancement if all your APIs only accept JSON payloads directly from the browser.
+To put it bluntly: there’s no progressive enhancement if all your APIs only accept JSON payloads directly from the browser.
 
 If you stopped shipping all JavaScript to the client tomorrow, would the backend services you depend on support receiving information via the browser’s default mechanism for sending user data?
 
