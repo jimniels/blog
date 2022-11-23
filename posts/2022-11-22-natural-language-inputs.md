@@ -2,7 +2,7 @@
 
 I read Adam Silver’s recent piece [“Designing a time input”](https://adamsilver.io/blog/designing-a-time-input/) where he talks about the complexity of building UI widgets that circumscribe time entry through bespoke interfaces.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/language-inputs-time-examples.png" width="517" height="308" alt="Screenshot of various time inputs, including a dropdowns and a radial clock input." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/language-inputs-time-examples.png" width="1034" height="615" alt="Screenshot of various time inputs, including a dropdowns and a radial clock input." />
 
 He goes on to recommend time entry be accomplished through simple text inputs.
 
@@ -14,7 +14,7 @@ The argument against this approach is likely: it’s difficult to accept and par
 
 A simple text input, on the other hand, works across all device and input types, not to mention it allows users to enter information in their own idiom. (Image courtesy of [Adam Silver](https://adamsilver.io/blog/designing-a-time-input/).)
 
-<img src="https://adamsilver.io/assets/images/designing-a-time-input/single-input.png" alt="Screenshot of a UI asking for a Time input with the suggestion users can enter a time in formats like “9am” or “2:30pm”." />
+<img src="https://adamsilver.io/assets/images/designing-a-time-input/single-input.png" width="452" height="240" alt="Screenshot of a UI asking for a Time input with the suggestion users can enter a time in formats like “9am” or “2:30pm”." />
 
 I don’t mean to discount the difficulty of parsing human language and deriving meaning. I’m sure that’s very hard. But it’s being solved, no?
 
