@@ -22,7 +22,7 @@ Google has been collapsing sophisticated   filtering into their search inputs as
 
 <img src="https://cdn.jim-nielsen.com/blog/2022/language-input-google.png" width="684" height="650" alt="Screenshot of Google’s autosuggestions input." />
 
-AI-generated artwork is also going down this path. If AI can take my words and paint a Van Gogh variation with astounding accuracy, surely we can figure out a way it can take “Jan 2, 2022” as an input and translate it to `2022-01-02` for the database.
+AI-generated artwork is also going down this path. If AI can take my words and paint a van Gogh variation with astounding accuracy, surely we can figure out a way it can take “Jan 2, 2022” as an input and translate it to `2022-01-02` for the database.
 
 So much of the complexity around gathering correct user input is being solutioned on the front-end in the form of uber-sophisticated UI components with specialized design, validation, and formatting based on data type. Why not move all this complex work out of the hands of front-end people (and users) and move it to a server that supports parsing natural language?
 
