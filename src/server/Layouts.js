@@ -72,7 +72,11 @@ export function Page(props, children) {
 
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="author" content="p-author" />
+          <meta name="author" content="Jim Nielsen" />
+          <meta
+            name="description"
+            content="Writing about the big beautiful mess that is making things for the world wide web."
+          />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
           <link
             rel="alternate"
