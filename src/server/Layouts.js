@@ -77,6 +77,10 @@ export function Page(props, children) {
             name="description"
             content="Writing about the big beautiful mess that is making things for the world wide web."
           />
+          <link rel="me" href="https://github.com/jimniels" />
+          <link rel="me" href="https://twitter.com/jimniels" />
+          <link rel="me" href="https://mastodon.social/@jimniels" />
+          <link rel="me" href="https://dribbble.com@jimniels" />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
           <link
             rel="alternate"
