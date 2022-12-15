@@ -1,9 +1,5 @@
 # Select The Right Tool For The Job
 
-**tl;dr** A simple, static file server won’t know how to handle the default browser requests from a `<select>` element, showing our technology choices are more interconnected than we often think. 
-
-## Overview
-
 If you’re using a static file server to serve an HTML page which implements a `<select>` to provide user navigation, you cannot achieve path-based navigation without 1) client-side JavaScript, or 2) server-side redirect logic.
 
 In other words, path-based navigation with a `<select>` element will break for users where [JavaScript fails](https://kryogenix.org/code/browser/everyonehasjs.html) — fails to load due to a network issue or a user preference, fails to parse, fails to execute, etc. — unless you control the server and can redirect a path with query parameters (`/path?foo=bar`) to a pure path (`/path/bar`).
