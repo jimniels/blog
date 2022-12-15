@@ -1,4 +1,4 @@
-# `<Select>` The Right Tool For The Job
+# Select The Right Tool For The Job
 
 **tl;dr** A simple, static file server won’t know how to handle the default browser requests from a `<select>` element, showing our technology choices are more interconnected than we often think. 
 
