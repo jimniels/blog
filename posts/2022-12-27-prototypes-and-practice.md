@@ -6,27 +6,27 @@ The video is fascinating because it details everything they had to do and build 
 
 Jump a motorcycle off a cliff and base jump to the bottom? Start by practicing your motorcycle skills. They built a motocross track for Cruise to practice controlling and jumping the bike. He did over 13,000 jumps.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-dirt-bike.gif" width="320" height="132" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-dirt-bike.gif" width="640" height="264" alt="Animated GIF from the “Mission Impossible” promo showing Tom Cruise repeatedly jump a motorocycle on a motocross track." />
 
 But that’s only the “jump a motorcycle off a cliff” part of the stunt. There’s also the “fall to the bottom” part. For that, Cruise practiced free falling by repeatedly sky diving. He did over 500 jumps.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-sky-dive.gif" width="320" height="132" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-sky-dive.gif" width="640" height="264" alt="Animated GIF from the “Mission Impossible” promo showing Tom Cruise sky dive from a helicopter." />
 
 After practicing each part individually, they worked on putting them together. For that, they built a practice ramp (replicating the one they would eventually build for the movie) in a quarry in England. They filled it with cardboard boxes and setup safety cables and harnesses to practice simulating the real jump. This allowed Cruise to begin putting his motorcycle jumping and free fall skills to use _together_.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-model.gif" width="320" height="132" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-model.gif" width="640" height="264" alt="Animated GIF from the “Mission Impossible” promo showing Tom Cruise jump a motorcycle on a ramp built in a quarry in England." />
 
 They used computer models to simulate the jump and then collect data on the practice jumps. This provided a real look at how the stunt would play out in three dimensional space. It also provided insights into the cinematography aspects of the stunt, like where to place cameras to get the best shot along the arc of the jump.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-computer-model.gif" width="320" height="132" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-computer-model.gif" width="640" height="264" alt="Animated GIF from the “Mission Impossible” promo showing a computer 3D model of a person jumping a motorbike off a ramp and their trajectory angles." />
 
 Once satisfied with all that, they built the real jump in Norway. But before doing the real stunt, Cruise practiced some more. He simulated traveling at motorcycle speed by riding in a helicopter along the route of the ramp and then jumping out of the helicopter to free fall and parachute.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-helicopter.gif" width="320" height="132" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-helicopter.gif" width="640" height="264" alt="Animated GIF from the “Mission Impossible” promo showing Tom Cruise jump out of a moving helicopter." />
 
 After all that, they finally ran the stunt.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-final-shot.gif" width="320" height="132" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2022/prototype-final-shot.gif" width="640" height="264" alt="Animated GIF from the “Mission Impossible” promo showing Tom Cruise jump a motorcycle off a ramp and free fall down to earth." />
 
 The stunt wasn’t a one-and-done, though. They ran it six times! Then finally, with all six of those tries on film, they were done. 
 
