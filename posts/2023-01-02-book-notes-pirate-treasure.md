@@ -4,7 +4,7 @@
 
 My kids have been checking out books at the local library about treasure hunting. I have been reading said books to them, which means I now have an interest in treasure hunting.
 
-This led me to a checking out a book for myself at the library called [_Pirate Hunters: Treasure, Obsession, and the Search for a Legendary Pirate Ship_](https://en.wikipedia.org/wiki/Pirate_Hunters) which I read over the holidays and quite enjoyed.
+This led me to a checking out a book for myself at the library called [_Pirate Hunters: Treasure, Obsession, and the Search for a Legendary Pirate Ship_](https://en.wikipedia.org/wiki/Pirate_Hunters) which I read over the holidays and enjoyed.
 
 In the book you meet diver/treasure hunter [John Chatteron](https://en.wikipedia.org/wiki/John_Chatterton). He was a combat medic in the Vietnam war and, after having been through that experience, he compiled a short list of truths to live by. While they were meant to be more profound than a shallow relation to how one goes about building software, I’ll go ahead and make the association anyway:
 
