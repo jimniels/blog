@@ -44,3 +44,18 @@ Perceptual uniformity? An eye towards longevity? Future-proofing syntax? Gracefu
 One color syntax to rule them all!
 
 (BTW: [this post](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl) on LCH, and color in general on the web, was super helpful for me too!)
+
+## Update 2023-01-09
+
+Dan Peterson, who works on 1Password, [ping me on Mastodon](https://mastodon.social/@danvpeterson/109660316334309838) noting his love for OKLCH after using it on a color token project. He also passed along a bunch of links he found useful during his research. I haven’t gone down the rabbit hole of all these, but they all look super useful so I’m appending them here. Thanks Dan!
+
+- [“A perceptual color space for image processing”](https://bottosson.github.io/posts/oklab/)
+- [Okhsv and Okhsl](https://bottosson.github.io/posts/colorpicker/)
+- [“It’s time for a more sophisticated color contrast check for data visualizations”](https://blog.datawrapper.de/color-contrast-check-data-vis-wcag-apca/)
+- [“An interactive review of Oklab”](https://raphlinus.github.io/color/2021/01/18/oklab-critique.html)
+- [“Designing Color Systems — Transparent vs. Solid Shades”](https://uxplanet.org/designing-color-systems-transparent-vs-solid-shades-9eb841571fdd)
+- [“Why APCA as a New Contrast Method?”](https://git.apcacontrast.com/documentation/WhyAPCA)
+- [APCA Contrast Calculator](https://www.myndex.com/APCA/)
+- [OKLCH Color Picker & Converter](https://oklch.com/)
+- [Interactive color picker comparison](https://bottosson.github.io/misc/colorpicker/#8c2d2d)
+- [Color.js](https://colorjs.io/)
