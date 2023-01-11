@@ -35,7 +35,8 @@ export default function ReplyHtml({ post, site }) {
         <a
           href="mailto:jimniels%2Bblog@gmail.com?subject=Re:%20blog.jim-nielsen.com${postPath}"
           >Email</a
-        >, <a href="https://twitter.com/jimniels">Twitter</a>
+        >, <a href="https://twitter.com/jimniels">Twitter</a>,
+        <a href="https://mastodon.social/@jimniels">Mastodon</a>
       </li>
       ${Array.isArray(postTags) &&
       postTags.length > 0 &&
