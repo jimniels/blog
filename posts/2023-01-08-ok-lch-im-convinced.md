@@ -59,3 +59,15 @@ Dan Peterson, who works on 1Password, [ping me on Mastodon](https://mastodon.soc
 - [OKLCH Color Picker & Converter](https://oklch.com/)
 - [Interactive color picker comparison](https://bottosson.github.io/misc/colorpicker/#8c2d2d)
 - [Color.js](https://colorjs.io/)
+
+## Update 2021-01-11
+
+In case you’re wondering, the consensus seems to be: you should be using `oklch` and not `lch` because `oklch` fixes a bug in `lch` (and adds a few new features).
+
+But that `ok` prefix, where did that come from? [I asked on Twitter](https://twitter.com/jimniels/status/1612487807871623169):
+
+> dumb question: is it called "oklch" because it fixes a bug in lch and so it's the "ok" version of lch to use? i can't discern where the "ok" comes from...
+
+And it sounds like that actually is the case, ha! [Here’s Björn Ottosson](https://twitter.com/bjornornorn/status/1613211390600450049), creator of Oklab:
+
+> In many cases simpler models are more practical to use, and should give OK results. Not a lot of effort has gone into finding such simple models though. Oklab/Oklch is my attempt at addressing that, to get OK results without being too complicated.
