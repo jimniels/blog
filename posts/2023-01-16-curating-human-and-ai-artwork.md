@@ -2,7 +2,7 @@
 
 # Curating Artwork From Humans and AI
 
-I’ve been curating my icon galleries for a long time — over a decade now for the iOS one!
+I’ve been curating my icon galleries for a long time — over a decade now for [the iOS one](https://www.iosicongallery.com)!
 
 My process is pretty boring: when I see an icon I find visually interesting, I try to find the human who made it (so I can credit them) and then I add it to my gallery using my custom CLI tool.
 
