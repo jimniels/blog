@@ -43,6 +43,8 @@ But why `80` and `443` for HTTP and HTTPS? Why not `51` and `666`?
 
 Ok so, an HTTP server runs on port `80`. But what if you’re doing local development? The standard HTTP port `80` is privileged and requires `root` access (which would be a hassle to provide every time you start the server). Plus, you don’t want your development server interfering with other running processes on your machine. So what you need is an alternative port number for your local dev server that is above 1024.
 
+(**Update:** turns out [macOS no longer enforces privileged ports](https://developer.apple.com/forums/thread/674179) ([Hacker News thread](https://news.ycombinator.com/item?id=18302380)) — thank you [Carl Johnson](https://mastodon.social/@carlmjohnson/109740040734781379).)
+
 What number do you choose? Well, I’m going to guess that people just wanted a number that was easy to remember so they went with variants of the reserved HTTP port (`80`) which is how we got conventions for local HTTP servers to run on ports like `8000`, `8080`, `8888` and `8008`[^1]. 
 
 It appears that lots of services (and malware) were built on top of these well-known HTTP alternative ports. For example:
