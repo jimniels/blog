@@ -41,6 +41,8 @@ But why `80` and `443` for HTTP and HTTPS? Why not `51` and `666`?
 
 [It appears](https://www.howtogeek.com/233383/why-was-80-chosen-as-the-default-http-port-and-443-as-the-default-https-port/) that IANA (a department of ICANN) published RFC1060 in 1990 listing all well-known ports at that point in time and port 80 was unclaimed. When Tim Burners-Lee issued the first version of HTTP in 1991, he used port 80 for HTTP. Later, in 1992, RFC1060 was reissued and port 80 was claimed by HTTP. As for `443`, its history is less clear but it officially showed up as claimed by HTTPS in an RFC in 1994.
 
+(**Update**: [turns out](https://adactio.com/journal/16531), 2784 was the port number for the web before 80 was — thank you Jeremy!)
+
 Ok so, an HTTP server runs on port `80`. But what if you’re doing local development? The standard HTTP port `80` is privileged and requires `root` access (which would be a hassle to provide every time you start the server). Plus, you don’t want your development server interfering with other running processes on your machine. So what you need is an alternative port number for your local dev server that is above 1024.
 
 (**Update:** turns out [macOS no longer enforces privileged ports](https://developer.apple.com/forums/thread/674179) ([Hacker News thread](https://news.ycombinator.com/item?id=18302380)) — thank you [Carl Johnson](https://mastodon.social/@carlmjohnson/109740040734781379).)
