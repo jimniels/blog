@@ -24,7 +24,7 @@ This is the what I love about `rel=me`: it reinforces the value of owning a doma
 
 > [verification with `rel=me`] is based on a loose specification created by bloggers back in 2003 called Xhtml Friends Network. Just as with Mastodon, its intention is not to tell us “this account belongs to television host Stephen Fry” but rather “this Stephen Fry account was vouched for by stephenfry.com, the website.”
 
-I love a technology like `rel=me` which pushes the idea of domain ownership into broader and broader spheres of society — “How do I get that nice little green checkmark on my profile?”
+I love a technology like `rel=me` which pushes the idea of domain ownership into broader and broader spheres of society — “How do I get that nice little green checkmark on my profile?” It reinforces the value of owning your own domain (which you can verify elsewhere) and encourages citizens of the internet people to build value in their own little corners of the world wide web.
 
 After all, [domains are the OG handles of the internet](https://blog.jim-nielsen.com/2023/subscribe-wherever-you-get-your-content/): find me [@jim-nielsen.com](https://jim-nielsen.com).
 
