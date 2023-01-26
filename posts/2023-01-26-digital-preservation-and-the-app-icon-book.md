@@ -2,7 +2,7 @@
 
 # Digital Preservation and “The App Icon Book”
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/flarup-app-icon-talk.png" width="1209" height="629" alt="Screenshot of a talk from Michael Flarup where he is talking about digital preservation. The frame shows Michael talking on the left, with his slides on the right showing a SNES game console and game on the left and a Macbook with Xcode and a cloud icon on the right." />
+<img src="https://cdn.jim-nielsen.com/blog/2023/flarup-app-icon-talk.png" width="800" height="416" alt="Screenshot of a talk from Michael Flarup where he is talking about digital preservation. The frame shows Michael talking on the left, with his slides on the right showing a SNES game console and game on the left and a Macbook with Xcode and a cloud icon on the right." />
 
 Here’s an excerpt from [a presentation by Michael Flarup](https://www.youtube.com/watch?v=NnMHQ2TA8Nw) talking about the difference between consoles and games created in the 80’s and 90’s vs. iPhones and games created in the 2010’s:
 
