@@ -1,5 +1,4 @@
-#myBlog
-
+#myBlog #quickChartIo
 
 # Graphing My Blog Post Goals
 

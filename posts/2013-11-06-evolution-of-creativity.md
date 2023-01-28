@@ -1,5 +1,3 @@
-#thoughts
-
 # The Evolution of Creativity
 
 John Mayer, an incredibly influential and accomplished guitarist, speaks about the evolution of his personal skill set in [this recording at Abbey Road](http://www.youtube.com/watch?v=mm8G5-pug_w). These were a few points I found fascinating is his commentary on creativity:

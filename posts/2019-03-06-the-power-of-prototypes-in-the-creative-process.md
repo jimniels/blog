@@ -1,4 +1,4 @@
-#thoughts
+#prototyping
 
 # The Power of Prototypes in the Creative Process
 

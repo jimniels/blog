@@ -22,9 +22,7 @@ Now after reading this book, I want to be more thoughtful in my approach to Git 
 
 > I came to appreciate the benefits of having every signification version of my projects stored, annotated, and neatly organized ... [it helped me] to think of commits as *significant* changes, as opposed to the hundreds of little changes I might save in a given hour. The extra steps involved in committing ... have ultimately helped me develop a more thoughtful and judicious way of working.
 
-I think if you work in Git long enough, you’ll begin to appreciate how all those little commits and actions stack up over the course of a project. To have a couple year-old project that is beautifully documented in Git is something you’ll never get through shortcuts. You’ll only get it through disciplined, thoughtful work over a long span of time. Chris Beams talks about this in his article “[How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/)”. He begins by showing two examples of commit histories, one earlier in his project when he wasn’t caring about commit messages and the other later in the project when he began caring:
-
-![Screenshot of two git histories](https://cdn.jim-nielsen.com/blog/2016/git-commit-messages.png)
+I think if you work in Git long enough, you’ll begin to appreciate how all those little commits and actions stack up over the course of a project. To have a couple year-old project that is beautifully documented in Git is something you’ll never get through shortcuts. You’ll only get it through disciplined, thoughtful work over a long span of time. Chris Beams talks about this in his article “[How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/)”. He begins by showing [two examples of commit histories](https://cdn.jim-nielsen.com/blog/2016/git-commit-messages.png), one earlier in his project when he wasn’t caring about commit messages and the other later in the project when he began caring:
 
 > The former varies wildly in length and form; the latter is concise and consistent. The former is what happens by default; the latter never happens by accident.
 

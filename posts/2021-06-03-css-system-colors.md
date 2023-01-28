@@ -97,13 +97,13 @@ My document and dropdown background colors now match!
 
 I knew we had [named colors](https://drafts.csswg.org/css-color/#named-colors)—`red`, `yellow`, `rebeccapurple`—in CSS, but I didn’t know we had [system colors](https://drafts.csswg.org/css-color/#css-system-colors). So what are they?
 
-> the <system-color> keywords reflect default color choices made by the user, the browser, or the OS…
+> the &lt;system-color&gt; keywords reflect default color choices made by the user, the browser, or the OS…
 > 
-> To maintain legibility, the <system-color> keywords also respond to light mode or dark mode changes.
+> To maintain legibility, the &lt;system-color&gt; keywords also respond to light mode or dark mode changes.
 
 Browsers get the chance to set their own defaults, which should conform to accessibility standards and will reflect the taste and sensibilities of the authors. But user overrides of those preferences take precedence:
 
-> When the values of <system-color> keywords come from the browser, (as opposed to being OS defaults or user choices) the browser should ensure that matching foreground/background pairs have a minimum of WCAG AA contrast. However, user preferences (for higher or lower contrast), whether set as a browser preference, a user stylesheet, or by altering the OS defaults, must take precedence over this requirement.
+> When the values of &lt;system-color&gt; keywords come from the browser, (as opposed to being OS defaults or user choices) the browser should ensure that matching foreground/background pairs have a minimum of WCAG AA contrast. However, user preferences (for higher or lower contrast), whether set as a browser preference, a user stylesheet, or by altering the OS defaults, must take precedence over this requirement.
 
 As stylesheet authors, we can use these named system colors in our CSS. However, the spec notes we should remember to use them in pairs, as cross-matching colors provides no guarantee over accessibility guidelines:
 

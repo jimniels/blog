@@ -1,5 +1,3 @@
-#thoughts
-
 # IKEA, JavaScript, and Assembling Things Yourself
 
 There’s [a tweet](https://twitter.com/kocienda/status/1355344814166876163) going around that’s been causing a stir:

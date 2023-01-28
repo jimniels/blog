@@ -1,0 +1,34 @@
+/*
+Inspired by:
+
+“What’s the smallest amount of CSS that you can write to make HTML look halfway decent?”
+https://www.robinrendle.com/notes/the-smallest-css/
+
+“You can design a blog that’s superior to most with a couple lines of CSS.”
+https://web.archive.org/web/20200807101742/https://frankchimero.com/blog/2020/redesign-this-design/
+*/
+html {
+  color-scheme: light dark;
+}
+
+body {
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  padding: 0 15px;
+  max-width: 40rem;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.5;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+svg,
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+pre code {
+  white-space: pre-wrap;
+}

@@ -12,7 +12,7 @@ His wording was specific to CSS grid (which I’m also in the process of learnin
 
 ## Article: [“What’s in a pattern name?”](https://ethanmarcotte.com/wrote/whats-in-a-pattern-name/) by Ethan Marcotte
 
-Ethan commenting on the design exercise he often does at conferences and workshops of printing webpages then cutting up the UI into pieces in order to find patterns. An exercise in designing language before any exercise in designing UIs can be critical to success. [Words have meaning](http://jim-nielsen.com/blog/2014/innovation-talk-page/).
+Ethan commenting on the design exercise he often does at conferences and workshops of printing webpages then cutting up the UI into pieces in order to find patterns. An exercise in designing language before any exercise in designing UIs can be critical to success. [Words have meaning](/2014/innovation-talk-page/).
 
 > the primary benefit to creating a pattern library isn’t the patterns themselves...But rather...the language used to name, organize, and find patterns is what allows [us] to use those patterns effectively—and that is what creates more consistent designs...*the words we use to talk about our design are, well, valuable design tools themselves*.
 

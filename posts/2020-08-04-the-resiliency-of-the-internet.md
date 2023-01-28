@@ -1,4 +1,4 @@
-#thoughts #css #html
+#css #html
 
 # The Resiliency of the Internet
 

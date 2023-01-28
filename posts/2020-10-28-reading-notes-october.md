@@ -56,8 +56,6 @@ Observations from someone who has been building for the web for 20 years.
 
 > We keep engineering more complexity and then using complex solutions to abstract it away for a while until we build new complexity on top of the new abstractions. If we zoom out enough, the overall pictures looks less like overall simplification.
 
-<img src="https://cdn.jim-nielsen.com/blog/2020/web-we-left-behind-screenshot.jpg" width="720" height="400" alt="Screenshot of a slide from Kyle Jacobson’s talk at ESNEXT 2020 depicting a line graph climbing up and to the right, illustrating an ever accreting “complexity mountain” of technology." />
-
-It’s interesting to view “progress” through this lens: a pile of abstractions, each hiding the previous layer’s complexity. Either way, Kyle’s sentiment resonates with me quite often:
+It’s interesting to view “progress” through this lens ([screenshot from talk](https://cdn.jim-nielsen.com/blog/2020/web-we-left-behind-screenshot.jpg)): a pile of abstractions, each hiding the previous layer’s complexity. Either way, Kyle’s sentiment resonates with me quite often:
 
 > I'm not tired of building products for the web. I'm tired of being a modern JavaScript developer...Most days, I don't seem to be very good at my job.

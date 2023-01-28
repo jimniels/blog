@@ -1,5 +1,3 @@
-#thoughts
-
 # Designing Between the Lines
 
 A little while back I read article by Andrew Coyle titled [“The most important thing I learned in Art College”](https://medium.com/nextux/the-most-important-thing-i-learned-in-art-college-d147d0ef2d35).

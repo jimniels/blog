@@ -1,5 +1,3 @@
-#thoughts
-
 # Stop Using the Term “Pixel Perfect”, Start Focusing on Experiences
 
 **Note**: I was digging through some old Google docs and found this piece of writing I did back in 2013. As I read through it, I thought some of it was good and some of it was a bit nauseating (why did I think the word “craftsman” was appropriate for people making websites?) Of course, this was four years ago. The world of web design has changed. More importantly, *I* have changed. I’m like a sleazy politician: you can’t expect me to backup whatever my stance was yesterday — at least when it comes to technology because *technology* is always changing and *I* am always changing.

@@ -1,5 +1,3 @@
-#thoughts
-
 # Ostentatious Design & Profanity
 
 I’m not sure why, but people love to curse. In fact, curse words are losing their potency and becoming increasingly banal because of overuse.

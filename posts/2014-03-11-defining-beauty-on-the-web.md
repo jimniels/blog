@@ -1,5 +1,3 @@
-#thoughts
-
 # Defining Beauty on the Web
 
 Back in October 2013, I attended [An Event Apart](http://aneventapart.com/) in Austin where I listened to [Ethan Marcotte](https://twitter.com/beep) give an incredibly insightful talk. Afterwards, I remember shaking Ethan’s hand thanking him for providing me with a “Eureka!” moment. A few days later the conference ended and I was back home, but Ethan’s arguments wouldn’t leave me. For whatever reason, I outlined what I had learned from Ethan’s talk and sent them to him in an email, thanking him again.

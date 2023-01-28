@@ -154,3 +154,42 @@ export default async function BlogPostsStatus({
     </details>
   `;
 }
+
+/*
+
+  =============================================================================
+  <BlogPostsStatus>
+  ========================================================================== 
+
+  #bps {
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.7777rem;
+  max-width: 50em;
+}
+#bps[open] {
+  background: var(--c-fg);
+}
+
+#bps summary,
+#bps > div {
+  position: relative;
+  padding: 10px 15px;
+}
+
+#bps[open] summary:after {
+  content: "";
+  width: calc(100% - 30px);
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  background: var(--color-border);
+}
+
+#bps > div {
+  text-align: center;
+  color: var(--color-text-light);
+}
+  */

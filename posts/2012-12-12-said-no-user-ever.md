@@ -1,5 +1,3 @@
-#thoughts
-
 # Said No Normal User, Ever
 
 > Remember that there are already too many things out there. We don’t need more things, we need things that work well.

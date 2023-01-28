@@ -1,5 +1,3 @@
-#thoughts
-
 # A Web of People
 
 Did you see *The LEGO Movie*? [My boss](https://twitter.com/timothymeaney) told us to watch it as homework. That’s right, I have work homework. To be honest, it was the first homework i’d had in years and, contrary to homework of the past, I really enjoyed this assignment. There’s a scene at the end of the movie that perfectly illustrates a trait of the web I’d like to talk about. [Spoilers ahead!]

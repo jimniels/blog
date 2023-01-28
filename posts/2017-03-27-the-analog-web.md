@@ -1,5 +1,3 @@
-#thoughts
-
 # The Analog Web
 
 > “The web is not a platform. It’s a continuum.” – [Jeremy Keith](https://adactio.com/journal/6692)

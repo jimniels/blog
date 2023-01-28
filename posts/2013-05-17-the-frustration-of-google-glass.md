@@ -1,5 +1,3 @@
-#thoughts
-
 # The Incredible (Frustrating) Potential of Google Glass
 
 [Here's a video](http://www.youtube.com/embed/S80mE3kQTJ0) showcasing the potential of Google Glass.

@@ -1,201 +1,635 @@
-body {
-  margin: 1.618rem calc(1.618 * 2rem);
+/* =============================================================================
+   Variables
+   ========================================================================== */
+
+:root {
+  --border-radius: 4px;
+  --s-4: calc(4rem / 18);
+  --s-8: calc(8rem / 18);
+  --s-12: calc(12rem / 18);
+  --s-16: calc(16rem / 18);
+  --s-24: calc(24rem / 18);
+  --s-32: calc(32rem / 18);
+  --s-40: calc(40rem / 18);
+  --s-48: calc(48rem / 18);
+  --s-64: calc(64rem / 18);
+  --s-80: calc(80rem / 18);
+  --s-96: calc(96rem / 18);
+
+  /* Theme color that gets set by default but is configurable by the user */
+  --c-theme-h: var(--c-blue-h);
+  --c-theme-s: var(--c-blue-s);
+  --c-theme-l: var(--c-blue-l);
+  --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
+
+  --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
+  --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 96%);
+  --c-bg-opaque: hsl(
+    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
+  );
+  --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 8%);
+
+  /* 
+   * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
+   * accessible
+   */
+  --c-blue-h: 223;
+  --c-blue-s: 100%;
+  --c-blue-l: 43%;
+  --c-red-h: 354;
+  --c-red-s: 100%;
+  --c-red-l: 42%;
+  --c-green-h: 135;
+  --c-green-s: 59%;
+  --c-green-l: 34%;
+  --c-yellow-h: 27;
+  --c-yellow-s: 100%;
+  --c-yellow-l: 35%;
+  --c-purple-h: 280;
+  --c-purple-s: 43%;
+  --c-purple-l: 47%;
+  --c-pink-h: 343;
+  --c-pink-s: 87%;
+  --c-pink-l: 44%;
+
+  /* not supported yet */
+  --c-orange-h: 16;
+  --c-orange-s: 100%;
+  --c-orange-l: 39%;
+  --c-theme-mint: 177 83% 28%;
+  --c-theme-teal: 189 100% 30%;
+  --c-theme-cyan: 199 100% 32%;
+  --c-theme-indigo: 241 52% 42%;
+  --c-theme-brown: 33 30% 38%;
 }
 
-@media screen and (max-width: 650px) {
-  body {
-    margin: calc(1.618rem / 2);
-    margin-bottom: calc(1.618rem * 3);
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
+    --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 12%);
+    --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
+    --c-bg-opaque: hsl(
+      var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
+    );
+
+    --c-blue-h: 211;
+    --c-blue-s: 100%;
+    --c-blue-l: 63%;
+    --c-red-h: 3;
+    --c-red-s: 100%;
+    --c-red-l: 69%;
+    --c-green-h: 135;
+    --c-green-s: 70%;
+    --c-green-l: 52%;
+    --c-yellow-h: 48;
+    --c-yellow-s: 100%;
+    --c-yellow-l: 57%;
+    --c-purple-h: 280;
+    --c-purple-s: 100%;
+    --c-purple-l: 78%;
+    --c-pink-h: 348;
+    --c-pink-s: 100%;
+    --c-pink-l: 70%;
+
+    /* not supported yet */
+    --c-orange-h: 36;
+    --c-orange-s: 100%;
+    --c-orange-l: 63%;
+    --c-theme-mint: 177 56% 62%;
+    --c-theme-teal: 189 100% 68%;
+    --c-theme-cyan: 197 100% 72%;
+    --c-theme-indigo: 241 100% 72%;
+    --c-theme-brown: 34 34% 56%;
   }
 }
 
 /* =============================================================================
-   Primary Site Navigation
+   Base styles
+   ========================================================================== */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+  font-size: 18px;
+  line-height: 1.618;
+  background: var(--c-bg);
+  color: var(--c-text);
+}
+
+/* Links
    ========================================================================== */
 
-/* When there's no JS */
-site-nav {
-  display: flex;
-  align-items: center;
-  gap: calc(1.618rem / 4);
-}
-
-site-nav a[href="/"] {
-  margin-right: calc(1.618rem / 2);
-}
-
-site-nav svg {
-  fill: var(--c-theme);
-}
-
-site-nav[has-js] {
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-.sn-top {
-  display: flex;
-  align-items: center;
-}
-
-@media screen and (max-width: 599px) {
-  .sn-top {
-    width: 100%;
-    justify-content: space-between;
-  }
-}
-
-.sn-bottom {
-  display: none;
-  padding: calc(1.618rem / 2);
-  background: var(--c-fg);
-  gap: calc(1.618rem / 2);
-  flex-wrap: wrap;
-  margin-left: calc(1.618rem / -2);
-  padding-left: calc(1.618rem / 2);
-  width: calc(100% + calc(1.618rem / 1));
-}
-site-nav[has-js][open] .sn-bottom {
-  display: flex;
-}
-
-@media screen and (min-width: 600px) {
-  .sn-bottom {
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    gap: 1.618rem;
-    flex-wrap: nowrap;
-    margin-left: calc(1.618rem * -2);
-    padding-left: calc(1.618rem * 2);
-    padding-right: calc(1.618rem * 2);
-    width: auto;
-  }
-}
-@media screen and (min-width: 960px) {
-  .sn-bottom-section {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-
-/* Site Navigation
-   ========================================================================== */
-
-site-nav[has-js] ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: calc(1.618rem / 2);
-}
-
-site-nav button {
-  background: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
+a {
+  text-decoration: none;
   color: var(--c-theme);
-  border-radius: var(--border-radius);
-  display: flex;
-  align-items: center;
-  padding: calc(1.618rem / 6);
 }
 
-site-nav button:hover {
-  background: var(--c-fg);
+a:hover {
+  text-decoration: underline;
+  filter: brightness(115%) saturate(1.15);
 }
 
-site-nav ul li {
-  display: flex;
-  align-items: center;
+a:has(img):hover {
+  filter: none;
 }
 
-site-nav ul a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  position: relative;
+a:active {
+  filter: brightness(50%);
 }
 
-site-nav[has-js] h5 {
+a[href=""] {
+  cursor: not-allowed;
+}
+
+/* Images & Video
+   ========================================================================== */
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Typography
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.3;
+
+  /* Long headlines that are 1 word
+     https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+h3 {
   font-size: 1rem;
-  margin: 0 calc(1.618rem / 4) 0 0;
+  font-weight: 700;
 }
 
-site-nav[has-js] h5:after {
-  content: ":";
+h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01rem;
+  font-weight: 700;
 }
 
-.sn-color-picker {
-  display: flex;
-  align-items: center;
-  gap: calc(1.618rem / 2);
-  position: relative;
-  top: 2px;
+/* Misc. Elements
+   ========================================================================== */
+
+blockquote {
+  padding-left: 1.618rem;
+  margin-left: 0;
+  font-style: italic;
+  border-left: 2px solid var(--c-bg-opaque);
 }
 
-.sn-color-picker input {
-  display: none;
+blockquote em,
+blockquote code {
+  font-style: normal;
 }
 
-.sn-color-picker label {
-  width: 24px;
-  height: 24px;
-  border: 3px solid var(--c-fg);
+pre {
+  font-size: 0.9rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--c-bg-opaque);
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid;
+  margin: var(--s-32) 0;
+  opacity: 0.125;
+}
+
+/* Tables
+   ========================================================================== */
+
+table {
+  max-width: none;
   display: block;
-  text-indent: -9999px;
-  border-radius: 50%;
+  overflow: auto;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.85em;
 }
 
-.sn-color-picker input:checked + label {
-  box-shadow: 0 0 0 2px var(--c-theme);
+table th {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.03rem;
 }
 
-@media screen and (min-width: 600px) {
-  .sn-color-picker {
-    gap: calc(1.618rem / 4);
-  }
-  .sn-color-picker label {
-    width: 21px;
-    height: 21px;
-    border-width: 2px;
-  }
+table thead {
+  /* border-top: 1px solid; */
+  /* border-bottom: 1px solid; */
+}
+table tbody {
+  /* border-bottom: 1px solid; */
+}
+
+table tbody tr:nth-child(2n + 1) {
+  background-color: var(--c-fg);
+}
+
+table th,
+table td {
+  padding: 0.325em 1em;
 }
 
 /* =============================================================================
-   Article Header
+   Layout
    ========================================================================== */
 
-article header h1 {
-  max-width: 45rem;
-  margin-bottom: calc(1.618rem / 4);
+.copy > *:not(.image-container):not(pre),
+.wrapper {
+  max-width: 36rem;
+  margin-left: var(--s-16);
+  margin-right: var(--s-16);
 }
 
-article header time {
-  opacity: 0.625;
-  display: block;
+@media screen and (min-width: 42rem) {
+  .copy > *:not(.image-container):not(pre),
+  .wrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+pre {
+  /* 36rem + 3rem on either side = 42rem */
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: calc(1.618rem / 2);
+  border-radius: 0px;
+}
+
+@media screen and (min-width: 42rem) {
+  pre {
+    padding: 2rem 3rem;
+    border-radius: 10px;
+  }
 }
 
 /* =============================================================================
    Copy
    ========================================================================== */
 
-.copy > *:not(table):not(pre) {
-  max-width: 32rem;
-  display: block;
-}
-.copy > p code {
+.copy > p code,
+.copy > ul code {
   word-wrap: break-word;
+  word-break: keep-all;
+  background-color: var(--c-bg-opaque);
+  padding: calc(1.618rem / 12) calc(1.618rem / 6);
+  border-radius: 10px;
 }
+
 .copy .image-container {
   max-width: 1200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .copy .image-container span {
   font-size: 0.75rem;
   font-style: italic;
   opacity: 0.5;
   max-width: 32rem;
   display: block;
+}
+
+.copy > h2 {
+  margin-top: calc(1.618rem * 2);
+}
+
+/* Article Header
+   ========================================================================== */
+
+article header {
+  display: flex;
+  flex-direction: column;
+}
+
+article header h1 {
+  order: 2;
+  margin-top: 0;
+}
+
+article header time {
+  opacity: 0.5;
+  display: block;
+}
+
+/* Links
+   ========================================================================== */
+
+footer a,
+.copy a {
+  text-decoration: underline;
+}
+
+.copy a[href^="#fn"] {
+  text-decoration: none;
+}
+.copy a[href^="#fnref"] {
+  font-family: sans-serif; /* keep the backlink from displaying as an emoji */
+}
+footer,
+.footnotes {
+  font-size: 0.91rem;
+}
+
+/* =============================================================================
+   Header
+   ========================================================================== */
+
+.header {
+  max-width: 36rem;
+  margin: var(--s-16) auto var(--s-48);
+  display: flex;
+  flex-direction: column;
+
+  flex-wrap: wrap;
+  column-gap: var(--s-16);
+  row-gap: var(--s-8);
+  position: relative;
+  padding: 0 var(--s-16);
+}
+
+@media screen and (min-width: 42rem) {
+  .header {
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Logo */
+.header__brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  background-repeat: no-repeat;
+  background-size: 48px;
+  height: 48px;
+  justify-content: center;
+  position: relative;
+  color: inherit;
+
+  margin-top: 56px;
+}
+
+.header__brand::before {
+  content: "";
+  background-image: var(--avatar);
+  background-size: 100%;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+
+  left: 0;
+  top: -56px;
+}
+
+@media screen and (min-width: 42rem) {
+  .header__brand {
+    padding-left: 56px;
+    margin-top: 0;
+  }
+  .header__brand::before {
+    top: 0;
+  }
+}
+
+.header__brand:hover {
+  text-decoration: none;
+}
+
+.header__brand svg {
+  fill: var(--c-theme);
+  width: 18px;
+  height: 18px;
+}
+
+.header__brand > :first-child {
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+}
+
+.header__brand > :nth-child(2) {
+  font-size: 0.777777rem;
+  opacity: 0.5;
+  color: var(--c-text);
+}
+
+/* Navigation links */
+.header__nav {
+  display: flex;
+  gap: var(--s-16);
+  margin-right: var(--s-48);
+  flex-grow: 2;
+}
+@media screen and (min-width: 42rem) {
+  .header__nav {
+    justify-content: flex-end;
+  }
+}
+
+/* Preferences Element & Trigger
+   ========================================================================== */
+
+/* details */
+.prefs {
+  background-color: var(--c-bg);
+  border-radius: var(--border-radius);
+  position: absolute;
+  top: calc(var(--s-16) * -1);
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 8px 56px rgb(0 0 0 / 10%);
+}
+
+/* Kinda hacky, but it works */
+@media screen and (prefers-color-scheme: dark) {
+  .prefs {
+    box-shadow: 0 8px 56px rgb(255 255 255 / 13%);
+  }
+}
+
+/* only when open or you get weirdness with the <summary> */
+.prefs[open] {
+  padding: var(--s-32) var(--s-16) var(--s-16);
+}
+
+@media screen and (min-width: 42rem) {
+  .prefs[open] {
+    margin: 0 calc(var(--s-32) * -1);
+  }
+}
+
+.prefs__trigger {
+  position: absolute;
+  top: var(--s-24);
+  right: var(--s-16);
+  padding: var(--s-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-theme);
+  border-radius: var(--border-radius);
+}
+@media screen and (min-width: 42rem) {
+  .prefs[open] {
+    padding-left: var(--s-32);
+    padding-right: var(--s-32);
+  }
+
+  .prefs__trigger {
+    right: 0;
+  }
+  .prefs[open] .prefs__trigger {
+    right: var(--s-32);
+  }
+}
+.prefs__trigger:hover {
+  filter: brightness(115%) saturate(1.15);
+}
+.prefs[open] .prefs__trigger,
+.prefs__trigger:hover {
+  background-color: var(--c-bg-opaque);
+}
+.prefs__trigger > :first-child {
+  display: flex !important;
+}
+.prefs__trigger > :last-child {
+  display: none;
+}
+.prefs__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.prefs[open] .prefs__trigger {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
+  border-radius: calc(var(--border-radius) / 2);
+}
+
+/* Preferences Elements
+   ========================================================================== */
+
+.prefs form:last-of-type {
+  margin-top: var(--s-24);
+}
+.prefs fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.prefs legend {
+  font-weight: 700;
+  margin: 0;
+}
+.prefs__content {
+  display: flex;
+  width: 100%;
+  gap: var(--s-16);
+  margin-top: var(--s-12);
+}
+.prefs fieldset p {
+  font-size: 0.777rem; /* 14 */
+  display: block;
+  font-weight: 400;
+  opacity: 0.5;
+  margin: 0;
+}
+.prefs fieldset p a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.prefs-color label {
+  width: 20%;
+}
+.prefs-color label span {
+  display: block;
+  height: var(--s-40);
+  border-radius: var(--border-radius);
+  text-indent: -9999px;
+}
+.prefs-color label input {
+  display: none;
+}
+.prefs-color label:hover span {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px; /* inherits from inline style */
+}
+.prefs-color label input:checked ~ span {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
+}
+
+.prefs-fidelity {
+  display: flex;
+  text-align: center;
+}
+.prefs-fidelity input {
+  display: none;
+}
+.prefs-fidelity > label {
+  width: 33.3333%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.prefs-fidelity > label:before {
+  content: "";
+  background-color: white;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  border: 1px solid var(--c-fg);
+  border-radius: var(--border-radius);
+  height: 98px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--s-4);
+}
+.prefs-fidelity > label:hover:before,
+/* Putting active here only applies styles to 
+   the default theme, as its the only one that gets styles */
+.prefs-fidelity > label#high:before {
+  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
+}
+
+.prefs-fidelity > label#high:before {
+  background-image: url(/assets/img/fidelity-high.svg);
+}
+.prefs-fidelity > label#med:before {
+  background-image: url(/assets/img/fidelity-med.svg);
+}
+.prefs-fidelity > label#low:before {
+  background-image: url(/assets/img/fidelity-low.svg);
 }
 
 /* =============================================================================
@@ -214,28 +648,21 @@ article header time {
 
 .posts-list li {
   margin-bottom: calc(1.618rem / 2);
+  display: flex;
+  flex-direction: column;
 }
 
-.posts-list li a {
-  display: block;
+.posts-list small {
+  opacity: 0.5;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+.posts-list small a {
+  color: inherit;
 }
 
 .posts-list time {
   font-variant-numeric: tabular-nums;
-  font-size: 0.7rem;
-  opacity: 0.5; /* @TODO change to gray */
-  white-space: nowrap;
-}
-
-.posts-list small {
-  padding: 0 0.5em;
-  font-size: 0.6em;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  margin-left: 0.5em;
-  order: 3;
-  opacity: 0.5; /* @TODO gray? matches <time> */
-  align-self: center;
   white-space: nowrap;
 }
 
@@ -243,60 +670,14 @@ article header time {
   .posts-list li {
     margin-bottom: calc(1.618rem / 4);
     display: flex;
+    justify-content: space-between;
     align-items: baseline;
+    gap: calc(1.618rem / 2);
+    flex-direction: row;
   }
-  .posts-list li a {
-    order: 2;
+  .posts-list li > a {
+    flex-grow: 1;
   }
-  .posts-list time {
-    order: 1;
-    margin-right: calc(1.618rem / 2);
-  }
-}
-
-/* =============================================================================
-   <BlogPostsStatus>
-   ========================================================================== */
-
-#bps {
-  border-radius: var(--border-radius);
-  display: flex;
-  align-items: flex-start;
-  font-size: 0.7777rem;
-  max-width: 50em;
-}
-#bps[open] {
-  background: var(--c-fg);
-}
-
-#bps summary,
-#bps > div {
-  position: relative;
-  padding: 10px 15px;
-}
-
-#bps[open] summary:after {
-  content: "";
-  width: calc(100% - 30px);
-  height: 1px;
-  position: absolute;
-  bottom: 0;
-  left: 15px;
-  background: var(--color-border);
-}
-
-#bps > div {
-  text-align: center;
-  color: var(--color-text-light);
-}
-
-/* =============================================================================
-   SVG Icons
-   ========================================================================== */
-
-.icon {
-  width: 24px;
-  height: 24px;
 }
 
 /* =============================================================================

@@ -1,5 +1,3 @@
-#thoughts
-
 # Thoughts on Rich Harris’ “Metaphysics and JavaScript”
 
 [Rich Harris](https://twitter.com/Rich_Harris), creator of [Svelte](https://svelte.dev/), [shared](https://twitter.com/Rich_Harris/status/1168896800268464129) [his slides from a recent talk titled “Metaphysics and JavaScript”](https://docs.google.com/presentation/d/1PUvpXMBEDS45rd0wHu6tF3j_8wmGC6cOLtOw2hzU-mw) where he critiques aspects of the React programming model. I found the talk extremely cogent and applicable to my experience using React.

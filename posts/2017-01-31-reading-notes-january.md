@@ -20,7 +20,7 @@ It’d be an interesting design exercise to work on building a site purely from 
 
 New industry title: Front-end Systems Engineer. The responsibilities? You spend all your time updating dependencies of a project. 
 
-(See [Rich Hickey notes](http://jim-nielsen.com/blog/2016/reading-notes-november/) about how `gem install hairball` is easy: easy to get all that complexity.)
+(See [Rich Hickey notes](/2016/reading-notes-november/) about how `gem install hairball` is easy: easy to get all that complexity.)
 
 > But if you set up a system, you are likely to find your time and effort now being consumed in the care and feeding of the system itself. New problems are created by its very presence. Once set up, it won’t go away, it grows and encroaches. It begins to do strange and wonderful things. Breaks down in ways you never thought possible. It kicks back, gets in the way, and opposes its own proper function. Your own perspective becomes distorted by being in the system. You become anxious and push on it to make it work. Eventually you come to believe that the misbegotten product it so grudgingly delivers is what you really wanted all the time. At that point encroachment has become complete. **You have become absorbed. You are now a systems person.** (*emphasis added*)
 

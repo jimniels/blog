@@ -1,5 +1,3 @@
-#thoughts
-
 # The Spirit of “View Source”
 
 I recently finished reading Clive Thompson’s book _Coders_ and one of the parts I found rather interesting was his story on how the web spurred a revolution of coding education via the “View Source” feature.

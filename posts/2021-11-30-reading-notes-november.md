@@ -76,7 +76,7 @@ Also: I love the term ”draft purgatory”.
 
 > Don’t dot every I and cross every T, don’t tie up every loose end. Leave some questions unanswered. A piece of art, a movie, a song, a performance, they all tend to be more compelling when they leave you wondering.
 
-## Documentary: [The Social Dilemma](https://www.thesocialdilemma.com)
+## Video: [The Social Dilemma](https://www.thesocialdilemma.com)
 
 Yeah, I know. This documentary is old news. But I finally got around to watching it and it was better than expected.
 

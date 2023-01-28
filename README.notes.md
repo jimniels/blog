@@ -3,6 +3,37 @@
 Filenames
   - Posts: `2019-05-12-a-web-of-people.md`
   - Notes: `2019-05-12T1335.md`
+Idea: what about enhancing the current text and deeplinking?
+
+```md
+## Article: [“This is my title”]()
+
+#design
+
+Start talking about what these notes are.
+
+> block quote here to soething
+
+## Video: [“Something”]()
+```
+
+# Posts
+
+`/2019/:slug` -> `/posts/:slug`
+`/2019/reading-notes-january` -> `/reading-notes-january-2019`
+
+`/posts/deno-is-webby`
+
+Which would allow different namespaces in the future, i.e.
+
+`/notes/:id`
+
+
+# Proposal
+
+Filenames
+  - `posts/2019-05-12-a-web-of-people.md`
+  - `notes/2019-05-12T1335.md`
 
 URLs:
   - Posts:

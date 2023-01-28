@@ -42,7 +42,7 @@ The lazy person in me finally gets to understand all the fors. Now we’ll just 
 
 A concise summary of how to get the browser to download things. I've used the `blob:` one before. It’s a rather neat trick for downloading files.
 
-## Artile: [“Doing the right thing for the wrong reasons”](https://adactio.com/journal/18199)
+## Article: [“Doing the right thing for the wrong reasons”](https://adactio.com/journal/18199)
 
 > It’s one thing for a department to over-ride UX concerns, but I bet they’d think twice about jeopardising the site’s ranking with Google.
 

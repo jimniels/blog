@@ -1,3 +1,5 @@
+#remix
+
 # The Web in 2036: Predictions on a Whim
 
 I just finished reading Jeremy’s article [“Today, the distant future”](https://adactio.com/journal/18743). It’s fascinating to read predictions about HTML and the web from fourteen years ago. Jeremy ends by asking:

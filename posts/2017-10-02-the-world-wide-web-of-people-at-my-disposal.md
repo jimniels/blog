@@ -1,5 +1,3 @@
-#thoughts
-
 # The World Wide Web of People at My Disposal
 
 The web held such promise. Here’s Yochai Benkler in his influential 2006 book *The Wealth of Networks*:

@@ -1,4 +1,4 @@
-#thoughts #notesRichHickey
+#notesRichHickey
 
 # A Note to Self on Churn
 

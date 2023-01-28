@@ -2,7 +2,7 @@
 
 # Reading Notes, May 2019
 
-## Article: [”Preload, prefect and other <link> tags”](https://3perf.com/blog/link-rels/)
+## Article: [”Preload, prefect and other link tags”](https://3perf.com/blog/link-rels/)
 
 I’ve actually never really taken the time to try and understand exactly the difference between preload, prefetch, preconnect, prerender, etc. This articular sums it up nicely. In fact, I’m going to sum it based on my understanding of how they summed it up. Is that enough summing for you?
 
@@ -18,7 +18,7 @@ There’s a lot more useful and nuanced information in the article beyond what I
 
 I actually always wondered why the file scheme had three slashes in it. Now I know—and it makes perfect sense.
 
-> a file scheme has 3 slashes (compared to the two used after http) because the scheme for URLs is <proto>://<host>/<path> and since file (in most cases) has no host (it's your machine), it becomes file:///<path> (ref).
+> a file scheme has 3 slashes (compared to the two used after http) because the scheme for URLs is `<proto>://<host>/<path>` and since file (in most cases) has no host (it's your machine), it becomes `file:///<path>` (ref).
 
 ## Article: [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
 

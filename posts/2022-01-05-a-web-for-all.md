@@ -45,3 +45,5 @@ Reminds me of this line, which I love, from [the W3C’s design principles](http
 ## Update 2022-03-07
 
 When [talking about this article with Chris and Dave](https://shoptalkshow.com/504/), Chris helped me see the irony of this story: the optional chaining operator is often used to program defensively, to keep JavaScript from crashing the page. And yet, in this case, it’s the presence of the optional chaining operator that crashed the page.
+
+Also: [this post caught the attention of Nicole Nguyen](https://blog.jim-nielsen.com/2022/my-mom-and-the-wsj/), a reporter at the Wall Street Journal. She wanted to interview me on my experience as it related to [a piece she was writing on Chromebook updates](https://www.wsj.com/amp/articles/before-you-buy-a-chromebook-check-the-expiration-date-11646538322). Buyer beware!

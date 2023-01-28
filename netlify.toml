@@ -9,3 +9,36 @@
   to = "https://blog.jim-nielsen.com/:splat"
   status = 301
   force = true
+
+# How this works:
+#
+# URL: /.netlify/functions/preferences | FILE: netlify/functions/preferences.js
+#   This sets/modifies a cookie for the client so Netlify can rewrite requests
+# FILE: netlify.toml
+#   Contains the rewrite rules
+# FILE: build/_fidelity/{low|med}
+#   Contains the same version of the site, but with fidelity stripped out
+#   of the default version of the site (which lives at `build/`)
+# 
+# Of note: "low" and "med" are the two enumerated values used in:
+#   - The cookies
+#       e.g. `fidelity-low=active` or `fidelity-med=active`
+#   - The redirect rules
+#       e.g. a request to `/about/` with `fidelity-low=active` rewrites to
+#       `/_fidelity/low/about/(index.html)`
+#   - The build directories
+#       e.g. a version of the site is generated for each fidelity and stuck
+#       in the `/_fidelity` folder, i.e. `_fidelity/low/`
+[[redirects]]
+  from = "/*"
+  to = "/_fidelity/low/:splat"
+  status = 200
+  force = true
+  conditions = { Cookie = ["fidelity-low"] }
+
+[[redirects]]
+  from = "/*"
+  to = "/_fidelity/med/:splat"
+  status = 200
+  force = true
+  conditions = { Cookie = ["fidelity-med"] }

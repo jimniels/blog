@@ -1,5 +1,3 @@
-#thoughts
-
 # Limitations in Software
 
 So I read this: “[A history of branch prediction](https://danluu.com/branch-prediction/)”.

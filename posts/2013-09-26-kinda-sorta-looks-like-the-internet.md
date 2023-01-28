@@ -1,5 +1,3 @@
-#thoughts
-
 # The “Kinda-Sorta Looks Like the Internet” Internet
 
 > This is not a watered down version of the internet. Or the “mobile” version of the internet. Or the “kinda-sorta looks like the internet” internet. It’s just the internet. On your phone.

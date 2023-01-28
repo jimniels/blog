@@ -1,4 +1,4 @@
-#stories
+#prototyping
 
 # How Apple Engineers Decided the App Icon Size for the Original iPhone
 

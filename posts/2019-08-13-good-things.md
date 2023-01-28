@@ -1,5 +1,3 @@
-#thoughts
-
 # Good Things
 
 Tyler wrote a (good) post recently titled [“Good Things”](https://tylergaw.com/articles/good-things/):

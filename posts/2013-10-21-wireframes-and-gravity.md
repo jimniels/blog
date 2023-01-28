@@ -1,5 +1,3 @@
-#thoughts
-
 # Wireframes and Gravity
 
 Wired recently did [an interview with Alfonso Cuarón](http://www.wired.com/underwire/2013/10/center_of_gravity/), the director of the film *Gravity*. Cuarón relates how making the film took four and a half years. When asked why it was so difficult, he responded:

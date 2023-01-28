@@ -1,5 +1,3 @@
-#thoughts
-
 # Webster’s Dictionary Defines “View Source” As...
 
 <img src="https://cdn.jim-nielsen.com/blog/2020/view-source-vs-onload-meme.png" alt="The words “You keep using that word ‘View Source’, I don’t think it means what you think it means” overlaying a picture of Inigo Montoya" width="488" height="421" />

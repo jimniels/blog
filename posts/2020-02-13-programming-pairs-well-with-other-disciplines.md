@@ -1,5 +1,3 @@
-#thoughts
-
 # Programming Pairs Well With Other Disciplines
 
 > Programmers know the benefits of everything and the tradeoffs of nothing. — Rich Hickey

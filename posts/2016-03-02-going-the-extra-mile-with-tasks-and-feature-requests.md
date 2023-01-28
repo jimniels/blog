@@ -14,7 +14,7 @@ Your job *is* taking the liberty and creative freedom to change, enhance, or eve
 
 ## My Story: Enhancing a Feature Request Task
 
-A few weeks ago I was working on the [Assignment Desk](http://jim-nielsen.com/blog/2016/designing-and-building-assignment-desk/) application for Time Inc. when I received the following task in Asana:
+A few weeks ago I was working on the [Assignment Desk](/2016/designing-and-building-assignment-desk/) application for Time Inc. when I received the following task in Asana:
 
 > When a contract is signed, display text instructing the user to request the signed contract. Text:
 "To request a copy of this signed contract, please email person@timeinc.com."

@@ -1,5 +1,3 @@
-#thoughts
-
 # The Web as an Information System
 
 I was recently watching a talk from Rich Hickey on YouTube titled [“The Database as a Value”](https://youtu.be/V6DKjEbdYos). There are some great insights in that talk, even though many of them are a bit over my head as a mere “web designer”. 

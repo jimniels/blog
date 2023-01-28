@@ -2,9 +2,9 @@
 
 # Designing and Developing the DCP Application
 
-My most recent project had me designing and developing a new web application for Time Inc. called the “DCP” or “Digital Content Production” application. Using the framework we built for the [Assignment Desk](http://jim-nielsen.com/blog/2016/designing-and-building-assignment-desk/) application, I designed and built roughly the entire view layer of this application in less than two months.
+My most recent project had me designing and developing a new web application for Time Inc. called the “DCP” or “Digital Content Production” application. Using the framework we built for the [Assignment Desk](/2016/designing-and-building-assignment-desk/) application, I designed and built roughly the entire view layer of this application in less than two months.
 
-The main goal of this project was to transition from an antiquated internal application at Time Inc. called “Athena”, to the new D.A.M. (Digital Asset Management) platform. I had already helped build the [Assignment Desk](http://jim-nielsen.com/blog/2016/designing-and-building-assignment-desk/) application which served as a framework for building other application’s that would interface with the backend D.A.M. layer, so the initial work around application architecture and tooling was largely in place. We had a boilerplate framework built on Node.js + React.js that could create, revise, update, and delete information from the D.A.M. Because of this, much of work entailed translating the existing application’s functionality into a web-based application.
+The main goal of this project was to transition from an antiquated internal application at Time Inc. called “Athena”, to the new D.A.M. (Digital Asset Management) platform. I had already helped build the [Assignment Desk](/2016/designing-and-building-assignment-desk/) application which served as a framework for building other application’s that would interface with the backend D.A.M. layer, so the initial work around application architecture and tooling was largely in place. We had a boilerplate framework built on Node.js + React.js that could create, revise, update, and delete information from the D.A.M. Because of this, much of work entailed translating the existing application’s functionality into a web-based application.
 
 
 ## Stage 1: Conceptualization

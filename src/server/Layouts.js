@@ -1,13 +1,29 @@
 import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import pt from "prop-types";
-import { html, toDateUI } from "./utils.js";
-import ReplyHtml from "./ReplyHtml.js";
-import RssClub from "./RssClub.js";
+import { html } from "./utils.js";
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
   fs.readFileSync(join(__dirname, filepath)).toString();
+const avatar = fs
+  .readFileSync(join(__dirname, "avatar.png"))
+  .toString("base64");
+
+const fidelities = [
+  {
+    id: "high",
+    title: "Default",
+  },
+  {
+    id: "med",
+    title: "Minimal",
+  },
+  {
+    id: "low",
+    title: "Text-Only",
+  },
+];
 
 const comment = `
 <!--
@@ -24,12 +40,12 @@ https://www.github.com/jimniels/blog/
 -->
 `;
 
-const Layout = (props, children) => {
+// Children will do: Page({...}, html`<main {class="{wrapper|copy}"}?>...</main>`)
+export function Page(props, children) {
   const {
     site: { origin, tags, name },
-    page: { layout, path, title },
+    page: { head = "", path, title },
   } = props;
-  const permalink = origin + path;
 
   const nav = [
     {
@@ -37,26 +53,34 @@ const Layout = (props, children) => {
       path: "/archive/",
     },
     {
-      label: "Tags",
-      path: "/tags/",
-    },
-    {
       label: "About",
       path: "/about/",
+    },
+    {
+      label: "RSS",
+      path: "/feed.xml",
     },
   ];
 
   return (
+    "<!DOCTYPE html>" +
     comment +
     html`
-      <!DOCTYPE html>
       <html lang="en-us" id="top">
         <head>
           <title>${title && `${title} - `}${name}</title>
 
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="author" content="p-author" />
+          <meta name="author" content="Jim Nielsen" />
+          <meta
+            name="description"
+            content="Writing about the big beautiful mess that is making things for the world wide web."
+          />
+          <link rel="me" href="https://github.com/jimniels" />
+          <link rel="me" href="https://twitter.com/jimniels" />
+          <link rel="me" href="https://mastodon.social/@jimniels" />
+          <link rel="me" href="https://dribbble.com@jimniels" />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
           <link
             rel="alternate"
@@ -70,13 +94,11 @@ const Layout = (props, children) => {
             title="JSON Feed"
             href="/feed.json"
           />
-          <link rel="canonical" href="${permalink}" />
 
           <!-- Inline all our styles -->
           <style>
             ${[
               "./styles/modern-normalize.css",
-              "./styles/base.css",
               "./styles/styles.css",
               "./styles/atom-one-light.css",
             ]
@@ -88,106 +110,87 @@ const Layout = (props, children) => {
             }
           </style>
 
-          ${layout === "Post" &&
-          html`
-            <!-- If it’s a post page, we’ll include meta info and code styling -->
-            <meta property="og:title" content="${title}" />
-            <meta property="og:type" content="article" />
-            <meta property="og:url" content="${permalink}" />
-
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:site" content="@jimniels" />
-            <meta name="twitter:creator" content="@jimniels" />
-            <meta name="twitter:title" content="${title}" />
-            <meta
-              name="twitter:image"
-              content="https://blog.jim-nielsen.com/assets/img/twitter-card.png"
-            />
-            <meta
-              name="twitter:image:alt"
-              content="Jim Nielsen’s initials (JN) in a hand-written style."
-            />
-          `}
+          <!-- Dynamic <head> content where applicable -->
+          ${head}
         </head>
         <body>
-          <!-- Icon Sprite -->
-          ${importFile("./svgs/icons.svg")}
-
-          <site-nav>
-            <a href="/">Jim Nielsen’s Blog</a>
-            ${nav.map(
-              ({ label, path }) => html`<a href="${path}">${label}</a>`
-            )}
-            <a href="/feed.xml" title="RSS Feed"
-              >${importFile("./svgs/feed-rss.svg")}</a
-            >
-            <a href="/feed.json" title="JSON Feed"
-              >${importFile("./svgs/feed-json.svg")}</a
-            >
-          </site-nav>
-
           <script>
-            ${importFile("./site-nav.js")};
+            ${importFile("./theme-color.js")};
+            document.write("<theme-color></theme-color>");
           </script>
+
+          <header class="header">
+            <a
+              href="/"
+              class="header__brand"
+              style="--avatar: url('data:image/jpeg;base64,${avatar}');"
+            >
+              <span>
+                <b>Jim Nielsen’s Blog</b>
+                ${importFile("./svgs/check-mark.svg")}
+              </span>
+              <span>Verified ($10/year for the domain)</span>
+            </a>
+            <nav class="header__nav">
+              ${nav.map(({ label, path: navItemPath }) =>
+                navItemPath === path
+                  ? html`<span>${label}</span> `
+                  : html`<a href="${navItemPath}">${label}</a> `
+              )}
+            </nav>
+            <details class="prefs">
+              <summary class="prefs__trigger">
+                <span style="display: none" aria-hidden="true"
+                  >${importFile("./svgs/preferences.svg")}</span
+                >
+                <span>Preferences</span>
+              </summary>
+
+              <form id="js-color">
+                <fieldset>
+                  <legend>Theme:</legend>
+                  <span id="js-color-root" class="prefs__content prefs-color">
+                    This feature requires JavaScript as well as the default site
+                    fidelity (see below).
+                  </span>
+                </fieldset>
+              </form>
+
+              <form id="js-fidelity" action="/.netlify/functions/preferences">
+                <fieldset>
+                  <legend>Fidelity:</legend>
+                  <p>
+                    Controls the level of style and functionality of the site, a
+                    lower fidelity meaning less bandwidth, battery, and CPU
+                    usage. <a href="/2022/website-fidelity/">Learn more</a>.
+                  </p>
+                  <span class="prefs__content prefs-fidelity">
+                    ${fidelities.map(
+                      ({ id, title }, i) => html`
+                        <label id="${id}">
+                          <input
+                            type="radio"
+                            name="fidelity"
+                            value="${id}"
+                            ${i === 0 ? "checked" : ""}
+                          />
+                          ${title}
+                        </label>
+                      `
+                    )}
+                  </span>
+                  <button type="submit">Update</button>
+                </fieldset>
+              </form>
+              <script>
+                ${importFile("./preferences.js")};
+              </script>
+            </details>
+          </header>
 
           ${children}
         </body>
       </html>
     `
   );
-};
-
-const Post = (props) => {
-  const { site, page } = props;
-
-  pt.checkPropTypes(
-    {
-      site: pt.shape({
-        name: pt.string.isRequired,
-        origin: pt.string.isRequired,
-      }),
-      page: pt.shape({
-        title: pt.string.isRequired,
-        date: pt.string.isRequired,
-        contents: pt.oneOfType([pt.instanceOf(Buffer), pt.string]),
-        tags: pt.arrayOf(pt.string),
-      }),
-    },
-    props,
-    "prop",
-    "Post"
-  );
-
-  // prettier-ignore
-  return Layout(props, html`
-    <article class="h-entry">
-      <header>
-        <h1 class="p-name">
-          ${page.title}
-        </h1>
-        <time class="dt-published" datetime="${page.date}" style="">
-          ${toDateUI(page.date)}
-        </time>
-      </header>
-      <div class="copy e-content">
-        ${page?.tags.includes("rssClub") ? RssClub() : ""}
-        ${page.contents.toString()}
-      </div>
-      <footer>
-        ${ReplyHtml({ postTags: page.tags, postPath: page.path, siteOrigin: site.origin })}
-      </footer>
-    </article>
-  `);
-};
-
-// prettier-ignore
-const PageCustom = (props, children) => Layout(props, children);
-
-// prettier-ignore
-const Page = (props) => Layout(props, html`
-  <div class="copy">
-    ${props.page.contents.toString()}
-  </div>
-`);
-
-export { Post, Page, PageCustom };
+}

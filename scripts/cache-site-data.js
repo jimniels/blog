@@ -1,13 +1,28 @@
 import fs from "fs";
 import path from "path";
+import psl from "psl";
 import parseMarkdown from "./parse-markdown.js";
 import getTrendingPosts from "./get-trending-posts.js";
+import getHackerNewsPosts from "./get-hacker-news-posts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const POSTS_DIR = path.join(__dirname, "../posts");
+const favs = [
+  "/2017/the-analog-web/",
+  "/2015/a-web-of-people/",
+  "/2019/good-things/",
+  "/2019/netlify-public-folder-part-i-what/",
+  "/2022/a-web-for-all/",
+  "/2016/redesigning-and-engineering-timshel-admin/",
+  "/2019/thoughts-on-rich-harris-talk/",
+  "/2019/designing-and-engineering-progressive-disclosure/",
+  "/2019/how-to-create-a-macos-menu-bar-app-for-netlify/",
+  "/2019/building-a-progressively-enhanced-site/",
+  "/2017/creating-ios-icon-masks-in-the-browser/",
+];
 
 try {
   fs.writeFileSync(
-    path.join(__dirname, "../.site-data.cache.json"),
+    path.join(__dirname, "../.cache/site.json"),
     JSON.stringify(await getSiteData(), null, 2)
   );
 } catch (e) {
@@ -17,42 +32,52 @@ try {
 
 /**
  * Get global data available for the site.
- * @returns {Site}
+ * @returns {import("../types").Site}
  */
 async function getSiteData() {
+  /** @type { import("../types").Site } */
   let site = {
     name: "Jim Nielsen’s Blog",
     origin: "https://blog.jim-nielsen.com",
-    linksByDomain: {},
+    externalLinks: [],
+    internalLinksByPath: {},
     posts: [],
-    postsByYear: {},
     tags: [],
   };
 
-  // Get the rending posts from Netlify. We'll add info from this to our posts
+  // Get the trending posts from Netlify & Hacker News.
+  // We'll add info from these to our posts.
   const trendingPosts = await getTrendingPosts();
+  const hackerNewsPosts = await getHackerNewsPosts();
 
   // All our post files
   const files = fs.readdirSync(POSTS_DIR).filter((file) => {
+    if (!file.endsWith(".md")) {
+      return false;
+    }
+
     // An extra console to tell us if we've named a file wrong
     if (/[A-Z]/.test(file)) {
       console.warn("⚠️ You've got an uppercase slug ", file);
     }
 
-    return file.endsWith(".md");
+    return true;
   });
 
   // Loop over each file and add it to our site data
   files.forEach((file) => {
+    /** @type { import("../types").Post } */
     let post = {
       title: "",
-      tags: [],
-      contents: "",
-      date: undefined, // Date
+      date: "",
       slug: "",
       path: "",
-      // pageviews added dynamically where relevant
-      // permalink added at build time
+      permalink: "",
+      tags: [],
+      wordCount: 0,
+      contents: "",
+      isFav: false,
+      // `pageviews` added dynamically where relevant
     };
 
     // Extract `title` and `tags` from the markdown document
@@ -88,12 +113,11 @@ async function getSiteData() {
 
     // Convert markdown to HTML & get links data
     const markdownSansTagsAndTitle = markdownByLine.join("\n");
-    const { html, linksByDomain } = parseMarkdown(markdownSansTagsAndTitle);
+    const { html, externalLinks, internalLinks } = parseMarkdown(
+      markdownSansTagsAndTitle
+    );
+    post.wordCount = markdownSansTagsAndTitle.split(" ").length;
     post.contents = html;
-    site.linksByDomain = {
-      ...site.linksByDomain,
-      ...linksByDomain,
-    };
 
     // "2019-06-12-my-post-slug.md" -> "2019-06-12-my-post-slug"
     const filename = file.replace(".md", "");
@@ -105,6 +129,19 @@ async function getSiteData() {
     post.slug = slug;
     post.path = `/${year}/${slug}/`;
     post.permalink = site.origin + post.path;
+    if (favs.includes(post.path)) {
+      post.isFav = true;
+    }
+    if (internalLinks.length) {
+      site.internalLinksByPath[post.path] = internalLinks;
+    }
+
+    site.externalLinks.push(
+      ...externalLinks.map((link) => ({
+        sourceUrl: post.permalink,
+        targetUrl: link,
+      }))
+    );
 
     // I don't store time information on my posts, so we'll make all posts
     // publish at the same time of day: noon mountain time.
@@ -120,9 +157,55 @@ async function getSiteData() {
       post.pageviews = trendingPost.count;
     }
 
+    const hackerNewsPost = hackerNewsPosts.find(({ url }) =>
+      url.includes(post.path)
+    );
+    if (hackerNewsPost) {
+      post.hackerNewsUrl = `https://news.ycombinator.com/item?id=${hackerNewsPost.objectID}`;
+      post.hackerNewsComments = hackerNewsPost.num_comments;
+    }
+
     // Add it to our collection
     site.posts.push(post);
   });
+
+  site.externalLinks = Object.entries(
+    site.externalLinks.reduce((acc, { sourceUrl, targetUrl }) => {
+      const hostname = new URL(targetUrl).hostname;
+      const domain = psl.get(hostname);
+      if (acc[domain]) {
+        acc[domain].links.push({ sourceUrl, targetUrl });
+        acc[domain].count += 1;
+      } else {
+        acc[domain] = {
+          domain,
+          count: 1,
+          links: [{ sourceUrl, targetUrl }],
+        };
+      }
+      return acc;
+    }, {})
+  )
+    .map(([_, linkObj]) => linkObj)
+    .sort((a, b) => {
+      // Sort by count
+      if (a.count < b.count) {
+        return 1;
+      }
+      if (a.count > b.count) {
+        return -1;
+      }
+
+      // Otherwise, alphabetically by domain name
+      if (a.domain < b.domain) {
+        return -1;
+      }
+      if (a.domain > b.domain) {
+        return 1;
+      }
+
+      return 0;
+    });
 
   // Sort our collection of posts
   site.posts.sort((a, b) => {
@@ -148,21 +231,7 @@ async function getSiteData() {
     }
   });
 
-  // Posts by year, since this is used in multiple places
-  // (don't include rssClub posts)
-  site.postsByYear = site.posts
-    .filter((post) => !post?.tags.includes("rssClub"))
-    .reduce((acc, post) => {
-      const year = post.date.slice(0, 4);
-      if (acc[year]) {
-        acc[year].push(post);
-      } else {
-        acc[year] = [post];
-      }
-      return acc;
-    }, {});
-
-  // All site tags
+  // By default, the collection of tags is sorted by occurence
   site.tags = Array.from(
     new Set(
       site.posts
@@ -170,37 +239,22 @@ async function getSiteData() {
         .map((post) => post.tags)
         .flat()
     )
-  );
+  )
+    .map((tag) => ({
+      name: tag,
+      count: site.posts.filter((post) => post.tags.includes(tag)).length,
+    }))
+    .sort((a, b) => (a.count < b.count ? 1 : a.count > b.count ? -1 : 0));
+
+  site.internalLinksByPath = Object.entries(site.internalLinksByPath)
+    .sort(([pathA, linksA], [pathB, linksB]) => {
+      return linksA.length < linksB.length
+        ? 1
+        : linksA.length > linksB.length
+        ? -1
+        : 0;
+    })
+    .reduce((acc, [path, links]) => ({ ...acc, [path]: links }), {});
 
   return site;
 }
-
-/**
- * Data model for all data part of the site. This should be stingify-able
- * @typedef {Object} Site
- * @property {string} name
- * @property {string} origin
- * @property {Object.<string, Array.<string>>} linksByDomain
- * @property {Array.<Post>} posts
- * @property {Object.<string, Array.<Post>>} postsByYear
- * @property {Array.<string>} tags
- */
-
-/**
- * The post created from raw markdown data and stringified to JSON
- * @typedef {Object} Post
- * @property {string} title
- * @property {string} date - ISO8601 datestring
- * @property {string} slug - Slug of post, i.e. `my-post`
- * @property {string} path - Path to the post, i.e. `/2019/my-post/`
- * @property {string} permalink - Fully qualified URL (site.origin + post.path)
- * @property {Array.<string>} tags
- * @property {number} pageviews? - Pageviews according to netlify analytics
- */
-
-/**
- * @typedef {Object} Page
- *
- * @property {string} title
- * @property {string} path
- */

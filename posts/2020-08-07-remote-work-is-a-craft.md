@@ -1,5 +1,3 @@
-#thoughts
-
 # Remote Work is a Craft
 
 From [“Remote work is a platform”](https://m.signalvnoise.com/remote-work-is-a-platform/) over on Signal vs. Noise:

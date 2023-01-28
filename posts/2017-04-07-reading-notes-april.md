@@ -2,7 +2,7 @@
 
 # Reading Notes, April 2017
 
-## “[The end of the black turtleneck](http://zurb.com/article/1448/the-end-of-the-black-turtleneck)” via zurb.com
+## Article: “[The end of the black turtleneck](http://zurb.com/article/1448/the-end-of-the-black-turtleneck)” via zurb.com
 
 Interesting look at how, over time, the curtain has been pulled back on Apple’s magic. Some of this article is meh, but there are a few good pieces in here.
 
@@ -14,7 +14,7 @@ But now the curtain has been pulled back. We know the truth. We’ve known it th
 
 > It’s time for designers to embrace what really drives amazing products and innovation, connection with other people. The impactful design leader is not a lone genius that locks themselves away only to come back with magic that even they themselves don't fully understand. That’s myth, storytelling. No, the impactful design leader is a facilitator. They bring people together from all parts of their organization, rally them around ideas, and extract the best thinking into small gains that lead to big wins. They are found with people, soliciting feedback from designer and non designer alike. They realize failure is both an inevitable and necessary part of the process. They understand it takes constant iteration and a volume of ideas to get to the right answers. And they don’t have to wear a black turtleneck.
 
-## “[How to Use npm Scripts as Your Build Tool](https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool)”, an egghead.io course
+## eCourse: “[How to Use npm Scripts as Your Build Tool](https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool)”, an egghead.io course
 
 An egghead.io course with lots of useful little tidbits I hadn’t become familiar with yet:
 
@@ -46,7 +46,7 @@ An egghead.io course with lots of useful little tidbits I hadn’t become famili
 	- This only works on Mac/linux. You'd have to install something like `cross-var` in order to have it work cross-platform.
 
 
-## “[Resilient Web Design](https://resilientwebdesign.com)” by Jeremy Keith
+## eBook: “[Resilient Web Design](https://resilientwebdesign.com)” by Jeremy Keith
 
 If you haven’t already heard, Jeremy released this “web book” as he calls it. If you read or listen to Jeremy regularly (like I do) most of the content will feel familiar. Nonetheless, I gave it a read and have noted here a few excerpts that stuck out to me when I read it.
 

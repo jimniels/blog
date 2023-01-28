@@ -1,5 +1,3 @@
-#thoughts
-
 # An Analysis of Infinte Scrolling
 
 Have you ever felt exhausted by infinite scrolling?

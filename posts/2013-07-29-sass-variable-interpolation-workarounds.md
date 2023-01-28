@@ -1,4 +1,4 @@
-#thoughts #engineering
+#engineering
 
 # Workarounds to Variable Interpolation in Sass
 

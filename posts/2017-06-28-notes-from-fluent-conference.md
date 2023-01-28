@@ -73,7 +73,7 @@ I recently attended [Fluent Conference 2017](https://conferences.oreilly.com/flu
 
 ## Elijah Manor: “NPM Scripts as your build tool”
 
-I took [some notes](http://jim-nielsen.com/blog/2017/reading-notes-april/) back in April on this subject via an [egghead.io course](https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool) which was created by the speaker himself. So this talk was a refresher, but nonetheless still very interesting. 
+I took [some notes](/2017/reading-notes-april/) back in April on this subject via an [egghead.io course](https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool) which was created by the speaker himself. So this talk was a refresher, but nonetheless still very interesting. 
 
 - [Slides from talk](http://bit.ly/npm-scripts)
 - `npm-run-all` to run multiple scripts

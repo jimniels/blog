@@ -1,4 +1,4 @@
-#thoughts #bookNotes #bookNotesCoders
+#bookNotes #bookNotesCoders
 
 # Writing vs. Coding
 

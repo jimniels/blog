@@ -6,7 +6,7 @@ Allow me to preface this piece of writing by saying this post has been a long ti
 
 ## The Feature
 
-One of the web applications I worked on was called “Admin”, which was very aptly named because it was an administrative application for customers where they could manage the variety of data associated with their accounts. (I’ve written previously about the design/code I did on the [integrations part of Admin](http://jim-nielsen.com/blog/2017/designing-integrations-at-timshel/).)
+One of the web applications I worked on was called “Admin”, which was very aptly named because it was an administrative application for customers where they could manage the variety of data associated with their accounts. (I’ve written previously about the design/code I did on the [integrations part of Admin](/2017/designing-integrations-at-timshel/).)
 
 One of the portions of the app I was tasked on designing and (partially) engineering was “Events” (think “event management”). Our customers—or people on their behalf—would organize and host events supporting specific causes and they needed our platform’s software to help manage all facets of hosting events like scheduling, invitations, reminders, ticketing, messaging, etc. 
 
