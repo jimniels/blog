@@ -1,35 +1,77 @@
-# Proposal
+# Option 1: blog.jim-nielsen.com & notes.jim-nielsen.com
 
-Filenames
-  - Posts: `2019-05-12-a-web-of-people.md`
-  - Notes: `2019-05-12T1335.md`
-Idea: what about enhancing the current text and deeplinking?
+*** This is a nice format because I can just dump my notes on notes.jim-nielsen and then anything I want to pull out into some kind of synthesized piece, I can do that over on blog.jim-nielsen.com
+
+Format:
 
 ```md
-## Article: [“This is my title”]()
+#n_type_article #n_twitter #n_rss
 
-#design
+# [Five years of quitting Twitter](https://nolanlawson.com/2022/02/02/five-years-of-quitting-twitter/)
 
-Start talking about what these notes are.
-
-> block quote here to soething
-
-## Video: [“Something”]()
+> [for many] I only exist when someone takes pity on me and links to my blog from Twitter, Reddit, Hacker News, or a big site like CSS Tricks...
+>
+> For those people who are re-sharing my content on social media, I suspect most of them found it from their RSS feed. So RSS definitely still seems alive and well, even if it’s just a small upstream tributary for the roaring downstream river of Twitter, Reddit, etc
 ```
 
-# Posts
+Gets parsed in to:
 
-`/2019/:slug` -> `/posts/:slug`
-`/2019/reading-notes-january` -> `/reading-notes-january-2019`
+```json
+[
+  {
+    id: 
+    content_html: 
 
-`/posts/deno-is-webby`
+    date_published 
+    title: 
+    url: notes.jim-nielsen.com/#
+    external_url: <link>
+    tags:
+    
+  }
+]
+```
 
-Which would allow different namespaces in the future, i.e.
+Filenames:
 
-`/notes/:id`
+- `2022-01-12-five-years-of-quitting-twitter.md`
+- `2022-01-12-10-36.md`
+- `2022-01-12T10-36.md`
+
+Or
+
+- `2022-01-12-1.md`
+- `2022-01-12-2.md`
+
+URLs:
+
+Load them all in one giant HTML file on `notes.jim-nielsen.com`
+
+Why one big file? Because I want to be able to search/filter them all at once and one page makes that easy. Plus the exercise here is all text so it should be small.
+
+- `notes.jim-nielsen.com/#2022-05-01T09-15`
+- `notes.jim-nielsen.com/#2022-05-01-09-15`
+- `notes.jim-nielsen.com/#2205010915`
+- `notes.jim-nielsen.com/#220501T0915`
+- `notes.jim-nielsen.com/#20220501T0915`
 
 
-# Proposal
+Note: origins in URLs won't work because you might have two on the same day
+/#2022-05-01-youtube.com
+/#2022-05-01-youtube.com
+
+
+
+
+# Option 2: Refactor Blog With Namespaced Content 
+
+URLs go from `/2022/:slug` -> `/posts/:slug` e.g. 
+
+- `/2019/reading-notes-january` -> `/posts/reading-notes-january-2019`
+
+This allows for different namespaces in the future, i.e.
+
+- `/notes/:id`
 
 Filenames
   - `posts/2019-05-12-a-web-of-people.md`
@@ -89,7 +131,9 @@ THIS DOESN'T WORK CAUSE TWO LINKS TO SAME DOMAIN ON SAME DAY
 /links/2022-05-01-youtube.com
 ```
 
-# Reading Notes
+---
+
+# Parsing Reading Notes
 
 Every note will be an `<h2>` represented in markdown by `##`. They should all follow this pattern:
 
@@ -155,6 +199,8 @@ Maybe each of these need a tag, and that's all, i.e.
 
 #n_type_article - type
 #n_
+
+**Infer the type by domain, e.g. video is youtube, vimeo, etc**
 
 
 # Follow up of what I might do...
