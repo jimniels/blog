@@ -1,11 +1,11 @@
 # Option 1: blog.jim-nielsen.com & notes.jim-nielsen.com
 
-*** This is a nice format because I can just dump my notes on notes.jim-nielsen and then anything I want to pull out into some kind of synthesized piece, I can do that over on blog.jim-nielsen.com
+This is a nice format because I can just dump my notes on notes.jim-nielsen and then anything I want to pull out into some kind of synthesized piece, I can do that over on blog.jim-nielsen.com
 
-Format:
+## Content format
 
 ```md
-#n_type_article #n_twitter #n_rss
+#notes_article #notes_twitter #n_rss
 
 # [Five years of quitting Twitter](https://nolanlawson.com/2022/02/02/five-years-of-quitting-twitter/)
 
@@ -19,48 +19,47 @@ Gets parsed in to:
 ```json
 [
   {
-    id: 
-    content_html: 
-
-    date_published 
-    title: 
-    url: notes.jim-nielsen.com/#
-    external_url: <link>
-    tags:
-    
+    id: "https://notes.jim-nielsen.com/2022-01-08T09-05",
+    content_html: "<h1><a href='..."
+    date_published: "2022-01-08T09:05-07:00"
+    title: "Five years of quitting twiter"
+    url: id,
+    external_url: "https://nolanlawson.com/..."
+    tags: ["type_article", "twitter", "rss"]
   }
 ]
 ```
 
-Filenames:
+## File names
 
-- `2022-01-12-five-years-of-quitting-twitter.md`
-- `2022-01-12-10-36.md`
-- `2022-01-12T10-36.md`
+- Ported reading notes:
+  - `2022-01-12T00-00.md`
+  - `2022-01-12T00-01.md`
+  - `2022-01-12T00-02.md`
+- New files
+  - `2023-08-01T10-36.md`
+  - `2023-08-05T12-22.md`
 
-Or
-
-- `2022-01-12-1.md`
-- `2022-01-12-2.md`
-
-URLs:
+## URLs
 
 Load them all in one giant HTML file on `notes.jim-nielsen.com`
 
 Why one big file? Because I want to be able to search/filter them all at once and one page makes that easy. Plus the exercise here is all text so it should be small.
 
-- `notes.jim-nielsen.com/#2022-05-01T09-15`
-- `notes.jim-nielsen.com/#2022-05-01-09-15`
-- `notes.jim-nielsen.com/#2205010915`
-- `notes.jim-nielsen.com/#220501T0915`
-- `notes.jim-nielsen.com/#20220501T0915`
+Accessible as anchor link in main file:
 
+- `notes.jim-nielsen.com/#2022-05-01T12-00`
 
-Note: origins in URLs won't work because you might have two on the same day
-/#2022-05-01-youtube.com
-/#2022-05-01-youtube.com
+Or as its own URL
 
+- `notes.jim-nielsen.com/2022-05-01T12-00`
 
+Will require:
+
+1. Port all exisiting reading notes into new repository as `.md` files
+2. Script that gets all files, parses them into `db.json` file, and turns them into static files (and feed files)
+3. Add a thing to all reading notes posts that indicate they are now reposted on `notes.jim-nielsen.com` — or do a redirect? from old blog reading notes posts to new `notes.jim-nielsen.com` - this might be a little weird...
+4. 
 
 
 # Option 2: Refactor Blog With Namespaced Content 
