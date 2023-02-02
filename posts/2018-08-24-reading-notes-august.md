@@ -22,7 +22,7 @@ This is just a fantastic deep dive into working with dates and time in programmi
 
 ## Tweet: [Debugging techniques with customized console.log](https://twitter.com/brian_d_vaughn/status/1025045172818563072) via @brian_d_vaughn
 
-![screenshot of customized console.log calls](https://pbs.twimg.com/media/DjnGCcjVsAEk4R9.jpg:large)
+Look at [this screenshot of the console](https://pbs.twimg.com/media/DjnGCcjVsAEk4R9?format=jpg&name=medium).
 
 > One of the most powerful web debugging techniques I'm aware of is adding colors to console.log. Makes it possible to spot high level patterns in an otherwise noisy stream of data.
 

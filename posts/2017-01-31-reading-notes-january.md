@@ -6,7 +6,7 @@
 
 > The work of an experienced software developer... perception vs. reality.
 
-![Perception vs. reality in software](https://pbs.twimg.com/media/C0SmBk6XcAQRVPH.jpg)
+Checkout the image.
 
 ## Article: [The JavaScript Wars](http://cssence.com/blog/2016-11-the-javascript-wars)
 

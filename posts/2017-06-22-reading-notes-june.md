@@ -71,6 +71,4 @@ And
 
 ## Article: [Design Better Data Tables](https://uxdesign.cc/design-better-data-tables-4ecc99d23356)
 
-A page full of gifs depicting interaction paradigms for designing data tables. Kind of an interesting little summary.
-
-![Gif of table header interaction](https://cdn-images-1.medium.com/max/800/1*kXEEaxvKP_9xRT0HuqScTQ.gif)
+A page full of [gifs depicting interaction paradigms for designing data tables](https://cdn-images-1.medium.com/max/800/1*kXEEaxvKP_9xRT0HuqScTQ.gif). Kind of an interesting little summary.

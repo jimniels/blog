@@ -44,11 +44,7 @@ Iconic iconist Louie Mantia on twitter:
 >
 > Use elements of your brand like color, shape, weight, and style, but resist the urge to just use your logo.
 
-![Tweet photo](https://pbs.twimg.com/media/DhC0oEBU8AASuEV.jpg)
-
-This first photo was illustrative of his point, but he followed up with [another tweet](https://twitter.com/Mantia/status/1013855859007340544) illustrating how different brands could use the same metaphor of a TV in designing their icon without losing brand “equity”. 
-
-![tweet photo](https://pbs.twimg.com/media/DhHwhstVMAAK8iK.jpg)
+[This first photo](https://pbs.twimg.com/media/DhC0oEBU8AASuEV.jpg) was illustrative of his point, but he followed up with [another tweet](https://twitter.com/Mantia/status/1013855859007340544) illustrating how different brands could use the same metaphor of a TV in designing their icon without losing brand “equity” ([see the photo](https://pbs.twimg.com/media/DhHwhstVMAAK8iK.jpg)).
 
 I, for one, like it. I’d love to see more icon design like this in the wild.
 

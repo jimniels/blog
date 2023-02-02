@@ -6,9 +6,7 @@
 
 > You know, it wasn't that long ago. There was RSS. There were blogs...Now? [Social media sites] control what gets amplified and what gets monetized. A few conference rooms in Silicon Valley dictate our online culture.
 
-What I actually really loved about this site and found rather witty and novel was how it appeared when linked to in my twitter feed:
-
-![Screenshot of tweet on twitter](https://cdn.jim-nielsen.com/blog/2019/reading-notes-march-twitter-open-graph-preview.jpg)
+What I actually really loved about this site and found rather witty and novel was [how it appeared when linked to in my twitter feed](https://cdn.jim-nielsen.com/blog/2019/reading-notes-march-twitter-open-graph-preview.jpg).
 
 I found the anarchist, "freedom fighter" approach to this site’s open graph metadata rather novel and amusing.
 
