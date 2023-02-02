@@ -32,8 +32,6 @@ A cool technique I didn’t know existed. There’s also [a gist](https://gist.g
 
 A neat little .gif depicting the idea of downsampling in computer graphics but on a physical, real-world object.
 
-<video controls src="https://video.twimg.com/ext_tw_video/1026331290394476545/pu/pl/FHBitGyZ8SPirV8K.m3u8"></video>
-
 ## Article: [Flexibility](https://adactio.com/journal/14250) by Jeremy Keith
 
 Jeremy quoting from and commenting on the new book *Flexible Typesetting* from *A List Apart*. 
