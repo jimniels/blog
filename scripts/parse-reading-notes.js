@@ -43,7 +43,7 @@ files.forEach((file) => {
         const [_, type, title, external_url, rest = ""] = matches;
 
         jsonFeed.items.push({
-          id: url,
+          id,
           content_text: `# [${title}](${external_url})${rest}\n${contents.join(
             "\n"
           )}`,
