@@ -25,7 +25,7 @@ let jsonFeed = {
 
 let none = 0;
 
-const reg = /^(.+?): .*(?:“|\*)?\[“?(.+?)”?](?:“|\*)?.*\((.*)\)*?(.*)/;
+const reg = /^(.+?): .*(?:“|\*)?\[“?(.+?)”?](?:“|\*)?.?\((.+?)\)\*?(.*)/;
 
 files.forEach((file) => {
   const contents = fs.readFileSync(`./posts/${file}`).toString();
