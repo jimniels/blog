@@ -19,58 +19,48 @@ let jsonFeed = {
   items: [],
 };
 
-if (!fs.existsSync("./links")) {
-  fs.mkdirSync("./links");
-}
+// if (!fs.existsSync("./links")) {
+//   fs.mkdirSync("./links");
+// }
 
 let none = 0;
-let f = [];
+
+const reg = /^(.+?): .*(?:“|\*)?\[“?(.+?)”?](?:“|\*)?.*\((.*)\)*?(.*)/;
 
 files.forEach((file) => {
   const contents = fs.readFileSync(`./posts/${file}`).toString();
+
   contents.split(/\n## /).forEach((section, i) => {
     if (section.startsWith("---") || section.startsWith("#")) {
       none += 1;
     } else {
       let id = file.slice(0, 10) + "T12:" + String(i).padStart(2, "0");
       const url = `https://notes.jim-nielsen.com/${id}/`;
-      const content_text = "# " + section;
-      let title = "";
-      let external_url = "";
+      const [firstLine, ...contents] = section.split("\n");
 
-      // This is for trying to alter the raw content .md, which
-      // we might do one day when we finally migrate
       try {
-        const regex = /^.*: \[“(.*)”]\((.*)\)/g;
-        const matches = regex.exec(section);
-        title = matches[1];
-        external_url = matches[2];
+        const matches = firstLine.match(reg);
+        const [_, type, title, external_url, rest = ""] = matches;
 
-        //   const filename = file.slice(0, 10) + "T12:0" + i + ".md";
-        //   // console.log(filename);
-        //   // console.log(`  # [${title}](${url})`);
-
-        //   // Catches stuff after main items, e.g.
-        //   // ## Article: [...](...) this part here
-        //   // const reg = /\)(.*)/g;
-        //   // const match = reg.exec(section.split("\n")[0]);
-        //   // if (match[1]) {
-        //   //   console.log(match[1]);
-        //   // }
+        jsonFeed.items.push({
+          id: url,
+          content_text: `# [${title}]${rest}\n${contents.join("\n")}`,
+          date_published: new Date(id).toISOString(),
+          title,
+          url,
+          external_url,
+          tags: [`n_${type.toLowerCase()}`],
+        });
       } catch (e) {
-        // Lots here failing
-        console.log(file.slice(0, 10), section.split("\n")[0]);
+        console.log("ERROR", firstLine);
       }
 
-      jsonFeed.items.push({
-        id: `https://notes.jim-nielsen.com/2022-01-08T09-05`,
-        content_text,
-        date_published: new Date(id).toISOString(),
-        title,
-        url,
-        external_url,
-        // tags: ["type_article", "twitter", "rss"]
-      });
+      // filecontent should be:
+      //    #n_${type}
+      //
+      //    # [${title}]${rest}
+      //
+      //    content...
 
       // fs.writeFileSync(
       //   `./links/${file.slice(0, 10)}T12-0${i}.md`,
@@ -91,3 +81,26 @@ console.log(
   jsonFeed.items.length,
   none
 );
+
+/*
+
+
+
+  'Article',
+  'Reddit',
+  'Video',
+  'Tweet',
+  'Speech',
+  'Podcast',
+  'Talk',
+  'Quote',
+  ' Website',
+  'Website',
+  'eBook',
+  'Tool',
+  'Song',
+  'eCourse',
+  'Book',
+
+
+*/

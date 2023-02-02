@@ -57,9 +57,9 @@ One last great point:
 
 > I mistake the work’s flaws for my own. Perhaps that’s something many of us have in common. The way to approach this issue is clear: we must acknowledge we are involved in our unsteadiness, but believe we are only part of its reason. If we allow room in our work for serendipity to occur, that same space must also be reserved for misfortune. We are the cause of neither.
 
-## Quote: Sovling Problems
+## Article: [Solving Problems](http://quoteinvestigator.com/2014/05/22/solve/)
 
-A quote often attributed to Einstein, though [apparently sourced from a nameless professor at Yale](http://quoteinvestigator.com/2014/05/22/solve/): 
+A quote often attributed to Einstein, though apparently sourced from a nameless professor at Yale: 
  
 > If I had only one hour to solve a problem, I would spend up to two-thirds of that hour in attempting to define what the problem is.
 

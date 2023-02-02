@@ -2,11 +2,11 @@
 
 # Reading Notes, November 2018
 
-## Quote: On Software Development
+## Tweet: [@necolas](https://twitter.com/necolas/status/360170108028600320)
 
 With every passing day that I work in technology, I find this quote more and more relevant:
 
-> replace “can you _build_ this?” With “can you _maintain_ this without losing your mind?” – Nicholas Gallagher
+> Replace "can you build this?" with "can you maintain this without losing your minds?"
 
 ## Article: [“Against Software Development”](http://www.rntz.net/post/against-software-development.html)
 
