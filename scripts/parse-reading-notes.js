@@ -44,7 +44,9 @@ files.forEach((file) => {
 
         jsonFeed.items.push({
           id: id.replace(":", "-"),
-          content_text: `# [${title}](${external_url})\n${contents.join("\n")}`,
+          content_text: `# [${title}${rest}](${external_url})\n${contents.join(
+            "\n"
+          )}`,
           date_published: new Date(id).toISOString(),
           title,
           url,
