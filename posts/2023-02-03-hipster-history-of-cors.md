@@ -4,7 +4,7 @@ You’ve probably heard of CORS, but did you know about [CORB](https://chromium.
 
 I recently watched [“A Hipster History of CORS”](https://www.youtube.com/watch?v=0YJ-yhoJh2I), a talk from Strange Loop 2022 by Devdatta Akhawe, Head of Security at Figma. Devdatta does a great job of taking a complex, even boring, subject like CORS and weaves it into a funny, interesting narrative history. He connected many previously disparate dots in my head, making me go “Ah-ha! That’s why things are the way they are on the web.”
 
-For example, when working on my Readlists project, I ran into an issue where I couldn’t use JavaScript to read the contents of an image fetched from a third-party website. I couldn’t understand why there was a limitation there. “I fetch images all the time with `<img src="...">` but I guess JavaScript’s not gonna let me?”
+For example, when working on my [Readlists](https://readlists.jim-nielsen.com) project, I ran into an issue where I couldn’t use JavaScript to read the contents of an image fetched from a third-party website. I couldn’t understand why there was a limitation there. “I fetch images all the time with `<img src="...">` but I guess JavaScript’s not gonna let me?”
 
 After Devdatta’s talk and an introduction to cross origin read blocking (CORB) I now understand better.
 
