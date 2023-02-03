@@ -34,7 +34,7 @@ files.forEach((file) => {
     if (section.startsWith("---") || section.startsWith("#")) {
       none += 1;
     } else {
-      let id = file.slice(0, 10) + "T12-" + String(i).padStart(2, "0");
+      let id = file.slice(0, 10) + "T12:" + String(i).padStart(2, "0");
       const url = `https://notes.jim-nielsen.com/${id}/`;
       const [firstLine, ...contents] = section.split("\n");
 
@@ -43,7 +43,7 @@ files.forEach((file) => {
         const [_, type, title, external_url, rest = ""] = matches;
 
         jsonFeed.items.push({
-          id,
+          id: id.replace(":", "-"),
           content_text: `# [${title}](${external_url})\n${contents.join("\n")}`,
           date_published: new Date(id).toISOString(),
           title,
