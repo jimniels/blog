@@ -34,7 +34,7 @@ files.forEach((file) => {
     if (section.startsWith("---") || section.startsWith("#")) {
       none += 1;
     } else {
-      let id = file.slice(0, 10) + "T12:" + String(i).padStart(2, "0");
+      let id = file.slice(0, 10) + "T12:" + String(31 - i); // String(i).padStart(2, "0");
       const url = `https://notes.jim-nielsen.com/${id}/`;
       const [firstLine, ...contents] = section.split("\n");
 
@@ -51,7 +51,7 @@ files.forEach((file) => {
           title,
           url,
           external_url,
-          tags: [`n_${type.toLowerCase()}`],
+          tags: [`_${type.toLowerCase()}`],
         });
       } catch (e) {
         console.log("ERROR", firstLine);
