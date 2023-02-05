@@ -1,5 +1,4 @@
 import fs from "fs";
-import psl from "psl";
 
 const files = fs
   .readdirSync("./posts")
@@ -12,16 +11,8 @@ const files = fs
   .reverse();
 
 let jsonFeed = {
-  version: "https://jsonfeed.org/version/1",
-  title: "Jim Nielsen’s Blog Reading Notes",
-  home_page_url: "https://blog.jim-nielsen.com/tags/readingsNotes",
-  feed_url: "https://blog.jim-nielsen.com/feed.reading-notes.json",
   items: [],
 };
-
-// if (!fs.existsSync("./links")) {
-//   fs.mkdirSync("./links");
-// }
 
 let none = 0;
 
@@ -34,40 +25,20 @@ files.forEach((file) => {
     if (section.startsWith("---") || section.startsWith("#")) {
       none += 1;
     } else {
-      let id = file.slice(0, 10) + "T12:" + String(31 - i); // String(i).padStart(2, "0");
-      const url = `https://notes.jim-nielsen.com/${id}/`;
+      let id = file.slice(0, 10) + "T12-" + String(31 - i); // String(i).padStart(2, "0");
       const [firstLine, ...contents] = section.split("\n");
 
       try {
         const matches = firstLine.match(reg);
         const [_, type, title, external_url, rest = ""] = matches;
+        const tag = `#_${type.toLowerCase()}`;
+        // prettier-ignore
+        const content_text = `${tag}\n\n# [${title}${rest}](${external_url})\n${contents.join("\n")}`
 
-        jsonFeed.items.push({
-          id: id.replace(":", "-"),
-          content_text: `# [${title}${rest}](${external_url})\n${contents.join(
-            "\n"
-          )}`,
-          date_published: new Date(id).toISOString(),
-          title,
-          url,
-          external_url,
-          tags: [`_${type.toLowerCase()}`],
-        });
+        jsonFeed.items.push({ id, content_text });
       } catch (e) {
         console.log("ERROR", firstLine);
       }
-
-      // filecontent should be:
-      //    #n_${type}
-      //
-      //    # [${title}]${rest}
-      //
-      //    content...
-
-      // fs.writeFileSync(
-      //   `./links/${file.slice(0, 10)}T12-0${i}.md`,
-      //   "# " + section
-      // );
     }
   });
 });
@@ -103,6 +74,22 @@ console.log(
   'Song',
   'eCourse',
   'Book',
+
+
+
+  Strings to test the regex against:
+
+
+Article: [“Creating a Thriving Developer Culture”](http://blog.arc90.com/2012/11/19/creating-a-thriving-developer-culture/)
+Article: [“Creating a Thriving Developer Culture”](http://blog.arc90.com/2012/11/19/creating-a-thriving-developer-culture/) by Nicholas Carr on the blog
+Book: [The Complete Far Side Vol 1](http://www.amazon.com/gp/product/1449460046/)
+Article: “[Some Lessons I Learned in 2013](https://www.frankchimero.com/archive/2014/2013-lessons/)” by Frank Chimero
+Book: *[A Designer's Art](http://www.amazon.com/Paul-Rand-A-Designer%60s-Art/dp/0300082827)* by Paul Rand
+Article: Nicholas Carr’s [These are not the robots we were promised](https://mobile.nytimes.com/2017/09/09/opinion/sunday/household-robots-alexa-homepod.html) via nytimes.com
+Article: [“UHX”](https://manuelmoreale.com/thoughts/uhx)
+Article: [“Re: AI for content creation”](https://hidde.blog/re-ai-content/)
+Website: [Ephemeralist](https://ephemeralist-ixz4p7lmaq-ue.a.run.app) by Paul Ford
+## Video: [“The web we left behind”](https://www.youtube.com/watch?v=rvoZKQn2Go8) by Kyle Jacobson (ESNEXT 2020)
 
 
 */
