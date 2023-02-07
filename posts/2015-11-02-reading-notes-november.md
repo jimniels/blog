@@ -38,7 +38,7 @@ Love this assertion the speaker makes: very often data is just a mirror, it refl
 
 > The belief in Big Data turns out to be true, although in an unexpected way. If you collect enough data, you really can find anything you want.
 
-![big data](https://static.pinboard.in/bt14/thumbs/bt14.019.thumb.jpg)
+[See the image for context.](https://static.pinboard.in/bt14/thumbs/bt14.019.thumb.jpg)
 
 > This is a graph from Tyler Vingen's lovely website, which been making the rounds lately. This one shows the relationship between suicides by hanging and the number of lawyers in North Carolina. There are lots of other examples to choose from.
 > There's a 0.993 correlation here. You could publish it in an academic journal! Perhaps that process could be automated.

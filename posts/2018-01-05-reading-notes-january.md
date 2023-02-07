@@ -105,9 +105,9 @@ This lets you keep track of what pieces of your code can run by themselves and w
 
 > [PureScript] takes you to the future of large scale front-end code reliability. [Now I’ve written systems in PureScript] and every one of those systems in recent years has needed a little bit of JavaScript. Maybe five to ten percent of the codebase is JavaScript. All of my bugs, all of my runtime exceptions, all of my problems, come from that five to ten percent. The rest [of the codebase] is rock solid. I worry about logical errors but I don’t worry about the reliability of my code anymore on the front-end.
 
-## Quote: David Foster Wallace on Reading
+## Book: [David Foster Wallace on Reading](https://www.amazon.com/gp/product/0991118111)
 
-I really enjoyed this quote. It speaks directly to improving your language skills, but I think can more broadly be applied to just about any skill at which you wish to improve. The quote comes from [this book](https://www.amazon.com/gp/product/0991118111/ref%3Das_li_qf_sp_asin_il_tl?ie=UTF8&tag=farnamstreet-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0991118111&linkId=b3fd3f1886007f084137faecf900de7b) (emphasis mine):
+I really enjoyed this quote. It speaks directly to improving your language skills, but I think can more broadly be applied to just about any skill at which you wish to improve (emphasis mine):
 
 > Not just reading a lot, but paying attention to the way the sentences are put together, the clauses are joined, the way the sentences go to make up a paragraph. Exercises as boneheaded as you take a book you really like, you read a page of it three, four times, put it down, and then try to imitate it word for word so that you can feel your own muscles trying to achieve some of the effects that the page of text you like did. If you're like me, **it will be in your failure to be able to duplicate it that you'll actually learn what's going on**. It sounds really, really stupid, but in fact, you can read a page of text, right? And “Oh that was pretty good…” but you don't get any sense of the infinity of choices that were made in that text until you start trying to reproduce them.
 

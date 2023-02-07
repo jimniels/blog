@@ -1,30 +1,76 @@
-Idea: what about enhancing the current text and deeplinking?
+# Option 1: blog.jim-nielsen.com & notes.jim-nielsen.com
+
+This is a nice format because I can just dump my notes on notes.jim-nielsen and then anything I want to pull out into some kind of synthesized piece, I can do that over on blog.jim-nielsen.com
+
+## Content format
 
 ```md
-## Article: [“This is my title”]()
+#notes_article #notes_twitter #n_rss
 
-#design
+# [Five years of quitting Twitter](https://nolanlawson.com/2022/02/02/five-years-of-quitting-twitter/)
 
-Start talking about what these notes are.
-
-> block quote here to soething
-
-## Video: [“Something”]()
+> [for many] I only exist when someone takes pity on me and links to my blog from Twitter, Reddit, Hacker News, or a big site like CSS Tricks...
+>
+> For those people who are re-sharing my content on social media, I suspect most of them found it from their RSS feed. So RSS definitely still seems alive and well, even if it’s just a small upstream tributary for the roaring downstream river of Twitter, Reddit, etc
 ```
 
-# Posts
+Gets parsed in to:
 
-`/2019/:slug` -> `/posts/:slug`
-`/2019/reading-notes-january` -> `/reading-notes-january-2019`
+```json
+[
+  {
+    id: "https://notes.jim-nielsen.com/2022-01-08T09-05",
+    content_html: "<h1><a href='..."
+    date_published: "2022-01-08T09:05-07:00"
+    title: "Five years of quitting twiter"
+    url: id,
+    external_url: "https://nolanlawson.com/..."
+    tags: ["type_article", "twitter", "rss"]
+  }
+]
+```
 
-`/posts/deno-is-webby`
+## File names
 
-Which would allow different namespaces in the future, i.e.
+- Ported reading notes:
+  - `2022-01-12T00-00.md`
+  - `2022-01-12T00-01.md`
+  - `2022-01-12T00-02.md`
+- New files
+  - `2023-08-01T10-36.md`
+  - `2023-08-05T12-22.md`
 
-`/notes/:id`
+## URLs
+
+Load them all in one giant HTML file on `notes.jim-nielsen.com`
+
+Why one big file? Because I want to be able to search/filter them all at once and one page makes that easy. Plus the exercise here is all text so it should be small.
+
+Accessible as anchor link in main file:
+
+- `notes.jim-nielsen.com/#2022-05-01T12-00`
+
+Or as its own URL
+
+- `notes.jim-nielsen.com/2022-05-01T12-00`
+
+Will require:
+
+1. Port all exisiting reading notes into new repository as `.md` files
+2. Script that gets all files, parses them into `db.json` file, and turns them into static files (and feed files)
+3. Add a thing to all reading notes posts that indicate they are now reposted on `notes.jim-nielsen.com` — or do a redirect? from old blog reading notes posts to new `notes.jim-nielsen.com` - this might be a little weird...
+4. 
 
 
-# Proposal
+# Option 2: Refactor Blog With Namespaced Content 
+
+URLs go from `/2022/:slug` -> `/posts/:slug` e.g. 
+
+- `/2019/reading-notes-january` -> `/posts/reading-notes-january-2019`
+
+This allows for different namespaces in the future, i.e.
+
+- `/notes/:id`
 
 Filenames
   - `posts/2019-05-12-a-web-of-people.md`
@@ -84,7 +130,9 @@ THIS DOESN'T WORK CAUSE TWO LINKS TO SAME DOMAIN ON SAME DAY
 /links/2022-05-01-youtube.com
 ```
 
-# Reading Notes
+---
+
+# Parsing Reading Notes
 
 Every note will be an `<h2>` represented in markdown by `##`. They should all follow this pattern:
 
@@ -150,6 +198,8 @@ Maybe each of these need a tag, and that's all, i.e.
 
 #n_type_article - type
 #n_
+
+**Infer the type by domain, e.g. video is youtube, vimeo, etc**
 
 
 # Follow up of what I might do...

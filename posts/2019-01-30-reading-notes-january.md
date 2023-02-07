@@ -20,7 +20,16 @@ I’ve been thinking about URL design more and more lately. In fact, on my icon 
 
 A great, visually-instructive talk about the event loop and how your JavaScript actually gets executed by the browser. He has some great examples of gotchas that are worth wrapping your head around. Like [this one](https://twitter.com/jaffathecake/status/954285104720957440): if the user clicks the button, in what order are things logged?
 
-![Two event listeners in JavaScript](https://pbs.twimg.com/media/DT5MZL1X4AAR-O8.jpg)
+```js
+button.addEventListener('click', () => {
+  Promise.resolve().then(() => console.log('p1'));
+  console.log ('1');
+});
+button.addEventListener('click', () => {
+  Promise.resolve().then(() => console.log('p2'));
+  console.log('2');
+}):
+```
 
 His descriptions of tasks, animation callbacks, and micro tasks, from the perspective of the browser, were all eye opening. Great talk for anyone doing JavaScript.
 

@@ -16,9 +16,7 @@ While I didn’t agree with necessarily everything in this piece, I really loved
 
 > The web’s evolution over the last decade has mirrored the American economy. All of the essential indicators are going “up and to the right,” a steady stream of fundamental advances reassure use that there “is progress,” but the actual experience and effects for individuals stagnates or regresses.
 
-Nothing helps you think you’re on the right path like seeing a graph that goes up and to the right representing any aspect of the thing you’re doing.
-
-<img src="https://cdn.jim-nielsen.com/blog/2020/reading-notes-august-graph.png" alt="A line graph going up and to the right but representing no particular pieces of data." width="513" height="360" />
+Nothing helps you think you’re on the right path like seeing [a graph that goes up and to the right](https://cdn.jim-nielsen.com/blog/2020/reading-notes-august-graph.png) representing any aspect of the thing you’re doing.
 
 ## Article: [“Back when software was a craft”](https://jessitron.com/2020/08/04/back-when-software-was-a-craft/)
 

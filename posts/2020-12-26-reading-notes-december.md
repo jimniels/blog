@@ -58,7 +58,7 @@ Gruber gives a fitting commentary on algorithms:
 
 > Blaming [this mess] on “the algorithm” is such ridiculous bullshit. What is an algorithm? It’s a set of rules and heuristics, created and decided by people. Blaming this on “the algorithm” is a shameless attempt to insinuate that they just put everyone into a system and the mean old computer decided to put front-line residents at the end of the list, when in fact, what they mean is, the people at Stanford who created the rules decided to put them at the end of the list. That’s their algorithm.
 
-##  Website: [“Epigrams in Programming”](http://www.cs.yale.edu/homes/perlis-alan/quotes.html)
+## Website: [“Epigrams in Programming”](http://www.cs.yale.edu/homes/perlis-alan/quotes.html)
 
 > Simplicity does not precede complexity, but follows it.
 

@@ -81,9 +81,9 @@ From now on, whenever I see a redesign announced to the world, I am going to ask
 
 I’m late to the Taylor Swift re-recoding her own album news, but  found Ben’s take intriguing.
 
-## Quote: Edward Tufte and the data-to-ink ratio
+## Article: [Edward Tufte and the data-to-ink ratio](https://stasaki.com/designer-as-writer/8/)
 
-Found [here](https://stasaki.com/designer-as-writer/8/):
+Really enjoyed this quote from Edward Tufte:
 
 > In the book The Visual Display of Quantitative Information, data visualization designer Edward Tufte introduced the data-ink ratio concept, which is the proportion of ink devoted to the non-redundant display of data-information.
 > 

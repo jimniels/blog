@@ -30,6 +30,7 @@
     "start": "netlify dev --dir build --port 3000 & NODE_ENV=development nodemon --exec 'node metalsmith'",
     "prebuild": "npm run pre",
     "build": "NODE_ENV=production node metalsmith.js",
+    "postbuild": "node scripts/parse-reading-notes.js",
     "validate": "html-validate build/"
   },
   "repository": {

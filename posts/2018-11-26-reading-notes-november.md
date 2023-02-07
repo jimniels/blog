@@ -2,11 +2,11 @@
 
 # Reading Notes, November 2018
 
-## Quote: On Software Development
+## Tweet: [@necolas](https://twitter.com/necolas/status/360170108028600320)
 
 With every passing day that I work in technology, I find this quote more and more relevant:
 
-> replace “can you _build_ this?” With “can you _maintain_ this without losing your mind?” – Nicholas Gallagher
+> Replace "can you build this?" with "can you maintain this without losing your minds?"
 
 ## Article: [“Against Software Development”](http://www.rntz.net/post/against-software-development.html)
 
@@ -26,9 +26,7 @@ This sounds like a future we could very possibly live in:
 >
 > In the popular imagination, apps and other programs are “algorithms,” sequences of clear-cut instructions that march forward with the precision of a drill sergeant. But while software may be logical, it’s rarely pristine. A program is a social artifact. It emerges through negotiation and compromise, a product of subjective judgments and shifting assumptions. As soon as it gets into the hands of users, a whole new set of expectations comes into play. What seems an irritating defect to a particular user—a hair-trigger ­toggle between landscape and portrait mode, say—may, in the eyes of the programmer, be a specification expertly executed.
 
-Shortly after reading this article, [I found this lovely t-shirt](https://twitter.com/jimniels/status/1064547820496146433):
-
-![T-shirt where a bug is dressed up as a feature](https://pbs.twimg.com/media/DsYIlegU0AAy9wC.jpg)
+Shortly after reading this article, [I found this lovely t-shirt](https://twitter.com/jimniels/status/1064547820496146433).
 
 ## Article: [“Choose Boring Technology”](http://mcfunley.com/choose-boring-technology)
 

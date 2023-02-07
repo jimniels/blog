@@ -22,7 +22,7 @@ This is just a fantastic deep dive into working with dates and time in programmi
 
 ## Tweet: [Debugging techniques with customized console.log](https://twitter.com/brian_d_vaughn/status/1025045172818563072) via @brian_d_vaughn
 
-![screenshot of customized console.log calls](https://pbs.twimg.com/media/DjnGCcjVsAEk4R9.jpg:large)
+Look at [this screenshot of the console](https://pbs.twimg.com/media/DjnGCcjVsAEk4R9?format=jpg&name=medium).
 
 > One of the most powerful web debugging techniques I'm aware of is adding colors to console.log. Makes it possible to spot high level patterns in an otherwise noisy stream of data.
 
@@ -31,8 +31,6 @@ A cool technique I didn’t know existed. There’s also [a gist](https://gist.g
 ## Tweet: [How selective sampling works](https://twitter.com/CarlForrest/status/1026331321281470465) by 
 
 A neat little .gif depicting the idea of downsampling in computer graphics but on a physical, real-world object.
-
-<video controls src="https://video.twimg.com/ext_tw_video/1026331290394476545/pu/pl/FHBitGyZ8SPirV8K.m3u8"></video>
 
 ## Article: [Flexibility](https://adactio.com/journal/14250) by Jeremy Keith
 
