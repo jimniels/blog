@@ -25,7 +25,7 @@ files.forEach((file) => {
     if (section.startsWith("---") || section.startsWith("#")) {
       none += 1;
     } else {
-      let id = file.slice(0, 10) + "T12-" + String(31 - i); // String(i).padStart(2, "0");
+      let id = file.slice(0, 10) + "T12" + String(31 - i); // String(i).padStart(2, "0");
       const [firstLine, ...contents] = section.split("\n");
 
       try {
