@@ -1,6 +1,6 @@
 # Productive Procrastination
 
-Clive Thompson, author of _Coders_, has a strikingly-relatable piece called [“How To Practice ‘Productive Procrastination’”](https://clivethompson.medium.com/how-to-practice-productive-procrastination-e2522247bd07).
+Clive Thompson, author of [_Coders_](https://blog.jim-nielsen.com/2020/notes-coders/), has a strikingly-relatable piece called [“How To Practice ‘Productive Procrastination’”](https://clivethompson.medium.com/how-to-practice-productive-procrastination-e2522247bd07).
 
 His advice is: “Can’t face work? Then cultivate some side projects — and channel your work-avoidance into fun opportunities to learn” and once your done, you’ll 1) have something productive to show for it, and 2) be much more fit, rested, and ready to tackle that project at work. 
 
