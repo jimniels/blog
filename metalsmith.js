@@ -98,6 +98,14 @@ let App = Metalsmith(__dirname)
         contents: dom.serialize(),
       };
     });
+
+    files[`_fidelity/low/feed.xml`] = {
+      contents: files["feed.xml"].contents,
+    };
+    files[`_fidelity/med/feed.xml`] = {
+      contents: files["feed.xml"].contents,
+    };
+
     done();
   })
   .build((err, files) => {
