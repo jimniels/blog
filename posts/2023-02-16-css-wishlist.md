@@ -158,14 +158,14 @@ This probably isn’t feasible and is a silly ask, but I still want it. This is 
 
 Lemme style things based on the URL state, e.g.
 
-```html
+```css
 /* URL contains these query params somewhere */
 @document[url*="foo=bar"] {…}
 ```
 
 And give me access to HTTP headers too!
 
-```
+```css
 /* A cookie for theme preference  */
 :http([set-cookie*="THEME=dark"]) {
   :root { background: #000 }
