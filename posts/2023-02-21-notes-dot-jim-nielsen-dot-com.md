@@ -28,3 +28,5 @@ Now whenever I wonder, “What was that thing I read and wrote down?” I can go
 FWIW: I created a graphic to help illustrate what and where I plan to publish the stuff I write — this is mostly for me, so I can remember the answer to the question, “Where should I post this again?”
 
 <img src="https://cdn.jim-nielsen.com/blog/2023/notes-quadrants.png" width="932" height="640" alt="A quadrant with “Permancence” as the north label, “Mostly other people’s words” as the east label, “Ephemeral” as the south label, and “Mostly my words” as the west labe. In the upper left is `blog.jim-nielsen.com`, upper right is `notes.jim-nielsen.com` and the two lower quadrants are both “twitter/mastodon”." />
+
+To be clear: I will no longer be posting any reading notes here on my blog. They will all be over at `notes.jim-nielsen.com`
