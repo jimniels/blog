@@ -618,7 +618,7 @@ footer,
 .prefs-fidelity > label:hover:before,
 /* Putting active here only applies styles to 
    the default theme, as its the only one that gets styles */
-.prefs-fidelity > label#high:before {
+.prefs-fidelity > label:has(input:checked):before {
   box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
 }
 
