@@ -80,7 +80,7 @@ export function Page(props, children) {
           <link rel="me" href="https://github.com/jimniels" />
           <link rel="me" href="https://twitter.com/jimniels" />
           <link rel="me" href="https://mastodon.social/@jimniels" />
-          <link rel="me" href="https://dribbble.com@jimniels" />
+          <link rel="me" href="https://dribbble.com/jimniels" />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
           <link
             rel="alternate"
