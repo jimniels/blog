@@ -52,3 +52,8 @@ I’m definitely going to use this a lot for searching my own stuff.
 
 URLs FTW!
 
+## Update 2023-04-23
+
+[Chris published a great post](https://chriscoyier.net/2023/04/24/site-search-open-search/) expanding on the idea of site-specific search. It’s a good read for the history, but even better because he simplifies the URL you need for your own Google search. I was using the `as_sitesearch` query param, but in Google’s search box you can just type `site:example.com my query` so why not just use one query param and formulate your URL like you would a site search in Google? e.g.
+
+`https://www.google.com/search?q=site:blog.jim-nielsen.com+%s`
