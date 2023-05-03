@@ -1,4 +1,4 @@
-# Gratitude For a Web That Tries Not to  Break
+# Gratitude For a Web That Tries Not to Break
 
 [Chris wrote a response](https://chriscoyier.net/2023/05/02/do-logical-properties-make-css-easier-to-learn/) to my wondering-out-loud [remarks](https://blog.jim-nielsen.com/2023/logical-properties-and-ease/) about whether logical properties make CSS easier to learn.
 
