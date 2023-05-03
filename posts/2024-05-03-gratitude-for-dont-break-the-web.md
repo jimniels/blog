@@ -8,7 +8,7 @@ His post actually got me thinking about something different than logical propert
 
 > because the logical properties don’t replace the non-logical versions and that there are still reasons to use the non-logical versions, thus only expanding the language…well, I can cede that makes CSS as a whole perhaps a smidge harder to learn. 😬
 
-This made me wonder: how long will we really keep ever feature of CSS?
+This made me wonder: how long will we _really_ keep every feature of CSS?
 
 I love the web’s guiding principle around compatibility: [“don’t break the web”](https://github.com/tc39/how-we-work/blob/main/terminology.md#web-compatibilitydont-break-the-web).
 
