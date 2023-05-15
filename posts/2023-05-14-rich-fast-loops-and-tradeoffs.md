@@ -1,4 +1,4 @@
-# The Power of Fast Iterative Loops
+# The Power of Fast Feedback Cycles
 
 I was hyperlinked to [this comment where Rich Harris stopped by Hacker News](https://news.ycombinator.com/item?id=35892250) to clarify his position on the (controversial?) steps Svelte is taking to move off Typescript in favor of types-via-JSDoc comments.
 
