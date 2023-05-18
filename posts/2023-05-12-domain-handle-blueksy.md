@@ -1,3 +1,5 @@
+#domainHandle
+
 # Setting Your Social Handle as Your Domain Name on Bluesky
 
 I recently got an invite to Bluesy (thx [JJ](https://twitter.com/JosephJacks_)). I wanted to try it purely for the satisfaction of setting my domain name as my handle, as I’m  fan of the idea of [apex domain’s becoming the currency of online handles](https://blog.jim-nielsen.com/2023/subscribe-wherever-you-get-your-content/). As I once tweeted: [domains are the OG handles](https://twitter.com/jimniels/status/1597654715873267713).

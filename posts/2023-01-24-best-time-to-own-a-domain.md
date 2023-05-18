@@ -1,3 +1,5 @@
+#domainHandle
+
 # The Best Time to Own a Domain Was 20 Years Ago; The Second Best Time Is Today
 
 Mastodon has a verification system built on the humble `rel=me` which gained coverage on [The Markup](https://themarkup.org/levelup/2022/12/22/how-we-verified-ourselves-on-mastodon-and-how-you-can-too) (found via [adactio links](https://adactio.com/links/19783)). It allows you to verify that your Mastodon profile controls a particular domain (e.g. [I have verified](https://mastodon.social/@jimniels) `jim-nielsen.com`, something nobody else in the world can claim to do without my consent). From the article:
