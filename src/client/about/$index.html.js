@@ -115,6 +115,12 @@ export default async function About(site) {
           >, writing is refined thinking. This is where I refine my thinking.
         </p>
 
+        <p>
+          Also, FWIW: I take lots of notes as I read, they’re like blog post
+          seedlings. I keep them at
+          <a href="https://notes.jim-nielsen.com">notes.jim-nielsen.com</a>
+        </p>
+
         <h2 id="stats">Stats</h2>
         <p>
           Some
