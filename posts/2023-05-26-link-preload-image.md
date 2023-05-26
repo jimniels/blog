@@ -16,7 +16,7 @@ In fact, on a site like [my icon gallery](https://macosicongallery.com), the lar
 
 There’s a nice [web.dev](https://web.dev/preload-responsive-images/#preload-overview) article on the subject, but I like to get varying perspectives and explanations when trying to understand something. So I searched to learn more. Of course [Chris had already written on it](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/) and explains it in the way only he can. And, again unsurprisingly, [Stefan had a helpful resource](https://www.stefanjudis.com/today-i-learned/how-to-preload-responsive-images-with-imagesizes-and-imagesrcset/) on preloading too.
 
-In essence, you want to tell the browser that that a certain image exists on the page and is super important before the prescanner discovers it.
+In essence, you want to tell the browser that a certain image exists on the page and is super important before the prescanner discovers it.
 
 I think of it kind of like when I tell my wife a story about our kids. I start with, "Ok, don't worry, everyone is fine, but...[story about some crazy thing the kids did].” A little heads up goes a long ways.
 
@@ -33,3 +33,13 @@ So, to tell the browser it’s gonna need that image before it parses to that po
 ```
 
 If you're not up to speed on this one — like I was — might be a good ‘un to familiarize yourself with now.
+
+## Update 2023-05-26
+
+[Mark pointed out](https://fosstodon.org/@mrwweb/110435716839260633) that [Wordpress is eschewing `<link>` preloads in favor of `fetchpriority`](https://make.wordpress.org/core/2023/05/02/proposal-for-enhancing-lcp-image-performance-with-fetchpriority/) directly on the `img`.
+
+Their rationale is interesting. I like `<link>` because _in theory_ it’s the fastest way for the browser to find out about a critical resource. But:
+
+>  While [that approach] in principle allows the browser to know about loading the image even earlier, in practice there isn’t a notable difference, especially when using the tag, as at that point the entire HTML will already be loaded.
+
+Given my SSG setup, it’s easy enough for me to do the `<link>` approach, so I’m going to stick with that. But for a CMS that doesn’t necessarily know about all resources during the lifecycle of creating a document, I can see why they opt for sticking `fetchpriority` directly on the image.
