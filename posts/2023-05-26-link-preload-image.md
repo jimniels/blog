@@ -4,7 +4,7 @@ I’ve been playing with [these fancy new view transitions](https://daverupert.c
 
 <img src="https://cdn.jim-nielsen.com/blog/2023/view-transition-slow-img.gif" width="465" height="344" alt="Animated gif of icon loading slowly between transitions." />
 
-Granted, this stuff is all behind a flag, so the fact that there are unexpected glitches is expected.
+Granted, transitions are behind a flag so unexpected glitches are expected.
 
 But transitioning images across views — especially from a small thumbnail on a list view to a full size image on a detail view — seems like _such_ a common use case. I’m sure [they’ll figure this out](https://twitter.com/bramus/status/1662014937080774657?s=20)
 
