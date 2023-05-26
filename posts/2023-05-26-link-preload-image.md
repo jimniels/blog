@@ -2,7 +2,7 @@
 
 I’ve been playing with [these fancy new view transitions](https://daverupert.com/2023/05/getting-started-view-transitions/) and my experience thus far is that they work ok on localhost, but as soon as I push code to a preview branch on a remote server, the image loads between transitions are [janky because of image loading](https://twitter.com/jimniels/status/1661557620719734785?s=20).
 
-<img src="https://cdn.jim-nielsen.com/blog/2023/view-transition-slow-img.gif" width="930" height="688" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2023/view-transition-slow-img.gif" width="465" height="344" alt="Animated gif of icon loading slowly between transitions." />
 
 Granted, this stuff is all behind a flag, so the fact that there are unexpected glitches is expected.
 
