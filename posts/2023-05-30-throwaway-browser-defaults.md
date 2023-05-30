@@ -20,7 +20,7 @@ I’m thinking of three things in particular:
 
 I frequented it so much to grab this snippet, I can still visualize [the post on Paul Irish’s website](https://www.paulirish.com/2012/box-sizing-border-box-ftw/) in my mind’s eye.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/browser-defaults.png" width="1240" height="892" alt="Screenshot of Paul Irish’s website with the `box-sizing: border` box blog post." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/browser-defaults.png" width="620" height="446" alt="Screenshot of Paul Irish’s website with the `box-sizing: border` box blog post." />
 
 If I say `width: 200px` I want it to be 200px. Not some other number depending on my borders and padding. I think a lot of people find this mental model more intuitive and, since it’s not the default for historical reasons, this is a piece of code I find myself writing a lot. Every time I start a new website, this is one of the first things I reach for.
 
