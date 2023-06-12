@@ -1,4 +1,4 @@
-# Minute rice, minute text, minute websites
+# Minute Rice, Minute Text, Minute Websites
 
 I was reading Baldur’s article (which I took [notes](https://notes.jim-nielsen.com/#2023-06-12T1115) on) and he suggests an interesting overlap between AI enthusiasts and “idea people”:
 
