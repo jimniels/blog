@@ -65,10 +65,10 @@ const data = JSON.parse(
 
 But you have to understand that importing a JSON file is not standard. Some kind of bundler/compiler/tool is required to make that possible.
 
-FWIW: [import assertions](https://v8.dev/features/import-assertions) for JSON are being standardized and already available for use in some environments:
+FWIW: [import attributes](https://github.com/tc39/proposal-import-attributes) for JSON are being standardized and already available for use in some environments:
 
 ```js
-import data from './data.json' assert { type: 'json' };
+import data from './data.json' with { type: 'json' };
 ```
 
 
@@ -93,10 +93,10 @@ Or, is something else happening that I haven’t described above?
 
 The answer is: who knows. It depends on what framework/bundler/tool you’re using. It doesn’t work in the browser, so you’d have to look to the docs for your tooling to understand how it’s handling these kinds of imports.
 
-FWIW: import assertions for CSS are being [standardized](https://web.dev/css-module-scripts/) in a way that gives you a constructible stylesheet to work with:
+FWIW: import attributes for CSS are being [standardized](https://web.dev/css-module-scripts/) in a way that gives you a constructible stylesheet to work with:
 
-```
-import sheet from './styles.css' assert { type: 'css' };
+```js
+import sheet from './styles.css' with { type: 'css' };
 ```
 
 ## Module Identifiers
@@ -147,7 +147,7 @@ Once again, there’s really no standard, but if node is doing it,  it’s gonna
 
 I’ve tried to avoid the whole topic of bare module specifiers:
 
-```
+```js
 import foo from 'package';
 ```
 
