@@ -43,7 +43,7 @@ Here’s a screenshot from the presentation:
 
 <img src="https://cdn.jim-nielsen.com/blog/2023/safari-spacial-computing-rules.png" width="407" height="290" alt="Screenshot from Apple’s presentation noting that “interactive regions” in Safari for visionOS are guessed at by markup elements like button, link, input, and form." />
 
-It’s 2023 and would you look at that: semantic, accessible HTML is still as important as ever. HTML isn’t just for old beige tower computers connected to cathode-ray tube monitors. It’s being relied on by the most technologically advanced AR/VR device in 2023.
+It’s 2023 and would you look at that: semantic, accessible HTML is still as important as ever. HTML isn’t just for old beige tower computers connected to cathode-ray tube monitors. It’s being relied on by the most technologically advanced AR/VR consumer device in 2023.
 
 I feel like debugging “interactive regions” for Safari in the visionOS simulator is probably going to become a thing for developers soon — which ain’t so bad because most of the “fixes” will likely involve writing better HTML.
 
