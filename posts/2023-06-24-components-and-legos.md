@@ -16,7 +16,7 @@ But, to Christian’s point, they often look like this:
 
 Granted, two different things with different purposes.
 
-With a little imagination, the second one can be a horse farm, or a rocket ship, or a castle — or maybe all three at once! The second? Not so much.
+With a little imagination, the second one can be a horse farm, or a rocket ship, or a castle — or maybe all three at once! The first? Not so much.
 
 LEGOs are a nice, but often you want more than just prefabrication and composition. Design and intention bring about constraints and coherence — “componentisation _with_ big picture planning”.
 
