@@ -23,7 +23,7 @@ That makes sense — but it still _feels_ a bit strange. I’m trying to put my 
 
 I was trying to think of corollaries to this. For example, imagine Node building a cloud offering that runs instances of Node and promising that `fs` on their servers adds some kind of proprietary performance benefit you only get through them.
 
-```
+```js
 import fs from "node:fs";
 
 // If you’re using Node's hosting platform, this `fs` promises 
@@ -34,7 +34,7 @@ const file = fs.readFileSync("./thing");
 
 Node could control this because they control the language. Contrast that with, say, a Vercel implementation of the same thing in Node:
 
-```
+```js
 // A theoretical drop in replacement for "node:fs"
 // that promises better _something_ in production usage
 // with a simple fallback in development
