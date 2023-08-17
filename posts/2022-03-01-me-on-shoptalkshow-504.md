@@ -1,3 +1,5 @@
+#podcastAppearance
+
 # My Guest Appearance on ShopTalkShow #504
 
 I’ve been a big fan of ShopTalkShow since about 2015. The Chris/Dave dynamic is fun and practical. If you ever feel like you’re falling behind on the web tech scene, listen to Chris and Dave each week and I think they’ll make you feel better. They’re experts at building on the web, they’ve been doing it a long time, and even they are often flummoxed by everything that’s going on. I find them reassuring (and comical).
