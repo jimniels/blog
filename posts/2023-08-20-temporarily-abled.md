@@ -1,6 +1,6 @@
 # “We’re All Just Temporarily Abled”
 
-That’s a quote from Cindy Li — “We're all just temporarily abled”. I first heard it in [Sarah’s course](https://practical-accessibility.today/) and it’s been on repeat in my mind ever since June 6th.
+That’s a quote from Cindy Li — “We're all just temporarily abled”. I first heard it in [Sara’s course](https://practical-accessibility.today/) and it’s been on repeat in my mind ever since June 6th.
 
 June 6th I was on vacation at the beach with my family and tried something that, looking back now, maybe I’m too old for. And I injured my knee.
 
