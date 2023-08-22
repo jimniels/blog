@@ -59,6 +59,10 @@ let App = Metalsmith(__dirname)
       Array.from(document.querySelectorAll("script, style")).forEach((el) => {
         el.remove();
       });
+      // Remove any inline `style` attributes
+      Array.from(document.querySelectorAll("[style]")).forEach((el) => {
+        el.removeAttribute("style");
+      });
       setActiveFidelityForPrefs("med");
 
       // Add a back a basic set of styles
