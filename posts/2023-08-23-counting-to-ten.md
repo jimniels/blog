@@ -70,3 +70,20 @@ Last it comes to me. Spanish is the only foreign language I know and my 8y/o has
 10. 1001
 
 I may have made a mistake here or there (it’s hard to shift the positions of the ones and zeros around in your head while keeping track of what number you’re on) but they don’t know the difference, so I end up looking just as smart and unique as the rest of my family.
+
+## Update 2023-08-24
+
+[Wyatt Marks](https://wyattmarks.com/) emailed me to note my “off-by-one” error. I counted to ten in binary in front of my family by starting at zero (which is actually zero, not one). They didn’t know the difference, but clearly I misrepresented our profession by doing so — or maybe I represented it perfectly making an off-by-one error.
+
+Anyhow, here’s the proper list:
+
+1. 1
+2. 10
+3. 11
+4. 100
+5. 101
+6. 110
+7. 111
+8. 1000
+9. 1001
+10. 1010
