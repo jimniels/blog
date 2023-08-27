@@ -104,11 +104,6 @@ export default async function About(site) {
         <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
 
         <p>
-          For me, blogging is about presenting a point of view, not to win an
-          argument, but to try and understand better. It’s more important I try
-          to learn than I try to be right.
-        </p>
-        <p>
           As Steven King
           <a href="https://blog.jim-nielsen.com/2022/book-notes-on-writing/"
             >said</a
