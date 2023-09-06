@@ -44,6 +44,12 @@ Designers push pixels, but you don’t hire them for that:
 
 > [aesthetics are] part of what design does. It isn’t what you hire designers to do.
 
+Programming is more akin to design than engineering:
+
+> From a systems-thinking perspective, programming is not in any way, shape, or form an engineering discipline. It doesn't work like engineering; it doesn't manage like engineering; it does not have the consistency or reliability of engineering; it does not have the outcomes that resemble those of engineering. 
+
+> Software development is a creative field. It has more in common with filmmaking than it does with bridge-building.
+
 [Vibe driven software](https://robinrendle.com/notes/vibe-driven-development/):
 
 > you need to collect good software, try it, experience it, and get to know what well-made feels like
