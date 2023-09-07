@@ -1,4 +1,4 @@
-#bookNotes
+#bookNotes #bookNotesSoftwareCrisis
 
 # Book Notes: “Out of the Software Crisis” by Baldur Bjarnason
 
