@@ -1,6 +1,6 @@
 #bookNotesSoftwareCrisis
 
-# Out of the Software Crisis: Gardening
+# “Out of the Software Crisis”: Gardening
 
 _The following is an extension of [my notes from Baldur’s book “Out of the Software Crisis”](https://blog.jim-nielsen.com/2023/book-notes-out-of-the-software-crisis/) including quotes from the author._
 
