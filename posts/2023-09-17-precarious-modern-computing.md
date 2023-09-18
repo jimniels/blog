@@ -1,4 +1,4 @@
-# Notes from “Weathering Software Winter” by Devine
+# Notes from “Weathering Software Winter” by Devine Lu Linvega
 
 I watched [this talk](https://www.youtube.com/watch?v=9TJuOwy4aGA)[^1] where the presenter details their experience trying to use modern digital devices while living on a boat with little to zero connectivity.
 
