@@ -122,6 +122,12 @@ html {
   color: var(--c-text);
 }
 
+body {
+  font-family: "Atkinson Hyperlegible", ui-sans-serif, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 /* Links
    ========================================================================== */
 
@@ -200,13 +206,7 @@ h4 {
 blockquote {
   padding-left: 1.618rem;
   margin-left: 0;
-  font-style: italic;
   border-left: 2px solid var(--c-bg-opaque);
-}
-
-blockquote em,
-blockquote code {
-  font-style: normal;
 }
 
 pre {
