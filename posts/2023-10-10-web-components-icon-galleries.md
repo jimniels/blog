@@ -67,7 +67,7 @@ Instead, I wanted a web component that displays all icons by default and then en
 
 What I came up with was markup like this:
 
-```
+```html
 <icon-list size="md">
   <a href="...">
     <img src="..." width="128" height="128" />
@@ -79,7 +79,7 @@ This is the initial HTML that gets served for every page with a list of icons.
 
 All the styles for this list of icons get delivered with the initial page. They look something like this:
 
-```
+```css
 icon-list {
   /* styles */
 }
