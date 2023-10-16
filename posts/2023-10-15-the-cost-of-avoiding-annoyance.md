@@ -1,5 +1,7 @@
 # The Cost of Avoiding Annoyance
 
+**tl;dr** Living with annoying technological constraints might be less costly than maintaining the sophisticated workarounds we create to avoid them.
+
 I really enjoyed this [well-reasoned article](https://htmx.org/essays/no-build-step/) explaining why htmx, the open-source hypermedia JS framework, does not have a build step.
 
 I liked that the premise – “we don’t have a build step” — is not presented as a universal truth for its readers — “therefore _you_ shouldn’t have a build step”.
