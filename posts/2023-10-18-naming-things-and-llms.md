@@ -12,7 +12,7 @@ In the case of naming, the other day I was trying to name a collection of API sc
 
 So I asked ChatGPT, given an structure like this:
 
-```
+```js
 const apiSchemas = {
   'GET /v0/files': z.object({...}),
   'GET /vo/files/:uuid': z.object({...}),
