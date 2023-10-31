@@ -8,7 +8,7 @@ I gave my answer, but I wanted to expand on it.
 
 These kinds of questions are interesting to me.
 
-As readers, I think the answer we’re looking for in a question like this: “Here’s the few tips I wish I had known when I started blogging.”
+As readers, I think the answer we’re looking for in a question like this is: “Here’s the few tips I wish I had known when I started blogging.”
 
 Why? Because we believe we can take these tips, use them, and revel in the thought that we saved ourselves some time and headache through someone else’s (hard-won) experience.
 
