@@ -10,10 +10,10 @@ Note: I’m going to set aside for a moment the concept of [small caps](https://
 
 Let’s say you’re building a UI and you want a bit of text to be all caps. This commonly happens with headings (`<h1>`, `<h2>`, etc.). How do you go about doing it?
 
-If you’re using CSS—directly on an element via the `style` attribute, a separate `.css` file, or [however one does CSS these days](https://blog.jim-nielsen.com/2019/thoughts-on-jeremy-keiths-split/)—you can accomplish this by using the rule: `text-decoration: uppercase`. For example:
+If you’re using CSS—directly on an element via the `style` attribute, a separate `.css` file, or [however one does CSS these days](https://blog.jim-nielsen.com/2019/thoughts-on-jeremy-keiths-split/)—you can accomplish this by using the rule: `text-transform: uppercase`. For example:
 
 ```html
-<h1 style="text-decoration: uppercase">My Post Title</h1>
+<h1 style="text-transform: uppercase">My Post Title</h1>
 ```
 
 Many websites today use a templating system, whether in JavaScript on the client or some other language on the server. This results in developers often shortcutting the separation of styles from content and using something like `.toUpperCase()` in JavaScript. Here’s an example for, say, a React component:
@@ -35,5 +35,5 @@ Why does any of this matter? Here’s an example: if I see content on the web I 
 
 So, the next time you hear someone say they want a bit of text to “be in all caps” you can respond by asking: do you want the text to _appear_ in all caps, or to you want the content itself to _be_ in all caps? There’s a difference.
 
-Now, it is possible that you want the underlying content to be formatted in all caps (irregardless, even, of its appearance). That’s perfectly fine. It’s your content, do what you think is best. But this post is a gentle reminder to not conflate the style and presentation of the content on screen with the underlying content itself. `.toUpperCase()` and `text-decoration: uppercase` are not the same. If your sole interaction with the content of a page is looking at it with your eyes, then you might think they are equivalent. But a website is more than what you _see_, it’s what you _use_.
+Now, it is possible that you want the underlying content to be formatted in all caps (irregardless, even, of its appearance). That’s perfectly fine. It’s your content, do what you think is best. But this post is a gentle reminder to not conflate the style and presentation of the content on screen with the underlying content itself. `.toUpperCase()` and `text-transform: uppercase` are not the same. If your sole interaction with the content of a page is looking at it with your eyes, then you might think they are equivalent. But a website is more than what you _see_, it’s what you _use_.
 
