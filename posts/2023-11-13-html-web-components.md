@@ -1,3 +1,5 @@
+#webComponents
+
 # HTML Web Components
 
 I think the word “component” in “web components” confused a lot of people — at least it did me.
