@@ -76,7 +76,11 @@ Fun!
 
 ## URLs as Product
 
-I’ve always loved services whose URLs map nicely to their domain semantics. For example, [GitHub’s URLs map really well to git semantics](https://www.quora.com/Which-sites-have-the-best-URL-design/answer/Simon-Willison) like the three dot diff comparison in git living under `/:owner/:project/compare/ref1...ref2`
+I’ve always loved services whose URLs map nicely to their domain semantics. For example, [GitHub’s URLs map really well to git semantics](https://www.quora.com/Which-sites-have-the-best-URL-design/answer/Simon-Willison) like the three dot diff comparison in git:
+
+`/:owner/:project/compare/ref1...ref2`
+
+e.g.
 
 [github.com/django/django/compare/4.2.7...main](https://github.com/django/django/compare/4.2.7...main)
 
@@ -104,10 +108,11 @@ NPM CDNs [like unpkg](https://unpkg.com/) do a good job at following these seman
 
 `unpkg.com/:package@:version/:file`
 
-In cases like this, _the URL can be the product itself_ which makes its design all the more vital.
+In cases like this, _the URL can be the product itself_ which makes its design all the more vital[^2].
 
 ## What’s Yours?
 
 These are a few examples of URLs I’ve enjoyed using or seeing over the years. I’m sure there are others, but I’d be curious to know what your favorites are? Blog ’em!
 
 [^1]: I haven’t found a lot of great resources on “great URL design”. [This article by Alex](http://alexpounds.com/blog/2018/12/29/four-cool-urls) was pretty good. I almost wish there was a “Dribble” for URL design. Just people showing off great URLs. For anyone with the ambition, `url-gallery.com` is available…
+[^2]: Michael Jackson, creator of unpkg, [pointed out](https://x.com/mjackson/status/1729551085554008417): “It amazes me that unpkg has become as popular as it is considering that every URL anyone has ever used with it was crafted by hand. There is no search box.” That is amazing indeed! unpkg is very popular: [50 billion requests in a month in Sept-Oct of 2020](https://x.com/mjackson/status/1315718264035573761?s=20).
