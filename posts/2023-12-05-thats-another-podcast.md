@@ -2,7 +2,7 @@
 
 I’ve long [been a fan](https://blog.jim-nielsen.com/2021/fav-excerpts-from-the-postlight-podcast/) of the Rich Ziade / Paul Ford podcast duo. They did _Track Changes_ then _The Postlight Podcast_ then _The Aboard Podcast_ then _Ziade+Ford_, and now (again?) _The Aboard Podcast_.
 
-Through all my listening, one thing I’ve noticed is that they often make comedic observations about something that could easily de-rail the conversation but then they avoid the tangent by saying, “but that’s another podcast.”
+Through all my listening, one thing I’ve noticed is that they often make comedic observations about something that could easily derail the conversation but then they avoid the tangent by saying, “but that’s another podcast.”
 
 The funny thing is: the topic they’re trying to avoid is precisely something I’d love to hear them talk about. So I’m bringing receipts. 
 
