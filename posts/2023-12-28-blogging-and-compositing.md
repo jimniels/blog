@@ -1,6 +1,6 @@
 # Blogging and Composting
 
-Here’s a thought: blogging is like compositing.
+Here’s a thought: blogging is like composting.
 
 The banana is what you’re after.
 
