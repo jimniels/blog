@@ -47,7 +47,6 @@ Instead, I can do something silly but quick, like adding a `z` in front of the r
 <li style="
   color: red;
   font-weight: bold;
-  
   zdisplay: inline;
 ">
 	My content here
