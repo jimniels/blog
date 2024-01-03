@@ -108,3 +108,17 @@ In this way, I can select multiple lines and `CMD` + `Z` to quickly toggle betwe
 I should probably just stick to commenting for consistency’s sake, even if it’s a single line. It’s not that hard to be more disciplined about it. 
 
 Actually “being more disciplined” always takes more effort. We’ll see…
+
+## Update: 2024-01-03
+
+Lorenz Peter reached out to me via email and noted the following:
+
+> I use the prefixing method too to bypass `@support` rules to quickly check how a it would look like on a non supporting browser
+
+```css
+@supports (-font-size: 3cqw) {
+   --fs-base: 3cqw;
+}
+```
+
+I love this! It’s a great illustration of how you the fault tolerance of the language makes building with progressive enhancement super easy. You can test different layout and styles depending on device capability by simply toggling the presence of a single character!
