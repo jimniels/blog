@@ -111,7 +111,7 @@ Actually “being more disciplined” always takes more effort. We’ll see…
 
 ## Update: 2024-01-03
 
-Lorenz Peter reached out to me via email and noted the following:
+[Lorenz Peter](https://rocketruby.ch/about/team/) reached out to me via email and noted the following:
 
 > I use the prefixing method too to bypass `@support` rules to quickly check how a it would look like on a non supporting browser
 
