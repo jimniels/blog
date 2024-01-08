@@ -1,10 +1,10 @@
-# Notes from [“An approach to computing and sustainability inspired from permaculture”](https://www.youtube.com/watch?v=T3u7bGgVspM)  by Devine LuLinvega
+# Notes from “An approach to computing and sustainability inspired from permaculture”  by Devine LuLinvega
 
 <img src="https://cdn.jim-nielsen.com/blog/2023/mcdonalds-tech.jpg" width="621" height="524" alt="Patent-application-like drawing with a person on a sofa looking at a TV with a hamburger on it and a caption bubble that says, “Say 'McDonalds' to end commercial”" />
 
 > I am interested in computers as a way to do more than consume.
 
-That’s how Devine starts their talk from Strangeloop. [I’ve linked to them before](https://blog.jim-nielsen.com/2023/precarious-modern-computing/), as they have an interesting perspective on computing in the 21st century (given, in part, their environment of living on a boat).
+That’s how Devine starts [their talk from Strangeloop](https://www.youtube.com/watch?v=T3u7bGgVspM). [I’ve linked to them before](https://blog.jim-nielsen.com/2023/precarious-modern-computing/), as they have an interesting perspective on computing in the 21st century (given, in part, their environment of living on a boat).
 
 I liked Devine’s warning about equating newer with better:
 
