@@ -34,4 +34,4 @@ So pick the context that’s right for you and your project. There’s no univer
 
 As for me and my _personal projects_, I’ve lived long enough to say: give me cold-blooded web pages or give me death.
 
-I mean, seriously. I will die inside if I have to re-open that webpack project from 2015.
+But seriously, I will die inside if I have to re-open that webpack project from 2015.
