@@ -58,7 +58,7 @@ export function Page(props, children) {
     },
     {
       label: "RSS",
-      path: "/feed.xml",
+      path: "/feed.html",
     },
   ];
 
@@ -82,17 +82,25 @@ export function Page(props, children) {
           <link rel="me" href="https://mastodon.social/@jimniels" />
           <link rel="me" href="https://dribbble.com/jimniels" />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
+
+          <!-- Feeds -->
           <link
             rel="alternate"
             type="application/rss+xml"
-            title="RSS"
+            title="RSS: XML Feed"
             href="/feed.xml"
           />
           <link
             rel="alternate"
             type="application/json"
-            title="JSON Feed"
+            title="RSS: JSON Feed"
             href="/feed.json"
+          />
+          <link
+            rel="alternate"
+            type="application/mf2+html"
+            title="RSS: HTML Feed"
+            href="/feed.html"
           />
 
           <!-- Inline all our styles -->
