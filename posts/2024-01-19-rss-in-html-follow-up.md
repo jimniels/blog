@@ -27,7 +27,7 @@ Sure enough, microformats were the more flexible solution of what I was envision
 
 And rather than try to describe in prose what I was envisioning in my head for an “HTML feed”, I figured I would just build it. (Sometimes it’s just easier to make something with glaring, explicit assumptions than to try and describe it in prose and leave unspoken, implicit assumptions.)
 
-So, without further ado, here’s the [“HTML feed” for my blog](https://blog.jim-nielsen.com/feed.xml):
+So, without further ado, here’s the [“HTML feed” for my blog](https://blog.jim-nielsen.com/feed.html):
 
 <img src="https://cdn.jim-nielsen.com/blog/2024/html2-site.png" width="1052" height="901" alt="Screenshot of the HTML feed page on blog.jim-nielsen.com" />
 
