@@ -58,7 +58,7 @@ export function Page(props, children) {
     },
     {
       label: "RSS",
-      path: "/feed.xml",
+      path: "/feed.html",
     },
   ];
 
