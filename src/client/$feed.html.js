@@ -24,7 +24,7 @@ export default function HTMLFeed(site) {
       />
       <link
         rel="alternate"
-        type="application/rss+xml"
+        type="application/mf2+html"
         title="RSS: HTML Feed"
         href="/feed.html"
       />
@@ -34,6 +34,7 @@ export default function HTMLFeed(site) {
           font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
           max-width: 35rem;
           margin: 0 auto;
+          padding: 0 1rem;
           line-height: 1.5;
         }
         a {
@@ -54,9 +55,11 @@ export default function HTMLFeed(site) {
           max-width: 100%;
           height: auto;
         }
-        feed-item {
+        section {
           border-top: 1px solid #ddd;
-          display: block;
+          display: flex;
+          flex-direction: column;
+          gap: .25rem;
           padding: 2rem 0;
           position: relative;
         }
@@ -67,10 +70,14 @@ export default function HTMLFeed(site) {
           text-align: center;
           cursor: pointer;
           font-size: .875rem;
-          position: absolute;
-          right: 0;
-          top: 2.5rem;
           border-radius: .25rem;
+        }
+        @media (min-width: 600px) {
+          summary {
+            position: absolute;
+            right: 0;
+            top: 2.5rem;
+          }
         }
         @media (prefers-color-scheme: dark) {
           body {
@@ -80,46 +87,31 @@ export default function HTMLFeed(site) {
           summary {
             background: #111;
           }
-          feed-item {
+          section {
             border-color: #222;
           }
         }
       </style>
       
     </head>
-    <body>
-      <h1>${site.name}</h1>
+    <body class="h-feed">
+      <h1 class="p-name">${site.name}</h1>
       <p>You found my <a href="">HTML feed</a>! You can subscribe by copy-pasting this URL into your RSS reader.</p>
-      <p><img src="/assets/img/love-html.gif" alt="I <3 HTML"></p>
+      <p><img src="/assets/img/love-html.gif" alt="I <3 HTML" width="88" height="31"></p>
       <p>I also have <a href="/feed.xml">XML</a> and <a href="feed.json">JSON</a> feeds available — but really, just copy-paste this URL into your feed reader.</p>
       
-      <!-- Add h-entry markup -->
       <h2>Recent posts</h2>
         ${site.posts.slice(0, 10).map(post => html`
-          <feed-item id="${post.permalink}" url="${post.permalink}" datetime="${new Date(post.date).toUTCString()}">
-            <h3><a href="${post.permalink}">${post.title}</a></h3>
-            <time datetime="${new Date(post.date).toISOString()}">${new Date(post.date).toISOString().slice(0, 10)} (Mountain time)</time>
+          <section class="h-entry" id="${post.permalink}" url="${post.permalink}" datetime="${new Date(post.date).toUTCString()}">
+            <h3><a href="${post.permalink}" class="u-url">${post.title}</a></h3>
+            <time class="dt-published" datetime="${new Date(post.date).toISOString()}">${new Date(post.date).toISOString().slice(0, 10)} (Mountain time)</time>
             <details>
               <summary>View</summary>
-              <article>${(post?.tags.includes("rssClub") ? RssClub() : "") + post.contents.toString() + ReplyHtml({ post, site })}</article>
+              <article class="e-content">${(post?.tags.includes("rssClub") ? RssClub() : "") + post.contents.toString() + ReplyHtml({ post, site })}</article>
             </details>
-          </feed-item>
+          </section>
         `)}
       
     </body>
-  </html>`;
-  
-
-      /*
-      ${site.posts.slice(0, 10).map(post => xml`
-        <item>
-            <title>${escapeXml(post.title)}</title>
-            <description>${escapeXml((post?.tags.includes("rssClub") ? RssClub() : "") + post.contents.toString() + ReplyHtml({ post, site }))}</description>
-            <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-            <link>${post.permalink}</link>
-            <guid isPermaLink="true">${post.permalink}</guid>
-        </item>
-      `)}*/
-
- 
+  </html>`; 
 }
