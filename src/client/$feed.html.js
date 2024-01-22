@@ -105,7 +105,9 @@ export default function HTMLFeed(site) {
                 <summary>View</summary>
                 <article class="e-content">
                   ${(post?.tags.includes("rssClub") ? RssClub() : "") +
-                  post.contents.toString() +
+                  post.contents
+                    .toString()
+                    .replaceAll("<img", "<img loading='lazy'") +
                   ReplyHtml({ post, site })}
                 </article>
               </details>
