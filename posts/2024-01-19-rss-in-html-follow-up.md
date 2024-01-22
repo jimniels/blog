@@ -86,3 +86,27 @@ There’s room for improvement, but on the whole it hits on all the things I was
     - I hide the content of every post in a `<details>` but the browser loads all resources (like images), so that's a bit of a bummer. There’s probably a workaround to this, but that’s for another day.
 
 I think this is a case where just _building something_ was better than trying to _describe something_.
+
+## Update 2024-01-22
+
+[A suggestion from Roma](https://front-end.social/@kizu/111793992772345116) spurred me to fix the issue where the remote contents of every post are fetched even in the not-yet-expanded contents of the `<details>` element.
+
+It was a really easy but effective fix. In my code, I changed:
+
+`post.toString()`
+
+To
+
+`post.toString().replaceAll("<img", "<img loading=lazy")`
+
+And the page for my HTML feed went from:
+
+`~20 requests/4MB`
+
+To
+
+`~5 request/120kb`
+
+Because now images load when you expand the contents of the `<details>` vs. when the document loads.
+
+Lovely!
