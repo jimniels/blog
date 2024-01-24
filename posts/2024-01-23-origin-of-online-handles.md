@@ -2,7 +2,7 @@
 
 There are a few people online whose ubiquitous usernames I’ve always wondered about.
 
-For example: [Jeremy Keith is “Adactio”](https://adactio.com/journal). I have no idea what that word means. A quick internet search reveals no hints. Even ChatGPT has no idea.
+For example: [Jeremy Keith is “Adactio”](https://adactio.com). I have no idea what that word means. A quick internet search reveals no hints. Even ChatGPT has no idea.
 
 <img src="https://cdn.jim-nielsen.com/blog/2023/adactio-chatgpt.png" width="770" height="174" alt="Screenshot of ChatGPT which says “The word 'adactio' doesn't have a meaning in English or in any widely recognized language. It appears to be a coined term or a username, particularly known in web development and design circles. Jeremy Keith, a well-known web designer and developer, uses 'adactio' as his username on various platforms and his personal website is also named 'adactio.com'. ”" />
 
