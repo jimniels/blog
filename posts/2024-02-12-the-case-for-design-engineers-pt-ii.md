@@ -30,7 +30,7 @@ If you zoomed in super close, this is what was happening:
 
 <img src="https://cdn.jim-nielsen.com/blog/2023/cursor-asymetical.png" width="1066" height="544" alt="" />
 
-And it felt off. Why? Because the area that triggered the showing and hiding of the resizing affordance was asymetical. You moved your mouse in from one side and the affordance triggered, but if you came in from the same side of the other container it didn’t.
+And it felt off. Why? Because the area that triggered the showing and hiding of the resizing affordance was asymmetrical. You moved your mouse in from one side and the affordance triggered, but if you came in from the same side of the other container it didn’t.
 
 This is what we wanted:
 
