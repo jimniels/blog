@@ -83,6 +83,11 @@ export function Page(props, children) {
           <link rel="me" href="https://dribbble.com/jimniels" />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
 
+          <script
+            type="module"
+            src="https://www.jim-nielsen.com/jim-navbar.js"
+          ></script>
+
           <!-- Feeds -->
           <link
             rel="alternate"
@@ -127,11 +132,15 @@ export function Page(props, children) {
             document.write("<theme-color></theme-color>");
           </script>
 
+          <jim-navbar></jim-navbar>
+
           <header class="header">
             <a
               href="/"
               class="header__brand"
-              style="--avatar: url('data:image/jpeg;base64,${avatar}');"
+              ${
+                /*style="--avatar: url('data:image/jpeg;base64,${avatar}');"*/ ""
+              }
             >
               <span>
                 <b>Jim Nielsen’s Blog</b>
