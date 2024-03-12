@@ -14,6 +14,6 @@ As an analogy, it’s kind of like going on vacation to a new place and staying/
 
 I suppose both exist for a reason and can be enjoyed on their own merits. But personally, I think you’re missing out on something if you stay isolated in the walled garden of the 5-star hotel.
 
-Similarly, if you never venture outside a social media platform, for creation or consumption, it’s worth asking what you’re missing.
+Similarly, if you never venture outside a social media platform for creation or consumption — [or automated AI browsing and summaries](https://blog.jim-nielsen.com/2024/treating-the-symptoms/) — it’s worth asking what you’re missing.
 
 Have you ever ventured out via links and explored _the internet_?
