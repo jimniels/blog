@@ -400,11 +400,13 @@ footer,
   color: inherit;
   margin-top: 56px;
   gap: var(--s-8);
+  justify-content: flex-end;
 }
 
 @media screen and (min-width: 42rem) {
   .header__brand {
     margin-top: 0;
+    justify-content: normal;
   }
   .header__brand::before {
     top: 0;
@@ -426,12 +428,12 @@ footer,
 .header__nav {
   display: flex;
   gap: var(--s-16);
-  margin-right: var(--s-48);
   flex-grow: 2;
+  justify-content: flex-end;
 }
 @media screen and (min-width: 42rem) {
   .header__nav {
-    justify-content: flex-end;
+    margin-right: var(--s-48);
   }
 }
 
