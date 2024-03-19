@@ -1,5 +1,9 @@
 # Verified Personal Website
 
+My blog is Verified (meaning I pay $10/year for the domain).
+
+---
+
 [Max did a funny thing](https://twitter.com/mxbck/status/1590809274808147990) where he verified his personal website. (He also official-ified it, as there appears to be a difference between the two — at least at the time of this writing, who knows that could change…)
 
 <img src="https://cdn.jim-nielsen.com/blog/2022/verified-personal-website-max.png" width="482" height="380" alt="Screenshot of `mxb.dev` with a verified and official checkmark in the style of Twitter (circa Nov. 2022)." />

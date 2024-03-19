@@ -391,15 +391,15 @@ footer,
 /* Logo */
 .header__brand {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   line-height: 1.3;
   background-repeat: no-repeat;
   background-size: 48px;
   height: 48px;
-  justify-content: center;
   position: relative;
   color: inherit;
   margin-top: 56px;
+  gap: var(--s-8);
 }
 
 @media screen and (min-width: 42rem) {
@@ -411,26 +411,15 @@ footer,
   }
 }
 
-.header__brand:hover {
-  text-decoration: none;
+.header__brand a {
+  display: flex;
+  align-items: center;
 }
 
 .header__brand svg {
   fill: var(--c-theme);
   width: 18px;
   height: 18px;
-}
-
-.header__brand > :first-child {
-  display: flex;
-  align-items: center;
-  gap: var(--s-8);
-}
-
-.header__brand > :nth-child(2) {
-  font-size: 0.777777rem;
-  opacity: 0.5;
-  color: var(--c-text);
 }
 
 /* Navigation links */

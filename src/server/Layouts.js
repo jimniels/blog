@@ -135,19 +135,12 @@ export function Page(props, children) {
           <jim-navbar></jim-navbar>
 
           <header class="header">
-            <a
-              href="/"
-              class="header__brand"
-              ${
-                /*style="--avatar: url('data:image/jpeg;base64,${avatar}');"*/ ""
-              }
-            >
-              <span>
-                <b>Jim Nielsen’s Blog</b>
-                ${importFile("./svgs/check-mark.svg")}
-              </span>
-              <span>Verified ($10/year for the domain)</span>
-            </a>
+            <div class="header__brand">
+              <a href="/"><b>Jim Nielsen’s Blog</b></a>
+              <a href="/2022/verified-personal-website/"
+                >${importFile("./svgs/check-mark.svg")}</a
+              >
+            </div>
             <nav class="header__nav">
               ${nav.map(({ label, path: navItemPath }) =>
                 navItemPath === path
