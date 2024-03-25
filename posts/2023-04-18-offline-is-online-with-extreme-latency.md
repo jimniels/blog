@@ -1,3 +1,5 @@
+#localFirst
+
 # Offline Is Just Online With Extreme Latency
 
 I just finished watching [“Local-first Software” by Peter Van Hardenberg](https://www.youtube.com/watch?v=KrPsyr8Ig6M) and loved it!
