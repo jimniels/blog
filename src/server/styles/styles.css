@@ -117,7 +117,7 @@
 html {
   color-scheme: light dark;
   font-size: 18px;
-  line-height: 1.618;
+  line-height: 1.6;
   background: var(--c-bg);
   color: var(--c-text);
 }
@@ -163,7 +163,7 @@ h1,
 h2,
 h3,
 h4 {
-  line-height: 1.3;
+  position: relative;
 
   /* Long headlines that are 1 word
      https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
@@ -171,27 +171,49 @@ h4 {
   word-wrap: break-word;
   -ms-word-break: break-all;
 }
+h1:before,
+h2:before,
+h3:before,
+h4:before {
+  position: absolute;
+  right: calc(100% + var(--s-8));
+  opacity: 0.25;
+  font-weight: 400;
+  display: none;
+}
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
+}
+h1::before {
+  content: "h1";
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
+}
+h2::before {
+  content: "h2";
 }
 
 h3 {
   font-size: 1rem;
   font-weight: 700;
 }
+h3::before {
+  content: "h3";
+}
 
 h4 {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.01rem;
-  font-weight: 700;
+  font-weight: 500;
+}
+h4::before {
+  content: "h4";
 }
 
 /* Misc. Elements
@@ -263,15 +285,15 @@ table td {
    Layout
    ========================================================================== */
 
-.copy > *:not(.image-container):not(pre),
+.copy > *:not(:is(.image-container, p:has(img))):not(pre),
 .wrapper {
-  max-width: 36rem;
+  max-width: 32rem;
   margin-left: var(--s-16);
   margin-right: var(--s-16);
 }
 
 @media screen and (min-width: 42rem) {
-  .copy > *:not(.image-container):not(pre),
+  .copy > *:not(:is(.image-container, p:has(img))):not(pre),
   .wrapper {
     margin-left: auto;
     margin-right: auto;
@@ -279,8 +301,8 @@ table td {
 }
 
 pre {
-  /* 36rem + 3rem on either side = 42rem */
-  max-width: 42rem;
+  /* 32rem + 3rem on either side = 38rem */
+  max-width: 38rem;
   margin-left: auto;
   margin-right: auto;
   padding: calc(1.618rem / 2);
@@ -307,14 +329,16 @@ pre {
   border-radius: 10px;
 }
 
-.copy .image-container {
-  max-width: 1200px;
+.copy .image-container,
+.copy p:has(img) {
+  max-width: 46rem;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-.copy .image-container span {
+.copy .image-container span,
+.copy p:has(img) span {
   font-size: 0.75rem;
   font-style: italic;
   opacity: 0.5;
@@ -323,7 +347,7 @@ pre {
 }
 
 .copy > h2 {
-  margin-top: calc(1.618rem * 2);
+  margin-top: var(--s-48);
 }
 
 /* Article Header
@@ -332,16 +356,18 @@ pre {
 article header {
   display: flex;
   flex-direction: column;
+  margin: var(--s-80) 0;
 }
 
 article header h1 {
-  order: 2;
-  margin-top: 0;
+  margin: 0;
+  font-size: 1.111rem;
 }
 
 article header time {
   opacity: 0.5;
   display: block;
+  font-size: 0.8888rem; /* 16 */
 }
 
 /* Links
@@ -360,7 +386,14 @@ footer a,
 }
 footer,
 .footnotes {
-  font-size: 0.91rem;
+  font-size: 0.888rem;
+  margin-top: var(--s-96);
+}
+footer a {
+  color: inherit;
+}
+footer {
+  opacity: 0.5;
 }
 
 /* =============================================================================
@@ -368,14 +401,12 @@ footer,
    ========================================================================== */
 
 .header {
-  max-width: 36rem;
-  margin: var(--s-16) auto var(--s-48);
+  max-width: 32rem;
+  margin: var(--s-16) auto var(--s-64);
   display: flex;
   flex-direction: column;
 
   flex-wrap: wrap;
-  column-gap: var(--s-16);
-  row-gap: var(--s-8);
   position: relative;
   padding: 0 var(--s-16);
 }
