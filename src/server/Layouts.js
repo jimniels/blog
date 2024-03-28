@@ -139,7 +139,9 @@ export function Page(props, children) {
               ${path !== "/" ? `<a href="/">` : ""}
               <b>Jim Nielsen’s Blog</b>
               ${path !== "/" ? `</a>` : ""}
-              <a href="/2022/verified-personal-website/"
+              <a
+                href="/2022/verified-personal-website/"
+                aria-label="Read about my “verified” personal website"
                 >${importFile("./svgs/check-mark.svg")}</a
               >
             </div>
