@@ -309,9 +309,7 @@ This whole post might seem like an attempt to crap on Next. It’s not. As Kent 
 
 I agree.
 
-But I am trying to work through articulating why I prefer  tools that expose underlying platform APIs over wrapping them in their own bespoke permutations. To generalize Kent’s original articulation:
-
-**Expose platform APIs over wrapping them.**
+But I am trying to work through articulating why I prefer  tools that expose underlying platform APIs over wrapping them in their own bespoke permutations.
 
 It reminds me of [this note I took from an article from the folks building HTMX](https://notes.jim-nielsen.com/#2024-01-17T2100):
 
