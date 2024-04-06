@@ -11,7 +11,12 @@ export default function Index(site) {
     .sort((a, b) => (a.hackerNewsComments > b.hackerNewsComments ? -1 : 1));
 
   return Page(
-    { site, page: { path: "/" } },
+    {
+      site,
+      page: {
+        path: "/",
+      },
+    },
     html` <main class="wrapper">
       <h1>Latest</h1>
       ${PostList(recent.slice(0, 3))} ${PostMore(PostList(recent.slice(3, 9)))}
@@ -106,7 +111,7 @@ function PostList(
 
 function PostMore(children) {
   return html`
-    <details style="margin: -1rem 0 1rem">
+    <details style="margin: -1rem 0 3rem">
       <summary style="margin: 0 0 1rem; opacity: .5; font-size: .875rem">
         Show more…
       </summary>

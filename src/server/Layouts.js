@@ -137,7 +137,7 @@ export function Page(props, children) {
           <header class="header">
             <div class="header__brand">
               ${path !== "/" ? `<a href="/">` : ""}
-              <b>Jim Nielsen’s Blog</b>
+              <span>Jim Nielsen’s Blog</span>
               ${path !== "/" ? `</a>` : ""}
               <a href="/2022/verified-personal-website/"
                 >${importFile("./svgs/check-mark.svg")}</a
