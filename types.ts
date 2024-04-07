@@ -33,6 +33,7 @@ export type Post = {
   hackerNewsUrl?: string;
   hackerNewsComments?: number;
   isFav: boolean;
+  footnotes: string; // Could be an empty string, meaning no footnotes
 };
 
 export type Page = {

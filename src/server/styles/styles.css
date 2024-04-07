@@ -66,7 +66,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
-    --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 12%);
+    --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 16%);
     --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
     --c-bg-opaque: hsl(
       var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
@@ -373,7 +373,7 @@ article header time {
 /* Links
    ========================================================================== */
 
-footer a,
+footer ol a,
 .copy a {
   text-decoration: underline;
 }
@@ -384,16 +384,54 @@ footer a,
 .copy a[href^="#fnref"] {
   font-family: sans-serif; /* keep the backlink from displaying as an emoji */
 }
-footer,
-.footnotes {
-  font-size: 0.888rem;
-  margin-top: var(--s-96);
+footer {
+  font-size: 0.888888888rem;
+  margin: calc(var(--s-96) * 2) 0 var(--s-48);
 }
 footer a {
   color: inherit;
 }
+footer a:hover {
+  color: var(--c-theme);
+}
+footer a[href^="#fn"] {
+  text-decoration: none;
+}
 footer {
   opacity: 0.5;
+}
+footer hr {
+  display: none;
+}
+footer ol {
+  margin: 0;
+  padding: 0 0 0 1rem;
+}
+footer ul {
+  margin: 0;
+  padding: 0;
+  font-size: 0.77777777777rem;
+  display: flex;
+  list-style: none;
+  gap: var(--s-8);
+  flex-wrap: wrap;
+}
+footer ul li {
+  background: var(--c-fg);
+  padding: var(--s-4) var(--s-8);
+  border-radius: 50px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+footer h5 {
+  margin: var(--s-48) 0 var(--s-16);
+  font-size: 0.722222222rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.0666rem;
 }
 
 /* =============================================================================
