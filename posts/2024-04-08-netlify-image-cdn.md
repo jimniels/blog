@@ -1,18 +1,19 @@
 #iconGalleries #netlify
 
-# Implementing Netlify’s Image CDN
+# Implementing Netlify’s Image CDNz
 
 **tl;dr** I implemented [Netlify’s new image transformation service](https://docs.netlify.com/image-cdn/overview/) on my icon gallery sites and saw a pretty drastic decrease in overall bandwidth. Here are the numbers:
 
-| Page | Requests | Old | New | Difference
-| - | - | - | - | 
-| Home | 60 | 1.3MB | 293kB |  ▼ 78% (1.01MB)
-| Colors | 84 | 1.4MB | 371kB | ▼ 74% (1.04MB)
-| Designers | 131 | 5.6MB | 914kB | ▼ 84% (4.71MB)
-| Developers | 140 | 2.5MB | 905kB | ▼ 65% (1.62MB)
-| Categories | 140 | 2.2MB | 599kB | ▼ 73% (1.62MB)
-| Years | 98 | 4.7MB | 580kB | ▼ 88% (4.13MB)
-| Apps | 84 | 5.2MB | 687kB | ▼ 87% (4.53MB)
+| Page       | Requests | Old   | New   | Difference         |
+|------------|----------|-------|-------|--------------------|
+| Home       | 60       | 1.3MB | 293kB | ▼ 78% (1.01MB)     |
+| Colors     | 84       | 1.4MB | 371kB | ▼ 74% (1.04MB)     |
+| Designers  | 131      | 5.6MB | 914kB | ▼ 84% (4.71MB)     |
+| Developers | 140      | 2.5MB | 905kB | ▼ 65% (1.62MB)     |
+| Categories | 140      | 2.2MB | 599kB | ▼ 73% (1.62MB)     |
+| Years      | 98       | 4.7MB | 580kB | ▼ 88% (4.13MB)     |
+| Apps       | 84       | 5.2MB | 687kB | ▼ 87% (4.53MB)     |
+
 
 For more details on the whole affair, read on.
 
@@ -91,15 +92,16 @@ Additionally, the index pages for icon metadata (such as the [designers page](ht
 
 Here’s the raw data showing the difference in overall resources loaded across different pages of the old and new sites (the old serving the original PNGs, the new serving AVIFs).
 
-| Page | Requests | Old | New | Difference
-| - | - | - | - | 
-| Home | 60 | 1.3MB | 293kB |  ▼ 78% (1.01MB)
-| Colors | 84 | 1.4MB | 371kB | ▼ 74% (1.04MB)
-| Designers | 131 | 5.6MB | 914kB | ▼ 84% (4.71MB)
-| Developers | 140 | 2.5MB | 905kB | ▼ 65% (1.62MB)
-| Categories | 140 | 2.2MB | 599kB | ▼ 73% (1.62MB)
-| Years | 98 | 4.7MB | 580kB | ▼ 88% (4.13MB)
-| Apps | 84 | 5.2MB | 687kB | ▼ 87% (4.53MB)
+| Page       | Requests | Old   | New   | Difference         |
+|------------|----------|-------|-------|--------------------|
+| Home       | 60       | 1.3MB | 293kB | ▼ 78% (1.01MB)     |
+| Colors     | 84       | 1.4MB | 371kB | ▼ 74% (1.04MB)     |
+| Designers  | 131      | 5.6MB | 914kB | ▼ 84% (4.71MB)     |
+| Developers | 140      | 2.5MB | 905kB | ▼ 65% (1.62MB)     |
+| Categories | 140      | 2.2MB | 599kB | ▼ 73% (1.62MB)     |
+| Years      | 98       | 4.7MB | 580kB | ▼ 88% (4.13MB)     |
+| Apps       | 84       | 5.2MB | 687kB | ▼ 87% (4.53MB)     |
+
 
 Out of curiosity, I wanted to see what icon in my collection had the largest file size (at its biggest resolution). It was a ridiculous 5.3MB PNG.
 
