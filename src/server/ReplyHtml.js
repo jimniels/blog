@@ -55,8 +55,7 @@ export default function ReplyHtml({ post, site }) {
       <h5>Tags</h5>
       <ul>
         ${postTags.map(
-          (tag) =>
-            html`<li><a href="${siteOrigin}/tags/#${tag}">#${tag}</a></li>`
+          (tag) => html`<li><a href="/tags/#${tag}">#${tag}</a></li>`
         )}
       </ul>
     `}
@@ -65,7 +64,8 @@ export default function ReplyHtml({ post, site }) {
       <h5>Other posts that link here</h5>
       <ul>
         ${relatedPosts.map(
-          ({ title, path }) => html`<li><a href="${path}">${title}</a></li>`
+          ({ title, path, date }) =>
+            html`<li><a href="${path}">(${date.slice(0, 4)}) ${title}</a></li>`
         )}
       </ul>
     `}

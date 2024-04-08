@@ -388,20 +388,12 @@ footer {
   font-size: 0.888888888rem;
   margin: calc(var(--s-96) * 2) 0 var(--s-48);
 }
-footer a {
-  /* color: inherit; */
-}
-footer a:hover {
-  color: var(--c-theme);
-}
 footer a[href^="#fn"] {
   text-decoration: none;
 }
-footer {
-  /* opacity: 0.5; */
-}
 footer hr {
   display: none;
+  /* margin-bottom: var(--s-48); */
 }
 footer ol {
   margin: 0;
@@ -417,14 +409,16 @@ footer ul {
   flex-wrap: wrap;
 }
 footer ul li {
-  background: var(--c-fg);
-  padding: var(--s-4) var(--s-8);
-  border-radius: 50px;
   max-width: 100%;
+}
+footer ul li a {
+  padding: var(--s-4) var(--s-8);
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: block;
+  background: var(--c-fg);
+  border-radius: 50px;
 }
 footer h5 {
   margin: var(--s-48) 0 var(--s-16);

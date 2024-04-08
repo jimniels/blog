@@ -112,7 +112,9 @@ function PostList(
 function PostMore(children) {
   return html`
     <details style="margin: -1rem 0 3rem">
-      <summary style="margin: 0 0 1rem; opacity: .5; font-size: .875rem">
+      <summary
+        style="margin: 0 0 1rem; opacity: .5; font-size: .875rem; cursor: pointer;"
+      >
         Show more…
       </summary>
       ${children}
