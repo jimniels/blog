@@ -238,8 +238,6 @@ table {
 
 table th {
   text-align: left;
-  text-transform: uppercase;
-  letter-spacing: 0.03rem;
 }
 
 table thead {
