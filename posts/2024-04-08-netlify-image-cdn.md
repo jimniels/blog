@@ -1,6 +1,6 @@
 #iconGalleries #netlify
 
-# Implementing Netlify’s Image CDNz
+# Implementing Netlify’s Image CDN
 
 **tl;dr** I implemented [Netlify’s new image transformation service](https://docs.netlify.com/image-cdn/overview/) on my icon gallery sites and saw a pretty drastic decrease in overall bandwidth. Here are the numbers:
 
