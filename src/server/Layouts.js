@@ -58,7 +58,7 @@ export function Page(props, children) {
     },
     {
       label: "RSS",
-      path: "/feed.xml",
+      path: "/feed.html",
     },
   ];
 
@@ -91,18 +91,29 @@ export function Page(props, children) {
             rel="stylesheet"
           />
 
+          <script
+            type="module"
+            src="https://www.jim-nielsen.com/jim-navbar.js"
+          ></script>
+
           <!-- Feeds -->
           <link
             rel="alternate"
             type="application/rss+xml"
-            title="RSS"
+            title="RSS: XML Feed"
             href="/feed.xml"
           />
           <link
             rel="alternate"
             type="application/json"
-            title="JSON Feed"
+            title="RSS: JSON Feed"
             href="/feed.json"
+          />
+          <link
+            rel="alternate"
+            type="application/mf2+html"
+            title="RSS: HTML Feed"
+            href="/feed.html"
           />
 
           <!-- Inline all our styles -->
@@ -129,17 +140,19 @@ export function Page(props, children) {
             document.write("<theme-color></theme-color>");
           </script>
 
+          <jim-navbar></jim-navbar>
+
           <header class="header">
-            <a
-              href="/"
-              class="header__brand"
-              style="--avatar: url('data:image/jpeg;base64,${avatar}');"
-            >
-              <span>
-                Jim Nielsen’s Blog ${importFile("./svgs/check-mark.svg")}
-              </span>
-              <span>Verified ($10/year for the domain)</span>
-            </a>
+            <div class="header__brand">
+              ${path !== "/" ? `<a href="/">` : ""}
+              <span>Jim Nielsen’s Blog</span>
+              ${path !== "/" ? `</a>` : ""}
+              <a
+                href="/2022/verified-personal-website/"
+                aria-label="Read about my “verified” personal website"
+                >${importFile("./svgs/check-mark.svg")}</a
+              >
+            </div>
             <nav class="header__nav">
               ${nav.map(({ label, path: navItemPath }) =>
                 navItemPath === path

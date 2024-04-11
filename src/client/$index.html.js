@@ -2,28 +2,24 @@ import { Page } from "../server/Layouts.js";
 import { html, toDateUI } from "../server/utils.js";
 
 export default function Index(site) {
-  const recent = site.posts
-    .filter((post) => !post?.tags.includes("rssClub"))
-    .slice(0, 3);
+  const recent = site.posts.filter((post) => !post?.tags.includes("rssClub"));
   const trending = site.posts
     .filter((post) => post.hasOwnProperty("pageviews"))
-    .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1))
-    .slice(0, 3);
+    .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1));
   const hackerNews = site.posts
     .filter((post) => post.hackerNewsUrl && post.hackerNewsComments > 100)
-    .sort((a, b) => (a.hackerNewsComments > b.hackerNewsComments ? -1 : 1))
-    .slice(0, 3);
-  const favs = site.posts
-    .filter((post) => post.isFav)
-    .map((post) => ({ ...post, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .slice(0, 3);
+    .sort((a, b) => (a.hackerNewsComments > b.hackerNewsComments ? -1 : 1));
 
   return Page(
-    { site, page: { path: "/" } },
+    {
+      site,
+      page: {
+        path: "/",
+      },
+    },
     html` <main class="wrapper">
       <h1>Latest</h1>
-      ${PostList(recent)}
+      ${PostList(recent.slice(0, 3))} ${PostMore(PostList(recent.slice(3, 9)))}
       ${trending.length > 0 &&
       html`
         <h1>
@@ -35,26 +31,42 @@ export default function Index(site) {
           >
         </h1>
         ${PostList(
-          trending,
+          trending.slice(0, 3),
           ({ pageviews }) =>
             (pageviews > 1000
               ? Math.round((pageviews / 1000) * 10) / 10 + "k"
               : pageviews) + " pageviews"
+        )}
+        ${PostMore(
+          PostList(
+            trending.slice(3, 9),
+            ({ pageviews }) =>
+              (pageviews > 1000
+                ? Math.round((pageviews / 1000) * 10) / 10 + "k"
+                : pageviews) + " pageviews"
+          )
         )}
       `}
       ${hackerNews.length > 0 &&
       html`
         <h1>Hacker News Hits</h1>
         ${PostList(
-          hackerNews,
+          hackerNews.slice(0, 3),
           ({ hackerNewsUrl, hackerNewsComments }) => html`<a
             href="${hackerNewsUrl}"
             >${hackerNewsComments} comments ↗</a
           >`
         )}
+        ${PostMore(
+          PostList(
+            hackerNews.slice(3, 9),
+            ({ hackerNewsUrl, hackerNewsComments }) => html`<a
+              href="${hackerNewsUrl}"
+              >${hackerNewsComments} comments ↗</a
+            >`
+          )
+        )}
       `}
-      <h1>Personal Favorites</h1>
-      ${PostList(favs)}
       ${
         /*
       <h1>Praise For My Blog</h1>
@@ -94,5 +106,18 @@ function PostList(
         `
       )}
     </ul>
+  `;
+}
+
+function PostMore(children) {
+  return html`
+    <details style="margin: -1rem 0 3rem">
+      <summary
+        style="margin: 0 0 1rem; opacity: .5; font-size: .875rem; cursor: pointer;"
+      >
+        Show more…
+      </summary>
+      ${children}
+    </details>
   `;
 }

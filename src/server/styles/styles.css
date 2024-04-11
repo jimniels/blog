@@ -66,7 +66,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
-    --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 12%);
+    --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 16%);
     --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
     --c-bg-opaque: hsl(
       var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
@@ -117,7 +117,7 @@
 html {
   color-scheme: light dark;
   font-size: 18px;
-  line-height: 1.618;
+  line-height: 1.6;
   background: var(--c-bg);
   color: var(--c-text);
 }
@@ -169,7 +169,7 @@ h1,
 h2,
 h3,
 h4 {
-  line-height: 1.3;
+  position: relative;
 
   /* Long headlines that are 1 word
      https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
@@ -177,40 +177,62 @@ h4 {
   word-wrap: break-word;
   -ms-word-break: break-all;
 }
+h1:before,
+h2:before,
+h3:before,
+h4:before {
+  position: absolute;
+  right: calc(100% + var(--s-8));
+  opacity: 0.25;
+  font-weight: 400;
+  display: none;
+}
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
+}
+h1::before {
+  content: "h1";
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
+}
+h2::before {
+  content: "h2";
 }
 
 h3 {
   font-size: 1rem;
   font-weight: 700;
 }
+h3::before {
+  content: "h3";
+}
 
 h4 {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.01rem;
-  font-weight: 700;
+  font-weight: 500;
+}
+h4::before {
+  content: "h4";
 }
 
 /* Misc. Elements
    ========================================================================== */
 
 blockquote {
-  padding-left: 1.618rem;
+  padding-left: 1rem;
   margin-left: 0;
   border-left: 2px solid var(--c-bg-opaque);
 }
 
 pre {
-  font-size: 0.9rem;
+  font-size: 0.88888rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   background: var(--c-bg-opaque);
@@ -233,13 +255,11 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  font-size: 0.85em;
+  font-size: 0.88888888em;
 }
 
 table th {
   text-align: left;
-  text-transform: uppercase;
-  letter-spacing: 0.03rem;
 }
 
 table thead {
@@ -263,15 +283,15 @@ table td {
    Layout
    ========================================================================== */
 
-.copy > *:not(.image-container):not(pre),
+.copy > *:not(:is(.image-container, p:has(img))):not(pre),
 .wrapper {
-  max-width: 36rem;
+  max-width: 32rem;
   margin-left: var(--s-16);
   margin-right: var(--s-16);
 }
 
 @media screen and (min-width: 42rem) {
-  .copy > *:not(.image-container):not(pre),
+  .copy > *:not(:is(.image-container, p:has(img))):not(pre),
   .wrapper {
     margin-left: auto;
     margin-right: auto;
@@ -279,8 +299,8 @@ table td {
 }
 
 pre {
-  /* 36rem + 3rem on either side = 42rem */
-  max-width: 42rem;
+  /* 32rem + 1.5rem on either side = 38rem */
+  max-width: 35rem;
   margin-left: auto;
   margin-right: auto;
   padding: calc(1.618rem / 2);
@@ -289,8 +309,8 @@ pre {
 
 @media screen and (min-width: 42rem) {
   pre {
-    padding: 2rem 3rem;
-    border-radius: 10px;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
   }
 }
 
@@ -307,14 +327,16 @@ pre {
   border-radius: 10px;
 }
 
-.copy .image-container {
-  max-width: 1200px;
+.copy .image-container,
+.copy p:has(img) {
+  max-width: 46rem;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-.copy .image-container span {
+.copy .image-container span,
+.copy p:has(img) span {
   font-size: 0.75rem;
   font-style: italic;
   opacity: 0.5;
@@ -323,7 +345,7 @@ pre {
 }
 
 .copy > h2 {
-  margin-top: calc(1.618rem * 2);
+  margin-top: var(--s-48);
 }
 
 /* Article Header
@@ -332,22 +354,24 @@ pre {
 article header {
   display: flex;
   flex-direction: column;
+  margin: var(--s-80) 0;
 }
 
 article header h1 {
-  order: 2;
-  margin-top: 0;
+  margin: 0;
+  font-size: 1.111rem;
 }
 
 article header time {
   opacity: 0.5;
   display: block;
+  font-size: 0.8888rem; /* 16 */
 }
 
 /* Links
    ========================================================================== */
 
-footer a,
+footer ol a,
 .copy a {
   text-decoration: underline;
 }
@@ -358,9 +382,49 @@ footer a,
 .copy a[href^="#fnref"] {
   font-family: sans-serif; /* keep the backlink from displaying as an emoji */
 }
-footer,
-.footnotes {
-  font-size: 0.91rem;
+footer {
+  font-size: 0.888888888rem;
+  margin: calc(var(--s-96) * 2) 0 var(--s-48);
+}
+footer a[href^="#fn"] {
+  text-decoration: none;
+}
+footer hr {
+  display: none;
+  /* margin-bottom: var(--s-48); */
+}
+footer ol {
+  margin: 0;
+  padding: 0 0 0 1rem;
+}
+footer ul {
+  margin: 0;
+  padding: 0;
+  font-size: 0.77777777777rem;
+  display: flex;
+  list-style: none;
+  gap: var(--s-8);
+  flex-wrap: wrap;
+}
+footer ul li {
+  max-width: 100%;
+}
+footer ul li a {
+  padding: var(--s-4) var(--s-8);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: var(--c-fg);
+  border-radius: 50px;
+}
+footer h5 {
+  margin: var(--s-48) 0 var(--s-16);
+  font-size: 0.722222222rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.0666rem;
+  opacity: 0.5;
 }
 
 /* =============================================================================
@@ -368,14 +432,12 @@ footer,
    ========================================================================== */
 
 .header {
-  max-width: 36rem;
-  margin: var(--s-16) auto var(--s-48);
+  max-width: 32rem;
+  margin: var(--s-16) auto var(--s-64);
   display: flex;
   flex-direction: column;
 
   flex-wrap: wrap;
-  column-gap: var(--s-16);
-  row-gap: var(--s-8);
   position: relative;
   padding: 0 var(--s-16);
 }
@@ -391,42 +453,31 @@ footer,
 /* Logo */
 .header__brand {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   line-height: 1.3;
   background-repeat: no-repeat;
   background-size: 48px;
   height: 48px;
-  justify-content: center;
   position: relative;
   color: inherit;
-
   margin-top: 56px;
-}
-
-.header__brand::before {
-  content: "";
-  background-image: var(--avatar);
-  background-size: 100%;
-  width: 48px;
-  height: 48px;
-  position: absolute;
-
-  left: 0;
-  top: -56px;
+  gap: var(--s-8);
+  justify-content: flex-end;
 }
 
 @media screen and (min-width: 42rem) {
   .header__brand {
-    padding-left: 56px;
     margin-top: 0;
+    justify-content: normal;
   }
   .header__brand::before {
     top: 0;
   }
 }
 
-.header__brand:hover {
-  text-decoration: none;
+.header__brand a {
+  display: flex;
+  align-items: center;
 }
 
 .header__brand svg {
@@ -435,28 +486,16 @@ footer,
   height: 18px;
 }
 
-.header__brand > :first-child {
-  display: flex;
-  align-items: center;
-  gap: var(--s-8);
-}
-
-.header__brand > :nth-child(2) {
-  font-size: 0.777777rem;
-  opacity: 0.5;
-  color: var(--c-text);
-}
-
 /* Navigation links */
 .header__nav {
   display: flex;
   gap: var(--s-16);
-  margin-right: var(--s-48);
   flex-grow: 2;
+  justify-content: flex-end;
 }
 @media screen and (min-width: 42rem) {
   .header__nav {
-    justify-content: flex-end;
+    margin-right: var(--s-48);
   }
 }
 

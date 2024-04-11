@@ -104,26 +104,25 @@ export default async function About(site) {
         <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
 
         <p>
-          For me, blogging is about presenting a point of view, not to win an
-          argument, but to try and understand better. It’s more important I try
-          to learn than I try to be right.
-        </p>
-        <p>
           As Steven King
-          <a href="https://blog.jim-nielsen.com/2022/book-notes-on-writing/"
-            >said</a
-          >, writing is refined thinking. This is where I refine my thinking.
+          <a href="/2022/book-notes-on-writing/">said</a>, writing is refined
+          thinking. This is where I refine my thinking.
+        </p>
+
+        <p>
+          Also, FWIW: I take lots of notes as I read, they’re like blog post
+          seedlings. I keep them at
+          <a href="https://notes.jim-nielsen.com">notes.jim-nielsen.com</a>
         </p>
 
         <h2 id="stats">Stats</h2>
         <p>
           Some
-          <a href="https://blog.jim-nielsen.com/2022/stats-page/"
-            >stats around my blog</a
-          >. They don’t mean anything — it’s just fun to output numbers from the
-          dataset that is my blog. Read into this what you will, as Homer
-          Simpson once said, “You can come up with statistics to prove anything.
-          40% of all people know that.”
+          <a href="/2022/stats-page/">stats around my blog</a>. They don’t mean
+          anything — it’s just fun to output numbers from the dataset that is my
+          blog. Read into this what you will, as Homer Simpson once said, “You
+          can come up with statistics to prove anything. 40% of all people know
+          that.”
         </p>
 
         ${StatSection({

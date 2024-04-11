@@ -1,3 +1,5 @@
+#quadratic
+
 # Building an Infinite Spreadsheet
 
 As of late, I’ve been working on [Quadratic](https://www.quadratichq.com/): an infinite canvas spreadsheet that runs code.  Think Figma (infinite canvas) meets Excel (spreadsheet) meets VSCode (IDE). In addition to formulas (e.g. `SUM(A1:A5)`) every cell in Quadratic can be the result of code (right now it’s Python only, which means I’m learning more Python, but JavaScript is on the roadmap too).

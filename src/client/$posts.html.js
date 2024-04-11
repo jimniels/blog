@@ -44,7 +44,7 @@ export default function Post({ site, post }) {
           ${post?.tags.includes("rssClub") ? RssClub() : ""}
           ${post.contents.toString()}
         </div>
-        <footer class="copy wrapper">${ReplyHtml({ post, site })}</footer>
+        <footer class="wrapper">${ReplyHtml({ post, site })}</footer>
       </article>
     `
   );
