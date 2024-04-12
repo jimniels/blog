@@ -105,9 +105,8 @@ export default async function About(site) {
 
         <p>
           As Steven King
-          <a href="https://blog.jim-nielsen.com/2022/book-notes-on-writing/"
-            >said</a
-          >, writing is refined thinking. This is where I refine my thinking.
+          <a href="/2022/book-notes-on-writing/">said</a>, writing is refined
+          thinking. This is where I refine my thinking.
         </p>
 
         <p>
@@ -119,12 +118,11 @@ export default async function About(site) {
         <h2 id="stats">Stats</h2>
         <p>
           Some
-          <a href="https://blog.jim-nielsen.com/2022/stats-page/"
-            >stats around my blog</a
-          >. They don’t mean anything — it’s just fun to output numbers from the
-          dataset that is my blog. Read into this what you will, as Homer
-          Simpson once said, “You can come up with statistics to prove anything.
-          40% of all people know that.”
+          <a href="/2022/stats-page/">stats around my blog</a>. They don’t mean
+          anything — it’s just fun to output numbers from the dataset that is my
+          blog. Read into this what you will, as Homer Simpson once said, “You
+          can come up with statistics to prove anything. 40% of all people know
+          that.”
         </p>
 
         ${StatSection({

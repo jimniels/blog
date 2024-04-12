@@ -12,6 +12,11 @@ let externalLinks = [];
  * @type {InternalLinks}
  */
 let internalLinks = [];
+/**
+ * @typedef {string} Footnotes - An <ol> of footnotes
+ * @type {string}
+ */
+let footnotes = "";
 
 /**
  * Take a string of markdown and return the parsed HTML with an object
@@ -27,10 +32,11 @@ export default function parseMarkdown(markdown) {
   // Reset the global each time you run this
   internalLinks = [];
   externalLinks = [];
+  footnotes = "";
 
   const html = marked(markdown);
 
-  return { html, externalLinks, internalLinks };
+  return { html, externalLinks, internalLinks, footnotes };
 }
 
 // Footnotes
@@ -56,8 +62,8 @@ const renderer = {
   // Footnotes
   paragraph(text) {
     if (text.match(footnoteMatch)) {
-      return (
-        "<hr><ol class='footnotes'>" +
+      footnotes =
+        "<ol class='footnotes'>" +
         // The no extra line between footnotes allows us to match this paragraph
         // as a footnote but with all the footnotes in it.
         // [^1]: ...
@@ -74,12 +80,12 @@ const renderer = {
               text: "..."
             */
               (_, ref, text) =>
-                `<li id="${footnotePrefix}:${ref}">${text} <a href="#${referencePrefix}:${ref}" title="Jump back to footnote ${ref} in the text.">↩</a></li>`
+                `<li id="${footnotePrefix}:${ref}">${text} <a href="#${referencePrefix}:${ref}" title="Jump back to footnote ${ref} in the text.">⏎</a></li>`
             )
           )
           .join("") +
-        "</ol>"
-      );
+        "</ol>";
+      return "";
     }
     return false;
   },
