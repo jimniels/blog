@@ -23,3 +23,13 @@ Anyhow, I wanted to write this down to reinforce remembering it.
 And in a similar vein for the online world: I cannot remember the blog posts I’ve read any more than the meals I’ve eaten; even so, they’ve made me.
 
 It’s a good reminder to be mindful of my content diet — you are what you ~~eat~~ read, even if you don’t always remember it.
+
+## Update 2024-04-12
+
+[@halas@mastodon.social](https://mastodon.online/@halas#.) shared this story in response, which I really liked:
+
+> At the university I had a professor who had a class with us in the first year and then in the second. At the beginning of the second year’s classes he asked us something from the material of previous year. When met with silence he nodded thoughtfully and said: “Education is something you have even if you don't remember anything”
+
+I love stories that stick with people like that, e.g. “something a teacher told me once...”
+
+[Some impact is immeasurable](https://blog.jim-nielsen.com/2024/immeasurable-impact/).
