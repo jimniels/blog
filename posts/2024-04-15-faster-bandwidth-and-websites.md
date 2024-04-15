@@ -20,7 +20,7 @@ The question is quickly shifting from _how slow is your connection_ to _how slow
 
 ## Newer !== Better, and More Usable for the Minority is More Usable For the Majority
 
-To borrow from [Devine’s warning about equating newer with better](http://localhost:3000/2024/notes-from-computing-sustainably/): if the new website runs slower on old hardware, is the new website better than the old website?
+To borrow from [Devine’s warning about equating newer with better](/2024/notes-from-computing-sustainably/): if the new website runs slower on old hardware, is the new website better than the old website?
 
 Here’s Dan talking about how old websites beat out new ones in performance:
 
