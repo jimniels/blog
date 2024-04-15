@@ -1,8 +1,8 @@
-#bookNotes #bookNotesStevenKing
+#bookNotes #bookNotesStephenKing
 
-# Book Notes: “On Writing” by Steven King
+# Book Notes: “On Writing” by Stephen King
 
-I recently finished reading Steven King’s [_On Writing: A Memoir of the Craft_](https://bookshop.org/books/on-writing-a-memoir-of-the-craft-9781982159375/9781982159375) (it’s a good ‘un).
+I recently finished reading Stephen King’s [_On Writing: A Memoir of the Craft_](https://bookshop.org/books/on-writing-a-memoir-of-the-craft-9781982159375/9781982159375) (it’s a good ‘un).
 
 If you haven’t noticed from my recent posts, there were a number of excerpts from the book which spurred [some](/2022/finding-stuff-to-write-about) [blog](/2022/my-office-space/) [posts](/2022/there-is-no-bar-but-having-one-is-good-too/).
 

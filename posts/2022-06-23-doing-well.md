@@ -1,6 +1,6 @@
 # Doing Well
 
-Steven King in his book _On Writing_. 
+Stephen King in his book _On Writing_. 
 
 > [William Stunk said] “It is an old observation that the best writers sometimes disregard the rule of rhetoric.” Yet he goes on to add this thought, which I urge you to consider: “Unless he is certain of doing well, [the writer] will probably do best to follow the rules.”
 > 

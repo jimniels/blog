@@ -1,4 +1,4 @@
-#bookNotesStevenKing
+#bookNotesStephenKing
 
 # There Is No Bar — But Having One is Good Too
 
@@ -12,7 +12,7 @@ Personally I tend towards the “don’t publish it, it’s not good enough” e
 
 Why? I don’t think they’re good enough. I’m not sure what I mean by “good enough”, hence this post. I think what I mean is: they’re thoughts that don’t go anywhere and I don’t know where to take them. Some run in circles, seeking to go somewhere but never going anywhere. Others run contrary to some prevailing wisdom, then stop, offering no  alternative suggestion or an accompanying rationale.
 
-I agree with Chris that there’s no bar. But personally, I want one. Why? [I’ve been reading Steven King’s _On Writing_](/tags#bookNotesStevenKing) and I think he helped me realize why:
+I agree with Chris that there’s no bar. But personally, I want one. Why? [I’ve been reading Stephen King’s _On Writing_](/tags#bookNotesStephenKing) and I think he helped me realize why:
 
 > Hard writing makes for easy reading. (307)
 

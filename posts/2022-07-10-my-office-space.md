@@ -1,4 +1,4 @@
-#bookNotesStevenKing
+#bookNotesStephenKing
 
 # My Office Space
 
@@ -8,7 +8,7 @@ But I also have a three young kids and a small house with no garage. So “my”
 
 My computer desk and chair are in that room. But it’s also a storage room for strollers, bikes, camping gear, fishing poles, motor oil, golf clubs, and more. I want to kick all that stuff out and make that space “my own” but the family’s needs for storage just don’t allow it right now. And that’s fine, I get it. That’s my stage of life. One day I’ll have the chance to make my office space “my own” — whatever that means, I honestly fear I’m just too lazy to do it ha.
 
-All of that is context for something I recently read from Steven King’s book _On Writing_. He gives a piece of advice that really helped me transcend my inner struggle for a dream office and feel better, however momentarily, about my current situation.
+All of that is context for something I recently read from Stephen King’s book _On Writing_. He gives a piece of advice that really helped me transcend my inner struggle for a dream office and feel better, however momentarily, about my current situation.
 
 In the book, you read all about his life story around writing: all the not-so-great places he lived and worked before hitting it big, and then what happened when he did.
 

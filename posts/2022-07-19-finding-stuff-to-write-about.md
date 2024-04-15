@@ -1,8 +1,8 @@
-#bookNotesStevenKing
+#bookNotesStephenKing
 
 # Finding Stuff to Write About
 
-In his book _On Writing_, Steven King talks about where he gets ideas. It’s a common question, I think, for anyone who writes steadily. I know people have asked me, “How do you find stuff to write about?” What King says resonates with me: I don’t go out seeking ideas, they whiz by me all day; I’ve just gotten better at recognizing them.
+In his book _On Writing_, Stephen King talks about where he gets ideas. It’s a common question, I think, for anyone who writes steadily. I know people have asked me, “How do you find stuff to write about?” What King says resonates with me: I don’t go out seeking ideas, they whiz by me all day; I’ve just gotten better at recognizing them.
 
 > Good story ideas seem to come quite literally from nowhere, sailing at you right out of the empty sky: two previously unrelated ideas come together and make something new under the sun. Your job isn’t to find these ideas but to recognize them when they show up. (37)
 
