@@ -104,7 +104,7 @@ export default async function About(site) {
         <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
 
         <p>
-          As Steven King
+          As Stephen King
           <a href="/2022/book-notes-on-writing/">said</a>, writing is refined
           thinking. This is where I refine my thinking.
         </p>
