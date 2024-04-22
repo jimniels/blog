@@ -6,7 +6,7 @@ Paul Ford has [a great article at Wired](https://www.wired.com/story/own-future-
 
 > I began to realize I was that most horrifying of things: interdisciplinary...the idea that an English major should learn to code was seen as wasteful, bordering on abusive—like teaching a monkey to smoke. 
 
-When I’ve interviewed and expressed my desire to work doing design and code, some folks look at me strange and stammer. “Hm...well, maybe we have a place for that…I’ll have to get back to you.” To some, the idea that a designer would write code or that an engineer would move pixels seems strange — like “teaching a money to smoke”. 
+When I’ve interviewed and expressed my desire to work doing design and code, some folks look at me strange and stammer. “Hm...well, maybe we have a place for that…I’ll have to get back to you.” To some, the idea that a designer would write code or that an engineer would move pixels seems strange — like “teaching a monkey to smoke”. 
 
 The sentiment I often perceive is: “Why would we need a designer that codes? We have designers. We have coders. Why would we need someone who can do both?”[^1]
 
