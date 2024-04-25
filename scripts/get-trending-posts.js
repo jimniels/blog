@@ -4,12 +4,21 @@ import { fileURLToPath } from "url";
 import fetch from "node-fetch";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const token = process.env.NETLIFY_OAUTH
-  ? process.env.NETLIFY_OAUTH
-  : fs
-      .readFileSync(path.join(__dirname, "../.NETLIFY_OAUTH"))
+
+let token = "";
+try {
+  if (process.env.NETLIFY_OAUTH) {
+    token = process.env.NETLIFY_OAUTH;
+  } else {
+    fs.readFileSync(path.join(__dirname, "../.NETLIFY_OAUTH"))
       .toString()
       .trim();
+  }
+} catch (e) {
+  console.error(
+    "Failed to get Netlify OAuth token. Returning empty data for Netlify analytics"
+  );
+}
 
 // one month time frame
 // from Wed Jan 29 2020 00:00:00 GMT-0700
@@ -27,6 +36,8 @@ oneMonthAgo.setHours(0, 0, 0, 0);
  * @returns {Array.<{ resource: string, count: number }>
  */
 export default function getTrendingPosts() {
+  if (!token) return [];
+
   return fetch(
     `https://analytics.services.netlify.com/v2/2edb6cab-f1d8-4556-85ee-426ae71f5980/ranking/pages?from=${oneMonthAgo.getTime()}&to=${today.getTime()}&timezone=-0700&limit=15`,
     {
