@@ -170,7 +170,11 @@ export function Page(props, children) {
                 </fieldset>
               </form>
 
-              <form id="js-fidelity" action="/.netlify/functions/preferences">
+              <form
+                id="js-fidelity"
+                action="/.netlify/functions/preferences"
+                style="height: 8px; opacity: 0; visibility: hidden;"
+              >
                 <fieldset>
                   <legend>Fidelity:</legend>
                   <p>
@@ -196,6 +200,7 @@ export function Page(props, children) {
                   <button type="submit">Update</button>
                 </fieldset>
               </form>
+
               <script>
                 ${importFile("./preferences.js")};
               </script>

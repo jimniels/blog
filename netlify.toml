@@ -29,16 +29,16 @@
 #   - The build directories
 #       e.g. a version of the site is generated for each fidelity and stuck
 #       in the `/_fidelity` folder, i.e. `_fidelity/low/`
-[[redirects]]
-  from = "/*"
-  to = "/_fidelity/low/:splat"
-  status = 200
-  force = true
-  conditions = { Cookie = ["fidelity-low"] }
+# [[redirects]]
+#   from = "/*"
+#   to = "/_fidelity/low/:splat"
+#   status = 200
+#   force = true
+#   conditions = { Cookie = ["fidelity-low"] }
 
-[[redirects]]
-  from = "/*"
-  to = "/_fidelity/med/:splat"
-  status = 200
-  force = true
-  conditions = { Cookie = ["fidelity-med"] }
+# [[redirects]]
+#   from = "/*"
+#   to = "/_fidelity/med/:splat"
+#   status = 200
+#   force = true
+#   conditions = { Cookie = ["fidelity-med"] }

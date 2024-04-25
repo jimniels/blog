@@ -31,6 +31,8 @@ let App = Metalsmith(__dirname)
   // @TODO Replace this with a render-time variable like 'fidelity=low'
   // and move the logic for this into the templates themselves
   .use((files, metalsmith, done) => {
+    done();
+    return;
     if (process.argv.includes("--fast")) {
       done();
       return;
