@@ -21,6 +21,7 @@ const favs = [
 ];
 
 try {
+  fs.mkdirSync(path.join(__dirname, "../.cache"), { recursive: true });
   fs.writeFileSync(
     path.join(__dirname, "../.cache/site.json"),
     JSON.stringify(await getSiteData(), null, 2)
