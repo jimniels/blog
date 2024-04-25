@@ -1,3 +1,5 @@
+#myNotesSite
+
 # How I Take and Publish Notes
 
 I publish notes at [notes.jim-nielsen.com](https://notes.jim-nielsen.com).

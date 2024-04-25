@@ -1,3 +1,5 @@
+#myNotesSite
+
 # Introducing: notes.jim-nielsen.com
 
 **tl;dr** I have a new website at [notes.jim-nielsen.com](https://notes.jim-nielsen.com) where I’ll publish my reading notes going forward (a link, excerpt, and sometimes brief commentary from things I read). You can subscribe to the [RSS](https://notes.jim-nielsen.com/feed.xml) or [JSON](https://notes.jim-nielsen.com/feed.json) feed if you feel so inclined, but it’s really more for me than anybody else.

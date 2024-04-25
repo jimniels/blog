@@ -1,3 +1,5 @@
+#myNotesSite
+
 # A Few Details About My Notes Website
 
 A little while back I created [notes.jim-nielsen.com](https://notes.jim-nielsen.com) and [wrote about why I made it](https://blog.jim-nielsen.com/2023/notes-dot-jim-nielsen-dot-com/). I want to write a little more about some of my favorite parts of the site.
