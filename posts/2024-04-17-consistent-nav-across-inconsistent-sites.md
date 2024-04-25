@@ -66,7 +66,7 @@ In slow motion you’ll notice there are some other parts of this animation that
 
 Feeling like I could do better, I tried a third iteration. This is the one that’s on the site today. It’s still not as refined as the dynamic island, but hey, baby steps.
 
-<img src="https://cdn.jim-nielsen.com/blog/2024/subdomain-navigation-widget-v3.gif" width="314" height="351" alt="Animated gif of a profile photo of Jim Nielsen that, when clicked, reveals a popup menu with an 'x' over where Jim’s face was." />
+<img src="https://cdn.jim-nielsen.com/blog/2024/subdomain-navigation-widget-v3.gif" width="314" height="351" alt="Animated gif of a profile photo of Jim Nielsen that, when clicked, reveals a popup menu with a 'x' over where Jim’s face was." />
 
 Honestly, even v3 is still not very great. But I’m improving on it, including [responding to bugs on social media](https://x.com/albinoblack/status/1775659043492667571) (in that case, I was excited about shipping nested CSS without compilation, but maybe the world isn’t quite ready for that yet).
 
