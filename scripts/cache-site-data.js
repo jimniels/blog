@@ -26,6 +26,10 @@ try {
     path.join(__dirname, "../.cache/site.json"),
     JSON.stringify(await getSiteData(), null, 2)
   );
+  fs.writeFileSync(
+    path.join(__dirname, "../.cache/index.html"),
+    "<!doctype html><h1>Hello WOrld</h1>"
+  );
 } catch (e) {
   console.error("Failed to cache site data", e);
   process.exit(1);
