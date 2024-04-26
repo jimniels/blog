@@ -15,6 +15,7 @@
   --s-64: calc(64rem / 18);
   --s-80: calc(80rem / 18);
   --s-96: calc(96rem / 18);
+  --max-width: 32rem;
 
   /* Theme color that gets set by default but is configurable by the user */
   --c-theme-h: var(--c-blue-h);
@@ -28,6 +29,7 @@
     var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
   );
   --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 8%);
+  --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 8% / 50%);
 
   /* 
    * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
@@ -164,6 +166,7 @@ h2,
 h3,
 h4 {
   position: relative;
+  line-height: 1.2;
 
   /* Long headlines that are 1 word
      https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
@@ -183,7 +186,7 @@ h4:before {
 }
 
 h1 {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 h1::before {
@@ -191,7 +194,7 @@ h1::before {
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 1.333rem;
   font-weight: 700;
 }
 h2::before {
@@ -199,7 +202,7 @@ h2::before {
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 700;
 }
 h3::before {
@@ -285,7 +288,7 @@ table td {
 
 .copy > *:not(:is(.image-container, p:has(img))):not(pre),
 .wrapper {
-  max-width: 32rem;
+  max-width: var(--max-width);
   margin-left: var(--s-16);
   margin-right: var(--s-16);
 }
@@ -300,7 +303,7 @@ table td {
 
 pre {
   /* 32rem + 1.5rem on either side = 38rem */
-  max-width: 35rem;
+  max-width: calc(var(--max-width) + 3rem);
   margin-left: auto;
   margin-right: auto;
   padding: calc(1.618rem / 2);
@@ -340,7 +343,7 @@ pre {
   font-size: 0.75rem;
   font-style: italic;
   opacity: 0.5;
-  max-width: 32rem;
+  max-width: var(--max-width);
   display: block;
 }
 
@@ -359,7 +362,7 @@ article header {
 
 article header h1 {
   margin: 0;
-  font-size: 1.111rem;
+  /* font-size: 1.111rem; */
 }
 
 article header time {
@@ -432,7 +435,7 @@ footer h5 {
    ========================================================================== */
 
 .header {
-  max-width: 32rem;
+  max-width: var(--max-width);
   margin: var(--s-16) auto var(--s-64);
   display: flex;
   flex-direction: column;
@@ -727,5 +730,156 @@ footer h5 {
   .list-2col {
     column-count: 2;
     max-width: 40rem;
+  }
+}
+
+/* =============================================================================
+   Primary Site Navigation
+   ========================================================================== */
+
+site-nav {
+  max-width: var(--max-width);
+  display: flex;
+  gap: calc(1.618rem / 4);
+  margin-left: calc(1.618rem / 2);
+  margin-right: calc(1.618rem / 2);
+}
+
+site-nav nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+site-nav nav span {
+  color: var(--c-text-light);
+}
+site-nav nav > :first-child {
+  font-weight: 500;
+}
+site-nav nav > :not(:last-child):after {
+  content: "/";
+  font-weight: 100;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  display: inline-block;
+  color: var(--c-text-light);
+  opacity: 0.5;
+}
+
+.highlight {
+  padding: calc(1.618rem / 9) calc(1.618rem / 3);
+  border-radius: 0 20px 0;
+  color: var(--c-bg);
+  position: relative;
+  margin-left: calc(-1.618rem / 2);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+}
+.highlight:before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: var(--c-theme);
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  transform: skew(-20deg) rotate(-0.5deg);
+}
+
+@media screen and (max-width: 42rem) {
+  site-nav {
+    flex-direction: column;
+    margin-top: calc(1.618rem * 1);
+    margin-bottom: calc(1.618rem * 2);
+  }
+  site-nav nav {
+    gap: calc(1.618rem / 4) calc(1.618rem / 2);
+  }
+  site-nav nav > :first-child {
+    flex-basis: 100%;
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (min-width: 42rem) {
+  site-nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: calc(1.618rem * 1.5);
+    margin-bottom: calc(1.618rem * 3);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+}
+
+/* Form color picker
+     ========================================================================== */
+
+site-nav form {
+  display: flex;
+  align-items: center;
+}
+
+site-nav form input {
+  display: none;
+}
+
+site-nav form label {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--c-bg);
+  display: block;
+  text-indent: -9999px;
+  border-radius: 50%;
+  display: none;
+}
+
+site-nav form input:checked + label {
+  order: 1;
+  box-shadow: 0 0 0 1.5px var(--c-theme);
+  display: inline;
+}
+
+site-nav form.is-expanded label {
+  display: inline;
+}
+
+@media screen and (max-width: 42rem) {
+  site-nav {
+    position: relative;
+  }
+  site-nav form {
+    position: absolute;
+    right: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 0;
+    padding: 0 calc(1.618rem / 2);
+    background: var(--c-bg);
+    height: 100%;
+  }
+  site-nav form.is-expanded {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 42rem) {
+  site-nav form {
+    gap: calc(1.618rem / 2);
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0.25rem;
+    padding-left: 2rem;
+    background-color: var(--c-bg);
+  }
+  site-nav form label {
+    width: 21px;
+    height: 21px;
+    border-width: 2px;
   }
 }
