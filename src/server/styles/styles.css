@@ -15,6 +15,7 @@
   --s-64: calc(64rem / 18);
   --s-80: calc(80rem / 18);
   --s-96: calc(96rem / 18);
+  --max-width: 32rem;
 
   /* Theme color that gets set by default but is configurable by the user */
   --c-theme-h: var(--c-blue-h);
@@ -28,6 +29,7 @@
     var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
   );
   --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 8%);
+  --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 8% / 50%);
 
   /* 
    * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
@@ -164,6 +166,7 @@ h2,
 h3,
 h4 {
   position: relative;
+  line-height: 1.2;
 
   /* Long headlines that are 1 word
      https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
@@ -183,7 +186,7 @@ h4:before {
 }
 
 h1 {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 h1::before {
@@ -191,7 +194,7 @@ h1::before {
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 1.333rem;
   font-weight: 700;
 }
 h2::before {
@@ -199,7 +202,7 @@ h2::before {
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 700;
 }
 h3::before {
@@ -285,7 +288,7 @@ table td {
 
 .copy > *:not(:is(.image-container, p:has(img))):not(pre),
 .wrapper {
-  max-width: 32rem;
+  max-width: var(--max-width);
   margin-left: var(--s-16);
   margin-right: var(--s-16);
 }
@@ -300,7 +303,7 @@ table td {
 
 pre {
   /* 32rem + 1.5rem on either side = 38rem */
-  max-width: 35rem;
+  max-width: calc(var(--max-width) + 3rem);
   margin-left: auto;
   margin-right: auto;
   padding: calc(1.618rem / 2);
@@ -340,7 +343,7 @@ pre {
   font-size: 0.75rem;
   font-style: italic;
   opacity: 0.5;
-  max-width: 32rem;
+  max-width: var(--max-width);
   display: block;
 }
 
@@ -359,7 +362,7 @@ article header {
 
 article header h1 {
   margin: 0;
-  font-size: 1.111rem;
+  /* font-size: 1.111rem; */
 }
 
 article header time {
@@ -428,250 +431,6 @@ footer h5 {
 }
 
 /* =============================================================================
-   Header
-   ========================================================================== */
-
-.header {
-  max-width: 32rem;
-  margin: var(--s-16) auto var(--s-64);
-  display: flex;
-  flex-direction: column;
-
-  flex-wrap: wrap;
-  position: relative;
-  padding: 0 var(--s-16);
-}
-
-@media screen and (min-width: 42rem) {
-  .header {
-    padding: 0;
-    flex-direction: row;
-    align-items: center;
-  }
-}
-
-/* Logo */
-.header__brand {
-  display: flex;
-  align-items: center;
-  line-height: 1.3;
-  background-repeat: no-repeat;
-  background-size: 48px;
-  height: 48px;
-  position: relative;
-  color: inherit;
-  margin-top: 56px;
-  gap: var(--s-8);
-  justify-content: flex-end;
-}
-
-@media screen and (min-width: 42rem) {
-  .header__brand {
-    margin-top: 0;
-    justify-content: normal;
-  }
-  .header__brand::before {
-    top: 0;
-  }
-}
-
-.header__brand a {
-  display: flex;
-  align-items: center;
-}
-
-.header__brand svg {
-  fill: var(--c-theme);
-  width: 18px;
-  height: 18px;
-}
-
-/* Navigation links */
-.header__nav {
-  display: flex;
-  gap: var(--s-16);
-  flex-grow: 2;
-  justify-content: flex-end;
-}
-@media screen and (min-width: 42rem) {
-  .header__nav {
-    margin-right: var(--s-48);
-  }
-}
-
-/* Preferences Element & Trigger
-   ========================================================================== */
-
-/* details */
-.prefs {
-  background-color: var(--c-bg);
-  border-radius: var(--border-radius);
-  position: absolute;
-  top: calc(var(--s-16) * -1);
-  right: 0;
-  z-index: 100;
-  box-shadow: 0 8px 56px rgb(0 0 0 / 10%);
-}
-
-/* Kinda hacky, but it works */
-@media screen and (prefers-color-scheme: dark) {
-  .prefs {
-    box-shadow: 0 8px 56px rgb(255 255 255 / 13%);
-  }
-}
-
-/* only when open or you get weirdness with the <summary> */
-.prefs[open] {
-  padding: var(--s-32) var(--s-16) var(--s-16);
-}
-
-@media screen and (min-width: 42rem) {
-  .prefs[open] {
-    margin: 0 calc(var(--s-32) * -1);
-  }
-}
-
-.prefs__trigger {
-  position: absolute;
-  top: var(--s-24);
-  right: var(--s-16);
-  padding: var(--s-4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--c-theme);
-  border-radius: var(--border-radius);
-}
-@media screen and (min-width: 42rem) {
-  .prefs[open] {
-    padding-left: var(--s-32);
-    padding-right: var(--s-32);
-  }
-
-  .prefs__trigger {
-    right: 0;
-  }
-  .prefs[open] .prefs__trigger {
-    right: var(--s-32);
-  }
-}
-.prefs__trigger:hover {
-  filter: brightness(115%) saturate(1.15);
-}
-.prefs[open] .prefs__trigger,
-.prefs__trigger:hover {
-  background-color: var(--c-bg-opaque);
-}
-.prefs__trigger > :first-child {
-  display: flex !important;
-}
-.prefs__trigger > :last-child {
-  display: none;
-}
-.prefs__trigger::-webkit-details-marker {
-  display: none;
-}
-
-.prefs[open] .prefs__trigger {
-  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
-  border-radius: calc(var(--border-radius) / 2);
-}
-
-/* Preferences Elements
-   ========================================================================== */
-
-.prefs form:last-of-type {
-  margin-top: var(--s-24);
-}
-.prefs fieldset {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-.prefs legend {
-  font-weight: 700;
-  margin: 0;
-}
-.prefs__content {
-  display: flex;
-  width: 100%;
-  gap: var(--s-16);
-  margin-top: var(--s-12);
-}
-.prefs fieldset p {
-  font-size: 0.777rem; /* 14 */
-  display: block;
-  font-weight: 400;
-  opacity: 0.5;
-  margin: 0;
-}
-.prefs fieldset p a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-.prefs-color label {
-  width: 20%;
-}
-.prefs-color label span {
-  display: block;
-  height: var(--s-40);
-  border-radius: var(--border-radius);
-  text-indent: -9999px;
-}
-.prefs-color label input {
-  display: none;
-}
-.prefs-color label:hover span {
-  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px; /* inherits from inline style */
-}
-.prefs-color label input:checked ~ span {
-  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
-}
-
-.prefs-fidelity {
-  display: flex;
-  text-align: center;
-}
-.prefs-fidelity input {
-  display: none;
-}
-.prefs-fidelity > label {
-  width: 33.3333%;
-  color: inherit;
-  text-decoration: none;
-}
-
-.prefs-fidelity > label:before {
-  content: "";
-  background-color: white;
-  background-position: 50% 0;
-  background-repeat: no-repeat;
-  border: 1px solid var(--c-fg);
-  border-radius: var(--border-radius);
-  height: 98px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--s-4);
-}
-.prefs-fidelity > label:hover:before,
-/* Putting active here only applies styles to 
-   the default theme, as its the only one that gets styles */
-.prefs-fidelity > label:has(input:checked):before {
-  box-shadow: 0 0 0 3px var(--c-bg), 0 0 0 6px var(--c-theme);
-}
-
-.prefs-fidelity > label#high:before {
-  background-image: url(/assets/img/fidelity-high.svg);
-}
-.prefs-fidelity > label#med:before {
-  background-image: url(/assets/img/fidelity-med.svg);
-}
-.prefs-fidelity > label#low:before {
-  background-image: url(/assets/img/fidelity-low.svg);
-}
-
-/* =============================================================================
    General
    ========================================================================== */
 
@@ -727,5 +486,155 @@ footer h5 {
   .list-2col {
     column-count: 2;
     max-width: 40rem;
+  }
+}
+
+/* =============================================================================
+   Primary Site Navigation
+   ========================================================================== */
+
+site-nav {
+  max-width: var(--max-width);
+  display: flex;
+  gap: calc(1.618rem / 4);
+  margin-left: calc(1.618rem / 2);
+  margin-right: calc(1.618rem / 2);
+}
+
+site-nav nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+site-nav nav span {
+  color: var(--c-text-light);
+}
+site-nav nav > :first-child {
+  font-weight: 500;
+}
+site-nav nav > :not(:last-child):after {
+  content: "/";
+  font-weight: 100;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  display: inline-block;
+  color: var(--c-text-light);
+  opacity: 0.5;
+}
+
+.highlight {
+  padding: calc(1.618rem / 9) calc(1.618rem / 3);
+  border-radius: 0 20px 0;
+  color: var(--c-bg);
+  position: relative;
+  margin-left: calc(-1.618rem / 2);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+}
+.highlight:before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: var(--c-theme);
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  transform: skew(-20deg) rotate(-0.5deg);
+}
+
+@media screen and (max-width: 42rem) {
+  site-nav {
+    flex-direction: column;
+    margin-top: calc(1.618rem * 1);
+    margin-bottom: calc(1.618rem * 2);
+  }
+  site-nav nav > :first-child:after {
+    display: none;
+  }
+  site-nav nav > :first-child {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (min-width: 42rem) {
+  site-nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: calc(1.618rem * 1.5);
+    margin-bottom: calc(1.618rem * 3);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+}
+
+/* Form color picker
+     ========================================================================== */
+
+site-nav form {
+  display: flex;
+  align-items: center;
+}
+
+site-nav form input {
+  display: none;
+}
+
+site-nav form label {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--c-bg);
+  display: block;
+  text-indent: -9999px;
+  border-radius: 50%;
+  display: none;
+}
+
+site-nav form input:checked + label {
+  order: 1;
+  box-shadow: 0 0 0 1.5px var(--c-theme);
+  display: inline;
+}
+
+site-nav form.is-expanded label {
+  display: inline;
+}
+
+@media screen and (max-width: 42rem) {
+  site-nav {
+    position: relative;
+  }
+  site-nav form {
+    position: absolute;
+    right: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 0;
+    padding: 0 calc(1.618rem / 2);
+    background: var(--c-bg);
+    height: 100%;
+  }
+  site-nav form.is-expanded {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 42rem) {
+  site-nav form {
+    gap: calc(1.618rem / 2);
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0.25rem;
+    padding-left: 2rem;
+    background-color: var(--c-bg);
+  }
+  site-nav form label {
+    width: 21px;
+    height: 21px;
+    border-width: 2px;
   }
 }
