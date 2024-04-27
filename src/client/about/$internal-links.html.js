@@ -99,7 +99,7 @@ export default function Index(site) {
           <p>
             A visual representation of the relationship between posts on my
             blog. It uses viz.js to draw the graph. You can learn more about how
-            I did this in my
+            I did this in
             <a href="/2022/visualizing-my-blogs-links/">my blog post</a> (or
             <a href="/about#stats">check out my other stats</a>).
           </p>
