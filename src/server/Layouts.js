@@ -49,16 +49,20 @@ export function Page(props, children) {
 
   const nav = [
     {
+      label: "Jim Nielsen’s Blog",
+      path: "/",
+    },
+    {
       label: "Archive",
       path: "/archive/",
     },
     {
-      label: "About",
-      path: "/about/",
+      label: "Subscribe",
+      path: "/feed.html",
     },
     {
-      label: "RSS",
-      path: "/feed.html",
+      label: "About",
+      path: "/about/",
     },
   ];
 
@@ -127,14 +131,27 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          <script>
+          <!-- <script>
             ${importFile("./theme-color.js")};
             document.write("<theme-color></theme-color>");
-          </script>
+          </script> -->
 
           <jim-navbar></jim-navbar>
 
-          <header class="header">
+          <site-nav>
+            <nav>
+              ${nav.map(({ label, path: navItemPath }) =>
+                navItemPath === path
+                  ? html`<span>${label}</span> `
+                  : html`<a href="${navItemPath}">${label}</a> `
+              )}
+            </nav>
+          </site-nav>
+          <script>
+            ${importFile("./site-nav.js")};
+          </script>
+
+          <header class="header" style="display: none;">
             <div class="header__brand">
               ${path !== "/" ? `<a href="/">` : ""}
               <span>Jim Nielsen’s Blog</span>

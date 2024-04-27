@@ -1,5 +1,7 @@
 # Website Fidelity
 
+**Update 2024-04-27:** Something about this implementation broke. I’m assuming it’s something on Netlify’s side since I never touched anything. But I haven’t had the time to troubleshoot and fix it. So it’s not working on my blog at the moment, but the idea still stands.
+
 Kyle Simpson has a talk titled [“FOUC, and the Death of Progressive Enhancement”](https://www.youtube.com/watch?v=SiYFh7wutTI) wherein he suggests the idea of building websites in layers of fidelity instead of layers of technology.
 
 <img src="https://cdn.jim-nielsen.com/blog/2022/fidelity-ks-slide-degrees-fidelity.png" width="1012" height="566" alt="Screenshot from the YGLF conference recording showing Kyle Simpson on stage with a slide noting we should build things in “Degress of fidelity”." />
