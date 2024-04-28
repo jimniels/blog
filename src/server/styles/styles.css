@@ -70,6 +70,7 @@
     --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
     --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 16%);
     --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
+    --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 48%);
     --c-bg-opaque: hsl(
       var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
     );
