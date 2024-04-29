@@ -34,7 +34,7 @@ So I tried it. And I quickly discovered the issue: a spot in the wiring where th
 
 The fix didn’t even require a trip to the auto parts store. I went inside, grabbed some black electrical tape, wrapped it around the exposed part of the wiring, and the bike started right up, no problem!
 
-<img src="https://cdn.jim-nielsen.com/blog/2024/motorcycle-1.jpeg" width="1000" height="1334" alt="Photograph of the wiring on a Honda Trail CT90" />
+<img src="https://cdn.jim-nielsen.com/blog/2024/cars-and-seams-motorcycle.jpg" width="600" height="800" alt="Photograph of the wiring on a Honda Trail CT90" />
 
 Being able to repair the problems on that bike with such little know-how or experience made me reflect on the simplicity and elegance of such a simple piece of engineering. Everything I needed to know on that bike I could inspect myself.
 
