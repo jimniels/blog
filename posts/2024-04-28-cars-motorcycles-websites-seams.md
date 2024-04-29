@@ -18,7 +18,7 @@ With three little kids to care for, my wife shared the “motorcycles aren’t s
 
 So I bought it, a 1978 Honda Trail CT90 in mustard yellow.
 
-Yup, that is not a typo: 1978. 42 years old — older than me! And, all things considered, it was in fantastic shape. To be frank, if I’m in that good of shape when I reach that age, I’ll be happy.
+Yup, that is not a typo: 1978. 44 years old (at the time of publishing) — older than me! And, all things considered, it was in fantastic shape. To be frank, if I’m in that good of shape when I reach that age, I’ll be happy.
 
 But being in good shape was a relative term for its age. It came brimming with its own idiosyncratic problems, the first of which became apparent the day I bought it. After buying it and driving it home it failed to start back up, so I went to the internet to troubleshoot the issue.
 
