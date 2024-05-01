@@ -6,7 +6,7 @@ Most of the time you’ll solve the problem before you’re done with Step 1. Ho
 
 **Step 2**: Hit the “Send” button.
 
-Shortly after sending, the solution will present itself. I don’t know why this is. I don’t make the rules. But the solution always presents itself after you hit “Send” and no longer need the recipient’s help.
+Shortly after sending, the solution will present itself. I don’t know why this is. I don’t make the rules. But the solution frequently presents itself after you hit “Send” and no longer need the recipient’s help.
 
 **Step 3**: Return to message you just sent and respond, [“Nevermind. Figured it out.”](https://www.instagram.com/reel/C40w-f3PA7I)
 
