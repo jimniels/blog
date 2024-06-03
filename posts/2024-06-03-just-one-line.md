@@ -1,4 +1,4 @@
-# Just One Line
+# “Just” One Line
 
 From Jeremy Keith’s piece [“Responsibility”](https://adactio.com/journal/21126):
 
