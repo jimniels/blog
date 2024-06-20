@@ -1,4 +1,4 @@
-# Custom Elements, At Minimum, Only Need End With a Hyphen
+# Custom Elements Don’t Require a Hyphen as a Separator
 
 [Scott Jehl reached out](https://mstdn.social/@scottjehl/112646802312714877) to help me resolve a conundrum in [my post about what constitutes a valid custom element tag](https://blog.jim-nielsen.com/2023/validity-of-custom-element-tag-names/).
 
