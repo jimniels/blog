@@ -59,11 +59,9 @@ Which made me wonder: can you put the trademark or copyright symbol on a custom 
 
 > a large variety of names is allowed, to give maximum flexibility for use cases like `<math-α>` or `<emotion-😍>`.
 
-So emojis are allowed in custom elements?!?
+So emojis are allowed in custom elements?!? Yup, it looks like they are, which means `<my-$0.02>` may not work but `<my-💲0.02>` does! (Thanks to [Scott Jehl](https://mstdn.social/@scottjehl/112646802312714877) for providing the feedback necessary to get [my example Codepen working](https://codepen.io/jimniels/pen/QWBzMpw).)
 
-Maybe in theory, but in practice (at the time of this writing) those custom element names fail in [my Codepen](https://codepen.io/jimniels/pen/QWBzMpw). Not sure why?
-
-<img src="https://cdn.jim-nielsen.com/blog/2023/custom-element-copyrights.png" width="344" height="138" alt="" />
+<img src="https://cdn.jim-nielsen.com/blog/2023/custom-element-copyrights.png" width="349" height="382" alt="" />
 
 I wonder if some day we’ll see someone try to legally trademark a custom element tag name for some convention they claim to have invented — say something like `<command-palette™>` — and then sue in court if anyone out there tries to use that same name for a web component lol.
 
