@@ -20,4 +20,4 @@ Now, with LLMs, a search result isn’t a search result. An image isn’t an ima
 
 We’re going to need a lot more qualifiers.
 
-[^1]: I swear someone already wrote at-length about this parallel between food/“organic food“ and knowledge/“organic knowledge” but I can’t find. If you know it, reach out.
+[^1]: I swear someone already wrote at-length about this parallel between food/“organic food“ and knowledge/“organic knowledge” but I can’t find. If you know it, reach out. **Update:** Found it, from [an iA article](https://ia.net/topics/ai-and-the-beauty-of-human-flaws): “Organic food only became organic once we ate enough frozen pizzas to realize the difference and importance of healthy, organic food.”
