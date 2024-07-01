@@ -1,5 +1,3 @@
-#rssClub
-
 # Digital Trees
 
 Trees have many functions:
