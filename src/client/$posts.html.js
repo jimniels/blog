@@ -17,6 +17,11 @@ export default function Post({ site, post }) {
           <meta property="og:type" content="article" />
           <meta property="og:url" content="${post.permalink}" />
 
+          <meta
+            property="fediverse:creator"
+            content="@jimniels@mastodon.social"
+          />
+
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@jimniels" />
           <meta name="twitter:creator" content="@jimniels" />
