@@ -6,7 +6,7 @@ I was reading [Chase McCoy’s notes about Figma’s move into the AI space](htt
 
 > Generating UI designs from scratch, **based on a text prompt**
 
-This reminded me of [my note from a _Wall Street Journal_ interview with John Ive](https://notes.jim-nielsen.com/#2022-11-30T1227) where he talks about problem solving. He notes that when you set out to solve a problem you are open to a flood of ideas because the only clear thing is the problem itself. If all you can say is “I’m going to make this person’s life better” then the possibilities for doing that are almost endless.
+This reminded me of [my note from a _Wall Street Journal_ interview with Jony Ive](https://notes.jim-nielsen.com/#2022-11-30T1227) where he talks about problem solving. He notes that when you set out to solve a problem you are open to a flood of ideas because the only clear thing is the problem itself. If all you can say is “I’m going to make this person’s life better” then the possibilities for doing that are almost endless.
 
 But once you begin talking about solutions, you begin to drastically narrow down your possibilities. Here’s Ive:
 
