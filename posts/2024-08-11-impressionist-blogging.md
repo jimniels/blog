@@ -24,4 +24,4 @@ I think [this other post from the folks at iA](https://ia.net/topics/ai-and-the-
 
 It will no longer be enough to blog in order to merely “put out content”. The key will be what has always been key to great blogging: expressing your unique, inimitable impression.
 
-Blogging is expressing your impression. It’s deriving action from thought. Regardless of how much the AI sphere may not be giving thought to its actions, continued blogging in the face of that reality is deliberate action with thought — something only us humans can do. Beep boop beep.
+Blogging is expressing your impression. It’s deriving action from thought. Regardless of how much the AI sphere may not be giving thought to its actions, continued blogging in the face of that reality is deliberate action with thought — something only us humans can do. Blog. Blog against the dying of the light.
