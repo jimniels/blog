@@ -14,7 +14,7 @@ Social media sort of achieved this, but the incentives are off. And it’s not j
 
 Yes! This is why I believe everyone could benefit from a personal website. Its form encourages you to look _inward_, whereas every social platform on the internet encourages you to look _outward_.
 
-A personal website has affordances which encourage you to create something that you couldn’t otherwise create anywhere else, like YouTube or Reddit or Facebook or Twitter or even Mastodon.  Why?  Because the context of those environments is outward looking. It’s not personal, but social. And that shapes what you create.
+A personal website has affordances which encourage you to create something that you couldn’t otherwise create anywhere else, like YouTube or Reddit or Facebook or Twitter or even Mastodon.  Why?  Because the context of those environments is outward looking. It’s not personal, but social. The medium shapes the message.
 
 If I were to put this in terms of a [priority of constituencies](https://adactio.com/journal/16811), it would be something like this:
 
