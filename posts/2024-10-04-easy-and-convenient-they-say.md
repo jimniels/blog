@@ -1,6 +1,6 @@
 # “Easier and More Convenient” They Said…
 
-<a href="https://mastodonapp.uk/@MarkHoltom/113015809999903285"><img src="https://cdn.jim-nielsen.com/blog/2024/easier-and-more-convenient-comic.png" width="256" height="320" alt="Comic of a woman at a ticket train ticket counter where the attendant tells her “OK, one more time: Go home and log on to our website from your computer, create an account and purchase your ticket with your credit or debit card, download the ticket to a smartphone, then come back at the allocated time... Just what part of easier and more convenient' don't you get?”" /></a>
+<a href="https://mastodonapp.uk/@MarkHoltom/113015809999903285"><img src="https://cdn.jim-nielsen.com/blog/2024/easier-and-more-convenient-comic.png" width="512" height="640" alt="Comic of a woman at a ticket train ticket counter where the attendant tells her “OK, one more time: Go home and log on to our website from your computer, create an account and purchase your ticket with your credit or debit card, download the ticket to a smartphone, then come back at the allocated time... Just what part of easier and more convenient' don't you get?”" /></a>
 
 The other day in our morning rush before school my wife asked for help figuring out how to put lunch money on our kids’ school accounts.
 
