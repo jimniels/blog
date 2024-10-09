@@ -45,4 +45,4 @@ I look at the code, fix the bug, then go back to the UI and test again:
 
 Boom! It works.
 
-So I’m expressing my gratitude for being able to style `console.log` statements!
+So I’m expressing my gratitude for being able to [style `console.log` statements](https://developer.mozilla.org/en-US/docs/Web/API/console#styling_console_output)!
