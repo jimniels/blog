@@ -87,6 +87,14 @@ export function Page(props, children) {
           <link rel="me" href="https://dribbble.com/jimniels" />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
 
+          <!-- Fonts -->
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+          />
+
           <script
             type="module"
             src="https://www.jim-nielsen.com/jim-navbar.js"
