@@ -1,6 +1,8 @@
-# Notes from Pen & Teller’s Masterclass
+#pennAndTeller
 
-I quite enjoyed [Pen & Teller’s Masterclass](https://www.masterclass.com/classes/penn-and-teller-teach-the-art-of-magic) (paywall, sorry!). I learned some practical card tricks that came in handy while we sitting in the airport waiting for a connecting fight with restless kids.
+# Notes from Penn & Teller’s Masterclass
+
+I quite enjoyed [Penn & Teller’s Masterclass](https://www.masterclass.com/classes/penn-and-teller-teach-the-art-of-magic) (paywall, sorry!). I learned some practical card tricks that came in handy while we sitting in the airport waiting for a connecting fight with restless kids.
 
 I also really enjoyed Pen & Teller’s reflections on the art of their craft. Here are a few points I wanted to write down.
 
