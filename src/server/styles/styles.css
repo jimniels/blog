@@ -376,7 +376,8 @@ article header time {
    ========================================================================== */
 
 footer ol a,
-.copy a {
+.copy a,
+footer p a {
   text-decoration: underline;
 }
 
@@ -388,7 +389,8 @@ footer ol a,
 }
 footer {
   font-size: 0.888888888rem;
-  margin: calc(var(--s-96) * 2) 0 var(--s-48);
+  margin: calc(var(--s-96)) 0 var(--s-24);
+  color: var(--c-text-light);
 }
 footer a[href^="#fn"] {
   text-decoration: none;
@@ -397,38 +399,18 @@ footer hr {
   display: none;
   /* margin-bottom: var(--s-48); */
 }
+footer p {
+  margin: 0;
+  font-size: 0.7777778rem;
+}
 footer ol {
   margin: 0;
-  padding: 0 0 0 1rem;
-}
-footer ul {
-  margin: 0;
   padding: 0;
-  font-size: 0.77777777777rem;
-  display: flex;
-  list-style: none;
-  gap: var(--s-8);
-  flex-wrap: wrap;
+  list-style-position: inside;
+  margin-bottom: var(--s-96);
 }
-footer ul li {
-  max-width: 100%;
-}
-footer ul li a {
-  padding: var(--s-4) var(--s-8);
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  background: var(--c-fg);
-  border-radius: 50px;
-}
-footer h5 {
-  margin: var(--s-48) 0 var(--s-16);
-  font-size: 0.722222222rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.0666rem;
-  opacity: 0.5;
+footer ol li {
+  padding: var(--s-4) 0;
 }
 
 /* =============================================================================
