@@ -82,10 +82,4 @@ The above are all considered valid syntax for the `font-family` property because
 
 For the property `font-family`, I imagine the browser parsing the value and determining whether it’s looking at a generic font family keyword (like `ui-serif` or `sans-serif`) or a specific font family’s name corresponding to a font usable on the client (like "Georgia" or "Noto Sans").
 
-Ultimately, I was hoping for a way to query support for a generic font family keyword in CSS (like `ui-serif`) but I don’t think it’s doable. Nonetheless, [@kn_wler pointed out](https://twitter.com/kn_wler/status/1570645634235133953) a [JS solution](https://developer.mozilla.org/en-US/docs/Web/API/FontFaceSet/check):
-
-```js
-document.fonts.check('12px ui-serif');
-```
-
-This all clicked via the short convos I was having on Twitter (thanks Twitter peeps) and I could’ve left it at that, but typing this out and trying to explain it in a blog post helps me actually learn from these folks and refine my mental model for how CSS works. Happy blogging everybody!
+Ultimately, I was hoping for a way to query support for a generic font family keyword in CSS (like `ui-serif`) but I don’t think it’s doable. I’ll update this post if I find a solution.
