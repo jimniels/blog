@@ -6,7 +6,7 @@ When [my site analytics reported a large number of inbound traffic from Hacker N
 
 [I like to visit links](https://blog.jim-nielsen.com/2024/treating-the-symptoms/). I am connoisseur of it. I love the feeling of landing on something you didn’t expect — which is precisely what happened.
 
-I landed on a site that had one of those Cloudflare-esque  “prove you're human” captchas. That didn’t seem particularly abnormal. Lots of website owners these days  use these to help protect them from malicious activities like DDoS attacks.
+I landed on a site that had one of those Cloudflare-esque  “prove you're human” captchas. That didn’t seem particularly abnormal. Lots of website owners these days  use them for protection against malicious activities like DDoS attacks.
 
 Anyhow, the page had a little graphic that said: “Press ‘Allow' to prove you are not a robot.” 
 
