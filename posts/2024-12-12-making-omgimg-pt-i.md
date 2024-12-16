@@ -1,6 +1,6 @@
 #omgImg
 
-# Making o(m)g:image Part I: Design Iterations
+# Making o(m)g:image, Part I: Design Iterations
 
 This is part one of my series of posts describing how I made my  quiz game [o(m)g:image](https://omgimg.jim-nielsen.com).
 
