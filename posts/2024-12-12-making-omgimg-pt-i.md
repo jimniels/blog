@@ -1,4 +1,14 @@
+#omgImg
+
 # Making o(m)g:image Part I: Design Iterations
+
+This is part one of my series of posts describing how I made my  quiz game [o(m)g:image](https://omgimg.jim-nielsen.com).
+
+- [Project Announcement](https://blog.jim-nielsen.com/2024/omgimg/)
+- **Pt. I: Design Iterations**
+- [Pt. II: As Little JS As Possible](https://blog.jim-nielsen.com/2024/making-omgimg-pt-ii/)
+
+---
 
 [I blogged about](https://blog.jim-nielsen.com/2024/omgimg/) my recent project [omgimg.jim-nielsen.com](https://omgimg.jim-nielsen.com) and I figured I’d write more details about my process behind making it.
 
