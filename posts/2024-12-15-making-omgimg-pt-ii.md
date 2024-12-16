@@ -61,4 +61,4 @@ That said, the irony here is that it’s actually quite hard to build something 
 
 In other words, building websites backed by MBs of JavaScript is  hard. You know what’s even harder? Questioning whether you actually need to build what you’re building, and cutting it down to the essentials. (HTML is really good at essentials.)
 
-It reminds me of that old saying about shorter writing requires more time, but for websites, i.e. “My website is lots of JavaScript. If I’d had more time, I would’ve made it lots of HTML.”
+It reminds me of that old saying about how shorter writing requires more time, except for websites, i.e. “My website is lots of JavaScript. If I’d had more time, I would’ve made it lots of HTML.”
