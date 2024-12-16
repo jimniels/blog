@@ -40,7 +40,7 @@ export default function ReplyHtml({ post, site }) {
       >
       :: <a href="https://mastodon.social/@jimniels">Mastodon</a> ::
 
-      <a href="https://bsky.app/profile/jim-nielsen.com">BlueSky</a>
+      <a href="https://bsky.app/profile/jim-nielsen.com">Bluesky</a>
     </p>
 
     ${Array.isArray(postTags) &&
