@@ -7,6 +7,7 @@ This is part one of my series of posts describing how I made my  quiz game [o(m)
 - [Project Announcement](https://blog.jim-nielsen.com/2024/omgimg/)
 - **Pt. I: Design Iterations**
 - [Pt. II: As Little JS As Possible](https://blog.jim-nielsen.com/2024/making-omgimg-pt-ii/)
+- [Pt. III: The HTML](https://blog.jim-nielsen.com/2024/making-omgimg-pt-iii)
 
 ---
 
