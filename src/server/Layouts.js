@@ -48,14 +48,18 @@ export function Page(props, children) {
   } = props;
 
   const nav = [
-    {
-      label: "Jim Nielsen’s Blog",
-      path: "/",
-    },
+    // {
+    //   label: "Jim Nielsen’s Blog",
+    //   path: "/",
+    // },
     {
       label: "Archive",
       path: "/archive/",
     },
+    // {
+    //   label: "Tags",
+    //   path: "/tags/",
+    // },
     {
       label: "Subscribe",
       path: "/feed.html",
@@ -139,7 +143,10 @@ export function Page(props, children) {
           <jim-navbar></jim-navbar>
 
           <nav class="navv wrapper">
-            <a href="/" style="display: flex; align-items: center; gap: 8px;">
+            <a
+              href="/"
+              style="display: flex; align-items: center; gap: 8px; margin-right: auto;"
+            >
               ${path !== "/" &&
               html` <svg
                 style="width: 30px; height: 30px; margin: 0 -8px 0 -4px;"
@@ -158,9 +165,18 @@ export function Page(props, children) {
               </svg>`}
               Jim Nielsen’s Blog
             </a>
-            ${path === "/menu/"
-              ? html`<span>Menu</span>`
-              : html`<a href="/menu/">Menu</a>`}
+
+            ${nav.map(({ label, path: navItemPath }) =>
+              navItemPath === path
+                ? html`<span>${label}</span> `
+                : html`<a href="${navItemPath}">${label}</a> `
+            )}
+
+            <site-nav> </site-nav>
+
+            <script>
+              ${importFile("./site-nav.js")};
+            </script>
           </nav>
 
           <!-- <site-nav>
