@@ -34,19 +34,11 @@ export default function Archive(site) {
     html` <main class="wrapper">
       <h1>Archive</h1>
       <p>
-        Tags (i.e. things I’ve written about more than once):
+        Tags:
         ${site.tags
           .map(({ name }) => name)
           .sort()
           .map((name) => html`<a href="/tags#${name}">${name}</a>`)
-          .join(", ")}
-      </p>
-      <p>
-        Years:
-        ${Object.keys(postsByYear)
-          .sort()
-          .reverse()
-          .map((year) => html`<a href="#${year}">${year}</a>`)
           .join(", ")}
       </p>
 

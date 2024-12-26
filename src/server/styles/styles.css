@@ -15,7 +15,9 @@
   --s-64: calc(64rem / 18);
   --s-80: calc(80rem / 18);
   --s-96: calc(96rem / 18);
-  --max-width: 32rem;
+  --max-width: 30rem;
+  --max-width-padding: 6rem;
+  --max-width-outer: calc(var(--max-width) + (var(--max-width-padding) * 2));
 
   /* Theme color that gets set by default but is configurable by the user */
   --c-theme-h: var(--c-blue-h);
@@ -24,6 +26,7 @@
   --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
 
   --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
+  --c-bg-1: hsl(var(--c-theme-h) var(--c-theme-s) 100%);
   --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 96%);
   --c-bg-opaque: hsl(
     var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
@@ -68,6 +71,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
+    --c-bg-1: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 60%) 5%);
+
     --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 16%);
     --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
     --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 98% / 50%);
@@ -120,7 +125,7 @@
 html {
   color-scheme: light dark;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.5;
   background: var(--c-bg);
   color: var(--c-text);
 }
@@ -311,9 +316,13 @@ pre {
   border-radius: 0px;
 }
 
-@media screen and (min-width: 42rem) {
+@media screen and (min-width: 768px) {
   pre {
-    padding: 1.5rem;
+    background: var(--c-bg);
+    /* border-top: 1px solid var(--c-bg-opaque);
+    border-bottom: 1px solid var(--c-bg-opaque); */
+    max-width: var(--max-width-outer);
+    padding: var(--s-24) var(--max-width-padding);
     border-radius: var(--border-radius);
   }
 }
@@ -358,7 +367,8 @@ pre {
 article header {
   display: flex;
   flex-direction: column;
-  margin: var(--s-80) 0;
+  margin: 0 0 var(--s-40) 0;
+  gap: var(--s-4);
 }
 
 article header h1 {
@@ -389,8 +399,14 @@ footer p a {
 }
 footer {
   font-size: 0.888888888rem;
-  margin: calc(var(--s-96)) 0 var(--s-24);
+  padding: calc(var(--s-96)) 0 var(--s-24);
   color: var(--c-text-light);
+}
+footer a {
+  color: inherit;
+}
+footer a:hover {
+  color: var(--c-theme);
 }
 footer a[href^="#fn"] {
   text-decoration: none;
@@ -424,22 +440,27 @@ footer ol li {
 .posts-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.618rem 0;
+  margin: 0;
 }
 
-.posts-list li {
-  margin-bottom: calc(1.618rem / 2);
+.posts-list li a {
   display: flex;
   flex-direction: column;
+  padding: 12px 0px;
+  border-bottom: 1px solid var(--c-fg);
+  text-decoration: none;
 }
 
-.posts-list small {
+.posts-list li a:hover span:first-child {
+  text-decoration: underline;
+}
+
+.posts-list span:last-child {
   opacity: 0.5;
+  color: var(--c-text-light);
   font-size: 0.7rem;
   white-space: nowrap;
-}
-.posts-list small a {
-  color: inherit;
+  text-decoration: none;
 }
 
 .posts-list time {
@@ -449,7 +470,6 @@ footer ol li {
 
 @media screen and (min-width: 520px) {
   .posts-list li {
-    margin-bottom: calc(1.618rem / 4);
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -619,5 +639,55 @@ site-nav form.is-expanded label {
     width: 21px;
     height: 21px;
     border-width: 2px;
+  }
+}
+
+.navv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--s-16);
+  padding: var(--s-32) 0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02rem;
+  margin: 0 0 var(--s-16) 0;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+.pb-4 {
+  padding-bottom: 1rem;
+}
+.pb-5 {
+  padding-bottom: 1.5rem;
+}
+.pb-6 {
+  padding-bottom: 2rem;
+}
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  body {
+    max-width: var(--max-width-outer);
+    margin: 0 auto;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.1);
+    background: var(--c-bg-1);
   }
 }
