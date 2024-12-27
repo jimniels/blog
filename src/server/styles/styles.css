@@ -443,11 +443,14 @@ footer ol li {
   margin: 0;
 }
 
+.posts-list li {
+  border-bottom: 1px solid var(--c-fg);
+}
+
 .posts-list li a {
   display: flex;
   flex-direction: column;
-  padding: 12px 0px;
-  border-bottom: 1px solid var(--c-fg);
+  padding: var(--s-12) 0px;
   text-decoration: none;
 }
 
@@ -496,16 +499,36 @@ footer ol li {
    ========================================================================== */
 
 theme-picker {
-  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column-reverse;
+  padding: var(--s-24) var(--s-16);
+  margin-right: calc(var(--s-16) * -1);
+  margin-top: calc(var(--s-24) * -1);
+  border: 1px solid transparent;
+
+  position: absolute;
+
+  background: var(--c-bg);
+
+  z-index: 10;
+  gap: var(--s-24);
+  justify-content: center;
+  right: 0;
+  top: 0.25rem;
+}
+theme-picker.is-expanded {
+  background-color: var(--c-bg);
+  border-color: var(--c-bg-opaque);
+  border-radius: 37px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 theme-picker button {
-  width: 24px;
-  height: 24px;
-  border: 2px solid var(--c-bg);
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+
   display: block;
   text-indent: -9999px;
   border-radius: 50%;
@@ -517,45 +540,9 @@ theme-picker.is-expanded button {
 }
 theme-picker button[aria-pressed="true"] {
   order: 1;
-  box-shadow: 0 0 0 1.5px var(--c-theme);
+  box-shadow: 0 0 0 2px var(--c-theme);
   display: inline;
-}
-
-@media screen and (max-width: 42rem) {
-  theme-picker {
-    position: relative;
-
-    position: absolute;
-    right: 0;
-    flex-direction: row;
-    justify-content: space-between;
-    top: 0;
-    /* padding: 0 calc(1.618rem / 2); */
-    background: var(--c-bg);
-    height: 100%;
-    z-index: 10;
-  }
-  theme-picker.is-expanded {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 42rem) {
-  theme-picker {
-    gap: calc(1.618rem / 2);
-    justify-content: center;
-    position: absolute;
-    right: 0;
-    top: 0.25rem;
-    padding: 0 var(--s-16);
-    margin-right: calc(var(--s-16) * -1);
-    background-color: var(--c-bg);
-  }
-  theme-picker button {
-    width: 21px;
-    height: 21px;
-    border-width: 2px;
-  }
+  border-color: var(--c-bg);
 }
 
 .navv {

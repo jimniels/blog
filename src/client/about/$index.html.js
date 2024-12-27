@@ -93,9 +93,10 @@ export default async function About(site) {
         <p class="image-container">
           <img
             src="/assets/img/jimniels.jpg"
-            width="800"
-            height="419"
+            width="640"
+            height="410"
             alt="Portrait of Jim Nielsen"
+            style="border-radius: 17px;"
           />
         </p>
 
