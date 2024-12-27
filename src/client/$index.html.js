@@ -109,9 +109,9 @@ function PostList(
 
 function PostMore(children) {
   return html`
-    <details style="padding: 4px 16px;">
+    <details style="margin-bottom: 2rem;">
       <summary
-        style="margin: 0 0 1rem; opacity: .5; font-size: .875rem; cursor: pointer;"
+        style="margin: .5rem 0; color: var(--c-text-light); font-size: .875rem; cursor: pointer;"
       >
         Show more…
       </summary>

@@ -32,11 +32,6 @@ export default function Index(site) {
           <a href="/about/">About</a>
         </li>
       </ul>
-
-      <site-nav></site-nav>
-      <script>
-        ${importFile("../../server/site-nav.js")};
-      </script>
     </main>`
   );
 }

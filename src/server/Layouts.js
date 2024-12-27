@@ -48,10 +48,10 @@ export function Page(props, children) {
   } = props;
 
   const nav = [
-    // {
-    //   label: "Jim Nielsen’s Blog",
-    //   path: "/",
-    // },
+    {
+      label: "Jim Nielsen’s Blog",
+      path: "/",
+    },
     {
       label: "Archive",
       path: "/archive/",
@@ -135,21 +135,12 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          <!-- <script>
-            ${importFile("./theme-color.js")};
-            document.write("<theme-color></theme-color>");
-          </script> -->
-
           <jim-navbar></jim-navbar>
 
           <nav class="navv wrapper">
-            <a
-              href="/"
-              style="display: flex; align-items: center; gap: 8px; margin-right: auto;"
-            >
+            <a href="/" ${path === "/" && "aria-current='page'"}>
               ${path !== "/" &&
-              html` <svg
-                style="width: 30px; height: 30px; margin: 0 -8px 0 -4px;"
+              html`<svg
                 width="15"
                 height="15"
                 viewBox="0 0 15 15"
@@ -166,104 +157,25 @@ export function Page(props, children) {
               Jim Nielsen’s Blog
             </a>
 
-            ${nav.map(({ label, path: navItemPath }) =>
-              navItemPath === path
-                ? html`<span>${label}</span> `
-                : html`<a href="${navItemPath}">${label}</a> `
-            )}
+            <a href="/menu/" ${path === "/menu/" && "aria-current='page'"}
+              >Menu</a
+            >
+            <a href="/archive/" ${path === "/archive/" && "aria-current='page'"}
+              >Archive</a
+            >
+            <a href="/about/" ${path === "/about/" && "aria-current='page'"}
+              >About</a
+            >
+            <a
+              href="/feed.html"
+              ${path === "/feed.html" && "aria-current='page'"}
+              >${importFile("./svgs/feed-rss.svg")}</a
+            >
 
-            <site-nav> </site-nav>
-
-            <script>
-              ${importFile("./site-nav.js")};
-            </script>
+            <theme-picker></theme-picker>
+            <!-- prettier-ignore -->
+            <script>${importFile("./theme-picker.js")}</script>
           </nav>
-
-          <!-- <site-nav>
-            <nav>
-              ${nav.map(({ label, path: navItemPath }) =>
-            navItemPath === path
-              ? html`<span>${label}</span> `
-              : html`<a href="${navItemPath}">${label}</a> `
-          )}
-            </nav>
-          </site-nav>
-          <script>
-            ${importFile("./site-nav.js")};
-          </script> -->
-
-          <header class="header" style="display: none;">
-            <div class="header__brand">
-              ${path !== "/" ? `<a href="/">` : ""}
-              <span>Jim Nielsen’s Blog</span>
-              ${path !== "/" ? `</a>` : ""}
-              <a
-                href="/2022/verified-personal-website/"
-                aria-label="Read about my “verified” personal website"
-                >${importFile("./svgs/check-mark.svg")}</a
-              >
-            </div>
-            <nav class="header__nav">
-              ${nav.map(({ label, path: navItemPath }) =>
-                navItemPath === path
-                  ? html`<span>${label}</span> `
-                  : html`<a href="${navItemPath}">${label}</a> `
-              )}
-            </nav>
-            <details class="prefs">
-              <summary class="prefs__trigger">
-                <span style="display: none" aria-hidden="true"
-                  >${importFile("./svgs/preferences.svg")}</span
-                >
-                <span>Preferences</span>
-              </summary>
-
-              <form id="js-color">
-                <fieldset>
-                  <legend>Theme:</legend>
-                  <span id="js-color-root" class="prefs__content prefs-color">
-                    This feature requires JavaScript as well as the default site
-                    fidelity (see below).
-                  </span>
-                </fieldset>
-              </form>
-
-              <form
-                id="js-fidelity"
-                action="/.netlify/functions/preferences"
-                style="height: 8px; opacity: 0; visibility: hidden;"
-              >
-                <fieldset>
-                  <legend>Fidelity:</legend>
-                  <p>
-                    Controls the level of style and functionality of the site, a
-                    lower fidelity meaning less bandwidth, battery, and CPU
-                    usage. <a href="/2022/website-fidelity/">Learn more</a>.
-                  </p>
-                  <span class="prefs__content prefs-fidelity">
-                    ${fidelities.map(
-                      ({ id, title }, i) => html`
-                        <label id="${id}">
-                          <input
-                            type="radio"
-                            name="fidelity"
-                            value="${id}"
-                            ${i === 0 ? "checked" : ""}
-                          />
-                          ${title}
-                        </label>
-                      `
-                    )}
-                  </span>
-                  <button type="submit">Update</button>
-                </fieldset>
-              </form>
-
-              <script>
-                ${importFile("./preferences.js")};
-              </script>
-            </details>
-          </header>
 
           ${children}
         </body>

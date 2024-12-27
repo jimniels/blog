@@ -16,11 +16,12 @@ const colors = [
   // "indigo",
 ];
 
-console.log("fired");
-
-class SiteNav extends HTMLElement {
+class ThemePicker extends HTMLElement {
   constructor() {
     super();
+
+    this.setAttribute("role", "group");
+    this.setAttribute("aria-label", "Toggle buttons");
 
     let initialColor = localStorage.getItem("theme-color");
     if (!colors.includes(initialColor)) {
@@ -28,47 +29,42 @@ class SiteNav extends HTMLElement {
     }
     this.setColor(initialColor);
 
-    this.$form = document.createElement("form");
-    this.$form.innerHTML = /*html*/ `
+    this.innerHTML = /*html*/ `
         ${colors
           .map(
             (color) => /*html*/ `
-            <input
+            <button
               id="color-${color}"
-              type="radio"
-              name="color"
               value="${color}"
-              ${color === initialColor ? "checked" : ""}
-            >
-            <label
-              title="${color}"
-              for="color-${color}"
-              style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">
-              ${color}
-            </label>
+              aria-label="${color}"
+              aria-pressed="${color === initialColor}"
+              style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"
+            ></button> 
         `
           )
           .join("")}
     `;
-    this.appendChild(this.$form);
   }
 
   connectedCallback() {
     // Handle clicking outside the color picker to collapse it
     document.documentElement.addEventListener("click", (e) => {
-      if (this.$form.classList.contains("is-expanded")) {
+      if (this.classList.contains("is-expanded")) {
         this.toggleVisibility();
       }
     });
     // Handle expanding/collapsing the color picker through the <form>
-    this.$form.addEventListener("click", (e) => {
+    this.addEventListener("click", (e) => {
       e.stopPropagation();
-      // If it's an <input>
+      // If it's an <button>
       if (e.target.value) {
         // If we're setting a new value, set it
         if (e.target.value !== localStorage.getItem("theme-color")) {
           const color = e.target.value;
           this.setColor(color);
+          Array.from(this.querySelectorAll(`button`)).forEach((button) => {
+            button.setAttribute("aria-pressed", button.value === color);
+          });
         }
         // Toggle visibility of options
         this.toggleVisibility();
@@ -77,10 +73,10 @@ class SiteNav extends HTMLElement {
   }
 
   toggleVisibility() {
-    if (this.$form.classList.contains("is-expanded")) {
-      this.$form.classList.remove("is-expanded");
+    if (this.classList.contains("is-expanded")) {
+      this.classList.remove("is-expanded");
     } else {
-      this.$form.classList.add("is-expanded");
+      this.classList.add("is-expanded");
     }
   }
 
@@ -101,4 +97,4 @@ class SiteNav extends HTMLElement {
   }
 }
 
-customElements.define("site-nav", SiteNav);
+customElements.define("theme-picker", ThemePicker);

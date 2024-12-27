@@ -34,12 +34,15 @@ export default function Archive(site) {
     html` <main class="wrapper">
       <h1>Archive</h1>
       <p>
-        Tags:
+        Top tags:
         ${site.tags
-          .map(({ name }) => name)
-          .sort()
-          .map((name) => html`<a href="/tags#${name}">${name}</a>`)
-          .join(", ")}
+          // .map(({ name }) => name)
+          .filter(({ name }) => name !== "readingNotes")
+          .sort((a, b) => b.count < a.count)
+          .slice(0, 10)
+          .map(({ name }) => html`<a href="/tags#${name}">#${name}</a>`)
+          .join(", ")},
+        <a href="/tags/">[${site.tags.length - 10} more…]</a>
       </p>
 
       ${Object.keys(postsByYear)
@@ -47,17 +50,19 @@ export default function Archive(site) {
         .reverse()
         .map(
           (year) => html`
-            <h2 id="${year}">${year}</h2>
+            <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
             <ul class="posts-list">
               ${postsByYear[year].map(
                 (post) => html`
                   <li>
-                    <a href="${post.path}"> ${post.title} </a>
-                    <small
-                      ><time datetime="${post.date}">
-                        ${post.date.slice(5, 10)}
-                      </time></small
-                    >
+                    <a href="${post.path}">
+                      <span>${post.title}</span>
+                      <span
+                        ><time datetime="${post.date}">
+                          ${post.date.slice(0, 10)}
+                        </time></span
+                      >
+                    </a>
                   </li>
                 `
               )}
