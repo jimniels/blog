@@ -52,18 +52,14 @@ export default function Index(site) {
         <h1>Hacker News Hits</h1>
         ${PostList(
           hackerNews.slice(0, 3),
-          ({ hackerNewsUrl, hackerNewsComments }) => html`<a
-            href="${hackerNewsUrl}"
-            >${hackerNewsComments} comments ↗</a
-          >`
+          ({ hackerNewsUrl, hackerNewsComments }) =>
+            html`${hackerNewsComments} comments`
         )}
         ${PostMore(
           PostList(
             hackerNews.slice(3, 9),
-            ({ hackerNewsUrl, hackerNewsComments }) => html`<a
-              href="${hackerNewsUrl}"
-              >${hackerNewsComments} comments ↗</a
-            >`
+            ({ hackerNewsUrl, hackerNewsComments }) =>
+              html`${hackerNewsComments} comments`
           )
         )}
       `}
@@ -100,8 +96,10 @@ function PostList(
       ${posts.map(
         (post) => html`
           <li>
-            <a href="${post.path}">${post.title}</a>
-            <small>${fn(post)}</small>
+            <a href="${post.path}">
+              <span>${post.title}</span>
+              <span>${fn(post)}</span>
+            </a>
           </li>
         `
       )}
@@ -111,9 +109,9 @@ function PostList(
 
 function PostMore(children) {
   return html`
-    <details style="margin: -1rem 0 3rem">
+    <details style="margin-bottom: 2rem;">
       <summary
-        style="margin: 0 0 1rem; opacity: .5; font-size: .875rem; cursor: pointer;"
+        style="margin: .5rem 0; color: var(--c-text-light); font-size: .875rem; cursor: pointer;"
       >
         Show more…
       </summary>

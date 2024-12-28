@@ -90,39 +90,39 @@ export default async function About(site) {
     { site, page },
     html`
       <main class="copy" style="margin-bottom: 6rem;">
-        <p class="image-container">
-          <img
-            src="/assets/img/jimniels.jpg"
-            width="800"
-            height="419"
-            alt="Portrait of Jim Nielsen"
-          />
-        </p>
+        <div class="image-container" style="margin-bottom: 2rem;">
+          <div
+            style="position: relative; width: 640px; height: auto; position: relative; margin: 0 auto; max-width: 100%;"
+          >
+            <img
+              src="/assets/img/jimniels.jpg"
+              width="640"
+              height="380"
+              alt="Portrait of Jim Nielsen"
+              style="display: block;"
+            />
+
+            <span
+              style="max-width: none; position: absolute; bottom: 0; right: 0; background: var(--c-theme); width: 100%; height: 100%; opacity: 0.0333"
+            >
+            </span>
+          </div>
+        </div>
 
         <h1>About</h1>
 
-        <p>Hello, I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>.</p>
-
         <p>
-          As Stephen King
-          <a href="/2022/book-notes-on-writing/">said</a>, writing is refined
-          thinking. This is where I refine my thinking.
-        </p>
-
-        <p>
-          Also, FWIW: I take lots of notes as I read, they’re like blog post
-          seedlings. I keep them at
-          <a href="https://notes.jim-nielsen.com">notes.jim-nielsen.com</a>
+          I’m Jim, a web designer and developer, and my blog is where I refine
+          my professional thinking. Want to know more about me? Check out
+          <a href="https://www.jim-nielsen.com">my personal website</a>.
         </p>
 
         <h2 id="stats">Stats</h2>
         <p>
-          Some
-          <a href="/2022/stats-page/">stats around my blog</a>. They don’t mean
-          anything — it’s just fun to output numbers from the dataset that is my
-          blog. Read into this what you will, as Homer Simpson once said, “You
-          can come up with statistics to prove anything. 40% of all people know
-          that.”
+          I keep these
+          <a href="/2022/stats-page/">stats for my blog</a>. Read into them what
+          you will, as Homer Simpson once said, “You can come up with statistics
+          to prove anything. 40% of all people know that.”
         </p>
 
         ${StatSection({
