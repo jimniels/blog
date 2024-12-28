@@ -163,7 +163,7 @@ export function Page(props, children) {
             <a href="/archive/" ${path === "/archive/" && "aria-current='page'"}
               >Archive</a
             >
-            <a href="/about/" ${path === "/about/" && "aria-current='page'"}
+            <a href="/about" ${path === "/about/" && "aria-current='page'"}
               >About</a
             >
             <a

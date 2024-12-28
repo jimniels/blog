@@ -31,6 +31,12 @@ export default function Index(site) {
         <li>
           <a href="/about/">About</a>
         </li>
+        <li>
+          <a href="/about/internal-links/">Internal links</a>
+        </li>
+        <li>
+          <a href="/about/external-links/">External links</a>
+        </li>
       </ul>
     </main>`
   );

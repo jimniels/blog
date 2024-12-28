@@ -316,13 +316,9 @@ pre {
   border-radius: 0px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 42rem) {
   pre {
-    background: var(--c-bg);
-    /* border-top: 1px solid var(--c-bg-opaque);
-    border-bottom: 1px solid var(--c-bg-opaque); */
-    max-width: var(--max-width-outer);
-    padding: var(--s-24) var(--max-width-padding);
+    padding: var(--s-24);
     border-radius: var(--border-radius);
   }
 }
@@ -444,7 +440,7 @@ footer ol li {
 }
 
 .posts-list li {
-  border-bottom: 1px solid var(--c-fg);
+  border-bottom: 1px solid var(--c-bg-opaque);
 }
 
 .posts-list li a {
@@ -528,8 +524,7 @@ theme-picker button {
   width: 18px;
   height: 18px;
   border: 2px solid transparent;
-
-  display: block;
+  padding: 0;
   text-indent: -9999px;
   border-radius: 50%;
   display: none;
@@ -585,12 +580,26 @@ theme-picker button[aria-pressed="true"] {
   gap: var(--s-8);
 }
 
+.navv a:first-child:has(svg) {
+  padding-left: var(--s-16);
+}
+
 .navv a:first-child svg {
   width: 30px;
   height: 30px;
   position: absolute;
-  left: -30px;
   top: -1px;
+  left: -12px;
+}
+
+@media screen and (min-width: 42rem) {
+  .navv a:first-child:has(svg) {
+    padding-left: 0;
+  }
+  .navv a:first-child svg {
+    left: -30px;
+    top: -1px;
+  }
 }
 
 h1 {

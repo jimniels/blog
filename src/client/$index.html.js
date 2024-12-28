@@ -18,11 +18,11 @@ export default function Index(site) {
       },
     },
     html` <main class="wrapper">
-      <h1 class="">Latest</h1>
+      <h1>Latest</h1>
       ${PostList(recent.slice(0, 3))} ${PostMore(PostList(recent.slice(3, 9)))}
       ${trending.length > 0 &&
       html`
-        <h1 class="pt-4">
+        <h1>
           Popular This Month
           <a
             style="font-size: .875rem; font-weight: normal;"

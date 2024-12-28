@@ -39,7 +39,7 @@ class ThemePicker extends HTMLElement {
               aria-label="${color}"
               aria-pressed="${color === initialColor}"
               style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"
-            ></button> 
+            >${color}</button> 
         `
           )
           .join("")}
