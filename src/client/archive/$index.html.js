@@ -6,6 +6,9 @@ const page = {
   path: "/archive/",
   head: html`
     <style>
+      [hidden] {
+        display: none !important;
+      }
       main h2 {
         position: sticky;
         top: 0px;
@@ -36,16 +39,57 @@ export default function Archive(site) {
       <p style="font-size: 0.875rem; line-height: 1.75;">
         Top tags:
         ${site.tags
-          // .map(({ name }) => name)
           .filter(({ name }) => name !== "readingNotes")
           .sort((a, b) => b.count < a.count)
-          .slice(0, 10)
+          .slice(0, 8)
           .map(
             ({ name }) =>
               html`<a href="/tags#${name}" class="tag">#${name}</a> `
           )}
         <a href="/tags/">${site.tags.length - 10} more…</a>
       </p>
+
+      <!--
+      <input type="text" placeholder="Search" id="search" list="tags" />
+      <datalist id="tags">
+        ${site.tags
+        .map(({ name }) => html`<option value="#${name}"></option>`)
+        .join("")}
+      </datalist>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const h2s = Array.from(document.querySelectorAll("main h2"));
+          const posts = Array.from(document.querySelectorAll(".posts-list li"));
+          const search = document.querySelector("#search");
+          search.addEventListener("input", (e) => {
+            const value = e.target.value.toLowerCase();
+
+            // Show/hide H2s
+            if (value.length > 0) {
+              h2s.forEach((h2) => {
+                h2.setAttribute("hidden", true);
+              });
+            } else {
+              h2s.forEach((h2) => {
+                h2.removeAttribute("hidden");
+              });
+            }
+
+            // Show/hide posts
+            posts.forEach((post) => {
+              const title = post
+                .querySelector("a span:first-child")
+                .textContent.toLowerCase();
+
+              if (title.includes(value)) {
+                post.removeAttribute("hidden");
+              } else {
+                post.setAttribute("hidden", true);
+              }
+            });
+          });
+        });
+      </script> -->
 
       ${Object.keys(postsByYear)
         .sort()
