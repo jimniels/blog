@@ -90,15 +90,19 @@ export default async function About(site) {
     { site, page },
     html`
       <main class="copy" style="margin-bottom: 6rem;">
-        <p class="image-container">
+        <div style="position: relative; margin-bottom: 2rem;">
           <img
             src="/assets/img/jimniels.jpg"
             width="640"
-            height="410"
+            height="380"
             alt="Portrait of Jim Nielsen"
-            style="border-radius: 17px;"
+            style="border-radius: 17px; display: block;"
           />
-        </p>
+          <span
+            style="position: absolute; bottom: 0; right: 0; background: var(--c-theme); border-radius: 17px; width: 100%; height: 100%; opacity: 0.0333"
+          >
+          </span>
+        </div>
 
         <h1>About</h1>
 

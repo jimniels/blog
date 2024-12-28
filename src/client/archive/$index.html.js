@@ -33,16 +33,18 @@ export default function Archive(site) {
     { site, page },
     html` <main class="wrapper">
       <h1>Archive</h1>
-      <p>
+      <p style="font-size: 0.875rem; line-height: 1.75;">
         Top tags:
         ${site.tags
           // .map(({ name }) => name)
           .filter(({ name }) => name !== "readingNotes")
           .sort((a, b) => b.count < a.count)
           .slice(0, 10)
-          .map(({ name }) => html`<a href="/tags#${name}">#${name}</a>`)
-          .join(", ")},
-        <a href="/tags/">[${site.tags.length - 10} more…]</a>
+          .map(
+            ({ name }) =>
+              html`<a href="/tags#${name}" class="tag">#${name}</a> `
+          )}
+        <a href="/tags/">${site.tags.length - 10} more…</a>
       </p>
 
       ${Object.keys(postsByYear)

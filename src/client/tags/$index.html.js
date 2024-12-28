@@ -28,19 +28,19 @@ export default function Tags(site) {
     { site, page },
     html` <main class="wrapper">
       <h1>Tags</h1>
-      <!--<ul class="list-2col">
+      <ul class="tags-list">
         ${tags.map(
-        (tag) => html`
-          <li>
-            <a href="#${tag}">#${tag}</a>
-            <small
-              style="font-weight: 300; font-size: 1rem; color: var(--c-text-light)"
-              >(${postsByTag[tag].length})</small
-            >
-          </li>
-        `
-      )}
-      </ul>-->
+          (tag) => html`
+            <li>
+              <a href="#${tag}" class="tag">#${tag}</a>
+              <small
+                style="font-weight: 300; font-size: 1rem; color: var(--c-text-light)"
+                >(${postsByTag[tag].length})</small
+              >
+            </li>
+          `
+        )}
+      </ul>
 
       ${tags.map(
         (tag) => html`
