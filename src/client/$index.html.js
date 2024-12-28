@@ -22,14 +22,7 @@ export default function Index(site) {
       ${PostList(recent.slice(0, 3))} ${PostMore(PostList(recent.slice(3, 9)))}
       ${trending.length > 0 &&
       html`
-        <h1>
-          Popular This Month
-          <a
-            style="font-size: .875rem; font-weight: normal;"
-            href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
-            >(Courtesy of Netlify)</a
-          >
-        </h1>
+        <h1>Popular Now</h1>
         ${PostList(
           trending.slice(0, 3),
           ({ pageviews }) =>
