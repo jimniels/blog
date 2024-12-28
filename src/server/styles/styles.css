@@ -597,7 +597,7 @@ theme-picker button[aria-pressed="true"] {
     padding-left: 0;
   }
   .navv a:first-child svg {
-    left: -30px;
+    left: -26px;
     top: -1px;
   }
 }
