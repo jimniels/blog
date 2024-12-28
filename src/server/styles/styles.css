@@ -507,7 +507,7 @@ theme-picker {
 
   background: var(--c-bg);
 
-  z-index: 10;
+  z-index: 20;
   gap: var(--s-24);
   justify-content: center;
   right: 0;
