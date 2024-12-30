@@ -9,6 +9,7 @@
     favicon.ico = client/favicon.ico
     apple-touch-icon.png = client/apple-touch-icon.png
     404-pie.jpg = client/404-pie.jpg
+    assets = client/assets/
 
     // Pages
     index.html = client/$index.html.js(data)
@@ -17,19 +18,39 @@
     404.html = client/$404.html.js(data)
     _redirects = client/$_redirects.js(data)
 
+    tags = {
+      index.html = client/tags/$index.html.js(data)
+    }
+    menu = {
+      index.html = client/menu/$index.html.js(data)
+    }
+    archive = {
+      index.html = client/archive/$index.html.js(data)
+      index.json = client/archive/$index.json.js(data)
+    }
+    about = {
+      index.html = client/about/$index.html.js(data)
+      internal-links = {
+        index.html = client/about/$internal-links.html.js(data)
+      }
+      external-links = {
+        index.html = client/about/$external-links.html.js(data)
+      }
+    }
+
     // These path to `/well-known/...` in the build output and then we do a
     // rewrite because netlify is apparently weird about hidden files
     // https://answers.netlify.com/t/hidden-files-removed-in-zip-deploy/8997
     well-known = {
       links = {
-        index.json = log(js:JSON/stringify(data/externalLinks), data)
+        index.json = js:JSON/stringify(data/externalLinks)
         404.json = js:JSON/stringify({ error: "Domain not found" })
         
         // TODO: This doesn't work
-        ...tree:map(data/externalLinks, {
-          key: (item) => `${item/domain}.json`,
-          value: (item) => js:JSON/stringify(item)
-        })
+        // ...tree:map(data/externalLinks, {
+        //   key: (item) => `${item/domain}.json`,
+        //   value: (item) => js:JSON/stringify(item)
+        // })
       }
     }
 
@@ -43,4 +64,4 @@
     // })
   }
 
-}
+}/public
