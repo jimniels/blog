@@ -8,6 +8,7 @@
     "node": ">=13.2.0"
   },
   "dependencies": {
+    "@weborigami/origami": "^0.2.4",
     "browser-sync": "^2.26.14",
     "cheerio": "^1.0.0-rc.5",
     "highlight.js": "^11.4.0",
