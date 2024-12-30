@@ -1,28 +1,46 @@
 {
   // `ori copy src/site.ori, clear files:build`
   // Don't put `/` at the end and you get some weird stuff
-  data: ../.site-data.cache.json/
+  data = ../.cache/site.json/
   
   // `ori copy src/site.ori/public, clear files:build`
-  public: {
+  public = {
     // TODO: setup a static folder for these
-    favicon.ico: client/favicon.ico
-    apple-touch-icon.png: client/apple-touch-icon.png
-    404-pie.jpg: client/404-pie.jpg
+    favicon.ico = client/favicon.ico
+    apple-touch-icon.png = client/apple-touch-icon.png
+    404-pie.jpg = client/404-pie.jpg
 
     // Pages
-    index.html: client/$index.html.js(data)
-    feed.xml: client/$feed.xml.js(data) // TODO: use origami's feed generator
-    feed.json: client/$feed.json.js(data) // TODO: use origami's feed generator
+    index.html = client/$index.html.js(data)
+    feed.xml = client/$feed.xml.js(data) // TODO: use origami's feed generator
+    feed.json = client/$feed.json.js(data) // TODO: use origami's feed generator
+    404.html = client/$404.html.js(data)
+    _redirects = client/$_redirects.js(data)
+
+    // These path to `/well-known/...` in the build output and then we do a
+    // rewrite because netlify is apparently weird about hidden files
+    // https://answers.netlify.com/t/hidden-files-removed-in-zip-deploy/8997
+    well-known = {
+      links = {
+        index.json = log(js:JSON/stringify(data/externalLinks), data)
+        404.json = js:JSON/stringify({ error: "Domain not found" })
+        
+        // TODO: This doesn't work
+        ...tree:map(data/externalLinks, {
+          key: (item) => `${item/domain}.json`,
+          value: (item) => js:JSON/stringify(item)
+        })
+      }
+    }
 
     // Post paths by year, e.g. `/2024/slug/index.html`
-    ...tree:map(data/posts, {
-      // `post.path` is `/YYYY/slug/` e.g. `/2024/my-post/`
-      // So we need to trim the leading slash, i.e. `2019/slug/index.html`
-      key: (post) => `${new:String(post/path)/slice(1)}index.html`
-      // TODO: why doesn't this work? `post` in the template is not what i expect
-      value: (post) => client/$posts.html.js({ site: data, post })
-    })
+    // ...tree:map(data/posts, {
+    //   // `post.path` is `/YYYY/slug/` e.g. `/2024/my-post/`
+    //   // So we need to trim the leading slash, i.e. `2019/slug/index.html`
+    //   key: (post) => `${new:String(post/path)/slice(1)}index.html`
+    //   // TODO: why doesn't this work? `post` in the template is not what i expect
+    //   value: (post) => client/$posts.html.js({ site: data, post })
+    // })
   }
 
 }
