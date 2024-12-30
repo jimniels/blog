@@ -1,0 +1,28 @@
+{
+  // `ori copy src/site.ori, clear files:build`
+  // Don't put `/` at the end and you get some weird stuff
+  data: ../.site-data.cache.json/
+  
+  // `ori copy src/site.ori/public, clear files:build`
+  public: {
+    // TODO: setup a static folder for these
+    favicon.ico: client/favicon.ico
+    apple-touch-icon.png: client/apple-touch-icon.png
+    404-pie.jpg: client/404-pie.jpg
+
+    // Pages
+    index.html: client/$index.html.js(data)
+    feed.xml: client/$feed.xml.js(data) // TODO: use origami's feed generator
+    feed.json: client/$feed.json.js(data) // TODO: use origami's feed generator
+
+    // Post paths by year, e.g. `/2024/slug/index.html`
+    ...tree:map(data/posts, {
+      // `post.path` is `/YYYY/slug/` e.g. `/2024/my-post/`
+      // So we need to trim the leading slash, i.e. `2019/slug/index.html`
+      key: (post) => `${new:String(post/path)/slice(1)}index.html`
+      // TODO: why doesn't this work? `post` in the template is not what i expect
+      value: (post) => client/$posts.html.js({ site: data, post })
+    })
+  }
+
+}
