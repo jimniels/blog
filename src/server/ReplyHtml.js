@@ -24,7 +24,7 @@ export default function ReplyHtml({ post, site }) {
 
   return html`
     <hr />
-    ${post.footnotes.length > 0 && html` ${post.footnotes} `}
+    ${post.footnotes?.length > 0 && html` ${post.footnotes} `}
 
     <p>
       Reply via:
