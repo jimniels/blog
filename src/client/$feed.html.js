@@ -73,8 +73,9 @@ export default function HTMLFeed(site) {
       <main class="copy h-feed">
         <h1 class="p-name">${site.name}</h1>
         <p>
-          You found my <a href="">HTML feed</a> — I also have an
-          <a href="/feed.xml">XML feed</a> and a
+          You found my
+          <a href="https://blog.jim-nielsen.com/2024/rss-in-html/">HTML feed</a>
+          — I also have an <a href="/feed.xml">XML feed</a> and a
           <a href="feed.json">JSON feed</a>.
         </p>
         <p>
