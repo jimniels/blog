@@ -54,12 +54,12 @@
     // TODO: remove the `posts/` prefix and `take(x, 200)`
     // Post paths by year, e.g. `/2024/slug/index.html`
     posts = {
-    ...tree:map(take(data/posts, 200), {
-      // `post.path` is `/YYYY/slug/` e.g. `/2024/my-post/`
-      // So we need to trim the leading slash, i.e. `2019/slug/index.html`
-      key: (post) => `${new:String(post/path)/slice(1)}index.html`
-      value: (post) => client/$posts.html.js({ site: data, post: tree:plain(post) })
-    })
+      ...tree:map(take(data/posts, 200), {
+        // `post.path` is `/YYYY/slug/` e.g. `/2024/my-post/`
+        // So we need to trim the leading slash, i.e. `2019/slug/index.html`
+        key: (post) => `${new:String(post/path)/slice(1)}index.html`
+        value: (post) => client/$posts.html.js({ site: data, post: tree:plain(post) })
+      })
     }
   }
 
