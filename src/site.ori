@@ -3,7 +3,6 @@
   // Don't put `/` at the end and you get some weird stuff
   data = ../.cache/site.json/
   
-  // `ori copy src/site.ori/public, clear files:build`
   public = {
     // TODO: setup a static folder for these
     favicon.ico = client/favicon.ico
@@ -45,23 +44,23 @@
       links = {
         index.json = js:JSON/stringify(data/externalLinks)
         404.json = js:JSON/stringify({ error: "Domain not found" })
-        
-        // TODO: This doesn't work
-        // ...tree:map(data/externalLinks, {
-        //   key: (item) => `${item/domain}.json`,
-        //   value: (item) => js:JSON/stringify(item)
-        // })
+        ...tree:map(data/externalLinks, {
+          key: (item) => `${item/domain}.json`,
+          value: (item) => js:JSON/stringify(tree:plain(item))
+        })
       }
     }
 
+    // TODO: remove the `posts/` prefix and `take(x, 200)`
     // Post paths by year, e.g. `/2024/slug/index.html`
-    // ...tree:map(data/posts, {
-    //   // `post.path` is `/YYYY/slug/` e.g. `/2024/my-post/`
-    //   // So we need to trim the leading slash, i.e. `2019/slug/index.html`
-    //   key: (post) => `${new:String(post/path)/slice(1)}index.html`
-    //   // TODO: why doesn't this work? `post` in the template is not what i expect
-    //   value: (post) => client/$posts.html.js({ site: data, post })
-    // })
+    posts = {
+    ...tree:map(take(data/posts, 200), {
+      // `post.path` is `/YYYY/slug/` e.g. `/2024/my-post/`
+      // So we need to trim the leading slash, i.e. `2019/slug/index.html`
+      key: (post) => `${new:String(post/path)/slice(1)}index.html`
+      value: (post) => client/$posts.html.js({ site: data, post: tree:plain(post) })
+    })
+    }
   }
 
 }/public
