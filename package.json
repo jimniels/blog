@@ -33,6 +33,7 @@
     "build": "NODE_ENV=production node metalsmith.js",
     "postbuild": "node scripts/parse-reading-notes.js",
     "validate": "html-validate build/",
+    "prebuild-ori": "npm run pre",
     "build-ori": "ori copy src/site.ori, clear files:build",
     "start-ori": "ori serve watch src, =debug src/site.ori"
   },
