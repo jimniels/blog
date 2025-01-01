@@ -2,6 +2,7 @@
   // `ori copy src/site.ori, clear files:build`
   // Don't put `/` at the end and you get some weird stuff
   data = ../.cache/site.json/
+  postsByYear = tree:group(data/posts, (post) => new:String(post/date)/slice(0,4))
   
   public = {
     // TODO: setup a static folder for these
@@ -53,14 +54,22 @@
 
     // TODO: remove the `posts/` prefix and `take(x, 200)`
     // Post paths by year, e.g. `/2024/slug/index.html`
-    posts = {
-      ...tree:map(take(data/posts, 200), {
-        // `post.path` is `/YYYY/slug/` e.g. `/2024/my-post/`
-        // So we need to trim the leading slash, i.e. `2019/slug/index.html`
-        key: (post) => `${new:String(post/path)/slice(1)}index.html`
+
+    ...tree:map(postsByYear, (year, posts) => {
+      ...tree:map(posts, {
+        key: (post) => `${post/slug}/index.html`
         value: (post) => client/$posts.html.js({ site: data, post: tree:plain(post) })
       })
-    }
+    })
+    
+    // ...tree:map(take(data/posts, 200), {
+    // ...tree:map(postsByYear, {
+    //   // `post.path` is `/YYYY/slug/` e.g. `/2024/my-post/`
+    //   // So we need to trim the leading slash, i.e. `2019/slug/index.html`
+    //   key: (post, year) => `${year}/${post/slug}/index.html`
+    //   value: (post) => client/$posts.html.js({ site: data, post: tree:plain(post) })
+    // })
+    
   }
 
 }/public
