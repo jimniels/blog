@@ -167,8 +167,11 @@ async function getSiteData() {
       url.includes(post.path)
     );
     if (hackerNewsPost) {
-      post.hackerNewsUrl = `https://news.ycombinator.com/item?id=${hackerNewsPost.objectID}`;
-      post.hackerNewsComments = hackerNewsPost.num_comments;
+      post.hackerNews = {
+        url: `https://news.ycombinator.com/item?id=${hackerNewsPost.objectID}`,
+        comments: hackerNewsPost.num_comments,
+        points: hackerNewsPost.points,
+      };
     }
 
     // Add it to our collection
