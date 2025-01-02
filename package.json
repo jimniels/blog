@@ -9,34 +9,21 @@
   },
   "dependencies": {
     "@weborigami/origami": "^0.2.4",
-    "browser-sync": "^2.26.14",
-    "cheerio": "^1.0.0-rc.5",
     "highlight.js": "^11.4.0",
     "html-validate": "^7.3.3",
-    "jsdom": "^20.0.0",
     "marked": "^4.0.12",
-    "metalsmith": "^2.3.0",
-    "multimatch": "^5.0.0",
-    "node-fetch": "^3.2.0",
-    "nodemon": "^2.0.7",
-    "prop-types": "^15.7.2",
     "psl": "^1.8.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "browser_sync": "browser-sync start --server build --browser=chrome",
     "copy-css": "cp node_modules/highlight.js/styles/atom-one-*.css src/server/styles/",
     "pre": "mkdir -p .cache && npm run copy-css && node scripts/cache-site-data.js",
     "prestart": "npm run pre",
-    "start": "netlify dev --dir build --port 3000 & NODE_ENV=development nodemon --exec 'node metalsmith'",
+    "start": "ori serve watch src, =debug src/site.ori",
     "prebuild": "npm run pre",
-    "build": "NODE_ENV=production node metalsmith.js",
+    "build": "ori copy src/site.ori, clear files:build",
     "postbuild": "node scripts/parse-reading-notes.js",
-    "validate": "html-validate build/",
-    "prebuild-ori": "npm run pre",
-    "build-ori": "ori copy src/site.ori, clear files:build",
-    "build-ori2": "ori copy src/site2.ori, clear files:build",
-    "start-ori": "ori serve watch src, =debug src/site.ori"
+    "validate": "html-validate build/"
   },
   "repository": {
     "type": "git",

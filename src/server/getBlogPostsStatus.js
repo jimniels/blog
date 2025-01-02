@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import { html } from "./utils.js";
 
 /**
