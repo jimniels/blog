@@ -10,6 +10,7 @@
   "dependencies": {
     "@weborigami/origami": "^0.2.4",
     "highlight.js": "^11.4.0",
+    "html-minifier": "^4.0.0",
     "html-validate": "^7.3.3",
     "marked": "^4.0.12",
     "psl": "^1.8.0"
@@ -22,8 +23,9 @@
     "start": "ori serve watch src, =debug src/site.ori",
     "prebuild": "npm run pre",
     "build": "ori copy src/site.ori, clear files:build",
-    "postbuild": "node scripts/parse-reading-notes.js",
-    "validate": "html-validate build/"
+    "postbuild": "node scripts/parse-reading-notes.js && npm run minify",
+    "validate": "html-validate build/",
+    "minify": "html-minifier --input-dir ./build --output-dir ./build --file-ext html --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true"
   },
   "repository": {
     "type": "git",

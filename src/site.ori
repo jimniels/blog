@@ -49,7 +49,7 @@
   // Post paths by year, e.g. `/2024/slug/index.html`
   ...tree:group(data/posts, (post) => new:Date(post/date)/getFullYear())
     // Process the years
-    → (years) => tree:map(years, (year) => 
+    -> (years) => tree:map(years, (year) => 
       // Process the posts in each year
       tree:map(year, { 
         // Use the slug as the key for a folder
