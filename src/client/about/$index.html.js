@@ -1,5 +1,4 @@
 import fs from "fs";
-import fetch from "node-fetch";
 import { resolve, dirname } from "path";
 import { Page } from "../../server/Layouts.js";
 import { html } from "../../server/utils.js";

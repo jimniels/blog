@@ -3,7 +3,6 @@ import fs from "fs";
 import path from "path";
 import Metalsmith from "metalsmith";
 import multimatch from "multimatch";
-import fetch from "node-fetch";
 import { JSDOM } from "jsdom";
 // import cheerio from "cheerio";
 import renderTemplates from "./src/plugin-render-templates.js";
