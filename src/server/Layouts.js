@@ -135,6 +135,23 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
+          <script>
+            let appearance = localStorage.getItem("theme-appearance");
+            if (appearance === null) {
+              localStorage.setItem("theme-appearance", "system");
+            }
+
+            const isDarkMode = window.matchMedia(
+              "(prefers-color-scheme: dark)"
+            ).matches;
+
+            document.documentElement.setAttribute(
+              "data-dark-mode",
+              (appearance === "system" && isDarkMode) || appearance === "dark"
+                ? "true"
+                : "false"
+            );
+          </script>
           <jim-navbar></jim-navbar>
 
           <nav class="navv wrapper">
