@@ -186,7 +186,7 @@ export function Page(props, children) {
             <a
               href="/feed.html"
               ${path === "/feed.html" && "aria-current='page'"}
-              >${importFile("./svgs/feed-rss.svg")}</a
+              >Subscribe</a
             >
 
             <theme-picker></theme-picker>

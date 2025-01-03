@@ -500,7 +500,7 @@ theme-picker button {
   background: transparent;
   border: none;
   cursor: pointer;
-
+  position: relative;
   width: 32px;
   height: 32px;
   display: flex;
@@ -508,10 +508,26 @@ theme-picker button {
   border-radius: 50px;
 }
 theme-picker.is-expanded button {
-  background: var(--c-theme);
+  /* background: var(--c-theme); */
+}
+theme-picker.is-expanded button:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: var(--c-theme); */
+  border-radius: 50%;
+  left: 0;
+  top: -1px;
+  color: var(--c-theme);
+  content: "×";
+  font-size: 24px;
 }
 theme-picker.is-expanded button svg {
   color: var(--c-bg);
+  opacity: 0;
 }
 theme-picker button svg {
   color: var(--c-theme);
@@ -519,27 +535,53 @@ theme-picker button svg {
 
 .options {
   display: flex;
-  position: fixed;
-  top: -96px;
+  position: absolute;
+  top: 100%;
   left: 0;
   width: 100%;
-  height: 96px;
+
   background: var(--c-bg);
-  border-bottom: 1px solid var(--c-bg-opaque);
-  padding: 24px 16px;
+  border-bottom: 4px solid var(--c-bg-opaque);
+  padding: 0 0 32px 0;
+  z-index: 10;
+
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-30px);
+}
+
+.is-expanded .options {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .options form {
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+
   width: 100%;
+
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@media screen and (min-width: 32rem) {
+  .options form {
+    flex-direction: row;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .options form > div {
   display: flex;
-  gap: var(--s-16);
+  gap: var(--s-24);
   align-items: center;
 }
 
@@ -565,7 +607,7 @@ label[for^="appearance-"]:before {
   left: 0;
   width: 100%;
   height: 100%;
-  border: 1px solid var(--c-bg-opaque);
+  border: 1px solid var(--c-text-light);
   border-radius: 50%;
 }
 label[for="appearance-light"] {
@@ -590,15 +632,6 @@ label[for="appearance-system"]:after {
   border-bottom-right-radius: 40px;
   transform: rotate(45deg);
   transform-origin: left;
-}
-
-body {
-  transition: transform 0.2s ease-in-out;
-}
-body:has(theme-picker.is-expanded) {
-  overflow: hidden;
-  transform: translateY(96px);
-  /* pointer-events: none; */
 }
 
 .navv {
