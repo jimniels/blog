@@ -130,6 +130,10 @@ html {
   color: var(--c-text);
 }
 
+:focus-visible {
+  outline: 2px dashed var(--c-theme);
+}
+
 /* Links
    ========================================================================== */
 

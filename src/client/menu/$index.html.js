@@ -23,13 +23,13 @@ export default function Index(site) {
           <a href="/archive/">Archive</a>
         </li>
         <li>
-          <a href="/tags/">Tags</a>
-        </li>
-        <li>
-          <a href="/feed.html">Subscribe</a>
-        </li>
-        <li>
           <a href="/about/">About</a>
+        </li>
+        <li>
+          <a href="/subscribe/">Subscribe</a>
+        </li>
+        <li>
+          <a href="/tags/">Tags</a>
         </li>
         <li>
           <a href="/about/internal-links/">Internal links</a>
