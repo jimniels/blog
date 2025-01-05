@@ -1,14 +1,18 @@
 import { Page } from "../server/Layouts.js";
 import { html, toDateUI } from "../server/utils.js";
 
+/**
+ * @param {import("../../types").Site} site
+ * @returns {import("../../types").Page}
+ */
 export default function Index(site) {
   const recent = site.posts.filter((post) => !post?.tags.includes("rssClub"));
   const trending = site.posts
     .filter((post) => post.hasOwnProperty("pageviews"))
     .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1));
   const hackerNews = site.posts
-    .filter((post) => post.hackerNewsUrl && post.hackerNewsComments > 100)
-    .sort((a, b) => (a.hackerNewsComments > b.hackerNewsComments ? -1 : 1));
+    .filter((post) => post.hackerNews && post.hackerNews.points > 100)
+    .sort((a, b) => (a.hackerNews.points > b.hackerNews.points ? -1 : 1));
 
   return Page(
     {
@@ -45,14 +49,16 @@ export default function Index(site) {
         <h1>Hacker News Hits</h1>
         ${PostList(
           hackerNews.slice(0, 3),
-          ({ hackerNewsUrl, hackerNewsComments }) =>
-            html`${hackerNewsComments} comments`
+          ({ hackerNews: { comments, points } }) =>
+            html`${points.toLocaleString()} points ·
+            ${comments.toLocaleString()} comments`
         )}
         ${PostMore(
           PostList(
             hackerNews.slice(3, 9),
-            ({ hackerNewsUrl, hackerNewsComments }) =>
-              html`${hackerNewsComments} comments`
+            ({ hackerNews: { comments, points } }) =>
+              html`${points.toLocaleString()} points ·
+              ${comments.toLocaleString()} comments`
           )
         )}
       `}

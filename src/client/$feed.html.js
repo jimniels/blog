@@ -74,19 +74,14 @@ export default function HTMLFeed(site) {
         <h1 class="p-name">${site.name}</h1>
         <p>
           You found my
-          <a href="https://blog.jim-nielsen.com/2024/rss-in-html/">HTML feed</a>
-          — I also have an <a href="/feed.xml">XML feed</a> and a
-          <a href="feed.json">JSON feed</a>.
+          <a href="https://blog.jim-nielsen.com/2024/rss-in-html/"
+            >experimental HTML feed</a
+          >
+          (there are also other ways to
+          <a href="/subscribe/">subscribe</a>).
         </p>
         <p>
           <span class="love-html">I <span>♥</span> HTML</span>
-        </p>
-        <p>
-          Subscribe to my blog by copy-pasting this URL into your RSS reader.
-        </p>
-        <p style="font-size: .875rem; opacity: .5">
-          (Learn more about RSS and subscribing to content on the web at
-          <a href="https://aboutfeeds.com/">aboutfeeds</a>.)
         </p>
 
         <h2>Recent posts</h2>
