@@ -6,12 +6,12 @@
   assets = client/assets/
 
   // Pages
+  _redirects = client/$_redirects.js(data)
   index.html = client/$index.html.js(data)
   feed.xml = client/$feed.xml.js(data) // TODO: use origami's feed generator
   feed.json = client/$feed.json.js(data) // TODO: use origami's feed generator
+  feed.html = client/$feed.html.js(data)
   404.html = client/$404.html.js(data)
-  _redirects = client/$_redirects.js(data)
-
   tags = {
     index.html = client/tags/$index.html.js(data)
   }

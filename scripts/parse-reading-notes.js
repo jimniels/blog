@@ -48,6 +48,10 @@ fs.writeFileSync(
   JSON.stringify(jsonFeed, null, 2)
 );
 
+// jsonFeed.items.forEach((item) => {
+//   fs.writeFileSync(`./backup-md-files/${item.id}.md`, item.content_text);
+// });
+
 console.log(
   "Reading notes: posts: %s, links: %s, none: %s",
   files.length,
