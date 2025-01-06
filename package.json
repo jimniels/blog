@@ -5,10 +5,10 @@
   "main": "metalsmith.js",
   "type": "module",
   "engines": {
-    "node": ">=13.2.0"
+    "node": ">=22"
   },
   "dependencies": {
-    "@weborigami/origami": "^0.2.4",
+    "@weborigami/origami": "^0.2.5",
     "highlight.js": "^11.4.0",
     "html-minifier": "^4.0.0",
     "html-validate": "^7.3.3",
