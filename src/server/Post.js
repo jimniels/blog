@@ -1,7 +1,7 @@
-import ReplyHtml from "../server/ReplyHtml.js";
-import RssClub from "../server/RssClub.js";
-import { html, toDateUI } from "../server/utils.js";
-import { Page } from "../server/Layouts.js";
+import ReplyHtml from "./ReplyHtml.js";
+import RssClub from "./RssClub.js";
+import { html, toDateUI } from "./utils.js";
+import { Page } from "./Layouts.js";
 
 export default function Post({ site, post }) {
   return Page(
