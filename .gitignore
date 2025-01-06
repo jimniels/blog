@@ -3,7 +3,7 @@
 .cache
 .nova
 node_modules/
-build/
+build*
 atom-one*.css
 
 .*
