@@ -4,9 +4,6 @@
   "description": "[jim-nielsen.com/blog](http://jim-nielsen.com/blog)",
   "main": "metalsmith.js",
   "type": "module",
-  "engines": {
-    "node": ">=22"
-  },
   "dependencies": {
     "@weborigami/origami": "^0.2.5",
     "highlight.js": "^11.4.0",
