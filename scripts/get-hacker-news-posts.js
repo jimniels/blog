@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 // Get data from hacker news search API
 // https://hn.algolia.com/api
 export default function getHackerNewsPosts() {
