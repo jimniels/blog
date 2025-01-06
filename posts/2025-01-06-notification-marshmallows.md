@@ -28,4 +28,4 @@ It’s a test of restraint and wisdom: can you forgo the short-term bump in metr
 
 Going forward, anytime I see my own notifications abused — besides getting angry and 1) turning off the app’s notifications, or 2) deleting the app — I’ll picture that notification as a yummy little marshmallow that somebody just couldn’t resist!
  
-[^1]: Dithering is a subscription-based podcast, so I can’t link directly to an episode or transcript. For those interested, the episode was “Assisted Computing and Wearables” from December 10, 2024.
+[^1]: [Dithering](https://dithering.fm) is a subscription-based podcast, so I can’t link directly to an episode or transcript. For those interested, the episode was “Assisted Computing and Wearables” from December 10, 2024.
