@@ -4,7 +4,7 @@ Ever hear that idiom, “Don’t miss the forest for the trees”? [The idea](ht
 
 Feels like the tech equivalent is: Don’t miss the product for the artifacts.
 
-Here’s [Ryan Rendle in a recent piece on design artifats](https://robinrendle.com/notes/design-artifacts/):
+Here’s [Robin Rendle in a recent piece on design artifacts](https://robinrendle.com/notes/design-artifacts/):
 
 > There’s a factory-like production of the modern design process which believes that the assets are more important than the product itself.
 
