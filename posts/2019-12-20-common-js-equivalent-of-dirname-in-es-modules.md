@@ -2,6 +2,43 @@
 
 # A Node.js Helper Function for Accessing the CommonJS Equivalent of __dirname in ES Modules.
 
+## Update: 2024
+
+Forget everything below. Node now has:
+
+- [`import.meta.dirname`](https://nodejs.org/api/esm.html#importmetadirname)
+- [`import.meta.filename`](https://nodejs.org/api/esm.html#importmetafilename)
+- [`import.meta.resolve`](https://nodejs.org/api/esm.html#importmetaresolvespecifier) ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta/resolve))
+
+So rather than having to do something like this to get the  directory of the current module:
+
+```js
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+```
+
+You can just do:
+
+```js
+const __dirname = import.meta.dirname;
+```
+
+Similarly, if you want to get the path of a file relative to the current module, rather than this:
+
+```js
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const someFilePath = join(__dirname, "./file.txt");
+```
+
+You can simply do:
+
+```js
+const someFilePath = import.meta.resolve("./file.txt");
+```
+
 ## tldr;
 
 Put this in a `helpers.js` or `utils.js` file in your project and you’re good to go.
