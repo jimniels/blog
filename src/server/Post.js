@@ -40,7 +40,10 @@ export default function Post({ site, post }) {
     },
     html`
       <article class="h-entry">
-        <header class="wrapper" style="view-transition-name: ${post.id}">
+        <header
+          class="wrapper"
+          style="view-transition-name: post-title-${post.id}"
+        >
           <h1 class="p-name">${post.title}</h1>
           <time class="dt-published" datetime="${post.date}">
             ${toDateUI(post.date)}

@@ -15,7 +15,10 @@ export function PostsList(
       ${posts.map(
         (post) => html`
           <li>
-            <a href="${post.path}" style="view-transition-name: ${post.id}">
+            <a
+              href="${post.path}"
+              style="view-transition-name: post-title-${post.id}"
+            >
               <span>${post.title}</span>
               <span>${fn(post)}</span>
             </a>
