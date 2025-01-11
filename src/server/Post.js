@@ -1,3 +1,4 @@
+// @ts-check
 import ReplyHtml from "./ReplyHtml.js";
 import RssClub from "./RssClub.js";
 import { html, toDateUI } from "./utils.js";
@@ -39,7 +40,7 @@ export default function Post({ site, post }) {
     },
     html`
       <article class="h-entry">
-        <header class="wrapper">
+        <header class="wrapper" style="view-transition-name: ${post.id}">
           <h1 class="p-name">${post.title}</h1>
           <time class="dt-published" datetime="${post.date}">
             ${toDateUI(post.date)}

@@ -1,9 +1,11 @@
+// @ts-check
+import { PostsList } from "../server/PostsList.js";
 import { Page } from "../server/Layouts.js";
 import { html, toDateUI } from "../server/utils.js";
 
 /**
  * @param {import("../../types").Site} site
- * @returns {import("../../types").Page}
+ * return {import("../../types").Page}
  */
 export default function Index(site) {
   const recent = site.posts.filter((post) => !post?.tags.includes("rssClub"));
@@ -23,11 +25,12 @@ export default function Index(site) {
     },
     html` <main class="wrapper">
       <h1>Latest</h1>
-      ${PostList(recent.slice(0, 3))} ${PostMore(PostList(recent.slice(3, 9)))}
+      ${PostsList(recent.slice(0, 3))}
+      ${PostMore(PostsList(recent.slice(3, 9)))}
       ${trending.length > 0 &&
       html`
         <h1>Popular Now</h1>
-        ${PostList(
+        ${PostsList(
           trending.slice(0, 3),
           ({ pageviews }) =>
             (pageviews > 1000
@@ -35,7 +38,7 @@ export default function Index(site) {
               : pageviews) + " pageviews"
         )}
         ${PostMore(
-          PostList(
+          PostsList(
             trending.slice(3, 9),
             ({ pageviews }) =>
               (pageviews > 1000
@@ -47,14 +50,14 @@ export default function Index(site) {
       ${hackerNews.length > 0 &&
       html`
         <h1>Hacker News Hits</h1>
-        ${PostList(
+        ${PostsList(
           hackerNews.slice(0, 3),
           ({ hackerNews: { comments, points } }) =>
             html`${points.toLocaleString()} points ·
             ${comments.toLocaleString()} comments`
         )}
         ${PostMore(
-          PostList(
+          PostsList(
             hackerNews.slice(3, 9),
             ({ hackerNews: { comments, points } }) =>
               html`${points.toLocaleString()} points ·
@@ -84,26 +87,6 @@ export default function Index(site) {
       }
     </main>`
   );
-}
-
-function PostList(
-  posts,
-  fn = ({ date }) => html`<time datetime="${date}">${toDateUI(date)}</time>`
-) {
-  return html`
-    <ul class="posts-list">
-      ${posts.map(
-        (post) => html`
-          <li>
-            <a href="${post.path}">
-              <span>${post.title}</span>
-              <span>${fn(post)}</span>
-            </a>
-          </li>
-        `
-      )}
-    </ul>
-  `;
 }
 
 function PostMore(children) {

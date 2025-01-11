@@ -1,4 +1,6 @@
+// @ts-check
 import { Page } from "../../server/Layouts.js";
+import { PostsList } from "../../server/PostsList.js";
 import { html } from "../../server/utils.js";
 
 const page = {
@@ -97,22 +99,7 @@ export default function Archive(site) {
         .map(
           (year) => html`
             <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
-            <ul class="posts-list">
-              ${postsByYear[year].map(
-                (post) => html`
-                  <li>
-                    <a href="${post.path}">
-                      <span>${post.title}</span>
-                      <span
-                        ><time datetime="${post.date}">
-                          ${post.date.slice(0, 10)}
-                        </time></span
-                      >
-                    </a>
-                  </li>
-                `
-              )}
-            </ul>
+            ${PostsList(postsByYear[year])}
           `
         )}
     </main>`
