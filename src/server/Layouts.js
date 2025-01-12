@@ -47,29 +47,6 @@ export function Page(props, children) {
     page: { head = "", path, title },
   } = props;
 
-  const nav = [
-    {
-      label: "Jim Nielsen’s Blog",
-      path: "/",
-    },
-    {
-      label: "Archive",
-      path: "/archive/",
-    },
-    // {
-    //   label: "Tags",
-    //   path: "/tags/",
-    // },
-    {
-      label: "Subscribe",
-      path: "/feed.html",
-    },
-    {
-      label: "About",
-      path: "/about/",
-    },
-  ];
-
   return (
     "<!DOCTYPE html>" +
     comment +
@@ -180,12 +157,12 @@ export function Page(props, children) {
             <a href="/archive/" ${path === "/archive/" && "aria-current='page'"}
               >Archive</a
             >
-            <a href="/about" ${path === "/about/" && "aria-current='page'"}
+            <a href="/about/" ${path === "/about/" && "aria-current='page'"}
               >About</a
             >
             <a
-              href="/feed.html"
-              ${path === "/feed.html" && "aria-current='page'"}
+              href="/subscribe/"
+              ${path === "/subscribe/" && "aria-current='page'"}
               >Subscribe</a
             >
 

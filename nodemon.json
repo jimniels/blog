@@ -1,6 +1,0 @@
-{
-  "ignore": ["build/*", "node_modules/*"],
-  "watch": ["src/client/.well-known", "./"],
-  "ext": "js, css, md, html",
-  "no_delay": "200ms"
-}

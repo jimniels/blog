@@ -3,13 +3,14 @@
 .cache
 .nova
 node_modules/
-build/
+build*
 atom-one*.css
 
 .*
 !.gitignore
 !.prettierignore
 !.github
+!.npmrc
 
 # Local Netlify folder
 .netlify
