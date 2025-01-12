@@ -1,4 +1,5 @@
 import { Page } from "../../server/Layouts.js";
+import { PostsList } from "../../server/PostsList.js";
 import { html, toDateUI } from "../../server/utils.js";
 
 const page = {
@@ -53,22 +54,7 @@ export default function Tags(site) {
             </small>
           </h2>
 
-          <ul class="posts-list">
-            ${postsByTag[tag].map(
-              (post) => html`
-                <li class="post-wrapper">
-                  <a href="${post.path}">
-                    <span>${post.title}</span>
-                    <span>
-                      <time class="date post-date" datetime="${post.date}">
-                        ${toDateUI(post.date)}
-                      </time>
-                    </span>
-                  </a>
-                </li>
-              `
-            )}
-          </ul>
+          ${PostsList(postsByTag[tag])}
         `
       )}
     </main>`

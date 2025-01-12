@@ -21,6 +21,7 @@ export type Site = {
 };
 
 export type Post = {
+  id: string; // File name, which is a combo of date and slug, i.e. `2019-01-05-my-slug`
   title: string;
   date: string; // ISO8601 datestring
   slug: string; // Slug of post, i.e. `my-post`

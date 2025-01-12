@@ -73,6 +73,7 @@ async function getSiteData() {
   files.forEach((file) => {
     /** @type { import("../types").Post } */
     let post = {
+      id: "",
       title: "",
       date: "",
       slug: "",
@@ -130,6 +131,9 @@ async function getSiteData() {
     const dateYYYYMMDD = filename.slice(0, 10);
     const year = dateYYYYMMDD.slice(0, 4);
     const slug = filename.slice(11);
+
+    // Use the filename as the post id
+    post.id = filename;
 
     // We need just the slug for old redirects
     post.slug = slug;
