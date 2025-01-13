@@ -46,7 +46,13 @@ No dice.
 
 So I try that:
 
-`style="view-transition-name: '/2024/i-love-kitkats'"`
+```html
+<a
+  href="/2024/i-love-kitkats"
+  style="view-transition-name: '/2024/i-love-kitkats'">
+  I Love KitKats
+</a>  
+```
 
 Nope, that doesn't work either.
 
