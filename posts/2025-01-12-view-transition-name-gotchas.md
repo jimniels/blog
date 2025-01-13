@@ -84,7 +84,7 @@ The docs throw some shade at me:
 
 Whoops.
 
-Ok, so it’s an identifier that has some special rules, like that you can’t use an already-reserved global CSS name like “inherit”, “unset”, or even list style names like “disc” or “square”.
+Ok, so it’s an identifier that has some special rules, like that you can’t use an already-reserved global CSS name like “inherit”, “unset”, or “auto”.
 
 Also you can’t use a forward slash (my bad).
 
@@ -111,3 +111,25 @@ Boom! It works!
 So there you go. Way more than you ever wanted to know about the gotchas of a creating a unique `view-transition-name`.
 
 And if you didn’t know about `<custom-ident>` in CSS, now you do!
+
+## Update 2024-01-13
+
+[Bramus reached out](https://front-end.social/@bramus/113820236476349197) to let me know the cutting edge will let put `id` attributes on elements and then use `auto` (Safari-only at the time of this writing) or `attr()` which can parse a value into an custom-ident (Chrome 133+ at the time of this writing).
+
+Here’s some example code from [his Codepen](https://codepen.io/bramus/pen/wBwpgaj):
+
+```html
+<div class="cards">
+  <div class="card" id="card-1">1</div>
+  <div class="card" id="card-2">2</div>
+  <div class="card" id="card-3">3</div>
+</div>
+<style>
+.card[id] {
+	view-transition-name: attr(id type(<custom-ident>), none);
+	view-transition-class: card;
+}
+</style>
+```
+
+Pretty cool!
