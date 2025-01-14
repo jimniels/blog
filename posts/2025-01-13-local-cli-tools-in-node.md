@@ -57,7 +57,7 @@ If the CLI tool is a dependency in the project, you can formulate the command as
 
 ```json
 "scripts": {
-  "ori-version": "npm run ori-version"
+  "ori-version": "ori version"
 },
 "dependencies": {
   "@weborigami/ori": "^0.2.5"
