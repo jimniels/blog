@@ -40,7 +40,7 @@
       })
     )
   }
-  // postsTree,
+  // ...postsTree,
   
   pagefind/ = once(=package:@weborigami/pagefind(postsTree ))
 }
