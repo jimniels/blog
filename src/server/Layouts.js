@@ -134,6 +134,63 @@ export function Page(props, children) {
               Jim Nielsen’s Blog
             </a>
 
+            <input type="search" placeholder="Search" id="sidebar-search" />
+
+            <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+            <script
+              src="/pagefind/pagefind-ui.js"
+              defer
+              id="pagefind-script"
+            ></script>
+            <style>
+              #search {
+                overflow: hidden;
+              }
+              .pagefind-ui__search-input,
+              .pagefind-ui__search-clear,
+              .pagefind-ui__form:before {
+                display: none !important;
+              }
+            </style>
+
+            <script defer>
+              console.log("script running");
+              const pagefindScript = document.getElementById("pagefind-script");
+              pagefindScript.addEventListener("load", (event) => {
+                console.log("pagefindScript loaded");
+                const result = new PagefindUI({
+                  element: "#search",
+                  pageSize: 10,
+                  showImages: false,
+                  showSubResults: true,
+                });
+                console.log("result", result);
+
+                document
+                  .querySelector("#sidebar-search")
+                  .addEventListener("input", (event) => {
+                    const input = document.querySelector(
+                      ".pagefind-ui__search-input"
+                    );
+                    const value = event.target.value;
+                    input.value = value;
+
+                    const main = document.querySelector("main");
+                    if (value === "") {
+                      main.style.display = "block";
+                    } else {
+                      main.style.display = "none";
+                    }
+
+                    const inputEvent = new Event("input", { bubbles: true });
+                    input.dispatchEvent(inputEvent);
+
+                    const changeEvent = new Event("change", { bubbles: true });
+                    input.dispatchEvent(changeEvent);
+                  });
+              });
+            </script>
+
             <a href="/menu/" ${path === "/menu/" && "aria-current='page'"}
               >Menu</a
             >
@@ -155,6 +212,7 @@ export function Page(props, children) {
           </nav>
 
           ${children}
+          <div id="search" class="wrapper"></div>
         </body>
       </html>
     `
