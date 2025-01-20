@@ -1,3 +1,4 @@
+// @ts-check
 import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
@@ -112,6 +113,18 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
+          <script>
+            /** @type {'light' | 'dark' | 'system' | null} value */
+            let appearance = localStorage.getItem("theme-appearance");
+            if (appearance === null) {
+              localStorage.setItem("theme-appearance", "system");
+            } else if (appearance !== "system") {
+              document.documentElement.setAttribute(
+                "data-theme-appearance",
+                appearance
+              );
+            }
+          </script>
           <jim-navbar></jim-navbar>
 
           <nav class="navv wrapper">
@@ -133,6 +146,11 @@ export function Page(props, children) {
               </svg>`}
               Jim Nielsen’s Blog
             </a>
+
+            <!-- <a href="/search/" ${path === "/search/" &&
+            "aria-current='page'"}>
+              Search
+            </a> -->
 
             <input type="search" placeholder="Search" id="sidebar-search" />
 
@@ -205,8 +223,17 @@ export function Page(props, children) {
               ${path === "/subscribe/" && "aria-current='page'"}
               >Subscribe</a
             >
+            <a href="/tags/" ${path === "/tags/" && "aria-current='page'"}
+              >Tags</a
+            >
+            <a
+              href="/about/external-links/"
+              ${path === "/about/external-links/" && "aria-current='page'"}
+              >External Links</a
+            >
 
-            <theme-picker></theme-picker>
+            <theme-picker open></theme-picker>
+
             <!-- prettier-ignore -->
             <script>${importFile("./theme-picker.js")}</script>
           </nav>

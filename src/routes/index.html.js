@@ -1,13 +1,14 @@
 // @ts-check
 import { PostsList } from "../server/PostsList.js";
-import { Page } from "../server/Layouts.js";
+// import { Page } from "../server/Layouts.js";
 import { html, toDateUI } from "../server/utils.js";
 
 /**
  * @param {import("../../types").Site} site
  * return {import("../../types").Page}
  */
-export default function Index(site) {
+export default async function Index(site) {
+  const { Page } = await import("../server/Layouts.js" + "?t=" + Date.now());
   const recent = site.posts.filter((post) => !post?.tags.includes("rssClub"));
   const trending = site.posts
     .filter((post) => post.hasOwnProperty("pageviews"))

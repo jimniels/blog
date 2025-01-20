@@ -1,9 +1,108 @@
+/* =============================================================================
+   View transitions
+   ========================================================================== */
+
 @view-transition {
   navigation: auto;
 }
 
 /* =============================================================================
-   Variables
+   Appearance
+   ========================================================================== */
+
+:root[data-theme-appearance="light"] {
+  --LIGHT: initial;
+  --DARK: ;
+  color-scheme: light;
+}
+:root[data-theme-appearance="dark"] {
+  --LIGHT: ;
+  --DARK: initial;
+  color-scheme: dark;
+}
+:root {
+  --LIGHT: initial;
+  --DARK: ;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --LIGHT: ;
+    --DARK: initial;
+    color-scheme: dark;
+  }
+}
+
+:root {
+  /* Theme color that gets set by default but is configurable by the user */
+  --c-theme-h: var(--c-blue-h);
+  --c-theme-s: var(--c-blue-s);
+  --c-theme-l: var(--c-blue-l);
+  --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
+
+  /* Theme colors */
+  --c-bg: light-dark(
+    hsl(var(--c-theme-h) var(--c-theme-s) 99%),
+    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%)
+  );
+  --c-bg-1: light-dark(
+    hsl(var(--c-theme-h) var(--c-theme-s) 100%),
+    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 60%) 5%)
+  );
+  --c-fg: light-dark(
+    hsl(var(--c-theme-h) var(--c-theme-s) 96%),
+    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 16%)
+  );
+  --c-bg-opaque: light-dark(
+    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05),
+    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075)
+  );
+  --c-text: light-dark(
+    hsl(var(--c-theme-h) var(--c-theme-s) 8%),
+    hsl(var(--c-theme-h) var(--c-theme-s) 98%)
+  );
+  --c-text-light: light-dark(
+    hsl(var(--c-theme-h) var(--c-theme-s) 8% / 50%),
+    hsl(var(--c-theme-h) var(--c-theme-s) 98% / 50%)
+  );
+
+  /* 
+   * Base colors
+   * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
+   * accessible
+   */
+  --c-blue-h: var(--LIGHT, 223) var(--DARK, 211);
+  --c-blue-s: var(--LIGHT, 100%) var(--DARK, 100%);
+  --c-blue-l: var(--LIGHT, 43%) var(--DARK, 63%);
+  --c-red-h: var(--LIGHT, 354) var(--DARK, 3);
+  --c-red-s: var(--LIGHT, 100%) var(--DARK, 100%);
+  --c-red-l: var(--LIGHT, 42%) var(--DARK, 69%);
+  --c-green-h: var(--LIGHT, 135) var(--DARK, 135);
+  --c-green-s: var(--LIGHT, 59%) var(--DARK, 70%);
+  --c-green-l: var(--LIGHT, 34%) var(--DARK, 52%);
+  --c-yellow-h: var(--LIGHT, 27) var(--DARK, 48);
+  --c-yellow-s: var(--LIGHT, 100%) var(--DARK, 100%);
+  --c-yellow-l: var(--LIGHT, 35%) var(--DARK, 57%);
+  --c-purple-h: var(--LIGHT, 280) var(--DARK, 280);
+  --c-purple-s: var(--LIGHT, 43%) var(--DARK, 100%);
+  --c-purple-l: var(--LIGHT, 47%) var(--DARK, 78%);
+  --c-pink-h: var(--LIGHT, 343) var(--DARK, 348);
+  --c-pink-s: var(--LIGHT, 87%) var(--DARK, 100%);
+  --c-pink-l: var(--LIGHT, 44%) var(--DARK, 70%);
+
+  /* not supported yet */
+  --c-orange-h: light-dark(16, 36);
+  --c-orange-s: light-dark(100%, 100%);
+  --c-orange-l: light-dark(39%, 63%);
+  --c-theme-mint: light-dark(177 83% 28%);
+  --c-theme-teal: light-dark(189 100% 30%);
+  --c-theme-cyan: light-dark(199 100% 32%);
+  --c-theme-indigo: light-dark(241 52% 42%);
+  --c-theme-brown: light-dark(33 30% 38%);
+}
+
+/* =============================================================================
+   Other non-appearance variables
    ========================================================================== */
 
 :root {
@@ -23,96 +122,18 @@
   --max-width-padding: 6rem;
   --max-width-outer: calc(var(--max-width) + (var(--max-width-padding) * 2));
 
-  /* Theme color that gets set by default but is configurable by the user */
-  --c-theme-h: var(--c-blue-h);
-  --c-theme-s: var(--c-blue-s);
-  --c-theme-l: var(--c-blue-l);
-  --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
-
-  --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
-  --c-bg-1: hsl(var(--c-theme-h) var(--c-theme-s) 100%);
-  --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 96%);
-  --c-bg-opaque: hsl(
-    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
-  );
-  --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 8%);
-  --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 8% / 50%);
-
-  /* 
-   * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
-   * accessible
-   */
-  --c-blue-h: 223;
-  --c-blue-s: 100%;
-  --c-blue-l: 43%;
-  --c-red-h: 354;
-  --c-red-s: 100%;
-  --c-red-l: 42%;
-  --c-green-h: 135;
-  --c-green-s: 59%;
-  --c-green-l: 34%;
-  --c-yellow-h: 27;
-  --c-yellow-s: 100%;
-  --c-yellow-l: 35%;
-  --c-purple-h: 280;
-  --c-purple-s: 43%;
-  --c-purple-l: 47%;
-  --c-pink-h: 343;
-  --c-pink-s: 87%;
-  --c-pink-l: 44%;
-
-  /* not supported yet */
-  --c-orange-h: 16;
-  --c-orange-s: 100%;
-  --c-orange-l: 39%;
-  --c-theme-mint: 177 83% 28%;
-  --c-theme-teal: 189 100% 30%;
-  --c-theme-cyan: 199 100% 32%;
-  --c-theme-indigo: 241 52% 42%;
-  --c-theme-brown: 33 30% 38%;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
-    --c-bg-1: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 60%) 5%);
-
-    --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 16%);
-    --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
-    --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 98% / 50%);
-    --c-bg-opaque: hsl(
-      var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
-    );
-
-    --c-blue-h: 211;
-    --c-blue-s: 100%;
-    --c-blue-l: 63%;
-    --c-red-h: 3;
-    --c-red-s: 100%;
-    --c-red-l: 69%;
-    --c-green-h: 135;
-    --c-green-s: 70%;
-    --c-green-l: 52%;
-    --c-yellow-h: 48;
-    --c-yellow-s: 100%;
-    --c-yellow-l: 57%;
-    --c-purple-h: 280;
-    --c-purple-s: 100%;
-    --c-purple-l: 78%;
-    --c-pink-h: 348;
-    --c-pink-s: 100%;
-    --c-pink-l: 70%;
-
-    /* not supported yet */
-    --c-orange-h: 36;
-    --c-orange-s: 100%;
-    --c-orange-l: 63%;
-    --c-theme-mint: 177 56% 62%;
-    --c-theme-teal: 189 100% 68%;
-    --c-theme-cyan: 197 100% 72%;
-    --c-theme-indigo: 241 100% 72%;
-    --c-theme-brown: 34 34% 56%;
-  }
+  /* pagefind */
+  --pagefind-ui-scale: 1 !important;
+  --pagefind-ui-primary: var(--c-theme) !important;
+  --pagefind-ui-text: var(--c-text) !important;
+  --pagefind-ui-background: var(--c-bg) !important;
+  --pagefind-ui-border: var(--c-bg-opaque) !important;
+  --pagefind-ui-tag: var(--c-bg-opaque) !important;
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: inherit;
 }
 
 /* =============================================================================
@@ -505,49 +526,109 @@ footer ol li {
    ========================================================================== */
 
 theme-picker {
-  display: flex;
-  align-items: center;
-  flex-direction: column-reverse;
-  padding: var(--s-24) var(--s-16);
-  margin-right: calc(var(--s-16) * -1);
-  margin-top: calc(var(--s-24) * -1);
-  border: 1px solid transparent;
-
-  position: absolute;
-
-  background: var(--c-bg);
-
-  z-index: 20;
-  gap: var(--s-24);
-  justify-content: center;
-  right: 0;
-  top: 0.25rem;
+  margin-top: var(--s-24);
 }
-theme-picker.is-expanded {
-  background-color: var(--c-bg);
-  border-color: var(--c-bg-opaque);
-  border-radius: 37px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+theme-picker details {
+  width: 100%;
+  border: 1px solid var(--c-bg-opaque);
+  padding: var(--s-8) var(--s-12);
+  border-radius: var(--border-radius);
+  margin-left: calc(var(--s-12) * -1);
+  margin-right: calc(var(--s-12) * -1);
 }
-
-theme-picker button {
-  width: 18px;
-  height: 18px;
-  border: 2px solid transparent;
-  padding: 0;
-  text-indent: -9999px;
-  border-radius: 50%;
+theme-picker details summary {
+  color: var(--c-text-light);
+  cursor: pointer;
+  list-style: none;
+}
+theme-picker details[open] summary {
+  color: var(--c-text);
+}
+theme-picker details summary::marker,
+theme-picker details summary::-webkit-details-marker {
   display: none;
 }
 
-theme-picker.is-expanded button {
-  display: inline;
+theme-picker form {
+  flex-direction: column;
+  gap: var(--s-24);
+  display: none;
+  margin-top: var(--s-12);
 }
-theme-picker button[aria-pressed="true"] {
-  order: 1;
-  box-shadow: 0 0 0 2px var(--c-theme);
-  display: inline;
-  border-color: var(--c-bg);
+theme-picker[open] form {
+  display: flex;
+}
+
+theme-picker form > div {
+  display: flex;
+  flex-direction: row;
+  gap: var(--s-24);
+}
+
+theme-picker form > div > input {
+  display: none;
+}
+
+theme-picker form > div > label {
+  text-indent: -9999px;
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50px;
+  position: relative;
+}
+
+theme-picker form > div > input:checked + label {
+  box-shadow: 0 0 0 2px var(--c-bg), 0 0 0 3px var(--c-theme);
+}
+
+theme-picker form > div > input:checked + label:before {
+  content: "";
+  display: block;
+  display: none;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid var(--c-theme);
+  position: absolute;
+  bottom: -10px;
+  left: 3px;
+}
+
+label[for^="appearance-"] {
+  /* content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--c-text-light);
+  border-radius: 50%; */
+  border: 1px solid var(--c-text);
+}
+label[for="appearance-light"] {
+  background-color: white;
+}
+label[for="appearance-dark"] {
+  background-color: #000;
+}
+label[for="appearance-system"] {
+  background-color: white;
+}
+label[for="appearance-system"]:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 50%;
+  height: 100%;
+  background-color: #111;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  /* transform: rotate(45deg);
+  transform-origin: left; */
 }
 
 .navv {
@@ -559,6 +640,7 @@ theme-picker button[aria-pressed="true"] {
   margin-bottom: var(--s-32);
   position: relative;
   padding-right: var(--s-40);
+  font-size: 0.888888888rem;
 }
 
 @media screen and (min-width: 32rem) {
@@ -590,10 +672,14 @@ theme-picker button[aria-pressed="true"] {
     padding: var(--s-8) var(--s-12);
     border-radius: var(--border-radius);
     border: 1px solid var(--c-bg-opaque);
-    background: var(--c-bg-opaque);
+    background: transparent;
     color: var(--c-text);
+    margin-top: var(--s-16);
+    margin-bottom: var(--s-16);
+    width: 100%;
   }
-  .navv input:focus {
+  .navv input:placeholder {
+    color: var(--c-text-light);
   }
 }
 @media screen and (max-width: 32rem) {
@@ -647,25 +733,6 @@ h1 {
   font-weight: 700;
   letter-spacing: -0.02rem;
   margin: 0 0 var(--s-16) 0;
-}
-
-.pb-1 {
-  padding-bottom: 0.25rem;
-}
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
-.pb-3 {
-  padding-bottom: 0.75rem;
-}
-.pb-4 {
-  padding-bottom: 1rem;
-}
-.pb-5 {
-  padding-bottom: 1.5rem;
-}
-.pb-6 {
-  padding-bottom: 2rem;
 }
 
 .tags-list {

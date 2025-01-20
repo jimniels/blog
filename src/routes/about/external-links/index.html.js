@@ -65,7 +65,7 @@ export default function About(site) {
   return Page(
     { site, page },
     html` <main class="copy">
-      <h1>External Links From My Blog</h1>
+      <h1>External Links</h1>
 
       <p>
         I thought it would be interesting to
