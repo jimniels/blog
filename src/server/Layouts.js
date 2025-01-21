@@ -42,11 +42,15 @@ https://www.github.com/jimniels/blog/
 `;
 
 // Children will do: Page({...}, html`<main {class="{wrapper|copy}"}?>...</main>`)
-export function Page(props, children) {
+export async function Page(props, children) {
   const {
     site: { origin, tags, name },
     page: { head = "", path, title },
   } = props;
+
+  const ThemePicker = await import("./ThemePicker.js?t=" + Date.now()).then(
+    (module) => module.default
+  );
 
   return (
     "<!DOCTYPE html>" +
@@ -232,10 +236,7 @@ export function Page(props, children) {
               >External Links</a
             >
 
-            <theme-picker open></theme-picker>
-
-            <!-- prettier-ignore -->
-            <script>${importFile("./theme-picker.js")}</script>
+            ${ThemePicker()}
           </nav>
 
           ${children}
