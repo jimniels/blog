@@ -33,10 +33,9 @@ class ThemePicker extends HTMLElement {
     this.setColor(initialColor);
 
     this.innerHTML = /*html*/ `
-      <details>
-      <summary>Theme</summary>   
+      
       <form>
-        <div class="tp-colors">
+        <fieldset class="tp-colors">
         ${colors
           .map(
             (color) => /*html*/ `
@@ -46,13 +45,12 @@ class ThemePicker extends HTMLElement {
             <label
               id="color-${color}"
               for="color-${color}"
-              style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"
-            >${color}</label> 
+            ><span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">${color}</span></label> 
         `
           )
           .join("")}
-        </div>
-        <div class="tp-themes">
+        </fieldset>
+        <fieldset class="tp-themes">
         ${["system", "light", "dark"]
           .map((theme) => {
             const label = theme.charAt(0).toUpperCase() + theme.slice(1);
@@ -60,13 +58,13 @@ class ThemePicker extends HTMLElement {
             <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}" ${
               initialAppearance === theme ? "checked" : ""
             } />
-            <label for="appearance-${theme}" title="${label}">${label}</label>
+            <label for="appearance-${theme}" title="${label}"><span>${label}</span></label>
             `;
           })
           .join("")}
-        </div>
+        </fieldset>
       </form>
-      </details>
+      
          
     `;
   }

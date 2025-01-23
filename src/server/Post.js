@@ -5,6 +5,10 @@ import { html, toDateUI } from "./utils.js";
 import { Page } from "./Layouts.js";
 
 export default function Post({ site, post }) {
+  const includeInSearch = !(
+    post.tags &&
+    (post.tags.includes("rssClub") || post.tags.includes("readingNotes"))
+  );
   return Page(
     {
       site,
@@ -39,7 +43,7 @@ export default function Post({ site, post }) {
       },
     },
     html`
-      <article class="h-entry">
+      <article class="h-entry" ${includeInSearch ? `data-pagefind-body` : ""}>
         <header
           class="wrapper"
           style="view-transition-name: post-title-${post.id}"

@@ -538,38 +538,52 @@ theme-picker details summary::-webkit-details-marker {
 
 theme-picker form {
   flex-direction: column;
-  gap: var(--s-24);
-  display: none;
+  gap: var(--s-8);
+  display: flex;
   margin-top: var(--s-12);
 }
 theme-picker details[open] form {
   display: flex;
 }
 
-theme-picker form > div {
+theme-picker fieldset {
   display: flex;
   flex-direction: row;
-  gap: var(--s-24);
+  gap: var(--s-4);
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
-theme-picker form > div > input {
+theme-picker input {
   display: none;
 }
 
-theme-picker form > div > label {
+theme-picker label {
+  display: block;
+  padding: 8px;
+  border-radius: 50px;
+  position: relative;
+}
+theme-picker label span {
   text-indent: -9999px;
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   border-radius: 50px;
   position: relative;
 }
 
-theme-picker form > div > input:checked + label {
-  box-shadow: 0 0 0 8px var(--c-bg), 0 0 0 9px var(--c-theme);
+theme-picker input:checked + label,
+theme-picker :not(input:checked) + label:hover {
+  box-shadow: 0 0 0 1px var(--c-theme);
 }
 
-theme-picker form > div > input:checked + label:before {
+/* theme-picker :not(input:checked) + label:hover {
+  box-shadow: 0 0 0 2px var(--c-bg), 0 0 0 3px var(--c-bg-opaque);
+} */
+
+theme-picker input:checked + label:before {
   content: "";
   display: block;
   display: none;
@@ -583,7 +597,23 @@ theme-picker form > div > input:checked + label:before {
   left: 3px;
 }
 
-label[for^="appearance-"] {
+@media (hover: hover) {
+  theme-picker label {
+    opacity: 0.05;
+    filter: grayscale(1) brightness(0);
+  }
+  theme-picker:hover label,
+  theme-picker input:checked + label {
+    opacity: 1;
+    filter: grayscale(0);
+    box-shadow: none;
+  }
+  theme-picker:hover input:checked + label {
+    box-shadow: 0 0 0 1px var(--c-theme);
+  }
+}
+
+label[for^="appearance-"] span {
   /* content: "";
   position: absolute;
   top: 0;
@@ -594,16 +624,16 @@ label[for^="appearance-"] {
   border-radius: 50%; */
   border: 1px solid var(--c-text);
 }
-label[for="appearance-light"] {
+label[for="appearance-light"] span {
   background-color: white;
 }
-label[for="appearance-dark"] {
+label[for="appearance-dark"] span {
   background-color: #000;
 }
-label[for="appearance-system"] {
+label[for="appearance-system"] span {
   background-color: white;
 }
-label[for="appearance-system"]:after {
+label[for="appearance-system"] span:after {
   content: "";
   position: absolute;
   top: 0;

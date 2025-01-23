@@ -30,7 +30,7 @@ export default function Page404(site) {
               element: "#root",
               pageSize: 10,
               showImages: false,
-              showSubResults: true,
+              showSubResults: false,
             });
             console.log("result", result);
 

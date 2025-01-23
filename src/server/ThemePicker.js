@@ -27,36 +27,32 @@ const colors = [
 export default function ThemePicker() {
   return html`
     <theme-picker>
-      <details open>
-        <summary>Theme</summary>
-        <form>
-          <div class="tp-colors">
-            ${colors
-              .map(
-                (color) => /*html*/ `
+      <form>
+        <fieldset class="tp-colors">
+          ${colors
+            .map(
+              (color) => /*html*/ `
             <input type="radio" name="color" value="${color}" id="color-${color}" />
             <label
               id="color-${color}"
               for="color-${color}"
-              style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"
-            >${color}</label> 
+            ><span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">${color}</span></label> 
         `
-              )
-              .join("")}
-          </div>
-          <div class="tp-themes">
-            ${["system", "light", "dark"]
-              .map((theme) => {
-                const label = theme.charAt(0).toUpperCase() + theme.slice(1);
-                return /*html*/ `
+            )
+            .join("")}
+        </div>
+        <div class="tp-themes">
+          ${["system", "light", "dark"]
+            .map((theme) => {
+              const label = theme.charAt(0).toUpperCase() + theme.slice(1);
+              return /*html*/ `
             <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}" />
             <label for="appearance-${theme}" title="${label}">${label}</label>
             `;
-              })
-              .join("")}
-          </div>
-        </form>
-      </details>
+            })
+            .join("")}
+        </div>
+      </form>
     </theme-picker>
     <!-- prettier-ignore -->
     <script>${importFile("./theme-picker.js")}</script>

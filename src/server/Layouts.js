@@ -184,7 +184,7 @@ export async function Page(props, children) {
                   element: "#search",
                   pageSize: 10,
                   showImages: false,
-                  showSubResults: true,
+                  showSubResults: false,
                 });
                 console.log("result", result);
 
