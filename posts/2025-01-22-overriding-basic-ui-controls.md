@@ -1,6 +1,6 @@
 # Consistency For Who? Thoughts on Overriding Basic Computing Controls
 
-**A note before we start**: I don’t know how much of this I  believe. I’m sketching out some feelings in this post and thinking through whether it actually makes any sense. Your response to the below may be: 1) “Actually, that’s true…”, or 2) “You’re wrong, here’s why…”
+**A note before we start**: I don’t know how much of this I  believe. I’m sketching out some feelings in this post and thinking through whether it actually makes any sense. I’d be curious where other folks land on this.
 
 ---
 
