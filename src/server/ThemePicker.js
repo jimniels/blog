@@ -4,8 +4,6 @@ import { fileURLToPath } from "url";
 const importFile = (filepath) =>
   fs.readFileSync(fileURLToPath(import.meta.resolve(filepath))).toString();
 
-console.log(fileURLToPath(import.meta.resolve("./theme-picker.js")));
-
 // Pulled from the CSS theme variables
 const colors = [
   "blue",
@@ -32,26 +30,28 @@ export default function ThemePicker() {
           ${colors
             .map(
               (color) => /*html*/ `
-            <input type="radio" name="color" value="${color}" id="color-${color}" />
-            <label
-              id="color-${color}"
-              for="color-${color}"
-            ><span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">${color}</span></label> 
-        `
+        <input type="radio" name="color" value="${color}" id="color-${color}"  />
+        <label
+          id="color-${color}"
+          for="color-${color}"
+        ><span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">${color}</span></label> 
+    `
             )
             .join("")}
-        </div>
-        <div class="tp-themes">
+        </fieldset>
+        <fieldset class="tp-themes">
           ${["system", "light", "dark"]
             .map((theme) => {
               const label = theme.charAt(0).toUpperCase() + theme.slice(1);
               return /*html*/ `
-            <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}" />
-            <label for="appearance-${theme}" title="${label}">${label}</label>
-            `;
+        <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}"  />
+        <label for="appearance-${theme}" title="${label}">${importFile(
+                `./svgs/appearance-${theme}.svg`
+              )}</label>
+        `;
             })
             .join("")}
-        </div>
+        </fieldset>
       </form>
     </theme-picker>
     <!-- prettier-ignore -->

@@ -32,41 +32,40 @@ class ThemePicker extends HTMLElement {
     }
     this.setColor(initialColor);
 
-    this.innerHTML = /*html*/ `
-      
-      <form>
-        <fieldset class="tp-colors">
-        ${colors
-          .map(
-            (color) => /*html*/ `
-            <input type="radio" name="color" value="${color}" id="color-${color}" ${
-              color === initialColor ? "checked" : ""
-            } />
-            <label
-              id="color-${color}"
-              for="color-${color}"
-            ><span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">${color}</span></label> 
-        `
-          )
-          .join("")}
-        </fieldset>
-        <fieldset class="tp-themes">
-        ${["system", "light", "dark"]
-          .map((theme) => {
-            const label = theme.charAt(0).toUpperCase() + theme.slice(1);
-            return /*html*/ `
-            <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}" ${
-              initialAppearance === theme ? "checked" : ""
-            } />
-            <label for="appearance-${theme}" title="${label}"><span>${label}</span></label>
-            `;
-          })
-          .join("")}
-        </fieldset>
-      </form>
-      
-         
-    `;
+    // this.innerHTML = /*html*/ `
+
+    //   <form>
+    //     <fieldset class="tp-colors">
+    //     ${colors
+    //       .map(
+    //         (color) => /*html*/ `
+    //         <input type="radio" name="color" value="${color}" id="color-${color}" ${
+    //           color === initialColor ? "checked" : ""
+    //         } />
+    //         <label
+    //           id="color-${color}"
+    //           for="color-${color}"
+    //         ><span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">${color}</span></label>
+    //     `
+    //       )
+    //       .join("")}
+    //     </fieldset>
+    //     <fieldset class="tp-themes">
+    //     ${["system", "light", "dark"]
+    //       .map((theme) => {
+    //         const label = theme.charAt(0).toUpperCase() + theme.slice(1);
+    //         return /*html*/ `
+    //         <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}" ${
+    //           initialAppearance === theme ? "checked" : ""
+    //         } />
+    //         <label for="appearance-${theme}" title="${label}"><span>${label}</span></label>
+    //         `;
+    //       })
+    //       .join("")}
+    //     </fieldset>
+    //   </form>
+
+    // `;
   }
 
   connectedCallback() {
