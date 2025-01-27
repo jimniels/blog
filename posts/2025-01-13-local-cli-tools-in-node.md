@@ -31,6 +31,7 @@ Pros:
 Cons:
 
 - ??? just that you have to know it exists, I guess.
+- **Update**: [Tyler Mercer](https://tylermercer.net/) emailed me noting that this approach is susceptible to [typosquatting attacks](https://snyk.io/blog/typosquatting-attacks/) which is a really great point. If you accidentally type `npx oro` instead of `npx ori` and `oro` is a malicious package created for just such occasions when you mistype something, well then you now have malicious code installed and running on your machine. Be careful!
 
 ## Invoke Directly From node_modules
 
