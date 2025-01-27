@@ -88,7 +88,7 @@ export default async function About(site) {
   return Page(
     { site, page },
     html`
-      <main class="copy" style="margin-bottom: 6rem;">
+      <div class="copy" style="margin-bottom: 6rem;">
         <div class="image-container" style="margin-bottom: 2rem;">
           <div
             style="position: relative; width: 640px; height: auto; position: relative; margin: 0 auto; max-width: 100%;"
@@ -165,7 +165,7 @@ export default async function About(site) {
             svg: uniquezSvg(svg, id).replace(/<\?xml.*\?>/, ""),
           })
         )}
-      </main>
+      </div>
     `
   );
 }

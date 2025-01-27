@@ -24,7 +24,7 @@ export default async function Index(site) {
         path: "/",
       },
     },
-    html` <main class="wrapper">
+    html`
       <h1>Latest</h1>
       ${PostsList(recent.slice(0, 3))}
       ${PostMore(PostsList(recent.slice(3, 9)))}
@@ -86,7 +86,7 @@ export default async function Index(site) {
       </div>
       */ ""
       }
-    </main>`
+    `
   );
 }
 

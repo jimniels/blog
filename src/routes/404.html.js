@@ -12,7 +12,7 @@ export default function Page404(site) {
       },
     },
     html`
-      <main class="copy">
+      <div class="copy">
         <h1>${title}</h1>
 
         <p>
@@ -34,7 +34,7 @@ export default function Page404(site) {
               alt="Picture of a pie I made and posted on Instagram"
           /></a>
         </p>
-      </main>
+      </div>
     `
   );
 }

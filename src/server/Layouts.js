@@ -56,7 +56,7 @@ export async function Page(props, children) {
     "<!DOCTYPE html>" +
     comment +
     html`
-      <html lang="en-us" id="top">
+      <html lang="en-us" id="top" data-theme-appearance="light">
         <head>
           <title>${title && `${title} - `}${name}</title>
 
@@ -103,10 +103,18 @@ export async function Page(props, children) {
             ${[
               "./styles/modern-normalize.css",
               "./styles/styles.css",
-              "./styles/atom-one-light.css",
+              //"./styles/atom-one-light.css",
             ]
               .map(importFile)
               .join("")}
+              :root,
+              :root[data-theme-appearance="light"] {
+                ${importFile("./styles/atom-one-light.css")}
+              }
+
+            :root[data-theme-appearance="dark"] {
+              ${importFile("./styles/atom-one-dark.css")}
+            }
 
             @media screen and (prefers-color-scheme: dark) {
               ${importFile("./styles/atom-one-dark.css")}
@@ -116,7 +124,7 @@ export async function Page(props, children) {
           <!-- Dynamic <head> content where applicable -->
           ${head}
         </head>
-        <body>
+        <body class="l-container">
           <script>
             /** @type {'light' | 'dark' | 'system' | null} value */
             let appearance = localStorage.getItem("theme-appearance");
@@ -131,7 +139,7 @@ export async function Page(props, children) {
           </script>
           <jim-navbar></jim-navbar>
 
-          <nav class="navv wrapper">
+          <nav class="nav l-top">
             <a href="/" ${path === "/" && "aria-current='page'"}>
               ${path !== "/" &&
               html`<svg
@@ -151,96 +159,104 @@ export async function Page(props, children) {
               Jim Nielsen’s Blog
             </a>
 
-            <!-- <a href="/search/" ${path === "/search/" &&
-            "aria-current='page'"}>
-              Search
-            </a> -->
-
-            <input type="search" placeholder="Search" id="sidebar-search" />
-
-            <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
-            <script
-              src="/pagefind/pagefind-ui.js"
-              defer
-              id="pagefind-script"
-            ></script>
-            <style>
-              #search {
-                overflow: hidden;
-              }
-              .pagefind-ui__search-input,
-              .pagefind-ui__search-clear,
-              .pagefind-ui__form:before {
-                display: none !important;
-              }
-            </style>
-
-            <script defer>
-              console.log("script running");
-              const pagefindScript = document.getElementById("pagefind-script");
-              pagefindScript.addEventListener("load", (event) => {
-                console.log("pagefindScript loaded");
-                const result = new PagefindUI({
-                  element: "#search",
-                  pageSize: 10,
-                  showImages: false,
-                  showSubResults: false,
-                });
-                console.log("result", result);
-
-                document
-                  .querySelector("#sidebar-search")
-                  .addEventListener("input", (event) => {
-                    const input = document.querySelector(
-                      ".pagefind-ui__search-input"
-                    );
-                    const value = event.target.value;
-                    input.value = value;
-
-                    const main = document.querySelector("main");
-                    if (value === "") {
-                      main.style.display = "block";
-                    } else {
-                      main.style.display = "none";
-                    }
-
-                    const inputEvent = new Event("input", { bubbles: true });
-                    input.dispatchEvent(inputEvent);
-
-                    const changeEvent = new Event("change", { bubbles: true });
-                    input.dispatchEvent(changeEvent);
-                  });
-              });
-            </script>
-
-            <a href="/menu/" ${path === "/menu/" && "aria-current='page'"}
+            <a
+              href="/menu/"
+              ${path === "/menu/" && "aria-current='page'"}
+              hidden
               >Menu</a
             >
-            <a href="/archive/" ${path === "/archive/" && "aria-current='page'"}
-              >Archive</a
-            >
-            <a href="/about/" ${path === "/about/" && "aria-current='page'"}
-              >About</a
-            >
-            <a
-              href="/subscribe/"
-              ${path === "/subscribe/" && "aria-current='page'"}
-              >Subscribe</a
-            >
-            <a href="/tags/" ${path === "/tags/" && "aria-current='page'"}
-              >Tags</a
-            >
-            <a
-              href="/about/external-links/"
-              ${path === "/about/external-links/" && "aria-current='page'"}
-              >External Links</a
-            >
-
-            ${ThemePicker()}
           </nav>
 
-          ${children}
-          <div id="search" class="wrapper"></div>
+          <main class="main l-left">
+            ${children}
+            <output id="js-search-root"></output>
+          </main>
+          <aside class="sidebar l-right">
+            <form class="navv__search" id="js-search-form">
+              <input type="search" placeholder="Search" id="search-input" />
+              <div class="lds-dual-ring"></div>
+            </form>
+            <script defer src="/assets/pagefind.js"></script>
+            <div class="sb">
+              <h3>About</h3>
+              <p>
+                I’m Jim Nielsen: a web designer & developer. This is my blog,
+                where I refine my thinking.
+              </p>
+            </div>
+            <div class="sb">
+              <h3>Subscribe</h3>
+              <ul>
+                <li><a href="/feed.xml">RSS feed</a></li>
+                <li><a href="/feed.json">JSON feed</a></li>
+                <li><a href="/feed.html">HTML feed</a></li>
+                <li><a href="/subscribe/">Email delivery</a></li>
+              </ul>
+            </div>
+            <div class="sb">
+              <h3>Stats</h3>
+              <ul>
+                <li>
+                  <a href="/archive/">
+                    <span>Posts</span>
+                    <span>100</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/tags/">
+                    <span>Tags</span>
+                    <span>52</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/about/external-links/">
+                    <span>External Links</span>
+                    <span>2,873</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/internal-links/">
+                    <span>Internal Links</span>
+                    <span>642</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="sb">
+              <h3>Theme</h3>
+              ${ThemePicker()}
+            </div>
+            <div class="sb">
+              <h3>Social</h3>
+              <ul>
+                <li>
+                  <a href="https://github.com/jimniels">
+                    <span>Mastodon</span>
+                    <span>@jimniels</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/jimniels">
+                    <span>Bluesky</span>
+                    <span>@jim-nielsen.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://mastodon.social/@jimniels">
+                    <span>Email</span>
+                    <span>jimniels@gmail</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://jim-nielsen.com/linkedin/">
+                    <span>LinkedIn</span>
+                    <span>jim.nielsen</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <img src="/assets/frame-29.png" width="220" />
+          </aside>
         </body>
       </html>
     `
