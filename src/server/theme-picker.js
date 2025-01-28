@@ -20,17 +20,24 @@ class ThemePicker extends HTMLElement {
   constructor() {
     super();
 
-    this.setAttribute("role", "group");
-    this.setAttribute("aria-label", "Toggle buttons");
-
     // This gets set in Layout.js
     let initialAppearance = localStorage.getItem("theme-appearance");
+    if (!["system", "light", "dark"].includes(initialAppearance)) {
+      initialAppearance = "system";
+    }
+    document
+      .querySelector(`input[name=appearance][value=${initialAppearance}]`)
+      .setAttribute("checked", "");
+    this.setTheme(initialAppearance);
 
     let initialColor = localStorage.getItem("theme-color");
     if (!colors.includes(initialColor)) {
       initialColor = "blue";
     }
     this.setColor(initialColor);
+    document
+      .querySelector(`input[name=color][value=${initialColor}]`)
+      .setAttribute("checked", "");
 
     // this.innerHTML = /*html*/ `
 

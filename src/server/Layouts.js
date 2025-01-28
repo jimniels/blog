@@ -48,10 +48,6 @@ export async function Page(props, children) {
     page: { head = "", path, title },
   } = props;
 
-  const ThemePicker = await import("./ThemePicker.js?t=" + Date.now()).then(
-    (module) => module.default
-  );
-
   return (
     "<!DOCTYPE html>" +
     comment +
@@ -171,94 +167,108 @@ export async function Page(props, children) {
             ${children}
             <output id="js-search-root"></output>
           </main>
-          <aside class="sidebar l-right">
-            <form class="navv__search" id="js-search-form">
-              <input type="search" placeholder="Search" id="search-input" />
-              <div class="lds-dual-ring"></div>
-            </form>
-            <script defer src="/assets/pagefind.js"></script>
-            <div class="sb">
-              <h3>About</h3>
-              <p>
-                I’m Jim Nielsen: a web designer & developer. This is my blog,
-                where I refine my thinking.
-              </p>
-            </div>
-            <div class="sb">
-              <h3>Subscribe</h3>
-              <ul>
-                <li><a href="/feed.xml">RSS feed</a></li>
-                <li><a href="/feed.json">JSON feed</a></li>
-                <li><a href="/feed.html">HTML feed</a></li>
-                <li><a href="/subscribe/">Email delivery</a></li>
-              </ul>
-            </div>
-            <div class="sb">
-              <h3>Stats</h3>
-              <ul>
-                <li>
-                  <a href="/archive/">
-                    <span>Posts</span>
-                    <span>100</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/tags/">
-                    <span>Tags</span>
-                    <span>52</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/about/external-links/">
-                    <span>External Links</span>
-                    <span>2,873</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/internal-links/">
-                    <span>Internal Links</span>
-                    <span>642</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="sb">
-              <h3>Theme</h3>
-              ${ThemePicker()}
-            </div>
-            <div class="sb">
-              <h3>Social</h3>
-              <ul>
-                <li>
-                  <a href="https://github.com/jimniels">
-                    <span>Mastodon</span>
-                    <span>@jimniels</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/jimniels">
-                    <span>Bluesky</span>
-                    <span>@jim-nielsen.com</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://mastodon.social/@jimniels">
-                    <span>Email</span>
-                    <span>jimniels@gmail</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://jim-nielsen.com/linkedin/">
-                    <span>LinkedIn</span>
-                    <span>jim.nielsen</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <img src="/assets/frame-29.png" width="220" />
-          </aside>
+          ${await Sidebar()}
         </body>
       </html>
     `
   );
+}
+
+async function Sidebar() {
+  const ThemePicker = await import("./ThemePicker.js?t=" + Date.now()).then(
+    (module) => module.default
+  );
+  return html`
+    <aside class="sidebar l-right">
+      <form class="navv__search" id="js-search-form">
+        <input
+          type="search"
+          placeholder="Search"
+          id="search-input"
+          autocomplete="off"
+        />
+        <div class="lds-dual-ring"></div>
+      </form>
+      <script defer src="/assets/pagefind.js"></script>
+      <div class="sb">
+        <h3>About</h3>
+        <p>
+          I’m Jim Nielsen: a web designer & developer. This is my blog, where I
+          refine my thinking.
+        </p>
+      </div>
+      <div class="sb">
+        <h3>Subscribe</h3>
+        <ul>
+          <li><a href="/feed.xml">RSS feed</a></li>
+          <li><a href="/feed.json">JSON feed</a></li>
+          <!-- <li><a href="/feed.html">HTML feed</a></li> -->
+          <li><a href="/subscribe/">Email delivery</a></li>
+        </ul>
+      </div>
+      <div class="sb">
+        <h3>Stats</h3>
+        <ul>
+          <li>
+            <a href="/archive/">
+              <span>Posts</span>
+              <span>100</span>
+            </a>
+          </li>
+          <li>
+            <a href="/tags/">
+              <span>Tags</span>
+              <span>52</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about/external-links/">
+              <span>External Links</span>
+              <span>2,873</span>
+            </a>
+          </li>
+          <li>
+            <a href="/internal-links/">
+              <span>Internal Links</span>
+              <span>642</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="sb">
+        <h3>Theme</h3>
+        ${ThemePicker()}
+      </div>
+      <div class="sb">
+        <h3>Social</h3>
+        <ul>
+          <li>
+            <a href="https://github.com/jimniels">
+              <span>Mastodon</span>
+              <span>@jimniels</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/jimniels">
+              <span>Bluesky</span>
+              <span>@jim-nielsen.com</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://mastodon.social/@jimniels">
+              <span>Email</span>
+              <span>jimniels@gmail</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://jim-nielsen.com/linkedin/">
+              <span>LinkedIn</span>
+              <span>jim.nielsen</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <img src="/assets/frame-29.png" width="220" />
+    </aside>
+  `;
 }

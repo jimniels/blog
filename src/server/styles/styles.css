@@ -144,6 +144,10 @@ html {
     hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l) / 0.15);
 }
 
+[hidden] {
+  display: none !important;
+}
+
 /* Links
    ========================================================================== */
 
@@ -521,7 +525,7 @@ theme-picker details summary::-webkit-details-marker {
 
 theme-picker form {
   flex-direction: column;
-  gap: var(--s-8);
+
   display: flex;
   margin-top: var(--s-12);
 }
@@ -532,10 +536,18 @@ theme-picker details[open] form {
 theme-picker fieldset {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: var(--s-4);
   margin: 0;
   padding: 0;
   border: none;
+  align-items: center;
+}
+
+theme-picker fieldset > div {
+  display: flex;
+  flex-direction: row;
+  gap: var(--s-4);
 }
 
 theme-picker input {
@@ -543,22 +555,21 @@ theme-picker input {
 }
 
 theme-picker label {
-  display: block;
-  padding: 8px;
+  display: flex;
+  padding: 6px;
   border-radius: 50px;
   position: relative;
 }
 theme-picker label span {
   text-indent: -9999px;
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   border-radius: 50px;
   position: relative;
 }
 
-theme-picker input:checked + label,
-theme-picker :not(input:checked) + label:hover {
+theme-picker input:checked + label {
   box-shadow: 0 0 0 1px var(--c-theme);
 }
 
@@ -579,6 +590,12 @@ theme-picker input:checked + label:before {
   bottom: -10px;
   left: 3px;
 }
+theme-picker input:checked + label {
+  box-shadow: 0 0 0 1px var(--c-bg-opaque);
+}
+theme-picker input:checked + label {
+  box-shadow: 0 0 0 1px var(--c-theme);
+}
 
 @media (hover: hover) {
   theme-picker label {
@@ -589,10 +606,6 @@ theme-picker input:checked + label:before {
   theme-picker input:checked + label {
     opacity: 1;
     filter: grayscale(0);
-    box-shadow: none;
-  }
-  theme-picker:hover input:checked + label {
-    box-shadow: 0 0 0 1px var(--c-theme);
   }
 }
 
@@ -834,7 +847,7 @@ h1 {
 }
 
 [data-has-search-results] > *:not(output) {
-  display: none;
+  display: none !important;
 }
 .navv__search {
   position: relative;
@@ -858,8 +871,8 @@ h1 {
 .navv__search[data-loading]:after {
   content: " ";
   position: absolute;
-  right: 16px;
-  top: 1px;
+  right: -40px;
+  top: -1px;
   /* change color here */
   color: var(--c-theme);
   display: block;
@@ -870,7 +883,6 @@ h1 {
   border: 1px solid currentColor;
   border-color: currentColor transparent currentColor transparent;
   animation: spin 1.2s linear infinite;
-  background-color: var(--c-bg);
 }
 @keyframes spin {
   0% {
@@ -891,11 +903,13 @@ h1 {
   font-size: 0.722222rem;
   color: var(--c-text-light);
 }
-.sb * {
+.sb > * {
   font-size: inherit;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.sb a {
   color: inherit;
 }
 .sb h3 {

@@ -8,13 +8,21 @@ import { html } from "./utils.js";
  */
 export function PostsList(
   posts,
-  fn = ({ date }) => html`<time datetime="${date}">${toDateUI(date)}</time>`
+  fn = (post) =>
+    html`<time datetime="${post.date}">${toDateUI(post.date)}</time>
+      ${post.hackerNews
+        ? ` · ${post.hackerNews.comments} comments, ${post.hackerNews.points} points`
+        : ""}
+      ${post.pageviews ? "🔥" : ""}`
 ) {
   return html`
     <ul class="posts-list">
       ${posts.map(
         (post) => html`
-          <li>
+          <li
+            ${post.hackerNews ? "data-hacker-news" : ""}
+            ${post.pageviews ? "data-trending" : ""}
+          >
             <a
               href="${post.path}"
               style="view-transition-name: post-title-${post.id}"

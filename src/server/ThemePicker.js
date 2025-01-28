@@ -26,31 +26,37 @@ export default function ThemePicker() {
   return html`
     <theme-picker>
       <form>
-        <fieldset class="tp-colors">
-          ${colors
-            .map(
-              (color) => /*html*/ `
+        <fieldset>
+          <div><legend>Accent</legend></div>
+          <div>
+            ${colors
+              .map(
+                (color) => /*html*/ `
         <input type="radio" name="color" value="${color}" id="color-${color}"  />
         <label
           id="color-${color}"
           for="color-${color}"
         ><span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">${color}</span></label> 
     `
-            )
-            .join("")}
+              )
+              .join("")}
+          </div>
         </fieldset>
-        <fieldset class="tp-themes">
-          ${["system", "light", "dark"]
-            .map((theme) => {
-              const label = theme.charAt(0).toUpperCase() + theme.slice(1);
-              return /*html*/ `
+        <fieldset>
+          <div><legend>Appearance</legend></div>
+          <div>
+            ${["system", "light", "dark"]
+              .map((theme) => {
+                const label = theme.charAt(0).toUpperCase() + theme.slice(1);
+                return /*html*/ `
         <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}"  />
         <label for="appearance-${theme}" title="${label}">${importFile(
-                `./svgs/appearance-${theme}.svg`
-              )}</label>
+                  `./svgs/appearance-${theme}.svg`
+                )}</label>
         `;
-            })
-            .join("")}
+              })
+              .join("")}
+          </div>
         </fieldset>
       </form>
     </theme-picker>
