@@ -1,6 +1,6 @@
-// @ts-check
 import { Page } from "../../server/Layouts.js";
 import { PostsList } from "../../server/PostsList.js";
+import { PostsNav } from "../../server/PostsNav.js";
 import { html } from "../../server/utils.js";
 
 const page = {
@@ -8,9 +8,6 @@ const page = {
   path: "/archive/",
   head: html`
     <style>
-      [hidden] {
-        display: none !important;
-      }
       main h2 {
         position: sticky;
         top: 0px;
@@ -36,20 +33,18 @@ export default function Archive(site) {
 
   return Page(
     { site, page },
-    html` <main class="wrapper">
-      <h1>Archive</h1>
-      <p style="font-size: 0.875rem; line-height: 1.75;">
-        Top tags:
-        ${site.tags
-          .filter(({ name }) => name !== "readingNotes")
-          .sort((a, b) => b.count < a.count)
-          .slice(0, 8)
-          .map(
-            ({ name }) =>
-              html`<a href="/tags#${name}" class="tag">#${name}</a> `
-          )}
-        <a href="/tags/">${site.tags.length - 10} more…</a>
-      </p>
+    html`
+      <h1>Posts</h1>
+      ${PostsNav("/archive/")}
+      ${Object.keys(postsByYear)
+        .sort()
+        .reverse()
+        .map(
+          (year) => html`
+            <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
+            ${PostsList(postsByYear[year])}
+          `
+        )}
 
       <!--
       <input type="text" placeholder="Search" id="search" list="tags" />
@@ -92,16 +87,6 @@ export default function Archive(site) {
           });
         });
       </script> -->
-
-      ${Object.keys(postsByYear)
-        .sort()
-        .reverse()
-        .map(
-          (year) => html`
-            <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
-            ${PostsList(postsByYear[year])}
-          `
-        )}
-    </main>`
+    `
   );
 }

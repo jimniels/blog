@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/jimniels/blog/issues"
   },
-  "homepage": "https://github.com/jimniels/blog#readme"
+  "homepage": "https://github.com/jimniels/blog#readme",
+  "devDependencies": {
+    "@types/node": "^22.12.0"
+  }
 }

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowJs": true, // Allows TypeScript to process JavaScript files
+    "checkJs": true, // Enables type-checking for all .js files
+    "strict": true, // Optional, for strict type checking
+    "lib": ["ES2015", "DOM"],
+    "target": "ES2015",
+    "module": "ESNext", // Use ES modules
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+    "baseUrl": ".", // Makes imports relative to the tsconfig.json location
+    "noEmit": true, // Only check types, don't generate files
+    "paths": {
+      "types": ["types.ts"]
+    }
+  },
+  "include": [
+    "./src/**/*.js",
+    "types.ts" // Add the types file
+  ]
+}

@@ -43,6 +43,9 @@ export type Post = {
 export type Page = {
   title: string;
   path: string;
+  // Head is a string of HTML that will be added to the head of the page
+  // e.g. { head: `<style>.class{color:red}</style>` }
+  head?: string;
 };
 
 export type DynamicPage = {

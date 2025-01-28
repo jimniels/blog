@@ -930,3 +930,17 @@ h1 {
 .sidebar img {
   display: none;
 }
+
+.posts-nav {
+  display: flex;
+  padding: var(--s-16) 0 var(--s-24);
+}
+.posts-nav > * {
+  padding: var(--s-4) var(--s-12);
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  font-size: 0.88888rem;
+}
+.posts-nav [aria-current="page"] {
+  border-color: var(--c-text);
+}

@@ -1,10 +1,13 @@
-// @ts-check
-import fs from "fs";
+import * as fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { html } from "./utils.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+/**
+ * @param {string} filepath
+ * @returns {string}
+ */
 const importFile = (filepath) =>
   fs.readFileSync(join(__dirname, filepath)).toString();
 const avatar = fs
@@ -33,7 +36,7 @@ const comment = `
 
 👋
 Want to read the code behind this code?
-It’s available on GitHub.
+It's available on GitHub.
 https://www.github.com/jimniels/blog/
 
 
@@ -41,7 +44,12 @@ https://www.github.com/jimniels/blog/
 -->
 `;
 
-// Children will do: Page({...}, html`<main {class="{wrapper|copy}"}?>...</main>`)
+/**
+ *
+ * @param {{ site: import('types').Site, page: import('types').Page }} props
+ * @param {string} children - Children will do: Page({...}, html`<main {class="{wrapper|copy}"}?>...</main>`)
+ * @returns {Promise<string>}
+ */
 export async function Page(props, children) {
   const {
     site: { origin, tags, name },
