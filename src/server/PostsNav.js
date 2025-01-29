@@ -3,8 +3,8 @@ import { html } from "./utils.js";
 /** @type {readonly {label: string, href: string}[]} */
 const NAV = [
   { label: "Latest", href: "/" },
+  { label: "Trending", href: "/archive/trending/" },
   { label: "Hacker News Hits", href: "/archive/hacker-news/" },
-  { label: "Popular Now", href: "/archive/trending/" },
   // { label: "Personal Favs", href: "/archive/personal-favs/" },
   { label: "All", href: "/archive/" },
 ];

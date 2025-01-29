@@ -1,6 +1,7 @@
 import { html } from "./utils.js";
-import fs from "fs";
+import * as fs from "fs";
 import { fileURLToPath } from "url";
+/** @param {string} filepath */
 const importFile = (filepath) =>
   fs.readFileSync(fileURLToPath(import.meta.resolve(filepath))).toString();
 
@@ -50,9 +51,7 @@ export default function ThemePicker() {
                 const label = theme.charAt(0).toUpperCase() + theme.slice(1);
                 return /*html*/ `
         <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}"  />
-        <label for="appearance-${theme}" title="${label}">${importFile(
-                  `./svgs/appearance-${theme}.svg`
-                )}</label>
+        <label for="appearance-${theme}" title="${label}"><span>${label}</span></label>
         `;
               })
               .join("")}

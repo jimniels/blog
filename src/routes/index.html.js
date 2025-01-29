@@ -1,6 +1,6 @@
 import { PostsList } from "../server/PostsList.js";
 import { PostsNav } from "../server/PostsNav.js";
-// import { Page } from "../server/Layouts.js";
+import { Page } from "../server/Layouts.js";
 import { html, toDateUI } from "../server/utils.js";
 
 /**
@@ -8,27 +8,21 @@ import { html, toDateUI } from "../server/utils.js";
  * return {import("types").Page}
  */
 export default async function Index(site) {
-  const { Page } = await import("../server/Layouts.js" + "?t=" + Date.now());
-  const recent = site.posts
+  const posts = site.posts
     .filter((post) => !post?.tags.includes("rssClub"))
     .slice(0, 12);
-  const trending = site.posts
-    .filter((post) => post.hasOwnProperty("pageviews"))
-    .sort((a, b) => (a.pageviews > b.pageviews ? -1 : 1));
-  const hackerNews = site.posts
-    .filter((post) => post.hackerNews && post.hackerNews.points > 100)
-    .sort((a, b) => (a.hackerNews.points > b.hackerNews.points ? -1 : 1));
 
   return Page(
     {
       site,
       page: {
+        title: "",
         path: "/",
       },
     },
     html`
       <h1>Posts</h1>
-      ${PostsNav("/")} ${PostsList(recent)}
+      ${PostsNav("/")} ${PostsList(posts)}
       ${
         /*trending.length > 0 &&
       html`
@@ -92,17 +86,4 @@ export default async function Index(site) {
       }
     `
   );
-}
-
-function PostMore(children) {
-  return html`
-    <details style="margin-bottom: 2rem;">
-      <summary
-        style="margin: .5rem 0; color: var(--c-text-light); font-size: .875rem; cursor: pointer;"
-      >
-        Show more…
-      </summary>
-      ${children}
-    </details>
-  `;
 }

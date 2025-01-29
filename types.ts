@@ -48,6 +48,11 @@ export type Page = {
   head?: string;
 };
 
+export type PageLayout = (
+  props: { site: import("types").Site; page: import("types").Page },
+  children: string
+) => Promise<string>;
+
 export type DynamicPage = {
   path: string;
   contents: string;

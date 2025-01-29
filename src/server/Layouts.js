@@ -2,6 +2,7 @@ import * as fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { html } from "./utils.js";
+import ThemePicker from "./ThemePicker.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 /**
@@ -44,12 +45,7 @@ https://www.github.com/jimniels/blog/
 -->
 `;
 
-/**
- *
- * @param {{ site: import('types').Site, page: import('types').Page }} props
- * @param {string} children - Children will do: Page({...}, html`<main {class="{wrapper|copy}"}?>...</main>`)
- * @returns {Promise<string>}
- */
+/** @type {import("types").PageLayout} */
 export async function Page(props, children) {
   const {
     site: { origin, tags, name },
@@ -160,7 +156,7 @@ export async function Page(props, children) {
                   clip-rule="evenodd"
                 ></path>
               </svg>`}
-              Jim Nielsen’s Blog
+              Jim Nielsen's Blog
             </a>
 
             <a
@@ -175,17 +171,18 @@ export async function Page(props, children) {
             ${children}
             <output id="js-search-root"></output>
           </main>
-          ${await Sidebar()}
+          ${await Sidebar(props.site)}
         </body>
       </html>
     `
   );
 }
 
-async function Sidebar() {
-  const ThemePicker = await import("./ThemePicker.js?t=" + Date.now()).then(
-    (module) => module.default
-  );
+/**
+ * @param {import("types").Site} site
+ * @returns {Promise<string>}
+ */
+async function Sidebar(site) {
   return html`
     <aside class="sidebar l-right">
       <form class="navv__search" id="js-search-form">
@@ -201,17 +198,17 @@ async function Sidebar() {
       <div class="sb">
         <h3>About</h3>
         <p>
-          I’m Jim Nielsen: a web designer & developer. This is my blog, where I
+          I'm Jim Nielsen: a web designer & developer. This is my blog, where I
           refine my thinking.
         </p>
       </div>
       <div class="sb">
         <h3>Subscribe</h3>
         <ul>
-          <li><a href="/feed.xml">RSS feed</a></li>
-          <li><a href="/feed.json">JSON feed</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+          <li><a href="/feed.json">JSON</a></li>
           <!-- <li><a href="/feed.html">HTML feed</a></li> -->
-          <li><a href="/subscribe/">Email delivery</a></li>
+          <li><a href="https://buttondown.com/jimniels">Email</a></li>
         </ul>
       </div>
       <div class="sb">
@@ -220,25 +217,25 @@ async function Sidebar() {
           <li>
             <a href="/archive/">
               <span>Posts</span>
-              <span>100</span>
+              <span>${site.posts.length}</span>
             </a>
           </li>
           <li>
             <a href="/tags/">
               <span>Tags</span>
-              <span>52</span>
+              <span>${site.tags.length}</span>
             </a>
           </li>
           <li>
             <a href="/about/external-links/">
               <span>External Links</span>
-              <span>2,873</span>
+              <span>${site.externalLinks.length}</span>
             </a>
           </li>
           <li>
-            <a href="/internal-links/">
+            <a href="/about/internal-links/">
               <span>Internal Links</span>
-              <span>642</span>
+              <span>${Object.keys(site.internalLinksByPath).length}</span>
             </a>
           </li>
         </ul>

@@ -3,17 +3,14 @@ import { toDateUI } from "./utils.js";
 import { html } from "./utils.js";
 
 /**
- * @param {import("../../types").Post[]} posts
- * @param {(post: import("../../types").Post) => string} fn
+ * @param {import("types").Post[]} posts
+ * @param {(post: import("types").Post) => string} fn
+ * @returns {string}
  */
 export function PostsList(
   posts,
   fn = (post) =>
-    html`<time datetime="${post.date}">${toDateUI(post.date)}</time>
-      ${post.hackerNews
-        ? ` · ${post.hackerNews.comments} comments, ${post.hackerNews.points} points`
-        : ""}
-      ${post.pageviews ? "🔥" : ""}`
+    html`<time datetime="${post.date}">${toDateUI(post.date)}</time>`
 ) {
   return html`
     <ul class="posts-list">

@@ -69,8 +69,8 @@ const page = {
 
 // https://quickchart.io/documentation/graphviz-api/
 const graphLayoutEngines = [
-  "twopi",
   "fdp",
+  "twopi",
   "neato",
   "osage",
   // These don't render very well
