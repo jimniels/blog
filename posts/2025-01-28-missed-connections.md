@@ -34,6 +34,6 @@ You ask a question in a prompt.
 
 And you get back [something](https://blog.jim-nielsen.com/2024/nothing-is-something/).
 
-But there’s no human behind it. Just a machine which takes human voices and de-personalizes them until [the individual point of view is annihilated](http://blog.jim-nielsen/2024/notes-from-you-are-not-a-gadget/). And so too with it the sense of connection  — the feeling of being validated, understood, seen.
+But there’s no human behind it. Just a machine which takes human voices and de-personalizes them until [the individual point of view is annihilated](http://blog.jim-nielsen.com/2024/notes-from-you-are-not-a-gadget/). And so too with it the sense of connection  — the feeling of being validated, understood, seen.
 
 Every prompt a connection that could have been. A world of missed connections.
