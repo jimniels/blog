@@ -1,13 +1,14 @@
 import { PostsList } from "../server/PostsList.js";
 import { PostsNav } from "../server/PostsNav.js";
-import { Page } from "../server/Layouts.js";
-import { html, toDateUI } from "../server/utils.js";
+// import { Page } from "../server/Layouts.js";
+import { html, readFile, toDateUI } from "../server/utils.js";
 
 /**
  * @param {import("types").Site} site
  * return {import("types").Page}
  */
 export default async function Index(site) {
+  const { Page } = await import("../server/Layouts.js?d=" + Date.now());
   const posts = site.posts
     .filter((post) => !post?.tags.includes("rssClub"))
     .slice(0, 12);

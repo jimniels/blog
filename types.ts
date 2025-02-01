@@ -29,7 +29,7 @@ export type Post = {
   permalink: string; // Fully qualified URL (site.origin + post.path)
   contents: string; // Originally the markdown, converted to HTML in metalsmith
   tags: Array<string>;
-  wordCount?: number;
+  wordCount: number;
   pageviews?: number; // Pageviews according to netlify analytics
   hackerNews?: {
     url: string;

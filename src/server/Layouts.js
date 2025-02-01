@@ -1,49 +1,5 @@
-import * as fs from "fs";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
-import { html } from "./utils.js";
+import { html, readFile } from "./utils.js";
 import ThemePicker from "./ThemePicker.js";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-/**
- * @param {string} filepath
- * @returns {string}
- */
-const importFile = (filepath) =>
-  fs.readFileSync(join(__dirname, filepath)).toString();
-const avatar = fs
-  .readFileSync(join(__dirname, "avatar.png"))
-  .toString("base64");
-
-const fidelities = [
-  {
-    id: "high",
-    title: "Default",
-  },
-  {
-    id: "med",
-    title: "Minimal",
-  },
-  {
-    id: "low",
-    title: "Text-Only",
-  },
-];
-
-const comment = `
-<!--
-
-
-
-👋
-Want to read the code behind this code?
-It's available on GitHub.
-https://www.github.com/jimniels/blog/
-
-
-
--->
-`;
 
 /** @type {import("types").PageLayout} */
 export async function Page(props, children) {
@@ -53,8 +9,17 @@ export async function Page(props, children) {
   } = props;
 
   return (
-    "<!DOCTYPE html>" +
-    comment +
+    `<!DOCTYPE html><!--!
+
+
+👋
+Want to read the code behind this code?
+It's available on GitHub.
+https://www.github.com/jimniels/blog/
+
+
+-->
+` +
     html`
       <html lang="en-us" id="top" data-theme-appearance="light">
         <head>
@@ -105,19 +70,19 @@ export async function Page(props, children) {
               "./styles/styles.css",
               //"./styles/atom-one-light.css",
             ]
-              .map(importFile)
+              .map(readFile)
               .join("")}
               :root,
               :root[data-theme-appearance="light"] {
-                ${importFile("./styles/atom-one-light.css")}
+                ${readFile("./styles/atom-one-light.css")}
               }
 
             :root[data-theme-appearance="dark"] {
-              ${importFile("./styles/atom-one-dark.css")}
+              ${readFile("./styles/atom-one-dark.css")}
             }
 
             @media screen and (prefers-color-scheme: dark) {
-              ${importFile("./styles/atom-one-dark.css")}
+              ${readFile("./styles/atom-one-dark.css")}
             }
           </style>
 
@@ -171,7 +136,7 @@ export async function Page(props, children) {
             ${children}
             <output id="js-search-root"></output>
           </main>
-          ${await Sidebar(props.site)}
+          ${Sidebar(props.site)}
         </body>
       </html>
     `
@@ -180,9 +145,9 @@ export async function Page(props, children) {
 
 /**
  * @param {import("types").Site} site
- * @returns {Promise<string>}
+ * @returns {string}
  */
-async function Sidebar(site) {
+function Sidebar(site) {
   return html`
     <aside class="sidebar l-right">
       <form class="navv__search" id="js-search-form">
@@ -198,17 +163,32 @@ async function Sidebar(site) {
       <div class="sb">
         <h3>About</h3>
         <p>
-          I'm Jim Nielsen: a web designer & developer. This is my blog, where I
-          refine my thinking.
+          I'm <a href="https://www.jim-nielsen.com">Jim Nielsen</a>: a web
+          designer & developer. This is my blog, where I refine my thinking.
         </p>
       </div>
       <div class="sb">
         <h3>Subscribe</h3>
         <ul>
-          <li><a href="/feed.xml">RSS</a></li>
-          <li><a href="/feed.json">JSON</a></li>
-          <!-- <li><a href="/feed.html">HTML feed</a></li> -->
-          <li><a href="https://buttondown.com/jimniels">Email</a></li>
+          <li>
+            <a href="/feed.xml">
+              <span>RSS</span>
+              <span>${readFile("./svgs/rss.svg")}</span>
+            </a>
+          </li>
+          <li>
+            <a href="/feed.json">
+              <span>JSON</span>
+              <span>${readFile("./svgs/json.svg")}</span>
+            </a>
+          </li>
+          <!-- TODO: something about this? <li><a href="/feed.html">HTML feed</a></li> -->
+          <li>
+            <a href="https://buttondown.com/jimniels">
+              <span>Email</span>
+              <span>${readFile("./svgs/email.svg")}</span>
+            </a>
+          </li>
         </ul>
       </div>
       <div class="sb">
@@ -216,8 +196,28 @@ async function Sidebar(site) {
         <ul>
           <li>
             <a href="/archive/">
+              <span>Years</span>
+              <span
+                >${Number(new Date().toISOString().slice(0, 4)) -
+                Number(site.posts[site.posts.length - 1].date.slice(0, 4)) +
+                1}</span
+              >
+            </a>
+          </li>
+          <li>
+            <a href="/archive/">
+              <span>Words</span>
+              <span
+                >${site.posts
+                  .reduce((acc, post) => acc + post.wordCount, 0)
+                  .toLocaleString()}</span
+              >
+            </a>
+          </li>
+          <li>
+            <a href="/archive/">
               <span>Posts</span>
-              <span>${site.posts.length}</span>
+              <span>${site.posts.length.toLocaleString()}</span>
             </a>
           </li>
           <li>
@@ -228,13 +228,13 @@ async function Sidebar(site) {
           </li>
           <li>
             <a href="/about/external-links/">
-              <span>External Links</span>
+              <span>Outlinks</span>
               <span>${site.externalLinks.length}</span>
             </a>
           </li>
           <li>
             <a href="/about/internal-links/">
-              <span>Internal Links</span>
+              <span>Inlinks</span>
               <span>${Object.keys(site.internalLinksByPath).length}</span>
             </a>
           </li>
