@@ -132,10 +132,16 @@
 
 html {
   color-scheme: light dark;
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.5;
   background: var(--c-bg);
   color: var(--c-text);
+}
+
+@media (min-width: 768px) {
+  :root {
+    font-size: 1.125rem;
+  }
 }
 
 :focus-visible {
