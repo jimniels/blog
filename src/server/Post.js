@@ -4,11 +4,18 @@ import RssClub from "./RssClub.js";
 import { html, toDateUI } from "./utils.js";
 import { Page } from "./Layouts.js";
 
+/**
+ * @param {Object} opts
+ * @param {import("types").Site} opts.site
+ * @param {import("types").Post} opts.post
+ * @returns {Promise<string>}
+ */
 export default function Post({ site, post }) {
   const includeInSearch = !(
     post.tags &&
     (post.tags.includes("rssClub") || post.tags.includes("readingNotes"))
   );
+
   return Page(
     {
       site,
@@ -45,19 +52,51 @@ export default function Post({ site, post }) {
     html`
       <article class="h-entry" ${includeInSearch ? `data-pagefind-body` : ""}>
         <header
-          class="wrapper"
           style="view-transition-name: post-title-${post.id}"
         >
           <h1 class="p-name">${post.title}</h1>
-          <time class="dt-published" datetime="${post.date}">
-            ${toDateUI(post.date)}
-          </time>
+          <ul>
+            <li>
+              <time class="dt-published" datetime="${post.date}">
+                ${toDateUI(post.date)}
+              </time>
+            </li>
+            ${
+              post.tags.length
+                ? html`<li>
+                    ${post.tags
+                      .map((tag) => html`<a href="/tags/#${tag}">#${tag}</a>`)
+                      .join(", ")}
+                  </li>`
+                : ""
+            }
+            </li>
+            ${
+              post.hackerNews
+                ? html` <li>
+                    <a
+                      href="${post.hackerNews.url}"
+                      style="display: flex; align-items: center; gap: 4px;"
+                    >
+                      <!-- <img
+                        src="https://news.ycombinator.com/favicon.ico"
+                        width="16"
+                        height="16"
+                        alt="Hacker News"
+                      /> -->
+                      ${post.hackerNews.points.toLocaleString()} points,
+                      ${post.hackerNews.comments} comments on HackerNews</a
+                    >
+                  </li>`
+                : ""
+            }
+          </ul>
         </header>
         <div class="copy e-content">
-          ${post?.tags.includes("rssClub") ? RssClub() : ""}
+          ${post.tags.includes("rssClub") ? RssClub() : ""}
           ${post.contents.toString()}
         </div>
-        <footer class="wrapper">${ReplyHtml({ post, site })}</footer>
+        <footer>${ReplyHtml({ post, site })}</footer>
       </article>
     `
   );

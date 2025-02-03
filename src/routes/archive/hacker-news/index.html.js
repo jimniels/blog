@@ -27,7 +27,7 @@ export default async function Index(site) {
       ${PostsList(
         hackerNews,
         ({ hackerNews: { comments, points } }) =>
-          html`${points.toLocaleString()} points · ${comments.toLocaleString()}
+          html`${points.toLocaleString()} points, ${comments.toLocaleString()}
           comments`
       )}
     `
