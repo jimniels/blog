@@ -1,6 +1,6 @@
 #bookNotes
 
-# Notes From “You Are Not A Gadget”
+# Notes From “You Are Not A Gadget” by Jaron Lanier
 
 Jaron Lanier’s book _You Are Not a Gadget_ was written in 2010, but its preface is a prescient banger for 2024, the year of our AI overlord:
 
