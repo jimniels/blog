@@ -1,9 +1,4 @@
-import { html } from "./utils.js";
-import * as fs from "fs";
-import { fileURLToPath } from "url";
-/** @param {string} filepath */
-const importFile = (filepath) =>
-  fs.readFileSync(fileURLToPath(import.meta.resolve(filepath))).toString();
+import { html, readFile } from "./utils.js";
 
 // Pulled from the CSS theme variables
 const colors = [
@@ -60,6 +55,6 @@ export default function ThemePicker() {
       </form>
     </theme-picker>
     <!-- prettier-ignore -->
-    <script>${importFile("./theme-picker.js")}</script>
+    <script>${readFile("./theme-picker.js")}</script>
   `;
 }
