@@ -5,8 +5,8 @@ const NAV = [
   { label: "Latest", href: "/" },
   { label: "Trending", href: "/archive/trending/" },
   { label: "Hacker News Hits", href: "/archive/hacker-news/" },
-  // { label: "Personal Favs", href: "/archive/personal-favs/" },
-  { label: "All", href: "/archive/" },
+  { label: "Personal Favs", href: "/archive/personal-favs/" },
+  { label: "Archive", href: "/archive/" },
 ];
 
 /**
