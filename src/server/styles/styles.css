@@ -132,16 +132,10 @@
 
 html {
   color-scheme: light dark;
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.5;
   background: var(--c-bg);
   color: var(--c-text);
-}
-
-@media (min-width: 768px) {
-  :root {
-    font-size: 1.125rem;
-  }
 }
 
 :focus-visible {
@@ -830,7 +824,7 @@ h1 {
   padding: var(--s-32) 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .l-container {
     display: grid;
     grid-column-gap: 8%;
@@ -846,6 +840,9 @@ h1 {
   }
   .l-right {
     grid-area: 2 / 2 / 3 / 3;
+  }
+  .l-menu {
+    display: none;
   }
 }
 
@@ -986,6 +983,7 @@ h1 {
 .posts-nav {
   display: flex;
   padding: var(--s-16) 0 var(--s-24);
+  flex-wrap: wrap;
 }
 
 /* Old stuff going out */
@@ -1007,14 +1005,21 @@ h1 {
   }
 }
 
-.posts-nav > * {
-  padding: var(--s-8) var(--s-16);
+.posts-nav a {
+  padding: var(--s-8) var(--s-8);
   position: relative;
 }
-.posts-nav [aria-current="page"] {
-  border-color: var(--c-text);
+@media (min-width: 30rem) {
+  .posts-nav a {
+    padding: var(--s-8) var(--s-16);
+  }
 }
-.posts-nav [aria-current="page"]::after {
+.posts-nav a[aria-current="page"] {
+  border-color: var(--c-text);
+  pointer-events: none;
+  color: var(--c-text);
+}
+.posts-nav a[aria-current="page"]::after {
   view-transition-name: posts-nav-indicator;
   content: " ";
   position: absolute;

@@ -126,8 +126,8 @@ https://www.github.com/jimniels/blog/
 
             <a
               href="/menu/"
+              class="l-menu"
               ${path === "/menu/" && "aria-current='page'"}
-              hidden
               >Menu</a
             >
           </nav>

@@ -18,12 +18,10 @@ export function PostsNav(activeHref) {
     <nav class="posts-nav">
       ${NAV.map(({ label, href }) => {
         const isActive = activeHref === href;
-        const tag = isActive ? "span" : "a";
         return html`
-          <${tag}
-            href="${href}"
-            aria-current="${activeHref === href ? "page" : "false"}"
-            >${label}</${tag}>
+          <a href="${href}" aria-current="${isActive ? "page" : "false"}"
+            >${label}</a
+          >
         `;
       })}
     </nav>
