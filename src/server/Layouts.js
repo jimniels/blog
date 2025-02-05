@@ -106,7 +106,8 @@ https://www.github.com/jimniels/blog/
 
           <nav class="nav l-top">
             <a href="/" ${path === "/" && "aria-current='page'"}>
-              ${path !== "/" &&
+              ${false &&
+              path !== "/" &&
               html`<svg
                 width="15"
                 height="15"

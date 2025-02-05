@@ -866,10 +866,11 @@ h1 {
   display: flex;
   align-items: center;
   gap: var(--s-8);
-  padding-left: var(--s-16);
+  padding-left: 0;
   position: relative;
 }
 
+/* 
 .nav a[href="/"] svg {
   width: 30px;
   height: 30px;
@@ -886,7 +887,7 @@ h1 {
     left: -26px;
     top: -1px;
   }
-}
+} */
 
 [data-has-search-results] > *:not(output) {
   display: none !important;
