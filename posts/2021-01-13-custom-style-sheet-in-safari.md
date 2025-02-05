@@ -51,7 +51,7 @@ Pretty cool. Now I have a version of twitter custom tailored to me, free of a lo
 
 If you write a lot of custom styles for sites across the web, you could start running into naming collisions. It would be neat if you could scope styles to a specific domain. Maybe there’s a way to do it? I couldn’t think of one. Imagine:
 
-```
+```css
 :root[location*="twitter.com"] .selector {
   display: none;
 }
