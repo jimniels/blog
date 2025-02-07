@@ -41,10 +41,6 @@
     hsl(var(--c-theme-h) var(--c-theme-s) 99%),
     hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%)
   );
-  --c-bg-1: light-dark(
-    hsl(var(--c-theme-h) var(--c-theme-s) 100%),
-    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 60%) 5%)
-  );
   --c-fg: light-dark(
     hsl(var(--c-theme-h) var(--c-theme-s) 96%),
     hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 16%)
@@ -102,7 +98,7 @@
    ========================================================================== */
 
 :root {
-  --border-radius: 4px;
+  --border-radius: 0px;
   --s-4: calc(4rem / 18);
   --s-6: calc(6rem / 18);
   --s-8: calc(8rem / 18);
@@ -724,21 +720,6 @@ h1 {
   margin: 0 0 var(--s-16) 0;
 }
 
-.tags-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.tag {
-  padding: 2px 6px;
-  border-radius: 50px;
-  font-size: 0.875rem;
-  background: var(--c-fg);
-}
-
 :root {
   /* pagefind */
   --pagefind-ui-scale: 1 !important;
@@ -828,7 +809,7 @@ h1 {
 @media (min-width: 1024px) {
   .l-container {
     display: grid;
-    grid-column-gap: 8%;
+    grid-column-gap: 14%;
     grid-row-gap: 0px;
     grid-template-columns: minmax(0, 1fr) 220px;
     max-width: 960px;
@@ -856,7 +837,8 @@ h1 {
   justify-content: space-between;
 }
 
-.nav a[aria-current="page"] {
+.nav a[aria-current="page"],
+[data-path*="/archive/"] .nav a[href="/"] {
   color: var(--c-text-light);
   pointer-events: none;
   cursor: default;
@@ -986,6 +968,8 @@ h1 {
   display: flex;
   padding: var(--s-16) 0 var(--s-24);
   flex-wrap: wrap;
+  border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 /* Old stuff going out */
@@ -1011,6 +995,7 @@ h1 {
   padding: var(--s-6) var(--s-12);
   position: relative;
   font-size: 0.888888rem;
+  background: var(--c-bg-opaque);
 }
 @media (min-width: 30rem) {
   .posts-nav a {
@@ -1030,15 +1015,15 @@ h1 {
   left: 0;
   width: 100%;
 
-  bottom: 0;
+  /* bottom: 0;
   height: 100%;
   border: 1px solid transparent;
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius); */
 }
-.posts-nav a[aria-current="page"]::after {
-  border-color: var(--c-text);
+.posts-nav a[aria-current="page"]:after {
+  /* border-color: var(--c-text); */
 
-  /* height: 2px;
-  bottom: -2px;
-  background: var(--c-text); */
+  height: 2px;
+  bottom: 0px;
+  background: var(--c-text);
 }

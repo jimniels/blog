@@ -21,7 +21,12 @@ https://www.github.com/jimniels/blog/
 -->
 ` +
     html`
-      <html lang="en-us" id="top" data-theme-appearance="light">
+      <html
+        lang="en-us"
+        id="top"
+        data-theme-appearance="light"
+        data-path="${path}"
+      >
         <head>
           <title>${title && `${title} - `}${name}</title>
 
@@ -249,19 +254,19 @@ function Sidebar(site) {
         <h3>Social</h3>
         <ul>
           <li>
-            <a href="https://github.com/jimniels">
+            <a href="https://mastodon.social/@jimniels">
               <span>Mastodon</span>
               <span>@jimniels</span>
             </a>
           </li>
           <li>
-            <a href="https://twitter.com/jimniels">
+            <a href="https://bsky.app/profile/jim-nielsen.com/">
               <span>Bluesky</span>
               <span>@jim-nielsen.com</span>
             </a>
           </li>
           <li>
-            <a href="https://mastodon.social/@jimniels">
+            <a href="mailto:jimniels@gmail.com">
               <span>Email</span>
               <span>jimniels@gmail</span>
             </a>
