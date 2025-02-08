@@ -154,6 +154,13 @@ https://www.github.com/jimniels/blog/
  * @returns {string}
  */
 function Sidebar(site) {
+  const years =
+    Number(new Date().toISOString().slice(0, 4)) -
+    Number(site.posts[site.posts.length - 1].date.slice(0, 4)) +
+    1;
+  const words = site.posts
+    .reduce((acc, post) => acc + post.wordCount, 0)
+    .toLocaleString();
   return html`
     <aside class="sidebar l-right">
       <form class="sidebar-search" id="js-search-form">
@@ -169,8 +176,8 @@ function Sidebar(site) {
       <div class="sidebar-module">
         <h3>About</h3>
         <p>
-          I'm <a href="https://www.jim-nielsen.com">Jim Nielsen</a>: a web
-          designer & developer. This is my blog, where I refine my thinking.
+          I'm a web designer/developer and I’ve been blogging here for ${years}
+          years and written ${words} words.
         </p>
       </div>
       <div class="sidebar-module">
@@ -202,26 +209,6 @@ function Sidebar(site) {
         <ul>
           <li>
             <a href="/archive/">
-              <span>Years</span>
-              <span
-                >${Number(new Date().toISOString().slice(0, 4)) -
-                Number(site.posts[site.posts.length - 1].date.slice(0, 4)) +
-                1}</span
-              >
-            </a>
-          </li>
-          <li>
-            <a href="/archive/">
-              <span>Words</span>
-              <span
-                >${site.posts
-                  .reduce((acc, post) => acc + post.wordCount, 0)
-                  .toLocaleString()}</span
-              >
-            </a>
-          </li>
-          <li>
-            <a href="/archive/">
               <span>Posts</span>
               <span>${site.posts.length.toLocaleString()}</span>
             </a>
@@ -251,7 +238,7 @@ function Sidebar(site) {
         ${ThemePicker()}
       </div>
       <div class="sidebar-module">
-        <h3>Social</h3>
+        <h3>Feedback</h3>
         <ul>
           <li>
             <a href="https://mastodon.social/@jimniels">
@@ -271,7 +258,7 @@ function Sidebar(site) {
               <span>jimniels@gmail</span>
             </a>
           </li>
-          <li>
+          <li hidden>
             <a href="https://jim-nielsen.com/linkedin/">
               <span>LinkedIn</span>
               <span>jim.nielsen</span>

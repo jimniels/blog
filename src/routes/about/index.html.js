@@ -124,38 +124,28 @@ export default async function About(site) {
           to prove anything. 40% of all people know that.”
         </p>
 
-        ${StatSection({
-          title: "Writing",
-          listType: "ul",
-          list: [
-            [
-              "Years Blogging",
-              new Date().toISOString().slice(0, 4) -
-                site.posts[site.posts.length - 1].date.slice(0, 4) +
-                1,
-            ],
-            ["Posts", site.posts.length.toLocaleString()],
-            [
-              "Words",
-              site.posts
-                .reduce((acc, post) => acc + post.wordCount, 0)
-                .toLocaleString(),
-            ],
-            ["Tags", site.tags.length.toLocaleString()],
-            [
-              "External Links",
-              site.externalLinks
-                .reduce((acc, { count }) => acc + count, 0)
-                .toLocaleString(),
-            ],
-            [
-              "Internal Links",
-              Object.entries(site.internalLinksByPath)
-                .reduce((acc, [domain, links]) => acc + links.length, 0)
-                .toLocaleString(),
-            ],
-          ],
-        })}
+        <table hidden>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Posts</th>
+              <th>Words</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2014</td>
+              <td>10</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td>2014</td>
+              <td>10</td>
+              <td>1000</td>
+            </tr>
+          </tbody>
+        </table>
+
         ${loaderData.map(({ label, link, svg, id, list, listType }) =>
           StatSection({
             title: label + (link ? html` <a href="${link}">View all</a>` : ""),
@@ -287,6 +277,7 @@ async function loader(site) {
         },
       },
     },
+    /*
     {
       label: "Top Tags",
       link: "/tags",
@@ -356,6 +347,7 @@ async function loader(site) {
         },
       },
     },
+    */
   ];
 
   return await Promise.all(

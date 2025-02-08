@@ -528,9 +528,7 @@ theme-picker {
 
 theme-picker form {
   flex-direction: column;
-
   display: flex;
-  margin-top: var(--s-12);
 }
 theme-picker details[open] form {
   display: flex;
