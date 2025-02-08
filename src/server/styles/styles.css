@@ -49,6 +49,10 @@
     hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05),
     hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075)
   );
+  --c-border: light-dark(
+    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05),
+    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075)
+  );
   --c-text: light-dark(
     hsl(var(--c-theme-h) var(--c-theme-s) 8%),
     hsl(var(--c-theme-h) var(--c-theme-s) 98%)
@@ -98,7 +102,8 @@
    ========================================================================== */
 
 :root {
-  --border-radius: 0px;
+  --border-radius: 4px;
+  --s-2: calc(2rem / 18);
   --s-4: calc(4rem / 18);
   --s-6: calc(6rem / 18);
   --s-8: calc(8rem / 18);
@@ -207,13 +212,11 @@ h4:before {
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
+  letter-spacing: -0.02rem;
+  margin: 0 0 var(--s-16) 0;
 }
-h1::before {
-  content: "h1";
-}
-
 h2 {
   font-size: 1.333rem;
   font-weight: 700;
@@ -247,7 +250,7 @@ blockquote {
   padding-left: 1rem;
   margin-left: 0;
   font-style: italic;
-  border-left: 2px solid var(--c-bg-opaque);
+  border-left: 2px solid var(--c-border);
 }
 
 blockquote em,
@@ -465,7 +468,7 @@ footer ol li {
 }
 
 .posts-list li:not(:last-child) {
-  border-bottom: 1px solid var(--c-bg-opaque);
+  border-bottom: 1px solid var(--c-border);
 }
 
 .posts-list li a {
@@ -522,26 +525,6 @@ footer ol li {
 theme-picker {
   margin-top: var(--s-24);
 }
-theme-picker details {
-  width: 100%;
-  border: 1px solid var(--c-bg-opaque);
-  padding: var(--s-8) var(--s-12);
-  border-radius: var(--border-radius);
-  margin-left: calc(var(--s-12) * -1);
-  margin-right: calc(var(--s-12) * -1);
-}
-theme-picker details summary {
-  color: var(--c-text-light);
-  cursor: default;
-  list-style: none;
-}
-theme-picker details[open] summary {
-  color: var(--c-text);
-}
-theme-picker details summary::marker,
-theme-picker details summary::-webkit-details-marker {
-  display: none;
-}
 
 theme-picker form {
   flex-direction: column;
@@ -568,6 +551,7 @@ theme-picker fieldset > div {
   display: flex;
   flex-direction: row;
   gap: var(--s-4);
+  padding: var(--s-2) 0;
 }
 
 theme-picker input {
@@ -576,7 +560,7 @@ theme-picker input {
 
 theme-picker label {
   display: flex;
-  padding: 6px;
+  padding: var(--s-4);
   border-radius: 50px;
   position: relative;
 }
@@ -611,7 +595,7 @@ theme-picker input:checked + label:before {
   left: 3px;
 }
 theme-picker input:checked + label {
-  box-shadow: 0 0 0 1px var(--c-bg-opaque);
+  box-shadow: 0 0 0 1px var(--c-border);
 }
 theme-picker input:checked + label {
   box-shadow: 0 0 0 1px var(--c-theme);
@@ -664,61 +648,9 @@ label[for="appearance-system"] span:after {
   transform-origin: left; */
 }
 
-.navv {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: var(--s-16);
-  margin-top: var(--s-32);
-  margin-bottom: var(--s-32);
-  position: relative;
-  padding-right: var(--s-40);
-  font-size: 0.888888888rem;
-}
-
-@media screen and (min-width: 32rem) {
-  .navv {
-    position: fixed;
-    top: 0;
-    width: 240px;
-    left: calc(50% - var(--max-width));
-    flex-direction: column;
-    padding-right: var(--s-16);
-    flex-direction: column;
-    margin-top: 0;
-    padding-top: var(--s-32);
-    border-right: 1px solid var(--c-bg-opaque);
-    height: 100%;
-    /* margin-right: 44px; */
-    justify-content: flex-start;
-  }
-  .navv a[href="/menu/"] {
-    display: none;
-  }
-}
-@media screen and (max-width: 32rem) {
-  .navv a:not([href="/menu/"]) {
-    display: none;
-  }
-}
-
-.navv a {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.navv a[aria-current="page"] {
-  color: var(--c-text-light);
-  pointer-events: none;
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.02rem;
-  margin: 0 0 var(--s-16) 0;
-}
+/* ==========================================================================
+ * Pagefind
+ * ========================================================================== */
 
 :root {
   /* pagefind */
@@ -726,8 +658,8 @@ h1 {
   --pagefind-ui-primary: var(--c-theme) !important;
   --pagefind-ui-text: var(--c-text) !important;
   --pagefind-ui-background: var(--c-bg) !important;
-  --pagefind-ui-border: var(--c-bg-opaque) !important;
-  --pagefind-ui-tag: var(--c-bg-opaque) !important;
+  --pagefind-ui-border: var(--c-border) !important;
+  --pagefind-ui-tag: var(--c-border) !important;
   --pagefind-ui-border-width: 2px;
   --pagefind-ui-border-radius: 8px;
   --pagefind-ui-image-border-radius: 8px;
@@ -781,21 +713,9 @@ h1 {
   display: none !important;
 }
 
-.sideba {
-  position: absolute;
-  top: 0;
-  width: 220px;
-  right: calc(50% - var(--max-width));
-  flex-direction: column;
-
-  flex-direction: column;
-  margin-top: 0;
-  padding-top: var(--s-32);
-  border-left: 1px solid var(--c-bg-opaque);
-  height: 100%;
-  /* margin-right: 44px; */
-  justify-content: flex-start;
-}
+/* ==========================================================================
+ * Layout
+ * ========================================================================== */
 
 .l-container {
   margin: 0 auto var(--s-32);
@@ -828,9 +748,10 @@ h1 {
   }
 }
 
-/**
+/* ==========================================================================
  * Nav
- */
+ * ========================================================================== */
+
 .nav {
   display: flex;
   align-items: center;
@@ -872,15 +793,31 @@ h1 {
   }
 } */
 
+/* ==========================================================================
+ * Sidebar
+ * ========================================================================== */
+
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-32);
+  }
+}
+
 [data-has-search-results] > *:not(output) {
   display: none !important;
 }
-.navv__search {
+.sidebar-search {
   position: relative;
   margin-top: var(--s-16);
   margin-bottom: var(--s-16);
 }
-.navv__search input {
+.sidebar-search input {
   width: 100%;
   padding: var(--s-8);
   border-radius: var(--border-radius);
@@ -890,11 +827,11 @@ h1 {
   width: 100%;
   font-size: 0.77777rem;
 }
-.navv input:placeholder {
+.sidebar-search input:placeholder {
   color: var(--c-text-light);
 }
 
-.navv__search[data-loading]:after {
+.sidebar-search[data-loading]:after {
   content: " ";
   position: absolute;
   right: -40px;
@@ -919,57 +856,50 @@ h1 {
   }
 }
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: var(--s-32);
-}
-
-.sb {
+.sidebar-module {
   font-size: 0.722222rem;
   color: var(--c-text-light);
 }
-.sb > * {
+.sidebar-module > * {
   font-size: inherit;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.sb a {
+.sidebar-module a {
   color: inherit;
 }
-.sb a:hover {
+.sidebar-module a:hover {
   color: var(--c-theme);
 }
-.sb h3 {
+.sidebar-module h3 {
   margin-bottom: 2px;
 }
-.sb ul a {
+.sidebar-module ul a {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2px 0;
   text-decoration: none;
 
-  span:first-child {
-  }
   span:last-child {
-    opacity: 0.7;
+    font-weight: 500;
   }
   &:hover span:last-child {
     opacity: 1;
   }
 }
-.sidebar img {
-  display: none;
-}
 
+/* ==========================================================================
+ * Posts Nav
+ * ========================================================================== */
 .posts-nav {
   display: flex;
   padding: var(--s-16) 0 var(--s-24);
   flex-wrap: wrap;
   border-radius: var(--border-radius);
   overflow: hidden;
+  gap: var(--s-4);
 }
 
 /* Old stuff going out */
@@ -994,8 +924,10 @@ h1 {
 .posts-nav a {
   padding: var(--s-6) var(--s-12);
   position: relative;
-  font-size: 0.888888rem;
+  font-size: 0.7777rem;
   background: var(--c-bg-opaque);
+  border-radius: var(--border-radius);
+  /* border: 1px solid transparent; */
 }
 @media (min-width: 30rem) {
   .posts-nav a {
@@ -1007,6 +939,7 @@ h1 {
   border-color: var(--c-text);
   pointer-events: none;
   color: var(--c-text);
+  background: transparent;
 }
 .posts-nav a:after {
   view-transition-name: posts-nav-indicator;
@@ -1015,15 +948,15 @@ h1 {
   left: 0;
   width: 100%;
 
-  /* bottom: 0;
+  bottom: 0;
   height: 100%;
   border: 1px solid transparent;
-  border-radius: var(--border-radius); */
+  border-radius: var(--border-radius);
 }
 .posts-nav a[aria-current="page"]:after {
-  /* border-color: var(--c-text); */
+  border-color: var(--c-text);
 
-  height: 2px;
+  /* height: 2px;
   bottom: 0px;
-  background: var(--c-text);
+  background: var(--c-text); */
 }

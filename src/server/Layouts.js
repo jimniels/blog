@@ -156,7 +156,7 @@ https://www.github.com/jimniels/blog/
 function Sidebar(site) {
   return html`
     <aside class="sidebar l-right">
-      <form class="navv__search" id="js-search-form">
+      <form class="sidebar-search" id="js-search-form">
         <input
           type="search"
           placeholder="Search"
@@ -166,14 +166,14 @@ function Sidebar(site) {
         <div class="lds-dual-ring"></div>
       </form>
       <script defer src="/assets/pagefind.js"></script>
-      <div class="sb">
+      <div class="sidebar-module">
         <h3>About</h3>
         <p>
           I'm <a href="https://www.jim-nielsen.com">Jim Nielsen</a>: a web
           designer & developer. This is my blog, where I refine my thinking.
         </p>
       </div>
-      <div class="sb">
+      <div class="sidebar-module">
         <h3>Subscribe</h3>
         <ul>
           <li>
@@ -197,7 +197,7 @@ function Sidebar(site) {
           </li>
         </ul>
       </div>
-      <div class="sb">
+      <div class="sidebar-module">
         <h3>Stats</h3>
         <ul>
           <li>
@@ -246,11 +246,11 @@ function Sidebar(site) {
           </li>
         </ul>
       </div>
-      <div class="sb">
+      <div class="sidebar-module">
         <h3>Theme</h3>
         ${ThemePicker()}
       </div>
-      <div class="sb">
+      <div class="sidebar-module">
         <h3>Social</h3>
         <ul>
           <li>
@@ -279,7 +279,6 @@ function Sidebar(site) {
           </li>
         </ul>
       </div>
-      <img src="/assets/frame-29.png" width="220" />
     </aside>
   `;
 }

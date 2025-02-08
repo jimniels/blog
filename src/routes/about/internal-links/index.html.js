@@ -2,7 +2,7 @@ import { Page } from "../../../server/Layouts.js";
 import { html } from "../../../server/utils.js";
 
 const page = {
-  title: "Internal Links",
+  title: "Inlinks",
   path: "/about/internal-links/",
   head: html`<style>
     #root {
@@ -79,6 +79,10 @@ const graphLayoutEngines = [
   // "patchwork",
 ];
 
+/**
+ * @param {import("types").Site} site
+ * @returns {string}
+ */
 export default function Index(site) {
   /*
     Query should look like `digraph { QUERY }` and takes the shape:
