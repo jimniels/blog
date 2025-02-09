@@ -276,7 +276,7 @@ hr {
 
 table {
   max-width: none;
-  display: block;
+  /* display: block; */
   overflow: auto;
   width: 100%;
   border-collapse: collapse;

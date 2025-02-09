@@ -176,8 +176,10 @@ function Sidebar(site) {
       <div class="sidebar-module">
         <h3>About</h3>
         <p>
-          I'm a web designer/developer and I’ve been blogging here for ${years}
-          years and written ${words} words.
+          <a href="/about/"
+            >I’m a designer, developer, and writer with 20+ years experience
+            building on the web.</a
+          >
         </p>
       </div>
       <div class="sidebar-module">

@@ -73,18 +73,29 @@ const page = {
         right: 0;
         top: 0.11111rem;
       }
+      table {
+        margin-top: var(--s-32);
+      }
     </style>
   `,
 };
 
 /**
  *
- * @param {import("../../../types").Site} site
- * @param {*} loaderData
+ * @param {import("types").Site} site
  * @returns
  */
 export default async function About(site) {
   const loaderData = await loader(site);
+  const postsByYear = site.posts.reduce((acc, post) => {
+    const year = post.date.slice(0, 4);
+    if (acc[year]) {
+      acc[year].push(post);
+    } else {
+      acc[year] = [post];
+    }
+    return acc;
+  }, {});
   return Page(
     { site, page },
     html`
@@ -111,40 +122,17 @@ export default async function About(site) {
         <h1>About</h1>
 
         <p>
-          I’m Jim, a web designer and developer, and my blog is where I refine
-          my professional thinking. Want to know more about me? Check out
+          I’m Jim Nielsen and this is my blog where I write to refine my
+          thinking. Wanna know more about me? Check out
           <a href="https://www.jim-nielsen.com">my personal website</a>.
         </p>
 
-        <h2 id="stats">Stats</h2>
         <p>
           I keep these
           <a href="/2022/stats-page/">stats for my blog</a>. Read into them what
           you will, as Homer Simpson once said, “You can come up with statistics
           to prove anything. 40% of all people know that.”
         </p>
-
-        <table hidden>
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Posts</th>
-              <th>Words</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2014</td>
-              <td>10</td>
-              <td>1000</td>
-            </tr>
-            <tr>
-              <td>2014</td>
-              <td>10</td>
-              <td>1000</td>
-            </tr>
-          </tbody>
-        </table>
 
         ${loaderData.map(({ label, link, svg, id, list, listType }) =>
           StatSection({
@@ -155,6 +143,34 @@ export default async function About(site) {
             svg: uniquezSvg(svg, id).replace(/<\?xml.*\?>/, ""),
           })
         )}
+
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Posts</th>
+              <th>Words</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${Object.entries(postsByYear)
+              .sort()
+              .reverse()
+              .map(
+                ([year, posts]) => html`
+                  <tr>
+                    <td>${year}</td>
+                    <td>${posts.length}</td>
+                    <td>
+                      ${posts
+                        .reduce((acc, post) => acc + post.wordCount, 0)
+                        .toLocaleString()}
+                    </td>
+                  </tr>
+                `
+              )}
+          </tbody>
+        </table>
       </div>
     `
   );
@@ -168,19 +184,7 @@ function StatSection(
     svg: "",
   }
 ) {
-  return html`
-    ${svg}
-    <h3>${title}</h3>
-    <${listType} class="two-col-list">
-      ${list.map(
-        ([key, value]) =>
-          html`<li>
-            <span class="left">${key}</span>
-            <span class="right">${value}</span>
-          </li>`
-      )}
-    </${listType}>   
-  `;
+  return html` ${svg} `;
 }
 
 /**

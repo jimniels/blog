@@ -89,8 +89,8 @@ export default function About(site) {
 
   return Page(
     { site, page },
-    html` <main class="copy">
-      <h1>External Links</h1>
+    html`
+      <h1>${page.title}</h1>
 
       <p>
         I thought it would be interesting to
@@ -144,6 +144,6 @@ export default function About(site) {
             </details>
           `
         )}
-    </main>`
+    `
   );
 }
