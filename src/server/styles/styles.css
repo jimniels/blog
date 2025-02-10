@@ -315,7 +315,7 @@ pre {
   margin-left: auto;
   margin-right: auto;
   padding: calc(1.618rem / 2);
-  border: 1px solid var(--c-bg-opaque);
+  background-color: var(--c-bg-opaque);
 }
 
 @media screen and (min-width: 42rem) {
@@ -601,8 +601,8 @@ theme-picker input:checked + label {
 
 @media (hover: hover) {
   theme-picker label {
-    opacity: 0.05;
-    filter: grayscale(1) brightness(0);
+    opacity: 0.2;
+    filter: grayscale(1) brightness(2);
   }
   theme-picker:hover label,
   theme-picker input:checked + label {

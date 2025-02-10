@@ -142,7 +142,7 @@ https://www.github.com/jimniels/blog/
             ${children}
             <output id="js-search-root"></output>
           </main>
-          ${Sidebar(props.site)}
+          <aside class="l-right">${Sidebar(props.site)}</aside>
         </body>
       </html>
     `
@@ -162,7 +162,7 @@ function Sidebar(site) {
     .reduce((acc, post) => acc + post.wordCount, 0)
     .toLocaleString();
   return html`
-    <aside class="sidebar l-right">
+    <div class="sidebar">
       <form class="sidebar-search" id="js-search-form">
         <input
           type="search"
@@ -260,14 +260,8 @@ function Sidebar(site) {
               <span>jimniels@gmail</span>
             </a>
           </li>
-          <li hidden>
-            <a href="https://jim-nielsen.com/linkedin/">
-              <span>LinkedIn</span>
-              <span>jim.nielsen</span>
-            </a>
-          </li>
         </ul>
       </div>
-    </aside>
+    </div>
   `;
 }
