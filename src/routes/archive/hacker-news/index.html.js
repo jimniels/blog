@@ -30,6 +30,13 @@ export default async function Index(site) {
           html`${points.toLocaleString()} points, ${comments.toLocaleString()}
           comments`
       )}
+      <p
+        style="color: var(--c-text-light); font-size: 0.8rem; margin: var(--s-24) 0;"
+      >
+        As <a href="https://shoptalkshow.com/651/#t=03:13">Dave Rupert said</a>,
+        “If you don’t get thrashed on whatever the HackerNews of the era is, you
+        haven’t blogged enough.”
+      </p>
     `
   );
 }
