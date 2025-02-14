@@ -29,7 +29,7 @@ export type Post = {
   permalink: string; // Fully qualified URL (site.origin + post.path)
   contents: string; // Originally the markdown, converted to HTML in metalsmith
   tags: Array<string>;
-  wordCount?: number;
+  wordCount: number;
   pageviews?: number; // Pageviews according to netlify analytics
   hackerNews?: {
     url: string;
@@ -43,7 +43,15 @@ export type Post = {
 export type Page = {
   title: string;
   path: string;
+  // Head is a string of HTML that will be added to the head of the page
+  // e.g. { head: `<style>.class{color:red}</style>` }
+  head?: string;
 };
+
+export type PageLayout = (
+  props: { site: import("types").Site; page: import("types").Page },
+  children: string
+) => string;
 
 export type DynamicPage = {
   path: string;

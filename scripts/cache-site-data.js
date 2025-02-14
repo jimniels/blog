@@ -12,7 +12,6 @@ const favs = [
   "/2019/good-things/",
   "/2019/netlify-public-folder-part-i-what/",
   "/2022/a-web-for-all/",
-  "/2016/redesigning-and-engineering-timshel-admin/",
   "/2019/thoughts-on-rich-harris-talk/",
   "/2019/designing-and-engineering-progressive-disclosure/",
   "/2019/how-to-create-a-macos-menu-bar-app-for-netlify/",
@@ -124,7 +123,7 @@ async function getSiteData() {
     );
     post.wordCount = markdownSansTagsAndTitle.split(" ").length;
     post.contents = html;
-    post.footnotes = footnotes;
+    post.footnotes = footnotes ? footnotes : undefined;
 
     // "2019-06-12-my-post-slug.md" -> "2019-06-12-my-post-slug"
     const filename = file.replace(".md", "");

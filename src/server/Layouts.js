@@ -1,57 +1,32 @@
-import fs from "fs";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
-import { html } from "./utils.js";
+import { html, readFile } from "./utils.js";
+import ThemePicker from "./ThemePicker.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const importFile = (filepath) =>
-  fs.readFileSync(join(__dirname, filepath)).toString();
-const avatar = fs
-  .readFileSync(join(__dirname, "avatar.png"))
-  .toString("base64");
-
-const fidelities = [
-  {
-    id: "high",
-    title: "Default",
-  },
-  {
-    id: "med",
-    title: "Minimal",
-  },
-  {
-    id: "low",
-    title: "Text-Only",
-  },
-];
-
-const comment = `
-<!--
-
-
-
-👋
-Want to read the code behind this code?
-It’s available on GitHub.
-https://www.github.com/jimniels/blog/
-
-
-
--->
-`;
-
-// Children will do: Page({...}, html`<main {class="{wrapper|copy}"}?>...</main>`)
-export function Page(props, children) {
+/** @type {import("types").PageLayout} */
+export async function Page(props, children) {
   const {
     site: { origin, tags, name },
     page: { head = "", path, title },
   } = props;
 
   return (
-    "<!DOCTYPE html>" +
-    comment +
+    `<!DOCTYPE html><!--!
+
+
+👋
+Want to read the code behind this code?
+It's available on GitHub.
+https://www.github.com/jimniels/blog/
+
+
+-->
+` +
     html`
-      <html lang="en-us" id="top">
+      <html
+        lang="en-us"
+        id="top"
+        data-theme-appearance="light"
+        data-path="${path}"
+      >
         <head>
           <title>${title && `${title} - `}${name}</title>
 
@@ -98,25 +73,46 @@ export function Page(props, children) {
             ${[
               "./styles/modern-normalize.css",
               "./styles/styles.css",
-              "./styles/atom-one-light.css",
+              //"./styles/atom-one-light.css",
             ]
-              .map(importFile)
+              .map(readFile)
               .join("")}
+              :root,
+              :root[data-theme-appearance="light"] {
+                ${readFile("./styles/atom-one-light.css")}
+              }
+
+            :root[data-theme-appearance="dark"] {
+              ${readFile("./styles/atom-one-dark.css")}
+            }
 
             @media screen and (prefers-color-scheme: dark) {
-              ${importFile("./styles/atom-one-dark.css")}
+              ${readFile("./styles/atom-one-dark.css")}
             }
           </style>
 
           <!-- Dynamic <head> content where applicable -->
           ${head}
         </head>
-        <body>
+        <body class="l-container">
+          <script>
+            /** @type {'light' | 'dark' | 'system' | null} value */
+            let appearance = localStorage.getItem("theme-appearance");
+            if (appearance === null) {
+              localStorage.setItem("theme-appearance", "system");
+            } else if (appearance !== "system") {
+              document.documentElement.setAttribute(
+                "data-theme-appearance",
+                appearance
+              );
+            }
+          </script>
           <jim-navbar></jim-navbar>
 
-          <nav class="navv wrapper">
+          <nav class="nav l-top">
             <a href="/" ${path === "/" && "aria-current='page'"}>
-              ${path !== "/" &&
+              ${false &&
+              path !== "/" &&
               html`<svg
                 width="15"
                 height="15"
@@ -131,32 +127,141 @@ export function Page(props, children) {
                   clip-rule="evenodd"
                 ></path>
               </svg>`}
-              Jim Nielsen’s Blog
+              Jim Nielsen's Blog
             </a>
 
-            <a href="/menu/" ${path === "/menu/" && "aria-current='page'"}
+            <a
+              href="/menu/"
+              class="l-menu"
+              ${path === "/menu/" && "aria-current='page'"}
               >Menu</a
             >
-            <a href="/archive/" ${path === "/archive/" && "aria-current='page'"}
-              >Archive</a
-            >
-            <a href="/about/" ${path === "/about/" && "aria-current='page'"}
-              >About</a
-            >
-            <a
-              href="/subscribe/"
-              ${path === "/subscribe/" && "aria-current='page'"}
-              >Subscribe</a
-            >
-
-            <theme-picker></theme-picker>
-            <!-- prettier-ignore -->
-            <script>${importFile("./theme-picker.js")}</script>
           </nav>
 
-          ${children}
+          <main class="main l-left">
+            ${children}
+            <output id="js-search-root"></output>
+          </main>
+          <aside class="l-right">${Sidebar(props.site)}</aside>
         </body>
       </html>
     `
   );
+}
+
+/**
+ * @param {import("types").Site} site
+ * @returns {string}
+ */
+function Sidebar(site) {
+  const years =
+    Number(new Date().toISOString().slice(0, 4)) -
+    Number(site.posts[site.posts.length - 1].date.slice(0, 4)) +
+    1;
+  const words = site.posts
+    .reduce((acc, post) => acc + post.wordCount, 0)
+    .toLocaleString();
+  return html`
+    <div class="sidebar">
+      <form class="sidebar-search" id="js-search-form">
+        <input
+          type="search"
+          placeholder="Search"
+          id="search-input"
+          autocomplete="off"
+        />
+        <div class="lds-dual-ring"></div>
+      </form>
+      <script defer src="/assets/pagefind.js"></script>
+      <div class="sidebar-module">
+        <h3>About</h3>
+        <p>
+          <a href="/about/"
+            >I’m a designer, developer, and writer with 20+ years experience
+            building on the web.</a
+          >
+        </p>
+      </div>
+      <div class="sidebar-module">
+        <h3>Subscribe</h3>
+        <ul>
+          <li>
+            <a href="/feed.xml">
+              <span>RSS</span>
+              <span>${readFile("./svgs/rss.svg")}</span>
+            </a>
+          </li>
+          <li>
+            <a href="/feed.json">
+              <span>JSON</span>
+              <span>${readFile("./svgs/json.svg")}</span>
+            </a>
+          </li>
+          <!-- TODO: something about this? <li><a href="/feed.html">HTML feed</a></li> -->
+          <li>
+            <a href="https://buttondown.com/jimniels">
+              <span>Email</span>
+              <span>${readFile("./svgs/email.svg")}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="sidebar-module">
+        <h3>Stats</h3>
+        <ul>
+          <li>
+            <a href="/archive/">
+              <span>Posts</span>
+              <span>${site.posts.length.toLocaleString()}</span>
+            </a>
+          </li>
+          <li>
+            <a href="/tags/">
+              <span>Tags</span>
+              <span>${site.tags.length}</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about/external-links/">
+              <span>Outlinks</span>
+              <span>${site.externalLinks.length}</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about/internal-links/">
+              <span>Inlinks</span>
+              <span>${Object.keys(site.internalLinksByPath).length}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="sidebar-module">
+        <h3>Theme</h3>
+        ${ThemePicker()}
+      </div>
+      <div class="sidebar-module">
+        <h3>Feedback</h3>
+        <ul>
+          <li>
+            <a href="https://mastodon.social/@jimniels">
+              <span>Mastodon</span>
+              <span>@jimniels</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://bsky.app/profile/jim-nielsen.com/">
+              <span>Bluesky</span>
+              <span>@jim-nielsen.com</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:jimniels@gmail.com">
+              <span>Email</span>
+              <span>jimniels@gmail</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  `;
 }
