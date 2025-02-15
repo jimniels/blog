@@ -40,7 +40,10 @@ https://www.github.com/jimniels/blog/
 -->
 `;
 
-// Children will do: Page({...}, html`<main {class="{wrapper|copy}"}?>...</main>`)
+/**
+ * Children will do: Page({...}, html`<main {class="{wrapper|copy}"}?>...</main>`)
+ * @type {import("types").PageLayout}
+ */
 export function Page(props, children) {
   const {
     site: { origin, tags, name },
@@ -136,9 +139,6 @@ export function Page(props, children) {
 
             <a href="/menu/" ${path === "/menu/" && "aria-current='page'"}
               >Menu</a
-            >
-            <a href="/archive/" ${path === "/archive/" && "aria-current='page'"}
-              >Archive</a
             >
             <a href="/about/" ${path === "/about/" && "aria-current='page'"}
               >About</a
