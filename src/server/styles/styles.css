@@ -645,14 +645,53 @@ h1 {
   gap: var(--s-4);
 }
 
+.posts-nav a {
+  padding: var(--s-6) var(--s-12);
+  position: relative;
+  font-size: 0.8888rem;
+  background: var(--c-bg-opaque);
+  border-radius: var(--border-radius);
+}
+
+@media (min-width: 30rem) {
+  .posts-nav a {
+    padding-left: var(--s-12);
+    padding-right: var(--s-12);
+  }
+}
+
+.posts-nav a[aria-current="page"] {
+  pointer-events: none;
+  color: var(--c-text);
+  background: transparent;
+}
+
+.posts-nav a:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+}
+
+.posts-nav a[aria-current="page"]:after {
+  border-color: var(--c-text);
+  view-transition-name: posts-nav;
+}
+
 /* Old stuff going out */
-::view-transition-old(postsnavindicator) {
+::view-transition-old(posts-nav) {
   animation: fade 0.2s linear forwards;
+  height: 100%;
 }
 
 /* New stuff coming in */
-::view-transition-new(postsnavindicator) {
-  animation: fade 1.3s linear reverse;
+::view-transition-new(posts-nav) {
+  animation: fade 0.3s linear reverse;
+  height: 100%;
 }
 
 @keyframes fade {
@@ -664,45 +703,6 @@ h1 {
   }
 }
 
-.posts-nav a {
-  padding: var(--s-6) var(--s-12);
-  position: relative;
-  font-size: 0.8888rem;
-  background: var(--c-bg-opaque);
-  border-radius: var(--border-radius);
-  /* border: 1px solid transparent; */
-}
-@media (min-width: 30rem) {
-  .posts-nav a {
-    padding-left: var(--s-12);
-    padding-right: var(--s-12);
-  }
-}
-.posts-nav a[aria-current="page"] {
-  border-color: var(--c-text);
-  pointer-events: none;
-  color: var(--c-text);
-  background: transparent;
-}
-.posts-nav a:after {
-  content: " ";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  /* view-transition-name: postsnavindicator; */
-
-  bottom: 0;
-  height: 100%;
-  border: 1px solid transparent;
-  border-radius: var(--border-radius);
-}
-.posts-nav a[aria-current="page"]:after {
-  border-color: var(--c-text);
-
-  /* height: 2px;
-  bottom: 0px;
-  background: var(--c-text); */
-}
 .posts-nav-note {
   color: var(--c-text-light);
   font-size: 0.8rem;
