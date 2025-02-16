@@ -401,10 +401,6 @@ article header ul {
   font-size: 0.8888rem; /* 16 */
   flex-wrap: wrap;
 }
-article header li {
-  display: flex;
-  align-items: center;
-}
 
 article header li:has(+ li):after {
   content: "·";
@@ -428,7 +424,6 @@ footer p a {
   font-family: sans-serif; /* keep the backlink from displaying as an emoji */
 }
 footer {
-  font-size: 0.888888888rem;
   padding: calc(var(--s-96)) 0 var(--s-24);
   color: var(--c-text-light);
 }
@@ -602,9 +597,11 @@ theme-picker button[aria-pressed="true"] {
   align-items: center;
 }
 
-.navv a[aria-current="page"] {
+.navv a[aria-current="page"],
+[data-path*="/archive/"] .navv a[href="/"] {
   color: var(--c-text-light);
   pointer-events: none;
+  cursor: default;
 }
 
 .navv a:first-child {
@@ -614,52 +611,11 @@ theme-picker button[aria-pressed="true"] {
   gap: var(--s-8);
 }
 
-.navv a:first-child:has(svg) {
-  padding-left: var(--s-16);
-}
-
-.navv a:first-child svg {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: -1px;
-  left: -12px;
-}
-
-@media screen and (min-width: 42rem) {
-  .navv a:first-child:has(svg) {
-    padding-left: 0;
-  }
-  .navv a:first-child svg {
-    left: -26px;
-    top: -1px;
-  }
-}
-
 h1 {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.02rem;
   margin: 0 0 var(--s-16) 0;
-}
-
-.pb-1 {
-  padding-bottom: 0.25rem;
-}
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
-.pb-3 {
-  padding-bottom: 0.75rem;
-}
-.pb-4 {
-  padding-bottom: 1rem;
-}
-.pb-5 {
-  padding-bottom: 1.5rem;
-}
-.pb-6 {
-  padding-bottom: 2rem;
 }
 
 .tags-list {

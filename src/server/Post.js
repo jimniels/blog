@@ -49,11 +49,9 @@ export default function Post({ site, post }) {
         >
           <h1 class="p-name">${post.title}</h1>
           <ul>
-             <li>
-               <time class="dt-published" datetime="${post.date}">
-                 ${toDateUI(post.date)}
-               </time>
-             </li>
+             <li><time class="dt-published" datetime="${post.date}">${toDateUI(
+      post.date
+    )}</time></li>
              ${
                post.tags.length
                  ? html`<li>
