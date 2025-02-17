@@ -685,6 +685,7 @@ h1 {
 /* Old stuff going out */
 ::view-transition-old(posts-nav) {
   animation: fade 0.2s linear forwards;
+  /* https://jakearchibald.com/2024/view-transitions-handling-aspect-ratio-changes/ */
   height: 100%;
 }
 

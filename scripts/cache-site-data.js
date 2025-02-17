@@ -123,7 +123,7 @@ async function getSiteData() {
     );
     post.wordCount = markdownSansTagsAndTitle.split(" ").length;
     post.contents = html;
-    post.footnotes = footnotes ? footnotes : undefined;
+    post.footnotes = footnotes;
 
     // "2019-06-12-my-post-slug.md" -> "2019-06-12-my-post-slug"
     const filename = file.replace(".md", "");
