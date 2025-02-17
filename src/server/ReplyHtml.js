@@ -38,21 +38,11 @@ export default function ReplyHtml({ post, site }) {
         href="mailto:jimniels%2Bblog@gmail.com?subject=Re:%20blog.jim-nielsen.com${postPath}"
         >Email</a
       >
-      :: <a href="https://mastodon.social/@jimniels">Mastodon</a> ::
+      · <a href="https://mastodon.social/@jimniels">Mastodon</a> ·
 
       <a href="https://bsky.app/profile/jim-nielsen.com">Bluesky</a>
     </p>
 
-    ${Array.isArray(postTags) &&
-    postTags.length > 0 &&
-    html`
-      <p>
-        Tagged in:
-        ${postTags
-          .map((tag) => html`<a href="/tags/#${tag}">#${tag}</a>`)
-          .join(" :: ")}
-      </p>
-    `}
     ${relatedPosts.length > 0 &&
     html`
       <p>
@@ -62,7 +52,7 @@ export default function ReplyHtml({ post, site }) {
             ({ title, path, date }) =>
               html`<a href="${path}">(${date.slice(0, 4)}) ${title}</a>`
           )
-          .join(" ::")}
+          .join(" · ")}
       </p>
     `}
   `;
