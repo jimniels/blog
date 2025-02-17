@@ -599,7 +599,7 @@ theme-picker button[aria-pressed="true"] {
 }
 
 .navv a[aria-current="page"],
-[data-path*="/archive/"] .navv a[href="/"] {
+[data-path*="/posts/"] .navv a[href="/"] {
   color: var(--c-text-light);
   pointer-events: none;
   cursor: default;
