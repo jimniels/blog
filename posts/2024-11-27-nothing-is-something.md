@@ -1,3 +1,5 @@
+#ai
+
 # Nothing Is Something
 
 There’s [a post on htmx.org](https://htmx.org/essays/why-gumroad-didnt-choose-htmx/) about why htmx wasn’t the right fit for a particular project (which is dope, we need more websites that admit their thing might not be the right thing all the time).
