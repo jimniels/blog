@@ -5,8 +5,32 @@ import { html, toDateUI } from "../../server/utils.js";
 const page = {
   title: "Tags",
   path: "/tags/",
+  head: html`
+    <style>
+      .tags-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 0.88888rem;
+      }
+      .tags-list li {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .tags-list a {
+      }
+      .tags-list small {
+        color: var(--c-text-light);
+      }
+    </style>
+  `,
 };
 
+/** @type {import("types").Route} */
 export default function Tags(site) {
   const postsByTag = site.posts.reduce((acc, post) => {
     if (post.tags) {
@@ -19,7 +43,7 @@ export default function Tags(site) {
       });
     }
     return acc;
-  }, {});
+  }, /** @type {Record<string, import("types").Post[]>} */ ({}));
 
   let tags = Object.keys(postsByTag)
     .sort()
@@ -34,10 +58,7 @@ export default function Tags(site) {
           (tag) => html`
             <li>
               <a href="#${tag}" class="tag">#${tag}</a>
-              <small
-                style="font-weight: 300; font-size: 1rem; color: var(--c-text-light)"
-                >(${postsByTag[tag].length})</small
-              >
+              <small>(${postsByTag[tag].length})</small>
             </li>
           `
         )}

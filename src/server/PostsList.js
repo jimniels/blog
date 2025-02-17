@@ -1,10 +1,9 @@
-// @ts-check
 import { toDateUI } from "./utils.js";
 import { html } from "./utils.js";
 
 /**
- * @param {import("../../types").Post[]} posts
- * @param {(post: import("../../types").Post) => string} fn
+ * @param {import("types").Post[]} posts
+ * @param {(post: import("types").Post) => string} fn
  */
 export function PostsList(
   posts,

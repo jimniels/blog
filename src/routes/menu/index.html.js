@@ -20,9 +20,6 @@ export default function Index(site) {
     html` <main class="wrapper">
       <ul class="posts-list">
         <li>
-          <a href="/archive/">Archive</a>
-        </li>
-        <li>
           <a href="/about/">About</a>
         </li>
         <li>

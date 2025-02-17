@@ -25,7 +25,8 @@ let footnotes = "";
  * @returns {{
  *   html: string,
  *   externalLinks: ExternalLinks,
- *   internalLinks: InternalLinks
+ *   internalLinks: InternalLinks,
+ *   footnotes: Footnotes
  * }}
  */
 export default function parseMarkdown(markdown) {
