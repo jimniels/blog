@@ -5,7 +5,7 @@ import { html, toDateUI } from "../../../server/utils.js";
 
 const page = {
   title: "Personal Favs",
-  path: "/archive/personal-favs/",
+  path: "/posts/personal-favs/",
 };
 
 /**

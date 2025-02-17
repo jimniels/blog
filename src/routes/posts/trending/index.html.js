@@ -5,7 +5,7 @@ import { html, toDateUI } from "../../../server/utils.js";
 
 const page = {
   title: "Trending Posts",
-  path: "/archive/trending/",
+  path: "/posts/trending/",
 };
 
 /** @type {import("types").Route} */
