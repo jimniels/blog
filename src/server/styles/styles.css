@@ -8,6 +8,7 @@
 
 :root {
   --border-radius: 4px;
+  --s-2: calc(2rem / 18);
   --s-4: calc(4rem / 18);
   --s-6: calc(6rem / 18);
   --s-8: calc(8rem / 18);
