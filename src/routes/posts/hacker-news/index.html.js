@@ -3,6 +3,11 @@ import { PostsNav } from "../../../server/PostsNav.js";
 import { Page } from "../../../server/Layouts.js";
 import { html, toDateUI } from "../../../server/utils.js";
 
+const page = {
+  title: "Hacker News Hits",
+  path: "/posts/hacker-news/",
+};
+
 /** @type {import("types").Route} */
 export default async function Index(site) {
   const hackerNews = site.posts
@@ -13,14 +18,11 @@ export default async function Index(site) {
   return Page(
     {
       site,
-      page: {
-        title: "Hacker News Hits",
-        path: "/archive/hacker-news/",
-      },
+      page,
     },
     html`<main class="wrapper">
       <h1>Posts</h1>
-      ${PostsNav("/archive/hacker-news/")}
+      ${PostsNav(page.path)}
       ${PostsList(
         hackerNews,
         // @ts-expect-error
