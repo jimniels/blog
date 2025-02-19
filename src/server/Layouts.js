@@ -2,6 +2,7 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { html } from "./utils.js";
+import ThemePicker from "./ThemePicker.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
@@ -134,9 +135,7 @@ export function Page(props, children) {
               >Subscribe</a
             >
 
-            <theme-picker></theme-picker>
-            <!-- prettier-ignore -->
-            <script>${importFile("./theme-picker.js")}</script>
+            ${ThemePicker()}
           </nav>
 
           ${children}
