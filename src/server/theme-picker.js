@@ -43,16 +43,6 @@ class ThemePicker extends HTMLElement {
     document
       .querySelector(`input[name=color][value=${initialColor}]`)
       .setAttribute("checked", "");
-
-    // create this <meta name="theme-color" content="#4285f4" />
-    const themeBgColor = getComputedStyle(
-      document.documentElement
-    ).backgroundColor;
-
-    const meta = document.createElement("meta");
-    meta.name = "theme-color";
-    meta.content = themeBgColor;
-    document.head.appendChild(meta);
   }
 
   connectedCallback() {
@@ -89,6 +79,9 @@ class ThemePicker extends HTMLElement {
     }
   }
 
+  /**
+   * @param {string} color
+   */
   setColor(color) {
     localStorage.setItem("theme-color", color);
     document.documentElement.style.setProperty(
@@ -103,14 +96,15 @@ class ThemePicker extends HTMLElement {
       `--c-theme-l`,
       `var(--c-${color}-l)`
     );
+
+    updateMeta();
   }
 
+  /**
+   * @param {string} theme
+   */
   setTheme(theme) {
-    console.log("setTheme", theme);
     localStorage.setItem("theme-appearance", theme);
-    // const isSystemDarkMode = window.matchMedia(
-    //   "(prefers-color-scheme: dark)"
-    // ).matches;
 
     if (theme === "system") {
       // TODO remove
@@ -124,16 +118,31 @@ class ThemePicker extends HTMLElement {
     } else {
       document.documentElement.setAttribute("data-theme-appearance", theme);
     }
-    // document.documentElement.setAttribute(
-    //   "data-dark-mode",
-    // theme === "dark" || (theme === "system" && isSystemDarkMode)
-    //   ? "true"
-    //   : "false"
-    // );
+
+    updateMeta();
   }
 }
 
 customElements.define("theme-picker", ThemePicker);
+
+// create this <meta name="theme-color" content="#4285f4" />
+function updateMeta() {
+  /** @type {HTMLMetaElement | null} */
+  let $el = document.querySelector("meta[name=theme-color]");
+
+  const themeBgColor = getComputedStyle(
+    document.documentElement
+  ).backgroundColor;
+
+  if ($el) {
+    $el.content = themeBgColor;
+  } else {
+    $el = document.createElement("meta");
+    $el.name = "theme-color";
+    $el.content = themeBgColor;
+    document.head.appendChild($el);
+  }
+}
 
 window
   .matchMedia("(prefers-color-scheme: dark)")

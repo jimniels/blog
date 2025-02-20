@@ -34,7 +34,7 @@ export default function ThemePicker() {
          <label
            id="color-${color}"
            for="color-${color}"
-         ><span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">${color}</span></label> 
+          style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))">${color}</label> 
      `
                 )
                 .join("")}
@@ -48,7 +48,8 @@ export default function ThemePicker() {
                   const label = theme.charAt(0).toUpperCase() + theme.slice(1);
                   return /*html*/ `
          <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}"  />
-         <label for="appearance-${theme}" title="${label}"><span>${label}</span></label>
+         <label for="appearance-${theme}" title="${label}"><span>${label}</span>
+         ${readFile(`./svgs/heroicon-${theme}.svg`)}</label>
          `;
                 })
                 .join("")}

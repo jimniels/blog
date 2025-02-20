@@ -745,3 +745,52 @@ h1 {
   z-index: 10;
   width: 300px;
 }
+
+.theme-picker fieldset {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+}
+.theme-picker fieldset > div {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+.theme-picker input {
+  display: none;
+}
+.theme-picker input:checked + label {
+  box-shadow: 0 0 0 2px var(--c-theme);
+
+  svg {
+    fill: var(--c-theme);
+  }
+}
+.theme-picker label[for^="appearance"] svg {
+  width: 20px;
+  height: 20px;
+}
+.theme-picker label[for^="appearance"] {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.theme-picker label[for^="appearance"] > span:first-child {
+  display: none;
+}
+
+.theme-picker label[for^="color"] {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.theme-picker label[for^="color"] {
+  text-indent: -9999px;
+}
