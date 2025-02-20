@@ -1,156 +1,38 @@
-// Pulled from the CSS theme variables
-const colors = [
-  "blue",
-  "red",
-  "green",
-  "yellow",
-  // "pink",
-  "purple",
-  // "none",
-  // "orange",
-  // not supported as UI themes—yet
-  // "mint",
-  // "teal",
-  // "cyan",
-  // "brown",
-  // "indigo",
-];
-
 class ThemePicker extends HTMLElement {
   constructor() {
     super();
 
-    this.details = this.querySelector("details");
-    if (!this.details) {
-      throw new Error("Theme picker must have a details element");
-    }
-
-    // This gets set in Layout.js
-    let initialAppearance = localStorage.getItem("theme-appearance");
-    if (!["system", "light", "dark"].includes(initialAppearance)) {
-      initialAppearance = "system";
-    }
+    let initialAppearance = window.theme.appearance.get();
     document
       .querySelector(`input[name=appearance][value=${initialAppearance}]`)
-      .setAttribute("checked", "");
-    this.setTheme(initialAppearance);
+      ?.setAttribute("checked", "");
 
-    let initialColor = localStorage.getItem("theme-color");
-    if (!colors.includes(initialColor)) {
-      initialColor = "blue";
-    }
-    this.setColor(initialColor);
+    let initialColor = window.theme.color.get();
     document
       .querySelector(`input[name=color][value=${initialColor}]`)
-      .setAttribute("checked", "");
+      ?.setAttribute("checked", "");
   }
 
   connectedCallback() {
-    // Handle clicking outside the color picker to collapse it
-    document.documentElement.addEventListener("click", (e) => {
-      if (this.details.open) {
-        this.toggleVisibility();
-      }
-    });
     // Handle expanding/collapsing the color picker through the <form>
     this.addEventListener("click", (e) => {
       e.stopPropagation();
 
       if (e.target.name === "color") {
-        // If we're setting a new value, set it
-        if (e.target.value !== localStorage.getItem("theme-color")) {
-          const color = e.target.value;
-          this.setColor(color);
+        const value = e.target.value;
+        if (value !== window.theme.color.get()) {
+          window.theme.color.set(value);
         }
       }
 
       if (e.target.name === "appearance") {
-        const appearance = e.target.value;
-        this.setTheme(appearance);
+        const value = e.target.value;
+        if (value !== window.theme.appearance.get()) {
+          window.theme.appearance.set(value);
+        }
       }
     });
-  }
-
-  toggleVisibility() {
-    if (this.details.open) {
-      this.details.open = false;
-    } else {
-      this.details.open = true;
-    }
-  }
-
-  /**
-   * @param {string} color
-   */
-  setColor(color) {
-    localStorage.setItem("theme-color", color);
-    document.documentElement.style.setProperty(
-      `--c-theme-h`,
-      `var(--c-${color}-h)`
-    );
-    document.documentElement.style.setProperty(
-      `--c-theme-s`,
-      `var(--c-${color}-s)`
-    );
-    document.documentElement.style.setProperty(
-      `--c-theme-l`,
-      `var(--c-${color}-l)`
-    );
-
-    updateMeta();
-  }
-
-  /**
-   * @param {string} theme
-   */
-  setTheme(theme) {
-    localStorage.setItem("theme-appearance", theme);
-
-    if (theme === "system") {
-      // TODO remove
-
-      document.documentElement.setAttribute(
-        "data-theme-appearance",
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light"
-      );
-    } else {
-      document.documentElement.setAttribute("data-theme-appearance", theme);
-    }
-
-    updateMeta();
   }
 }
 
 customElements.define("theme-picker", ThemePicker);
-
-// create this <meta name="theme-color" content="#4285f4" />
-function updateMeta() {
-  /** @type {HTMLMetaElement | null} */
-  let $el = document.querySelector("meta[name=theme-color]");
-
-  const themeBgColor = getComputedStyle(
-    document.documentElement
-  ).backgroundColor;
-
-  if ($el) {
-    $el.content = themeBgColor;
-  } else {
-    $el = document.createElement("meta");
-    $el.name = "theme-color";
-    $el.content = themeBgColor;
-    document.head.appendChild($el);
-  }
-}
-
-window
-  .matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", (e) => {
-    if (localStorage.getItem("theme-appearance") === "system") {
-      document.documentElement.setAttribute(
-        "data-theme-appearance",
-        e.matches ? "dark" : "light"
-      );
-    }
-  });

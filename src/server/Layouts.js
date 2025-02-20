@@ -1,7 +1,7 @@
 import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import { html } from "./utils.js";
+import { html, readFile } from "./utils.js";
 import ThemePicker from "./ThemePicker.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -112,6 +112,10 @@ export function Page(props, children) {
             }
           </style>
 
+          <script>
+            ${readFile("./theme.js")};
+          </script>
+
           <!-- Dynamic <head> content where applicable -->
           ${head}
         </head>
@@ -126,16 +130,6 @@ export function Page(props, children) {
             <a href="/menu/" ${path === "/menu/" && "aria-current='page'"}
               >Menu</a
             >
-            <a href="/about/" ${path === "/about/" && "aria-current='page'"}
-              >About</a
-            >
-            <a
-              href="/subscribe/"
-              ${path === "/subscribe/" && "aria-current='page'"}
-              >Subscribe</a
-            >
-
-            ${ThemePicker()}
           </nav>
 
           ${children}

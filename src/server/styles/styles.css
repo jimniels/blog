@@ -9,6 +9,7 @@
    Theme / appearance
    ========================================================================== */
 
+:root,
 :root[data-theme-appearance="light"] {
   color-scheme: light;
 
@@ -95,8 +96,8 @@
     hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%)
   );
   --c-fg: light-dark(
-    hsl(var(--c-theme-h) var(--c-theme-s) 96%),
-    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 16%)
+    hsl(var(--c-theme-h) var(--c-theme-s) 95%),
+    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 12%)
   );
   --c-bg-opaque: light-dark(
     hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05),
@@ -548,52 +549,6 @@ footer ol li {
    Primary Site Navigation
    ========================================================================== */
 
-theme-picker {
-  display: flex;
-  align-items: center;
-  flex-direction: column-reverse;
-  padding: var(--s-24) var(--s-16);
-  margin-right: calc(var(--s-16) * -1);
-  margin-top: calc(var(--s-24) * -1);
-  border: 1px solid transparent;
-
-  position: absolute;
-
-  background: var(--c-bg);
-
-  z-index: 20;
-  gap: var(--s-24);
-  justify-content: center;
-  right: 0;
-  top: 0.25rem;
-}
-theme-picker.is-expanded {
-  background-color: var(--c-bg);
-  border-color: var(--c-bg-opaque);
-  border-radius: 37px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-theme-picker button {
-  width: 18px;
-  height: 18px;
-  border: 2px solid transparent;
-  padding: 0;
-  text-indent: -9999px;
-  border-radius: 50%;
-  display: none;
-}
-
-theme-picker.is-expanded button {
-  display: inline;
-}
-theme-picker button[aria-pressed="true"] {
-  order: 1;
-  box-shadow: 0 0 0 2px var(--c-theme);
-  display: inline;
-  border-color: var(--c-bg);
-}
-
 .navv {
   display: flex;
   flex-direction: row;
@@ -603,17 +558,6 @@ theme-picker button[aria-pressed="true"] {
   margin-bottom: var(--s-32);
   position: relative;
   padding-right: var(--s-40);
-}
-
-@media screen and (min-width: 32rem) {
-  .navv a[href="/menu/"] {
-    display: none;
-  }
-}
-@media screen and (max-width: 32rem) {
-  .navv a:not([href="/menu/"]) {
-    display: none;
-  }
 }
 
 .navv a {
@@ -728,69 +672,61 @@ h1 {
   }
 }
 
-.theme-picker {
+theme-picker {
   position: relative;
 }
-.theme-picker summary {
-  cursor: pointer;
-}
-.theme-picker form {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: var(--c-bg);
-  border-radius: var(--border-radius);
-  padding: var(--s-16);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  width: 300px;
+theme-picker form {
+  display: grid;
+  grid-template-columns: 0.6fr 0.4fr;
+
+  gap: var(--s-24);
 }
 
-.theme-picker fieldset {
+theme-picker fieldset {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: none;
-}
-.theme-picker fieldset > div {
-  display: flex;
-  align-items: center;
-  gap: var(--s-4);
-}
-.theme-picker input {
-  display: none;
-}
-.theme-picker input:checked + label {
-  box-shadow: 0 0 0 2px var(--c-theme);
-
-  svg {
-    fill: var(--c-theme);
-  }
-}
-.theme-picker label[for^="appearance"] svg {
-  width: 20px;
-  height: 20px;
-}
-.theme-picker label[for^="appearance"] {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-.theme-picker label[for^="appearance"] > span:first-child {
-  display: none;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--c-bg-opaque);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
-.theme-picker label[for^="color"] {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+theme-picker input {
+  display: none;
 }
-.theme-picker label[for^="color"] {
+theme-picker input:checked + label {
+  background: var(--c-fg);
+}
+theme-picker label {
+  height: 100%;
   text-indent: -9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--s-40);
+}
+theme-picker label[for^="appearance"] svg {
+  width: 20px;
+  height: 20px;
+}
+
+theme-picker label[for^="appearance"] {
+  width: 33.33333%;
+}
+theme-picker label[for^="appearance"] > span:first-child {
+  display: none;
+}
+
+theme-picker label[for^="color"] {
+  width: 20%;
+}
+theme-picker label[for^="color"] span {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
