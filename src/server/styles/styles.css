@@ -6,25 +6,76 @@
 }
 
 /* =============================================================================
-   Appearance
+   Theme / appearance
    ========================================================================== */
-:root,
+
 :root[data-theme-appearance="light"] {
-  --LIGHT: initial;
-  --DARK: ;
   color-scheme: light;
+
+  /* 
+   * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
+   * accessible
+   */
+  --c-blue-h: 223;
+  --c-blue-s: 100%;
+  --c-blue-l: 43%;
+  --c-red-h: 354;
+  --c-red-s: 100%;
+  --c-red-l: 42%;
+  --c-green-h: 135;
+  --c-green-s: 59%;
+  --c-green-l: 34%;
+  --c-yellow-h: 27;
+  --c-yellow-s: 100%;
+  --c-yellow-l: 35%;
+  --c-purple-h: 280;
+  --c-purple-s: 43%;
+  --c-purple-l: 47%;
+  --c-pink-h: 343;
+  --c-pink-s: 87%;
+  --c-pink-l: 44%;
+
+  /* not supported yet */
+  --c-orange-h: 16;
+  --c-orange-s: 100%;
+  --c-orange-l: 39%;
+  --c-theme-mint: 177 83% 28%;
+  --c-theme-teal: 189 100% 30%;
+  --c-theme-cyan: 199 100% 32%;
+  --c-theme-indigo: 241 52% 42%;
+  --c-theme-brown: 33 30% 38%;
 }
 :root[data-theme-appearance="dark"] {
-  --LIGHT: ;
-  --DARK: initial;
   color-scheme: dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --LIGHT: ;
-    --DARK: initial;
-    color-scheme: dark;
-  }
+
+  --c-blue-h: 211;
+  --c-blue-s: 100%;
+  --c-blue-l: 63%;
+  --c-red-h: 3;
+  --c-red-s: 100%;
+  --c-red-l: 69%;
+  --c-green-h: 135;
+  --c-green-s: 70%;
+  --c-green-l: 52%;
+  --c-yellow-h: 48;
+  --c-yellow-s: 100%;
+  --c-yellow-l: 57%;
+  --c-purple-h: 280;
+  --c-purple-s: 100%;
+  --c-purple-l: 78%;
+  --c-pink-h: 348;
+  --c-pink-s: 100%;
+  --c-pink-l: 70%;
+
+  /* not supported yet */
+  --c-orange-h: 36;
+  --c-orange-s: 100%;
+  --c-orange-l: 63%;
+  --c-theme-mint: 177 56% 62%;
+  --c-theme-teal: 189 100% 68%;
+  --c-theme-cyan: 197 100% 72%;
+  --c-theme-indigo: 241 100% 72%;
+  --c-theme-brown: 34 34% 56%;
 }
 
 /* =============================================================================
@@ -63,39 +114,6 @@
     hsl(var(--c-theme-h) var(--c-theme-s) 8% / 50%),
     hsl(var(--c-theme-h) var(--c-theme-s) 98% / 50%)
   );
-
-  /* 
-   * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
-   * accessible
-   */
-  --c-blue-h: var(--LIGHT, 223) var(--DARK, 211);
-  --c-blue-s: var(--LIGHT, 100%) var(--DARK, 100%);
-  --c-blue-l: var(--LIGHT, 43%) var(--DARK, 63%);
-  --c-red-h: var(--LIGHT, 354) var(--DARK, 3);
-  --c-red-s: var(--LIGHT, 100%) var(--DARK, 100%);
-  --c-red-l: var(--LIGHT, 42%) var(--DARK, 69%);
-  --c-green-h: var(--LIGHT, 135) var(--DARK, 135);
-  --c-green-s: var(--LIGHT, 59%) var(--DARK, 70%);
-  --c-green-l: var(--LIGHT, 34%) var(--DARK, 52%);
-  --c-yellow-h: var(--LIGHT, 27) var(--DARK, 48);
-  --c-yellow-s: var(--LIGHT, 100%) var(--DARK, 100%);
-  --c-yellow-l: var(--LIGHT, 35%) var(--DARK, 57%);
-  --c-purple-h: var(--LIGHT, 280) var(--DARK, 280);
-  --c-purple-s: var(--LIGHT, 43%) var(--DARK, 100%);
-  --c-purple-l: var(--LIGHT, 47%) var(--DARK, 78%);
-  --c-pink-h: var(--LIGHT, 343) var(--DARK, 348);
-  --c-pink-s: var(--LIGHT, 87%) var(--DARK, 100%);
-  --c-pink-l: var(--LIGHT, 44%) var(--DARK, 70%);
-
-  /* not supported yet */
-  --c-orange-h: light-dark(16, 36);
-  --c-orange-s: light-dark(100%, 100%);
-  --c-orange-l: light-dark(39%, 63%);
-  --c-theme-mint: light-dark(177 83% 28%);
-  --c-theme-teal: light-dark(189 100% 30%);
-  --c-theme-cyan: light-dark(199 100% 32%);
-  --c-theme-indigo: light-dark(241 52% 42%);
-  --c-theme-brown: light-dark(33 30% 38%);
 }
 
 /* =============================================================================

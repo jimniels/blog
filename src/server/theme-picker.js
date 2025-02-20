@@ -43,6 +43,16 @@ class ThemePicker extends HTMLElement {
     document
       .querySelector(`input[name=color][value=${initialColor}]`)
       .setAttribute("checked", "");
+
+    // create this <meta name="theme-color" content="#4285f4" />
+    const themeBgColor = getComputedStyle(
+      document.documentElement
+    ).backgroundColor;
+
+    const meta = document.createElement("meta");
+    meta.name = "theme-color";
+    meta.content = themeBgColor;
+    document.head.appendChild(meta);
   }
 
   connectedCallback() {
@@ -105,7 +115,12 @@ class ThemePicker extends HTMLElement {
     if (theme === "system") {
       // TODO remove
 
-      document.documentElement.removeAttribute("data-theme-appearance");
+      document.documentElement.setAttribute(
+        "data-theme-appearance",
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light"
+      );
     } else {
       document.documentElement.setAttribute("data-theme-appearance", theme);
     }
@@ -119,3 +134,14 @@ class ThemePicker extends HTMLElement {
 }
 
 customElements.define("theme-picker", ThemePicker);
+
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", (e) => {
+    if (localStorage.getItem("theme-appearance") === "system") {
+      document.documentElement.setAttribute(
+        "data-theme-appearance",
+        e.matches ? "dark" : "light"
+      );
+    }
+  });
