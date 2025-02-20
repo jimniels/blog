@@ -3,11 +3,9 @@ import { html, toDateUI } from "../../server/utils.js";
 import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import ThemePicker from "../../server/ThemePicker.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const importFile = (filepath) =>
-  fs.readFileSync(join(__dirname, filepath)).toString();
-
+/** @type {import('types').Route} */
 export default function Index(site) {
   return Page(
     {
@@ -18,6 +16,7 @@ export default function Index(site) {
       },
     },
     html` <main class="wrapper">
+      ${ThemePicker()}
       <ul class="posts-list">
         <li>
           <a href="/about/">About</a>
