@@ -127,9 +127,15 @@ export function Page(props, children) {
               Jim Nielsen’s Blog
             </a>
 
-            <a href="/menu/" ${path === "/menu/" && "aria-current='page'"}
-              >Menu</a
-            >
+            ${path === "/menu/"
+              ? html`<a
+                  href="/"
+                  onclick="event.preventDefault();history.back()"
+                  aria-current="page"
+                  aria-label="Close menu (back)"
+                  >${readFile("./svgs/heroicon-close.svg")}</a
+                >`
+              : html`<a href="/menu/" aria-current="page">Menu</a>`}
           </nav>
 
           ${children}

@@ -100,3 +100,12 @@ window
       );
     }
   });
+
+// Handle 'back' button if you came from the menu and changed something
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    // Page loaded from bfcache (back/forward button)
+    window.theme.appearance.set(window.theme.appearance.get());
+    window.theme.color.set(window.theme.color.get());
+  }
+});

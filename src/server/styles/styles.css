@@ -13,6 +13,18 @@
 :root[data-theme-appearance="light"] {
   color-scheme: light;
 
+  /* Theme colors */
+  --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
+  --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 95%);
+  --c-bg-opaque: hsl(
+    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
+  );
+  --c-border: hsl(
+    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
+  );
+  --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 8%);
+  --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 8% / 50%);
+
   /* 
    * https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
    * accessible
@@ -48,6 +60,18 @@
 }
 :root[data-theme-appearance="dark"] {
   color-scheme: dark;
+
+  /* Theme colors */
+  --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
+  --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 12%);
+  --c-bg-opaque: hsl(
+    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
+  );
+  --c-border: hsl(
+    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
+  );
+  --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
+  --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 98% / 50%);
 
   --c-blue-h: 211;
   --c-blue-s: 100%;
@@ -89,32 +113,6 @@
   --c-theme-s: var(--c-blue-s);
   --c-theme-l: var(--c-blue-l);
   --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
-
-  /* Theme colors */
-  --c-bg: light-dark(
-    hsl(var(--c-theme-h) var(--c-theme-s) 99%),
-    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%)
-  );
-  --c-fg: light-dark(
-    hsl(var(--c-theme-h) var(--c-theme-s) 95%),
-    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 12%)
-  );
-  --c-bg-opaque: light-dark(
-    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05),
-    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075)
-  );
-  --c-border: light-dark(
-    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05),
-    hsl(var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075)
-  );
-  --c-text: light-dark(
-    hsl(var(--c-theme-h) var(--c-theme-s) 8%),
-    hsl(var(--c-theme-h) var(--c-theme-s) 98%)
-  );
-  --c-text-light: light-dark(
-    hsl(var(--c-theme-h) var(--c-theme-s) 8% / 50%),
-    hsl(var(--c-theme-h) var(--c-theme-s) 98% / 50%)
-  );
 }
 
 /* =============================================================================
@@ -554,10 +552,10 @@ footer ol li {
   flex-direction: row;
   justify-content: space-between;
   gap: var(--s-16);
-  margin-top: var(--s-32);
-  margin-bottom: var(--s-32);
+  margin-top: var(--s-24);
+  margin-bottom: var(--s-24);
   position: relative;
-  padding-right: var(--s-40);
+  height: 32px;
 }
 
 .navv a {
@@ -566,12 +564,12 @@ footer ol li {
   align-items: center;
 }
 
-.navv a[aria-current="page"],
+/* .navv a[aria-current="page"],
 [data-path*="/posts/"] .navv a[href="/"] {
   color: var(--c-text-light);
   pointer-events: none;
   cursor: default;
-}
+} */
 
 .navv a:first-child {
   margin-right: auto;
@@ -580,9 +578,21 @@ footer ol li {
   gap: var(--s-8);
 }
 
+.navv a:has(svg) {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navv a svg {
+  width: 24px;
+  height: 24px;
+}
+
 h1 {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: -0.02rem;
   margin: 0 0 var(--s-16) 0;
 }
@@ -605,6 +615,10 @@ h1 {
   font-size: 0.8888rem;
   background: var(--c-bg-opaque);
   border-radius: var(--border-radius);
+}
+
+.posts-nav a:last-child {
+  background: transparent;
 }
 
 @media (min-width: 30rem) {
