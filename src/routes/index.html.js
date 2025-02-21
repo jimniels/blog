@@ -12,7 +12,7 @@ const page = {
 export default function Index(site) {
   const posts = site.posts
     .filter((post) => !post?.tags.includes("rssClub"))
-    .slice(0, 12);
+    .slice(0, 8);
 
   return Page(
     {
@@ -22,6 +22,11 @@ export default function Index(site) {
     html` <main class="wrapper">
       <h1>Posts</h1>
       ${PostsNav(page.path)} ${PostsList(posts)}
+      <p style="margin-top: var(--s-40)">
+        <a href="/archive/"
+          >View all ${site.posts.length} posts across in my archive →</a
+        >
+      </p>
     </main>`
   );
 }

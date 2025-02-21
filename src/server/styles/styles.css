@@ -617,10 +617,6 @@ h1 {
   border-radius: var(--border-radius);
 }
 
-.posts-nav a:last-child {
-  background: transparent;
-}
-
 @media (min-width: 30rem) {
   .posts-nav a {
     padding-left: var(--s-12);
