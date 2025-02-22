@@ -15,9 +15,9 @@
 
   /* Theme colors */
   --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
-  --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 95%);
+  --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 40%) 95%);
   --c-bg-opaque: hsl(
-    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
+    var(--c-theme-h) calc(var(--c-theme-s) - 40%) var(--c-theme-l) / 0.05
   );
   --c-border: hsl(
     var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
@@ -62,13 +62,13 @@
   color-scheme: dark;
 
   /* Theme colors */
-  --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
-  --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 12%);
+  --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 2%);
+  --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 12%);
   --c-bg-opaque: hsl(
     var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
   );
   --c-border: hsl(
-    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
+    var(--c-theme-h) calc(var(--c-theme-s) - 80%) var(--c-theme-l) / 0.075
   );
   --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
   --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 98% / 50%);
@@ -680,63 +680,4 @@ h1 {
   &:hover {
     color: var(--c-theme);
   }
-}
-
-theme-picker {
-  position: relative;
-}
-theme-picker form {
-  display: grid;
-  grid-template-columns: 0.6fr 0.4fr;
-
-  gap: var(--s-24);
-}
-
-theme-picker fieldset {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--c-bg-opaque);
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-}
-
-theme-picker input {
-  display: none;
-}
-theme-picker input:checked + label {
-  background: var(--c-fg);
-}
-theme-picker label {
-  height: 100%;
-  text-indent: -9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--s-40);
-}
-theme-picker label[for^="appearance"] svg {
-  width: 20px;
-  height: 20px;
-}
-
-theme-picker label[for^="appearance"] {
-  width: 33.33333%;
-}
-theme-picker label[for^="appearance"] > span:first-child {
-  display: none;
-}
-
-theme-picker label[for^="color"] {
-  width: 20%;
-}
-theme-picker label[for^="color"] span {
-  width: 16px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
 }

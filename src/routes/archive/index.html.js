@@ -84,8 +84,8 @@ export default function Archive(site) {
     html` <main class="wrapper">
       <h1>Archive</h1>
       <p>
-        Can you believe it? I’ve been blogging for
-        ${Object.keys(postsByYear).length} years now!
+        Here’s a count of all my posts by year —
+        ${Object.keys(postsByYear).length} years total!
       </p>
       <ol class="archive-chart">
         ${yearsSorted.map(

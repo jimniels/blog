@@ -1,30 +1,5 @@
 import fs from "fs";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
 import { html, readFile } from "./utils.js";
-import ThemePicker from "./ThemePicker.js";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const importFile = (filepath) =>
-  fs.readFileSync(join(__dirname, filepath)).toString();
-const avatar = fs
-  .readFileSync(join(__dirname, "avatar.png"))
-  .toString("base64");
-
-const fidelities = [
-  {
-    id: "high",
-    title: "Default",
-  },
-  {
-    id: "med",
-    title: "Minimal",
-  },
-  {
-    id: "low",
-    title: "Text-Only",
-  },
-];
 
 const comment = `
 <!--
@@ -59,6 +34,7 @@ export function Page(props, children) {
         <head>
           <title>${title && `${title} - `}${name}</title>
 
+          <link rel="stylesheet" href="/styles.css" />
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="author" content="Jim Nielsen" />
@@ -96,21 +72,6 @@ export function Page(props, children) {
             title="RSS: HTML Feed"
             href="/feed.html"
           />
-
-          <!-- Inline all our styles -->
-          <style>
-            ${[
-              "./styles/modern-normalize.css",
-              "./styles/styles.css",
-              "./styles/atom-one-light.css",
-            ]
-              .map(importFile)
-              .join("")}
-
-            @media screen and (prefers-color-scheme: dark) {
-              ${importFile("./styles/atom-one-dark.css")}
-            }
-          </style>
 
           <script>
             ${readFile("./theme.js")};
