@@ -125,8 +125,8 @@ export default function Index(site) {
 
       <h3>Subscribe</h3>
       ${KvList([
-        { href: "/subscribe/", label: "RSS", sublabel: "feed.xml" },
-        { href: "/subscribe/", label: "JSON", sublabel: "feed.json" },
+        { href: "/feed.xml", label: "RSS", sublabel: "feed.xml" },
+        { href: "/feed.json", label: "JSON", sublabel: "feed.json" },
         {
           href: "https://buttondown.com/jimniels",
           label: "Email",
@@ -138,13 +138,13 @@ export default function Index(site) {
         { href: "/archive/", label: "Posts", sublabel: site.posts.length },
         { href: "/tags/", label: "Tags", sublabel: site.tags.length },
         {
-          href: "/about/external-links/",
-          label: "Outlinks",
+          href: "/external-links/",
+          label: "External Links",
           sublabel: site.externalLinks.length,
         },
         {
-          href: "/about/internal-links/",
-          label: "Inlinks",
+          href: "/internal-links/",
+          label: "Internal Links",
           sublabel: Object.keys(site.internalLinksByPath).length,
         },
       ])}
