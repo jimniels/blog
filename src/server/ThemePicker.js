@@ -23,11 +23,14 @@ export default function ThemePicker() {
     <style>
       .theme-picker {
         position: relative;
-
         display: grid;
-        grid-template-columns: 0.6fr 0.4fr;
+        gap: var(--s-16);
+      }
 
-        gap: var(--s-24);
+      @media (min-width: 35rem) {
+        .theme-picker {
+          grid-template-columns: 0.6fr 0.4fr;
+        }
       }
 
       .theme-picker fieldset {
@@ -91,11 +94,11 @@ export default function ThemePicker() {
           ${colors
             .map(
               (color) => /*html*/ `
-         <input type="radio" name="color" value="${color}" id="color-${color}"  />
-         <label for="color-${color}">
-         ${color} <span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"></span>
-         </label> 
-     `
+              <input type="radio" name="color" value="${color}" id="color-${color}"  />
+              <label for="color-${color}">
+                ${color} <span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"></span>
+              </label> 
+            `
             )
             .join("")}
         </fieldset>
@@ -106,10 +109,11 @@ export default function ThemePicker() {
             .map((theme) => {
               const label = theme.charAt(0).toUpperCase() + theme.slice(1);
               return /*html*/ `
-         <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}"  />
-         <label for="appearance-${theme}" title="${label}"><span>${label}</span>
-         ${readFile(`./svgs/heroicon-${theme}.svg`)}</label>
-         `;
+                <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}"  />
+                <label for="appearance-${theme}" title="${label}"><span>${label}</span>
+                  ${readFile(`./svgs/heroicon-${theme}.svg`)}
+                </label>
+              `;
             })
             .join("")}
         </fieldset>

@@ -3,6 +3,7 @@ import { Page } from "../server/Layouts.js";
 import { html, toDateUI } from "../server/utils.js";
 import { PostsNav } from "../server/PostsNav.js";
 
+const LIMIT = 8;
 const page = {
   title: "",
   path: "/",
@@ -12,7 +13,7 @@ const page = {
 export default function Index(site) {
   const posts = site.posts
     .filter((post) => !post?.tags.includes("rssClub"))
-    .slice(0, 8);
+    .slice(0, LIMIT);
 
   return Page(
     {
@@ -24,7 +25,7 @@ export default function Index(site) {
       ${PostsNav(page.path)} ${PostsList(posts)}
       <p style="margin-top: var(--s-40)">
         <a href="/archive/"
-          >View all ${site.posts.length} posts across in my archive →</a
+          >…${site.posts.length - LIMIT} more posts since 2012 →</a
         >
       </p>
     </main>`

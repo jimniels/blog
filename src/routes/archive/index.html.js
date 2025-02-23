@@ -85,7 +85,7 @@ export default function Archive(site) {
       <h1>Archive</h1>
       <p>
         Here’s a count of all my posts by year —
-        ${Object.keys(postsByYear).length} years total!
+        ${Object.keys(postsByYear).length} years running!
       </p>
       <ol class="archive-chart">
         ${yearsSorted.map(
