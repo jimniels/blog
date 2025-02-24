@@ -28,9 +28,23 @@ export default function Redirects(site) {
     "/posts/ios-border-radius/ /2012/calculate-the-ios-border-radius/ 301",
   ].join("\n");
 
+  // Redirects for years
+  const startYear = 2012;
+  const endYear = new Date().getFullYear(); // Gets the current year
+  const years = Array.from(
+    { length: endYear - startYear + 1 },
+    (_, i) => startYear + i
+  );
+  const yearsRedirects = years
+    .map((year) => {
+      return `/${year}/ /archive/#${year} 301`;
+    })
+    .join("\n");
+
   return [
     oneOffOldRedirects,
     oldRedirects,
+    yearsRedirects,
     "/about/outbound-links/ /about/external-links/ 301",
 
     // No hidden files in the build, or you get problems
