@@ -601,7 +601,7 @@ h1 {
 .posts-nav a {
   padding: var(--s-6) var(--s-12);
   position: relative;
-  font-size: 0.8888rem;
+  font-size: 0.7777rem;
   background: var(--c-bg-opaque);
   border-radius: var(--border-radius);
 }
