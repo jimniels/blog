@@ -1,29 +1,5 @@
 import fs from "fs";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
-import { html } from "./utils.js";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const importFile = (filepath) =>
-  fs.readFileSync(join(__dirname, filepath)).toString();
-const avatar = fs
-  .readFileSync(join(__dirname, "avatar.png"))
-  .toString("base64");
-
-const fidelities = [
-  {
-    id: "high",
-    title: "Default",
-  },
-  {
-    id: "med",
-    title: "Minimal",
-  },
-  {
-    id: "low",
-    title: "Text-Only",
-  },
-];
+import { html, readFile } from "./utils.js";
 
 const comment = `
 <!--
@@ -58,6 +34,7 @@ export function Page(props, children) {
         <head>
           <title>${title && `${title} - `}${name}</title>
 
+          <link rel="stylesheet" href="/styles.css" />
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="author" content="Jim Nielsen" />
@@ -96,20 +73,9 @@ export function Page(props, children) {
             href="/feed.html"
           />
 
-          <!-- Inline all our styles -->
-          <style>
-            ${[
-              "./styles/modern-normalize.css",
-              "./styles/styles.css",
-              "./styles/atom-one-light.css",
-            ]
-              .map(importFile)
-              .join("")}
-
-            @media screen and (prefers-color-scheme: dark) {
-              ${importFile("./styles/atom-one-dark.css")}
-            }
-          </style>
+          <script>
+            ${readFile("./theme.js")};
+          </script>
 
           <!-- Dynamic <head> content where applicable -->
           ${head}
@@ -122,21 +88,15 @@ export function Page(props, children) {
               Jim Nielsen’s Blog
             </a>
 
-            <a href="/menu/" ${path === "/menu/" && "aria-current='page'"}
-              >Menu</a
-            >
-            <a href="/about/" ${path === "/about/" && "aria-current='page'"}
-              >About</a
-            >
-            <a
-              href="/subscribe/"
-              ${path === "/subscribe/" && "aria-current='page'"}
-              >Subscribe</a
-            >
-
-            <theme-picker></theme-picker>
-            <!-- prettier-ignore -->
-            <script>${importFile("./theme-picker.js")}</script>
+            ${path === "/menu/"
+              ? html`<a
+                  href="/"
+                  onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
+                  aria-current="page"
+                  aria-label="Close menu (back)"
+                  >${readFile("./svgs/heroicon-close.svg")}</a
+                >`
+              : html`<a href="/menu/" aria-current="page">Menu</a>`}
           </nav>
 
           ${children}

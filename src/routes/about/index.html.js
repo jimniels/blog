@@ -77,12 +77,7 @@ const page = {
   `,
 };
 
-/**
- *
- * @param {import("../../../types").Site} site
- * @param {*} loaderData
- * @returns
- */
+/** @type {import("types").Route} */
 export default async function About(site) {
   const loaderData = await loader(site);
   return Page(
@@ -111,9 +106,13 @@ export default async function About(site) {
         <h1>About</h1>
 
         <p>
-          I’m Jim, a web designer and developer, and my blog is where I refine
-          my professional thinking. Want to know more about me? Check out
-          <a href="https://www.jim-nielsen.com">my personal website</a>.
+          I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>, a web
+          designer and developer with 20+ years experience, and this is my blog
+          where I refine my thinking. It’s
+          <a href="https://www.jim-nielsen.com/#social-validation"
+            >loved and referenced by many web design professionals and
+            publications</a
+          >.
         </p>
 
         <h2 id="stats">Stats</h2>

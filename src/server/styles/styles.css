@@ -1,40 +1,25 @@
+/* =============================================================================
+   View transitions
+   ========================================================================== */
 @view-transition {
   navigation: auto;
 }
 
 /* =============================================================================
-   Variables
+   Theme / appearance
    ========================================================================== */
 
-:root {
-  --border-radius: 4px;
-  --s-2: calc(2rem / 18);
-  --s-4: calc(4rem / 18);
-  --s-6: calc(6rem / 18);
-  --s-8: calc(8rem / 18);
-  --s-12: calc(12rem / 18);
-  --s-16: calc(16rem / 18);
-  --s-24: calc(24rem / 18);
-  --s-32: calc(32rem / 18);
-  --s-40: calc(40rem / 18);
-  --s-48: calc(48rem / 18);
-  --s-64: calc(64rem / 18);
-  --s-80: calc(80rem / 18);
-  --s-96: calc(96rem / 18);
-  --max-width: 32rem;
-  --max-width-padding: 6rem;
-  --max-width-outer: calc(var(--max-width) + (var(--max-width-padding) * 2));
+:root,
+:root[data-theme-appearance="light"] {
+  color-scheme: light;
 
-  /* Theme color that gets set by default but is configurable by the user */
-  --c-theme-h: var(--c-blue-h);
-  --c-theme-s: var(--c-blue-s);
-  --c-theme-l: var(--c-blue-l);
-  --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
-
+  /* Theme colors */
   --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
-  --c-bg-1: hsl(var(--c-theme-h) var(--c-theme-s) 100%);
-  --c-fg: hsl(var(--c-theme-h) var(--c-theme-s) 96%);
+  --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 40%) 91%);
   --c-bg-opaque: hsl(
+    var(--c-theme-h) calc(var(--c-theme-s) - 40%) var(--c-theme-l) / 0.05
+  );
+  --c-border: hsl(
     var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
   );
   --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 8%);
@@ -73,48 +58,85 @@
   --c-theme-indigo: 241 52% 42%;
   --c-theme-brown: 33 30% 38%;
 }
+:root[data-theme-appearance="dark"] {
+  color-scheme: dark;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 20%) 2%);
-    --c-bg-1: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 60%) 5%);
+  /* Theme colors */
+  --c-bg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 2%);
+  --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 17%);
+  --c-bg-opaque: hsl(
+    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
+  );
+  --c-border: hsl(
+    var(--c-theme-h) calc(var(--c-theme-s) - 80%) var(--c-theme-l) / 0.075
+  );
+  --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
+  --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 98% / 50%);
 
-    --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 80%) 16%);
-    --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 98%);
-    --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 98% / 50%);
-    --c-bg-opaque: hsl(
-      var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.075
-    );
+  --c-blue-h: 211;
+  --c-blue-s: 100%;
+  --c-blue-l: 63%;
+  --c-red-h: 3;
+  --c-red-s: 100%;
+  --c-red-l: 69%;
+  --c-green-h: 135;
+  --c-green-s: 70%;
+  --c-green-l: 52%;
+  --c-yellow-h: 48;
+  --c-yellow-s: 100%;
+  --c-yellow-l: 57%;
+  --c-purple-h: 280;
+  --c-purple-s: 100%;
+  --c-purple-l: 78%;
+  --c-pink-h: 348;
+  --c-pink-s: 100%;
+  --c-pink-l: 70%;
 
-    --c-blue-h: 211;
-    --c-blue-s: 100%;
-    --c-blue-l: 63%;
-    --c-red-h: 3;
-    --c-red-s: 100%;
-    --c-red-l: 69%;
-    --c-green-h: 135;
-    --c-green-s: 70%;
-    --c-green-l: 52%;
-    --c-yellow-h: 48;
-    --c-yellow-s: 100%;
-    --c-yellow-l: 57%;
-    --c-purple-h: 280;
-    --c-purple-s: 100%;
-    --c-purple-l: 78%;
-    --c-pink-h: 348;
-    --c-pink-s: 100%;
-    --c-pink-l: 70%;
+  /* not supported yet */
+  --c-orange-h: 36;
+  --c-orange-s: 100%;
+  --c-orange-l: 63%;
+  --c-theme-mint: 177 56% 62%;
+  --c-theme-teal: 189 100% 68%;
+  --c-theme-cyan: 197 100% 72%;
+  --c-theme-indigo: 241 100% 72%;
+  --c-theme-brown: 34 34% 56%;
+}
 
-    /* not supported yet */
-    --c-orange-h: 36;
-    --c-orange-s: 100%;
-    --c-orange-l: 63%;
-    --c-theme-mint: 177 56% 62%;
-    --c-theme-teal: 189 100% 68%;
-    --c-theme-cyan: 197 100% 72%;
-    --c-theme-indigo: 241 100% 72%;
-    --c-theme-brown: 34 34% 56%;
-  }
+/* =============================================================================
+   Appearance & theme variables
+   ========================================================================== */
+
+:root {
+  /* Theme color that gets set by default but is configurable by the user */
+  --c-theme-h: var(--c-blue-h);
+  --c-theme-s: var(--c-blue-s);
+  --c-theme-l: var(--c-blue-l);
+  --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
+}
+
+/* =============================================================================
+   Other non-appearance variables
+   ========================================================================== */
+
+:root {
+  --border-radius: 4px;
+  --s-2: calc(2rem / 18);
+  --s-4: calc(4rem / 18);
+  --s-6: calc(6rem / 18);
+  --s-8: calc(8rem / 18);
+  --s-12: calc(12rem / 18);
+  --s-16: calc(16rem / 18);
+  --s-24: calc(24rem / 18);
+  --s-32: calc(32rem / 18);
+  --s-40: calc(40rem / 18);
+  --s-48: calc(48rem / 18);
+  --s-64: calc(64rem / 18);
+  --s-80: calc(80rem / 18);
+  --s-96: calc(96rem / 18);
+  --max-width: 32rem;
+  --max-width-padding: 6rem;
+  --max-width-outer: calc(var(--max-width) + (var(--max-width-padding) * 2));
 }
 
 /* =============================================================================
@@ -138,7 +160,8 @@ html {
 }
 
 :focus-visible {
-  outline: 2px dashed var(--c-theme);
+  outline: 2px solid var(--c-theme);
+  box-shadow: 0 0 0 4px hsl(var(--c-theme) / 0.15);
 }
 
 /* Links
@@ -510,86 +533,18 @@ footer ol li {
 }
 
 /* =============================================================================
-   Other
-   ========================================================================== */
-
-@media screen and (min-width: 50rem) {
-  .list-2col {
-    column-count: 2;
-    max-width: 40rem;
-  }
-}
-
-/* =============================================================================
    Primary Site Navigation
    ========================================================================== */
-
-theme-picker {
-  display: flex;
-  align-items: center;
-  flex-direction: column-reverse;
-  padding: var(--s-24) var(--s-16);
-  margin-right: calc(var(--s-16) * -1);
-  margin-top: calc(var(--s-24) * -1);
-  border: 1px solid transparent;
-
-  position: absolute;
-
-  background: var(--c-bg);
-
-  z-index: 20;
-  gap: var(--s-24);
-  justify-content: center;
-  right: 0;
-  top: 0.25rem;
-}
-theme-picker.is-expanded {
-  background-color: var(--c-bg);
-  border-color: var(--c-bg-opaque);
-  border-radius: 37px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-theme-picker button {
-  width: 18px;
-  height: 18px;
-  border: 2px solid transparent;
-  padding: 0;
-  text-indent: -9999px;
-  border-radius: 50%;
-  display: none;
-}
-
-theme-picker.is-expanded button {
-  display: inline;
-}
-theme-picker button[aria-pressed="true"] {
-  order: 1;
-  box-shadow: 0 0 0 2px var(--c-theme);
-  display: inline;
-  border-color: var(--c-bg);
-}
 
 .navv {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: var(--s-16);
-  margin-top: var(--s-32);
-  margin-bottom: var(--s-32);
+  margin-top: var(--s-24);
+  margin-bottom: var(--s-24);
   position: relative;
-  padding-right: var(--s-40);
-}
-
-@media screen and (min-width: 32rem) {
-  .navv a[href="/menu/"] {
-    display: none;
-  }
-}
-@media screen and (max-width: 32rem) {
-  .navv a:not([href="/menu/"]) {
-    display: none;
-  }
+  height: 32px;
 }
 
 .navv a {
@@ -598,12 +553,12 @@ theme-picker button[aria-pressed="true"] {
   align-items: center;
 }
 
-.navv a[aria-current="page"],
+/* .navv a[aria-current="page"],
 [data-path*="/posts/"] .navv a[href="/"] {
   color: var(--c-text-light);
   pointer-events: none;
   cursor: default;
-}
+} */
 
 .navv a:first-child {
   margin-right: auto;
@@ -612,9 +567,21 @@ theme-picker button[aria-pressed="true"] {
   gap: var(--s-8);
 }
 
+.navv a:has(svg) {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navv a svg {
+  width: 24px;
+  height: 24px;
+}
+
 h1 {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: -0.02rem;
   margin: 0 0 var(--s-16) 0;
 }
@@ -634,7 +601,7 @@ h1 {
 .posts-nav a {
   padding: var(--s-6) var(--s-12);
   position: relative;
-  font-size: 0.8888rem;
+  font-size: 0.7777rem;
   background: var(--c-bg-opaque);
   border-radius: var(--border-radius);
 }

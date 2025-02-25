@@ -72,13 +72,14 @@ const graphLayoutEngines = [
   "twopi",
   "fdp",
   "neato",
-  "osage",
   // These don't render very well
+  // "osage",
   // "dot",
   // "circo",
   // "patchwork",
 ];
 
+/** @type {import("types").Route} */
 export default function Index(site) {
   /*
     Query should look like `digraph { QUERY }` and takes the shape:
@@ -100,8 +101,7 @@ export default function Index(site) {
             A visual representation of the relationship between posts on my
             blog. It uses viz.js to draw the graph. You can learn more about how
             I did this in
-            <a href="/2022/visualizing-my-blogs-links/">my blog post</a> (or
-            <a href="/about#stats">check out my other stats</a>).
+            <a href="/2022/visualizing-my-blogs-links/">my blog post</a>.
           </p>
           <p>
             <strong>FYI:</strong> I need to make this better and make it easy to

@@ -3,15 +3,17 @@ import { html } from "../../../server/utils.js";
 
 const page = {
   title: "External Links",
-  path: "/about/links/",
+  path: "/about/external-links/",
   head: html`
     <style>
       .copy {
         margin-bottom: 4rem;
       }
 
-      details summary {
+      details {
         font-size: 0.8181rem;
+      }
+      details summary {
         background: var(--c-bg);
         padding: 4px 10px;
         overflow-wrap: break-word;
@@ -24,9 +26,11 @@ const page = {
       }
       details summary:hover {
         background: var(--c-fg);
+        cursor: default;
       }
       details[open] summary {
         border-bottom: none;
+        background: var(--c-fg);
       }
       summary img {
         position: relative;
@@ -38,43 +42,59 @@ const page = {
         opacity: 0.5;
       }
 
-      details table {
-        font-size: 0.6363rem;
+      details li {
+        position: relative;
       }
+      details li a[href*="blog.jim-nielsen.com"] {
+        color: var(--c-text-light);
 
-      table tbody td:first-child {
-        text-align: right;
+        float: right;
+        max-width: 20%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &:hover {
+          color: var(--c-theme);
+        }
+      }
+      details li a:not([href*="blog.jim-nielsen.com"]) {
+        width: 78%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 80%;
+        display: block;
       }
     </style>
   `,
 };
 
-/**
- * @param {import("../../../types").Site} site
- * @returns {string}
- */
+/** @type {import("types").Route} */
 export default function About(site) {
+  /**
+   * @param {string} str
+   * @returns {string}
+   */
   const format = (str) => {
-    // return str.replace(/https?:\/\/(www.)?/, "");
     const url = new URL(str);
     return url.pathname;
   };
 
-  const allOthers = site.externalLinks.filter(({ count }) => count === 1);
-
   return Page(
     { site, page },
-    html` <main class="copy">
-      <h1>External Links From My Blog</h1>
+    html`<main class="copy">
+      <h1>${page.title}</h1>
 
       <p>
         I thought it would be interesting to
         <a href="/2020/indexing-my-blogs-links/"
           >index all the external links on my blog</a
         >
-        and keep it as a running list (<a href="/about#stats"
-          >see my other stats</a
-        >).
+        and keep it as a running list.
       </p>
 
       <p>
@@ -102,60 +122,23 @@ export default function About(site) {
                 <span class="domain">${domain}</span>
                 <span class="count">${count}</span>
               </summary>
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col">blog.jim-nielsen.com</th>
-                    <th scope="col"></th>
-                    <th scope="col">${domain}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${links.map(
-                    ({ targetUrl, sourceUrl }, i) =>
-                      html`<tr>
-                        <td>${i + 1}.</td>
-                        <td><a href="${sourceUrl}">${format(sourceUrl)}</a></td>
-                        <td style="opacity: .25">→</td>
-                        <td><a href="${targetUrl}">${format(targetUrl)}</a></td>
-                      </tr>`
-                  )}
-                </tbody>
-              </table>
+              <ol>
+                ${links.map(
+                  ({ targetUrl, sourceUrl }, i) =>
+                    html`<li>
+                      <a href="${targetUrl}">${domain}${format(targetUrl)}</a>
+                      <a href="${sourceUrl}">${format(sourceUrl)}</a>
+                      <ul hidden>
+                        <li>
+                          <a href="${sourceUrl}">${format(sourceUrl)}</a>
+                        </li>
+                      </ul>
+                    </li> `
+                )}
+              </ol>
             </details>
           `
         )}
-
-      <details>
-        <summary>...others with only one occurence</summary>
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>blog.jim-nielsen.com</th>
-              <th>Target</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${allOthers.map(
-              ({ links }, i) => html`<tr>
-                <td>${i + 1}.</td>
-                <td>
-                  <a href="${links[0].sourceUrl}"
-                    >${format(links[0].sourceUrl)}</a
-                  >
-                </td>
-                <td>
-                  <a href="${links[0].targetUrl}"
-                    >${links[0].targetUrl.replace(/https?:\/\/(www.)?/, "")}</a
-                  >
-                </td>
-              </tr>`
-            )}
-          </tbody>
-        </table>
-      </details>
     </main>`
   );
 }

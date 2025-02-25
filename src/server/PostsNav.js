@@ -6,7 +6,7 @@ const NAV = [
   { label: "Trending", href: "/posts/trending/" },
   { label: "Hacker News Hits", href: "/posts/hacker-news/" },
   // { label: "Personal Favs", href: "/posts/personal-favs/" },
-  { label: "All", href: "/posts/" },
+  // { label: "All →", href: "/archive/" },
 ];
 
 /**

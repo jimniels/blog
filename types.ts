@@ -59,3 +59,20 @@ export type DynamicPage = {
   path: string;
   contents: string;
 };
+
+export type Theme = {
+  appearance: {
+    get(): string;
+    set(value: string): void;
+  };
+  color: {
+    get(): string;
+    set(color: string): void;
+  };
+};
+
+declare global {
+  interface Window {
+    theme: Theme;
+  }
+}
