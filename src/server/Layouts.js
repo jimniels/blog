@@ -91,7 +91,7 @@ export function Page(props, children) {
             ${path === "/menu/"
               ? html`<a
                   href="/"
-                  onclick="event.preventDefault();history.back()"
+                  onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
                   aria-current="page"
                   aria-label="Close menu (back)"
                   >${readFile("./svgs/heroicon-close.svg")}</a
