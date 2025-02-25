@@ -86,7 +86,7 @@ export default function About(site) {
 
   return Page(
     { site, page },
-    html`<main class="wrapper">
+    html`<main class="copy">
       <h1>${page.title}</h1>
 
       <p>
