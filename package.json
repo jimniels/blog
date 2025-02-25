@@ -16,7 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy-css": "cp node_modules/highlight.js/styles/atom-one-*.css src/server/styles/",
     "pre": "mkdir -p .cache && npm run copy-css && node scripts/cache-site-data.js",
-    "prestartz": "npm run pre",
+    "prestart": "npm run pre",
     "start": "ori serve watch src, =debug src/site.ori",
     "prebuild": "npm run pre",
     "build": "ori copy src/site.ori, clear files:build",
