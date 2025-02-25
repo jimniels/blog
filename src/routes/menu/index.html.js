@@ -94,17 +94,6 @@ export default function Index(site) {
           .search input:not(:placeholder-shown) + button {
             display: block;
           }
-
-          #about img {
-            float: left;
-            width: 140px;
-            height: 140px;
-            border-radius: var(--border-radius);
-            margin: 0 var(--s-24) var(--s-24) 0;
-          }
-          #about p {
-            margin: 0;
-          }
         </style>`,
       },
     },
@@ -144,20 +133,21 @@ export default function Index(site) {
           sublabel: "Buttondown",
         },
       ])}
-      <h3>Stats</h3>
+      <h3>Pages</h3>
       ${KvList([
         { href: "/archive/", label: "Posts", sublabel: site.posts.length },
         { href: "/tags/", label: "Tags", sublabel: site.tags.length },
         {
-          href: "/external-links/",
+          href: "/about/external-links/",
           label: "External Links",
           sublabel: site.externalLinks.length,
         },
         {
-          href: "/internal-links/",
+          href: "/about/internal-links/",
           label: "Internal Links",
           sublabel: Object.keys(site.internalLinksByPath).length,
         },
+        { href: "/about/", label: "About", sublabel: "Jim Nielsen" },
       ])}
       <h3>Feedback</h3>
       ${KvList([
@@ -177,19 +167,6 @@ export default function Index(site) {
           sublabel: "jimniels[at]gmail",
         },
       ])}
-
-      <div id="about">
-        <img src="/assets/img/jimniels.jpg" alt="Portrait of Jim Nielsen" />
-        <p>
-          I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>, a web
-          designer and developer with 20+ years experience, and this is my blog
-          where I refine my thinking. It’s
-          <a href="https://www.jim-nielsen.com/#social-validation"
-            >loved and referenced by many web design professionals and
-            publications</a
-          >.
-        </p>
-      </div>
     </main>`
   );
 }

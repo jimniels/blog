@@ -1,9 +1,9 @@
-import { Page } from "../../server/Layouts.js";
-import { html } from "../../server/utils.js";
+import { Page } from "../../../server/Layouts.js";
+import { html } from "../../../server/utils.js";
 
 const page = {
   title: "External Links",
-  path: "/external-links/",
+  path: "/about/external-links/",
   head: html`
     <style>
       .copy {
