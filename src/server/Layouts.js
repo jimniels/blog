@@ -88,15 +88,19 @@ export function Page(props, children) {
               Jim Nielsen’s Blog
             </a>
 
-            ${path === "/menu/"
+            ${["/menu/", "/search/"].includes(path)
               ? html`<a
                   href="/"
                   onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
-                  aria-current="page"
                   aria-label="Close menu (back)"
                   >${readFile("./svgs/heroicon-close.svg")}</a
                 >`
-              : html`<a href="/menu/" aria-current="page">Menu</a>`}
+              : html`
+                  <a href="/search/"
+                    >${readFile("./svgs/heroicon-search.svg")}</a
+                  >
+                  <a href="/menu/">${readFile("./svgs/heroicon-menu.svg")}</a>
+                `}
           </nav>
 
           ${children}
