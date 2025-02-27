@@ -1,81 +1,54 @@
-let initialized = false;
-main();
+// @ts-expect-error
+const result = new PagefindUI({
+  element: "#js-search-root",
+  pageSize: 10,
+  showImages: false,
+  showSubResults: false,
+});
 
-let $main = document.querySelector("main");
-
-async function main() {
-  const $form = document.querySelector("#js-search-form");
-  if (!$form) return;
-  const $input = $form.querySelector("input");
-  if (!$input) return;
-
-  $input.addEventListener("input", async (event) => {
-    const value = event.target.value;
-
-    // Show/hide main content area
-    if (value === "") {
-      $main.removeAttribute("data-has-search-results");
-    } else {
-      $main.setAttribute("data-has-search-results", "");
-    }
-
-    // Load the assets
-    if (!initialized) {
-      $form.setAttribute("data-loading", "");
-      await Promise.all([loadJS(), loadCSS()]);
-      $form.removeAttribute("data-loading");
-      console.log("Assets loaded. Running script.");
-      // Setup pagefind UI
-      const result = new window.PagefindUI({
-        element: "#js-search-root",
-        pageSize: 10,
-        showImages: false,
-        showSubResults: false,
-      });
-      initialized = true;
-    }
-
-    // Set value in the pagefind component
-    const input = document.querySelector(".pagefind-ui__search-input");
-    input.value = value;
-    const inputEvent = new Event("input", { bubbles: true });
-    input.dispatchEvent(inputEvent);
-    const changeEvent = new Event("change", { bubbles: true });
-    input.dispatchEvent(changeEvent);
-  });
+const $form = document.querySelector("#js-search-form");
+if (!$form) {
+  throw new Error("Form not found");
+}
+const $myInput = $form.querySelector("input");
+if (!$myInput) {
+  throw new Error("Input not found");
 }
 
-function loadJS() {
-  return new Promise((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = "/pagefind/pagefind-ui.js";
-    script.onload = () => {
-      console.log("Pagefind UI script loaded");
-      // Use the script's functionality here
-      resolve();
-    };
-    script.onerror = () => {
-      console.error("Failed to load the script");
-      reject();
-    };
-    document.head.appendChild(script);
-  });
-}
+// Handle form clear
+$form.addEventListener("reset", (event) => {
+  updatePagefindInput("");
+  $myInput.focus();
+});
 
-function loadCSS() {
-  return new Promise((resolve, reject) => {
-    const link = document.createElement("link");
-    link.href = "/pagefind/pagefind-ui.css";
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.onload = () => {
-      console.log("CSS file loaded successfully");
-      resolve();
-    };
-    link.onerror = () => {
-      console.error("Failed to load the CSS file");
-      reject();
-    };
-    document.head.appendChild(link);
-  });
+// Prevent default no-JS submission
+$form.addEventListener("submit", (event) => {
+  event.preventDefault();
+});
+
+// Sync our custom input with the pagefind component
+/** @type {HTMLInputElement} */
+$myInput.addEventListener("input", async (event) => {
+  // @ts-expect-error
+  const value = event.target.value;
+  if (typeof value === "string") {
+    updatePagefindInput(value);
+  }
+});
+
+/**
+ *
+ * @param {string} value
+ */
+function updatePagefindInput(value) {
+  /** @type {HTMLInputElement | null} */
+  const $pagefindInput = document.querySelector(".pagefind-ui__search-input");
+  if (!$pagefindInput) {
+    throw new Error("Pagefind input not found");
+  }
+  $pagefindInput.value = value;
+  const inputEvent = new Event("input", { bubbles: true });
+  $pagefindInput.dispatchEvent(inputEvent);
+  const changeEvent = new Event("change", { bubbles: true });
+  $pagefindInput.dispatchEvent(changeEvent);
 }
