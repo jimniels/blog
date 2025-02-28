@@ -636,7 +636,7 @@ h1 {
   background: transparent;
 }
 
-.posts-nav a:after {
+.posts-nav a:not(:last-child):after {
   content: " ";
   position: absolute;
   left: 0;
@@ -647,9 +647,17 @@ h1 {
   border-radius: var(--border-radius);
 }
 
-.posts-nav a[aria-current="page"]:after {
+.posts-nav a[aria-current="page"]:not(:last-child):after {
   border-color: var(--c-text);
   view-transition-name: posts-nav;
+}
+
+.posts-nav a:last-child {
+  background: transparent;
+}
+.posts-nav a:last-child:after {
+  content: "→";
+  margin-left: var(--s-4);
 }
 
 /* Old stuff going out */
