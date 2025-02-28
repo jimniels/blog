@@ -538,6 +538,7 @@ footer ol li {
 
 .navv {
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-between;
   gap: var(--s-16);
@@ -568,8 +569,8 @@ footer ol li {
 }
 
 .navv a:has(svg) {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -579,8 +580,20 @@ footer ol li {
   background: var(--c-bg-opaque);
 }
 .navv a svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 42rem) {
+  .navv a:has(svg) {
+    width: 32px;
+    height: 32px;
+  }
+
+  .navv a svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 h1 {
@@ -605,7 +618,7 @@ h1 {
 .posts-nav a {
   padding: var(--s-6) var(--s-12);
   position: relative;
-  font-size: 0.7777rem;
+  font-size: 0.8888rem;
   background: var(--c-bg-opaque);
   border-radius: var(--border-radius);
 }
