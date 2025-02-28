@@ -8,6 +8,11 @@ import { Page } from "./Layouts.js";
  * @returns {string}
  */
 export default function Post({ site, post }) {
+  const includeInSearch = !(
+    post.tags &&
+    (post.tags.includes("rssClub") || post.tags.includes("readingNotes"))
+  );
+
   return Page(
     {
       site,
@@ -42,10 +47,15 @@ export default function Post({ site, post }) {
       },
     },
     html`
-      <article class="h-entry">
+      <article class="h-entry" ${includeInSearch ? `data-pagefind-body` : ""}>
         <header
           class="wrapper"
           style="view-transition-name: post-title-${post.id}"
+          ${
+            /* pagefind will ignore stuff in the header, but stil process it, looking to automatically 
+            add a page title, etc. This seems to work to exclude dates, but keep the rest*/ ""
+          }
+          data-pagefind-ignore
         >
           <h1 class="p-name">${post.title}</h1>
           <ul>

@@ -55,72 +55,10 @@ export default function Index(site) {
             transform: rotate(-45deg);
             margin-left: var(--s-4);
           }
-          .search {
-            position: relative;
-          }
-          .search input {
-            width: 100%;
-            height: var(--s-40);
-            border: none;
-            border-radius: var(--border-radius);
-            background-color: var(--c-fg);
-            padding-left: var(--s-40);
-          }
-          .search svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--c-text-light);
-          }
-          .search > svg {
-            position: absolute;
-            left: var(--s-12);
-            top: 0.5555rem;
-          }
-          .search button {
-            position: absolute;
-            right: var(--s-12);
-            top: 0.5555rem;
-            width: 20px;
-            height: 20px;
-            background: none;
-            border: none;
-            padding: 0;
-            margin: 0;
-          }
-
-          .search input:placeholder-shown + button {
-            display: none;
-          }
-          .search input:not(:placeholder-shown) + button {
-            display: block;
-          }
         </style>`,
       },
     },
     html` <main id="menu" class="wrapper">
-      <!-- <form action="https://duckduckgo.com" class="search">
-        <input
-          type="text"
-          name="q"
-          autocomplete="off"
-          spellcheck="false"
-          placeholder="Search"
-        />
-        <button type="reset">
-          ${readFile("../server/svgs/heroicon-x-circle.svg")}
-        </button>
-        <input type="hidden" name="sites" value="blog.jim-nielsen.com" />
-        ${readFile("../server/svgs/heroicon-search.svg")}
-      </form>
-      <script>
-        const btn = document.querySelector(".search button[type='reset']");
-
-        document.querySelector(".search").addEventListener("submit", (e) => {
-          // e.preventDefault();
-          // Do my client-side search stuff here
-          // and stay on the current page
-        });
-      </script> -->
       ${ThemePicker()}
 
       <h3>Subscribe</h3>

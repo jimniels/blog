@@ -3,7 +3,7 @@
     "allowJs": true, // Allows TypeScript to process JavaScript files
     "checkJs": true, // Enables type-checking for all .js files
     "strict": true, // Optional, for strict type checking
-    "lib": ["ES2015", "DOM"],
+    "lib": ["ES2016", "DOM"],
     "target": "ES2015",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
