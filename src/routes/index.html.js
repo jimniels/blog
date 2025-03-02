@@ -23,11 +23,6 @@ export default function Index(site) {
     html` <main class="wrapper">
       <h1>Posts</h1>
       ${PostsNav(page.path)} ${PostsList(posts)}
-      <p style="margin-top: var(--s-40)">
-        <a href="/archive/"
-          >…${site.posts.length - LIMIT} more posts since 2012 →</a
-        >
-      </p>
     </main>`
   );
 }
