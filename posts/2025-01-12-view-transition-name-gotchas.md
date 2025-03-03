@@ -1,4 +1,4 @@
-#css
+#cssViewTransitions
 
 # Gotchas in Naming CSS View Transitions
 
