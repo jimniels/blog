@@ -1,6 +1,6 @@
 #html #cssViewTransitions #myBlog
 
-# Building WebSites With LLMS
+# Building Websites With LLMS
 
 And by LLMS I mean: (L)ots of (L)ittle ht(M)l page(S).
 
