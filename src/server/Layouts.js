@@ -77,6 +77,8 @@ export function Page(props, children) {
             ${readFile("./theme.js")};
           </script>
 
+          <link rel="prefetch" href="/menu/" />
+
           <!-- Dynamic <head> content where applicable -->
           ${head}
         </head>
