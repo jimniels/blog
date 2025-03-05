@@ -542,10 +542,9 @@ footer ol li {
   flex-direction: row;
   justify-content: space-between;
   gap: var(--s-16);
-  margin-top: var(--s-24);
-  margin-bottom: var(--s-24);
+  padding-top: var(--s-24);
+  padding-bottom: var(--s-24);
   position: relative;
-  height: 32px;
 }
 
 .navv a {
@@ -566,9 +565,10 @@ footer ol li {
   display: flex;
   align-items: center;
   gap: var(--s-8);
+  margin-left: calc(var(--s-12) * -1);
 }
 
-.navv a:has(svg) {
+.navv a:not(:first-child) {
   width: 40px;
   height: 40px;
   display: flex;
@@ -576,25 +576,25 @@ footer ol li {
   justify-content: center;
   border-radius: var(--border-radius);
 }
-.navv a:has(svg):hover {
+.navv a:not(:first-child):hover {
   background: var(--c-bg-opaque);
 }
-.navv a svg {
+.navv a:not(:first-child) svg {
   width: 24px;
   height: 24px;
 }
 
-@media (min-width: 42rem) {
-  .navv a:has(svg) {
+/*@media (min-width: 42rem) {
+  .navv a:not(:first-child) {
     width: 32px;
     height: 32px;
   }
 
-  .navv a svg {
+  .navv a:not(:first-child) svg {
     width: 20px;
     height: 20px;
   }
-}
+}*/
 
 h1 {
   font-size: 2rem;

@@ -77,7 +77,9 @@ export function Page(props, children) {
             ${readFile("./theme.js")};
           </script>
 
+          <!-- Prefetch navigational pages -->
           <link rel="prefetch" href="/menu/" />
+          <link rel="prefetch" href="/search/" />
 
           <!-- Dynamic <head> content where applicable -->
           ${head}
@@ -86,8 +88,12 @@ export function Page(props, children) {
           <jim-navbar></jim-navbar>
 
           <nav class="navv wrapper">
-            <a href="/" ${path === "/" && "aria-current='page'"}>
-              Jim Nielsen’s Blog
+            <a
+              href="/"
+              title="Jim Nielsen’s Blog"
+              ${path === "/" && "aria-current='page'"}
+            >
+              ${readFile("./svgs/initial.svg")}
             </a>
 
             ${["/menu/", "/search/"].includes(path)

@@ -61,17 +61,7 @@ export default function Index(site) {
     html` <main id="menu" class="wrapper">
       ${ThemePicker()}
 
-      <h3>Subscribe</h3>
-      ${KvList([
-        { href: "/feed.xml", label: "RSS", sublabel: "feed.xml" },
-        { href: "/feed.json", label: "JSON", sublabel: "feed.json" },
-        {
-          href: "https://buttondown.com/jimniels",
-          label: "Email",
-          sublabel: "Buttondown",
-        },
-      ])}
-      <h3>Pages</h3>
+      <h3>Jim Nielsen’s Blog</h3>
       ${KvList([
         { href: "/archive/", label: "Posts", sublabel: site.posts.length },
         { href: "/tags/", label: "Tags", sublabel: site.tags.length },
@@ -85,7 +75,17 @@ export default function Index(site) {
           label: "Internal Links",
           sublabel: Object.keys(site.internalLinksByPath).length,
         },
-        { href: "/about/", label: "About", sublabel: "Jim Nielsen" },
+        { href: "/about/", label: "About", sublabel: "Me" },
+      ])}
+      <h3>Subscribe</h3>
+      ${KvList([
+        { href: "/feed.xml", label: "RSS", sublabel: "feed.xml" },
+        { href: "/feed.json", label: "JSON", sublabel: "feed.json" },
+        {
+          href: "https://buttondown.com/jimniels",
+          label: "Email",
+          sublabel: "Buttondown",
+        },
       ])}
       <h3>Feedback</h3>
       ${KvList([
