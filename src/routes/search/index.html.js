@@ -1,6 +1,5 @@
 import { Page } from "../../server/Layouts.js";
 import { html, readFile, toDateUI } from "../../server/utils.js";
-import ThemePicker from "../../server/ThemePicker.js";
 
 /** @type {import('types').Route} */
 export default function Index(site) {
