@@ -22,7 +22,7 @@ More control means you have to do more work. I don’t want to do more work, esp
 
 I want to respect user choice (which includes respecting what hardware and OS they’ve chosen to use) and [build web user interfaces on top of stable OS primitives](https://blog.jim-nielsen.com/2025/ui-pace-layers/).
 
-**Give me better APIs for leveraging OS primitives rather than APIs to opt out of them completely.**
+**Give me better APIs for leveraging OS primitives rather than, or I should say _in addition to_, APIs to opt out of them completely.**
 
 That’s me, the developer talking. But there’s a user-centric point to be made here too: when you re-invent the look, appearance, and functionality of basic form inputs for every website you’re in charge of, that means every user is forced to encounter inconsistent form controls across the plethora of websites they visit.
 
