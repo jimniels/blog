@@ -1,3 +1,5 @@
+#uiPaceLayers
+
 # UI Pace Layers
 
 [Jeremy Keith](https://adactio.com/journal/19104), [Chris Coyier](https://chriscoyier.net/2025/01/13/tech-pace-layering/), and others (see Jeremy’s post) have written about the idea of “pace layers” and now I’m going to take a stab at applying it to user interface primitives.
