@@ -91,6 +91,7 @@ export function Page(props, children) {
             <a
               href="/"
               title="Jim Nielsen’s Blog"
+              aria-label="Jim Nielsen’s Blog"
               ${path === "/" && "aria-current='page'"}
             >
               ${readFile("./svgs/initial.svg")}
@@ -104,10 +105,12 @@ export function Page(props, children) {
                   >${readFile("./svgs/heroicon-close.svg")}</a
                 >`
               : html`
-                  <a href="/search/"
+                  <a href="/search/" aria-label="Search"
                     >${readFile("./svgs/heroicon-search.svg")}</a
                   >
-                  <a href="/menu/">${readFile("./svgs/heroicon-menu.svg")}</a>
+                  <a href="/menu/" aria-label="Menu"
+                    >${readFile("./svgs/heroicon-menu.svg")}</a
+                  >
                 `}
           </nav>
 
