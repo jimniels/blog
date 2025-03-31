@@ -47,4 +47,4 @@ So, when responding to a user preference to update a website’s theme:
 2. Set the `color-scheme` property so the browser draws the things its responsible for correctly (form controls, scroll bars, etc.).
 3. Set the `<meta name='theme-color'>` value appropriately so contextual browser UI can adapt to your site’s styles.
 
-I wrote this post as a friendly reminder, because friends doing dark mode don’t let friends forget the meta theme-color tag.
+I wrote this post as a friendly reminder, because friends don’t let friends forget the meta theme-color tag.
