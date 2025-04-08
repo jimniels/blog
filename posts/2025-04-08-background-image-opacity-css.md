@@ -33,7 +33,7 @@ Then modern me interrupted this old guy. “I haven’t reached for `background-
 
 So I started searching and found [this StackOverflow answer](https://stackoverflow.com/a/40366996/1339693) which says you can use `background-color` in combination with [`background-blend-mode`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-blend-mode) to achieve a similar effect, e.g.
 
-```
+```html
 div {
   /* Use some images */
   background-image: 
