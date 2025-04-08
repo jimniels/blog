@@ -56,3 +56,41 @@ I love little moments like this where I reach to do something in CSS that was im
 We all face moments like this where we have to balance leveraging hard-won expertise with seeking new knowledge and greater understanding, which requires giving up the lessons of previous experience in order to make room for incorporating new lessons of experiences.
 
 It’s hard to give up the old, but it’s the only way to make room for the new — death of the old is birth of the new.
+
+## Update 2025-04-08
+
+[ShopTalk Show](https://css-tricks.com/maybe-there-kinda-is-background-opacity/) kindly pointed me at [“Maybe there kinda is background-opacity?”](https://css-tricks.com/maybe-there-kinda-is-background-opacity/). Looks like there’s a spec for a [`cross-fade()` function in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/cross-fade), though it’s only been implemented by Safari and the time of this writing.
+
+Building off Chris’ CSS-Tricks article linked above, you could do something like this (I put the gif as a custom property, for readability’s sake, not sure you could actually do this):
+
+```css
+
+div {
+  /* 1px transparent gif, base64 encoded */
+  --transparentImg: data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7;
+  
+  /* 1px transparent gif, base64 encoded */
+  background-image:
+    /* 1st image */ 
+    cross-fade(
+      /* my image */
+      url(image.jpg),
+      /* transparent image */
+      url(var(--transparentImg)),
+      /* desired 'background opacity' */
+      50%
+    ),
+    
+    /* 2nd image */ 
+    cross-fade(
+      url(image.jpg),
+      url(var(--transparentImg)),
+      20%
+    ),
+    
+    /* 3rd image, etc. */
+   ;
+}
+```
+
+Maybe once that ships 4real, we really will have a proxy for `background-opacity`!
