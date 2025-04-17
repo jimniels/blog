@@ -44,7 +44,7 @@
   // https://answers.netlify.com/t/hidden-files-removed-in-zip-deploy/8997
   well-known = {
     links = {
-      index.json = js:JSON/stringify(data/externalLinks)
+      index.json = js:JSON/stringify(tree:plain(data/externalLinks)/slice(0, 1))
       404.json = js:JSON/stringify({ error: "Domain not found" })
       ...tree:map(data/externalLinks, {
         key: (item) => `${item/domain}.json`,
