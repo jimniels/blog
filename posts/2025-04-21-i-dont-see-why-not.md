@@ -2,7 +2,7 @@
 
 # “I Don’t See Why Not”
 
-Excuse my rant.
+Excuse my rant[^1].
 
 Nobel-prize winning CEO of DeepMind, Demis Hassabis, was on [_60 Minutes_](https://www.youtube.com/watch?v=1XF-NG_35NE) and floored me when he predicted:
 
@@ -38,5 +38,6 @@ You can’t just say stuff that’s not true and continue having credibility.
 
 Unless you’re AI, of course.
 
+[^1]: Serendipitously, a few hours after publishing this post, I was reading my copy of _The Bomb: A Life_ by Gerard J. De Groot. In it, he notes how in 1936 Soviet physicist Igor Tamm confidently remarked that “the idea that the use of nuclear energy is a question for [the next] five or ten years is really naive.” The contrast between the mainstream hyperbole around AI vs. nuclear is striking. 
 
 
