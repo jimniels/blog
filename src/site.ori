@@ -40,7 +40,7 @@
   })
 
   tags = {
-    tags: ./routes/tags/tags.ori.html(data)
+    index.html = ./routes/tags/index.ori.html(data)
   }
 
   // These path to `/well-known/...` in the build output and then we do a
