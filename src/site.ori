@@ -39,6 +39,10 @@
     value: (route) => route/(data)
   })
 
+  tags = {
+    tags: ./routes/tags/tags.ori.html(data)
+  }
+
   // These path to `/well-known/...` in the build output and then we do a
   // rewrite because netlify is apparently weird about hidden files
   // https://answers.netlify.com/t/hidden-files-removed-in-zip-deploy/8997
