@@ -134,7 +134,7 @@
   --s-64: calc(64rem / 18);
   --s-80: calc(80rem / 18);
   --s-96: calc(96rem / 18);
-  --max-width: 32rem;
+  --max-width: 30rem;
   --max-width-padding: 6rem;
   --max-width-outer: calc(var(--max-width) + (var(--max-width-padding) * 2));
 }
@@ -157,6 +157,12 @@ html {
   background: var(--c-bg);
   color: var(--c-text);
   padding-bottom: 5vh;
+}
+
+@media screen and (min-width: 42rem) {
+  html {
+    font-size: 1.3125rem;
+  }
 }
 
 :focus-visible {
@@ -339,6 +345,9 @@ table td {
     margin-left: auto;
     margin-right: auto;
   }
+}
+.copy > * {
+  margin-bottom: 1lh;
 }
 
 pre {
