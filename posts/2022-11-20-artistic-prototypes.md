@@ -2,7 +2,7 @@
 
 # Artistic Prototypes
 
-[As previously mentioned](/2022/obscure-things-power-the-imagination), I’ve been reading Walter Isaacson’s biography on Leonardo Da Vinci.
+[As previously mentioned](/2022/obscure-things-power-the-imagination/), I’ve been reading Walter Isaacson’s biography on Leonardo Da Vinci.
 
 At one point in the book, Isaacson notes that through the discovery of related sketches and cartoons, art historians are able to see the evolutionary thinking behind some finished works of Da Vinci. Additionally, some pieces — through the use of infrared reflectographic analysis — reveal underdrawings that differ from the finished strokes on top (such as the position a figure is facing being reversed). These discoveries, Isaacoson notes, reveal Leonardo working through his options — a kind of artistic prototyping, if you will.
 
