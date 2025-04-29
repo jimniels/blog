@@ -10,64 +10,42 @@ const page = {
         margin-bottom: 4rem;
       }
 
-      details {
-        font-size: 0.8181rem;
-      }
-      details summary {
-        background: var(--c-bg);
-        padding: 4px 10px;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        -ms-word-break: break-all;
-        position: sticky;
-        top: 0;
-        z-index: 1;
-        border-bottom: 1px solid var(--c-fg);
-      }
-      details summary:hover {
-        background: var(--c-fg);
-        cursor: default;
-      }
-      details[open] summary {
-        border-bottom: none;
-        background: var(--c-fg);
-      }
-      summary img {
-        position: relative;
-        top: 2px;
-        margin-right: 6px;
-      }
-      summary .count {
-        float: right;
-        opacity: 0.5;
+      .archive-chart {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: var(--s-2);
       }
 
-      details li {
+      .archive-chart li {
         position: relative;
       }
-      details li a[href*="blog.jim-nielsen.com"] {
+
+      .archive-chart li div {
+        display: flex;
+        gap: var(--s-8);
+        align-items: center;
+        padding: var(--s-6) var(--s-6);
+        position: relative;
+        z-index: 2;
+        text-decoration: none;
+        font-size: 0.875rem;
+      }
+      .archive-chart li div span:last-child {
         color: var(--c-text-light);
-
-        float: right;
-        max-width: 20%;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        position: absolute;
-        right: 0;
-        top: 0;
-
-        &:hover {
-          color: var(--c-theme);
-        }
+        font-size: 0.77777rem;
       }
-      details li a:not([href*="blog.jim-nielsen.com"]) {
-        width: 78%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 80%;
-        display: block;
+
+      .archive-chart-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: var(--c-fg);
+        pointer-events: none;
+        z-index: 1;
       }
     </style>
   `,
@@ -106,39 +84,31 @@ export default function About(site) {
         >.
       </p>
 
-      ${site.externalLinks
-        .filter(({ count }) => count > 1)
-        .map(
-          ({ domain, count, links }, i) => html`
-            <details>
-              <summary>
-                <img
-                  src="https://www.google.com/s2/favicons?domain=${domain}&sz=32"
-                  width="16"
-                  height="16"
-                  alt="Favicon for ${domain}"
-                  loading="lazy"
-                />
-                <span class="domain">${domain}</span>
-                <span class="count">${count}</span>
-              </summary>
-              <ol>
-                ${links.map(
-                  ({ targetUrl, sourceUrl }, i) =>
-                    html`<li>
-                      <a href="${targetUrl}">${domain}${format(targetUrl)}</a>
-                      <a href="${sourceUrl}">${format(sourceUrl)}</a>
-                      <ul hidden>
-                        <li>
-                          <a href="${sourceUrl}">${format(sourceUrl)}</a>
-                        </li>
-                      </ul>
-                    </li> `
-                )}
-              </ol>
-            </details>
-          `
-        )}
+      <ol class="archive-chart">
+        ${site.externalLinks
+          .filter((item) => item.count > 2)
+          .map(
+            ({ domain, count, links }, i) => html`
+              <li>
+                <div>
+                  <img
+                    src="https://www.google.com/s2/favicons?domain=${domain}&sz=32"
+                    width="16"
+                    height="16"
+                    alt="Favicon for ${domain}"
+                    loading="lazy"
+                  />
+                  <span class="domain">${domain}</span>
+                  <span class="count" style="margin-left: auto;">${count}</span>
+                </div>
+                <span
+                  class="archive-chart-bar"
+                  style="width: ${(count / site.externalLinks[0].count) * 100}%"
+                ></span>
+              </li>
+            `
+          )}
+      </ol>
     </main>`
   );
 }
