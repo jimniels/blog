@@ -159,12 +159,6 @@ html {
   padding-bottom: 5vh;
 }
 
-@media screen and (min-width: 42rem) {
-  html {
-    font-size: 1.3125rem;
-  }
-}
-
 :focus-visible {
   outline: 2px solid var(--c-theme);
   box-shadow: 0 0 0 4px hsl(var(--c-theme) / 0.15);
