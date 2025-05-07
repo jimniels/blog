@@ -10,17 +10,19 @@ export default function ReplyHtml({ post, site }) {
   const postTags = post.tags;
   const postPath = post.path;
   const siteOrigin = site.origin;
-  const relatedPosts = Object.entries(site.internalLinksByPath).reduce(
-    (acc, [postPath, linkedPaths]) => {
-      // If a post has this post’s path in it's list of links, add it's metadata
-      // to our list of related posts
-      if (linkedPaths.includes(post.path)) {
-        acc.push(site.posts.find((p) => p.path === postPath));
-      }
-      return acc;
-    },
-    []
-  );
+  const relatedPosts = [];
+  // const relatedPosts = Object.entries(site.internalLinksByPath).reduce(
+  //   (acc, [postPath, linkedPaths]) => {
+  //     // If a post has this post’s path in it's list of links, add it's metadata
+  //     // to our list of related posts
+  //     if (linkedPaths.includes(post.path)) {
+  //       acc.push(site.posts.find((p) => p.path === postPath));
+  //     }
+  //     return acc;
+  //   },
+  //   []
+  // );
+  // console.log(relatedPosts);
 
   return html`
     <hr />

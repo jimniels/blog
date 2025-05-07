@@ -30,7 +30,7 @@
   ...<static>,
 
   // Merge all our posts
-   ...postsTree,
+  ...postsTree,
 
   // Routes
   // TODO: use origami's feed generator rather than `feed.*` routes
