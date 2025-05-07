@@ -3,25 +3,30 @@ import { html } from "./utils.js";
 /**
  * The html that appears at the bottom of each post, both on the site
  * as well as in the RSS feed.
- * @param {import("../../types.js").Post} post
- * @param {import("../../types.js").Site} site
+ * @param {{ post: import("../../types.js").Post, site: import("../../types.js").Site }} args
  */
 export default function ReplyHtml({ post, site }) {
   const postTags = post.tags;
   const postPath = post.path;
   const siteOrigin = site.origin;
-  const relatedPosts = [];
-  // const relatedPosts = Object.entries(site.internalLinksByPath).reduce(
-  //   (acc, [postPath, linkedPaths]) => {
-  //     // If a post has this post’s path in it's list of links, add it's metadata
-  //     // to our list of related posts
-  //     if (linkedPaths.includes(post.path)) {
-  //       acc.push(site.posts.find((p) => p.path === postPath));
-  //     }
-  //     return acc;
-  //   },
-  //   []
-  // );
+  /** @type {import("../../types.js").Post[]} */
+  let relatedPosts = [];
+  Object.entries(site.internalLinksByPath).forEach(
+    ([postWithInternalLinksPath, linkedPaths]) => {
+      // If a post has this post’s path in it's list of links, add it's metadata
+      // to our list of related posts
+      if (linkedPaths.includes(post.path)) {
+        const result = site.posts.find((p) =>
+          p.path.startsWith(postWithInternalLinksPath)
+        );
+
+        if (result) {
+          relatedPosts.push(result);
+        }
+      }
+    }
+  );
+
   // console.log(relatedPosts);
 
   return html`
