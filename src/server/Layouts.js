@@ -1,5 +1,6 @@
 import fs from "fs";
 import { html, readFile } from "./utils.js";
+import { NavPill } from "../routes/index.html.js";
 
 const comment = `
 <!--
@@ -85,8 +86,24 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          <jim-navbar></jim-navbar>
+          <div class="nav-pill">
+            <input type="checkbox" id="t" class="nav-pill__menu-toggle" />
+            ${NavPill({ name: "Blog", className: "border" })}
 
+            <div
+              class="nav-pill__menu"
+              onClick="document.querySelector('t').checked = false"
+            >
+              ${NavPill({ name: "Blog", className: "active" })}
+              ${NavPill({ name: "Notes" })} ${NavPill({ name: "Home" })}
+
+              <a href="/archive/">Archive</a>
+              <a href="/tags/">Tags</a>
+              <a href="/about/external-links/">External Links</a>
+              <a href="/about/internal-links/">Internal Links</a>
+              <a href="/search/">Search</a>
+            </div>
+          </div>
           <nav class="navv wrapper">
             <a
               href="/"
