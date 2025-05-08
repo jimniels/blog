@@ -58,5 +58,5 @@
   },
 
   // Generate everything for the search experience  
-  // pagefind/ = once(=package:@weborigami/pagefind(postsTree))
+  pagefind/ = Origami.once(() => <package:@weborigami/pagefind>(postsTree))
 }
