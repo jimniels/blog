@@ -6,7 +6,7 @@
 > 
 > — [@jonkuperman.com on BlueSky](https://bsky.app/profile/jonkuperman.com/post/3lnzwrayka22t)
 
-“It’s Just JavaScript!” is probably a phrase you’ve heard before. I’ve used it myself [a](http://blog.jim-nielsen.com/2019/jsx-like-syntax-for-tagged-template-literals/#:~:text=it%E2%80%99s%20just%20javascript) [number](http://blog.jim-nielsen.com/2019/moving-from-ejs-to-jsx/#:~:text=write%20templates%20using%20%E2%80%9C-,just%20JavaScript) [of](http://blog.jim-nielsen.com/2020/switching-from-react-to-js-for-templating/#:~:text=Just%20JavaScript) [times](http://192.168.4.56:5001/2021/javascript-templating/#:~:text=Just%20JavaScript).
+“It’s Just JavaScript!” is probably a phrase you’ve heard before. I’ve used it myself [a](https://blog.jim-nielsen.com/2019/jsx-like-syntax-for-tagged-template-literals/#:~:text=it%E2%80%99s%20just%20javascript) [number](https://blog.jim-nielsen.com/2019/moving-from-ejs-to-jsx/#:~:text=write%20templates%20using%20%E2%80%9C-,just%20JavaScript) [of](https://blog.jim-nielsen.com/2020/switching-from-react-to-js-for-templating/#:~:text=Just%20JavaScript) [times](https://blog.jim-nielsen.com/2021/javascript-templating/#:~:text=Just%20JavaScript).
 
 It gets thrown around a lot, often to imply that a particular project is approachable because it can be achieved writing the same, ubiquitous, standardized scripting language we all know and love: JavaScript.
 
