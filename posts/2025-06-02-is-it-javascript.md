@@ -133,7 +133,7 @@ _That_ seems like it is, in fact, _Just JavaScript_.
 
 ## As Always, Context Is Everything
 
-A lot of JavaScript you see every day is non-standard. Even though it might be rather ubiquitous — such as seeing `processn.env.*` — lots of JS code requires you to be “in the know” to understand how it’s actually working because it’s not following any part of [the ECMAScript standard](https://ecma-international.org/publications-and-standards/standards/ecma-262/).
+A lot of JavaScript you see every day is non-standard. Even though it might be rather ubiquitous — such as seeing `process.env.*` — lots of JS code requires you to be “in the know” to understand how it’s actually working because it’s not following any part of [the ECMAScript standard](https://ecma-international.org/publications-and-standards/standards/ecma-262/).
 
 There are a few vital pieces of context you need in order to understand a `.js` file, such as:
 
