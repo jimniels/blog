@@ -79,7 +79,7 @@ So it can run on a server or in the browser, but now requires a compilation step
 
 What about this little nugget?
 
-```
+```js
 /** @jsx h */
 import { h } from "preact";
 const HelloWorld = () => <div>Hello</div>;
