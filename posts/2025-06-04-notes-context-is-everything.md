@@ -1,8 +1,8 @@
 #talkNotes
 
-# Notes from Andreas Fredriksson’s [“Context is Everything”](https://vimeo.com/644068002)
+# Notes from Andreas Fredriksson’s “Context is Everything”
 
-I quite enjoyed this talk. Some of the technical details went over my head (I don’t know what “split 16-bit mask into two 8-bit LTUs” means) but I could still follow the underlying point.
+I quite enjoyed [this talk](https://vimeo.com/644068002). Some of the technical details went over my head (I don’t know what “split 16-bit mask into two 8-bit LTUs” means) but I could still follow the underlying point.
 
 First off, Andreas has a great story at the beginning about how he has a friend with a browser bookmarklet that replaces every occurrence of the word “dependency” with the word “liability”. Can you imagine npm working that way? Inside `package.json`:
 
