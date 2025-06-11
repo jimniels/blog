@@ -31,4 +31,4 @@ Are those examples “static” or “dynamic”? [Cue endless debate].
 
 The beauty is that in [proving the space between binaries](https://blog.jim-nielsen.com/2025/proving-binaries/) — between what “static” means and what “dynamic” means — I think we develop a firmer grasp of what we mean by those words as well as what we’re trying to accomplish with our code.
 
-We need tools that help us think of the request/response cycle across our entire application as an endlessly-changing set of computations that happen either “ahead of time”, “just in time”, or somewhere in-between.
+I love tools that help you think of the request/response cycle across your entire application as an endlessly-changing set of computations that happen either “ahead of time”, “just in time”, or somewhere in-between.
