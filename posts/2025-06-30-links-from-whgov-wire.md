@@ -86,3 +86,24 @@ The data and these graphs are all in my spreadsheet, so I can open it up wheneve
 <img src="https://cdn.jim-nielsen.com/blog/2025/whwire-quadratic-spreadsheet-screenshot.png" width="1319" height="628" alt="Screenshot of a spreadsheet with three different charts and tables of data." />
 
 If you want to check out the spreadsheet — sorry! My API key for val.town is in it (“secrets management” is on the roadmap). But I created a duplicate where I inlined the data from the API (rather than the code which dynamically pulls it) which you can [check out here at your convenience](https://app.quadratichq.com/file/b5c08206-67b6-459c-8b92-b2df5bf3616d).
+
+## Update: 2025-07-03
+
+After publishing, I realized that I wasn’t de-duplicating links. Because this works by taking snapshots once a day of the website’s HTML, if the same link stayed up for multiple days, it was getting counted twice.
+
+So I tweaked my analysis to de-duplicate links because I want a picture of all the links shared over time. It didn’t really change the proportions of which sites were shared most frequently, just lowered their occurrence because links now weren’t counted twice.
+
+Given that, here’s an update of the “top 10 links by domain” from May 8th to July 3rd.
+
+1. `youtube.com`	(73)
+2. `foxnews.com`	(36)
+3. `x.com`	(31)
+4. `breitbart.com`	(29)
+5. `nypost.com`	(28)
+6. `thepostmillennial.com`	(26)
+7. `foxbusiness.com`	(22)
+8. `truthsocial.com`	(20)
+9. `washingtontimes.com`	(16)
+10. `dailywire.com`	(15)
+
+<img src="https://cdn.jim-nielsen.com/blog/2025/whwire-quadratic-top-10-links-update.png" width="607" height="377" alt="A pie chart visualizing the top ten links (by domain) from the White House Wire" />
