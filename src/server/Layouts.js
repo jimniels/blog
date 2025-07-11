@@ -50,7 +50,7 @@ export function Page(props, children) {
 
           <script
             type="module"
-            src="https://www.jim-nielsen.com/jim-navbar.js"
+            src="https://cdn.jim-nielsen.com/shared/jim-site-switcher.js"
           ></script>
 
           <!-- Feeds -->
@@ -85,9 +85,17 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          <jim-navbar></jim-navbar>
-
-          <nav class="navv wrapper">
+          ${
+            /*<script>
+            ${fs
+              .readFileSync(
+                "/Users/jimnielsen/Dropbox/cdn/shared/jim-site-switcher.js"
+              )
+              .toString()};
+          </script>*/ ""
+          }
+          <jim-site-switcher subdomain="blog"></jim-site-switcher>
+          <nav class="navv wrapper" hidden>
             <a
               href="/"
               title="Jim Nielsen’s Blog"
@@ -113,7 +121,6 @@ export function Page(props, children) {
                   >
                 `}
           </nav>
-
           ${children}
         </body>
       </html>
