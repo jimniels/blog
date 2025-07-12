@@ -4,13 +4,15 @@ import { html } from "./utils.js";
 /**
  * @param {import("types").Post[]} posts
  * @param {(post: import("types").Post) => string} fn
+ * @param {boolean} grid
  */
 export function PostsList(
   posts,
-  fn = ({ date }) => html`<time datetime="${date}">${toDateUI(date)}</time>`
+  fn = ({ date }) => html`<time datetime="${date}">${toDateUI(date)}</time>`,
+  grid = false
 ) {
   return html`
-    <ul class="posts-list">
+    <ul class="posts-list ${grid ? "posts-list--grid" : ""}">
       ${posts.map(
         (post) => html`
           <li>
