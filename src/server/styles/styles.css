@@ -554,18 +554,22 @@ footer ol li {
   }
 
   .posts-list--grid li {
-    font-size: 0.875rem;
+    font-size: 0.777rem;
     break-inside: avoid;
   }
   .posts-list--grid li a {
     gap: var(--s-16);
-    justify-content: space-between;
+
     /* flex-direction: row; */
     padding: var(--s-4) 0;
     align-items: baseline;
   }
+  .posts-list--grid span:first-child {
+    order: 2;
+  }
   .posts-list--grid span:last-child {
-    font-size: 0.75rem;
+    font-size: 0.666rem;
+    order: 1;
   }
 }
 @media screen and (min-width: 1200px) {

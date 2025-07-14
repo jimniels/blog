@@ -27,7 +27,7 @@ const page = {
         margin: 0;
         padding: 0;
         gap: var(--s-2);
-        font-size: 0.875rem;
+        font-size: 0.777rem;
       }
 
       .archive-chart li {
@@ -45,7 +45,7 @@ const page = {
       }
       .archive-chart li a span:last-child {
         color: var(--c-text-light);
-        font-size: 0.77777rem;
+        font-size: 0.666rem;
       }
       .archive-chart li a:hover span:first-child {
         text-decoration: underline;
@@ -88,7 +88,8 @@ export default function Archive(site) {
   return Page(
     { site, page },
     html` <main>
-      <div class="wrapper">
+      ${
+        /* MOVE TO STATS <div class="wrapper">
         <h1>Archive</h1>
         <ol class="archive-chart">
           ${yearsSorted.map(
@@ -106,12 +107,20 @@ export default function Archive(site) {
             `
           )}
         </ol>
-      </div>
+      </div>*/ ""
+      }
       <div class="wrapper-grid">
         ${yearsSorted.map(
           (year) => html`
             <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
-            ${PostsList(postsByYear[year], undefined, true)}
+            ${PostsList(
+              postsByYear[year],
+              (post) =>
+                html`<time datetime="${post.date}"
+                  >${post.date.slice(5, 10)}</time
+                >`,
+              true
+            )}
           `
         )}
       </div>
