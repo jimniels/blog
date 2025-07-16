@@ -544,7 +544,7 @@ footer ol li {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  gap: var(--s-16);
+  gap: var(--s-8);
   padding-top: var(--s-24);
   padding-bottom: var(--s-24);
   position: relative;
