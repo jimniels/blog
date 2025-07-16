@@ -50,7 +50,7 @@ export function Page(props, children) {
 
           <script
             type="module"
-            src="https://www.jim-nielsen.com/jim-navbar.js"
+            src="https://cdn.jim-nielsen.com/shared/jim-site-switcher.js"
           ></script>
 
           <!-- Feeds -->
@@ -85,35 +85,51 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          <jim-navbar></jim-navbar>
-
-          <nav class="navv wrapper">
+          ${
+            /*<script>
+            ${fs
+              .readFileSync(
+                "/Users/jimnielsen/Dropbox/cdn/shared/jim-site-switcher.js"
+              )
+              .toString()};
+          </script>*/ ""
+          }
+          <jim-site-switcher subdomain="blog"></jim-site-switcher>
+          <nav class="navv wrapper" hidden>
             <a
               href="/"
               title="Jim Nielsen’s Blog"
               aria-label="Jim Nielsen’s Blog"
               ${path === "/" && "aria-current='page'"}
+              ${path === "/" ||
+              path.includes("/posts/") ||
+              ["/subscribe/", "/search/", "/menu/"].includes(path)
+                ? "hidden"
+                : ""}
             >
-              ${readFile("./svgs/initial.svg")}
+              ${readFile("./svgs/heroicon-chevron-left.svg")} Posts
             </a>
 
-            ${["/menu/", "/search/"].includes(path)
+            ${["/menu/", "/search/", "/subscribe/"].includes(path)
               ? html`<a
                   href="/"
                   onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
+                  title="Close menu (back)"
                   aria-label="Close menu (back)"
                   >${readFile("./svgs/heroicon-close.svg")}</a
                 >`
               : html`
-                  <a href="/search/" aria-label="Search"
+                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
+                    >${readFile("./svgs/heroicon-rss.svg")}</a
+                  >
+                  <a href="/search/" aria-label="Search" title="Search"
                     >${readFile("./svgs/heroicon-search.svg")}</a
                   >
-                  <a href="/menu/" aria-label="Menu"
+                  <a href="/menu/" aria-label="Menu" title="Menu"
                     >${readFile("./svgs/heroicon-menu.svg")}</a
                   >
                 `}
           </nav>
-
           ${children}
         </body>
       </html>
