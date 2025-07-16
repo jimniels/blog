@@ -86,7 +86,7 @@ export default function Post({ site, post }) {
                          alt="Hacker News"
                        /> -->
                        ${post.hackerNews.points.toLocaleString()} points,
-                       ${post.hackerNews.comments} comments on HackerNews</a
+                       ${post.hackerNews.comments} comments on Hacker News</a
                      >
                    </li>`
                  : ""
