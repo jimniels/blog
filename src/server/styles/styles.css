@@ -558,7 +558,7 @@ footer ol li {
     break-inside: avoid;
   }
   .posts-list--grid li a {
-    gap: var(--s-16);
+    gap: var(--s-8);
 
     /* flex-direction: row; */
     padding: var(--s-4) 0;

@@ -111,8 +111,10 @@ export default function Archive(site) {
       }
       <div class="wrapper-grid">
         ${yearsSorted.map(
-          (year) => html`
-            <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
+          (year, i) => html`
+            <h2 id="${year}" style="margin: ${i === 0 ? "0" : "2rem"} 0 .5rem;">
+              ${year}
+            </h2>
             ${PostsList(
               postsByYear[year],
               (post) =>
