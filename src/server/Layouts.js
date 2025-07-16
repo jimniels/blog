@@ -1,5 +1,6 @@
 import fs from "fs";
 import { html, readFile } from "./utils.js";
+import { Icon } from "./Icon.js";
 
 const comment = `
 <!--
@@ -107,7 +108,7 @@ export function Page(props, children) {
                 ? "hidden"
                 : ""}
             >
-              ${readFile("./svgs/heroicon-chevron-left.svg")} Posts
+              ${Icon("heroicon-chevron-left")} Posts
             </a>
 
             ${["/menu/", "/search/", "/subscribe/"].includes(path)
@@ -116,17 +117,17 @@ export function Page(props, children) {
                   onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
                   title="Close menu (back)"
                   aria-label="Close menu (back)"
-                  >${readFile("./svgs/heroicon-close.svg")}</a
+                  >${Icon("heroicon-close")}</a
                 >`
               : html`
                   <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
-                    >${readFile("./svgs/heroicon-rss.svg")}</a
+                    >${Icon("heroicon-rss")}</a
                   >
                   <a href="/search/" aria-label="Search" title="Search"
-                    >${readFile("./svgs/heroicon-search.svg")}</a
+                    >${Icon("heroicon-search")}</a
                   >
                   <a href="/menu/" aria-label="Menu" title="Menu"
-                    >${readFile("./svgs/heroicon-menu.svg")}</a
+                    >${Icon("heroicon-menu")}</a
                   >
                 `}
           </nav>

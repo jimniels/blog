@@ -1,3 +1,4 @@
+import { Icon } from "./Icon.js";
 import { html, readFile } from "./utils.js";
 
 // Pulled from the CSS theme variables
@@ -111,7 +112,7 @@ export default function ThemePicker() {
               return /*html*/ `
                 <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}"  />
                 <label for="appearance-${theme}" title="${label}"><span>${label}</span>
-                  ${readFile(`./svgs/heroicon-${theme}.svg`)}
+                  ${Icon(`heroicon-${theme}`)}
                 </label>
               `;
             })

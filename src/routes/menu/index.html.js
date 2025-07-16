@@ -4,6 +4,7 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import ThemePicker from "../../server/ThemePicker.js";
+import { Icon } from "../../server/Icon.js";
 
 /** @type {import('types').Route} */
 export default function Index(site) {
@@ -93,9 +94,7 @@ function KvList(items) {
         html`<li>
           <a href="${item.href}">
             <span>${item.label}</span>
-            <span
-              >${readFile("../server/svgs/heroicon-chevron-right.svg")}</span
-            >
+            <span>${Icon("heroicon-chevron-right")}</span>
           </a>
         </li>`
     )}

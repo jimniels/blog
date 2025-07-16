@@ -3,6 +3,7 @@ import { html, toDateUI } from "../../server/utils.js";
 import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import { Icon } from "../../server/Icon.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
@@ -83,18 +84,14 @@ export default function Index(site) {
     html` <main class="wrapper">
       <ul class="feeds">
         <li>
-          <a href="/feed.xml"
-            >${importFile("../../server/svgs/heroicon-rss.svg")} RSS</a
-          >
+          <a href="/feed.xml">${Icon("heroicon-rss")} RSS</a>
         </li>
         <li>
-          <a href="/feed.json">
-            ${importFile("../../server/svgs/feed-json.svg")} JSON</a
-          >
+          <a href="/feed.json"> ${Icon("feed-json")} JSON</a>
         </li>
         <li>
           <a href="https://buttondown.com/jimniels">
-            ${importFile("../../server/svgs/heroicon-email.svg")} Email</a
+            ${Icon("heroicon-email")} Email</a
           >
         </li>
       </ul>
