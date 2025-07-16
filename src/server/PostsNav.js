@@ -4,7 +4,7 @@ import { html } from "./utils.js";
 const NAV = [
   { label: "Latest", href: "/" },
   { label: "Trending", href: "/posts/trending/" },
-  { label: "Hacker News Hits", href: "/posts/hacker-news/" },
+  { label: "Hacker News", href: "/posts/hacker-news/" },
   // { label: "Personal Favs", href: "/posts/personal-favs/" },
   { label: "All", href: "/archive/" },
 ];

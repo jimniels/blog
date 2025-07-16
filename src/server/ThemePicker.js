@@ -2,8 +2,8 @@ import { html, readFile } from "./utils.js";
 
 // Pulled from the CSS theme variables
 const colors = [
-  "blue",
   "red",
+  "blue",
   "green",
   "yellow",
   // "pink",

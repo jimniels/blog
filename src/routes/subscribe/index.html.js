@@ -18,8 +18,8 @@ export default function Index(site) {
         head: html`
           <style>
             .feeds {
-              display: flex;
-              flex-direction: row;
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
               list-style: none;
               padding: 0;
               margin: 0;
@@ -31,10 +31,15 @@ export default function Index(site) {
               display: flex;
               flex-direction: row;
               align-items: center;
-              gap: 2px;
-              border: 1px solid currentColor;
-              padding: var(--s-4) var(--s-12);
+              gap: var(--s-8);
+              background: var(--c-bg-opaque);
+              padding: var(--s-6) var(--s-12);
               border-radius: 5px;
+              justify-content: center;
+            }
+            .feeds a svg {
+              width: 20px;
+              height: 20px;
             }
             details summary {
               colorz: var(--c-text-light);
@@ -76,11 +81,10 @@ export default function Index(site) {
       },
     },
     html` <main class="wrapper">
-      <h1>Subscribe</h1>
       <ul class="feeds">
         <li>
           <a href="/feed.xml"
-            >${importFile("../../server/svgs/feed-rss.svg")} RSS feed</a
+            >${importFile("../../server/svgs/heroicon-rss.svg")} RSS feed</a
           >
         </li>
         <li>
@@ -89,8 +93,8 @@ export default function Index(site) {
           >
         </li>
         <li>
-          <a href="/feed.html">
-            ${importFile("../../server/svgs/feed-html.svg")} HTML feed</a
+          <a href="https://buttondown.com/jimniels">
+            ${importFile("../../server/svgs/heroicon-email.svg")} Email</a
           >
         </li>
       </ul>
@@ -118,29 +122,6 @@ export default function Index(site) {
           </p>
         </div>
       </details>
-
-      <form
-        action="https://buttondown.com/api/emails/embed-subscribe/jimniels"
-        method="post"
-        target="popupwindow"
-        onsubmit="window.open('https://buttondown.com/jimniels', 'popupwindow')"
-        class="embeddable-buttondown-form"
-      >
-        <p>
-          Feeds not your thing? Hey, we all have our preferences.
-          <label for="bd-email">Enter your email</label> and get new posts
-          delivered directly to your inbox
-          <a href="https://buttondown.com/jimniels">(powered by Buttondown)</a>.
-        </p>
-        <input
-          type="email"
-          name="email"
-          id="bd-email"
-          placeholder="you@example.com"
-        />
-
-        <input type="submit" value="Subscribe" />
-      </form>
     </main>`
   );
 }

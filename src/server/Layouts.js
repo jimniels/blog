@@ -101,11 +101,16 @@ export function Page(props, children) {
               title="Jim Nielsen’s Blog"
               aria-label="Jim Nielsen’s Blog"
               ${path === "/" && "aria-current='page'"}
+              ${path === "/" ||
+              path.includes("/posts/") ||
+              ["/subscribe/", "/search/", "/menu/"].includes(path)
+                ? "hidden"
+                : ""}
             >
-              ${readFile("./svgs/initial.svg")}
+              ${readFile("./svgs/heroicon-chevron-left.svg")} Posts
             </a>
 
-            ${["/menu/", "/search/"].includes(path)
+            ${["/menu/", "/search/", "/subscribe/"].includes(path)
               ? html`<a
                   href="/"
                   onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
@@ -113,6 +118,9 @@ export function Page(props, children) {
                   >${readFile("./svgs/heroicon-close.svg")}</a
                 >`
               : html`
+                  <a href="/subscribe/" aria-label="Subscribe"
+                    >${readFile("./svgs/heroicon-rss.svg")}</a
+                  >
                   <a href="/search/" aria-label="Search"
                     >${readFile("./svgs/heroicon-search.svg")}</a
                   >

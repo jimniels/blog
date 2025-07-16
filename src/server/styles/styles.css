@@ -156,7 +156,7 @@ html {
   line-height: 1.5;
   background: var(--c-bg);
   color: var(--c-text);
-  padding-bottom: 5vh;
+  padding-bottom: 15vh;
 }
 
 :focus-visible {
@@ -568,7 +568,12 @@ footer ol li {
   display: flex;
   align-items: center;
   gap: var(--s-8);
-  margin-left: calc(var(--s-12) * -1);
+}
+
+@media screen and (min-width: 42rem) {
+  .navv a:first-child {
+    margin-left: calc(var(--s-32) * -1);
+  }
 }
 
 .navv a:not(:first-child) {
@@ -582,9 +587,13 @@ footer ol li {
 .navv a:not(:first-child):hover {
   background: var(--c-bg-opaque);
 }
-.navv a:not(:first-child) svg {
+.navv a svg {
   width: 24px;
   height: 24px;
+}
+.navv a:first-child[hidden] {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /*@media (min-width: 42rem) {
@@ -615,14 +624,13 @@ h1 {
   flex-wrap: wrap;
   border-radius: var(--border-radius);
   overflow: hidden;
-  gap: var(--s-4);
 }
 
 .posts-nav a {
   padding: var(--s-6) var(--s-12);
   position: relative;
   font-size: 0.8888rem;
-  background: var(--c-bg-opaque);
+  /* background: var(--c-bg-opaque); */
   border-radius: var(--border-radius);
 }
 
@@ -652,6 +660,7 @@ h1 {
 
 .posts-nav a[aria-current="page"]:not(:last-child):after {
   border-color: var(--c-text);
+  /* background: var(--c-bg-opaque); */
   view-transition-name: posts-nav;
 }
 

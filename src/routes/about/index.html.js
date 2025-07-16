@@ -83,26 +83,7 @@ export default async function About(site) {
   return Page(
     { site, page },
     html`
-      <main class="copy" style="margin-bottom: 6rem;">
-        <div class="image-container" style="margin-bottom: 2rem;">
-          <div
-            style="position: relative; width: 640px; height: auto; position: relative; margin: 0 auto; max-width: 100%;"
-          >
-            <img
-              src="/assets/img/jimniels.jpg"
-              width="640"
-              height="380"
-              alt="Portrait of Jim Nielsen"
-              style="display: block;"
-            />
-
-            <span
-              style="max-width: none; position: absolute; bottom: 0; right: 0; background: var(--c-theme); width: 100%; height: 100%; opacity: 0.0333"
-            >
-            </span>
-          </div>
-        </div>
-
+      <main class="copy">
         <h1>About</h1>
 
         <p>

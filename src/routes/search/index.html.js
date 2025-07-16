@@ -25,7 +25,6 @@ export default function Index(site) {
             .search svg {
               width: 20px;
               height: 20px;
-              fill: var(--c-text-light);
             }
             .search > svg {
               position: absolute;
