@@ -84,12 +84,12 @@ export default function Index(site) {
       <ul class="feeds">
         <li>
           <a href="/feed.xml"
-            >${importFile("../../server/svgs/heroicon-rss.svg")} RSS feed</a
+            >${importFile("../../server/svgs/heroicon-rss.svg")} RSS</a
           >
         </li>
         <li>
           <a href="/feed.json">
-            ${importFile("../../server/svgs/feed-json.svg")} JSON feed</a
+            ${importFile("../../server/svgs/feed-json.svg")} JSON</a
           >
         </li>
         <li>
