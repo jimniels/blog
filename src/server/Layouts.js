@@ -114,17 +114,18 @@ export function Page(props, children) {
               ? html`<a
                   href="/"
                   onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
+                  title="Close menu (back)"
                   aria-label="Close menu (back)"
                   >${readFile("./svgs/heroicon-close.svg")}</a
                 >`
               : html`
-                  <a href="/subscribe/" aria-label="Subscribe"
+                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
                     >${readFile("./svgs/heroicon-rss.svg")}</a
                   >
-                  <a href="/search/" aria-label="Search"
+                  <a href="/search/" aria-label="Search" title="Search"
                     >${readFile("./svgs/heroicon-search.svg")}</a
                   >
-                  <a href="/menu/" aria-label="Menu"
+                  <a href="/menu/" aria-label="Menu" title="Menu"
                     >${readFile("./svgs/heroicon-menu.svg")}</a
                   >
                 `}
