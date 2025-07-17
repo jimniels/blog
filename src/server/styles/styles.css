@@ -109,9 +109,9 @@
 
 :root {
   /* Theme color that gets set by default but is configurable by the user */
-  --c-theme-h: var(--c-blue-h);
-  --c-theme-s: var(--c-blue-s);
-  --c-theme-l: var(--c-blue-l);
+  --c-theme-h: var(--c-red-h);
+  --c-theme-s: var(--c-red-s);
+  --c-theme-l: var(--c-red-l);
   --c-theme: hsl(var(--c-theme-h) var(--c-theme-s) var(--c-theme-l));
 }
 
