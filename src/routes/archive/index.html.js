@@ -8,11 +8,16 @@ const page = {
   path: "/archive/",
   head: html`
     <style>
+      @view-transition {
+        navigation: none;
+      }
       main h2 {
         position: sticky;
         top: 0px;
         background: var(--c-bg);
         z-index: 10;
+        zfont-size: 1rem;
+        font-weight: 800;
       }
 
       .archive-chart {
@@ -22,6 +27,7 @@ const page = {
         margin: 0;
         padding: 0;
         gap: var(--s-2);
+        font-size: 0.777rem;
       }
 
       .archive-chart li {
@@ -39,7 +45,7 @@ const page = {
       }
       .archive-chart li a span:last-child {
         color: var(--c-text-light);
-        font-size: 0.77777rem;
+        font-size: 0.666rem;
       }
       .archive-chart li a:hover span:first-child {
         text-decoration: underline;
@@ -81,35 +87,44 @@ export default function Archive(site) {
 
   return Page(
     { site, page },
-    html` <main class="wrapper">
-      <h1>Archive</h1>
-      <p>
-        Here’s a count of all my posts by year —
-        ${Object.keys(postsByYear).length} years running!
-      </p>
-      <ol class="archive-chart">
+    html` <main>
+      <h1 class="wrapper">Archive</h1>
+      ${
+        /* MOVE TO STATS <div class="wrapper">
+        <h1>Archive</h1>
+        <ol class="archive-chart">
+          ${yearsSorted.map(
+            (year) => html`
+              <li>
+                <a href="#${year}">
+                  <span>${year}</span>
+                  <span>${postsByYear[year].length}</span>
+                </a>
+                <span
+                  class="archive-chart-bar"
+                  style="width: ${(postsByYear[year].length / maxPosts) * 100}%"
+                ></span>
+              </li>
+            `
+          )}
+        </ol>
+      </div>*/ ""
+      }
+      <div class="wrapper-grid">
         ${yearsSorted.map(
           (year) => html`
-            <li>
-              <a href="#${year}">
-                <span>${year}</span>
-                <span>${postsByYear[year].length}</span>
-              </a>
-              <span
-                class="archive-chart-bar"
-                style="width: ${(postsByYear[year].length / maxPosts) * 100}%"
-              ></span>
-            </li>
+            <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
+            ${PostsList(
+              postsByYear[year],
+              (post) =>
+                html`<time datetime="${post.date}"
+                  >${post.date.slice(5, 10)}</time
+                >`,
+              true
+            )}
           `
         )}
-      </ol>
-
-      ${yearsSorted.map(
-        (year) => html`
-          <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
-          ${PostsList(postsByYear[year])}
-        `
-      )}
+      </div>
     </main>`
   );
 }

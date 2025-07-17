@@ -66,6 +66,7 @@ export default function Index(site) {
     html` <main id="menu" class="wrapper">
       ${ThemePicker()}
       ${KvList([
+        { href: "/", label: "Home", sublabel: "Home" },
         { href: "/archive/", label: "Archive", sublabel: site.posts.length },
         { href: "/tags/", label: "Tags", sublabel: site.tags.length },
         {
