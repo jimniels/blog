@@ -16,7 +16,7 @@ const page = {
         top: 0px;
         background: var(--c-bg);
         z-index: 10;
-        font-size: 1rem;
+        zfont-size: 1rem;
         font-weight: 800;
       }
 
@@ -88,6 +88,7 @@ export default function Archive(site) {
   return Page(
     { site, page },
     html` <main>
+      <h1 class="wrapper">Archive</h1>
       ${
         /* MOVE TO STATS <div class="wrapper">
         <h1>Archive</h1>
@@ -111,10 +112,8 @@ export default function Archive(site) {
       }
       <div class="wrapper-grid">
         ${yearsSorted.map(
-          (year, i) => html`
-            <h2 id="${year}" style="margin: ${i === 0 ? "0" : "2rem"} 0 .5rem;">
-              ${year}
-            </h2>
+          (year) => html`
+            <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
             ${PostsList(
               postsByYear[year],
               (post) =>
