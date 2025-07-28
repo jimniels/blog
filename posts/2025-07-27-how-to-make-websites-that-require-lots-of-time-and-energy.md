@@ -1,4 +1,4 @@
-# How to Make Websites That Require Lots Time and Energy
+# How to Make Websites That Require Will Requires Lots of Your Time and Energy
 
 Some lessons I’ve learned from experience.
 
