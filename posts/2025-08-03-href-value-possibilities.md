@@ -20,6 +20,8 @@ But I’m writing because `#top` will also scroll to the top _if_ there isn’t 
 
 ([Spec](https://html.spec.whatwg.org/multipage/browsing-the-web.html#scrolling-to-a-fragment): “If _decodedFragment_ is an ASCII case-insensitive match for the string `top`, then return the top of the document.”)
 
+**Update:** [HTeuMeuLeu pointed out to me on Mastodon](https://mastodon.social/@HTeuMeuLeu/114971342411854119) that you can use `#page=` to deep-link to a specific page in a PDF, e.g. `my-file.pdf#page42` would like to page 42 in the file.
+
 ## href=""
 
 Reloads the current page, preserving the search string but removing the hash string (if present).
