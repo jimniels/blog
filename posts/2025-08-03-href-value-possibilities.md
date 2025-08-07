@@ -26,8 +26,8 @@ But I’m writing because `#top` will also scroll to the top _if_ there isn’t 
 
 Reloads the current page, preserving the search string but removing the hash string (if present).
 
-URL                  | `href=""` resolves to
--------------------- | ----------------------
+URL                  | Resolves to
+-------------------- | ----------------
 `/path/`             | `/path/`
 `/path/#foo`         | `/path/`
 `/path/?id=foo`      | `/path/?id=foo`
@@ -39,8 +39,8 @@ Reloads the current page, removing both the search and hash strings (if present)
 
 **Note**: If you’re using `href="."` as a link to the current page, ensure your URLs have a trailing slash or you may get surprising navigation behavior. The path is interpreted as a file, so `"."` resolves to the parent directory of the current location.
 
-URL                 | `href="."` resolves to
-------------------- | ----------------------
+URL                 | Resolves to
+------------------- | ------------
 `/path`             | `/`
 `/path#foo`         | `/`
 `/path?id=foo`      | `/`
@@ -56,8 +56,8 @@ Reloads the current page, removing both the search and hash strings (if present)
 
 **Note**: Unlike `href="."`, trailing slashes don’t matter. The search parameters will be removed but the path will be preserved as-is.
 
-URL                 | `href="?"` resolves to
-------------------- | ----------------------
+URL                 | Resolves to
+------------------- | --------------
 `/path`             | `/path?`
 `/path#foo`         | `/path?`
 `/path?id=foo`      | `/path?`
