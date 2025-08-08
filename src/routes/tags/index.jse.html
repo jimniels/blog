@@ -1,0 +1,66 @@
+---
+(site) => {
+  postsByTag = Tree.reverse(
+    Tree.sort(
+      Tree.group(site.posts, (post) => post.tags),
+      (value, key, tree) => value.length
+    )
+  ),
+  return = <server/Layouts.js>.Page(
+    {
+      site,
+      page: {
+        title: "Tags",
+        path: '/tags/',
+        head: `
+          <style>
+            .tags-list {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              font-size: 0.88888rem;
+            }
+            .tags-list li {
+              display: flex;
+              align-items: center;
+              gap: 2px;
+            }
+            .tags-list a {
+            }
+            .tags-list small {
+              color: var(--c-text-light);
+            }
+          </style>
+        `
+      }
+    },
+    _template()
+  )
+}.return
+---
+
+<main class="wrapper">
+  <h1>Tags</h1>
+  <ul class="tags-list">
+    ${Tree.map(postsByTag, (posts, tag) => `
+    <li>
+      <a href="#${tag}" class="tag">#${tag}</a>
+      <small>(${posts.length})</small>
+    </li>
+    `)}
+  </ul>
+
+  ${Tree.map(postsByTag, (posts, tag) => `
+  <h2 id="${tag}" style="margin: 2rem 0 0.5rem">
+    #${tag}
+    <small
+      style="font-weight: 300; font-size: 1rem; color: var(--c-text-light)"
+    >
+      (${posts.length})
+    </small>
+  </h2>
+  ${<server/PostsList.js>.PostsList(Tree.plain(posts))} `)}
+</main>
