@@ -8,11 +8,11 @@ Eventually, a top-tier opportunity will come along and your preparation will mak
 
 ## Day Trading, Day Developing
 
-As a day trader your job is to trade daily (it’s right there in the job title). If you’re not trading every day — following trends, reacting to fluctuations, timing trades — then what are you even doing? Not your job, apparently.
+As a day trader your job is to trade daily (it’s right there in the job title). If you’re not trading every day then what are you even doing? Not your job, apparently.
 
-I think it’s easy to view “development” this. You’re a developer. Your job is to develop programs — to write code. If you’re not doing that every single day, then what are you even doing?
+I think it’s easy to view “development” like this. You’re a developer. Your job is to develop programs — to write code. If you’re not doing that every single day, then what are you even doing?
 
-From this perspective, it becomes easy to think that writing endless code for ever-changing software paradigms is just one develops websites.
+From this perspective, it becomes easy to think that writing endless code for ever-changing software paradigms is just how one develops websites.
 
 But it doesn’t have to be that way. Granted, [there’s cold-blooded and warm-blooded software.](https://dubroy.com/blog/cold-blooded-software/) Sometimes you can’t avoid that.
 
@@ -41,3 +41,23 @@ Want to do “Sit on Your Ass Development”?
 - As [Alex Russel recommends](https://notes.jim-nielsen.com/#2025-07-18T0946), spend as little time as possible in your own code and instead focus on glueing together “the big C++/Rust subsystems” of the browser.
 
 In short: spend less time glueing together tools and frameworks _on top of_ the browser, and more time bridging tools and APIs _inside of the browser_. Then get out of your own way and go sit on your ass. You might find yourself more productive than ever!
+
+## Update: 2025-08-11
+
+[Dave Rupert mentioned](https://bsky.app/profile/davatron5000.bsky.social/post/3lw4vg2eo7k2w) which web platform features he’s jumping on the bandwagon for:
+
+- view transitions
+- scroll-driven animations
+- popover
+- masonry
+- web components
+- carousels
+
+And I would add to that my own (at the time of this writing):
+
+- http imports / importmaps
+- css / json modules
+- URLPattern
+- css nesting
+- relative color syntax
+- HTML INCLUDES!
