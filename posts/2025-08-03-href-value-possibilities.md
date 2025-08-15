@@ -49,6 +49,8 @@ URL                 | Resolves to
 `/path/?id=foo`     | `/path/`
 `/path/index.html`  | `/path/`
 
+**Update 2025-08-15**: as [pointed out by @AmeliaBR on Mastodon](https://front-end.social/@AmeliaBR/114971821114512797), “reloads the current page” probably isn’t the best terminology for this. It’s more like “loads the default index page for the current directory, based on the URL structure” which might be a reload, but might be something else based on the current URL (see my note and table above).
+
 
 ## href="?"
 
