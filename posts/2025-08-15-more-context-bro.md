@@ -36,4 +36,4 @@ This stands in contrast to my working with LLMs, which often wants more and more
 
 <img src="https://cdn.jim-nielsen.com/blog/2025/more-context-bro-rocket-2.jpg" width="540" height="339" alt="Photograph of three versions of the raptor engine, but the image is reversed showing the engine get progressively complicated in mechanical parts over time. Each engine represents an LLM prompt." />
 
-I know, I know. There’s probably a false equivalent here. This entire post started as [a note](https://notes.jim-nielsen.com) and I just kept going. This post itself needs further thought and simplification. But that’ll have to come in a subsequent post, otherwise this never gets published lol.
+I know, I know. There’s probably a false equivalence here. This entire post started as [a note](https://notes.jim-nielsen.com) and I just kept going. This post itself needs further thought and simplification. But that’ll have to come in a subsequent post, otherwise this never gets published lol.
