@@ -2,7 +2,7 @@
 
 # Learning and Being Wrong
 
-[I recently read Adam Grant’s book](/2021/book-notes-think-again-by-adam-grant) and I wanted to pull these notes into their own post.
+[I recently read Adam Grant’s book](/2021/book-notes-think-again-by-adam-grant/) and I wanted to pull these notes into their own post.
 
 ---
 

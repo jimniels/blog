@@ -36,7 +36,7 @@ window.theme = {
     get: () => {
       let color = localStorage.getItem("theme-color") || "";
       if (!color) {
-        color = "blue";
+        color = "red";
       }
       return color;
     },

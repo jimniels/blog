@@ -4,7 +4,7 @@
 
 I recently finished reading Stephen King’s [_On Writing: A Memoir of the Craft_](https://bookshop.org/books/on-writing-a-memoir-of-the-craft-9781982159375/9781982159375) (it’s a good ‘un).
 
-If you haven’t noticed from my recent posts, there were a number of excerpts from the book which spurred [some](/2022/finding-stuff-to-write-about) [blog](/2022/my-office-space/) [posts](/2022/there-is-no-bar-but-having-one-is-good-too/).
+If you haven’t noticed from my recent posts, there were a number of excerpts from the book which spurred [some](/2022/finding-stuff-to-write-about/) [blog](/2022/my-office-space/) [posts](/2022/there-is-no-bar-but-having-one-is-good-too/).
 
 Additionally there are a number of miscellaneous excerpts I want to keep around as notes, so I’m adding this dump of quotes to my collection of `#bookNotes` posts.
 

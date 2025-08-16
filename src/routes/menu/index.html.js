@@ -4,6 +4,7 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import ThemePicker from "../../server/ThemePicker.js";
+import { Icon } from "../../server/Icon.js";
 
 /** @type {import('types').Route} */
 export default function Index(site) {
@@ -55,15 +56,18 @@ export default function Index(site) {
             transform: rotate(-45deg);
             margin-left: var(--s-4);
           }
+          .kv-list svg {
+            width: 16px;
+            height: 16px;
+          }
         </style>`,
       },
     },
     html` <main id="menu" class="wrapper">
       ${ThemePicker()}
-
-      <h3>Jim Nielsen’s Blog</h3>
       ${KvList([
-        { href: "/archive/", label: "Posts", sublabel: site.posts.length },
+        { href: "/", label: "Home", sublabel: "Home" },
+        { href: "/archive/", label: "Archive", sublabel: site.posts.length },
         { href: "/tags/", label: "Tags", sublabel: site.tags.length },
         {
           href: "/about/external-links/",
@@ -76,34 +80,6 @@ export default function Index(site) {
           sublabel: Object.keys(site.internalLinksByPath).length,
         },
         { href: "/about/", label: "About", sublabel: "Me" },
-      ])}
-      <h3>Subscribe</h3>
-      ${KvList([
-        { href: "/feed.xml", label: "RSS", sublabel: "feed.xml" },
-        { href: "/feed.json", label: "JSON", sublabel: "feed.json" },
-        {
-          href: "https://buttondown.com/jimniels",
-          label: "Email",
-          sublabel: "Buttondown",
-        },
-      ])}
-      <h3>Feedback</h3>
-      ${KvList([
-        {
-          href: "https://mastodon.social/@jimniels",
-          label: "Mastodon",
-          sublabel: "@jimniels@mastodon.social",
-        },
-        {
-          href: "https://bsky.app/profile/jim-nielsen.com",
-          label: "Bluesky",
-          sublabel: "@jim-nielsen.com",
-        },
-        {
-          href: "mailto:jimniels@gmail.com",
-          label: "Email",
-          sublabel: "jimniels[at]gmail",
-        },
       ])}
     </main>`
   );
@@ -119,7 +95,7 @@ function KvList(items) {
         html`<li>
           <a href="${item.href}">
             <span>${item.label}</span>
-            <span>${item.sublabel}</span>
+            <span>${Icon("heroicon-chevron-right")}</span>
           </a>
         </li>`
     )}

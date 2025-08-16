@@ -1,3 +1,4 @@
+import { Icon } from "../../server/Icon.js";
 import { Page } from "../../server/Layouts.js";
 import { html, readFile, toDateUI } from "../../server/utils.js";
 
@@ -25,7 +26,6 @@ export default function Index(site) {
             .search svg {
               width: 20px;
               height: 20px;
-              fill: var(--c-text-light);
             }
             .search > svg {
               position: absolute;
@@ -136,11 +136,9 @@ export default function Index(site) {
           autofocus
           id="search-input"
         />
-        <button type="reset">
-          ${readFile("../server/svgs/heroicon-x-circle.svg")}
-        </button>
+        <button type="reset">${Icon("heroicon-x-circle")}</button>
         <input type="hidden" name="sites" value="blog.jim-nielsen.com" />
-        ${readFile("../server/svgs/heroicon-search.svg")}
+        ${Icon("heroicon-search")}
       </form>
       <output id="js-search-root"></output>
     </main>`
