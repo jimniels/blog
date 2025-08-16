@@ -1,5 +1,7 @@
 ---
 (site) => {
+  title = "Tags",
+  path = '/tags/',
   postsByTag = Tree.reverse(
     Tree.sort(
       Tree.group(site.posts, (post) => post.tags),
@@ -10,8 +12,8 @@
     {
       site,
       page: {
-        title: "Tags",
-        path: '/tags/',
+        title,
+        path,
         head: `
           <style>
             .tags-list {
@@ -43,7 +45,7 @@
 ---
 
 <main class="wrapper">
-  <h1>Tags</h1>
+  <h1>${title}</h1>
   <ul class="tags-list">
     ${Tree.map(postsByTag, (posts, tag) => `
     <li>

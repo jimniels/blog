@@ -36,12 +36,12 @@
   // TODO: use origami's feed generator rather than `feed.*` routes
   ...Tree.deepMap(<routes>, {
     extension: ".js->",
-    value: (route) => <route>(data)
+    value: (route) => route(data)
   }),
-
-  tags = {
-    index.html = <routes/tags/index.jse.html>(data)
-  },
+  ...Tree.deepMap(<routes>, {
+    extension: ".jse.html->.html",
+    value: (route) => route(data) // why doesn't <route>(data) work here?
+  }),
 
   // These path to `/well-known/...` in the build output and then we do a
   // rewrite because netlify is apparently weird about hidden files
