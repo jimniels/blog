@@ -9,3 +9,5 @@ export const Icon = (id) => {
   const svg = readFile(`./svgs/${id}.svg`);
   return svg;
 };
+
+export default Icon;

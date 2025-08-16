@@ -1,0 +1,53 @@
+---
+(site) => <server/Layouts.js>.Page(
+  {
+    site,
+    page: {
+      title: "Subscribe",
+      path: "/subscribe/",
+      head: `<style>${<index.css>}</style>`,
+    },
+  },
+  _template()
+)
+---
+
+<main class="wrapper">
+  <ul class="feeds">
+    <li>
+      <a href="/feed.xml">${<server/Icon.js>("heroicon-rss")} RSS</a>
+    </li>
+    <li>
+      <a href="/feed.json"> ${<server/Icon.js>("feed-json")} JSON</a>
+    </li>
+    <li>
+      <a href="https://buttondown.com/jimniels">
+        ${<server/Icon.js>("heroicon-email")} Email</a
+      >
+    </li>
+  </ul>
+
+  <p>
+    Or simply copy/paste this page’s URL into your feed reader for
+    <a href="/2021/automatically-discoverable-rss-feeds/"
+      >automatic feed discovery</a
+    >.
+  </p>
+
+  <details>
+    <summary>What’s a feed?</summary>
+    <div>
+      <p>
+        Oh wow, I’m <em>so excited</em> to tell you! You’re about to discover
+        one of my absolute favorite things about the internet! There’s a bit of
+        a learning curve, but you know what they say: nothing worth having comes
+        easy.
+      </p>
+      <p>
+        <a href="https://aboutfeeds.com/"
+          >Visit aboutfeeds.com to learn more.</a
+        >
+      </p>
+    </div>
+  </details>
+</main>
