@@ -1,0 +1,15 @@
+{
+  // Data I generated before hand i'd pass here
+  (data) = {
+    links: [
+      { domain: "twitter.com", name: "Twitter" },
+      { domain: "github.com", name: "GitHub" },
+      { domain: "linkedin.com", name: "LinkedIn" }
+    ]
+  }
+  ...Tree.map(./site, {
+    deep: true
+    extension: ".jse->"
+    value: (file) => file(data)
+  })
+}
