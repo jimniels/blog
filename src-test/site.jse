@@ -7,6 +7,9 @@
       { domain: "linkedin.com", name: "LinkedIn" }
     ]
   }
+  // Look at everything in `site` and turn each `.jse` file into either
+  // 1. a single fail with .jse removed (index.json.jse -> index.json)
+  // 2. multiple files ($link.jse -> [github.json, linkedin.json, twitter.json])
   ...Tree.map(./site, {
     deep: true
     extension: ".jse->"

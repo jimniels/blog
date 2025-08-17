@@ -1,4 +1,4 @@
 (site) => Tree.map(site.links, {
   key: (item) => `${item.domain}.json`,
-  value: (item) => Tree.json(Tree.plain(item))
+  value: Tree.json
 })
