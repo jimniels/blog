@@ -4,55 +4,59 @@
   // ===========================================================================
 
   // Get the cache of site data generated prebuild
-  (data): cache/site.json/
+  (data): Tree.plain(<cache/site.json>),
 
   // Generate a tree of posts
   // Post paths by year, e.g. `/2024/slug/index.html`
-  (postsTree): tree:group(data/posts, (post) => new:Date(post/date)/getFullYear())
+  (postsTree): Tree.group(data.posts, (post) => new Date(post.date).getFullYear())
     // Process the years
-    -> (years) => tree:map(years, (year) => 
+    -> (years) => Tree.map(years, (year) => 
       // Process the posts in each year
-      tree:map(year, { 
+      Tree.map(year, { 
         // Use the slug as the key for a folder
-        key: (post) => post/slug
+        key: (post) => post.slug,
         // Generate the HTML for each post as the index page in that folder
         value: (post) => {
-          index.html: server/Post.js({ site: data, post: tree:plain(post) })
+          index.html: <server/Post.js>({ site: data, post: Tree.plain(post) })
         }
       })
-    )
+    ),
 
   // ===========================================================================
   // Create the site
   // ===========================================================================
 
   // Merge static assets
-  ...static/
+  ...<static>,
 
   // Merge all our posts
-   ...postsTree
+  ...postsTree,
 
   // Routes
   // TODO: use origami's feed generator rather than `feed.*` routes
-  ...deepMap(./routes, {
+  ...Tree.deepMap(<routes>, {
     extension: ".js->",
-    value: (route) => route/(data)
-  })
+    value: (route) => route(data)
+  }),
+  ...Tree.deepMap(<routes>, {
+    extension: ".jse.html->.html",
+    value: (route) => route(data) // why doesn't <route>(data) work here?
+  }),
 
   // These path to `/well-known/...` in the build output and then we do a
   // rewrite because netlify is apparently weird about hidden files
   // https://answers.netlify.com/t/hidden-files-removed-in-zip-deploy/8997
   well-known = {
     links = {
-      index.json = js:JSON/stringify(tree:plain(data/externalLinks))
-      404.json = js:JSON/stringify({ error: "Domain not found" })
-      ...tree:map(data/externalLinks, {
-        key: (item) => `${item/domain}.json`,
-        value: (item) => js:JSON/stringify(tree:plain(item))
+      index.json = JSON.stringify(Tree.plain(data.externalLinks)),
+      404.json = JSON.stringify({ error: "Domain not found" }),
+      ...Tree.map(data.externalLinks, {
+        key: (item) => `${item.domain}.json`,
+        value: (item) => JSON.stringify(Tree.plain(item))
       })
     }
-  }
+  },
 
   // Generate everything for the search experience  
-  pagefind/ = once(=package:@weborigami/pagefind(postsTree))
+  pagefind/ = Origami.once(() => <package:@weborigami/pagefind>(postsTree))
 }

@@ -1,0 +1,1 @@
+(site) => Tree.json(site.links)
