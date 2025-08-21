@@ -1,6 +1,6 @@
 .DS_STORE
 .git
-.cache
+cache
 .nova
 node_modules/
 build*

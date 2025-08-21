@@ -6,6 +6,7 @@ import getTrendingPosts from "./get-trending-posts.js";
 import getHackerNewsPosts from "./get-hacker-news-posts.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const POSTS_DIR = path.join(__dirname, "../posts");
+const CACHE_DIR = path.join(__dirname, "../cache");
 const favs = [
   "/2017/the-analog-web/",
   "/2015/a-web-of-people/",
@@ -20,14 +21,10 @@ const favs = [
 ];
 
 try {
-  fs.mkdirSync(path.join(__dirname, "../.cache"), { recursive: true });
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
   fs.writeFileSync(
-    path.join(__dirname, "../.cache/site.json"),
+    path.join(CACHE_DIR, "site.json"),
     JSON.stringify(await getSiteData(), null, 2)
-  );
-  fs.writeFileSync(
-    path.join(__dirname, "../.cache/index.html"),
-    "<!doctype html><h1>Hello WOrld</h1>"
   );
 } catch (e) {
   console.error("Failed to cache site data", e);
