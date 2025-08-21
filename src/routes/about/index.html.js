@@ -367,7 +367,7 @@ async function loader(site) {
  * }
  */
 async function getQuickChart({ query, options, id }) {
-  const file = resolve(__dirname, `../../../.cache/${id}.svg`);
+  const file = resolve(__dirname, `../../../cache/${id}.svg`);
   if (fs.existsSync(file)) {
     return fs.readFileSync(file).toString();
   }
