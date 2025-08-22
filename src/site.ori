@@ -4,7 +4,7 @@
   // ===========================================================================
 
   // Get the cache of site data generated prebuild
-  (data): Tree.plain(<cache/site.json>)
+  (data): Origami.unpack(<cache/site.json>)
 
   // Generate a tree of posts
   // Post paths by year, e.g. `/2024/slug/index.html`
