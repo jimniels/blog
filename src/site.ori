@@ -4,7 +4,7 @@
   // ===========================================================================
 
   // Get the cache of site data generated prebuild
-  (data): Tree.plain(<cache/site.json>),
+  (data): Tree.plain(<cache/site.json>)
 
   // Generate a tree of posts
   // Post paths by year, e.g. `/2024/slug/index.html`
@@ -20,28 +20,28 @@
           index.html: <server/Post.js>({ site: data, post: Tree.plain(post) })
         }
       })
-    ),
+    )
 
   // ===========================================================================
   // Create the site
   // ===========================================================================
 
   // Merge static assets
-  ...<static>,
+  ...<static>
 
   // Merge all our posts
-  ...postsTree,
+  ...postsTree
 
   // Routes
   // TODO: use origami's feed generator rather than `feed.*` routes
   ...Tree.deepMap(<routes>, {
     extension: ".js->",
     value: (route) => route(data)
-  }),
-  ...Tree.deepMap(<routes>, {
-    extension: ".jse.html->.html",
-    value: (route) => route(data) // why doesn't <route>(data) work here?
-  }),
+  })
+  // ...Tree.deepMap(<routes>, {
+  //   extension: ".jse.html->.html",
+  //   value: (route) => route(data) // why doesn't <route>(data) work here?
+  // }),
 
   // These path to `/well-known/...` in the build output and then we do a
   // rewrite because netlify is apparently weird about hidden files
@@ -55,7 +55,7 @@
         value: (item) => JSON.stringify(Tree.plain(item))
       })
     }
-  },
+  }
 
   // Generate everything for the search experience  
   pagefind/ = Origami.once(() => <package:@weborigami/pagefind>(postsTree))
