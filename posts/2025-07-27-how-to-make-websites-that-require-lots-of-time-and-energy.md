@@ -31,3 +31,19 @@ Requiring that the code you write be transpiled, compiled, parsed, and evaluated
 ## More?
 
 Do you have more advice on building a website that will require a lot of your time and energy? Share your recommendations with others, in case they’re looking for such advice.
+
+## Update 2025-08-22
+
+[This post made it to Hacker News](https://news.ycombinator.com/item?id=44708270) and there were a few comments with additional handy suggestions:
+
+> Always use ORMs...[they] promise to abstract the database but end up being just another layer you have to fight when things go wrong. [🔗](https://news.ycombinator.com/item?id=44709256)
+
+> Acquire as much vendor lock-in as possible [🔗](https://news.ycombinator.com/item?id=44710626)
+
+> Put a cryptocurrency miner on it; that will literally require lots of time and energy. [🔗](https://news.ycombinator.com/item?id=44709559)
+
+Also a few statements on coding generally:
+
+> Engineers love to solve problems. If there are no problems readily at hand, they will create some [🔗](https://news.ycombinator.com/item?id=44709432)
+
+> we lack the discipline to keep something simple. Is self-control in coding just a lost art now? [🔗](https://news.ycombinator.com/item?id=44708579)
