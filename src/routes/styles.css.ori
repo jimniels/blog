@@ -1,0 +1,13 @@
+`
+${<server/styles/modern-normalize.css>}
+${<server/styles/styles.css>}
+
+:root,
+:root[data-theme-appearance="light"] {
+  ${<server/styles/atom-one-light.css>}
+}
+
+:root[data-theme-appearance="dark"] {
+  ${<server/styles/atom-one-dark.css>}
+}
+`

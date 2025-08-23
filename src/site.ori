@@ -28,6 +28,7 @@
 
   // Merge static assets
   ...<static>
+  styles.css = <routes/styles.css.ori>
 
   // Merge all our posts
   ...postsTree
