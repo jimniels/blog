@@ -1,6 +1,7 @@
 import { Page } from "../../server/Layouts.js";
 import { PostsList } from "../../server/PostsList.js";
 import { html, toDateUI } from "../../server/utils.js";
+import PageNav from "../../server/PageNav.js";
 
 const page = {
   title: "Tags",
@@ -52,7 +53,7 @@ export default function Tags(site) {
   return Page(
     { site, page },
     html` <main class="wrapper">
-      <h1>Tags</h1>
+      ${PageNav("Tags")}
       <ul class="tags-list">
         ${tags.map(
           (tag) => html`

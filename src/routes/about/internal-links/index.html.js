@@ -1,4 +1,5 @@
 import { Page } from "../../../server/Layouts.js";
+import PageNav from "../../../server/PageNav.js";
 import { html } from "../../../server/utils.js";
 
 const page = {
@@ -95,8 +96,8 @@ export default function Index(site) {
     { site, page },
     html`
       <main>
-        <div class="wrapper copy">
-          <h1>${page.title}</h1>
+        <div class="copy">
+          ${PageNav(page.title)}
           <p>
             A visual representation of the relationship between posts on my
             blog. It uses viz.js to draw the graph. You can learn more about how

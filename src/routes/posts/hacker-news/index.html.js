@@ -2,6 +2,7 @@ import { PostsList } from "../../../server/PostsList.js";
 import { PostsNav } from "../../../server/PostsNav.js";
 import { Page } from "../../../server/Layouts.js";
 import { html, toDateUI } from "../../../server/utils.js";
+import PageNav from "../../../server/PageNav.js";
 
 const page = {
   title: "Hacker News Hits",
@@ -21,8 +22,7 @@ export default async function Index(site) {
       page,
     },
     html`<main class="wrapper">
-      <h1>Posts</h1>
-      ${PostsNav(page.path)}
+      ${PageNav("Posts")} ${PostsNav(page.path)}
       ${PostsList(
         hackerNews,
         // @ts-expect-error

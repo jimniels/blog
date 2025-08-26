@@ -23,7 +23,7 @@ https://www.github.com/jimniels/blog/
  */
 export function Page(props, children) {
   const {
-    site: { origin, tags, name },
+    site: { origin, tags, name, headerHtml },
     page: { head = "", path, title },
   } = props;
 
@@ -95,43 +95,7 @@ export function Page(props, children) {
               .toString()};
           </script>*/ ""
           }
-          <jim-site-switcher subdomain="blog"></jim-site-switcher>
-          <nav class="navv wrapper" hidden>
-            <a
-              href="/"
-              title="Jim Nielsen’s Blog"
-              aria-label="Jim Nielsen’s Blog"
-              ${path === "/" && "aria-current='page'"}
-              ${path === "/" ||
-              path.includes("/posts/") ||
-              ["/subscribe/", "/search/", "/menu/"].includes(path)
-                ? "hidden"
-                : ""}
-            >
-              ${Icon("heroicon-chevron-left")} Posts
-            </a>
-
-            ${["/menu/", "/search/", "/subscribe/"].includes(path)
-              ? html`<a
-                  href="/"
-                  onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
-                  title="Close menu (back)"
-                  aria-label="Close menu (back)"
-                  >${Icon("heroicon-close")}</a
-                >`
-              : html`
-                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
-                    >${Icon("heroicon-rss")}</a
-                  >
-                  <a href="/search/" aria-label="Search" title="Search"
-                    >${Icon("heroicon-search")}</a
-                  >
-                  <a href="/menu/" aria-label="Menu" title="Menu"
-                    >${Icon("heroicon-menu")}</a
-                  >
-                `}
-          </nav>
-          ${children}
+          ${headerHtml} ${children}
         </body>
       </html>
     `

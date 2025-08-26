@@ -5,8 +5,9 @@ const NAV = [
   { label: "Latest", href: "/" },
   { label: "Trending", href: "/posts/trending/" },
   { label: "Hacker News", href: "/posts/hacker-news/" },
-  // { label: "Personal Favs", href: "/posts/personal-favs/" },
   { label: "All", href: "/archive/" },
+  { label: "Search", href: "/posts/search/" },
+  // { label: "Personal Favs", href: "/posts/personal-favs/" },
 ];
 
 /**
@@ -15,6 +16,9 @@ const NAV = [
  */
 export function PostsNav(activeHref) {
   return html`
+    <form class="posts-nav-search" style="display: none;">
+      <input type="search" placeholder="Search posts" />
+    </form>
     <nav class="posts-nav">
       ${NAV.map(({ label, href }) => {
         const isActive = activeHref === href;

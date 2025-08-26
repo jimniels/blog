@@ -4,7 +4,10 @@
   // ===========================================================================
 
   // Get the cache of site data generated prebuild
-  (data): Origami.unpack(<cache/site.json>)
+  (data): Tree.plain({
+    ...Origami.unpack(<cache/site.json>)
+    headerHtml: `${(https://cdn.jim-nielsen.com/shared/jim-site-switcher-2.ori.html)('blog')}`
+  })
 
   // Generate a tree of posts
   // Post paths by year, e.g. `/2024/slug/index.html`
@@ -28,7 +31,6 @@
 
   // Merge static assets
   ...<static>
-  styles.css = Origami.unpack(<routes/styles.css.ori>)
 
   // Merge all our posts
   ...postsTree
@@ -39,6 +41,8 @@
     extension: ".js->",
     value: (route) => route(data)
   })
+  styles.css = Origami.unpack(<routes/styles.css.ori>)
+  index.html = <routes/index.ori.html>(data)
   // ...Tree.deepMap(<routes>, {
   //   extension: ".jse.html->.html",
   //   value: (route) => route(data) // why doesn't <route>(data) work here?

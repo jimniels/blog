@@ -1,0 +1,21 @@
+---
+(site) => {
+  posts = site.posts
+    -> (posts) => Tree.filter(posts, (post) => !(post.tags && post.tags.includes("rssClub")))
+    -> (posts) => Tree.take(posts, 8)
+    -> Tree.values
+    -> Tree.plain
+  
+  page: {
+    title: "",
+    path: "/",
+  },
+  
+  return = <server/Layouts.js>.Page({ site, page }, _template())
+}.return
+---
+
+<main class="wrapper">
+  ${<server/PageNav.js>("Posts")} ${<server/PostsNav.js>.PostsNav(page.path)}
+  ${<server/PostsList.js>.PostsList(posts)}
+</main>

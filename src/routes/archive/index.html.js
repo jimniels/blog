@@ -1,4 +1,5 @@
 import { Page } from "../../server/Layouts.js";
+import PageNav from "../../server/PageNav.js";
 import { PostsList } from "../../server/PostsList.js";
 import { PostsNav } from "../../server/PostsNav.js";
 import { html } from "../../server/utils.js";
@@ -88,7 +89,7 @@ export default function Archive(site) {
   return Page(
     { site, page },
     html` <main>
-      <h1 class="wrapper">Archive</h1>
+      <div class="wrapper">${PageNav("Posts")} ${PostsNav("/archive/")}</div>
       ${
         /* MOVE TO STATS <div class="wrapper">
         <h1>Archive</h1>
