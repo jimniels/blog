@@ -2,6 +2,7 @@ import fs from "fs";
 import { resolve, dirname } from "path";
 import { Page } from "../../server/Layouts.js";
 import { html } from "../../server/utils.js";
+import PageNav from "../../server/PageNav.js";
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
 const page = {
@@ -84,7 +85,7 @@ export default async function About(site) {
     { site, page },
     html`
       <main class="copy">
-        <h1>About</h1>
+        ${PageNav("About")}
 
         <p>
           I’m <a href="https://www.jim-nielsen.com">Jim Nielsen</a>, a web

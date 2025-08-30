@@ -29,3 +29,5 @@ export function PostsList(
     </ul>
   `;
 }
+
+export default PostsList;

@@ -1,0 +1,47 @@
+<nav class="navvv wrapper">
+  <a href="/">${https://cdn.jim-nielsen.com/shared/initials.svg}</a>
+
+  <a href="https://www.jim-nielsen.com">www</a>
+  <a href="https://blog.jim-nielsen.com" aria-current="page">blog</a>
+  <a href="https://notes.jim-nielsen.com">notes</a>
+</nav>
+<style>
+  .navvv {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 16px 0;
+  }
+  .navvv:hover {
+    opacity: 1;
+  }
+  .navvv a {
+    color: inherit;
+    font-size: 14px;
+  }
+  .navvv a[href="/"] {
+    margin-right: auto;
+    color: var(--c-theme);
+  }
+  .navvv a[href^="https"] {
+    padding: 4px 8px;
+    border-radius: 6px;
+    opacity: 0.5;
+    font-weight: 500;
+    opacity: 0.333;
+    text-decoration: none;
+  }
+  .navvv a[href^="https"]:hover {
+    opacity: 1;
+  }
+  .navvv a[aria-current="page"],
+  .navvv a[href^="https"]:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .navvv a[aria-current="page"] {
+    font-weight: 500;
+
+    pointer-events: none;
+    opacity: 1;
+  }
+</style>

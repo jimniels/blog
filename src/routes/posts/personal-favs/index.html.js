@@ -2,6 +2,7 @@ import { PostsList } from "../../../server/PostsList.js";
 import { PostsNav } from "../../../server/PostsNav.js";
 import { Page } from "../../../server/Layouts.js";
 import { html, toDateUI } from "../../../server/utils.js";
+import PageNav from "../../../server/PageNav.js";
 
 const page = {
   title: "Personal Favs",
@@ -20,9 +21,6 @@ export default async function Index(site) {
       site,
       page,
     },
-    html`
-      <h1>Posts</h1>
-      ${PostsNav(page.path)} ${PostsList(posts)}
-    `
+    html` ${PageNav("Posts")} ${PostsNav(page.path)} ${PostsList(posts)} `
   );
 }
