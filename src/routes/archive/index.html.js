@@ -1,3 +1,5 @@
+// DO this in ORI where you group by year -> month -> post(s)
+
 import { Page } from "../../server/Layouts.js";
 import PageNav from "../../server/PageNav.js";
 import { PostsList } from "../../server/PostsList.js";
@@ -88,8 +90,8 @@ export default function Archive(site) {
 
   return Page(
     { site, page },
-    html` <main>
-      <div class="wrapper">${PageNav("Posts")} ${PostsNav("/archive/")}</div>
+    html` <main class="wrapper">
+      ${PageNav("Archive")}
       ${
         /* MOVE TO STATS <div class="wrapper">
         <h1>Archive</h1>
@@ -111,21 +113,20 @@ export default function Archive(site) {
         </ol>
       </div>*/ ""
       }
-      <div class="wrapper-grid">
-        ${yearsSorted.map(
-          (year) => html`
-            <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
+      ${yearsSorted.map(
+        (year) => html`
+          <h2 id="${year}" style="margin: 2rem 0 .5rem;">${year}</h2>
+          <h3>
             ${PostsList(
               postsByYear[year],
               (post) =>
                 html`<time datetime="${post.date}"
                   >${post.date.slice(5, 10)}</time
-                >`,
-              true
+                >`
             )}
-          `
-        )}
-      </div>
+          </h3>
+        `
+      )}
     </main>`
   );
 }

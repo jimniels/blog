@@ -684,13 +684,6 @@ h1 {
   border-radius: var(--border-radius);
 }
 
-@media (min-width: 30rem) {
-  .posts-nav a {
-    padding-left: var(--s-12);
-    padding-right: var(--s-12);
-  }
-}
-
 .posts-nav a[aria-current="page"] {
   pointer-events: none;
   color: var(--c-bg);
@@ -814,5 +807,5 @@ h1 {
   padding: 8px;
   background: var(--c-bg-opaque);
   border-radius: var(--border-radius);
-  border: 1px solid var(--c-border);
+  border: none;
 }

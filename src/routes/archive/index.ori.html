@@ -1,0 +1,87 @@
+---
+(site) => { 
+  page = {
+    title: "Archive",
+    path: "/archive/",
+    head: `
+      <style>
+        main h2,
+        main h3 {
+          height: 1.5rem;
+          width: 50%;
+          background: var(--c-bg);
+          position: sticky;
+          top: 0px;
+          margin-bottom: 0;
+        }
+        main h2 {
+          z-index: 10;
+          
+        }
+        main h3 {
+          z-index: 11;
+          
+          text-align: right;
+          margin-left: 50%;
+        }
+
+        .archive-chart {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          gap: var(--s-2);
+          font-size: 0.777rem;
+        }
+
+        .archive-chart li {
+          position: relative;
+        }
+
+        .archive-chart li a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: var(--s-6) var(--s-6);
+          position: relative;
+          z-index: 2;
+          text-decoration: none;
+        }
+        .archive-chart li a span:last-child {
+          color: var(--c-text-light);
+          font-size: 0.666rem;
+        }
+        .archive-chart li a:hover span:first-child {
+          text-decoration: underline;
+        }
+        .archive-chart-bar {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          background: var(--c-fg);
+          pointer-events: none;
+          z-index: 1;
+        }
+      </style>
+    `
+  }
+  return = <server/Layouts.js>.Page({ site, page }, _template())
+  postsList = site.posts 
+    -> (posts) => Tree.group(posts, (post) => new Date(post.date).getFullYear())
+    -> Tree.reverse
+    -> (postsByYear) => Tree.map(postsByYear, (posts, year) => `
+      <h2>${year}</h2>
+      ${Tree.group(posts, (post) => new Date(post.date).getMonth())
+        -> Tree.reverse
+        -> (postsByMonth) => Tree.map(postsByMonth, (posts, month) => `
+          <h3>${Intl.DateTimeFormat('en', { month: 'short' }).format(new Date(month))}</h3>
+          ${<server/PostsList.js>(Tree.plain(posts))}
+          
+      `)}
+    `)
+}.return
+---
+
+<main class="wrapper">${<server/PageNav.js>(page.title)} ${postsList}</main>

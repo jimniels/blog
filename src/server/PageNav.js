@@ -32,6 +32,7 @@ export default function PageNav(_) {
   <summary class="h1">${_}</summary>
   <div style="display: inline-flex; flex-direction: column; gap: 4px">
     ${items
+      .filter((item) => item.title !== _)
       .map(
         (item) =>
           `<a href="${item.href}" class="h1" aria-current="${

@@ -6,7 +6,14 @@
   // Get the cache of site data generated prebuild
   (data): Tree.plain({
     ...Origami.unpack(<cache/site.json>)
-    headerHtml: `${(https://cdn.jim-nielsen.com/shared/jim-site-switcher-2.ori.html)('blog')}`
+    // headerHtml: `${(https://cdn.jim-nielsen.com/shared/jim-site-switcher-2.ori.html)('blog')}`
+    headerHtml: `
+      <script type="module" src="https://cdn.jim-nielsen.com/shared/jim-site-switcher-2.js"></script>
+      <div class="wrapper" style="position: relative; padding: 2.5rem 0; display: flex; align-items: center; gap: 1rem; justify-content: space-between;">
+        <a href="/"><img src="/favicon.ico" alt="Jim Nielsen’s Blog" width="36" height="36" style="border-radius: 50%;" /></a>
+        <jim-site-switcher subdomain="blog"></jim-site-switcher>
+      </div>
+    `
   })
 
   // Generate a tree of posts
@@ -43,6 +50,9 @@
   })
   styles.css = Origami.unpack(<routes/styles.css.ori>)
   index.html = <routes/index.ori.html>(data)
+  archive = {
+    index.html = <routes/archive/index.ori.html>(data)
+  }
   // ...Tree.deepMap(<routes>, {
   //   extension: ".jse.html->.html",
   //   value: (route) => route(data) // why doesn't <route>(data) work here?
