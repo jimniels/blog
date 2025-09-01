@@ -39,14 +39,11 @@
     value: (route) => route(data)
   })
   styles.css = Origami.unpack(<routes/styles.css.ori>)
-  
-  // Comment out this line
-  // index.html = <routes/index.ori.html>(data)
-  // And uncomment this one
-  ...Tree.deepMap(<routes>, {
-    extension: ".ori.html->.html",
-    value: (route) => route(data)
-  }),
+  index.html = <routes/index.ori.html>(data)
+  // ...Tree.deepMap(<routes>, {
+  //   extension: ".jse.html->.html",
+  //   value: (route) => route(data) // why doesn't <route>(data) work here?
+  // }),
 
   // These path to `/well-known/...` in the build output and then we do a
   // rewrite because netlify is apparently weird about hidden files
