@@ -44,6 +44,7 @@
     hacker-news = { index.html = <routes/posts.hacker-news.index.ori.html>(data) }
     trending = { index.html = <routes/posts.trending.index.ori.html>(data) }
   }
+  tags = { index.html = <routes/tags.index.ori.html>(data) }
 
   // These path to `/well-known/...` in the build output and then we do a
   // rewrite because netlify is apparently weird about hidden files
