@@ -2,7 +2,8 @@
 (site) => {
   posts = site.posts
     -> (posts) => Tree.filter(posts, (post) => post.hackerNews && post.hackerNews.points > 100)
-    // -> (posts) => Tree.sort(posts, (a, b) => (a.hackerNews.points > b.hackerNews.points ? -1 : 1))
+    -> (posts) => Tree.sort(posts, (post) => (post.hackerNews.points))
+    -> Tree.reverse
     -> Tree.values
     -> Tree.plain
   
