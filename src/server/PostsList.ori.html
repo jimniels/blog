@@ -1,0 +1,26 @@
+
+export function PostsList(
+  posts,
+  fn = ({ date }) => html`<time datetime="${date}">${toDateUI(date)}</time>`,
+  grid = false
+) {
+  return html`
+    <ul class="posts-list ${grid ? "posts-list--grid" : ""}">
+      ${posts.map(
+        (post) => html`
+          <li>
+            <a
+              style="view-transition-name: post-title-${post.id}"
+              href="${post.path}"
+            >
+              <span>${post.title}</span>
+              <span>${fn(post)}</span>
+            </a>
+          </li>
+        `
+      )}
+    </ul>
+  `;
+}
+
+export default PostsList;
