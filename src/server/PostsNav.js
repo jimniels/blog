@@ -27,3 +27,5 @@ export function PostsNav(activeHref) {
     </nav>
   `;
 }
+
+export default PostsNav;
