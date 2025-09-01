@@ -6,25 +6,27 @@ import { html } from "./utils.js";
  * @param {(post: import("types").Post) => string} fn
  * @param {boolean} grid
  */
-export function PostsList(
+export async function PostsList(
   posts,
   fn = ({ date }) => html`<time datetime="${date}">${toDateUI(date)}</time>`,
   grid = false
 ) {
   return html`
     <ul class="posts-list ${grid ? "posts-list--grid" : ""}">
-      ${posts.map(
-        (post) => html`
-          <li>
-            <a
-              href="${post.path}"
-              style="view-transition-name: post-title-${post.id}"
-            >
-              <span>${post.title}</span>
-              <span>${fn(post)}</span>
-            </a>
-          </li>
-        `
+      ${await Promise.all(
+        posts.map(
+          async (post) => html`
+            <li>
+              <a
+                href="${post.path}"
+                style="view-transition-name: post-title-${post.id}"
+              >
+                <span>${post.title}</span>
+                <span>${await fn(post)}</span>
+              </a>
+            </li>
+          `
+        )
       )}
     </ul>
   `;

@@ -1,0 +1,35 @@
+---
+(site) => {
+  page: {
+    title: "Trending Posts",
+    path: "/posts/trending/",
+  }
+  posts = site.posts
+    -> (posts) => Tree.filter(posts, (post) => post.hasOwnProperty("pageviews"))
+    -> (posts) => Tree.sort(posts, (post) => (post.pageviews))
+    -> Tree.reverse
+    -> Tree.values
+    -> Tree.plain
+  
+  return = <server/Layouts.js>.Page({ site, page }, _template())
+}.return
+---
+
+<main class="wrapper">
+  <h1>Posts</h1>
+  ${<server/PostsNav.js>(page.path)}
+
+  <!-- prettier-ignore -->
+  ${<server/PostsList.js>( posts, (post) => `
+    ${post.pageviews > 1000 ? Math.round((post.pageviews / 1000) * 10) / 10 + "k"
+    : post.pageviews} pageviews` )}
+
+  <p class="posts-nav-note">
+    FYI: pageviews are based on the last 30 days of
+    <a
+      href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
+      style="text-decoration: underline; color: inherit"
+      >analytics data I get from Netlify</a
+    >.
+  </p>
+</main>
