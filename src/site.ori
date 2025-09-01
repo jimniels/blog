@@ -38,6 +38,10 @@
     extension: ".js->",
     value: (route) => route(data)
   })
+  ...Tree.deepMap(<routes>, {
+    extension: ".ori.html->.html",
+    value: (route) => route(data)
+  }),
   styles.css = Origami.unpack(<routes/styles.css.ori>)
   
   // Comment out this line
