@@ -40,6 +40,7 @@
   })
   styles.css = Origami.unpack(<routes/styles.css.ori>)
   index.html = <routes/index.ori.html>(data)
+  archive = { index.html = <routes/archive.index.ori.html>(data) }
   posts = { 
     hacker-news = { index.html = <routes/posts.hacker-news.index.ori.html>(data) }
     trending = { index.html = <routes/posts.trending.index.ori.html>(data) }
