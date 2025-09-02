@@ -17,7 +17,7 @@
         key: (post) => post.slug,
         // Generate the HTML for each post as the index page in that folder
         value: (post) => {
-          index.html: <server/Post.js>({ site: data, post: Tree.plain(post) })
+          index.html: <routes/$year.$slug.index.ori.html>({ site: data, post: Tree.plain(post) })
         }
       })
     )

@@ -1,0 +1,86 @@
+---
+/**
+ * @param {{ site: import("types").Site, post: import("types").Post }} props
+ */
+(props) => {
+  site: props.site,
+  post: props.post,
+  page: {
+    title: post.title,
+    path: post.path,
+    head: `
+      <link rel="canonical" href="${post.permalink}" />
+      <meta property="og:title" content="${post.title}" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="${post.permalink}" />
+      <meta
+        property="fediverse:creator"
+        content="@jimniels@mastodon.social"
+      />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@jimniels" />
+      <meta name="twitter:creator" content="@jimniels" />
+      <meta name="twitter:title" content="${post.title}" />
+      <meta
+        name="twitter:image"
+        content="https://blog.jim-nielsen.com/assets/img/twitter-card.png"
+      />
+      <meta
+        name="twitter:image:alt"
+        content="Jim Nielsen’s initials (JN) in a hand-written style."
+      />
+    `
+  }
+
+  includeInSearch: !(
+    post.tags &&
+    (post.tags.includes("rssClub") || post.tags.includes("readingNotes"))
+  )
+
+  return = <server/Layouts.js>.Page({ site, page }, _template())
+}.return
+---
+
+<!-- prettier fails on the data-pagefind-body attribute -->
+<article class="h-entry" ${includeInSearch ? 'data-pagefind-body' : ''}>
+  <header
+    class="wrapper" style="view-transition-name: post-title-${post.id}"
+    data-pagefind-ignore
+  >
+    <h1 class="p-name">${post.title}</h1>
+    <ul>
+      <li>
+        <time class="dt-published" datetime="${post.date}">
+          ${<server/utils.js>.toDateUI( post.date )}
+        </time>
+      </li>
+      ${ post.tags.length ? `
+      <li>
+        ${Tree.map(post.tags, (tag) => `<a href="/tags/#${tag}">#${tag}</a> `)}
+      </li>
+      ` : "" }
+      ${ post.hackerNews ? `
+      <li>
+        <a
+          href="${post.hackerNews.url}"
+          style="display: flex; align-items: center; gap: 4px"
+        >
+          <!-- <img
+                         src="https://news.ycombinator.com/favicon.ico"
+                         width="16"
+                         height="16"
+                         alt="Hacker News"
+                       /> -->
+          ${post.hackerNews.points.toLocaleString()} points,
+          ${post.hackerNews.comments} comments on Hacker News
+        </a>
+      </li>
+      ` : "" }
+    </ul>
+  </header>
+  <div class="copy e-content">
+    ${post.tags.includes("rssClub") ? <server/RssClub.js>() : ""}
+    ${post.contents.toString()}
+  </div>
+  <footer class="wrapper">${<server/ReplyHtml.js>({ post, site })}</footer>
+</article>
