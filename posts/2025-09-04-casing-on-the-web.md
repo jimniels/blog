@@ -56,4 +56,4 @@ Let’s not even get into [SVG attribute names](https://developer.mozilla.org/en
 
 We need one of those “bless this mess” signs that we can hang over the World Wide Web.
 
-<img data-og-image src="https://cdn.jim-nielsen.com/blog/2025/casing-bless-this-mess.jpg" width="808" height="516" alt="Photograph of Tim Berners-Lee next to his NeXT computer with the first web page on it at CERN." />
+<img data-og-image src="https://cdn.jim-nielsen.com/blog/2025/casing-bless-this-mess.jpg" width="808" height="516" alt="Photograph of Tim Berners-Lee next to his NeXT computer with the first web page on it at CERN. Above the image is a superimposed sign that says “Bless this mess” in cursive type." />
