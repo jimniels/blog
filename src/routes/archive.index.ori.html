@@ -5,6 +5,9 @@
     path: "/archive/",
     head: `
       <style>
+        @view-transition {
+          navigation: none;
+        }
         main h2,
         main h3 {
           height: 1.5rem;
@@ -81,10 +84,29 @@
           
       `)}
     `)
-}.return
+  postCountsByYear = site.posts 
+    -> (posts) => Tree.group(posts, (post) => new Date(post.date).getFullYear())
+    -> Tree.reverse
+    -> (postsByYear) => Tree.map(postsByYear, (posts) => posts.length)
+  maxPostCount = (Tree.sort(postCountsByYear, (value) => value) -> Tree.reverse -> Tree.values)[0]
+}/return
 ---
 
 <main class="wrapper">
   <h1>Archive</h1>
+  <ol class="archive-chart">
+    ${Tree.map(postCountsByYear, (postCount, year) => `
+    <li>
+      <a href="#${year}">
+        <span>${year}</span>
+        <span>${postCount} posts</span>
+      </a>
+      <span
+        class="archive-chart-bar"
+        style="width: ${(postCount / maxPostCount) * 100}%"
+      ></span>
+    </li>
+    ` )}
+  </ol>
   ${postsList}
 </main>

@@ -1,0 +1,17 @@
+// {string} activeHref
+(activeHref) => `<nav class="posts-nav">
+  ${Tree.map(
+    [
+      { label: "Latest", href: "/" },
+      { label: "Trending", href: "/posts/trending/" },
+      { label: "Hacker News Hits", href: "/posts/hacker-news/" },
+      // { label: "Personal Favs", href: "/posts/personal-favs/" },
+      // { label: "All", href: "/archive/" },
+    ],
+    (item) => `
+      <a href="${item.href}" aria-current="${item.href === activeHref ? 'page' : 'false'}">
+        ${item.label}
+      </a>
+    `
+  )}
+</nav>`

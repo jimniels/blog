@@ -18,7 +18,7 @@
 
 <main class="wrapper">
   <h1>Posts</h1>
-  ${<server/PostsNav.js>(page.path)} ${<server/PostsList.js>(posts, (post) =>
+  ${<server/PostsNav.ori>(page.path)} ${<server/PostsList.js>(posts, (post) =>
   `${post.hackerNews.points.toLocaleString()} points,
   ${post.hackerNews.comments.toLocaleString()} comments` )}
   <p class="posts-nav-note">
@@ -27,7 +27,11 @@
     <a
       href="https://notes.jim-nielsen.com/#2025-02-12T0852"
       style="color: inherit; text-decoration: underline"
-      >Dave Rupert</a
     >
+      Dave Rupert
+    </a>
+  </p>
+  <p class="posts-nav-view-all">
+    <a href="/archive/">View all ${site.posts.length} posts →</a>
   </p>
 </main>

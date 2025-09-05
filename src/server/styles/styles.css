@@ -120,7 +120,7 @@
    ========================================================================== */
 
 :root {
-  --border-radius: 4px;
+  --border-radius: 6px;
   --s-2: calc(2rem / 18);
   --s-4: calc(4rem / 18);
   --s-6: calc(6rem / 18);
@@ -593,8 +593,8 @@ footer ol li {
   flex-direction: row;
   justify-content: space-between;
   gap: var(--s-8);
-  padding-top: var(--s-24);
-  padding-bottom: var(--s-24);
+  padding-top: var(--s-16);
+  padding-bottom: var(--s-16);
   position: relative;
 }
 
@@ -668,22 +668,26 @@ h1 {
   * ========================================================================== */
 .posts-nav {
   display: flex;
-  padding: var(--s-16) 0 var(--s-24);
+  padding: 0 0 var(--s-24);
   flex-wrap: wrap;
   border-radius: var(--border-radius);
   overflow: hidden;
+  gap: var(--s-4);
 }
 
 .posts-nav a {
-  padding: var(--s-6) var(--s-12);
+  padding: var(--s-8) var(--s-12);
   position: relative;
   font-size: 0.8888rem;
   /* background: var(--c-bg-opaque); */
+  border: 1px solid var(--c-border);
   border-radius: var(--border-radius);
 }
 
 @media (min-width: 30rem) {
   .posts-nav a {
+    padding-top: var(--s-6);
+    padding-bottom: var(--s-6);
     padding-left: var(--s-12);
     padding-right: var(--s-12);
   }
@@ -691,11 +695,11 @@ h1 {
 
 .posts-nav a[aria-current="page"] {
   pointer-events: none;
-  color: var(--c-text);
-  background: transparent;
+  color: var(--c-bg);
+  background: var(--c-text);
 }
 
-.posts-nav a:not(:last-child):after {
+.posts-nav a:before {
   content: " ";
   position: absolute;
   left: 0;
@@ -704,20 +708,13 @@ h1 {
   height: 100%;
   border: 1px solid transparent;
   border-radius: var(--border-radius);
+  z-index: -1;
 }
 
-.posts-nav a[aria-current="page"]:not(:last-child):after {
-  border-color: var(--c-text);
-  /* background: var(--c-bg-opaque); */
+.posts-nav a[aria-current="page"]:before {
+  /* border-color: var(--c-text); */
+  background: var(--c-text);
   view-transition-name: posts-nav;
-}
-
-.posts-nav a:last-child {
-  background: transparent;
-}
-.posts-nav a:last-child:after {
-  content: "→";
-  margin-left: var(--s-4);
 }
 
 /* Old stuff going out */
@@ -745,7 +742,8 @@ h1 {
 .posts-nav-note {
   color: var(--c-text-light);
   font-size: 0.8rem;
-  margin: var(--s-24) 0;
+  padding-top: var(--s-24);
+  margin: 0;
 }
 .posts-nav-note a {
   color: inherit;
@@ -754,4 +752,9 @@ h1 {
   &:hover {
     color: var(--c-theme);
   }
+}
+
+.posts-nav-view-all {
+  font-size: 0.8rem;
+  padding-top: var(--s-24);
 }

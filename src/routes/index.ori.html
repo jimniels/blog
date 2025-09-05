@@ -17,5 +17,8 @@
 
 <main class="wrapper">
   <h1>Posts</h1>
-  ${<server/PostsNav.js>(page.path)} ${<server/PostsList.js>(posts)}
+  ${<server/PostsNav.ori>(page.path)} ${<server/PostsList.js>(posts)}
+  <p class="posts-nav-view-all">
+    <a href="/archive/">View all ${site.posts.length} posts →</a>
+  </p>
 </main>
