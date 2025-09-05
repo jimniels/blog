@@ -14,11 +14,11 @@ export default function XMLFeed(site) {
       <atom:link href="${site.origin}/feed.xml" rel="self" type="application/rss+xml" />
       ${site.posts.slice(0, 10).map(post => xml`
         <item>
-            <title>${escapeXml(post.title)}</title>
-            <description>${escapeXml((post?.tags.includes("rssClub") ? RssClub() : "") + post.contents.toString() + ReplyHtml({ post, site }))}</description>
             <pubDate>${new Date(post.date).toUTCString()}</pubDate>
             <link>${post.permalink}</link>
+            <title>${escapeXml(post.title)}</title>
             <guid isPermaLink="true">${post.permalink}</guid>
+            <description>${escapeXml((post?.tags.includes("rssClub") ? RssClub() : "") + post.contents.toString() + ReplyHtml({ post, site }))}</description>
         </item>
       `)}
     </channel>
