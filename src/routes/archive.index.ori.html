@@ -70,26 +70,29 @@
       </style>
     `
   }
+
+  // { 2025: [{...}], 2024: [{...}], ... }
+  postsByYear = site.posts 
+    -> (posts) => Tree.group(posts, (post) => new Date(post.date).getFullYear())
+    -> Tree.reverse
+
+  // { 2025: { 0: [{...}], 1: [{...}], ... }, 2024: { 0: [{...}], 1: [{...}], ... }, ... }
+  postsByYearThenMonth = Tree.map(
+    postsByYear,
+    {
+      key: (posts, year) => year,
+      value: (posts) => Tree.group(posts, (post) => new Date(post.date).getMonth()) -> Tree.reverse
+    }
+  )
+
+  // { 2025: 10, 2024: 10, ... }
+  postCountsByYear = Tree.map(postsByYear, (posts) => posts.length)
+  
+  // 10
+  maxPostCount = (Tree.sort(postCountsByYear, (count) => count) -> Tree.reverse -> Tree.values)[0]
+
   return = <server/Layouts.js>.Page({ site, page }, _template())
-  postsList = site.posts 
-    -> (posts) => Tree.group(posts, (post) => new Date(post.date).getFullYear())
-    -> Tree.reverse
-    -> (postsByYear) => Tree.map(postsByYear, (posts, year) => `
-      <h2>${year}</h2>
-      ${Tree.group(posts, (post) => new Date(post.date).getMonth())
-        -> Tree.reverse
-        -> (postsByMonth) => Tree.map(postsByMonth, (posts, month) => `
-          <h3>${Intl.DateTimeFormat('en', { month: 'short' }).format(new Date(month))}</h3>
-          ${<server/PostsList.js>(Tree.plain(posts))}
-          
-      `)}
-    `)
-  postCountsByYear = site.posts 
-    -> (posts) => Tree.group(posts, (post) => new Date(post.date).getFullYear())
-    -> Tree.reverse
-    -> (postsByYear) => Tree.map(postsByYear, (posts) => posts.length)
-  maxPostCount = (Tree.sort(postCountsByYear, (value) => value) -> Tree.reverse -> Tree.values)[0]
-}/return
+}.return
 ---
 
 <main class="wrapper">
@@ -108,5 +111,12 @@
     </li>
     ` )}
   </ol>
-  ${postsList}
+
+  ${Tree.map(postsByYearThenMonth, (postsByMonth, year) => `
+  <h2>${year}</h2>
+  ${Tree.map(postsByMonth, (posts, month) => `
+  <h3>
+    ${Intl.DateTimeFormat('en', { month: 'short' }).format(new Date(month))}
+  </h3>
+  ${<server/PostsList.js>(Tree.plain(posts))} `)} `)}
 </main>
