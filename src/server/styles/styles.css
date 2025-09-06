@@ -225,12 +225,12 @@ h4:before {
   display: none;
 }
 
-h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-h1::before {
-  content: "h1";
+h1,
+.h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.02rem;
+  margin: 0 0 var(--s-16) 0;
 }
 
 h2 {
@@ -656,13 +656,6 @@ footer ol li {
   }
 }*/
 
-h1 {
-  font-size: 2rem;
-  font-weight: 900;
-  letter-spacing: -0.02rem;
-  margin: 0 0 var(--s-16) 0;
-}
-
 /* ==========================================================================
   * Posts Nav
   * ========================================================================== */
@@ -757,4 +750,51 @@ h1 {
 .posts-nav-view-all {
   font-size: 0.8rem;
   padding-top: var(--s-24);
+}
+
+.page-nav {
+  margin-bottom: var(--s-16);
+}
+.page-nav summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+  user-select: none;
+  margin-bottom: 0;
+}
+.page-nav summary::marker,
+.page-nav summary::-webkit-details-marker {
+  display: none;
+}
+.page-nav summary::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--c-text);
+  position: relative;
+  top: 3px;
+}
+.page-nav:open summary::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--c-text);
+}
+.page-nav div .h1:not(:last-child) {
+  margin-bottom: 0;
+}
+.page-nav a {
+  text-decoration: none;
+}
+.page-nav a[aria-current="page"] {
+  pointer-events: none;
+  color: var(--c-text);
+  opacity: 0.5;
 }
