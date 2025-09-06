@@ -80,7 +80,6 @@ const page = {
 /** @type {import("types").Route} */
 export default async function About(site) {
   const loaderData = await loader(site);
-  console.log(loaderData);
   return Page(
     { site, page },
     html`
