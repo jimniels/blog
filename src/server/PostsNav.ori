@@ -6,7 +6,7 @@
       { label: "Trending", href: "/posts/trending/" },
       { label: "Hacker News Hits", href: "/posts/hacker-news/" },
       // { label: "Personal Favs", href: "/posts/personal-favs/" },
-      // { label: "All", href: "/archive/" },
+      { label: "All", href: "/archive/" },
     ],
     (item) => `
       <a href="${item.href}" aria-current="${item.href === activeHref ? 'page' : 'false'}">

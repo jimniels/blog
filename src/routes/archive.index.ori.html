@@ -96,7 +96,8 @@
 ---
 
 <main class="wrapper">
-  <h1>Archive</h1>
+  <h1>Posts</h1>
+  ${<server/PostsNav.ori>("/archive/")} ${/*
   <ol class="archive-chart">
     ${Tree.map(postCountsByYear, (postCount, year) => `
     <li>
@@ -111,8 +112,7 @@
     </li>
     ` )}
   </ol>
-
-  ${Tree.map(postsByYearThenMonth, (postsByMonth, year) => `
+  */""} ${Tree.map(postsByYearThenMonth, (postsByMonth, year) => `
   <h2>${year}</h2>
   ${Tree.map(postsByMonth, (posts, month) => `
   <h3>

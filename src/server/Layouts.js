@@ -104,6 +104,7 @@ export function Page(props, children) {
               ${path === "/" && "aria-current='page'"}
               ${path === "/" ||
               path.includes("/posts/") ||
+              path.includes("/archive/") ||
               ["/subscribe/", "/search/", "/menu/"].includes(path)
                 ? "hidden"
                 : ""}
