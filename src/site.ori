@@ -47,9 +47,10 @@
   }
   tags = { index.html = <routes/tags.index.ori.html>(data) }
   about = {
+    // TODO: replace these
     external-links = { index.html = <routes/about.external-links.index.ori.html>(data) }
-    // internal-links = { index.html = <routes/about.internal-links.index.ori.html>(data) }
-    // index.html = <routes/about.index.ori.html>(data)
+    internal-links = { index.html = <routes/internal-links/index.html.js>(data) }
+    index.html = <routes/about/index.html.js>(data)
   }
   404.html = <routes/404.ori.html>(data)
 
