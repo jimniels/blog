@@ -676,7 +676,7 @@ h1 {
 }
 
 .posts-nav a {
-  padding: var(--s-8) var(--s-12);
+  padding: var(--s-6) var(--s-12);
   position: relative;
   font-size: 0.8888rem;
   /* background: var(--c-bg-opaque); */
@@ -686,8 +686,8 @@ h1 {
 
 @media (min-width: 30rem) {
   .posts-nav a {
-    padding-top: var(--s-6);
-    padding-bottom: var(--s-6);
+    padding-top: var(--s-4);
+    padding-bottom: var(--s-4);
     padding-left: var(--s-12);
     padding-right: var(--s-12);
   }
@@ -699,7 +699,7 @@ h1 {
   background: var(--c-text);
 }
 
-.posts-nav a:before {
+/* .posts-nav a:before {
   content: " ";
   position: absolute;
   left: 0;
@@ -709,13 +709,13 @@ h1 {
   border: 1px solid transparent;
   border-radius: var(--border-radius);
   z-index: -1;
-}
+} */
 
-.posts-nav a[aria-current="page"]:before {
-  /* border-color: var(--c-text); */
+/* .posts-nav a[aria-current="page"]:before {
+  
   background: var(--c-text);
   view-transition-name: posts-nav;
-}
+} */
 
 /* Old stuff going out */
 ::view-transition-old(posts-nav) {
