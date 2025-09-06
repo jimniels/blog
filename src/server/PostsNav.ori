@@ -1,5 +1,7 @@
 // {string} activeHref
-(activeHref) => `<nav class="posts-nav">
+(activeHref) => `
+${<server/PageNav.ori>("/")}
+<nav class="posts-nav">
   ${Tree.map(
     [
       { label: "Latest", href: "/" },
