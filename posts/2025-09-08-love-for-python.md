@@ -1,4 +1,4 @@
-# <3 for Python
+# Some Love For Python
 
 I really enjoyed watching [_Python: The Documentary_](https://www.youtube.com/watch?v=GfH4QL4VqJ0) (from CultRepo, formerly Honeypot, same makers as [the TypeScript documentary](https://blog.jim-nielsen.com/2023/the-flavors-of-typescript/)).
 
