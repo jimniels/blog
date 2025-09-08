@@ -1,0 +1,26 @@
+---
+(site) => {
+  path: "/"
+  posts: site.posts
+    -> (posts) => Tree.filter(posts, (post) => !(post.tags && post.tags.includes("rssClub")))
+    -> (posts) => Tree.take(posts, 8)
+    -> Tree.values
+    -> Tree.plain
+  return = _template()
+}.return
+---
+
+${server/DocumentHead.ori.html}
+
+<title>${site.name}</title>
+
+${server/DocumentBody.ori.html}
+
+<main class="wrapper">
+  <h1>Posts</h1>
+  ${<server/PostsNav.ori>(path)}
+  <!-- -->
+  ${<server/PostsList.js>(posts)}
+</main>
+
+${server/DocumentEnd.ori.html}
