@@ -51,8 +51,8 @@ I absolutely loved the story of [@mariatta@fosstodon.org](https://fosstodon.org/
 Watched it? Ok, here’s my quick summary:
 
 - She loves to program, but everywhere she looks it’s men. At work. At conferences. On core teams.
-- She hears about [PyLadiesCon](https://conference.pyladies.com) and goes because it’s all ladies.
-- At the conference she sees Guido van Rossum stand up and say he wants 2 core contributors to Python that are female.
+- She hears about [pyladies](https://pyladies.com) and wants to go to Pycon where she can meet them.
+- She goes to Pycon and sees Guido van Rossum stand up and say he wants 2 core contributors to Python that are female.
 - She thinks, “Oh that’s cool! I’m not good enough for that, but I bet they’ll find someone awesome.”
 - The next year she goes to the conference and finds out they’re still looking for those 2 core contributors.
 - She thinks “Why not me?” and fires off an email to Guido.
