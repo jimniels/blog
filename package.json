@@ -25,7 +25,7 @@
     "ori": "ori",
     "validate": "html-validate build/",
     "build-minify": "html-minifier --input-dir ./build --output-dir ./build --file-ext html --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true",
-    "get-quick-chart": "node scripts/get-quick-charts.js"
+    "get-quick-charts": "node scripts/get-quick-charts.js"
   },
   "repository": {
     "type": "git",
