@@ -1,7 +1,7 @@
 import fs from "fs";
 import { resolve, dirname } from "path";
-import { Page } from "../../server/Layouts.js";
-import { html } from "../../server/utils.js";
+import { Page } from "../server/Layouts.js";
+import { html } from "../server/utils.js";
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
 const page = {
@@ -367,7 +367,7 @@ async function loader(site) {
  * }
  */
 async function getQuickChart({ query, options, id }) {
-  const file = resolve(__dirname, `../../../cache/${id}.svg`);
+  const file = resolve(__dirname, `../../cache/${id}.svg`);
   if (fs.existsSync(file)) {
     return fs.readFileSync(file).toString();
   }
