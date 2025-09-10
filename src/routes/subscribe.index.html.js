@@ -1,9 +1,9 @@
-import { Page } from "../../server/Layouts.js";
-import { html, toDateUI } from "../../server/utils.js";
+import { Page } from "../server/Layouts.js";
+import { html, toDateUI } from "../server/utils.js";
 import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import { Icon } from "../../server/Icon.js";
+import { Icon } from "../server/Icon.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const importFile = (filepath) =>
