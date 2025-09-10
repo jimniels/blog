@@ -17,14 +17,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "diff-changes": "git checkout main && npm i && npm run build && mv build build-old && git checkout - && npm i && npm run build && ori changes build-old, build",
     "copy-css": "cp node_modules/highlight.js/styles/atom-one-*.css src/server/styles/",
-    "pre": "mkdir -p cache && npm run copy-css && node scripts/cache-site-data.js",
+    "pre": "mkdir -p cache && npm run copy-css && node scripts/cache-site-data.js && npm run get-quick-charts",
     "prestart": "npm run pre",
     "start": "ori serve watch src, =debug src/site.ori",
     "prebuild": "npm run pre",
     "build": "ori copy src/site.ori, clear files:build",
     "ori": "ori",
     "validate": "html-validate build/",
-    "build-minify": "html-minifier --input-dir ./build --output-dir ./build --file-ext html --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true"
+    "build-minify": "html-minifier --input-dir ./build --output-dir ./build --file-ext html --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true",
+    "get-quick-chart": "node scripts/get-quick-charts.js"
   },
   "repository": {
     "type": "git",
