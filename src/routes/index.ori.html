@@ -10,11 +10,11 @@
 }.return
 ---
 
-${server/DocumentHead.ori.html}
+${<server/DocumentHead.ori.html>()}
 
 <title>${site.name}</title>
 
-${server/DocumentBody.ori.html}
+${<server/DocumentBody.html>}
 
 <main class="wrapper">
   <h1>Posts</h1>
@@ -23,4 +23,4 @@ ${server/DocumentBody.ori.html}
   ${<server/PostsList.js>(posts)}
 </main>
 
-${server/DocumentEnd.ori.html}
+${<server/DocumentEnd.html>}

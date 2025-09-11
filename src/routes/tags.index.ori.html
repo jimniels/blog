@@ -9,7 +9,7 @@
 }.return
 ---
 
-${server/DocumentHead.ori.html}
+${<server/DocumentHead.ori.html>()}
 
 <title>Post tags for ${site.name}</title>
 <style>
@@ -34,7 +34,7 @@ ${server/DocumentHead.ori.html}
   }
 </style>
 
-${server/DocumentBody.ori.html}
+${<server/DocumentBody.html>}
 
 <main class="wrapper">
   <h1>Tags</h1>
@@ -62,4 +62,4 @@ ${server/DocumentBody.ori.html}
   ${<server/PostsList.js>(Tree.plain(Tree.values(posts)))} `)}
 </main>
 
-${server/DocumentEnd.ori.html}
+${<server/DocumentEnd.html>}
