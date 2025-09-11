@@ -1,6 +1,6 @@
-import { Icon } from "../../server/Icon.js";
-import { Page } from "../../server/Layouts.js";
-import { html, readFile, toDateUI } from "../../server/utils.js";
+import { Icon } from "../server/Icon.js";
+import { Page } from "../server/Layouts.js";
+import { html, readFile, toDateUI } from "../server/utils.js";
 
 /** @type {import('types').Route} */
 export default function Index(site) {

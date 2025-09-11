@@ -1,10 +1,10 @@
-import { Page } from "../../server/Layouts.js";
-import { html, readFile, toDateUI } from "../../server/utils.js";
+import { Page } from "../server/Layouts.js";
+import { html, readFile, toDateUI } from "../server/utils.js";
 import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import ThemePicker from "../../server/ThemePicker.js";
-import { Icon } from "../../server/Icon.js";
+import ThemePicker from "../server/ThemePicker.js";
+import { Icon } from "../server/Icon.js";
 
 /** @type {import('types').Route} */
 export default function Index(site) {

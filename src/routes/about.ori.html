@@ -1,0 +1,149 @@
+---
+(site) => {
+  page: {
+    title: "About"
+    path: "/about/"
+    head: `
+      <style>
+        /* Styles for our embedded SVGs */
+        .copy svg {
+          width: 100%;
+          /* max-width: 42rem !important; */
+          height: auto;
+          display: block;
+          margin-bottom: -1rem;
+          margin-top: 4rem;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* Change line graph line color */
+        .copy svg path[style*="stroke-opacity:1"] {
+          stroke: var(--c-theme) !important;
+        }
+        .copy svg path[style*="stroke-opacity:1"][style*="stroke-width:1"] {
+          fill: var(--c-theme) !important;
+          fill-opacity: 0.666;
+        }
+        /* Change bar graph bar fill */
+        .copy svg path[style*="fill-opacity:1"]:not([style*="fill:rgb(40%"]) {
+          fill: var(--c-theme) !important;
+          fill-opacity: 0.666 !important;
+        }
+        /* Line graph key box outline */
+        .copy
+          svg
+          path[style*="stroke-opacity:1"][style*="stroke-width:3"][style*="fill:rgb("] {
+          fill: none !important;
+        }
+
+        .copy h3 {
+          margin-top: 2rem;
+        }
+        .copy h3 a {
+          font-weight: normal;
+          font-size: 0.875rem;
+          margin-left: 0.5rem;
+        }
+        .nums {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+          margin-top: 2rem;
+        }
+        .nums li a {
+          width: 150px;
+          height: 150px;
+          /* background: var(--c-bg-opaque); */
+          border: 1px solid var(--c-border);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          border-radius: var(--border-radius);
+          color: inherit;
+        }
+        .nums li a:hover {
+          color: var(--c-theme);
+        }
+        .nums li span {
+          font-size: 0.875rem;
+          
+        }
+        .nums li strong {
+          color: var(--c-theme);
+          font-size: 2.5rem;
+          font-weight: 200;
+          line-height: 1;
+        }
+      </style>
+    `
+  }
+  stats: {
+    yearsBlogging: new Date().toISOString().slice(0, 4) - site.posts[site.posts.length - 1].date.slice(0, 4) + 1
+    totalPosts: site.posts.length
+    totalWords: Math.ceil(site.posts.reduce((acc, post) => acc + post.wordCount, 0) / 1000 ) + "k"
+    totalTags: site.tags.length
+    totalExternalLinks: site.externalLinks.reduce((acc, item) => acc + item.count, 0).toLocaleString()
+    totalInternalLinks: Tree.values(site.internalLinksByPath).reduce((acc, arr) => acc + arr.length, 0)
+  }
+  return = <server/Layouts.js>.Page({ site, page }, _template())
+}.return
+---
+
+<main class="copy">
+  <h1>About</h1>
+  <p>
+    I’m
+    <a href="https://www.jim-nielsen.com">Jim Nielsen</a>
+    . Below are the
+    <a href="/2022/stats-page/">stats for my blog</a>
+    . Read into them what you will, as Homer Simpson once said, “You can come up
+    with statistics to prove anything. 40% of all people know that.”
+  </p>
+
+  ${<cache/posts-per-year.svg>}
+
+  <ul class="nums">
+    <li>
+      <a href="/archive/">
+        <strong>${stats.yearsBlogging}</strong>
+        <span>Years blogging</span>
+      </a>
+    </li>
+    <li>
+      <a href="/archive/">
+        <strong>${stats.totalPosts}</strong>
+        <span>Posts</span>
+      </a>
+    </li>
+    <li>
+      <a href="/archive/">
+        <strong>${stats.totalWords}</strong>
+        <span>Words</span>
+      </a>
+    </li>
+    <li>
+      <a href="/tags/">
+        <strong>${stats.totalTags}</strong>
+        <span>Tags</span>
+      </a>
+    </li>
+    <li>
+      <a href="/about/external-links/">
+        <strong>${stats.totalExternalLinks}</strong>
+        <span>External links</span>
+      </a>
+    </li>
+    <li>
+      <a href="/about/internal-links/">
+        <strong>${stats.totalInternalLinks}</strong>
+        <span>Internal links</span>
+      </a>
+    </li>
+  </ul>
+</main>
