@@ -1,16 +1,11 @@
----
-(site) => {
-  page: {
-    title: "404: Page Not Found"
-    path: "/404/"
-  }
-  
-  return = <server/Layouts.js>.Page({ site, page }, _template())
-}.return
----
+${<server/DocumentHead.ori.html>()}
+
+<title>404 Page Not Found</title>
+
+${<server/DocumentBody.html>}
 
 <main class="copy">
-  <h1>${page.title}</h1>
+  <h1>404</h1>
 
   <p>Whatever you’re looking for doesn’t appear to be available. Sorry.</p>
 
@@ -31,3 +26,5 @@
     </a>
   </p>
 </main>
+
+${<server/DocumentEnd.html>}
