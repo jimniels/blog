@@ -594,7 +594,7 @@ footer ol li {
   justify-content: space-between;
   gap: var(--s-8);
   padding-top: var(--s-16);
-  padding-bottom: var(--s-16);
+  padding-bottom: var(--s-24);
   position: relative;
 }
 
@@ -615,12 +615,12 @@ footer ol li {
   margin-right: auto;
   display: flex;
   align-items: center;
-  gap: var(--s-8);
+  gap: var(--s-2);
 }
 
-@media screen and (min-width: 42rem) {
+@media screen and (min-width: 0rem) {
   .navv a:first-child {
-    margin-left: calc(var(--s-32) * -1);
+    margin-left: calc(var(--s-16) * -1);
   }
 }
 
@@ -639,6 +639,7 @@ footer ol li {
   width: 24px;
   height: 24px;
 }
+
 .navv a:first-child[hidden] {
   opacity: 0;
   visibility: hidden;

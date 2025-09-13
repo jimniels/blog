@@ -96,20 +96,42 @@ export function Page(props, children) {
           </script>*/ ""
           }
           <jim-site-switcher subdomain="blog"></jim-site-switcher>
-          <nav class="navv wrapper" hidden>
+          <nav class="navv wrapper">
+            <!-- <a
+              href="/"
+              title="Jim Nielsen’s Blog"
+              aria-label="Jim Nielsen’s Blog"
+              style="display: none;"
+            >
+              <img
+                src="/favicon.ico"
+                width="32"
+                height="32"
+                style="border-radius: 50%"
+              />
+            </a>-->
             <a
               href="/"
               title="Jim Nielsen’s Blog"
               aria-label="Jim Nielsen’s Blog"
               ${path === "/" && "aria-current='page'"}
-              ${path === "/" ||
-              path.includes("/posts/") ||
-              path.includes("/archive/") ||
-              ["/subscribe/", "/search/", "/menu/"].includes(path)
+              ${[
+                "/",
+                "/tags/",
+                "/archive/",
+                "/about/",
+                "/about/external-links/",
+                "/about/internal-links/",
+                "/posts/trending/",
+                "/posts/hacker-news/",
+                "/subscribe/",
+                "/search/",
+                "/menu/",
+              ].includes(path)
                 ? "hidden"
                 : ""}
             >
-              ${Icon("heroicon-chevron-left")} Posts
+              ${Icon("heroicon-chevron-left")} Jim’s Blog
             </a>
 
             ${["/menu/", "/search/", "/subscribe/"].includes(path)
@@ -121,14 +143,15 @@ export function Page(props, children) {
                   >${Icon("heroicon-close")}</a
                 >`
               : html`
-                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
-                    >${Icon("heroicon-rss")}</a
+                  <a href="/menu/" aria-label="Menu" title="Menu"
+                    >${Icon("heroicon-light")}</a
                   >
+
                   <a href="/search/" aria-label="Search" title="Search"
                     >${Icon("heroicon-search")}</a
                   >
-                  <a href="/menu/" aria-label="Menu" title="Menu"
-                    >${Icon("heroicon-menu")}</a
+                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
+                    >${Icon("heroicon-rss")}</a
                   >
                 `}
           </nav>
