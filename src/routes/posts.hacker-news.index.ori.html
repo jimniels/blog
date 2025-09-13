@@ -17,8 +17,9 @@
 ---
 
 <main class="wrapper">
-  <h1>Posts</h1>
-  ${<server/PostsNav.ori>(page.path)} ${<server/PostsList.js>(posts, (post) =>
+  ${<server/PostsNav.ori>(page.path)}
+  <!-- -->
+  ${<server/PostsList.js>(posts, (post) =>
   `${post.hackerNews.points.toLocaleString()} points,
   ${post.hackerNews.comments.toLocaleString()} comments` )}
   <p class="posts-nav-note">

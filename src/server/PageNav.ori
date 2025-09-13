@@ -1,0 +1,20 @@
+{
+  pagesByPath: {
+    "/": "Posts",
+    "/tags/": "Tags",
+    "/about/": "About",
+    "/about/external-links/": "External Links",
+    "/about/internal-links/": "Internal Links",
+  },
+  
+  return = (activePath) => `<details class="page-nav">
+    <summary class="h1">
+      ${pagesByPath[activePath]}
+    </summary>
+    <div style="display: inline-flex; flex-direction: column; gap: 4px">
+      ${Tree.map(pagesByPath, (page, path) => activePath === path ? '' : `
+        <a href="${path}" class="h1">${page}</a>
+      `)}      
+    </div>
+  </details>`
+}.return 
