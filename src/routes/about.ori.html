@@ -6,7 +6,7 @@
     head: `
       <style>
         /* Styles for our embedded SVGs */
-        .copy svg {
+        .svg-container svg {
           width: 100%;
           /* max-width: 42rem !important; */
           height: auto;
@@ -17,20 +17,20 @@
           margin-right: auto !important;
         }
         /* Change line graph line color */
-        .copy svg path[style*="stroke-opacity:1"] {
+        .svg-container svg path[style*="stroke-opacity:1"] {
           stroke: var(--c-theme) !important;
         }
-        .copy svg path[style*="stroke-opacity:1"][style*="stroke-width:1"] {
+        .svg-container svg path[style*="stroke-opacity:1"][style*="stroke-width:1"] {
           fill: var(--c-theme) !important;
           fill-opacity: 0.666;
         }
         /* Change bar graph bar fill */
-        .copy svg path[style*="fill-opacity:1"]:not([style*="fill:rgb(40%"]) {
+        .svg-container svg path[style*="fill-opacity:1"]:not([style*="fill:rgb(40%"]) {
           fill: var(--c-theme) !important;
           fill-opacity: 0.666 !important;
         }
         /* Line graph key box outline */
-        .copy
+        .svg-container
           svg
           path[style*="stroke-opacity:1"][style*="stroke-width:3"][style*="fill:rgb("] {
           fill: none !important;
@@ -96,7 +96,7 @@
 ---
 
 <main class="copy">
-  <h1>About</h1>
+  ${<server/PageNav.ori>(page.path)}
   <p>
     I’m
     <a href="https://www.jim-nielsen.com">Jim Nielsen</a>
@@ -106,7 +106,7 @@
     with statistics to prove anything. 40% of all people know that.”
   </p>
 
-  ${<cache/posts-per-year.svg>}
+  <div class="svg-container">${<cache/posts-per-year.svg>}</div>
 
   <ul class="nums">
     <li>

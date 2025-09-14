@@ -1,15 +1,15 @@
 {
   pagesByPath: {
     "/": "Posts",
-    "/tags/": "Tags",
-    "/about/": "About",
     "/about/external-links/": "External Links",
     "/about/internal-links/": "Internal Links",
+    "/tags/": "Tags",
+    "/about/": "About",
   },
   
   return = (activePath) => `<details class="page-nav">
     <summary class="h1">
-      ${pagesByPath[activePath]}
+      ${pagesByPath[activePath]} ${<server/svgs/heroicon-chevron-down.svg>}
     </summary>
     <div style="display: inline-flex; flex-direction: column; gap: 4px">
       ${Tree.map(pagesByPath, (page, path) => activePath === path ? '' : `

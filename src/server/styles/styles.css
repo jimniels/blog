@@ -765,11 +765,19 @@ footer ol li {
   user-select: none;
   margin-bottom: 0;
 }
+.page-nav summary svg {
+  width: 24px;
+  height: 24px;
+}
+.page-nav[open] summary svg {
+  transform: rotate(180deg);
+}
 .page-nav summary::marker,
 .page-nav summary::-webkit-details-marker {
   display: none;
 }
 .page-nav summary::after {
+  display: none;
   content: "";
   width: 0;
   height: 0;
