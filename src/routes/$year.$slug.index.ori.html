@@ -29,6 +29,7 @@
         name="twitter:image:alt"
         content="Jim Nielsen’s initials (JN) in a hand-written style."
       />
+      ${post.ogImageUrl ? `<meta property="og:image" content="${post.ogImageUrl}" />` : ""}
     `
   }
 

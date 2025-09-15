@@ -115,12 +115,14 @@ async function getSiteData() {
 
     // Convert markdown to HTML & get links data
     const markdownSansTagsAndTitle = markdownByLine.join("\n");
-    const { html, externalLinks, internalLinks, footnotes } = parseMarkdown(
-      markdownSansTagsAndTitle
-    );
+    const { html, externalLinks, internalLinks, footnotes, ogImageUrl } =
+      parseMarkdown(markdownSansTagsAndTitle);
     post.wordCount = markdownSansTagsAndTitle.split(" ").length;
     post.contents = html;
     post.footnotes = footnotes;
+    if (ogImageUrl) {
+      post.ogImageUrl = ogImageUrl;
+    }
 
     // "2019-06-12-my-post-slug.md" -> "2019-06-12-my-post-slug"
     const filename = file.replace(".md", "");

@@ -38,6 +38,7 @@ export type Post = {
   };
   isFav: boolean;
   footnotes: string; // Could be an empty string, meaning no footnotes
+  ogImageUrl?: string; // URL of the first <img> with data-og-image attribute
 };
 
 export type Route = (site: Site) => string;

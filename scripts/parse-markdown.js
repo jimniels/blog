@@ -17,6 +17,11 @@ let internalLinks = [];
  * @type {string}
  */
 let footnotes = "";
+/**
+ * @typedef {string} OgImageUrl - The src URL of the first image with data-og-image attribute
+ * @type {string}
+ */
+let ogImageUrl = null;
 
 /**
  * Take a string of markdown and return the parsed HTML with an object
@@ -26,7 +31,8 @@ let footnotes = "";
  *   html: string,
  *   externalLinks: ExternalLinks,
  *   internalLinks: InternalLinks,
- *   footnotes: Footnotes
+ *   footnotes: Footnotes,
+ *   ogImageUrl: OgImageUrl
  * }}
  */
 export default function parseMarkdown(markdown) {
@@ -34,10 +40,11 @@ export default function parseMarkdown(markdown) {
   internalLinks = [];
   externalLinks = [];
   footnotes = "";
+  ogImageUrl = "";
 
   const html = marked(markdown);
 
-  return { html, externalLinks, internalLinks, footnotes };
+  return { html, externalLinks, internalLinks, footnotes, ogImageUrl };
 }
 
 // Footnotes
@@ -111,6 +118,16 @@ const renderer = {
   // Images
   html(html) {
     if (html.startsWith("<img")) {
+      // Check for data-og-image attribute and extract src if found
+      if (html.includes("data-og-image") && !ogImageUrl) {
+        const srcMatch = html.match(/src="([^"]+)"/);
+        if (srcMatch) {
+          ogImageUrl = srcMatch[1];
+          console.log("Warning: found `data-og-image` and `src`", ogImageUrl);
+        } else {
+          console.log("Warning: found `data-og-image` but no `src`", html);
+        }
+      }
       return `<p class="image-container">${html}</p>`;
     }
     return html;
