@@ -4,7 +4,7 @@ Have you ever searched for “AI chat” in the Mac App Store?
 
 I have. It’s like strolling through one of those counterfeit, replica markets where all the goods _look_ legit at first glance. But then when you look closer, you realize something is off.
 
-For the query “AI chat”, there are so many ChatGPT-like apps the results are comical. Take a look at these app icons I pulled from my search:
+For the query “AI chat”, there are so many ChatGPT-like app icons the results are comical. Take a look at these:
 
 <div style="display: flex; flex-wrap: wrap; gap: 16px;">
 <img src="https://cdn.jim-nielsen.com/blog/2025/ai-icon-1.png" width="100" height="100" alt="App icon for Apple’s platform that looks like the ChatGPT app." />
