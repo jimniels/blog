@@ -62,9 +62,9 @@ Here they are again in a single image:
 
 (It’s the one in the 4th row, 3rd column.)
 
-And those are just black-and-white ChatGPT look-alikes. There are other [ChatGPT-looking](https://apps.apple.com/us/app/ai-bot-al-chatbot-assistant/id6736975220?mt=12) [app icons](https://apps.apple.com/us/app/ai-chatbot-ask-ai-chat-bot/id6450622517) [just](https://apps.apple.com/us/app/chatbot-for-google-gemini/id6740811927) [in](https://apps.apple.com/us/app/ai-chat-bot-assistant-ask-ai/id6450978033) [different](https://apps.apple.com/us/app/videogen-ai-video-generator/id6479643532?mt=12) [colors](https://apps.apple.com/us/app/chatbot-ai-chat-assistant/id6739469256?mt=12).
+And those are just black-and-white lookalikes. There are other apps riding the AI/OpenAI wave that look like the [ChatGPT](https://apps.apple.com/us/app/ai-bot-al-chatbot-assistant/id6736975220?mt=12) [logo](https://apps.apple.com/us/app/ai-chatbot-ask-ai-chat-bot/id6450622517) [just](https://apps.apple.com/us/app/chatbot-for-google-gemini/id6740811927) [in](https://apps.apple.com/us/app/ai-chat-bot-assistant-ask-ai/id6450978033) [different](https://apps.apple.com/us/app/videogen-ai-video-generator/id6479643532?mt=12) [colors](https://apps.apple.com/us/app/chatbot-ai-chat-assistant/id6739469256?mt=12).
 
-The funny thing is: the official ChatGPT desktop app from OpenAI is not even in the Mac App Store. It’s only [available from their website](https://chatgpt.com/features/desktop/), so it won’t show up in the results “AI chat”.
+The funny thing is: the official ChatGPT desktop app from OpenAI is not even in the Mac App Store. It’s only [available from their website](https://chatgpt.com/features/desktop/), so it won’t show up in the “AI chat” results.
 
 There were lots of other “sort of looks like the official one but isn’t” app icons in my search results, like [this Claude one](https://apps.apple.com/us/app/enclave-local-ai-assistant/id6476614556), [this Grok one](https://apps.apple.com/us/app/grow-ai-ask-ai-chat-assistant/id6741433564), or [this Gemini one](https://apps.apple.com/us/app/g-ai-4-0-ai-chatbot-assistant/id6749970691?mt=12).
 
