@@ -68,7 +68,7 @@ The funny thing is: the official ChatGPT desktop app from OpenAI is not even in 
 
 There were lots of other “sort of looks like the official one but isn’t” app icons in my search results, like [this Claude one](https://apps.apple.com/us/app/enclave-local-ai-assistant/id6476614556), [this Grok one](https://apps.apple.com/us/app/grow-ai-ask-ai-chat-assistant/id6741433564), or [this Gemini one](https://apps.apple.com/us/app/g-ai-4-0-ai-chatbot-assistant/id6749970691?mt=12).
 
-Oh, and these apps’ names were also very original. Every spacing and casing combination of “AI”, “Chat”, and “Bot” you can think of. Just look at this sampling:
+Oh, and these apps’ names were fascinating to look at. They were basically every spacing and casing combination of “AI”, “Chat”, and “Bot” you can image. Just look at this sampling:
 
 - [AI Chat Bot : Ask Assistant](https://apps.apple.com/us/app/ai-chat-bot-ask-assistant/id6746353576?mt=12)
 - [AI Chatbot: Chat Ask Assistant](https://apps.apple.com/us/app/ai-chatbot-chat-ask-assistant/id6747115817?mt=12)
