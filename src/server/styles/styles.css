@@ -134,7 +134,7 @@
   --s-64: calc(64rem / 18);
   --s-80: calc(80rem / 18);
   --s-96: calc(96rem / 18);
-  --max-width: 30rem;
+  --max-width: 32rem;
   --max-width-padding: 6rem;
   --max-width-outer: calc(var(--max-width) + (var(--max-width-padding) * 2));
 }
