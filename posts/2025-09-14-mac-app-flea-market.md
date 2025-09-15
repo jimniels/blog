@@ -119,6 +119,6 @@ Imagine going to store to grab some Nike gear and you find stuff like this (imag
 
 <img src="https://cdn.jim-nielsen.com/blog/2025/ai-icon-nike.jpg" width="682" height="473" alt="A bunch of “Nike” logo knock-offs that look like a swoosh but say “Hike” or “Mike” or “NAIK”." />
 
-What does that say to you about the store you’re visiting?
+What does that say about the store you’re visiting?
 
 I always wanted a pair of Mike Jordans, just like I always wanted ChatGPP for my Mac.
