@@ -15,6 +15,15 @@ if (!$myInput) {
   throw new Error("Input not found");
 }
 
+// Initialize with query param if present
+/** @type {URLSearchParams} */
+const urlParams = new URLSearchParams(window.location.search);
+const query = urlParams.get("q");
+if (query) {
+  $myInput.value = query;
+  updatePagefindInput(query);
+}
+
 // Handle form clear
 $form.addEventListener("reset", (event) => {
   updatePagefindInput("");
