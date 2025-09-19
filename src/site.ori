@@ -53,7 +53,7 @@
   }
   search = { index.html = <routes/search.index.html.js>(data) }
   styles.css = Origami.unpack(<routes/styles.css.ori>)
-  subscribe = { index.html = <routes/subscribe.index.html.js>(data) }  
+  subscribe = { index.html = <routes/subscribe.ori.html>(data) }  
   tags = { index.html = <routes/tags.index.ori.html>(data) }
 
   // These path to `/well-known/...` in the build output and then we do a
