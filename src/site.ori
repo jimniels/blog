@@ -46,7 +46,7 @@
   feed.json = <routes/feed.json.js>(data)
   feed.xml = <routes/feed.xml.js>(data)
   index.html = <routes/index.ori.html>(data)
-  menu = { index.html = <routes/menu.index.html.js>(data) }
+  menu = { index.html = <routes/menu.ori.html>(data) }
   posts = { 
     hacker-news = { index.html = <routes/posts.hacker-news.index.ori.html>(data) }
     trending = { index.html = <routes/posts.trending.index.ori.html>(data) }
