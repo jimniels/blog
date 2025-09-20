@@ -40,7 +40,7 @@ export default function ThemePicker() {
         align-items: center;
         border-radius: var(--border-radius);
         border: 1px solid var(--c-fg);
-        padding: 0;
+        padding: var(--s-2);
         margin: 0;
       }
 
@@ -50,6 +50,7 @@ export default function ThemePicker() {
       }
       .theme-picker input:checked + label {
         background: var(--c-fg);
+        border-radius: calc(var(--border-radius) - var(--s-2));
       }
       .theme-picker label {
         height: 100%;

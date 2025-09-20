@@ -618,12 +618,6 @@ footer ol li {
   gap: var(--s-8);
 }
 
-@media screen and (min-width: 42rem) {
-  .navv a:first-child {
-    margin-left: calc(var(--s-32) * -1);
-  }
-}
-
 .navv a:not(:first-child) {
   width: 40px;
   height: 40px;
@@ -757,4 +751,40 @@ h1 {
 .posts-nav-view-all {
   font-size: 0.8rem;
   padding-top: var(--s-24);
+}
+
+.kv-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.kv-list li {
+  border-top: 1px solid var(--c-border);
+}
+.kv-list li a {
+  padding: var(--s-16) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-16);
+  text-decoration: none;
+}
+.kv-list li a:hover span:first-child {
+  text-decoration: underline;
+}
+.kv-list svg:first-child {
+  width: 24px;
+  height: 24px;
+}
+.kv-list svg:last-child {
+  width: 16px;
+  height: 16px;
+  color: var(--c-text-light);
+  margin-right: var(--s-12);
+  margin-left: auto;
+}
+.kv-list a:hover svg:last-child {
+  color: var(--c-theme);
 }

@@ -109,7 +109,7 @@ export function Page(props, children) {
                 ? "hidden"
                 : ""}
             >
-              ${Icon("heroicon-chevron-left")} Jim’s Blog
+              Jim’s Blog
             </a>
 
             ${["/menu/", "/search/", "/subscribe/"].includes(path)
