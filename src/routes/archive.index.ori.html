@@ -81,7 +81,8 @@
     postsByYear,
     {
       key: (posts, year) => year,
-      value: (posts) => Tree.group(posts, (post) => new Date(post.date).getMonth()) -> Tree.reverse
+      // Note: months are 0-indexed, so we add 1 to get the correct month in display
+      value: (posts) => Tree.group(posts, (post) => new Date(post.date).getMonth() + 1) -> Tree.reverse
     }
   )
 
