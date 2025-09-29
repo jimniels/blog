@@ -9,11 +9,60 @@
         flex-direction: column;
         gap: var(--s-48);
       }
-      #menu h3 {
+      #menu h2 {
         font-size: 1rem;
-        margin: 0 0 calc(var(--s-40) * -1) 0;
+        margin: 0 0 var(--s-16) 0;
       }
-      
+      .search {
+          position: relative;
+        }
+        .search input {
+          width: 100%;
+          height: var(--s-40);
+          border: 1px solid var(--c-fg);
+          border-radius: var(--border-radius);
+          padding-left: var(--s-40);
+          background: var(--c-fg);
+        }
+
+        .search svg {
+          width: 20px;
+          height: 20px;
+        }
+        .search > svg {
+          position: absolute;
+          left: var(--s-12);
+          top: 0.5555rem;
+        }
+        .search button {
+          position: absolute;
+          right: var(--s-12);
+          top: 0.5555rem;
+          width: 20px;
+          height: 20px;
+          background: none;
+          border: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .search input:placeholder-shown + button {
+          display: none;
+        }
+        .search input:not(:placeholder-shown) + button {
+          display: block;
+        }
+        .about {
+          display: flex;
+          align-items: center;
+          gap: var(--s-16);
+        }
+        .about img {
+          width: 120px;
+          height: 120px;
+          border-radius: var(--border-radius);
+          object-fit: cover;
+        }
     </style>`,
   },
   return = <server/Layouts.js>.Page({ site, page }, _template())
@@ -21,38 +70,123 @@
 ---
 
 <main id="menu" class="wrapper">
-  <ul class="kv-list">
-    <li>
-      <a href="/">
-        <span>Posts</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
-    <li>
-      <a href="/tags/">
-        <span>Tags</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
-    <li>
-      <a href="/about/external-links/">
-        <span>External Links</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
-    <li>
-      <a href="/about/internal-links/">
-        <span>Internal Links</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
-    <li>
-      <a href="/about/">
-        <span>About</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
-  </ul>
+  <div>
+    <form action="https://duckduckgo.com" class="search" id="js-search-form">
+      <input
+        type="text"
+        name="q"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder=""
+        id="search-input"
+      />
+      <button type="reset">${<server/svgs/heroicon-x-circle.svg>}</button>
+      <input type="hidden" name="sites" value="blog.jim-nielsen.com" />
+      ${<server/svgs/heroicon-search.svg>}
+    </form>
+    <output id="js-search-root"></output>
+  </div>
+
+  <div>
+    <h2>Subscribe</h2>
+    <ul class="kv-list">
+      <li>
+        <a href="/feed.xml">
+          ${<server/svgs/heroicon-rss.svg>} RSS
+          ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+      <li>
+        <a href="/feed.json">
+          ${<server/svgs/feed-json.svg>} JSON
+          ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+      <li>
+        <a href="https://buttondown.com/jimniels">
+          ${<server/svgs/heroicon-email.svg>} Email
+          ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Blog</h2>
+    <ul class="kv-list">
+      <li>
+        <a href="/">
+          ${<server/svgs/heroicon-post.svg>} Posts
+          ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+      <li>
+        <a href="/tags/">
+          ${<server/svgs/heroicon-tags.svg>} Tags
+          ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+      <li>
+        <a href="/about/external-links/">
+          ${<server/svgs/heroicon-outlinks.svg>} External Links
+          ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+      <li>
+        <a href="/about/internal-links/">
+          ${<server/svgs/heroicon-inlinks.svg>} Internal Links
+          ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+      <li>
+        <a href="/about/">
+          ${<server/svgs/heroicon-stats.svg>} Stats
+          ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Feedback</h2>
+    <ul class="kv-list">
+      <li>
+        <a href="https://mastodon.social/@jimniels">
+          Mastodon ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+      <li>
+        <a href="https://bsky.app/profile/jim-nielsen.com">
+          <span>Bluesky</span>
+          ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+      <li>
+        <a href="mailto:jimniels@gmail.com">
+          Email ${<server/svgs/heroicon-chevron-right.svg>}
+        </a>
+      </li>
+    </ul>
+  </div>
 
   ${<server/ThemePicker.js>()}
+
+  <p style="text-align: center; color: var(--c-text-light)">
+    “git stash poop”
+    <br />
+    — Me
+  </p>
+
+  <div class="about" style="display: none">
+    <img
+      src="https://www.jim-nielsen.com/jimniels.jpg"
+      width="200"
+      alt="Jim Nielsen"
+    />
+    <p>
+      I’m
+      <a href="https://www.jim-nielsen.com/">Jim Nielsen</a>
+      and this is my blog where I refine my thinking.
+    </p>
+  </div>
 </main>
