@@ -26,6 +26,6 @@ Now I get it, semantic versioning is an idea not a guarantee. But it’s also pr
 
 I guess that’s a way of acknowledging out loud that we have normalized shipping production systems on top of the assumption that untested, unwritten combinations of software will behave well together — if not better, since patch updates fix bugs right?
 
-And that’s not even getting into the security side of the equation. Future versions of packages have no guarantee to be as safe as previous ones, as we’ve seen with some of [the npm supply chain attacks](https://socket.dev/blog/npm-author-qix-compromised-in-major-supply-chain-attack) which rely on version ranges for their exploits. (Funny, isn’t it? Upgrading to the latest version of a package is can get you into trouble. And the solution? Upgrade to the latest version of a package.)
+And that’s not even getting into the security side of the equation. Future versions of packages have no guarantee to be as safe as previous ones, as we’ve seen with some of [the npm supply chain attacks](https://socket.dev/blog/npm-author-qix-compromised-in-major-supply-chain-attack) which rely on version ranges for their exploits. (Funny, isn’t it? Upgrading to the latest version of a package can get you into trouble. The solution? Upgrading to the latest version of a package.)
 
 Anyhow, this all gets me thinking that version ranges and dependency management were the gateway drug to the non-determinism of LLMs.
