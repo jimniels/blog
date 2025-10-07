@@ -81,7 +81,8 @@
   </header>
   <div class="copy e-content">
     ${post.tags.includes("rssClub") ? <server/RssClub.js>() : ""}
-    ${post.contents.toString()}
+<!-- Keep this unindented for code blocks to work --> 
+${post.contents.toString()}
   </div>
   <footer class="wrapper">${<server/ReplyHtml.js>({ post, site })}</footer>
 </article>
