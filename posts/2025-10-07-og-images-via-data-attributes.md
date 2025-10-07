@@ -2,7 +2,7 @@
 
 I’ve done something few on the internet do. I’ve changed my mind.
 
-<img data-ogimage src="https://cdn.jim-nielsen.com/blog/2025/social-share-meme.jpg" width="332" height="250" alt="Double take meme of girl with a disgusted face on one side then the same girl with a face of changed opinion. Both faces have the text “og:image” superimposed." />
+<img data-og-image src="https://cdn.jim-nielsen.com/blog/2025/social-share-meme.jpg" width="332" height="250" alt="Double take meme of girl with a disgusted face on one side then the same girl with a face of changed opinion. Both faces have the text “og:image” superimposed." />
 
 [A](https://blog.jim-nielsen.com/2025/rip-browsers/) [few](https://blog.jim-nielsen.com/2025/npm-risks/) [posts](https://blog.jim-nielsen.com/2025/my-antis/) on my blog have started to unfurl social share imagery.
 
@@ -27,7 +27,7 @@ After giving it some thought, I realized that all my images are expressed in mar
 ```md
 You guys, I made the funniest image to depict this:
 
-<img data-ogimage src="" width="" height="" alt="">
+<img data-og-image src="" width="" height="" alt="">
 
 Isn’t that hilarious?
 ```
