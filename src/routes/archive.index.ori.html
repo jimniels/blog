@@ -97,8 +97,7 @@
 ---
 
 <main class="wrapper">
-  <h1>Posts</h1>
-  ${<server/PostsNav.ori>("/archive/")} ${/*
+  ${<server/PageNav.ori>({ key: "Posts", activeHref: page.path })} ${/*
   <ol class="archive-chart">
     ${Tree.map(postCountsByYear, (postCount, year) => `
     <li>

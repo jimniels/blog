@@ -103,8 +103,7 @@ export function Page(props, children) {
               aria-label="Jim Nielsen’s Blog"
               ${path === "/" && "aria-current='page'"}
               ${path === "/" ||
-              path.includes("/posts/") ||
-              path.includes("/archive/") ||
+              !path.startsWith("/202") ||
               ["/subscribe/", "/search/", "/menu/"].includes(path)
                 ? "hidden"
                 : ""}
@@ -128,7 +127,7 @@ export function Page(props, children) {
                     >${Icon("heroicon-search")}</a
                   >
                   <a href="/menu/" aria-label="Menu" title="Menu"
-                    >${Icon("heroicon-menu")}</a
+                    >${Icon("heroicon-light")}</a
                   >
                 `}
           </nav>
