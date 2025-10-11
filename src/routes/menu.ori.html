@@ -21,7 +21,7 @@
 ---
 
 <main id="menu" class="wrapper">
-  <ul class="kv-list">
+  <ul class="kv-list" style="display: none">
     <li>
       <a href="/">
         <span>Posts</span>
@@ -34,21 +34,16 @@
         ${<server/svgs/heroicon-chevron-right.svg>}
       </a>
     </li>
-    <li>
+    <li hidden>
       <a href="/about/external-links/">
-        <span>External Links</span>
+        <span>Links</span>
         ${<server/svgs/heroicon-chevron-right.svg>}
       </a>
     </li>
-    <li>
-      <a href="/about/internal-links/">
-        <span>Internal Links</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
+
     <li>
       <a href="/about/">
-        <span>About</span>
+        <span>Metadata</span>
         ${<server/svgs/heroicon-chevron-right.svg>}
       </a>
     </li>
