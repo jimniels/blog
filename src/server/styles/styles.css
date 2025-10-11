@@ -792,12 +792,10 @@ h1,
 
 .site-header {
   margin-bottom: var(--s-8);
-}
-.site-header details {
   display: flex;
   flex-direction: column;
 }
-.site-header details summary {
+.site-header summary {
   margin-bottom: var(--s-16);
   cursor: default;
   margin-bottom: 0;
@@ -807,7 +805,7 @@ h1,
   gap: var(--s-8);
   user-select: none;
 }
-.site-header details svg {
+.site-header svg {
   position: relative;
   top: var(--s-4);
   width: 24px;
@@ -815,13 +813,13 @@ h1,
   color: var(--c-text);
   transition: transform 0.2s ease-in-out;
 }
-.site-header details[open] svg {
+.site-header[open] svg {
   transform: rotate(180deg);
 }
-.site-header details nav .h1 {
+.site-header nav .h1 {
   margin-bottom: 0;
 }
-.site-header details nav {
+.site-header nav {
   display: flex;
   flex-direction: column;
   gap: var(--s-2);

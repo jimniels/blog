@@ -16,8 +16,6 @@
 }.return
 ---
 
-${<server/Header.ori.html>('Posts')}
-
 <main class="wrapper">
   ${<server/PageNav.ori>({ key: "Posts", activeHref: page.path })}
   ${<server/PostsList.js>(posts, (post) =>

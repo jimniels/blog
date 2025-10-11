@@ -1,6 +1,18 @@
 // {string} activeHref
 (_) => `
-<nav class="posts-nav" aria-label="Secondary">
+<details class="site-header wrapper">
+  <summary class="h1">${_.key} ${server/svgs/heroicon-chevron-down.svg}</summary>
+  <!-- prettier-ignore -->
+  <nav>
+      ${_.key !== 'Posts' ? '<a href="/" class="h1">Posts</a>' : ''}
+      ${_.key !== 'Links' ? '<a href="/about/external-links/" class="h1">Links</a>' : ''}
+      ${_.key !== 'Tags' ? '<a href="/tags/" class="h1">Tags</a>' : ''}
+      ${_.key !== 'About' ? '<a href="/about/" class="h1">About</a>' : ''}
+    </nav>
+</details>
+
+${_.key === "Links" || _.key === "Posts" ?
+`<nav class="posts-nav" aria-label="Secondary">
   ${_.key === "Links" ? Tree.map(
     [
       
@@ -13,7 +25,7 @@
         ${item.label}
       </a>
     `
-  ) : _.key === "Posts" ? Tree.map(
+  ) : Tree.map(
     [
       { label: "Latest", href: "/" },
       { label: "Trending", href: "/posts/trending/" },
@@ -26,5 +38,6 @@
         ${item.label}
       </a>
     `
-  ) : ''}
-</nav>`
+  )}
+</nav>` : ''}
+`
