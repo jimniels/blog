@@ -123,7 +123,6 @@ const renderer = {
         const srcMatch = html.match(/src="([^"]+)"/);
         if (srcMatch) {
           ogImageUrl = srcMatch[1];
-          console.log("Warning: found `data-og-image` and `src`", ogImageUrl);
         } else {
           console.log("Warning: found `data-og-image` but no `src`", html);
         }
