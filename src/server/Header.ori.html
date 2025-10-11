@@ -1,0 +1,14 @@
+<header class="site-header wrapper">
+  <details class="primary-switcher">
+    <summary role="heading" aria-level="1" aria-current="page" class="h1">
+      ${_} ${server/svgs/heroicon-chevron-down.svg}
+    </summary>
+    <!-- prettier-ignore -->
+    <nav aria-label="Primary">
+      ${_ !== 'Posts' ? '<a href="/" class="h1">Posts</a>' : ''}
+      ${_ !== 'Links' ? '<a href="/about/external-links/" class="h1">Links</a>' : ''}
+      ${_ !== 'Tags' ? '<a href="/tags/" class="h1">Tags</a>' : ''}
+      ${_ !== 'About' ? '<a href="/about/" class="h1">About</a>' : ''}
+    </nav>
+  </details>
+</header>

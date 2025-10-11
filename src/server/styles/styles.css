@@ -650,7 +650,8 @@ footer ol li {
   }
 }*/
 
-h1 {
+h1,
+.h1 {
   font-size: 2rem;
   font-weight: 900;
   letter-spacing: -0.02rem;
@@ -787,4 +788,41 @@ h1 {
 }
 .kv-list a:hover svg:last-child {
   color: var(--c-theme);
+}
+
+.site-header {
+  margin-bottom: var(--s-8);
+}
+.site-header details {
+  display: flex;
+  flex-direction: column;
+}
+.site-header details summary {
+  margin-bottom: var(--s-16);
+  cursor: default;
+  margin-bottom: 0;
+  margin-right: var(--s-8);
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+  user-select: none;
+}
+.site-header details svg {
+  position: relative;
+  top: var(--s-4);
+  width: 24px;
+  height: 24px;
+  color: var(--c-text);
+  transition: transform 0.2s ease-in-out;
+}
+.site-header details[open] svg {
+  transform: rotate(180deg);
+}
+.site-header details nav .h1 {
+  margin-bottom: 0;
+}
+.site-header details nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
 }

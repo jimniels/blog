@@ -1,62 +1,6 @@
 // {string} activeHref
-(_) => `<style>
-.h1 {
-  display: flex;
-  gap: var(--s-40);
-  align-items: center;
-  color: var(--c-text-light);
-  cursor: default;
-}
-.h1 a {
-  color: inherit;
-  opacity: 0.5;
-}
-.h1 a:hover {
-  color: var(--c-text);
-  opacity: 1;
-}
-.h1[data-key='posts'] a:nth-child(1),
-.h1[data-key='metadata'] a:nth-child(2) {
-  color: var(--c-text);
-  pointer-events: none;
-  cursor: default;
-  font-weight: 900;
-  opacity: 1;
-}
-details summary {
-  margin-bottom: var(--s-16);
-  cursor: default;
-}
-details summary h1 {
-  margin-bottom: 0;
-  margin-right: var(--s-8);
-}
-details svg {
-  position: relative;
-  top: var(--s-4);
-  width: 24px;
-  height: 24px;
-  color: var(--c-text);
-  transition: transform 0.2s ease-in-out;
-}
-details[open] svg {
-  transform: rotate(180deg);
-}
-</style>
-<details style="display: flex; flex-direction: column;">
-<summary style="display: flex; align-items: center;">
-<h1>${_.key}</h1> ${server/svgs/heroicon-chevron-down.svg}
-</summary>
-<div>
-${_.key !== "Posts" ? `<h1><a href="/">Posts</a></h1>` : ''}
-${_.key !== "Links" ? `<h1><a href="/about/external-links/">Links</a></h1>` : ''}
-${_.key !== "Tags" ? `<h1><a href="/tags/">Tags</a></h1>` : ''}
-${_.key !== "About" ? `<h1><a href="/about/">About</a></h1>` : ''}
-</div>
-</details>
-
-
-<nav class="posts-nav">
+(_) => `
+<nav class="posts-nav" aria-label="Secondary">
   ${_.key === "Links" ? Tree.map(
     [
       
