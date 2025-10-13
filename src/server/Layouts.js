@@ -96,15 +96,14 @@ export function Page(props, children) {
           </script>*/ ""
           }
           <jim-site-switcher subdomain="blog"></jim-site-switcher>
-          <nav class="navv wrapper" hidden>
+          <nav class="navv wrapper">
             <a
               href="/"
               title="Jim Nielsen’s Blog"
               aria-label="Jim Nielsen’s Blog"
               ${path === "/" && "aria-current='page'"}
               ${path === "/" ||
-              path.includes("/posts/") ||
-              path.includes("/archive/") ||
+              !path.startsWith("/202") ||
               ["/subscribe/", "/search/", "/menu/"].includes(path)
                 ? "hidden"
                 : ""}
@@ -127,8 +126,8 @@ export function Page(props, children) {
                   <a href="/search/" aria-label="Search" title="Search"
                     >${Icon("heroicon-search")}</a
                   >
-                  <a href="/menu/" aria-label="Menu" title="Menu"
-                    >${Icon("heroicon-menu")}</a
+                  <a href="/menu/" aria-label="Theme" title="Theme"
+                    >${Icon("heroicon-light")}</a
                   >
                 `}
           </nav>

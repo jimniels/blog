@@ -1,0 +1,63 @@
+// {string} activeHref
+(_) => `
+<style>
+.header {
+display: flex; gap: var(--s-24)
+}
+.header h1, .header .h1 {
+  
+  line-height: 1;
+}
+.header a {
+  opacity: .5;
+}
+.header a:hover {
+  opacity: 1;
+}
+</style>
+<div class="header">
+${_.key === 'Posts' ? `<h1>Posts</h1><a href="/about/" class="h1">Meta</a>` : 
+`<a href="/" class="h1">Posts</a><h1>Meta</h1>`}
+</div>
+<details class="site-header wrapper" style="display: none">
+  <summary class="h1">${_.key} ${server/svgs/heroicon-chevron-down.svg}</summary>
+  <!-- prettier-ignore -->
+  <nav>
+      ${_.key !== 'Posts' ? '<a href="/" class="h1">Posts</a>' : ''}
+      ${_.key !== 'Links' ? '<a href="/about/external-links/" class="h1">Links</a>' : ''}
+      ${_.key !== 'Tags' ? '<a href="/tags/" class="h1">Tags</a>' : ''}
+      ${_.key !== 'About' ? '<a href="/about/" class="h1">About</a>' : ''}
+    </nav>
+</details>
+
+
+<nav class="posts-nav" aria-label="Secondary">
+  ${_.key !== "Posts" ? Tree.map(
+    [
+      { label: "About", href: "/about/" },
+      { label: "External links", href: "/about/external-links/" },
+      { label: "Internal links", href: "/about/internal-links/" },
+      
+      { label: "Tags", href: "/tags/" },
+    ],
+    (item) => `
+      <a href="${item.href}" aria-current="${item.href === _.activeHref ? 'page' : 'false'}">
+        ${item.label}
+      </a>
+    `
+  ) : Tree.map(
+    [
+      { label: "Latest", href: "/" },
+      { label: "Trending", href: "/posts/trending/" },
+      { label: "Hacker News Hits", href: "/posts/hacker-news/" },
+      // { label: "Personal Favs", href: "/posts/personal-favs/" },
+      { label: "All", href: "/archive/" },
+    ],
+    (item) => `
+      <a href="${item.href}" aria-current="${item.href === _.activeHref ? 'page' : 'false'}">
+        ${item.label}
+      </a>
+    `
+  )}
+</nav>
+`
