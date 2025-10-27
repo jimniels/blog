@@ -30,7 +30,7 @@ Without `<!doctype html>`, browsers may switch to quirks mode, emulating legacy,
 ## html lang
 
 ```html
-<html lange="en">
+<html lang="en">
 ```
 
 Declare the document’s language. Browsers, search engines, assistive technologies, etc. can leverage it to:
