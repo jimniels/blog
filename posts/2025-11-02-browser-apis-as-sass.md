@@ -22,7 +22,7 @@ You _could_ build it yourself. You could say “No thanks, I don’t want what y
 
 But you don’t have to. And odds are, whatever you do build yourself, is not likely to be as fast as the [highly-optimized subsystems you can tie together in the browser](https://blog.jim-nielsen.com/2025/more-control-equals-less-performance/).
 
-And the best part? Unlike SasS, you don’t have to pay for what the browser offers you.
+And the best part? Unlike SaaS, you don’t have to pay for what the browser offers you.
 
 And because you’re not paying, it can’t be turned off if you stop paying.
 
