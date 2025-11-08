@@ -14,7 +14,7 @@ There’s a parallel here, I think, to building stuff in the browser.
 
 Browsers provide lots of features to help you deliver good websites fast to an incredibly broad and diverse audience.
 
-Browser makers have teams of people who, day-in and day-out, are spending lots of time developing and optimizing new their offerings.
+Browser makers have teams of people who, day-in and day-out, are spending lots of time developing and optimizing their offerings.
 
 So if you leverage what they offer you, that gives you an advantage because you don’t have to build it yourself.
 
