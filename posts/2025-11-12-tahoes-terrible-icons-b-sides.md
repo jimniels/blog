@@ -69,7 +69,7 @@ Anyhow, enough reminiscing. Let’s get to the icons. I’m saving these pre-Tah
 `/System/Library/CoreServices/Installer`
 
 <div style="display:grid;grid-template-columns:1fr 1fr">
-<a href="https://cdn.jim-nielsen.com/blog/2025/tahoe-icons-pre-post/installer.png"><img src="https://cdn.jim-nielsen.com/blog/2025/tahoe-icons-pre-post/installer.png" width="512" height="512" alt="“Installer” app icon before macOS Tahoe" /></a>
+<a href="https://cdn.jim-nielsen.com/blog/2025/tahoe-icons-pre-post/installer.png"><img src="https://cdn.jim-nielsen.com/blog/2025/tahoe-icons-pre-post/installer.png" width="512" height="512" alt="“Installer” app icon before macOS Tahoe" data-og-image /></a>
 <a href="https://cdn.jim-nielsen.com/blog/2025/tahoe-icons-pre-post/installer-post.png"><img src="https://cdn.jim-nielsen.com/blog/2025/tahoe-icons-pre-post/installer-post.png" width="512" height="512" alt="“Installer” app icon in macOS Tahoe" /></a>
 </div>
 
