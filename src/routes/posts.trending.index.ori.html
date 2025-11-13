@@ -16,8 +16,7 @@
 ---
 
 <main class="wrapper">
-  <h1>Posts</h1>
-  ${<server/PostsNav.ori>(page.path)}
+  ${<server/PageNav.ori>({ key: "Posts", activeHref: page.path })}
 
   <!-- prettier-ignore -->
   ${<server/PostsList.js>( posts, (post) => `

@@ -38,7 +38,7 @@
 ---
 
 <main class="wrapper">
-  <h1>Tags</h1>
+  ${<server/PageNav.ori>({ key: "Tags", activeHref: page.path })}
   <ul class="tags-list">
     ${Tree.map(postsByTag, (posts, tag) => `
     <li>
