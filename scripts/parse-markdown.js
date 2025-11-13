@@ -117,7 +117,7 @@ const renderer = {
 
   // Images
   html(html) {
-    if (html.startsWith("<img")) {
+    if (html.startsWith("<img") || html.startsWith("<a")) {
       // Check for data-og-image attribute and extract src if found
       if (html.includes("data-og-image") && !ogImageUrl) {
         const srcMatch = html.match(/src="([^"]+)"/);
