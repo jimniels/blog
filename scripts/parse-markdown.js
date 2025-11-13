@@ -117,16 +117,16 @@ const renderer = {
 
   // Images
   html(html) {
-    if (html.startsWith("<img") || html.startsWith("<a")) {
-      // Check for data-og-image attribute and extract src if found
-      if (html.includes("data-og-image") && !ogImageUrl) {
-        const srcMatch = html.match(/src="([^"]+)"/);
-        if (srcMatch) {
-          ogImageUrl = srcMatch[1];
-        } else {
-          console.log("Warning: found `data-og-image` but no `src`", html);
-        }
+    if (html.includes("data-og-image") && !ogImageUrl) {
+      const srcMatch = html.match(/src="([^"]+)"/);
+      if (srcMatch) {
+        ogImageUrl = srcMatch[1];
+      } else {
+        console.log("Warning: found `data-og-image` but no `src`", html);
       }
+    }
+
+    if (html.startsWith("<img")) {
       return `<p class="image-container">${html}</p>`;
     }
     return html;
