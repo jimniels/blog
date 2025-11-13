@@ -1,0 +1,43 @@
+// {string} activeHref
+(_) => `
+<details class="site-header wrapper">
+  <summary class="h1">${_.key} ${server/svgs/heroicon-chevron-down.svg}</summary>
+  <!-- prettier-ignore -->
+  <nav>
+      ${_.key !== 'Posts' ? '<a href="/" class="h1">Posts</a>' : ''}
+      ${_.key !== 'Links' ? '<a href="/about/external-links/" class="h1">Links</a>' : ''}
+      ${_.key !== 'Tags' ? '<a href="/tags/" class="h1">Tags</a>' : ''}
+      ${_.key !== 'About' ? '<a href="/about/" class="h1">About</a>' : ''}
+    </nav>
+</details>
+
+${_.key === "Links" || _.key === "Posts" ?
+`<nav class="posts-nav" aria-label="Secondary">
+  ${_.key === "Links" ? Tree.map(
+    [
+      
+      { label: "External", href: "/about/external-links/" },
+      { label: "Internal", href: "/about/internal-links/" },
+      
+    ],
+    (item) => `
+      <a href="${item.href}" aria-current="${item.href === _.activeHref ? 'page' : 'false'}">
+        ${item.label}
+      </a>
+    `
+  ) : Tree.map(
+    [
+      { label: "Latest", href: "/" },
+      { label: "Trending", href: "/posts/trending/" },
+      { label: "Hacker News Hits", href: "/posts/hacker-news/" },
+      // { label: "Personal Favs", href: "/posts/personal-favs/" },
+      { label: "All", href: "/archive/" },
+    ],
+    (item) => `
+      <a href="${item.href}" aria-current="${item.href === _.activeHref ? 'page' : 'false'}">
+        ${item.label}
+      </a>
+    `
+  )}
+</nav>` : ''}
+`
