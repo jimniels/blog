@@ -1,6 +1,6 @@
 #iconGalleries
 
-# Data Storage As Files on Disk Pairs Well With LLMs
+# Data Storage As Files on Disk Paired With an LLM
 
 I recently added a bunch of app icons from macOS Tahoe to [my collection](https://www.macosicongallery.com).
 
@@ -16,9 +16,7 @@ Then I thought: “Hey, I bet AI could figure this out — right? It should be a
 
 So I formulated a prompt (in hindsight, a really poor one lol):
 
-```
-look through all the files in `sites/macos/icons/` and find any that start with `2025-11-13-*` and then find me any icons like iMovie that have a correlation to other icons in `sites/macos/icons/` where it's missing `appStoreId` and `categoryId`
-```
+> look through all the files in `sites/macos/icons/` and find any that start with `2025-11-13-*` and then find me any icons like iMovie that have a correlation to other icons in `sites/macos/icons/` where it's missing `appStoreId` and `categoryId`
 
 But AI did pretty good with that. I’ll save you the entire output, but Cursor thought for a bit, then asked to run this command:
 
