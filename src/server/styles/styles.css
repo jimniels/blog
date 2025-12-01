@@ -629,13 +629,23 @@ footer ol li {
 .navv a:not(:first-child):hover {
   background: var(--c-bg-opaque);
 }
-.navv a svg {
+.navv a:first-child svg {
+  position: relative;
+  left: -16px;
+}
+.navv a:not(:first-child) svg {
   width: 24px;
   height: 24px;
 }
 .navv a:first-child[hidden] {
   opacity: 0;
   visibility: hidden;
+}
+.navv a[aria-disabled="true"] svg {
+  color: var(--c-text-light);
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: normal;
 }
 
 /*@media (min-width: 42rem) {
@@ -764,7 +774,8 @@ h1 {
   border-top: 1px solid var(--c-border);
 }
 .kv-list li a {
-  padding: var(--s-16) 0;
+  padding: var(--s-8);
+  padding-left: var(--s-16);
   display: flex;
   justify-content: space-between;
   align-items: center;
