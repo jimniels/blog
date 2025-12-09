@@ -77,7 +77,7 @@ Those are good icons in menus. I like those.
 
 What I find really interesting about this change on Apple’s part is how it seemingly goes against their own previous human interface guidelines (as [pointed out to me by Peter Gassner](https://mastodon.gassner.io/@peter/115559008588925643)).
 
-They have an entire section in their 2005 guidelines ([and 2020](https://web.archive.org/web/20201027235952/https://developer.apple.com/design/human-interface-guidelines/macos/menus/menu-anatomy/)) titled “Using Symbols in Menus”:
+They have an entire section in their 2005 guidelines ([and 1992](https://mastodon.decentralised.social/@wezm/115686422177826944) [and 2020](https://web.archive.org/web/20201027235952/https://developer.apple.com/design/human-interface-guidelines/macos/menus/menu-anatomy/)) titled “Using Symbols in Menus”:
 
 <img src="https://cdn.jim-nielsen.com/blog/2025/context-menu-hig.png" width="679" height="359" alt="Screenshot from Apple’s Human Interface Guidelines" />
 
