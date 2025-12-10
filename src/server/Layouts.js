@@ -23,9 +23,30 @@ https://www.github.com/jimniels/blog/
  */
 export function Page(props, children) {
   const {
-    site: { origin, tags, name },
+    site: { origin, tags, name, posts },
     page: { head = "", path, title },
   } = props;
+
+  const postCountsByYear = posts.reduce((acc, post) => {
+    const year = new Date(post.date).getFullYear();
+    if (!acc[year]) {
+      acc[year] = 0;
+    }
+    acc[year]++;
+    return acc;
+  }, {});
+
+  const postTagsByCount = Object.entries(
+    posts.reduce((acc, post) => {
+      post.tags.forEach((tag) => {
+        if (!acc[tag]) {
+          acc[tag] = 0;
+        }
+        acc[tag]++;
+      });
+      return acc;
+    }, {})
+  ).sort((a, b) => b[1] - a[1]);
 
   return (
     "<!DOCTYPE html>" +
@@ -95,7 +116,135 @@ export function Page(props, children) {
               .toString()};
           </script>*/ ""
           }
-          <jim-site-switcher subdomain="blog"></jim-site-switcher>
+
+          <style>
+            body {
+              margin-left: 280px;
+              margin-top: var(--s-24);
+            }
+            .navv {
+              display: none;
+            }
+            .nnav {
+              position: fixed;
+              left: 0;
+              width: 280px;
+              top: 0;
+              height: 100%;
+              overflow-y: auto;
+              font-size: 0.825rem;
+              padding: var(--s-16);
+              border-right: 1px solid var(--c-border);
+
+              h3 {
+                font-size: 0.75rem;
+                opacity: 0.5;
+                margin-bottom: 0;
+              }
+              ul,
+              li {
+                list-style: none;
+                padding: 0;
+              }
+              li {
+                border-bottom: 1px solid transparent;
+              }
+
+              li a {
+                padding: var(--s-4);
+                display: flex;
+                gap: var(--s-8);
+                align-items: center;
+                border-radius: var(--border-radius);
+
+                &:hover {
+                  background: var(--c-bg-opaque);
+                  text-decoration: none;
+                }
+
+                span {
+                  margin-left: auto;
+                }
+              }
+              li a[aria-current="page"] {
+                background: var(--c-bg-opaque);
+              }
+              a {
+                color: inherit;
+              }
+              li span {
+                opacity: 0.5;
+                font-size: 0.75rem;
+              }
+              li svg {
+                width: 18px;
+                height: 18px;
+              }
+            }
+          </style>
+          <div class="nnav">
+            <h3>Jim Nielsen’s Blog</h3>
+            <ul>
+              <li>
+                <a href="/" ${path === "/" && "aria-current='page'"}
+                  >${Icon("heroicon-menu")} Posts</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/search/"
+                  ${path === "/search/" && "aria-current='page'"}
+                  >${Icon("heroicon-search")} Search</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/about/external-links/"
+                  ${path === "/about/external-links/" && "aria-current='page'"}
+                  >${Icon("heroicon-outlinks")} External Links</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/about/internal-links/"
+                  ${path === "/about/internal-links/" && "aria-current='page'"}
+                  >${Icon("heroicon-inlinks")} Internal Links</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/subscribe/"
+                  ${path === "/subscribe/" && "aria-current='page'"}
+                  >${Icon("heroicon-rss")} Subscribe</a
+                >
+              </li>
+              <li>
+                <a href="/about/" ${path === "/about/" && "aria-current='page'"}
+                  >${Icon("heroicon-about")} About</a
+                >
+              </li>
+            </ul>
+            <h3>Posts by Year</h3>
+            <ul>
+              ${Object.entries(postCountsByYear)
+                .sort((a, b) => b[0] - a[0])
+                .map(
+                  ([year, count]) => `
+                  <li><a href="/${year}/" ${
+                    path === `/${year}/` && "aria-current='page'"
+                  }>${year} <span>${count}</span></a></li>
+                `
+                )}
+            </ul>
+            <h3>Posts by Tag</h3>
+            <ul>
+              ${postTagsByCount.map(
+                ([tag, count]) => `
+                <li><a href="/tags/#${tag}">#${tag} <span>${count}</span></a></li>
+              `
+              )}
+            </ul>
+          </div>
           <nav class="navv wrapper" hidden>
             <a
               href="/"
