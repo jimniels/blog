@@ -10,17 +10,30 @@
   // Post paths by year, e.g. `/2024/slug/index.html`
   (postsTree): Tree.group(data.posts, (post) => new Date(post.date).getFullYear())
     // Process the years
-    -> (years) => Tree.map(years, (year) => 
-      // Process the posts in each year
-      Tree.map(year, { 
-        // Use the slug as the key for a folder
-        key: (post) => post.slug,
-        // Generate the HTML for each post as the index page in that folder
-        value: (post) => {
-          index.html: <routes/$year.$slug.index.ori.html>({ site: data, post: Tree.plain(post) })
-        }
-      })
-    )
+    -> (years) => Tree.map(years, {
+      key: (year) => year,
+      value: (posts, year) => {
+        (_year): Origami.slash.remove(year)
+        index.html: <server/Layouts.js>.Page(
+          {
+            site: data,
+            page: { title: `${_year} Posts`, path: `/${_year}/`}
+          },
+          `<main class="wrapper"><h1>Posts from ${_year}</h1>
+          <input type="text" placeholder="Filter...">
+          ${<server/PostsList.js>(Tree.plain(posts))}</main>`
+        )
+        // Process the posts in each year
+        ...Tree.map(posts, { 
+          // Use the slug as the key for a folder
+          key: (post) => post.slug,
+          // Generate the HTML for each post as the index page in that folder
+          value: (post) => {
+            index.html: <routes/$year.$slug.index.ori.html>({ site: data, post: Tree.plain(post) })
+          }
+        })
+      }
+  })
 
   // ===========================================================================
   // Create the site

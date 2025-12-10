@@ -114,7 +114,7 @@
     ` )}
   </ol>
   */""} ${Tree.map(postsByYearThenMonth, (postsByMonth, year) => `
-  <h2>${year}</h2>
+  <h2 id="${year}">${year}</h2>
   ${Tree.map(postsByMonth, (posts, month) => `
   <h3>
     ${Intl.DateTimeFormat('en', { month: 'short' }).format(new Date(month))}
