@@ -7,11 +7,11 @@
   (data): Origami.unpack(<cache/site.json>)
 
   // Generate a tree of posts
-  // Post paths by year, e.g. `/2024/slug/index.html`
+  // Post paths by year, e.g. `/2024/:slug/index.html`
   (postsTree): Tree.group(data.posts, (post) => new Date(post.date).getFullYear())
     // Process the years
     -> (years) => Tree.map(years, {
-      key: (year) => year,
+      key: (posts, year) => year,
       value: (posts, year) => {
         (_year): Origami.slash.remove(year)
         index.html: <server/Layouts.js>.Page(
