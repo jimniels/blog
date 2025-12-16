@@ -35,3 +35,7 @@ And that’s an uncomfortable place to be. Who wants to admit “I don’t know�
 It’s so easy to take what’s convenient over what corresponds to reality.
 
 And that’s what scares me about AI.
+
+## Update 2025-12-16
+
+After publishing, I was tipped off to the [Gell-Mann amnesia effect](https://en.wikipedia.org/wiki/Gell-Mann_amnesia_effect)   which is right up the subject alley of this post.
