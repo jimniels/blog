@@ -22,9 +22,9 @@ It’s kind of fascinating to think about this in our current moment of AI. Allo
 
 You read with exasperation the multiple errors in AI’s “answer”, then start a new chat and read with renewed interest and faith as if the next “answer” is somehow more accurate than the last. You start a new prompt and forget what you know.
 
-If a friend, acquitance, or family member were to consistently exaggerate or lie to you, you’d quickly adopt a posture of discounting everything they say. But with AI — which even comes with a surgeon general’s warning, e.g. “AI can make mistakes. Check important info.” — we forgive and forget.
+If a friend, acquaintance, or family member were to consistently exaggerate or lie to you, you’d quickly adopt a posture of discounting everything they say. But with AI — which even comes with a surgeon general’s warning, e.g. “AI can make mistakes. Check important info.” — we forgive and forget.
 
-Forget. Maybe that’s the keyword for our behavior. It is for Chrichton:
+Forget. Maybe that’s the keyword for our behavior. It is for Crichton:
 
 > The only possible explanation for our behavior is amnesia.
 
