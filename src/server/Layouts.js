@@ -140,7 +140,7 @@ export function Page(props, children) {
               h3 {
                 font-size: 0.75rem;
                 opacity: 0.5;
-                margin-bottom: 0;
+                margin-bottom: -0.5rem;
               }
               ul,
               li {
@@ -188,7 +188,7 @@ export function Page(props, children) {
             <ul>
               <li>
                 <a href="/" ${path === "/" && "aria-current='page'"}
-                  >${Icon("heroicon-menu")} Posts</a
+                  >${Icon("heroicon-home")} Posts</a
                 >
               </li>
               <li>

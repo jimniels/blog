@@ -22,6 +22,9 @@
   --c-border: hsl(
     var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.05
   );
+  --c-blocks: hsl(
+    var(--c-theme-h) calc(var(--c-theme-s) - 10%) var(--c-theme-l) / 0.025
+  );
   --c-text: hsl(var(--c-theme-h) var(--c-theme-s) 8%);
   --c-text-light: hsl(var(--c-theme-h) var(--c-theme-s) 8% / 50%);
 
@@ -134,7 +137,7 @@
   --s-64: calc(64rem / 18);
   --s-80: calc(80rem / 18);
   --s-96: calc(96rem / 18);
-  --max-width: 32rem;
+  --max-width: 38rem;
   --max-width-padding: 6rem;
   --max-width-outer: calc(var(--max-width) + (var(--max-width-padding) * 2));
 }
@@ -373,7 +376,7 @@ pre {
 .copy > ul code {
   word-wrap: break-word;
   word-break: keep-all;
-  background-color: var(--c-bg-opaque);
+  background-color: var(--c-blocks);
   padding: calc(1.618rem / 12) calc(1.618rem / 6);
   border-radius: 10px;
 }
@@ -381,19 +384,11 @@ pre {
 .copy .image-container,
 .copy p:has(img),
 .copy p:has(video) {
-  max-width: var(--max-width);
-  text-align: center;
-
-  text-align: center;
-
-  border: 1px solid;
-  background: #fff;
+  max-width: none;
+  background: var(--c-blocks);
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 1rem;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .copy .image-container span,
