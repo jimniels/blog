@@ -45,7 +45,7 @@
       </li>
       ${ post.tags.length ? `
       <li>
-        ${Tree.map(post.tags, (tag) => `<a href="/tags/#${tag}">#${tag}</a> `)}
+        ${Tree.map(post.tags, (tag) => `<a href="/tags/${tag}/">#${tag}</a> `)}
       </li>
       ` : "" }
       ${ post.hackerNews ? `

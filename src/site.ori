@@ -35,6 +35,11 @@
       }
   })
 
+  postsByTag = data.posts
+    -> (posts) => Tree.filter(posts, (post) => !post.tags.includes("rssClub"))
+    -> (posts) => Tree.group(posts, (post) => post.tags)
+    // -> Tree.sort
+
   // ===========================================================================
   // Create the site
   // ===========================================================================
@@ -67,7 +72,23 @@
   search = { index.html = <routes/search.ori.html>(data) }
   styles.css = Origami.unpack(<routes/styles.css.ori>)
   subscribe = { index.html = <routes/subscribe.ori.html>(data) }  
-  tags = { index.html = <routes/tags.index.ori.html>(data) }
+  tags = {
+    index.html = <routes/tags.index.ori.html>(data)
+    ...Tree.map(postsByTag, {
+      key: (posts, tag) => tag,
+      value: (posts, tag) => {
+        index.html = <server/Layouts.js>.Page(
+          {
+            site: data,
+            page: { title: `Posts tagged #${Origami.slash.remove(tag)}`, path: `/tags/${tag}`}
+          },
+          `<main class="wrapper"><h1>Posts tagged #${Origami.slash.remove(tag)}</h1>
+          
+          ${<server/PostsList.js>(Tree.plain(posts))}</main>`
+        )
+      }
+    })
+  }
 
   // These path to `/well-known/...` in the build output and then we do a
   // rewrite because netlify is apparently weird about hidden files

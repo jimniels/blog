@@ -241,7 +241,9 @@ export function Page(props, children) {
             <ul>
               ${postTagsByCount.map(
                 ([tag, count]) => `
-                <li><a href="/tags/#${tag}">#${tag} <span>${count}</span></a></li>
+                <li><a href="/tags/${tag}/" ${
+                  path === `/tags/${tag}/` && "aria-current='page'"
+                }>#${tag} <span>${count}</span></a></li>
               `
               )}
             </ul>

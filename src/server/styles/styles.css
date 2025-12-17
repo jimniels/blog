@@ -326,7 +326,7 @@ table td {
    Layout
    ========================================================================== */
 
-.copy > *:not(:is(.image-container, p:has(img))):not(pre),
+.copy > *,
 .wrapper {
   max-width: var(--max-width);
   margin-left: var(--s-16);
@@ -334,9 +334,9 @@ table td {
 }
 
 @media screen and (min-width: 42rem) {
-  .copy > *:not(:is(.image-container, p:has(img))):not(pre),
+  .copy > *,
   .wrapper {
-    margin-left: var(--s-24);
+    margin-left: var(--s-40);
     /* margin-right: auto; */
   }
 }
@@ -351,7 +351,7 @@ table td {
 
 pre {
   /* 32rem + 1.5rem on either side = 38rem */
-  max-width: calc(var(--max-width) + 3rem);
+  max-width: none !important;
   margin-left: auto;
   margin-right: auto;
   padding: calc(1.618rem / 2);
@@ -381,14 +381,10 @@ pre {
 .copy .image-container,
 .copy p:has(img),
 .copy p:has(video) {
-  max-width: 46rem;
+  max-width: var(--max-width);
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  /* overrides */
-  max-width: 35rem;
+
   text-align: center;
-  margin-left: var(--s-32);
 
   border: 1px solid;
   background: #fff;
