@@ -46,7 +46,8 @@ export function Page(props, children) {
       });
       return acc;
     }, {})
-  ).sort((a, b) => b[1] - a[1]);
+    // ).sort((a, b) => b[1] - a[1]);
+  ).sort((a, b) => (b[0] > a[0] ? -1 : 1));
 
   return (
     "<!DOCTYPE html>" +
