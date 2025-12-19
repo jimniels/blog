@@ -681,6 +681,7 @@ h1 {
   /* background: var(--c-bg-opaque); */
   border: 1px solid var(--c-border);
   border-radius: var(--border-radius);
+  text-decoration: none;
 }
 
 @media (min-width: 30rem) {

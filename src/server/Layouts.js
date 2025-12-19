@@ -201,17 +201,20 @@ export function Page(props, children) {
               <li>
                 <a
                   href="/about/external-links/"
-                  ${path === "/about/external-links/" && "aria-current='page'"}
-                  >${Icon("heroicon-outlinks")} External Links</a
+                  ${path === "/about/external-links/" ||
+                  path === "/about/internal-links/"
+                    ? "aria-current='page'"
+                    : ""}
+                  >${Icon("heroicon-outlinks")} Links</a
                 >
               </li>
-              <li>
+              <!-- <li>
                 <a
                   href="/about/internal-links/"
                   ${path === "/about/internal-links/" && "aria-current='page'"}
                   >${Icon("heroicon-inlinks")} Internal Links</a
                 >
-              </li>
+              </li> -->
               <li>
                 <a
                   href="/subscribe/"
