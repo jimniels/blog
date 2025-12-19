@@ -1,4 +1,4 @@
-#prototypes
+#prototyping
 
 # Successive Prototypes Bridge the Gap Between Idea and Reality
 
