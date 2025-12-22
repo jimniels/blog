@@ -1,0 +1,25 @@
+---
+(site) => {
+  page: {
+    title: "Personal Favorites",
+    path: "/posts/personal-favorites/",
+  }
+  posts = site.posts
+    -> (posts) => Tree.filter(posts, (post) => post.isFav)
+    -> Tree.values
+    -> Tree.plain
+  
+  return = <server/Layouts.js>.Page({ site, page }, _template())
+}.return
+---
+
+<main class="wrapper">
+  <h1>Personal Favorites</h1>
+  <p class="posts-nav-not">
+    A little explanation here about this curated list.
+  </p>
+  ${/*<server/PostsNav.ori>(page.path)*/""}
+
+  <!-- prettier-ignore -->
+  ${<server/PostsList.js>(posts)}
+</main>

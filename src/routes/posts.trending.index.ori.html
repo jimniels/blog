@@ -16,16 +16,9 @@
 ---
 
 <main class="wrapper">
-  <h1>Posts</h1>
-  ${<server/PostsNav.ori>(page.path)}
-
-  <!-- prettier-ignore -->
-  ${<server/PostsList.js>( posts, (post) => `
-    ${post.pageviews > 1000 ? Math.round((post.pageviews / 1000) * 10) / 10 + "k"
-    : post.pageviews} pageviews` )}
-
-  <p class="posts-nav-note">
-    FYI: pageviews are based on the last 30 days of
+  <h1>Trending Posts</h1>
+  <p class="posts-nav-not">
+    Pageviews are based on the last 30 days of
     <a
       href="/2020/using-netlify-analytics-to-build-list-of-popular-posts/"
       style="text-decoration: underline; color: inherit"
@@ -34,4 +27,10 @@
     </a>
     .
   </p>
+  ${/*<server/PostsNav.ori>(page.path)*/""}
+
+  <!-- prettier-ignore -->
+  ${<server/PostsList.js>( posts, (post) => `
+    ${post.pageviews > 1000 ? Math.round((post.pageviews / 1000) * 10) / 10 + "k"
+    : post.pageviews} pageviews` )}
 </main>

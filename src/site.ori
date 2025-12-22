@@ -66,8 +66,10 @@
   index.html = <routes/index.ori.html>(data)
   menu = { index.html = <routes/menu.ori.html>(data) }
   posts = { 
+    index.html = `<!doctype html><meta http-equiv="refresh" content="0; url=/archive/">`
     hacker-news = { index.html = <routes/posts.hacker-news.index.ori.html>(data) }
     trending = { index.html = <routes/posts.trending.index.ori.html>(data) }
+    personal-favorites = { index.html = <routes/posts.personal-favorites.ori.html>(data) }
   }
   search = { index.html = <routes/search.ori.html>(data) }
   styles.css = Origami.unpack(<routes/styles.css.ori>)

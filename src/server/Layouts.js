@@ -188,7 +188,7 @@ export function Page(props, children) {
             <ul>
               <li>
                 <a href="/" ${path === "/" && "aria-current='page'"}
-                  >${Icon("heroicon-home")} Posts</a
+                  >${Icon("heroicon-home")} Home</a
                 >
               </li>
               <li>
@@ -198,28 +198,68 @@ export function Page(props, children) {
                   >${Icon("heroicon-search")} Search</a
                 >
               </li>
-              <li>
-                <a
-                  href="/about/external-links/"
-                  ${path === "/about/external-links/" ||
-                  path === "/about/internal-links/"
-                    ? "aria-current='page'"
-                    : ""}
-                  >${Icon("heroicon-outlinks")} Links</a
-                >
-              </li>
-              <!-- <li>
-                <a
-                  href="/about/internal-links/"
-                  ${path === "/about/internal-links/" && "aria-current='page'"}
-                  >${Icon("heroicon-inlinks")} Internal Links</a
-                >
-              </li> -->
+
               <li>
                 <a
                   href="/subscribe/"
                   ${path === "/subscribe/" && "aria-current='page'"}
                   >${Icon("heroicon-rss")} Subscribe</a
+                >
+              </li>
+              <li hidden>
+                <a href="/about/" ${path === "/about/" && "aria-current='page'"}
+                  >${Icon("heroicon-about")} About</a
+                >
+              </li>
+            </ul>
+            <h3>Posts</h3>
+            <ul>
+              <li>
+                <a
+                  href="/posts/trending/"
+                  ${path === "/posts/trending/" && "aria-current='page'"}
+                  >${Icon("heroicon-trending")} Trending</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/posts/hacker-news/"
+                  ${path === "/posts/hacker-news/" && "aria-current='page'"}
+                  >${Icon("hacker-news")} HN Hits</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="/archive/"
+                  ${path === "/archive/" && "aria-current='page'"}
+                  >${Icon("heroicon-archive")} Archive</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/posts/personal-favorites/"
+                  ${path === "/posts/personal-favorites/" &&
+                  "aria-current='page'"}
+                  >${Icon("heroicon-star")} Personal Favs</a
+                >
+              </li>
+            </ul>
+
+            <h3>Meta</h3>
+            <ul>
+              <li>
+                <a
+                  href="/about/external-links/"
+                  ${path === "/about/external-links/" && "aria-current='page'"}
+                  >${Icon("heroicon-outlinks")} External Links</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/about/internal-links/"
+                  ${path === "/about/internal-links/" && "aria-current='page'"}
+                  >${Icon("heroicon-inlinks")} Internal Links</a
                 >
               </li>
               <li>
@@ -228,6 +268,7 @@ export function Page(props, children) {
                 >
               </li>
             </ul>
+
             <h3>Posts by Year</h3>
             <ul>
               ${Object.entries(postCountsByYear)
@@ -240,6 +281,7 @@ export function Page(props, children) {
                 `
                 )}
             </ul>
+
             <h3>Posts by Tag</h3>
             <ul>
               ${postTagsByCount.map(
