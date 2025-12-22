@@ -17,7 +17,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "diff-changes": "git checkout main && npm i && npm run build && mv build build-old && git checkout - && npm i && npm run build && ori changes build-old, build",
     "copy-css": "cp node_modules/highlight.js/styles/atom-one-*.css src/server/styles/",
-    "pre": "mkdir -p cache && npm run copy-css && node --env-file=.env scripts/cache-site-data.js && npm run get-quick-charts",
+    "pre": "mkdir -p cache && npm run copy-css && node scripts/cache-site-data.js && npm run get-quick-charts",
     "prestart": "npm run pre",
     "start": "ori serve watch src, =debug src/site.ori",
     "prebuild": "npm run pre",
