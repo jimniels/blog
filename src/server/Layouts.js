@@ -1,6 +1,7 @@
 import fs from "fs";
 import { html, readFile } from "./utils.js";
 import { Icon } from "./Icon.js";
+import ThemePicker from "./ThemePicker.js";
 
 const comment = `
 <!--
@@ -137,11 +138,14 @@ export function Page(props, children) {
               padding: var(--s-16);
               border-right: 1px solid var(--c-border);
 
-              h3 {
+              h3,
+              details summary {
                 font-size: 0.75rem;
                 opacity: 0.5;
                 margin-bottom: -0.5rem;
+                font-weight: bold;
               }
+
               ul,
               li {
                 list-style: none;
@@ -168,7 +172,9 @@ export function Page(props, children) {
                 }
               }
               li a[aria-current="page"] {
-                background: var(--c-bg-opaque);
+                zbackground: var(--c-text);
+                zcolor: var(--c-bg);
+                background: var(--c-border);
               }
               a {
                 color: inherit;
@@ -180,6 +186,25 @@ export function Page(props, children) {
               li svg {
                 width: 18px;
                 height: 18px;
+              }
+
+              details {
+                &[open] {
+                  summary svg {
+                    transform: rotate(90deg);
+                  }
+                }
+                summary {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  margin-bottom: var(--s-4);
+
+                  svg {
+                    width: 16px;
+                    height: 16px;
+                  }
+                }
               }
             }
           </style>
@@ -268,6 +293,29 @@ export function Page(props, children) {
                 >
               </li>
             </ul>
+
+            <!-- <details open>
+              <summary>Accent ${Icon("heroicon-chevron-right")}</summary>
+              <div>
+                ${["blue", "red", "green"].map(
+              (item) =>
+                `<div style="display: flex; align-items: center; gap: var(--s-4);"><span style="border-radius: 50%; width: 12px; height: 12px; background-color: hsl(var(--c-${item}-h) var(--c-${item}-s) var(--c-${item}-l))"></span> ${item}</div>`
+            )}
+              </div>
+            </details>
+
+            <details>
+              <summary>Appearance ${Icon("heroicon-chevron-right")}</summary>
+              <div>
+                ${["system", "light", "dark"].map(
+              (item) =>
+                `<div style="display: flex; align-items: center; gap: var(--s-4);"><span style="border-radius: 50%; width: 12px; height: 12px; background-color: hsl(var(--c-${item}-h) var(--c-${item}-s) var(--c-${item}-l))"></span> ${item}</div>`
+            )}
+              </div>
+            </details> -->
+
+            <h3>Theme</h3>
+            ${ThemePicker()}
 
             <h3>Posts by Year</h3>
             <ul>
