@@ -139,7 +139,8 @@ export function Page(props, children) {
               border-right: 1px solid var(--c-border);
 
               h3,
-              details summary {
+              details summary,
+              legend {
                 font-size: 0.75rem;
                 opacity: 0.5;
                 margin-bottom: -0.5rem;
@@ -314,7 +315,6 @@ export function Page(props, children) {
               </div>
             </details> -->
 
-            <h3>Theme</h3>
             ${ThemePicker()}
 
             <h3>Posts by Year</h3>
@@ -323,7 +323,7 @@ export function Page(props, children) {
                 .sort((a, b) => b[0] - a[0])
                 .map(
                   ([year, count]) => `
-                  <li><a href="/${year}/" ${
+                  <li><a style="padding-left: 26px;" href="/${year}/" ${
                     path === `/${year}/` && "aria-current='page'"
                   }>${year} <span>${count}</span></a></li>
                 `

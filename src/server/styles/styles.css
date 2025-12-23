@@ -823,21 +823,8 @@ pre {
   margin: 0;
 }
 
-.theme-picker fieldset div {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.theme-picker legend {
-  width: 50%;
-}
-
-.theme-picker legend + div {
-  width: 50%;
+.theme-picker fieldset legend {
+  margin-bottom: var(--s-4);
 }
 
 .theme-picker input {
@@ -845,40 +832,58 @@ pre {
   opacity: 0;
 }
 .theme-picker input:checked + label {
-  background: var(--c-fg);
-  border-radius: 50%;
+  /* background: var(--c-border); */
+}
+.theme-picker input:checked + label span:nth-child(3) {
+  opacity: 1;
+  visibility: visible;
 }
 .theme-picker label {
   height: 100%;
-  text-indent: -9999px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: var(--s-24);
+  border-radius: var(--border-radius);
+  height: var(--s-32);
+  padding: var(--s-4);
+  width: 100%;
+  text-transform: capitalize;
+  gap: var(--s-8);
 }
 .theme-picker input:focus-visible + label {
   outline: 2px solid var(--c-theme);
 }
-.theme-picker label[for^="appearance"] svg {
-  width: 20px;
-  height: 20px;
-}
 
-.theme-picker label[for^="appearance"] {
-  width: 20%;
-}
-.theme-picker label[for^="appearance"] > span:first-child {
-  display: none;
-}
-
-.theme-picker label[for^="color"] {
-  width: 20%;
-}
-.theme-picker label[for^="color"] span {
+.theme-picker label[for^="color"] span:first-child span {
   width: 12px;
   height: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+}
+
+.theme-picker label span:nth-child(1) {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-picker label span:nth-child(2) {
+  flex-grow: 1;
+}
+.theme-picker label span:nth-child(3) {
+  margin-left: auto;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  color: var(--c-text-light);
+}
+.theme-picker label svg {
+  width: 18px;
+  height: 18px;
 }
