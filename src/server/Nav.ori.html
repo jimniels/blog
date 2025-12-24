@@ -49,6 +49,57 @@ return = _template()
     </li>
   </ul>
 
+  <h3 class="nav-label">Posts</h3>
+  <ul>
+    <li>
+      <a
+        href="/posts/trending/"
+        aria-current="${path === '/posts/trending/' ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__icon">
+          ${server/svgs/heroicon-trending.svg}
+        </span>
+        <span class="nav-list-item__label">Trending</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/posts/hacker-news/"
+        aria-current="${path === '/posts/hacker-news/' ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__icon">${server/svgs/hacker-news.svg}</span>
+        <span class="nav-list-item__label">HN Hits</span>
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="/archive/"
+        aria-current="${path === '/archive/' ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__icon">
+          ${server/svgs/heroicon-archive.svg}
+        </span>
+        <span class="nav-list-item__label">Archive</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/posts/personal-favorites/"
+        aria-current="${path === '/posts/personal-favorites/' ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__icon">
+          ${server/svgs/heroicon-star.svg}
+        </span>
+        <span class="nav-list-item__label">Personal Favs</span>
+      </a>
+    </li>
+  </ul>
+
   <h3 class="nav-label">Posts by Year</h3>
   <ul>
     ${Tree.map(postsByYear, (posts, year) => `
