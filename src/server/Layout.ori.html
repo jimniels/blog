@@ -1,0 +1,151 @@
+---
+/**
+ * @param {{ site: import("types").Site, post: import("types").Post, children: string }} props
+ */
+(props, children) => {
+  site: props.site
+  page: props.page
+  head: props.page.head || "",
+  name: props.site.name,
+  path: props.page.path,
+  title: props.page.title,
+
+  return = _template()
+}.return
+---
+<!DOCTYPE html>
+<!--
+
+
+
+👋
+Want to read the code behind this code?
+It’s available on GitHub.
+https://www.github.com/jimniels/blog/
+
+
+
+-->
+<html lang="en-us" id="top" data-path="${path}">
+  <head>
+    <title>${title && `${title} - `}${name}</title>
+
+    <link rel="stylesheet" href="/styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Jim Nielsen" />
+    <meta
+      name="description"
+      content="Writing about the big beautiful mess that is making things for the world wide web."
+    />
+    <link rel="me" href="https://github.com/jimniels" />
+    <link rel="me" href="https://twitter.com/jimniels" />
+    <link rel="me" href="https://mastodon.social/@jimniels" />
+    <link rel="me" href="https://dribbble.com/jimniels" />
+    <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
+
+    <script
+      type="module"
+      src="https://cdn.jim-nielsen.com/shared/jim-site-switcher.js"
+    ></script>
+
+    <!-- Feeds -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS: XML Feed"
+      href="/feed.xml"
+    />
+    <link
+      rel="alternate"
+      type="application/json"
+      title="RSS: JSON Feed"
+      href="/feed.json"
+    />
+    <link
+      rel="alternate"
+      type="application/mf2+html"
+      title="RSS: HTML Feed"
+      href="/feed.html"
+    />
+
+    <script>
+      ${<server/theme.js>};
+    </script>
+
+    <!-- Prefetch navigational pages -->
+    <link rel="prefetch" href="/menu/" />
+    <link rel="prefetch" href="/search/" />
+
+    <!-- Dynamic <head> content where applicable -->
+    ${head}
+  </head>
+  <body>
+    <!-- Add snow to the page 
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@zachleat/snow-fall/+esm"
+    ></script>
+    <snow-fall style="--snow-fall-color: rebeccapurple"></snow-fall>
+    <snow-fall></snow-fall>
+
+    Effects
+    - Spring (rain)
+    - Summer (sun?)
+    - Fall (leaves)
+    - Winter (snow)
+    - None
+    -->
+
+    ${
+      /*<script>
+      ${fs
+        .readFileSync(
+          "/Users/jimnielsen/Dropbox/cdn/shared/jim-site-switcher.js"
+        )
+        .toString()};
+    </script>*/ ""
+    }
+
+    ${server/Nav.ori.html(site, page.path)}
+    
+    <nav class="navv wrapper" hidden>
+      <a
+        href="/"
+        title="Jim Nielsen’s Blog"
+        aria-label="Jim Nielsen’s Blog"
+        aria-current="${path === '/' ? 'page' : 'false'}"
+        ${path === "/" ||
+        path.includes("/posts/") ||
+        path.includes("/archive/") ||
+        ["/subscribe/", "/search/", "/menu/"].includes(path)
+          ? "hidden"
+          : ""}
+      >
+        Jim’s Blog
+      </a>
+
+      ${["/menu/", "/search/", "/subscribe/"].includes(path)
+        ? `<a
+            href="/"
+            onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
+            title="Close menu (back)"
+            aria-label="Close menu (back)"
+            >${server/svgs/heroicon-close.svg} Close menu (back)</a
+          >`
+        : `
+            <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
+              >${server/svgs/heroicon-rss.svg} Subscribe</a
+            >
+            <a href="/search/" aria-label="Search" title="Search"
+              >${server/svgs/heroicon-search.svg} Search</a
+            >
+            <a href="/menu/" aria-label="Menu" title="Menu"
+              >${server/svgs/heroicon-menu.svg} Menu</a
+            >
+          `}
+    </nav>
+    ${children}
+  </body>
+</html>
+   
