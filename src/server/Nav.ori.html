@@ -10,24 +10,45 @@ return = _template()
 ---
 
 <nav class="nav">
-  <h3 class="nav-label">Appearance</h3>
-  <form class="theme-picker">
-    ${Tree.map(appearances, (theme) => `
-    <input
-      type="radio"
-      name="appearance"
-      value="${theme}"
-      id="appearance-${theme}"
-    />
-    <label for="appearance-${theme}" class="nav-list-item">
-      <span class="nav-list-item__icon">
-        ${server/svgs[`heroicon-${theme}.svg`]}
-      </span>
-      <span class="nav-list-item__label">${theme}</span>
-      <span class="nav-list-item__meta">${server/svgs/heroicon-check.svg}</span>
-    </label>
-    ` )}
-  </form>
+  <h3 class="nav-label">Jim Nielsen’s Blog</h3>
+  <ul>
+    <li>
+      <a
+        href="/"
+        class="nav-list-item"
+        aria-current="${path === '/' ? 'page' : 'false'}"
+      >
+        <span class="nav-list-item__icon">
+          ${server/svgs/heroicon-home.svg}
+        </span>
+        <span class="nav-list-item__label">Home</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/search/"
+        class="nav-list-item"
+        aria-current="${path === '/search/' ? 'page' : 'false'}"
+      >
+        <span class="nav-list-item__icon">
+          ${server/svgs/heroicon-search.svg}
+        </span>
+        <span class="nav-list-item__label">Search</span>
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="/subscribe/"
+        aria-current="${path === '/subscribe/' ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__icon">${server/svgs/heroicon-rss.svg}</span>
+        <span class="nav-list-item__label">Subscribe</span>
+      </a>
+    </li>
+  </ul>
+
   <h3 class="nav-label">Posts by Year</h3>
   <ul>
     ${Tree.map(postsByYear, (posts, year) => `
