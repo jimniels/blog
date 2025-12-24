@@ -100,6 +100,46 @@ return = _template()
     </li>
   </ul>
 
+  <h3 class="nav-label">Meta</h3>
+  <ul>
+    <li>
+      <a
+        href="/about/external-links/"
+        aria-current="${path === '/about/external-links/' ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__icon">
+          ${server/svgs/heroicon-outlinks.svg}
+        </span>
+        <span class="nav-list-item__label">External Links</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/about/internal-links/"
+        aria-current="${path === '/about/internal-links/' ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__icon">
+          ${server/svgs/heroicon-inlinks.svg}
+        </span>
+        <span class="nav-list-item__label">Internal Links</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/about/"
+        aria-current="${path === '/about/' ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__icon">
+          ${server/svgs/heroicon-about.svg}
+        </span>
+        <span class="nav-list-item__label">About</span>
+      </a>
+    </li>
+  </ul>
+
   <h3 class="nav-label">Posts by Year</h3>
   <ul>
     ${Tree.map(postsByYear, (posts, year) => `
