@@ -1,7 +1,7 @@
 ---
 (site, path) => {
 // Pulled from the CSS theme variables
-colors = [
+colors: [
 "red",
 "blue",
 "green",
@@ -18,7 +18,7 @@ colors = [
 // "indigo",
 ],
 
-appearances = ["system", "light", "dark"],
+appearances: ["system", "light", "dark"],
 
 // postsByYear = Tree.group(site.posts, (post) => post.date.slice(0, 4)) -> Tree.reverse,
 // postsByTag = Tree.group(site.posts, (post) => post.tags)
@@ -159,7 +159,7 @@ return = _template()
 
   <h3 class="nav-label">Accent</h3>
   <form class="theme-picker">
-    ${Tree.map(colors, (color) => /*html*/ `
+    ${Tree.map(colors, (color) => `
     <input type="radio" name="color" value="${color}" id="color-${color}" />
     <label for="color-${color}" class="nav-list-item">
       <span class="nav-list-item__icon">
