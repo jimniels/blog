@@ -2,7 +2,7 @@
 (site, path) => {
 
 
-
+postsByYear = Tree.group(site.posts, (post) => post.date.slice(0, 4)) -> Tree.reverse,
 postsByTag = Tree.group(site.posts, (post) => post.tags)
 
 return = _template()
@@ -10,6 +10,21 @@ return = _template()
 ---
 
 <nav class="nav">
+  <h3 class="nav-label">Posts by Year</h3>
+  <ul>
+    ${Tree.map(postsByYear, (posts, year) => `
+    <li>
+      <a
+        href="/${year}/"
+        aria-current="${path === `/${year}/` ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__label">${year}</span>
+        <span class="nav-list-item__meta">${posts.length}</span>
+      </a>
+    </li>
+    `)}
+  </ul>
   <h3 class="nav-label">Posts by Tag</h3>
   <ul>
     ${Tree.map(postsByTag, (posts, tag) => `
