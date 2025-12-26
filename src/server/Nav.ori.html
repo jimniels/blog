@@ -22,8 +22,8 @@
   appearances: ["system", "light", "dark"],
 
 
-// postsByYear = Tree.groupBy(site.posts, (post) => post.date.slice(0, 4)) -> Tree.reverse,
-// postsByTag = Tree.groupBy(site.posts, (post) => post.tags)
+postsByYear: Tree.groupBy(site.posts, (post) => post.date.slice(0, 4)) -> Tree.reverse,
+postsByTag: Tree.groupBy(site.posts, (post) => post.tags)
 
 return = _template()
 }.return
@@ -206,7 +206,7 @@ return = _template()
 
   <h3 class="nav-label">Posts by Year</h3>
   <ul>
-    ${/*Tree.map(postsByYear, (posts, year) => `
+    ${Tree.map(postsByYear, (posts, year) => `
     <li>
       <a
         href="/${year}/"
@@ -217,11 +217,11 @@ return = _template()
         <span class="nav-list-item__meta">${posts.length}</span>
       </a>
     </li>
-    `)*/""}
+    `)}
   </ul>
   <h3 class="nav-label">Posts by Tag</h3>
   <ul>
-    ${/*Tree.map(postsByTag, (posts, tag) => `
+    ${Tree.map(postsByTag, (posts, tag) => `
     <li>
       <a
         href="/tags/${tag}/"
@@ -232,6 +232,6 @@ return = _template()
         <span class="nav-list-item__meta">${posts.length}</span>
       </a>
     </li>
-    ` )*/""}
+    ` )}
   </ul>
 </nav>
