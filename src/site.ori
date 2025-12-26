@@ -35,7 +35,7 @@
       }
   })
 
-  postsByTag = data.posts
+  (postsByTag) = data.posts
     -> (posts) => Tree.filter(posts, (post) => !post.tags.includes("rssClub"))
     -> (posts) => Tree.groupBy(posts, (post) => post.tags)
     // -> Tree.sort
