@@ -1,9 +1,29 @@
 ---
 (site, path) => {
 
+  // Pulled from the CSS theme variables
+  colors: [
+  "red",
+  "blue",
+  "green",
+  "yellow",
+  // "pink",
+  "purple",
+  // "none",
+  // "orange",
+  // not supported as UI themes—yet
+  // "mint",
+  // "teal",
+  // "cyan",
+  // "brown",
+  // "indigo",
+  ],
 
-postsByYear = Tree.group(site.posts, (post) => post.date.slice(0, 4)) -> Tree.reverse,
-postsByTag = Tree.group(site.posts, (post) => post.tags)
+  appearances: ["system", "light", "dark"],
+
+
+// postsByYear = Tree.group(site.posts, (post) => post.date.slice(0, 4)) -> Tree.reverse,
+// postsByTag = Tree.group(site.posts, (post) => post.tags)
 
 return = _template()
 }.return
@@ -140,9 +160,53 @@ return = _template()
     </li>
   </ul>
 
+  <h3 class="nav-label">Accent</h3>
+  <form class="theme-picker">
+    ${Tree.map(colors, (color) => `
+    <input type="radio" name="color" value="${color}" id="color-${color}" />
+    <label for="color-${color}" class="nav-list-item">
+      <span class="nav-list-item__icon">
+        <span
+          style="
+            background-color: hsl(
+              var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l)
+            );
+          "
+        ></span>
+      </span>
+      <span class="nav-list-item__label">${color}</span>
+      <span class="nav-list-item__meta">${server/svgs/heroicon-check.svg}</span>
+    </label>
+    ` )}
+  </form>
+
+  <h3 class="nav-label">Appearance</h3>
+  <form class="theme-picker">
+    ${Tree.map(appearances, (theme) => `
+    <input
+      type="radio"
+      name="appearance"
+      value="${theme}"
+      id="appearance-${theme}"
+    />
+    <label for="appearance-${theme}" class="nav-list-item">
+      <span class="nav-list-item__icon">
+        ${server/svgs[`heroicon-${theme}.svg`]}
+      </span>
+      <span class="nav-list-item__label">${theme}</span>
+      <span class="nav-list-item__meta">${server/svgs/heroicon-check.svg}</span>
+    </label>
+    ` )}
+  </form>
+
+  <theme-picker></theme-picker>
+  <script>
+    ${server/theme-picker.js}
+  </script>
+
   <h3 class="nav-label">Posts by Year</h3>
   <ul>
-    ${Tree.map(postsByYear, (posts, year) => `
+    ${/*Tree.map(postsByYear, (posts, year) => `
     <li>
       <a
         href="/${year}/"
@@ -153,11 +217,11 @@ return = _template()
         <span class="nav-list-item__meta">${posts.length}</span>
       </a>
     </li>
-    `)}
+    `)*/""}
   </ul>
   <h3 class="nav-label">Posts by Tag</h3>
   <ul>
-    ${Tree.map(postsByTag, (posts, tag) => `
+    ${/*Tree.map(postsByTag, (posts, tag) => `
     <li>
       <a
         href="/tags/${tag}/"
@@ -168,6 +232,6 @@ return = _template()
         <span class="nav-list-item__meta">${posts.length}</span>
       </a>
     </li>
-    ` )}
+    ` )*/""}
   </ul>
 </nav>
