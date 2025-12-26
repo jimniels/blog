@@ -8,7 +8,7 @@
 
   // Generate a tree of posts
   // Post paths by year, e.g. `/2024/:slug/index.html`
-  (postsTree): Tree.group(data.posts, (post) => new Date(post.date).getFullYear())
+  (postsTree): Tree.groupBy(data.posts, (post) => new Date(post.date).getFullYear())
     // Process the years
     -> (years) => Tree.map(years, {
       key: (posts, year) => year,
@@ -37,7 +37,7 @@
 
   postsByTag = data.posts
     -> (posts) => Tree.filter(posts, (post) => !post.tags.includes("rssClub"))
-    -> (posts) => Tree.group(posts, (post) => post.tags)
+    -> (posts) => Tree.groupBy(posts, (post) => post.tags)
     // -> Tree.sort
 
   // ===========================================================================
