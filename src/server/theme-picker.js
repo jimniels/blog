@@ -15,7 +15,7 @@ class ThemePicker extends HTMLElement {
 
   connectedCallback() {
     // Handle expanding/collapsing the color picker through the <form>
-    this.addEventListener("click", (e) => {
+    document.addEventListener("click", (e) => {
       e.stopPropagation();
 
       if (e.target.name === "color") {

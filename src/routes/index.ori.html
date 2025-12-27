@@ -11,13 +11,13 @@
     path: "/",
   },
   
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 
 <main class="wrapper">
   <h1>Posts</h1>
-  ${<server/PostsNav.ori>(page.path)}
+  ${/*<server/PostsNav.ori>(page.path)*/""}
   <!-- -->
   ${<server/PostsList.js>(posts)}
 </main>
