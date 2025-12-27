@@ -107,7 +107,7 @@ https://www.github.com/jimniels/blog/
     </script>*/ ""
     }
 
-    ${server/Nav.ori.html(site, page.path)}
+    
     
     <nav class="navv wrapper" hidden>
       <a
@@ -140,12 +140,14 @@ https://www.github.com/jimniels/blog/
             <a href="/search/" aria-label="Search" title="Search"
               >${server/svgs/heroicon-search.svg} Search</a
             >
-            <a href="/menu/" aria-label="Menu" title="Menu"
+            <a href="#nav" aria-label="Menu" title="Menu"
               >${server/svgs/heroicon-menu.svg} Menu</a
             >
           `}
     </nav>
     ${children}
+
+    ${server/Nav.ori.html(site, page.path)}
   </body>
 </html>
    

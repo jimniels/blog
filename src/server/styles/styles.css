@@ -377,21 +377,44 @@ a.nav-list-item:not([aria-current="page"]):hover {
   font-size: 0.75rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 .nav {
-  position: fixed;
-  left: 0;
-  width: 280px;
-  top: 0;
-  height: 100%;
-  overflow-y: auto;
   font-size: 0.825rem;
   padding: var(--s-16);
-  border-right: 1px solid var(--c-border);
 
   ul,
   li {
     list-style: none;
     padding: 0;
+  }
+}
+
+.nav a[href="#top"] svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media screen and (max-width: 1023px) {
+  body {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .nav {
+    position: fixed;
+    left: 0;
+    width: 280px;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+    border-right: 1px solid var(--c-border);
+  }
+  .nav a[href="#top"] {
+    display: none;
   }
 }
 
@@ -676,10 +699,6 @@ footer ol li {
   padding-top: var(--s-24);
   padding-bottom: var(--s-24);
   position: relative;
-}
-
-.nav {
-  display: none;
 }
 
 @media screen and (min-width: 1024px) {
