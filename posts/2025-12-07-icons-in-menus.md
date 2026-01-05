@@ -100,3 +100,7 @@ And now that Apple has seemingly thrown in with the “stick an icon in every me
 So I guess this is the world I live in now. Icons in menus. Icons in menus everywhere.
 
 Send help.
+
+## Update: 2026-01-05
+
+Niki wrote the post I wanted to write including _why_ icons in every menu item is a bad idea. [You should read it](https://tonsky.me/blog/tahoe-icons/), and then send it to everyone you know.
