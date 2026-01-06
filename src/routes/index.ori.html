@@ -2,22 +2,71 @@
 (site) => {
   posts = site.posts
     -> (posts) => Tree.filter(posts, (post) => !(post.tags && post.tags.includes("rssClub")))
-    -> (posts) => Tree.take(posts, 8)
+    -> (posts) => Tree.take(posts, 3)
+    -> Tree.values
+    -> Tree.plain
+  trendingPosts = site.posts
+    -> (posts) => Tree.filter(posts, (post) => post.hasOwnProperty("pageviews"))
+    -> (posts) => Tree.sort(posts, (post) => (post.pageviews))
+    -> (posts) => Tree.take(posts, 3)
+    -> Tree.reverse
     -> Tree.values
     -> Tree.plain
   
+  hackerNewsPosts = site.posts
+    -> (posts) => Tree.filter(posts, (post) => post.hackerNews)
+    -> (posts) => Tree.sort(posts, (post) => (post.hackerNews.points))
+    -> (posts) => Tree.take(posts, 3)
+    -> Tree.reverse
+    -> Tree.values
+    -> Tree.plain
   page: {
     title: "",
     path: "/",
   },
   
-  return = <server/Layout.ori.html>({ site, page }, _template())
+  return = server/Layout.ori.html({ site, page }, _template())
 }.return
 ---
 
 <main class="wrapper">
-  <h1>Posts</h1>
-  ${/*<server/PostsNav.ori>(page.path)*/""}
-  <!-- -->
-  ${<server/PostsList.js>(posts)}
+  <h1>Jim Nielsen’s Blog</h1>
+
+  <h2 style="margin-top: var(--s-40)">
+    Latest
+    <span style="font-weight: normal; font-size: 0.8888rem">
+      (
+      <a href="/archive/" style="font-size: 0.8888rem">View all</a>
+      )
+    </span>
+  </h2>
+  ${server/PostsList.js(posts)}
+  <p hidden style="font-size: 0.8888rem">
+    View all
+    <a href="/archive/">${site.posts.length} posts</a>
+    .
+  </p>
+  <br />
+
+  <h2>Trending</h2>
+  ${server/PostsList.js( trendingPosts, (post) => ` ${post.pageviews > 1000 ?
+  Math.round((post.pageviews / 1000) * 10) / 10 + "k" : post.pageviews}
+  pageviews` )}
+  <p style="font-size: 0.8888rem">
+    View all
+    <a href="/posts/trending/">trending posts</a>
+    .
+  </p>
+  <br />
+
+  <h2>Hacker News Hits</h2>
+  ${server/PostsList.js( hackerNewsPosts, (post) =>
+  `${post.hackerNews.points.toLocaleString()} points,
+  ${post.hackerNews.comments.toLocaleString()} comments` )}
+  <p style="font-size: 0.8888rem">
+    View all posts that became
+    <a href="/posts/hacker-news/">hits on Hacker News</a>
+    .
+  </p>
+  <br />
 </main>
