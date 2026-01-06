@@ -49,11 +49,6 @@ export function Page(props, children) {
           <link rel="me" href="https://dribbble.com/jimniels" />
           <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
 
-          <script
-            type="module"
-            src="https://cdn.jim-nielsen.com/shared/jim-site-switcher.js"
-          ></script>
-
           <!-- Feeds -->
           <link
             rel="alternate"
@@ -86,16 +81,6 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          ${
-            /*<script>
-            ${fs
-              .readFileSync(
-                "/Users/jimnielsen/Dropbox/cdn/shared/jim-site-switcher.js"
-              )
-              .toString()};
-          </script>*/ ""
-          }
-          <jim-site-switcher subdomain="blog"></jim-site-switcher>
           <nav class="navv wrapper" hidden>
             <a
               href="/"
