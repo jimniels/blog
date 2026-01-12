@@ -19,13 +19,14 @@
         }
         main h2 {
           z-index: 10;
-          
+          text-align: right;
+          margin-left: 50%;
         }
         main h3 {
           z-index: 11;
           
-          text-align: right;
-          margin-left: 50%;
+          text-align: left;
+          
         }
 
         .archive-chart {
@@ -98,6 +99,10 @@
 
 <main class="wrapper">
   <h1>Archive</h1>
+  <p>
+    I’ve written ${site.posts.length} posts across
+    ${Tree.keys(postsByYear).length} years.
+  </p>
 
   ${Tree.map(postsByYearThenMonth, (postsByMonth, year) => `
   <h2 id="${year}">${year}</h2>

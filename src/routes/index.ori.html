@@ -30,21 +30,17 @@
 ---
 
 <main class="wrapper">
-  <h1>Jim Nielsen’s Blog</h1>
+  <h1>Jim’s Blog</h1>
+  <p>
+    I’m
+    <a href="https://www.jim-nielsen.com">Jim Nielsen</a>
+    and this is my blog. Warning: these are opinions with a shelf life.
+  </p>
 
-  <h2 style="margin-top: var(--s-40)">
-    Latest
-    <span style="font-weight: normal; font-size: 0.8888rem">
-      (
-      <a href="/archive/" style="font-size: 0.8888rem">View all</a>
-      )
-    </span>
-  </h2>
+  <h2 style="margin-top: var(--s-40)">Latest</h2>
   ${server/PostsList.js(posts)}
-  <p hidden style="font-size: 0.8888rem">
-    View all
-    <a href="/archive/">${site.posts.length} posts</a>
-    .
+  <p style="font-size: 0.875rem; text-align: right">
+    <a href="/archive/">View all ${site.posts.length} posts ›</a>
   </p>
   <br />
 
@@ -52,10 +48,9 @@
   ${server/PostsList.js( trendingPosts, (post) => ` ${post.pageviews > 1000 ?
   Math.round((post.pageviews / 1000) * 10) / 10 + "k" : post.pageviews}
   pageviews` )}
-  <p style="font-size: 0.8888rem">
+  <p style="font-size: 0.875rem; text-align: right">
     View all
-    <a href="/posts/trending/">trending posts</a>
-    .
+    <a href="/posts/trending/">trending posts ›</a>
   </p>
   <br />
 
@@ -63,10 +58,9 @@
   ${server/PostsList.js( hackerNewsPosts, (post) =>
   `${post.hackerNews.points.toLocaleString()} points,
   ${post.hackerNews.comments.toLocaleString()} comments` )}
-  <p style="font-size: 0.8888rem">
-    View all posts that became
-    <a href="/posts/hacker-news/">hits on Hacker News</a>
-    .
+  <p style="font-size: 0.875rem; text-align: right">
+    View all my
+    <a href="/posts/hacker-news/">Hacker News hits ›</a>
   </p>
   <br />
 </main>

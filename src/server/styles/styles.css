@@ -374,7 +374,7 @@ a.nav-list-item:not([aria-current="page"]):hover {
 }
 .nav-list-item__meta {
   opacity: 0.5;
-  font-size: 0.75rem;
+  font-size: 0.666666666rem;
 }
 
 html {
@@ -700,7 +700,9 @@ footer ol li {
   padding-bottom: var(--s-24);
   position: relative;
 }
-
+.nav {
+  display: none;
+}
 @media screen and (min-width: 1024px) {
   .nav {
     display: block;

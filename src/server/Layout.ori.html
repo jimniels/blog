@@ -92,15 +92,13 @@ https://www.github.com/jimniels/blog/
     - None
     -->
     
-    <nav class="navv wrapper" hidden>
+    <nav class="navv wrapper">
       <a
         href="/"
         title="Jim Nielsen’s Blog"
         aria-label="Jim Nielsen’s Blog"
         aria-current="${path === '/' ? 'page' : 'false'}"
         ${path === "/" ||
-        path.includes("/posts/") ||
-        path.includes("/archive/") ||
         ["/subscribe/", "/search/", "/menu/"].includes(path)
           ? "hidden"
           : ""}
@@ -114,24 +112,24 @@ https://www.github.com/jimniels/blog/
             onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
             title="Close menu (back)"
             aria-label="Close menu (back)"
-            >${server/svgs/heroicon-close.svg} Close menu (back)</a
+            >${server/svgs/heroicon-close.svg}</a
           >`
         : `
             <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
-              >${server/svgs/heroicon-rss.svg} Subscribe</a
+              >${server/svgs/heroicon-rss.svg}</a
             >
             <a href="/search/" aria-label="Search" title="Search"
-              >${server/svgs/heroicon-search.svg} Search</a
+              >${server/svgs/heroicon-search.svg}</a
             >
-            <a href="#nav" aria-label="Menu" title="Menu"
-              >${server/svgs/heroicon-menu.svg} Menu</a
+            <a href="/menu/" aria-label="Menu" title="Menu"
+              >${server/svgs/heroicon-menu.svg}</a
             >
           `}
     </nav>
 <!-- This needs to stay un-indented for <pre> tags to work right -->
 ${children}
 
-    ${server/Nav.ori.html(site, page.path)}
+    ${path.includes("/menu/") ? "" : server/Nav.ori.html(site, page.path)}
   </body>
 </html>
    
