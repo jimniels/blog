@@ -11,6 +11,7 @@ export type Site = {
   }>;
   internalLinksByPath: { [path: string]: Array<string> };
   posts: Array<Post>;
+  postIdsByYear: { [year: number]: Array<string> };
 
   /**
    * An array of tags which are their own unique IDs. Tags _do not_ include the

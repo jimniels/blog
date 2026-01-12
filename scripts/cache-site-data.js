@@ -43,6 +43,8 @@ async function getSiteData() {
     externalLinks: [],
     internalLinksByPath: {},
     posts: [],
+    postIdsByYear: {},
+    postIdsByTag: {},
     tags: [],
   };
 
@@ -180,6 +182,15 @@ async function getSiteData() {
     site.posts.push(post);
   });
 
+  site.postIdsByYear = site.posts.reduce((acc, post) => {
+    const year = post.date.slice(0, 4);
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(post.id);
+    return acc;
+  }, {});
+
   site.externalLinks = Object.entries(
     site.externalLinks.reduce((acc, { sourceUrl, targetUrl }) => {
       const hostname = new URL(targetUrl).hostname;
@@ -256,6 +267,15 @@ async function getSiteData() {
       count: site.posts.filter((post) => post.tags.includes(tag)).length,
     }))
     .sort((a, b) => (a.count < b.count ? 1 : a.count > b.count ? -1 : 0));
+
+  site.postIdsByTag = site.tags
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .reduce((acc, tag) => {
+      acc[tag.name] = site.posts
+        .filter((post) => post.tags.includes(tag.name))
+        .map((post) => post.id);
+      return acc;
+    }, {});
 
   site.internalLinksByPath = Object.entries(site.internalLinksByPath)
     .sort(([pathA, linksA], [pathB, linksB]) => {

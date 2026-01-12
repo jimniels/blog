@@ -21,10 +21,6 @@
 
   appearances: ["system", "light", "dark"],
 
-
-  postsByYear: Tree.groupBy(site.posts, (post) => post.date.slice(0, 4)),
-  postsByTag: Tree.groupBy(site.posts, (post) => post.tags),
-
   return = _template()
 }.return
 ---
@@ -161,6 +157,37 @@
     </li>
   </ul>
 
+  <h3 class="nav-label">Posts by Year</h3>
+  <ul>
+    ${Tree.map(Tree.reverse(site.postIdsByYear), (postIds, year) => `
+    <li>
+      <a
+        href="/${year}/"
+        aria-current="${path === `/${year}/` ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__label">${year}</span>
+        <span class="nav-list-item__meta">${postIds.length}</span>
+      </a>
+    </li>
+    `)}
+  </ul>
+  <h3 class="nav-label">Posts by Tag</h3>
+  <ul>
+    ${Tree.map(site.postIdsByTag, (postIds, tag) => `
+    <li>
+      <a
+        href="/tags/${tag}/"
+        aria-current="${path.startsWith(`/tags/${tag}`) ? 'page' : 'false'}"
+        class="nav-list-item"
+      >
+        <span class="nav-list-item__label">#${tag}</span>
+        <span class="nav-list-item__meta">${postIds.length}</span>
+      </a>
+    </li>
+    ` )}
+  </ul>
+
   <h3 class="nav-label">Accent</h3>
   <form class="theme-picker">
     ${Tree.map(colors, (color) => `
@@ -175,7 +202,9 @@
           "
         ></span>
       </span>
-      <span class="nav-list-item__label">${color}</span>
+      <span class="nav-list-item__label" style="text-transform: capitalize">
+        ${color}
+      </span>
       <span class="nav-list-item__meta">${server/svgs/heroicon-check.svg}</span>
     </label>
     ` )}
@@ -204,35 +233,4 @@
   <script>
     ${server/theme-picker.js}
   </script>
-
-  <h3 class="nav-label">Posts by Year</h3>
-  <ul>
-    ${Tree.map(postsByYear, (posts, year) => `
-    <li>
-      <a
-        href="/${year}/"
-        aria-current="${path === `/${year}/` ? 'page' : 'false'}"
-        class="nav-list-item"
-      >
-        <span class="nav-list-item__label">${year}</span>
-        <span class="nav-list-item__meta">${posts.length}</span>
-      </a>
-    </li>
-    `)}
-  </ul>
-  <h3 class="nav-label">Posts by Tag</h3>
-  <ul>
-    ${Tree.map(postsByTag, (posts, tag) => `
-    <li>
-      <a
-        href="/tags/${tag}/"
-        aria-current="${path.startsWith(`/tags/${tag}`) ? 'page' : 'false'}"
-        class="nav-list-item"
-      >
-        <span class="nav-list-item__label">#${tag}</span>
-        <span class="nav-list-item__meta">${posts.length}</span>
-      </a>
-    </li>
-    ` )}
-  </ul>
 </nav>

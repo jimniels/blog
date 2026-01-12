@@ -128,7 +128,8 @@ https://www.github.com/jimniels/blog/
             >
           `}
     </nav>
-    ${children}
+<!-- This needs to stay un-indented for <pre> tags to work right -->
+${children}
 
     ${server/Nav.ori.html(site, page.path)}
   </body>
