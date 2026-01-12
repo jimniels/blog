@@ -950,3 +950,41 @@ pre {
   opacity: 0;
   visibility: hidden;
 }
+
+.year-chart {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 200px;
+  gap: 8px;
+  width: 100%;
+
+  color: var(--c-text-light);
+}
+.year-chart > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  flex-direction: column;
+}
+.year-chart dt {
+  order: 2;
+  font-size: 0.777777777rem;
+}
+.year-chart dd {
+  margin: 0;
+  background-color: var(--c-fg);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 0.666666666rem;
+}
+.year-chart l {
+  width: 8.33333%;
+  padding: 0 3px;
+  background-color: var(--c-fg);
+}
