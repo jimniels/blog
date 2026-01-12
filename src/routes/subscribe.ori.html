@@ -15,11 +15,12 @@
       </style>
     `,
   },
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 
 <main class="wrapper">
+  <h1>Subscribe</h1>
   <ul class="kv-list">
     <li>
       <a href="/feed.xml">${<server/svgs/heroicon-rss.svg>} RSS feed ${<server/svgs/heroicon-chevron-right.svg>}</a>

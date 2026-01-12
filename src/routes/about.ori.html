@@ -91,7 +91,7 @@
     totalExternalLinks: site.externalLinks.reduce((acc, item) => acc + item.count, 0).toLocaleString()
     totalInternalLinks: Tree.values(site.internalLinksByPath).reduce((acc, arr) => acc + arr.length, 0)
   }
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 
