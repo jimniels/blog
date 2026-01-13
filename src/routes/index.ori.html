@@ -30,11 +30,10 @@
 ---
 
 <main class="wrapper">
-  <h1>Jim’s Blog</h1>
+  <h1>Jim Nielsen’s Blog</h1>
   <p>
-    I’m
-    <a href="https://www.jim-nielsen.com">Jim Nielsen</a>
-    and this is my blog. Warning: these are opinions with a shelf life.
+    Opinions with a shelf life.
+    <a href="https://www.jim-nielsen.com">More about the author.</a>
   </p>
 
   <h2 style="margin-top: var(--s-40)">Latest</h2>
@@ -49,8 +48,7 @@
   Math.round((post.pageviews / 1000) * 10) / 10 + "k" : post.pageviews}
   pageviews` )}
   <p style="font-size: 0.875rem; text-align: right">
-    View all
-    <a href="/posts/trending/">trending posts ›</a>
+    <a href="/posts/trending/">View all trending posts ›</a>
   </p>
   <br />
 
@@ -59,8 +57,7 @@
   `${post.hackerNews.points.toLocaleString()} points,
   ${post.hackerNews.comments.toLocaleString()} comments` )}
   <p style="font-size: 0.875rem; text-align: right">
-    View all my
-    <a href="/posts/hacker-news/">Hacker News hits ›</a>
+    <a href="/posts/hacker-news/">View my hits on Hacker News ›</a>
   </p>
   <br />
 </main>
