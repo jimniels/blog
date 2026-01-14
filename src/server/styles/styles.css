@@ -511,7 +511,7 @@ pre {
 article header {
   display: flex;
   flex-direction: column;
-  margin: 0 0 var(--s-40) 0;
+  margin: 0 0 1lh 0;
   gap: var(--s-4);
 }
 
@@ -722,12 +722,12 @@ footer ol li {
   align-items: center;
 }
 
-/* .navv a[aria-current="page"],
-[data-path*="/posts/"] .navv a[href="/"] {
+.navv a[aria-current="page"] {
   color: var(--c-text-light);
   pointer-events: none;
   cursor: default;
-} */
+  background: var(--c-border);
+}
 
 .navv a:first-child {
   margin-right: auto;

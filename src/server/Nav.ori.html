@@ -1,6 +1,8 @@
 ---
 (site, path) => {
 
+  enableHtmx = false // path !== "/menu/"
+
   // Pulled from the CSS theme variables
   colors: [
   "red",
@@ -23,7 +25,7 @@
 
   // Abstract hx-* values into function
 
-  hxValues = (get) => path !== "/menu/" ? `hx-get="${get}" hx-target="main" hx-swap="outerHTML transition:true" hx-select="main" hx-push-url="true"` : ""
+  hxValues = (get) => enableHtmx ? `hx-get="${get}" hx-target="main" hx-swap="outerHTML transition:true" hx-select="main" hx-push-url="true"` : ""
 
   return = _template()
 }.return
@@ -48,7 +50,7 @@
     <li>
       <a
         href="/search/"
-        ${hxValues("/search/")}
+        
         class="nav-list-item"
         aria-current="${path === '/search/' ? 'page' : 'false'}"
       >
@@ -250,9 +252,10 @@
   </script>
 </nav>
 
-${path !== `/menu/` ? `
+${enableHtmx ? `
 <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
 <script>
+  // TODO: page-specific <head> values not being applied https://htmx.org/extensions/head-support/
   // TODO: don't do htmx if is mobile
   document.body.addEventListener("htmx:afterSwap", function (event) {
     window.scrollTo(0, 0);

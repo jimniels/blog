@@ -11,7 +11,7 @@
   (postsTree): Tree.groupBy(data.posts, (post) => new Date(post.date).getFullYear())
     // Process the years
     -> (years) => Tree.map(years, {
-      key: (posts, year) => `${year}/`,
+      key: (posts, year) => `${year}`,
       value: (posts, year) => {
         (_year): Origami.slash.remove(year)
         index.html: <routes/$year.index.ori.html>({ site: data, year: _year, posts: Tree.plain(posts) })
