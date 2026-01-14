@@ -26,10 +26,11 @@
     (post.tags.includes("rssClub") || post.tags.includes("readingNotes"))
   )
 
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 
+<main>
 <!-- prettier fails on the data-pagefind-body attribute -->
 <article class="h-entry" ${includeInSearch ? 'data-pagefind-body' : ''}>
   <header
@@ -45,7 +46,7 @@
       </li>
       ${ post.tags.length ? `
       <li>
-        ${Tree.map(post.tags, (tag) => `<a href="/tags/#${tag}">#${tag}</a> `)}
+        ${Tree.map(post.tags, (tag) => `<a href="/tags/${tag}/">#${tag}</a> `)}
       </li>
       ` : "" }
       ${ post.hackerNews ? `
@@ -74,3 +75,4 @@ ${post.contents.toString()}
   </div>
   <footer class="wrapper">${<server/ReplyHtml.js>({ post, site })}</footer>
 </article>
+</main>

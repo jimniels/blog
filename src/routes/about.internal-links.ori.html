@@ -86,13 +86,14 @@
     -> Tree.values
     -> values => values.join("\n")
   
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 
 <main>
   <div class="copy">
-    <h1>${page.title}</h1>
+    <h1>Internal Links</h1>
+
     <p>
       A visual representation of the relationship between posts on my blog. It
       uses viz.js to draw the graph. You can learn more about how I did this in
