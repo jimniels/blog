@@ -23,7 +23,7 @@
 
   // Abstract hx-* values into function
 
-  hxValues = (get) => `hx-get="${get}" hx-target="main" hx-swap="outerHTML transition:true" hx-select="main" hx-push-url="true"`
+  hxValues = (get) => path !== "/menu/" ? `hx-get="${get}" hx-target="main" hx-swap="outerHTML transition:true" hx-select="main" hx-push-url="true"` : ""
 
   return = _template()
 }.return
@@ -250,6 +250,7 @@
   </script>
 </nav>
 
+${path !== `/menu/` ? `
 <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
 <script>
   // TODO: don't do htmx if is mobile
@@ -273,3 +274,4 @@
       .setAttribute("aria-current", "page");
   });
 </script>
+` : ""}
