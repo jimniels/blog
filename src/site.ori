@@ -74,7 +74,7 @@
         index.html = <server/Layout.ori.html>(
           {
             site: data,
-            page: { title: `Posts tagged #${Origami.slash.remove(tag)}`, path: `/tags/${tag}`}
+            page: { title: `Posts tagged #${Origami.slash.remove(tag)}`, path: `/tags/${tag}/`}
           },
           `<main class="wrapper"><h1>Posts tagged #${Origami.slash.remove(tag)}</h1>
           

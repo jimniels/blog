@@ -30,6 +30,7 @@
 }.return
 ---
 
+<main>
 <!-- prettier fails on the data-pagefind-body attribute -->
 <article class="h-entry" ${includeInSearch ? 'data-pagefind-body' : ''}>
   <header
@@ -74,3 +75,4 @@ ${post.contents.toString()}
   </div>
   <footer class="wrapper">${<server/ReplyHtml.js>({ post, site })}</footer>
 </article>
+</main>

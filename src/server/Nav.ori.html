@@ -21,6 +21,10 @@
 
   appearances: ["system", "light", "dark"],
 
+  // Abstract hx-* values into function
+
+  hxValues = (get) => `hx-get="${get}" hx-target="main" hx-swap="outerHTML transition:true" hx-select="main" hx-push-url="true"`
+
   return = _template()
 }.return
 ---
@@ -31,11 +35,7 @@
     <li>
       <a
         href="/"
-        hx-get="/"
-        hx-target="main"
-        hx-swap="outerHTML transition:true"
-        hx-select="main"
-        hx-push-url="true"
+        ${hxValues("/")}
         class="nav-list-item"
         aria-current="${path === '/' ? 'page' : 'false'}"
       >
@@ -48,11 +48,7 @@
     <li>
       <a
         href="/search/"
-        hx-get="/search/"
-        hx-target="main"
-        hx-swap="outerHTML transition:true"
-        hx-select="main"
-        hx-push-url="true"
+        ${hxValues("/search/")}
         class="nav-list-item"
         aria-current="${path === '/search/' ? 'page' : 'false'}"
       >
@@ -66,11 +62,7 @@
     <li>
       <a
         href="/subscribe/"
-        hx-get="/subscribe/"
-        hx-target="main"
-        hx-swap="outerHTML transition:true"
-        hx-select="main"
-        hx-push-url="true"
+        ${hxValues("/subscribe/")}
         aria-current="${path === '/subscribe/' ? 'page' : 'false'}"
         class="nav-list-item"
       >
@@ -85,11 +77,7 @@
     <li>
       <a
         href="/posts/trending/"
-        hx-get="/posts/trending/"
-        hx-target="main"
-        hx-swap="outerHTML transition:true"
-        hx-select="main"
-        hx-push-url="true"
+        ${hxValues("/posts/trending/")}
         aria-current="${path === '/posts/trending/' ? 'page' : 'false'}"
         class="nav-list-item"
       >
@@ -102,6 +90,7 @@
     <li>
       <a
         href="/posts/hacker-news/"
+        ${hxValues("/posts/hacker-news/")}
         aria-current="${path === '/posts/hacker-news/' ? 'page' : 'false'}"
         class="nav-list-item"
       >
@@ -113,6 +102,7 @@
     <li>
       <a
         href="/archive/"
+        ${hxValues("/archive/")}
         aria-current="${path === '/archive/' ? 'page' : 'false'}"
         class="nav-list-item"
       >
@@ -125,6 +115,7 @@
     <li>
       <a
         href="/posts/personal-favorites/"
+        ${hxValues("/posts/personal-favorites/")}
         aria-current="${path === '/posts/personal-favorites/' ? 'page' : 'false'}"
         class="nav-list-item"
       >
@@ -141,6 +132,7 @@
     <li>
       <a
         href="/about/external-links/"
+        ${hxValues("/about/external-links/")}
         aria-current="${path === '/about/external-links/' ? 'page' : 'false'}"
         class="nav-list-item"
       >
@@ -153,6 +145,7 @@
     <li>
       <a
         href="/about/internal-links/"
+        ${hxValues("/about/internal-links/")}
         aria-current="${path === '/about/internal-links/' ? 'page' : 'false'}"
         class="nav-list-item"
       >
@@ -165,6 +158,7 @@
     <li>
       <a
         href="/about/"
+        ${hxValues("/about/")}
         aria-current="${path === '/about/' ? 'page' : 'false'}"
         class="nav-list-item"
       >
@@ -182,11 +176,7 @@
     <li>
       <a
         href="/${year}/"
-        hx-get="/${year}/"
-        hx-target="main"
-        hx-swap="outerHTML transition:true"
-        hx-select="main"
-        hx-push-url="true"
+        ${hxValues(`/${year}/`)}
         aria-current="${path === `/${year}/` ? 'page' : 'false'}"
         class="nav-list-item"
       >
@@ -202,12 +192,8 @@
     <li>
       <a
         href="/tags/${tag}/"
-        hx-get="/tags/${tag}/"
-        hx-target="main"
-        hx-swap="outerHTML transition:true"
-        hx-select="main"
-        hx-push-url="true"
-        aria-current="${path.startsWith(`/tags/${tag}`) ? 'page' : 'false'}"
+        ${hxValues(`/tags/${tag}/`)}
+        aria-current="${path === (`/tags/${tag}/`) ? 'page' : 'false'}"
         class="nav-list-item"
       >
         <span class="nav-list-item__label">#${tag}</span>
@@ -263,19 +249,27 @@
     ${server/theme-picker.js}
   </script>
 </nav>
-<!--
+
 <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
 <script>
+  // TODO: don't do htmx if is mobile
   document.body.addEventListener("htmx:afterSwap", function (event) {
+    window.scrollTo(0, 0);
+
     // event.detail.target is the swapped element
     const path = event.detail.pathInfo.requestPath;
-    // console.log(event);
-    document
-      .querySelector("#nav a[aria-current='page']")
-      .setAttribute("aria-current", "false");
+
+    // We might be on a post page, for example, which doesn't have an active sidebar link
+    const currentlyActiveEl = document.querySelector(
+      "#nav a[aria-current='page']"
+    );
+    if (currentlyActiveEl) {
+      currentlyActiveEl.setAttribute("aria-current", "false");
+    }
+
+    console.log(path);
     document
       .querySelector("#nav a[href='" + path + "']")
       .setAttribute("aria-current", "page");
   });
 </script>
--->
