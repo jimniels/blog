@@ -53,6 +53,14 @@ In just those few lines of code I:
 - Grabbed the 3 most recent entries
 - Turn the data into markup
 
+For example, here’s the code showing my latest blog posts:
+
+<img src="https://cdn.jim-nielsen.com/blog/2026/built-with-origami-blog.png" width="1365" height="302" alt="Screenshot of Web Origami code on the left and its output on the right (a list of blog posts)." />
+
+And here’s the code showing the latest icons in my iOS collection:
+
+<img src="https://cdn.jim-nielsen.com/blog/2026/built-with-origami-icons.png" width="1370" height="265" alt="Screenshot of Web Origami code on the left and its output on the right (a grid of icons)." />
+
 Origami is a static site builder, so to keep my site “up to date” I just set Netlify to build my site every 24 hours which pulls data from a variety of sources, sticks it in a single HTML file, and publishes it as a website.
 
 The “build my site every 24 hours” isn’t quite as easy as you might think. You can use a [scheduled function on Netlify’s platform](https://docs.netlify.com/build/functions/scheduled-functions/) but that requires [writing code](https://tinloof.com/blog/how-to-build-cron-jobs-with-netlify-functions) (which also means maintaining and debugging said code). That seems to be [Netlify’s official answer to the question: “How do I schedule deploys?”](https://www.netlify.com/blog/how-to-schedule-deploys-with-netlify/)
