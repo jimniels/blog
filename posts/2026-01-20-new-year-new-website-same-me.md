@@ -55,13 +55,13 @@ In just those few lines of code I:
 
 For example, here’s the code showing my latest blog posts:
 
-<img src="https://cdn.jim-nielsen.com/blog/2026/built-with-origami-blog.png" width="1365" height="302" alt="Screenshot of Web Origami code on the left and its output on the right (a list of blog posts)." />
+<img src="https://cdn.jim-nielsen.com/blog/2026/built-with-origami-code-blog.png" width="661" height="566" alt="Screenshot of Web Origami code on the top and its output on the bottom (a list of blog post links)." data-og-image />
 
 And here’s the code showing the latest icons in my iOS collection:
 
-<img src="https://cdn.jim-nielsen.com/blog/2026/built-with-origami-icons.png" width="1370" height="265" alt="Screenshot of Web Origami code on the left and its output on the right (a grid of icons)." />
+<img src="https://cdn.jim-nielsen.com/blog/2026/built-with-origami-code-ios.png" width="663" height="548" alt="Screenshot of Web Origami code on top and its output on the bottom (a grid of icons)." />
 
-Beautiful and succint, isn’t it?
+Beautiful and succinct, isn’t it?
 
 Origami is a static site builder, so to keep my site “up to date” I just set Netlify to build my site every 24 hours which pulls data from a variety of sources, sticks it in a single HTML file, and publishes it as a website.
 
