@@ -16,43 +16,13 @@
       
     </style>`,
   },
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 
-<main id="menu" class="wrapper">
-  <ul class="kv-list">
-    <li>
-      <a href="/">
-        <span>Posts</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
-    <li>
-      <a href="/tags/">
-        <span>Tags</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
-    <li>
-      <a href="/about/external-links/">
-        <span>External Links</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
-    <li>
-      <a href="/about/internal-links/">
-        <span>Internal Links</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
-    <li>
-      <a href="/about/">
-        <span>About</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
-      </a>
-    </li>
-  </ul>
-
-  ${<server/ThemePicker.js>()}
-</main>
+<style>
+  .nav {
+    display: block !important;
+  }
+</style>
+${server/Nav.ori.html(site, '/menu/')}

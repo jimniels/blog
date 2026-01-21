@@ -7,20 +7,30 @@
   (data): Origami.unpack(<cache/site.json>)
 
   // Generate a tree of posts
-  // Post paths by year, e.g. `/2024/slug/index.html`
-  (postsTree): Tree.group(data.posts, (post) => new Date(post.date).getFullYear())
+  // Post paths by year, e.g. `/2024/:slug/index.html`
+  (postsTree): Tree.groupBy(data.posts, (post) => new Date(post.date).getFullYear())
     // Process the years
-    -> (years) => Tree.map(years, (year) => 
-      // Process the posts in each year
-      Tree.map(year, { 
-        // Use the slug as the key for a folder
-        key: (post) => post.slug,
-        // Generate the HTML for each post as the index page in that folder
-        value: (post) => {
-          index.html: <routes/$year.$slug.index.ori.html>({ site: data, post: Tree.plain(post) })
-        }
-      })
-    )
+    -> (years) => Tree.map(years, {
+      key: (posts, year) => `${year}`,
+      value: (posts, year) => {
+        (_year): Origami.slash.remove(year)
+        index.html: <routes/$year.index.ori.html>({ site: data, year: _year, posts: Tree.plain(posts) })
+        // Process the posts in each year
+        ...Tree.map(posts, { 
+          // Use the slug as the key for a folder
+          key: (post) => post.slug,
+          // Generate the HTML for each post as the index page in that folder
+          value: (post) => {
+            index.html: <routes/$year.$slug.index.ori.html>({ site: data, post: Tree.plain(post) })
+          }
+        })
+      }
+  })
+
+  (postsByTag) = data.posts
+    -> (posts) => Tree.filter(posts, (post) => !post.tags.includes("rssClub"))
+    -> (posts) => Tree.groupBy(posts, (post) => post.tags)
+    // -> Tree.sort
 
   // ===========================================================================
   // Create the site
@@ -42,19 +52,37 @@
   }
   archive = { index.html = <routes/archive.index.ori.html>(data) }
   // TODO: use origami's feed generator rather than `feed.*` routes
-  feed.html = <routes/feed.html.js>(data)
+  feed.html = <routes/feed.ori.html>(data)
   feed.json = <routes/feed.json.js>(data)
   feed.xml = <routes/feed.xml.js>(data)
   index.html = <routes/index.ori.html>(data)
   menu = { index.html = <routes/menu.ori.html>(data) }
   posts = { 
+    index.html = `<!doctype html><meta http-equiv="refresh" content="0; url=/archive/">`
     hacker-news = { index.html = <routes/posts.hacker-news.index.ori.html>(data) }
     trending = { index.html = <routes/posts.trending.index.ori.html>(data) }
+    personal-favorites = { index.html = <routes/posts.personal-favorites.ori.html>(data) }
   }
   search = { index.html = <routes/search.ori.html>(data) }
   styles.css = Origami.unpack(<routes/styles.css.ori>)
   subscribe = { index.html = <routes/subscribe.ori.html>(data) }  
-  tags = { index.html = <routes/tags.index.ori.html>(data) }
+  tags = {
+    index.html = <routes/tags.index.ori.html>(data)
+    ...Tree.map(postsByTag, {
+      key: (posts, tag) => tag,
+      value: (posts, tag) => {
+        index.html = <server/Layout.ori.html>(
+          {
+            site: data,
+            page: { title: `Posts tagged #${Origami.slash.remove(tag)}`, path: `/tags/${tag}/`}
+          },
+          `<main class="wrapper"><h1>Posts tagged #${Origami.slash.remove(tag)}</h1>
+          
+          ${<server/PostsList.js>(Tree.plain(posts))}</main>`
+        )
+      }
+    })
+  }
 
   // These path to `/well-known/...` in the build output and then we do a
   // rewrite because netlify is apparently weird about hidden files

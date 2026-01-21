@@ -19,13 +19,14 @@
         }
         main h2 {
           z-index: 10;
-          
+          text-align: right;
+          margin-left: 50%;
         }
         main h3 {
           z-index: 11;
           
-          text-align: right;
-          margin-left: 50%;
+          text-align: left;
+          
         }
 
         .archive-chart {
@@ -73,8 +74,8 @@
 
   // { 2025: [{...}], 2024: [{...}], ... }
   postsByYear = site.posts 
-    -> (posts) => Tree.group(posts, (post) => new Date(post.date).getFullYear())
-    -> Tree.reverse
+    -> (posts) => Tree.groupBy(posts, (post) => new Date(post.date).getFullYear())
+    // -> Tree.reverse
 
   // { 2025: { 0: [{...}], 1: [{...}], ... }, 2024: { 0: [{...}], 1: [{...}], ... }, ... }
   postsByYearThenMonth = Tree.map(
@@ -82,7 +83,7 @@
     {
       key: (posts, year) => year,
       // Note: months are 0-indexed, so we add 1 to get the correct month in display
-      value: (posts) => Tree.group(posts, (post) => new Date(post.date).getMonth() + 1) -> Tree.reverse
+      value: (posts) => Tree.groupBy(posts, (post) => new Date(post.date).getMonth() + 1) // -> Tree.reverse
     }
   )
 
@@ -92,32 +93,23 @@
   // 10
   maxPostCount = (Tree.sort(postCountsByYear, (count) => count) -> Tree.reverse -> Tree.values)[0]
 
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 
 <main class="wrapper">
-  <h1>Posts</h1>
-  ${<server/PostsNav.ori>("/archive/")} ${/*
-  <ol class="archive-chart">
-    ${Tree.map(postCountsByYear, (postCount, year) => `
-    <li>
-      <a href="#${year}">
-        <span>${year}</span>
-        <span>${postCount} posts</span>
-      </a>
-      <span
-        class="archive-chart-bar"
-        style="width: ${(postCount / maxPostCount) * 100}%"
-      ></span>
-    </li>
-    ` )}
-  </ol>
-  */""} ${Tree.map(postsByYearThenMonth, (postsByMonth, year) => `
-  <h2>${year}</h2>
+  <h1>Archive</h1>
+  <p>
+    I’ve written ${site.posts.length} posts across
+    ${Tree.keys(postsByYear).length} years.
+  </p>
+
+  ${Tree.map(postsByYearThenMonth, (postsByMonth, year) => `
+  <h2 id="${year}">${year}</h2>
   ${Tree.map(postsByMonth, (posts, month) => `
   <h3>
-    ${Intl.DateTimeFormat('en', { month: 'short' }).format(new Date(month))}
+    ${Intl.DateTimeFormat('en', { month: 'short' }).format(new Date(2022, month
+    - 1, 1))}
   </h3>
   ${<server/PostsList.js>(Tree.plain(posts))} `)} `)}
 </main>

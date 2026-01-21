@@ -1,0 +1,16 @@
+// {string} activeHref
+(activeHref) => `<nav class="posts-nav">
+  ${Tree.map(
+    [
+      // { label: "About", href: "/about/" },
+      { label: "External", href: "/about/external-links/" },
+      { label: "Internal", href: "/about/internal-links/" },
+
+    ],
+    (item) => `
+      <a href="${item.href}" aria-current="${item.href === activeHref ? 'page' : 'false'}">
+        ${item.label}
+      </a>
+    `
+  )}
+</nav>`

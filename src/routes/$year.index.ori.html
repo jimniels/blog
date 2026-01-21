@@ -1,0 +1,48 @@
+---
+({ site, year, posts }) => {
+  monthsByIndex = {
+    1: "Jan",
+    2: "Feb",
+    3: "Mar",
+    4: "Apr",
+    5: "May",
+    6: "Jun",
+    7: "July",
+    8: "Aug",
+    9: "Sep",
+    10: "Oct",
+    11: "Nov",
+    12: "Dec"
+  },
+  (postsByMonth) = Tree.reverse(Tree.groupBy(posts, (post) => new Date(post.date).getUTCMonth() + 1))
+  monthCounts = Tree.map(Tree.values(postsByMonth), monthPosts => monthPosts.length)
+  monthCountsSorted = Tree.values(Tree.sort(monthCounts, (value, key, tree) => value)) -> Tree.reverse
+  biggestMonth = Tree.first(monthCountsSorted)
+  index = Tree.map(monthsByIndex, (label, monthIndex) => postsByMonth[Number(monthIndex)] ? postsByMonth[Number(monthIndex)].length : 0)
+  return = <server/Layout.ori.html>(
+    {
+      site,
+      page: { title: `Posts in ${year}`, path: `/${year}/`}
+    },
+    _template()
+  )
+}.return
+---
+
+<main class="wrapper">
+  <h1>Posts in ${year}</h1>
+  <dl class="year-chart">
+    ${Tree.map(monthsByIndex, (label, key) => `
+    <div>
+      <dt>${monthsByIndex[key]}</dt>
+      <dd
+        style="height: ${(postsByMonth[Number(key)] ? postsByMonth[Number(key)].length : 0) / biggestMonth * 100}%;"
+      >
+        ${postsByMonth[Number(key)] ? postsByMonth[Number(key)].length : ''}
+      </dd>
+    </div>
+
+    `)}
+  </dl>
+  ${<server/PostsList.js>(Tree.plain(posts))}
+</main>
