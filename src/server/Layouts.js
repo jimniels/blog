@@ -84,14 +84,15 @@ export function Page(props, children) {
           <nav class="navv wrapper" hidden>
             <a
               href="/"
+              class="navv__home"
               title="Jim Nielsen’s Blog"
               aria-label="Jim Nielsen’s Blog"
               ${path === "/" && "aria-current='page'"}
               ${path === "/" ||
-              path.includes("/posts/") ||
-              path.includes("/archive/") ||
-              ["/subscribe/", "/search/", "/menu/"].includes(path)
-                ? "hidden"
+              path === "/menu/" ||
+              path === "/archive/" ||
+              path.includes("/posts/")
+                ? "aria-disabled='true'"
                 : ""}
             >
               Jim’s Blog
@@ -106,12 +107,6 @@ export function Page(props, children) {
                   >${Icon("heroicon-close")}</a
                 >`
               : html`
-                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
-                    >${Icon("heroicon-rss")}</a
-                  >
-                  <a href="/search/" aria-label="Search" title="Search"
-                    >${Icon("heroicon-search")}</a
-                  >
                   <a href="/menu/" aria-label="Menu" title="Menu"
                     >${Icon("heroicon-menu")}</a
                   >
