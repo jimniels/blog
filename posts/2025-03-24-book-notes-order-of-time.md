@@ -47,3 +47,11 @@ I love this idea. Constantly striving for complete and total objectivity is like
 As Einstein showed, point of view is everything in a measurement. Your frame of reference is important because it’s yours, however subjective, and you cannot escape it.
 
 What we call “objectivity” may merely be the interplay between different subjective perspectives. As Matisse said, “I don’t paint things. I paint the relationship between things.”
+
+To end, here’s Rovelli on words being relative to a point of view:
+
+> It is what philosophers call "indexicality": the characteristic of certain words that have a different meaning every time they are used, a meaning determined by where, how, when, and by whom they are being spoken. Words such as "here," "now," "I," "this," "tonight" all assume a different meaning depending on who utters them and the circumstances in which they are uttered. "My name is Carlo Rovelli" is true if I say it, but untrue if someone else not also called Carlo Rovelli uses the same phrase. "Now it is September 12, 2016" is a phrase that's true at the moment that I am writing this but will be false just a few hours later. These indexical phrases make explicit reference to the fact that a point of view exists, that a point of view is an ingredient in every description of the observable world that we make.
+> 
+> If we give a description of the world that ignores point of view, that is solely "from the outside" — of space, of time, of a subject — we may be able to say many things but we lose certain crucial aspects of the world. Because the world that we have been given is the world seen from within it, not from without.
+> 
+> Many things that we see in the world can be understood only if we take into account the role played by point of view. They remain unintelligible if we fail to do so. In every experience, we are situated within the world: within a mind, a brain, a position in space, a moment in time. Our being situated in the world is essential to understanding our experience of time. We must not, in short, confuse the temporal structures that belong to the world as "seen from the outside" with the aspects of the world that we observe and which depend on our being part of it, on our being situated within it.
