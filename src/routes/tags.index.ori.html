@@ -1,41 +1,40 @@
 ---
 (site) => {
-  page = {
-    title: "Tags",
-    path: "/tags/",
-    head: `
-      <style>
-        .tags-list {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          font-size: 0.88888rem;
-        }
-        .tags-list li {
-          display: flex;
-          align-items: center;
-          gap: 2px;
-        }
-        .tags-list a {
-        }
-        .tags-list small {
-          color: var(--c-text-light);
-        }
-      </style>
-    `
-  }
-
-  postsByTag = site.posts
+  postsByTag: site.posts
     -> (posts) => Tree.filter(posts, (post) => !post.tags.includes("rssClub"))
     -> (posts) => Tree.group(posts, (post) => post.tags)
     -> Tree.sort
 
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = _template()
 }.return
 ---
+
+${<server/DocumentHead.ori.html>()}
+
+<title>Post tags for ${site.name}</title>
+<style>
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.88888rem;
+  }
+  .tags-list li {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .tags-list a {
+  }
+  .tags-list small {
+    color: var(--c-text-light);
+  }
+</style>
+
+${<server/DocumentBody.html>}
 
 <main class="wrapper">
   <h1>Tags</h1>
@@ -62,3 +61,5 @@
 
   ${<server/PostsList.js>(Tree.plain(Tree.values(posts)))} `)}
 </main>
+
+${<server/DocumentEnd.html>}
