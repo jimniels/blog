@@ -30,10 +30,10 @@
 
   postsByTag = site.posts
     -> (posts) => Tree.filter(posts, (post) => !post.tags.includes("rssClub"))
-    -> (posts) => Tree.group(posts, (post) => post.tags)
+    -> (posts) => Tree.groupBy(posts, (post) => post.tags)
     -> Tree.sort
 
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 

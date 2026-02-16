@@ -5,31 +5,33 @@
     path: "/subscribe/",
     head: `
       <style>
-        details summary {
+        main details summary {
           color: var(--c-text-light);
           cursor: default;
         }
-        details[open] summary {
+        main details[open] summary {
           color: var(--c-text);
         }
       </style>
     `,
   },
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 
 <main class="wrapper">
-  <ul class="kv-list">
+  <h1>Subscribe</h1>
+  <p>You can subscribe to my blog via:</p>
+  <ul>
     <li>
-      <a href="/feed.xml">${<server/svgs/heroicon-rss.svg>} RSS feed ${<server/svgs/heroicon-chevron-right.svg>}</a>
+      <a href="/feed.xml">RSS feed</a>
     </li>
     <li>
-      <a href="/feed.json">${<server/svgs/feed-json.svg>} JSON feed ${<server/svgs/heroicon-chevron-right.svg>}</a>
+      <a href="/feed.json"> JSON feed</a>
     </li>
     <li>
       <a href="https://buttondown.com/jimniels">
-        ${<server/svgs/heroicon-email.svg>} Email delivery ${<server/svgs/heroicon-chevron-right.svg>}</a>
+        Email</a>
       </a>
     </li>
   </ul>

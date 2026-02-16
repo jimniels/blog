@@ -117,11 +117,12 @@
       <!-- Our custom pagefind override script -->
       <script src="/pagefind.js" defer></script>`,
   }
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 
 <main class="wrapper">
+  <h1>Search</h1>
   <form action="https://duckduckgo.com" class="search" id="js-search-form">
     <input
       type="text"

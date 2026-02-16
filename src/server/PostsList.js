@@ -19,7 +19,7 @@ export async function PostsList(
             <li>
               <a
                 href="${post.path}"
-                style="view-transition-name: post-title-${post.id}"
+                style="zzview-transition-name: post-title-${post.id}"
               >
                 <span>${post.title}</span>
                 <span>${await fn(post)}</span>

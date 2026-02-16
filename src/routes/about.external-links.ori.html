@@ -9,7 +9,6 @@
         flex-direction: column;
         list-style: none;
         margin: 0;
-        padding: 0;
         gap: var(--s-2);
       }
 
@@ -44,12 +43,12 @@
     </style>`
   }
 
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <server/Layout.ori.html>({ site, page }, _template())
 }.return
 ---
 
 <main class="copy">
-  <h1>${page.title}</h1>
+  <h1>External Links</h1>
 
   <p>
     I thought it would be interesting to
