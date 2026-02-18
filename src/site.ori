@@ -8,7 +8,7 @@
 
   // Generate a tree of posts
   // Post paths by year, e.g. `/2024/slug/index.html`
-  (postsTree): Tree.group(data.posts, (post) => new Date(post.date).getFullYear())
+  (postsTree): Tree.group(data.posts, (post) => new Date(post.date).getFullYear().toString())
     // Process the years
     -> (years) => Tree.map(years, (year) => 
       // Process the posts in each year

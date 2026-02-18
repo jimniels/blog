@@ -74,7 +74,6 @@
   // { 2025: [{...}], 2024: [{...}], ... }
   postsByYear = site.posts 
     -> (posts) => Tree.group(posts, (post) => new Date(post.date).getFullYear())
-    -> Tree.reverse
 
   // { 2025: { 0: [{...}], 1: [{...}], ... }, 2024: { 0: [{...}], 1: [{...}], ... }, ... }
   postsByYearThenMonth = Tree.map(
@@ -97,8 +96,8 @@
 ---
 
 <main class="wrapper">
-  <h1>Posts</h1>
-  ${<server/PostsNav.ori>("/archive/")} ${/*
+  <h1>Archive</h1>
+  ${/*
   <ol class="archive-chart">
     ${Tree.map(postCountsByYear, (postCount, year) => `
     <li>

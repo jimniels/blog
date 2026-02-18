@@ -1,0 +1,13 @@
+{
+  home: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/home.svg,
+  tag: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/tag.svg,
+  external-link: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/arrow-right-start-on-rectangle.svg,
+  internal-link: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/arrow-path-rounded-square.svg
+  about: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/question-mark-circle.svg
+  trending: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/arrow-trending-up.svg
+  archive: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/archive-box.svg
+  hacker-news: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1.75" y="1.75" width="20.5" height="20.5" stroke="currentColor" stroke-width="1.5"/>
+<path d="M11.103 19V12.9751L6 5H8.04319L11.9203 11.219H12.0797L15.9568 5H18L12.897 12.9751V19H11.103Z" fill="currentColor"/>
+</svg>`
+}
