@@ -279,6 +279,7 @@ pre {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   background: var(--c-bg-opaque);
+  /* border: 2px solid var(--c-border); */
 }
 
 hr {
@@ -667,7 +668,7 @@ h1 {
   margin: 0;
   list-style: none;
 }
-.kv-list li {
+.kv-list li:not(:first-child) {
   border-top: 1px solid var(--c-border);
 }
 .kv-list li a {
