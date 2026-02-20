@@ -35,11 +35,9 @@
   // Routes
   _redirects = <routes/_redirects.js>(data)
   404.html = <routes/404.ori.html>(data)
-  about = {
-    external-links = { index.html = <routes/about.external-links.ori.html>(data) }
-    internal-links = { index.html = <routes/about.internal-links.ori.html>(data) }
-    index.html = <routes/about.ori.html>(data)
-  }
+  external-links = { index.html = <routes/about.external-links.ori.html>(data) }
+  internal-links = { index.html = <routes/about.internal-links.ori.html>(data) }
+  about = { index.html = <routes/about.ori.html>(data) }
   archive = { index.html = <routes/archive.index.ori.html>(data) }
   // TODO: use origami's feed generator rather than `feed.*` routes
   feed.html = <routes/feed.html.js>(data)
