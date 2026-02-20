@@ -532,9 +532,6 @@ footer ol li {
     gap: calc(1.618rem / 2);
     flex-direction: row;
   }
-  .posts-list li > a {
-    flex-grow: 1;
-  }
 }
 
 .posts-list--grid {
