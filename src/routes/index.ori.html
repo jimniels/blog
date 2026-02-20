@@ -31,9 +31,11 @@
 
 <main class="wrapper">
   <h1>Jim’s Blog</h1>
-  <!-- prettier-ignore -->
+
   <p style="margin-top: calc(var(--s-12) * -1)">
-    Opinions with a shelf life. Made by <a href="https://www.jim-nielsen.com">me</a>.
+    Opinions with a shelf life. Made by
+    <a href="https://www.jim-nielsen.com">me</a>
+    .
   </p>
 
   <h2 style="margin-top: var(--s-40)">Latest</h2>
@@ -43,17 +45,21 @@
   </p>
 
   <h2 style="view-transition-name: h1-heading-trending">Trending</h2>
-  ${server/PostsList.js( trendingPosts, (post) => ` ${post.pageviews > 1000 ?
-  Math.round((post.pageviews / 1000) * 10) / 10 + "k" : post.pageviews}
-  pageviews` )}
+  <!-- prettier-ignore -->
+  ${server/PostsList.js( trendingPosts, (post) =>
+    `${post.pageviews > 1000
+      ? Math.round((post.pageviews / 1000) * 10) / 10 + "k"
+      : post.pageviews} pageviews`
+  )}
   <p style="font-size: 0.875rem; text-align: right">
     <a href="/posts/trending/">View all →</a>
   </p>
 
   <h2 style="view-transition-name: h1-heading-hacker-news">Hacker News Hits</h2>
+  <!-- prettier-ignore -->
   ${server/PostsList.js( hackerNewsPosts, (post) =>
-  `${post.hackerNews.points.toLocaleString()} points,
-  ${post.hackerNews.comments.toLocaleString()} comments` )}
+    `${post.hackerNews.points.toLocaleString()} points, ${post.hackerNews.comments.toLocaleString()} comments`
+  )}
   <p style="font-size: 0.875rem; text-align: right">
     <a href="/posts/hacker-news/">View all →</a>
   </p>
