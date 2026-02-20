@@ -8,8 +8,8 @@
   trendingPosts = site.posts
     -> (posts) => Tree.filter(posts, (post) => post.hasOwnProperty("pageviews"))
     -> (posts) => Tree.sort(posts, (post) => (post.pageviews))
-    -> (posts) => Tree.take(posts, 3)
     -> Tree.reverse
+    -> (posts) => Tree.take(posts, 3)
     -> Tree.values
     -> Tree.plain
   hackerNewsPosts = site.posts
