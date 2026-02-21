@@ -1,4 +1,4 @@
-#myNotesSite
+#myNotesSite #webOrigami
 
 # New Workflow for Publishing Notes: Content in Dropbox, Code in GitHub
 
