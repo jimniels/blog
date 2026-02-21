@@ -73,7 +73,7 @@
 
   // { 2025: [{...}], 2024: [{...}], ... }
   postsByYear = site.posts 
-    -> (posts) => Tree.group(posts, (post) => new Date(post.date).getFullYear().toString())
+    -> (posts) => Tree.groupBy(posts, (post) => new Date(post.date).getFullYear().toString())
     -> Tree.reverse
 
   // { 2025: { 0: [{...}], 1: [{...}], ... }, 2024: { 0: [{...}], 1: [{...}], ... }, ... }
@@ -82,7 +82,7 @@
     {
       key: (posts, year) => year,
       // Note: months are 0-indexed, so we add 1 to get the correct month in display
-      value: (posts) => Tree.group(posts, (post) => new Date(post.date).getMonth() + 1) -> Tree.reverse
+      value: (posts) => Tree.groupBy(posts, (post) => new Date(post.date).getMonth() + 1) -> Tree.reverse
     }
   )
 
