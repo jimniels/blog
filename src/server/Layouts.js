@@ -88,9 +88,7 @@ export function Page(props, children) {
               aria-label="Jim Nielsen’s Blog"
               ${path === "/" && "aria-current='page'"}
               ${path === "/" ||
-              path.includes("/posts/") ||
-              path.includes("/archive/") ||
-              ["/subscribe/", "/search/", "/menu/"].includes(path)
+              ["/menu/", "/search/", "/subscribe/"].includes(path)
                 ? "hidden"
                 : ""}
             >

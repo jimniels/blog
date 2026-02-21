@@ -279,6 +279,7 @@ pre {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   background: var(--c-bg-opaque);
+  /* border: 2px solid var(--c-border); */
 }
 
 hr {
@@ -531,9 +532,6 @@ footer ol li {
     gap: calc(1.618rem / 2);
     flex-direction: row;
   }
-  .posts-list li > a {
-    flex-grow: 1;
-  }
 }
 
 .posts-list--grid {
@@ -604,12 +602,11 @@ footer ol li {
   align-items: center;
 }
 
-/* .navv a[aria-current="page"],
-[data-path*="/posts/"] .navv a[href="/"] {
-  color: var(--c-text-light);
+.navv a[aria-current="page"] {
+  background-color: var(--c-bg-opaque);
   pointer-events: none;
   cursor: default;
-} */
+}
 
 .navv a:first-child {
   margin-right: auto;
@@ -658,100 +655,8 @@ h1 {
 }
 
 /* ==========================================================================
-  * Posts Nav
+  * Key/Value List
   * ========================================================================== */
-.posts-nav {
-  display: flex;
-  padding: 0 0 var(--s-24);
-  flex-wrap: wrap;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  gap: var(--s-4);
-}
-
-.posts-nav a {
-  padding: var(--s-6) var(--s-12);
-  position: relative;
-  font-size: 0.8888rem;
-  /* background: var(--c-bg-opaque); */
-  border: 1px solid var(--c-border);
-  border-radius: var(--border-radius);
-}
-
-@media (min-width: 30rem) {
-  .posts-nav a {
-    padding-top: var(--s-4);
-    padding-bottom: var(--s-4);
-    padding-left: var(--s-12);
-    padding-right: var(--s-12);
-  }
-}
-
-.posts-nav a[aria-current="page"] {
-  pointer-events: none;
-  color: var(--c-bg);
-  background: var(--c-text);
-}
-
-/* .posts-nav a:before {
-  content: " ";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border: 1px solid transparent;
-  border-radius: var(--border-radius);
-  z-index: -1;
-} */
-
-/* .posts-nav a[aria-current="page"]:before {
-  
-  background: var(--c-text);
-  view-transition-name: posts-nav;
-} */
-
-/* Old stuff going out */
-::view-transition-old(posts-nav) {
-  animation: fade 0.2s linear forwards;
-  /* https://jakearchibald.com/2024/view-transitions-handling-aspect-ratio-changes/ */
-  height: 100%;
-}
-
-/* New stuff coming in */
-::view-transition-new(posts-nav) {
-  animation: fade 0.3s linear reverse;
-  height: 100%;
-}
-
-@keyframes fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-.posts-nav-note {
-  color: var(--c-text-light);
-  font-size: 0.8rem;
-  padding-top: var(--s-24);
-  margin: 0;
-}
-.posts-nav-note a {
-  color: inherit;
-  text-decoration: underline;
-
-  &:hover {
-    color: var(--c-theme);
-  }
-}
-
-.posts-nav-view-all {
-  font-size: 0.8rem;
-  padding-top: var(--s-24);
-}
 
 .kv-list {
   display: flex;
@@ -760,7 +665,7 @@ h1 {
   margin: 0;
   list-style: none;
 }
-.kv-list li {
+.kv-list li:not(:first-child) {
   border-top: 1px solid var(--c-border);
 }
 .kv-list li a {

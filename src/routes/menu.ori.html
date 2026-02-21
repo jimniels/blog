@@ -7,7 +7,7 @@
       #menu {
         display: flex;
         flex-direction: column;
-        gap: var(--s-48);
+        
       }
       #menu h3 {
         font-size: 1rem;
@@ -21,38 +21,66 @@
 ---
 
 <main id="menu" class="wrapper">
+  <h1>Menu</h1>
   <ul class="kv-list">
     <li>
       <a href="/">
-        <span>Posts</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
+        ${server/Heroicons.ori/home}
+        <span>Home</span>
+        ${server/Heroicons.ori/chevron-right}
+      </a>
+    </li>
+    <li>
+      <a href="/posts/trending/">
+        ${server/Heroicons.ori/trending}
+        <span>Trending</span>
+        ${server/Heroicons.ori/chevron-right}
+      </a>
+    </li>
+    <li>
+      <a href="/posts/hacker-news/">
+        ${server/Heroicons.ori/hacker-news}
+        <span>Hacker News Hits</span>
+        ${server/Heroicons.ori/chevron-right}
+      </a>
+    </li>
+    <li>
+      <a href="/archive/">
+        ${server/Heroicons.ori/archive}
+        <span>Archive</span>
+        ${server/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
       <a href="/tags/">
+        ${server/Heroicons.ori/tag}
         <span>Tags</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
+        ${server/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
-      <a href="/about/external-links/">
+      <a href="/external-links/">
+        ${server/Heroicons.ori/external-link}
         <span>External Links</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
+        ${server/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
       <a href="/about/internal-links/">
+        ${server/Heroicons.ori/internal-link}
         <span>Internal Links</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
+        ${server/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
       <a href="/about/">
+        ${server/Heroicons.ori/about}
         <span>About</span>
-        ${<server/svgs/heroicon-chevron-right.svg>}
+        ${server/Heroicons.ori/chevron-right}
       </a>
     </li>
   </ul>
 
+  <br />
   ${<server/ThemePicker.js>()}
 </main>

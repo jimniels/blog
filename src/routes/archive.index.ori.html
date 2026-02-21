@@ -73,7 +73,7 @@
 
   // { 2025: [{...}], 2024: [{...}], ... }
   postsByYear = site.posts 
-    -> (posts) => Tree.group(posts, (post) => new Date(post.date).getFullYear())
+    -> (posts) => Tree.groupBy(posts, (post) => new Date(post.date).getFullYear().toString())
     -> Tree.reverse
 
   // { 2025: { 0: [{...}], 1: [{...}], ... }, 2024: { 0: [{...}], 1: [{...}], ... }, ... }
@@ -82,7 +82,7 @@
     {
       key: (posts, year) => year,
       // Note: months are 0-indexed, so we add 1 to get the correct month in display
-      value: (posts) => Tree.group(posts, (post) => new Date(post.date).getMonth() + 1) -> Tree.reverse
+      value: (posts) => Tree.groupBy(posts, (post) => new Date(post.date).getMonth() + 1) -> Tree.reverse
     }
   )
 
@@ -97,8 +97,13 @@
 ---
 
 <main class="wrapper">
-  <h1>Posts</h1>
-  ${<server/PostsNav.ori>("/archive/")} ${/*
+  <h1>Archive</h1>
+  <p>
+    The is all of it — ${site.posts.length} posts across ${new
+    Date().getFullYear() - 2012} years. All available for free (you get what you
+    pay for).
+  </p>
+  ${/*
   <ol class="archive-chart">
     ${Tree.map(postCountsByYear, (postCount, year) => `
     <li>

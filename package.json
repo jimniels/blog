@@ -5,8 +5,8 @@
   "main": "metalsmith.js",
   "type": "module",
   "dependencies": {
-    "@weborigami/origami": "0.4.2",
-    "@weborigami/pagefind": "0.0.12",
+    "@weborigami/origami": "0.6.11",
+    "@weborigami/pagefind": "0.0.15",
     "highlight.js": "^11.4.0",
     "html-minifier": "^4.0.0",
     "html-validate": "^7.3.3",
