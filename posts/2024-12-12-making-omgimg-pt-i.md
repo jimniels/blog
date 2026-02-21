@@ -1,4 +1,4 @@
-#omgImg #cssViewTransitions
+#omgImg #cssViewTransitions #webOrigami
 
 # Making o(m)g:image, Part I: Design Iterations
 
