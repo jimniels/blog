@@ -62,9 +62,9 @@ I’m using [Web Origami](https://weborigami.org) for my blog which makes it eas
 
 ```ori
 {
-  home: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/home.svg,
-  about: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/question-mark-circle.svg,
-  search: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/magnifying-glass.svg
+  home.svg: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/home.svg,
+  about.svg: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/question-mark-circle.svg,
+  search.svg: https://raw.githubusercontent.com/tailwindlabs/heroicons/refs/heads/master/optimized/24/outline/magnifying-glass.svg
 }
 ```
 
