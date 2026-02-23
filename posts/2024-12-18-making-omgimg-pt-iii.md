@@ -1,4 +1,4 @@
-#omgImg
+#omgImg #webOrigami
 
 # Making o(m)g:image, Part III: The HTML
 
