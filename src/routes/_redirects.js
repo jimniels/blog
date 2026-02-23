@@ -46,6 +46,8 @@ export default function Redirects(site) {
     oldRedirects,
     yearsRedirects,
     "/about/outbound-links/ /about/external-links/ 301",
+    "/about/internal-links/ /internal-links/ 301",
+    "/about/external-links/ /external-links/ 301",
 
     // No hidden files in the build, or you get problems
     // https://answers.netlify.com/t/hidden-files-removed-in-zip-deploy/8997
