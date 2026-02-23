@@ -376,6 +376,7 @@ pre {
   background-color: var(--c-bg-opaque);
   padding: calc(1.618rem / 12) calc(1.618rem / 6);
   border-radius: 10px;
+  font-size: 0.88888rem;
 }
 
 .copy .image-container,
