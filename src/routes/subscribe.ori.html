@@ -6,11 +6,11 @@
     head: `
       <style>
         details summary {
-          color: var(--c-text-light);
+        
           cursor: default;
         }
         details[open] summary {
-          color: var(--c-text);
+        
         }
       </style>
     `,
@@ -20,16 +20,18 @@
 ---
 
 <main class="wrapper">
+  <h1>Subscribe</h1>
   <ul class="kv-list">
     <li>
-      <a href="/feed.xml">${<server/svgs/heroicon-rss.svg>} RSS feed ${<server/svgs/heroicon-chevron-right.svg>}</a>
+      <a href="/feed.xml">
+        ${server/Heroicons.ori/rss} RSS feed
+        ${server/Heroicons.ori/chevron-right}
+      </a>
     </li>
     <li>
-      <a href="/feed.json">${<server/svgs/feed-json.svg>} JSON feed ${<server/svgs/heroicon-chevron-right.svg>}</a>
-    </li>
-    <li>
-      <a href="https://buttondown.com/jimniels">
-        ${<server/svgs/heroicon-email.svg>} Email delivery ${<server/svgs/heroicon-chevron-right.svg>}</a>
+      <a href="/feed.json">
+        ${server/Heroicons.ori/json-feed} JSON feed
+        ${server/Heroicons.ori/chevron-right}
       </a>
     </li>
   </ul>
@@ -51,12 +53,50 @@
         to tell you! You’re about to discover one of my absolute favorite things
         about the internet! There’s a bit of a learning curve, but you know what
         they say: nothing worth having comes easy.
-      </p>
-      <p>
+
         <a href="https://aboutfeeds.com/">
           Visit aboutfeeds.com to learn more.
         </a>
       </p>
     </div>
   </details>
+
+  <p>Feeds not your thing? [Insert shaming joke here.] Subscribe via email.</p>
+
+  <form
+    action="
+          https://buttondown.com/api/emails/embed-subscribe/jimniels
+         "
+    method="post"
+    class="embeddable-buttondown-form"
+  >
+    <input type="email" name="email" placeholder="you@example.com" />
+    <input type="hidden" value="1" name="embed" />
+    <button
+      type="submit"
+      style="
+        appearance: none;
+        background: none;
+        color: var(--c-theme);
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-size: 1em;
+        font-weight: normal;
+        cursor: pointer;
+        margin-left: 0.5em;
+      "
+    >
+      Subscribe
+    </button>
+    <p style="font-size: 0.8em">
+      <a
+        href="https://buttondown.com"
+        target="_blank"
+        style="color: var(--c-text-light); text-decoration: underline"
+      >
+        Powered by Buttondown.
+      </a>
+    </p>
+  </form>
 </main>

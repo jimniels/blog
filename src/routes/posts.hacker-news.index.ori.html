@@ -17,11 +17,8 @@
 ---
 
 <main class="wrapper">
-  <h1>Posts</h1>
-  ${<server/PostsNav.ori>(page.path)} ${<server/PostsList.js>(posts, (post) =>
-  `${post.hackerNews.points.toLocaleString()} points,
-  ${post.hackerNews.comments.toLocaleString()} comments` )}
-  <p class="posts-nav-note">
+  <h1 style="view-transition-name: h1-heading-hacker-news">Hacker News Hits</h1>
+  <p>
     “If you don’t get thrashed on whatever the HackerNews of the era is, you
     haven’t blogged enough.” —
     <a
@@ -31,4 +28,7 @@
       Dave Rupert
     </a>
   </p>
+  ${<server/PostsList.js>(posts, (post) =>
+  `${post.hackerNews.points.toLocaleString()} points,
+  ${post.hackerNews.comments.toLocaleString()} comments` )}
 </main>

@@ -16,14 +16,7 @@
 ---
 
 <main class="wrapper">
-  <h1>Posts</h1>
-  ${<server/PostsNav.ori>(page.path)}
-
-  <!-- prettier-ignore -->
-  ${<server/PostsList.js>( posts, (post) => `
-    ${post.pageviews > 1000 ? Math.round((post.pageviews / 1000) * 10) / 10 + "k"
-    : post.pageviews} pageviews` )}
-
+  <h1 style="view-transition-name: h1-heading-trending">Trending</h1>
   <p class="posts-nav-note">
     FYI: pageviews are based on the last 30 days of
     <a
@@ -34,4 +27,9 @@
     </a>
     .
   </p>
+
+  <!-- prettier-ignore -->
+  ${<server/PostsList.js>( posts, (post) => `
+    ${post.pageviews > 1000 ? Math.round((post.pageviews / 1000) * 10) / 10 + "k"
+    : post.pageviews} pageviews` )}
 </main>

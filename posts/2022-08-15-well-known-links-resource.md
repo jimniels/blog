@@ -4,7 +4,7 @@ In [my previous article](/2022/playing-with-blog-home/) exploring what might go 
 
 > It’d be neat to be able to surface (credible) sites that are linking to my posts, like, “[Post Foo] linked from the Sidebar.io newsletter” or, “[Post Bar] linked from css-tricks.com”.
 
-That got me thinking about [another previous article](/2020/indexing-my-blogs-links/) article where I explored the idea of creating and surfacing an index of all the outbound links on my blog — something you can see [here](/about/external-links/).
+That got me thinking about [another previous article](/2020/indexing-my-blogs-links/) article where I explored the idea of creating and surfacing an index of all the outbound links on my blog — something you can see [here](/external-links/).
 
 That index of links is mine and its representation is an HTML document within the context of my blog. But it got me wondering: why just for me?
 
