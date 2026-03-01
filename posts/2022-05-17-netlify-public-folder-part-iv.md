@@ -34,9 +34,12 @@ The beauty is, [the Netlify CLI](https://cli.netlify.com/) tool has a `deploy` c
 # Source $PATH so you know where node is
 source ~/.zshrc
 
+# go to your directory
+cd ~/path/to/folder
+
 # Then run the netlify-cli command
 netlify deploy \
-  --dir ~/path/to/folder \
+  --dir . \
   --site your-site.netlify.com \
   --auth YOUR_TOKEN_HERE \
   --message "Deploy from macOS shortcut" \
