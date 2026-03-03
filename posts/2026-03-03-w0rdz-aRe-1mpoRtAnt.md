@@ -4,11 +4,11 @@ The other day I was looking at the team billing section of an AI product. They h
 
 For whatever reason, that phrase at that moment made me pause and reflect — and led me here to this post.
 
-It’s an interesting label. You could argue the widget didn’t even need a label. You could look at it and understood at a glance: “This is a list of people sorted by their AI usage, greatest to least.”
+It’s an interesting label. You could argue the widget doesn’t even need a label. You can look at it and understood at a glance: “This is a list of people sorted by their AI usage, greatest to least.”
 
 But it has that label.
 
-It could’ve had a different label. 
+It could have a different label. 
 
 Imagine, for a moment, different names for this widget — each one conjuring different meanings for its purpose and use:
 
