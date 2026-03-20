@@ -8,7 +8,7 @@ It reminds me of [something Paul Ford said](https://notes.jim-nielsen.com/n/2023
 
 > The most brutal fact of life is that the discipline you love and care for is utterly irrelevant without the other disciplines that you tend to despise.
 
-Ah yes, that [age-old mindset](https://notes.jim-nielsen.com/n/2023-02-08-2259/) where you believe your discipline is the only one that really matters.
+Ah yes, that age-old mindset where you believe your discipline is the only one that really matters.
 
 Paradoxically, the promise of AI to every discipline is that it will help bypass the tedious-but-barely-necessary tasks (and people) of the other pesky disciplines.
 
