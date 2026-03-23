@@ -62,7 +62,7 @@ I like where I landed.
 
 ### But Wait! What About Redirects?
 
-If you’re gonna change old URLs, you gotta have redirects to the new URLs — right? (Yes — if you want to be [cool]([cool](https://www.w3.org/Provider/Style/URI)).)
+If you’re gonna change old URLs, you gotta have redirects to the new URLs — right? (Yes — if you want to be [cool](https://www.w3.org/Provider/Style/URI).)
 
 But there’s no way to read fragment identifiers and handle redirects on the server (I’m on Netlify), so I had to handle redirects on the client.
 
