@@ -1,5 +1,7 @@
 ---
 (site) => {
+  vizJsSrc = http://cdn.jsdelivr.net/npm/viz.js@2.1.2/viz.js,
+  vizJsFullRenderSrc = http://cdn.jsdelivr.net/npm/viz.js@2.1.2/full.render.js,
   page: {
     title: "Internal Links",
     path: "/internal-links/",
@@ -80,6 +82,7 @@
   // Query should look like `digraph { QUERY }` and takes the shape:
   // "/path/to/post/" -> { "related/path", "another/related/path" }
   vizString = site.internalLinksByPath
+    -> (tree) => Tree.filter(tree, (links) => links.length > 1)
     -> (tree) => Tree.map(tree, (links, path) =>
         `"${path}" -> { ${Tree.values(Tree.map(links, (link) => `"${link}"`)).join(", ")} }`
        )
@@ -124,11 +127,12 @@
   </output>
 </main>
 
-<script defer src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/viz.js"></script>
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/full.render.js"
-></script>
+<script defer>
+  ${vizJsSrc}
+</script>
+<script defer>
+  ${vizJsFullRenderSrc}
+</script>
 <script>
   window.addEventListener("DOMContentLoaded", function () {
     // for some reason this helps safari
