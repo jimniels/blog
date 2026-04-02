@@ -2,7 +2,7 @@
 
 [Marcin Wichary brings attention](https://unsung.aresluna.org/thirteen-characters) to this lovely dialog in ClarisWorks from 1997:
 
-<img src="https://cdn.jim-nielsen.com/blog/2026/unsung-dialog.png" width="898" height="226" alt="Screenshot of an old macOS dialog that says “This copy of This copy of Clarisworks has not been registered yet. Would you like to register..” with buttons that says “Never”, “Later”, and “Now”" />
+<img src="https://cdn.jim-nielsen.com/blog/2026/unsung-dialog.png" width="898" height="226" alt="Screenshot of an old macOS dialog that says “This copy of This copy of Clarisworks has not been registered yet. Would you like to register..” with buttons that says “Never”, “Later”, and “Now”" data-og-image />
 
 He quips:
 
