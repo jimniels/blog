@@ -1,7 +1,7 @@
 [build]
   base = ""
   publish = "build"
-  command = "npm run build && npm run build-minify"
+  command = "npm run build"
   environment = { NODE_VERSION = "22" }
 
 [[redirects]]
