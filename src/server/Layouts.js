@@ -95,7 +95,7 @@ export function Page(props, children) {
               Jim’s Blog
             </a>
 
-            ${["/menu/", "/search/", "/subscribe/"].includes(path)
+            ${["/menu/", "/subscribe/"].includes(path)
               ? html`<a
                   href="/"
                   onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
@@ -106,9 +106,6 @@ export function Page(props, children) {
               : html`
                   <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
                     >${Icon("heroicon-rss")}</a
-                  >
-                  <a href="/search/" aria-label="Search" title="Search"
-                    >${Icon("heroicon-search")}</a
                   >
                   <a href="/menu/" aria-label="Menu" title="Menu"
                     >${Icon("heroicon-menu")}</a
