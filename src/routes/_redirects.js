@@ -17,6 +17,7 @@ export default function Redirects(site) {
   // transformation, so they have to be manually hard-coded here (rather than)
   // in the individual file
   const oneOffOldRedirects = [
+    "/2026/collective-speed-isnt-the-sum-of%20individual-speed/ /2026/collective-speed-isnt-the-sum-of-individual-speed/ 301",
     "/2019/thuoghts-on-jeremy-keiths-split/ /2019/thoughts-on-jeremy-keiths-split/ 301",
     // Technically, these ones are replacements for the "oldRedirects" above,
     // as they got fixed when we did this set of redirects. But we'll just add
