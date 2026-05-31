@@ -52,15 +52,15 @@ export function Page(props, children) {
           <!-- Feeds -->
           <link
             rel="alternate"
-            type="application/rss+xml"
-            title="RSS: XML Feed"
-            href="/feed.xml"
-          />
-          <link
-            rel="alternate"
             type="application/json"
             title="RSS: JSON Feed"
             href="/feed.json"
+          />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS: XML Feed"
+            href="/feed.xml"
           />
           <link
             rel="alternate"
