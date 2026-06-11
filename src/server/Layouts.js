@@ -87,15 +87,12 @@ export function Page(props, children) {
               title="Jim Nielsen’s Blog"
               aria-label="Jim Nielsen’s Blog"
               ${path === "/" && "aria-current='page'"}
-              ${path === "/" ||
-              ["/menu/", "/search/", "/subscribe/"].includes(path)
-                ? "hidden"
-                : ""}
+              ${path === "/" || path === "/menu/" ? "hidden" : ""}
             >
               Jim’s Blog
             </a>
 
-            ${["/menu/", "/subscribe/"].includes(path)
+            ${path === "/menu/"
               ? html`<a
                   href="/"
                   onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
@@ -104,7 +101,18 @@ export function Page(props, children) {
                   >${Icon("heroicon-close")}</a
                 >`
               : html`
-                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
+                  <a
+                    href="/search/"
+                    aria-label="Search"
+                    title="Search"
+                    ${path === "/search/" && "aria-current='page'"}
+                    >${Icon("heroicon-search")}</a
+                  >
+                  <a
+                    href="/subscribe/"
+                    aria-label="Subscribe"
+                    title="Subscribe"
+                    ${path === "/subscribe/" && "aria-current='page'"}
                     >${Icon("heroicon-rss")}</a
                   >
                   <a href="/menu/" aria-label="Menu" title="Menu"
