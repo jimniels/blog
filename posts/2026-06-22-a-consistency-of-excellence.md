@@ -4,7 +4,7 @@ Consistency serves a purpose in visual design, but it seems to have become _the_
 
 Look no further than these evolutions of macOS icons ([image courtesy of BasicAppleGuy](https://mastodon.social/@BasicAppleGuy/115888906340881425)):
 
-<img src="https://cdn.jim-nielsen.com/blog/2026/app-icon-consistency.png" width="1440" height="1440" alt="Comparison of Apple app icon designs across three eras, arranged in a grid. The “Original” (skeuomorphic) column shows detailed 3D-style icons for apps like Final Cut Pro, Logic Pro, Pages, Motion, Compressor, MainStage, Keynote, Numbers, etc. The “Current” column shows the modern flat/gradient icon style for these apps. And the 'Creator Studio' column shows a unified, dark-background icon set with simplified glyphs in purple, blue, red, green, orange, etc., all for the same set of apps." />
+<img src="https://cdn.jim-nielsen.com/blog/2026/app-icon-consistency.png" width="1440" height="1440" alt="Comparison of Apple app icon designs across three eras, arranged in a grid. The “Original” (skeuomorphic) column shows detailed 3D-style icons for apps like Final Cut Pro, Logic Pro, Pages, Motion, Compressor, MainStage, Keynote, Numbers, etc. The “Current” column shows the modern flat/gradient icon style for these apps. And the 'Creator Studio' column shows a unified, dark-background icon set with simplified glyphs in purple, blue, red, green, orange, etc., all for the same set of apps." data-og-image />
 
 The Creator Studio icons are undeniably consistent visually: rounded rectangles, controlled gradients, simplified forms, restrained depth, etc.
 
