@@ -20,7 +20,7 @@ If human values like curiosity are what led to breakthroughs — _not_ the appli
 
 > This infatuation with intelligence comes from people who just don’t get outside enough.
 
-He notes how intelligence isn’t everything in a job interview. Like, you don’t hire people by giving out exam and taking whoever scores highest. You try to suss out other aptitudes. Nobody looks at applicants who lack values like teamwork or optimism and says, “Well, they can’t work with anyone and they’re incredibly unpleasant to be around, but their intelligence is great — let’s hire them!”
+He notes how intelligence isn’t everything in a job interview. Like, you don’t hire people by giving out an exam and taking whoever scores highest. You try to suss out other aptitudes. Nobody looks at applicants who lack values like teamwork or optimism and says, “Well, they can’t work with anyone and they’re incredibly unpleasant to be around, but their intelligence is great — let’s hire them!”
 
 Intelligence is great, but it’s not everything.
 
