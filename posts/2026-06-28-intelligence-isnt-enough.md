@@ -2,7 +2,7 @@
 
 # Notes from Bryan Cantrill’s “Intelligence is not Enough”
 
-I quite enjoyed [this talk](https://www.youtube.com/watch?v=bQfJi7rjuEk) from Bryan Cantrill where he discusses the difficult engineering problems they overcame while working on their company Oxide.
+I quite enjoyed [this talk](https://www.youtube.com/watch?v=bQfJi7rjuEk) from Bryan Cantrill where he discusses the difficult engineering problems they overcame while working on their company [Oxide](https://oxide.computer).
 
 Some of the problems they ran into were bugs. But these weren’t any ordinary bugs, they were company-destroying bugs: bugs that, if they couldn’t be fixed, would sink the entire company.
 
