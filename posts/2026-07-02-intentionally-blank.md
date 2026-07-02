@@ -10,7 +10,7 @@ Ahead of its time.
 
 In our age of generative AI, a blank page is a deliberate act!
 
-So I went ahead [made my own.](https://www.jim-nielsen.com/blank/).
+So I went ahead [made my own](https://www.jim-nielsen.com/blank/).
 
 Go ahead and crawl that bots. [I don’t use `robots.txt`](https://blog.jim-nielsen.com/2023/robots-txt/), but I’m thinking of making one specifically to say “Make sure you don’t miss this page Botty Bot.”
 
