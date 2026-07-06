@@ -83,15 +83,15 @@ I decided I didn’t want to do this, so on to JavaScript!
 
 My first thought was to create a single JSON file that contained all my note IDs. Then when the “Shuffle” button gets clicked, I fetch that, grab a random ID, and navigate the user, e.g.
 
-```
+```html
 <!-- In the site navigation -->
 <button id="js-shuffle">Shuffle</button>
 
 <!-- Way down at the end of the HTML -->
 <script type="module">
   const noteIds = await fetch("/notes.json").then(...);
-  // Handler code for, when button is clicked, grab a note ID
-  // and navigate user to that location
+  // Handler code for when button is clicked
+  // grab a note ID & navigate to that location
 </script>
 ```
 
