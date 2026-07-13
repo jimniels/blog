@@ -53,7 +53,7 @@ Take, for example, Apple’s Phone app. What’s the icon for it? Can you pictur
 
 But wait! Now it’s also a black icon with a green phone glyph if you’re in dark mode. And there’s more! It’s a clear glass icon with a phone glyph if you’re in clear mode. And! It’s [insert color here] with a phone glyph if you’ve tinted it.
 
-<img src="https://cdn.jim-nielsen.com/blog/2026/phone-app-icon-versions.png" width="560" height="280" alt="Screenshot of the various forms the Phone app icon can take" />
+<img src="https://cdn.jim-nielsen.com/blog/2026/phone-app-icon-versions.png" width="560" height="280" alt="Screenshot of the various forms the Phone app icon can take" data-og-image />
 
 Consistent color is a strong ingredient in aiding memorability and recognizability. Look at Coke:
 
