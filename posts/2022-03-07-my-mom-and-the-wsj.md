@@ -1,4 +1,4 @@
-#progressiveEnhancement #browsers
+#progressiveEnhancement
 
 # Family IT Support Turned Blog Post Turned Anecdote in The Wall Street Journal
 

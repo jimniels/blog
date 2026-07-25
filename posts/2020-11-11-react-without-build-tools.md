@@ -1,5 +1,3 @@
-#javascript
-
 # React Without Build Tools
 
 First off: this is mostly a reference for myself. I find myself quite often needing to prototype something really quick, sometimes even build an “MVP” of something I can put out into the world for feedback. Using a framework like React can make doing that incredibly easy—as long as there is no build tooling involved. The moment configurations, build processes, and what not get involved, _those_ become the focus of my attention. It’s like I immediately forget that I was trying to build something useful and instead it becomes a fight of nerd vs. computer—“can I get this working?”—and I find that I’ll move heaven and earth just to see something work only to realize that what I wanted to do was building something usable in a browser, not optimize and streamline my “DX”.

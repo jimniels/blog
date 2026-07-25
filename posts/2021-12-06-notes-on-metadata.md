@@ -1,4 +1,4 @@
-#data #generalNotes
+#generalNotes
 
 # Notes on Metadata
 

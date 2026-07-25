@@ -1,4 +1,4 @@
-#design #data
+#design
 
 # There’s More to Design Than Data and Rationality
 

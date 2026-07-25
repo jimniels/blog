@@ -1,5 +1,3 @@
-#grateful
-
 # Grateful: Colors in console.log()
 
 So there I am, having an issue where my UI state isn’t updating correctly. What do I do? What every developer does: turn to `console.log()` and troubleshoot by logging values.

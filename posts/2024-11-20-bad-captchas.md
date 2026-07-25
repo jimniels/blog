@@ -1,5 +1,3 @@
-#grateful
-
 # Captchas Turned Notification Exploits
 
 When [my site analytics reported a large number of inbound traffic from Hacker News clones](https://blog.jim-nielsen.com/2024/hacker-news-clones/), I got curious and started clicking links.[^1]

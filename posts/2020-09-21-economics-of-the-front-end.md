@@ -1,5 +1,3 @@
-#javascript
-
 # The Economics of the Front-End
 
 > We’re asking our users to pay entirely too much, both in time and in money, to access the sites we build with these frameworks. — [Ethan Marcotte](https://ethanmarcotte.com/wrote/gardened/)

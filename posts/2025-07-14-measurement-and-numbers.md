@@ -1,5 +1,3 @@
-#data
-
 # Measurement and Numbers
 
 Here’s [Jony Ive talking to Patrick Collison](https://www.youtube.com/watch?v=wLb9g_8r-mE) about measurement and numbers:

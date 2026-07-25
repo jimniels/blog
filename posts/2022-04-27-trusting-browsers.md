@@ -1,4 +1,4 @@
-#browsers #webPlatform
+#webPlatform
 
 # Trusting Browsers
 

@@ -1,5 +1,3 @@
-#javascript
-
 # Exporting to HTML from JavaScript Using Blob URLs
 
 I was working on a project recently where I had a data structure in JavaScript that I wanted to export to an HTML representation. I’ve traditionally seen this done by using JavaScript to create an `<a>` link, set its `href` to a base-64 encoded data URI, set `target="_blank"`, etc. Something like this:

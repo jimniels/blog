@@ -1,4 +1,4 @@
-#stories #engineering
+#engineering
 
 # Git Info in Node for a Babel Config
 
