@@ -39,26 +39,28 @@
 
 <main class="wrapper">
   <h1>Tags</h1>
-  <ul class="tags-list">
+  <p>
+    ${Tree.length(postsByTag)} tags — most of which are for me to keep track of
+    posts I continually write about, so I retroactively apply tags.
+  </p>
+  <ul class="kv-list">
     ${Tree.map(postsByTag, (posts, tag) => `
     <li>
-      <a href="#${tag}" class="tag">#${tag}</a>
-      <small>(${posts.length})</small>
+      <a id="${tag}" href="/tags/${tag}" class="tag">
+        <span>#${tag}</span>
+        <span
+          style="
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--c-text-light);
+          "
+        >
+          <small>${posts.length}</small>
+          ${server/Heroicons.ori/chevron-right}
+        </span>
+      </a>
     </li>
     ` )}
   </ul>
-
-  ${Tree.map(postsByTag, (posts, tag) => `
-  <h2 id="${tag}" style="margin: 2rem 0 0.5rem">
-    <a href="#${tag}" style="color: inherit">
-      #${tag}
-      <small
-        style="font-weight: 300; font-size: 1rem; color: var(--c-text-light)"
-      >
-        (${posts.length})
-      </small>
-    </a>
-  </h2>
-
-  ${<server/PostsList.js>(Tree.plain(Tree.values(posts)))} `)}
 </main>
