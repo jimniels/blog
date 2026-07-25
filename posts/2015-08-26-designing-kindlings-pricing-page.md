@@ -1,4 +1,4 @@
-#designProcess #kindling
+#designProcess #jobKindling
 
 # Designing Kindling’s Pricing Page
 

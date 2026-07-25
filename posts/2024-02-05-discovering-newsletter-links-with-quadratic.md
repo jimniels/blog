@@ -1,4 +1,4 @@
-#quadratic
+#jobQuadratic
 
 # Using Quadratic to Discover Newsletter Links
 

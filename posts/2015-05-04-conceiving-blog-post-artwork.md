@@ -1,4 +1,4 @@
-#designProcess #kindling
+#designProcess #jobKindling
 
 # Conceiving Blog Post Artwork
 

@@ -1,4 +1,4 @@
-#designProcess #kindling
+#designProcess #jobKindling
 
 # Home Page Redesign of kindlingapp.com
 

@@ -1,4 +1,4 @@
-#localFirst
+#localfirst
 
 # The Allure of Local-First Sync Engines
 
