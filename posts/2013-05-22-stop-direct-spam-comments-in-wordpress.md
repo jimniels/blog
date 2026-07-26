@@ -1,5 +1,3 @@
-#tips
-
 # Stop Direct Spam Comments in Wordpress
 
 I recently redesigned my wordpress theme for [iOS Icon Gallery](http://iosicongallery.com) and [Mac Icon Gallery](http://macicongallery.com).
