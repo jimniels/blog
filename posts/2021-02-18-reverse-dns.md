@@ -1,5 +1,3 @@
-#theMoreYouKnow
-
 # Reverse Domain Name Notation
 
 Go ahead and file this one under “can’t believe I’ve been in tech this long and only now am learning this.”
