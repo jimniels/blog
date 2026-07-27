@@ -1,4 +1,4 @@
-# Can the Tide of AI Investment Life All Boats on the Web?
+# Can the Tide of AI Investment Lift All Boats on the Web?
 
 [Jason Grigsby has a great article](https://cloudfour.com/thinks/improvements-to-web-for-ai-should-benefit-all-users/) where he surfaces an opinion from the Safari team about how AI agents shouldn’t get special treatment:
 
