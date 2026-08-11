@@ -4,7 +4,7 @@ Terry Godier has a post titled [“Mea culpa”](https://blog.terrygodier.com/20
 
 > I was careless in relying on AI [...] without doing the work to understand
 
-Let’s face it: carelessness is the grain of AI. It’s what the tool encourages and makes easy by default.
+Let’s face it: carelessness is [the grain](https://frankchimero.com/blog/2015/the-webs-grain/) of AI. It’s what the tool encourages and makes easy by default.
 
 Without constant vigilance and deliberate, active participation to cut against this grain — to maintain an understanding —  careless outcomes are the default fruit of AI.
 
