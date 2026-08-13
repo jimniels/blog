@@ -1,0 +1,92 @@
+---
+(site) => {
+  page = {
+    title: "Calendar",
+    path: "/archive/calendar/",
+    head: `
+      <style>
+        .calendar-year {
+          scroll-margin-top: var(--s-16);
+        }
+        .calendar-year + .calendar-year {
+          margin-top: var(--s-64);
+        }
+        .calendar-year h2 {
+          font-size: 1.333rem;
+          font-weight: 900;
+          letter-spacing: -0.02rem;
+          margin: 0 0 var(--s-24) 0;
+          padding: var(--s-16) 0 var(--s-8);
+          border-bottom: 1px solid var(--c-border);
+          background: var(--c-bg);
+          position: sticky;
+          top: 0;
+          z-index: 1;
+        }
+        .calendar-months {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--s-32) var(--s-12);
+        }
+        .calendar-month h3 {
+          font-size: 0.888rem;
+          margin: 0 0 var(--s-8) 0;
+        }
+        .calendar-month--future,
+        .calendar-day--future {
+          color: var(--c-text-light);
+        }
+        .calendar-grid {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          font-size: 0.65rem;
+          font-variant-numeric: tabular-nums;
+          line-height: 1;
+        }
+        .calendar-day {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 1.6em;
+        }
+        a.calendar-day--post {
+          width: 1.35em;
+          height: 1.35em;
+          min-width: 1.35em;
+          min-height: 1.35em;
+          aspect-ratio: 1;
+          border-radius: 50%;
+          background: var(--c-theme);
+          text-decoration: none;
+          justify-self: center;
+          align-self: center;
+          flex-shrink: 0;
+        }
+        a.calendar-day--post:hover,
+        a.calendar-day--post:active {
+          text-decoration: none;
+          filter: none;
+          opacity: 0.75;
+        }
+        .calendar-day--posts {
+          gap: 2px;
+        }
+        .calendar-day--posts a.calendar-day--post {
+          width: 1em;
+          height: 1em;
+          min-width: 1em;
+          min-height: 1em;
+        }
+      </style>
+    `
+  }
+
+  return = <server/Layouts.js>.Page({ site, page }, _template())
+}.return
+---
+
+<main class="wrapper">
+  ${<server/ArchiveToggle.js>("calendar")}
+  <p>${site.posts.length} posts, dotted on the days they were published.</p>
+  ${<server/PostsCalendar.js>(Tree.plain(site.posts))}
+</main>
