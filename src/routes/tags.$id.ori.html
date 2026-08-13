@@ -1,0 +1,22 @@
+---
+(site, tag, posts) => {
+  page: {
+    title: `Posts tagged: #${tag}`,
+    path: `/tags/${tag}`,
+  }
+
+  
+
+  return: <server/Layouts.js>.Page({ site, page }, _template())
+}.return
+---
+
+<main class="wrapper">
+  <h1>
+    <a href="/tags/">Tags</a>
+    <small style="color: var(--c-text-light)">→</small>
+    #${tag}
+  </h1>
+
+  ${<server/PostsList.js>(Tree.plain(Tree.values(posts)))}
+</main>
