@@ -97,13 +97,7 @@
 ---
 
 <main class="wrapper">
-  ${<server/ArchiveToggle.js>("list")}
-  <p>
-    This is all of it — ${site.posts.length} posts across ${new
-    Date().getFullYear() - 2012} years. All available for free (you get what you
-    pay for).
-  </p>
-  ${/*
+  ${<server/ArchiveToggle.js>("list", site)} ${/*
   <ol class="archive-chart">
     ${Tree.map(postCountsByYear, (postCount, year) => `
     <li>

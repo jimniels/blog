@@ -101,14 +101,10 @@ function renderDay(day, posts, isFuture) {
   }
 
   if (posts.length === 1) {
-    const post = posts[0];
     return html`
-      <a
-        class="calendar-day calendar-day--post${futureClass}"
-        href="${post.path}"
-        title="${escapeAttr(post.title)}"
-        aria-label="${escapeAttr(`${day}: ${post.title}`)}"
-      ></a>
+      <span class="calendar-day calendar-day--has-post${futureClass}">
+        ${renderPost(posts[0], day)}
+      </span>
     `;
   }
 
@@ -116,24 +112,44 @@ function renderDay(day, posts, isFuture) {
     <span class="calendar-day calendar-day--posts${futureClass}">
       ${posts.map(
         (post) => html`
-          <a
-            class="calendar-day--post"
-            href="${post.path}"
-            title="${escapeAttr(post.title)}"
-            aria-label="${escapeAttr(`${day}: ${post.title}`)}"
-          ></a>
+          <span class="calendar-day--has-post">${renderPost(post, day)}</span>
         `
       )}
     </span>
   `;
 }
 
+/**
+ * @param {import("types").Post} post
+ * @param {number} day
+ */
+function renderPost(post, day) {
+  const id = `cal-${post.id}`;
+  return html`
+    <input
+      type="checkbox"
+      id="${id}"
+      class="calendar-day-check"
+      aria-label="${escapeAttr(`${day}: ${post.title}`)}"
+      aria-controls="${id}-popover"
+    />
+    <label for="${id}" class="calendar-day--post"></label>
+    <a
+      id="${id}-popover"
+      class="calendar-popover"
+      href="${post.path}"
+    >${escapeHtml(post.title)}</a>
+  `;
+}
+
 /** @param {string} value */
 function escapeAttr(value) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/"/g, "&quot;")
-    .replace(/</g, "&lt;");
+  return escapeHtml(value).replace(/"/g, "&quot;");
+}
+
+/** @param {string} value */
+function escapeHtml(value) {
+  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 export default PostsCalendar;

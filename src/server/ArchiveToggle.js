@@ -2,8 +2,9 @@ import { html } from "./utils.js";
 
 /**
  * @param {"list" | "calendar"} active
+ * @param {import("../types.js").Site} site
  */
-export default function ArchiveToggle(active) {
+export default function ArchiveToggle(active, site) {
   return html`
     <style>
       .archive-heading {
@@ -45,9 +46,7 @@ export default function ArchiveToggle(active) {
     <div class="archive-heading">
       <h1>Archive</h1>
       <nav class="archive-toggle" aria-label="Archive view">
-        <a
-          href="/archive/"
-          ${active === "list" ? `aria-current="page"` : ""}
+        <a href="/archive/" ${active === "list" ? `aria-current="page"` : ""}
           >List</a
         >
         <a
@@ -57,5 +56,10 @@ export default function ArchiveToggle(active) {
         >
       </nav>
     </div>
+    <p>
+      This is all of it — ${site.posts.length} posts across
+      ${new Date().getFullYear() - 2012} years. All available for free (you get
+      what you pay for).
+    </p>
   `;
 }
