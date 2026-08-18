@@ -114,7 +114,7 @@
           box-shadow: 0 8px 24px hsl(var(--c-theme-h) var(--c-theme-s) 0% / 0.18);
           color: inherit;
           font-size: 0.75rem;
-          font-weight: 600;
+          font-weight: 500;
           line-height: 1.3;
           text-align: left;
           text-decoration: none;
@@ -162,9 +162,11 @@
 <script>
   (function () {
     function closeChecks(except) {
-      document.querySelectorAll(".calendar-day-check:checked").forEach(function (el) {
-        if (el !== except) el.checked = false;
-      });
+      document
+        .querySelectorAll(".calendar-day-check:checked")
+        .forEach(function (el) {
+          if (el !== except) el.checked = false;
+        });
     }
 
     function shiftPopoverIntoView(check) {
@@ -185,10 +187,7 @@
 
     document.addEventListener("change", function (event) {
       var check = event.target;
-      if (
-        check.classList.contains("calendar-day-check") &&
-        check.checked
-      ) {
+      if (check.classList.contains("calendar-day-check") && check.checked) {
         closeChecks(check);
         shiftPopoverIntoView(check);
       }
