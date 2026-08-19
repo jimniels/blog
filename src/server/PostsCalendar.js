@@ -17,7 +17,11 @@ export function PostsCalendar(posts) {
   }
 
   const newestYear = Number(posts[0].date.slice(0, 4));
-  const oldestYear = Number(posts[posts.length - 1].date.slice(0, 4));
+  const oldestDate = posts[posts.length - 1].date;
+  const oldestYear = Number(oldestDate.slice(0, 4));
+  // Start the oldest year on the 3-month row that contains the first post
+  const oldestStartMonth =
+    Math.floor((Number(oldestDate.slice(5, 7)) - 1) / 3) * 3;
   const years = [];
   for (let year = newestYear; year >= oldestYear; year--) {
     years.push(year);
@@ -30,17 +34,25 @@ export function PostsCalendar(posts) {
     day: now.getDate(),
   };
 
-  return html`${years.map((year) => renderYear(year, postsByDate, today))}`;
+  return html`${years.map((year) =>
+    renderYear(
+      year,
+      postsByDate,
+      today,
+      year === oldestYear ? oldestStartMonth : 0
+    )
+  )}`;
 }
 
 /**
  * @param {number} year
  * @param {Map<string, import("types").Post[]>} postsByDate
  * @param {{ year: number, month: number, day: number }} today
+ * @param {number} startMonth
  */
-function renderYear(year, postsByDate, today) {
+function renderYear(year, postsByDate, today, startMonth) {
   const months = [];
-  for (let month = 0; month < 12; month++) {
+  for (let month = startMonth; month < 12; month++) {
     months.push(renderMonth(year, month, postsByDate, today));
   }
 
