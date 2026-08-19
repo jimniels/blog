@@ -1,7 +1,7 @@
 import { html } from "./utils.js";
 
 /**
- * Year-at-a-glance calendars with a dot (and link) on each day that has a post.
+ * Year-at-a-glance calendars with a dot on each day that has a post.
  * @param {import("types").Post[]} posts
  */
 export function PostsCalendar(posts) {
@@ -77,7 +77,7 @@ function renderMonth(year, monthIndex, postsByDate, today) {
     const isFutureDay =
       isFutureMonth ||
       (year === today.year && monthIndex === today.month && day > today.day);
-    cells.push(renderDay(day, postsByDate.get(date) || [], isFutureDay));
+    cells.push(renderDay(day, date, postsByDate.get(date) || [], isFutureDay));
   }
 
   return html`
@@ -92,53 +92,37 @@ function renderMonth(year, monthIndex, postsByDate, today) {
 
 /**
  * @param {number} day
+ * @param {string} date
  * @param {import("types").Post[]} posts
  * @param {boolean} isFuture
  */
-function renderDay(day, posts, isFuture) {
+function renderDay(day, date, posts, isFuture) {
   const futureClass = isFuture ? " calendar-day--future" : "";
 
   if (posts.length === 0) {
     return html`<span class="calendar-day${futureClass}">${day}</span>`;
   }
 
-  if (posts.length === 1) {
-    return html`
-      <span class="calendar-day calendar-day--has-post${futureClass}">
-        ${renderPost(posts[0], day)}
-      </span>
-    `;
-  }
+  const id = `cal-${date}`;
+  const label = `${day}: ${posts.map((post) => post.title).join(", ")}`;
 
   return html`
-    <span class="calendar-day calendar-day--posts${futureClass}">
-      ${posts.map(
-        (post) => html`
-          <span class="calendar-day--has-post">${renderPost(post, day)}</span>
-        `
-      )}
+    <span class="calendar-day calendar-day--has-post${futureClass}">
+      <input
+        type="checkbox"
+        id="${id}"
+        class="calendar-day-check"
+        aria-label="${escapeAttr(label)}"
+        aria-controls="${id}-popover"
+      />
+      <label for="${id}" class="calendar-day--post"></label>
+      <div id="${id}-popover" class="calendar-popover">
+        ${posts.map(
+          (post) =>
+            html`<a href="${post.path}">${escapeHtml(post.title)}</a>`
+        )}
+      </div>
     </span>
-  `;
-}
-
-/**
- * @param {import("types").Post} post
- * @param {number} day
- */
-function renderPost(post, day) {
-  const id = `cal-${post.id}`;
-  return html`
-    <input
-      type="checkbox"
-      id="${id}"
-      class="calendar-day-check"
-      aria-label="${escapeAttr(`${day}: ${post.title}`)}"
-      aria-controls="${id}-popover"
-    />
-    <label for="${id}" class="calendar-day--post"></label>
-    <a id="${id}-popover" class="calendar-popover" href="${post.path}"
-      >${escapeHtml(post.title)}</a
-    >
   `;
 }
 
