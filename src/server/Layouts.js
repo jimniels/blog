@@ -31,7 +31,12 @@ export function Page(props, children) {
     "<!DOCTYPE html>" +
     comment +
     html`
-      <html lang="en-us" id="top" data-path="${path}">
+      <html
+        lang="en-us"
+        id="top"
+        data-path="${path}"
+        data-syntax-theme="dracula"
+      >
         <head>
           <title>${title && `${title} - `}${name}</title>
 
@@ -71,6 +76,24 @@ export function Page(props, children) {
 
           <script>
             ${readFile("./theme.js")};
+          </script>
+          <script type="module">
+            // If URL is /YYYY/* _and_ it has a code block, load syntax highlighting
+            const firstPathSegment = window.location.pathname.split("/")[1];
+            if (
+              firstPathSegment &&
+              firstPathSegment.length === 4 &&
+              document.querySelector("pre > code")
+            ) {
+              const link = document.createElement("link");
+              link.rel = "stylesheet";
+              link.href =
+                "https://cdn.jsdelivr.net/npm/microlighter@2/dist/themes/dracula.css";
+              document.head.appendChild(link);
+              import(
+                "https://cdn.jsdelivr.net/npm/microlighter@2/dist/microlighter.min.js"
+              );
+            }
           </script>
 
           <!-- Prefetch navigational pages -->

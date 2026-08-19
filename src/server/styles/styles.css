@@ -278,7 +278,7 @@ pre {
   font-size: 0.88888rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  background: var(--c-bg-opaque);
+  background: var(--c-bg-opaque) !important;
   /* border: 2px solid var(--c-border); */
 }
 
