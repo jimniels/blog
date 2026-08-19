@@ -7,7 +7,6 @@
   "dependencies": {
     "@weborigami/origami": "0.6.12",
     "@weborigami/pagefind": "0.0.17",
-    "highlight.js": "^11.4.0",
     "html-minifier": "^4.0.0",
     "html-validate": "^7.3.3",
     "marked": "^4.0.12",
@@ -16,8 +15,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "diff-changes": "git checkout main && npm i && npm run build && mv build build-old && git checkout - && npm i && npm run build && ori changes build-old, build",
-    "copy-css": "cp node_modules/highlight.js/styles/atom-one-*.css src/server/styles/",
-    "pre": "mkdir -p cache && npm run copy-css && node --env-file-if-exists=.env scripts/cache-site-data.js && npm run get-quick-charts",
+    "pre": "mkdir -p cache && node --env-file-if-exists=.env scripts/cache-site-data.js && npm run get-quick-charts",
     "prestart": "npm run pre",
     "start": "ori serve watch src, =debug src/site.ori",
     "prebuild": "npm run pre",

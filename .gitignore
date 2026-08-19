@@ -4,7 +4,6 @@ cache
 .nova
 node_modules/
 build*
-atom-one*.css
 
 .*
 !.gitignore
