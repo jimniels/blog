@@ -136,7 +136,16 @@ function renderDay(day, date, posts, isFuture) {
       ></a>
       <div id="${id}-popover" class="calendar-popover">
         ${posts.map(
-          (post) => html`<a href="${post.path}">${escapeHtml(post.title)}</a>`
+          (post) => html`
+            <a href="${post.path}">
+              <span>${escapeHtml(post.title)}</span>
+              ${post.hackerNews
+                ? html`<span class="calendar-popover-hn"
+                    >→ Hit Hacker News</span
+                  >`
+                : ""}
+            </a>
+          `
         )}
       </div>
     </span>

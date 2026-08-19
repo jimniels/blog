@@ -93,13 +93,18 @@
           text-align: left;
         }
         .calendar-popover a {
-          display: block;
+          display: flex;
+          flex-direction: column;
           padding: var(--s-8) var(--s-12);
           color: inherit;
           text-decoration: none;
         }
         .calendar-popover a + a {
           border-top: 1px solid var(--c-fg);
+        }
+        .calendar-popover-hn {
+          color: var(--c-text-light);
+          font-size: 0.7rem;
         }
         .calendar-day.is-open .calendar-popover {
           display: block;
@@ -126,8 +131,11 @@
           translate: var(--popover-shift) 0;
         }
         .calendar-popover a:hover {
-          text-decoration: underline;
+          text-decoration: none;
           filter: none;
+        }
+        .calendar-popover a:hover span:first-child {
+          text-decoration: underline;
         }
       </style>
     `
