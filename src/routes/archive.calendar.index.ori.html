@@ -40,39 +40,35 @@
         .calendar-day--has-post {
           position: relative;
         }
-        .calendar-month:has(:checked),
-        .calendar-year:has(:checked) {
+        .calendar-month:has(.is-open),
+        .calendar-year:has(.is-open) {
           z-index: 2;
           position: relative;
         }
-        .calendar-day-check {
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          overflow: hidden;
-          clip: rect(0, 0, 0, 0);
-          clip-path: inset(50%);
-          white-space: nowrap;
-        }
         .calendar-day--post {
+          --dot: var(--c-theme);
+          display: block;
           width: 1.35em;
           height: 1.35em;
           min-width: 1.35em;
           min-height: 1.35em;
           aspect-ratio: 1;
           border-radius: 50%;
-          background: var(--c-theme);
-          cursor: pointer;
-          justify-self: center;
-          align-self: center;
+          background: var(--dot);
           flex-shrink: 0;
+        }
+        .calendar-day--post-hn {
+          --dot: #ff6600;
+          border-radius: 0;
         }
         .calendar-day--post:hover {
           opacity: 0.75;
+          text-decoration: none;
+          filter: none;
         }
-        .calendar-day-check:focus-visible + .calendar-day--post,
-        .calendar-day-check:checked + .calendar-day--post {
-          outline: 2px solid var(--c-theme);
+        .calendar-day--post:focus-visible,
+        .calendar-day.is-open .calendar-day--post {
+          outline: 2px solid var(--dot);
           outline-offset: 3px;
           opacity: 1;
         }
@@ -93,7 +89,6 @@
           box-shadow: 0 8px 24px hsl(var(--c-theme-h) var(--c-theme-s) 0% / 0.18);
           color: inherit;
           font-size: 0.75rem;
-          font-weight: 500;
           line-height: 1.3;
           text-align: left;
         }
@@ -106,7 +101,7 @@
         .calendar-popover a + a {
           border-top: 1px solid var(--c-fg);
         }
-        .calendar-day-check:checked ~ .calendar-popover {
+        .calendar-day.is-open .calendar-popover {
           display: block;
         }
         /* Left-hand months grow right; right-hand months grow left */
@@ -148,16 +143,18 @@
 </main>
 <script>
   (function () {
-    function closeChecks(except) {
+    function closeAll() {
       document
-        .querySelectorAll(".calendar-day-check:checked")
-        .forEach(function (el) {
-          if (el !== except) el.checked = false;
+        .querySelectorAll(".calendar-day.is-open")
+        .forEach(function (day) {
+          day.classList.remove("is-open");
+          var trigger = day.querySelector(".calendar-day--post");
+          if (trigger) trigger.setAttribute("aria-expanded", "false");
         });
     }
 
-    function shiftPopoverIntoView(check) {
-      var pop = document.getElementById(check.getAttribute("aria-controls"));
+    function shiftPopoverIntoView(day) {
+      var pop = day.querySelector(".calendar-popover");
       if (!pop) return;
       pop.style.setProperty("--popover-shift", "0px");
       requestAnimationFrame(function () {
@@ -172,22 +169,34 @@
       });
     }
 
-    document.addEventListener("change", function (event) {
-      var check = event.target;
-      if (check.classList.contains("calendar-day-check") && check.checked) {
-        closeChecks(check);
-        shiftPopoverIntoView(check);
-      }
+    document.querySelectorAll(".calendar-day--post").forEach(function (link) {
+      link.setAttribute("aria-expanded", "false");
     });
 
     document.addEventListener("click", function (event) {
-      if (!event.target.closest(".calendar-day--has-post")) {
-        closeChecks();
+      var trigger = event.target.closest(".calendar-day--post");
+      if (trigger) {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+          return;
+        }
+        event.preventDefault();
+        var day = trigger.closest(".calendar-day");
+        var wasOpen = day.classList.contains("is-open");
+        closeAll();
+        if (!wasOpen) {
+          day.classList.add("is-open");
+          trigger.setAttribute("aria-expanded", "true");
+          shiftPopoverIntoView(day);
+        }
+        return;
+      }
+      if (!event.target.closest(".calendar-popover")) {
+        closeAll();
       }
     });
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") closeChecks();
+      if (event.key === "Escape") closeAll();
     });
   })();
 </script>

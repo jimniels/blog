@@ -104,22 +104,27 @@ function renderDay(day, date, posts, isFuture) {
   }
 
   const id = `cal-${date}`;
-  const label = `${day}: ${posts.map((post) => post.title).join(", ")}`;
+  const [year, month] = date.split("-").map(Number);
+  const label = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(year, month - 1, day));
+  const hnClass = posts.some((post) => post.hackerNews)
+    ? " calendar-day--post-hn"
+    : "";
 
   return html`
     <span class="calendar-day calendar-day--has-post${futureClass}">
-      <input
-        type="checkbox"
-        id="${id}"
-        class="calendar-day-check"
+      <a
+        href="${posts[0].path}"
+        class="calendar-day--post${hnClass}"
         aria-label="${escapeAttr(label)}"
         aria-controls="${id}-popover"
-      />
-      <label for="${id}" class="calendar-day--post"></label>
+      ></a>
       <div id="${id}-popover" class="calendar-popover">
         ${posts.map(
-          (post) =>
-            html`<a href="${post.path}">${escapeHtml(post.title)}</a>`
+          (post) => html`<a href="${post.path}">${escapeHtml(post.title)}</a>`
         )}
       </div>
     </span>
