@@ -8,7 +8,7 @@ The secret is in this summation: to determine `width` you look up the tree, to d
 
 For example, take this code:
 
-```
+```html
 <html>
   <body>
     <div>My content</div>
