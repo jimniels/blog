@@ -17,30 +17,34 @@ export default function ArchiveToggle(active, site) {
       .archive-heading h1 {
         margin: 0;
       }
+      .archive-year {
+        margin: 0 0 var(--s-24) 0;
+        padding: var(--s-16) 0 var(--s-8);
+        background: var(--c-bg);
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        border-bottom: 1px solid var(--c-border);
+      }
       .archive-toggle {
         display: flex;
         flex-shrink: 0;
-        border: 1px solid var(--c-fg);
-        border-radius: var(--border-radius);
-        padding: var(--s-2);
         font-size: 0.777rem;
       }
       .archive-toggle a {
-        color: var(--c-text-light);
         text-decoration: none;
         padding: var(--s-4) var(--s-12);
         border-radius: calc(var(--border-radius) - var(--s-2));
       }
       .archive-toggle a:hover,
       .archive-toggle a:active {
-        color: var(--c-text);
-        text-decoration: none;
-        filter: none;
+        text-decoration: underline;
       }
       .archive-toggle a[aria-current="page"] {
         background: var(--c-fg);
         color: var(--c-text);
         pointer-events: none;
+        text-decoration: none;
       }
     </style>
     <div class="archive-heading">

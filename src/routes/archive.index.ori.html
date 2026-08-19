@@ -8,24 +8,15 @@
         @view-transition {
           navigation: none;
         }
-        main h2,
         main h3 {
-          height: 1.5rem;
           width: 50%;
+          margin: 0 0 0 50%;
+          padding: var(--s-16) 0 var(--s-8);
           background: var(--c-bg);
           position: sticky;
-          top: 0px;
-          margin-bottom: 0;
-        }
-        main h2 {
-          z-index: 10;
-          
-        }
-        main h3 {
-          z-index: 11;
-          
+          top: 0;
+          z-index: 2;
           text-align: right;
-          margin-left: 50%;
         }
 
         .archive-chart {
@@ -113,7 +104,7 @@
     ` )}
   </ol>
   */""} ${Tree.map(postsByYearThenMonth, (postsByMonth, year) => `
-  <h2>${year}</h2>
+  <h2 class="archive-year">${year}</h2>
   ${Tree.map(postsByMonth, (posts, month) => `
   <h3>
     ${Intl.DateTimeFormat('en', { month: 'short' }).format(new Date(month))}

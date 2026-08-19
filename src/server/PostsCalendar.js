@@ -46,7 +46,7 @@ function renderYear(year, postsByDate, today) {
 
   return html`
     <section class="calendar-year" id="${year}">
-      <h2>${year}</h2>
+      <h2 class="archive-year">${year}</h2>
       <div class="calendar-months">${months}</div>
     </section>
   `;
@@ -81,7 +81,9 @@ function renderMonth(year, monthIndex, postsByDate, today) {
   }
 
   return html`
-    <div class="calendar-month${isFutureMonth ? " calendar-month--future" : ""}">
+    <div
+      class="calendar-month${isFutureMonth ? " calendar-month--future" : ""}"
+    >
       <h3>${monthName}</h3>
       <div class="calendar-grid">${cells}</div>
     </div>
@@ -134,11 +136,9 @@ function renderPost(post, day) {
       aria-controls="${id}-popover"
     />
     <label for="${id}" class="calendar-day--post"></label>
-    <a
-      id="${id}-popover"
-      class="calendar-popover"
-      href="${post.path}"
-    >${escapeHtml(post.title)}</a>
+    <a id="${id}-popover" class="calendar-popover" href="${post.path}"
+      >${escapeHtml(post.title)}</a
+    >
   `;
 }
 
@@ -149,7 +149,10 @@ function escapeAttr(value) {
 
 /** @param {string} value */
 function escapeHtml(value) {
-  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
 
 export default PostsCalendar;
