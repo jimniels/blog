@@ -77,6 +77,22 @@ export function Page(props, children) {
           <link rel="prefetch" href="/menu/" />
           <link rel="prefetch" href="/search/" />
 
+          <!-- GA (testing) -->
+          <!-- Google tag (gtag.js) -->
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-CP7ZEPS11G"
+          ></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-CP7ZEPS11G");
+          </script>
+
           <!-- Dynamic <head> content where applicable -->
           ${head}
         </head>
