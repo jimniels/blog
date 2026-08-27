@@ -29,3 +29,5 @@ The view is simple: a calendar view of days in each year, and if I posted on a d
 You can click on the dots to see the names of the posts from that day (and follow the link to them, but really this view is basically to scratch an itch of mine.
 
 Because you can just make stuff for yourself, and that’s what I’ve done here. And now I’m writing about it because that means I get another little circle for today! Good job, Jimbo.
+
+[Check it out](https://blog.jim-nielsen.com/archive/calendar)
