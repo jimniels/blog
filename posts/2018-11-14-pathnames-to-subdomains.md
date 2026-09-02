@@ -14,7 +14,7 @@ So now, after switching everything over to Netlify, if you visit any of my web p
 - [jim-nielsen.com/logo-integrity](http://jim-nielsen.com/logo-integrity) → [logo-integrity.jim-nielsen.com](https://logo-integrity.jim-nielsen.com)
 - [jim-nielsen.com/sandbox/old-interfaces](http://jim-nielsen.com/sandbox/old-interfaces) → [old-movie-uis.jim-nielsen.com](https://old-movie-uis.jim-nielsen.com)
 - [jim-nielsen.com/sandbox/kindlinglovesstartups](http://jim-nielsen.com/sandbox/kindlinglovesstartups) → [kindling-loves-startups.jim-nielsen.com](https://kindling-loves-startups.jim-nielsen.com)
-- [jim-nielsen.com/gimmiedaticon](http://jim-nielsen.com/gimmiedaticon) → [gimmie-dat-icon.jim-nielsen.com](https://gimmie-dat-icon.jim-nielsen.com)
+- [jim-nielsen.com/gimmiedaticon](http://jim-nielsen.com/gimmiedaticon) → [gimmiedaticon.jim-nielsen.com](https://gimmiedaticon.jim-nielsen.com)
 - [jim-nielsen.com/teamcolors](http://jim-nielsen.com/teamcolors) → [teamcolors.jim-nielsen.com](https://teamcolors.jim-nielsen.com)
 - [jim-nielsen.com/sassme](http://jim-nielsen.com/sassme) → [sassme.jim-nielsen.com](https://sassme.jim-nielsen.com)
 
