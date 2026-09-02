@@ -40,6 +40,6 @@ I don’t link to this page in my site’s navigation because it’s intended as
 
 I wasn’t planning on doing a writeup about this change. However, after listening to Dave and Chris talk about a similar problem on their podcast I thought, “hey I’m not the only one.”
 
-Now when I need to find something that I know I linked to once in my “Reading Notes” posts, I go to [/tags/readingNotes](https://blog.jim-nielsen.com/tags/readingNotes), hit CMD+F in my browser, and start doing a keyword search. Boom! Search for free.
+Now when I need to find something that I know I linked to once in my “Reading Notes” posts, I go to ~~/tags/readingNotes~~ [my notes site archive](https://notes.jim-nielsen.com/n/), hit CMD+F in my browser, and start doing a keyword search. Boom! Search for free.
 
 I love browsers. The right combination of HTML and URLs is amazing. 
