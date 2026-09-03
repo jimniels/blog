@@ -5,7 +5,7 @@
   "main": "metalsmith.js",
   "type": "module",
   "dependencies": {
-    "@weborigami/origami": "0.6.12",
+    "@weborigami/origami": "0.7.1",
     "@weborigami/pagefind": "0.0.17",
     "html-minifier": "^4.0.0",
     "html-validate": "^7.3.3",
@@ -17,7 +17,7 @@
     "diff-changes": "git checkout main && npm i && npm run build && mv build build-old && git checkout - && npm i && npm run build && ori changes build-old, build",
     "pre": "mkdir -p cache && node --env-file-if-exists=.env scripts/cache-site-data.js && npm run get-quick-charts",
     "prestart": "npm run pre",
-    "start": "ori serve watch src, =debug src/site.ori",
+    "start": "ori debug2 src/site.ori",
     "prebuild": "npm run pre",
     "build": "ori copy src/site.ori, clear files:build",
     "ori": "ori",
