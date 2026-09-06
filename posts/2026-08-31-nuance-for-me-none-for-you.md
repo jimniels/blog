@@ -5,8 +5,8 @@ Eric Bailey has [a fun little post](https://ericwbailey.website/published/a-prop
 For example, he suggests Netflix provide some feedback buttons to indicate the kinds of experiences we all share consuming and rating media:
 
 - “Just because I expressed interest in this show does not mean I want to be inundated with recommendations for its genre”
-- “Disregard [that I pressed ‘thumbs up’] my cat walked over the keyboard”
-- “I am making bad choices and hatewatching this” (which reminds me of )
+- “Disregard that I pressed ‘thumbs up’ my cat walked over the keyboard”
+- “I am making bad choices and hatewatching this”
 
 What’s great about the examples in Eric’s post is how familiar they are. We can read them and laugh because we’ve had the same thought — “I’m pressing ‘thumbs up’ here, but what I really mean is…” 
 
