@@ -43,7 +43,7 @@ The answers to these questions get more and more interesting over time, as the l
 
 Great question. Val Town has a UI where I can see the raw data I’m storing (which I chose to store exactly as I got it from Netlify, rather than doing some pre-processing first):
 
-<img src="https://cdn.jim-nielsen.com/blog/2026/netlify-analytics-valtown.png" width="1292" height="852" alt="Screenshot of the SQLite tab on a Val, showing a database table with a number of rows and columns of analytics data from Netlify." />
+<img src="https://cdn.jim-nielsen.com/blog/2026/netlify-analytics-valtown.png" width="1292" height="852" alt="Screenshot of the SQLite tab on a Val, showing a database table with a number of rows and columns of analytics data from Netlify." data-og-image />
 
 But that’s not very useful. I need to parse that data and turn it into some kind of useful analysis.
 
