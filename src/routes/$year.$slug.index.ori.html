@@ -5,12 +5,15 @@
 (props) => {
   site: props.site,
   post: props.post,
+  description: <server/utils.js>.excerptForMeta(post.contents.toString()),
   page: {
     title: post.title,
     path: post.path,
+    description,
     head: `
       <link rel="canonical" href="${post.permalink}" />
       <meta property="og:title" content="${post.title}" />
+      <meta property="og:description" content="${description}" />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="${post.permalink}" />
       <meta

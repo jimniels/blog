@@ -38,6 +38,45 @@ export function toDateUI(date) {
   return date.slice(0, 10);
 }
 
+/** Typical displayed length of a meta description in search results. */
+export const META_DESCRIPTION_LENGTH = 160;
+
+/**
+ * Strip HTML to a plain-text excerpt for `<meta>` descriptions.
+ * @param {string} html
+ * @param {number} [maxLength]
+ * @returns {string}
+ */
+export function excerptForMeta(html, maxLength = META_DESCRIPTION_LENGTH) {
+  const text = String(html ?? "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  let excerpt = text;
+  if (text.length > maxLength) {
+    excerpt = text.slice(0, maxLength);
+    const lastSpace = excerpt.lastIndexOf(" ");
+    if (lastSpace > maxLength * 0.6) {
+      excerpt = excerpt.slice(0, lastSpace);
+    }
+    excerpt = excerpt.replace(/[\s.,;:!?–—-]+$/, "") + "…";
+  }
+
+  return excerpt
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 /**
  *
  * @param {string} relativeFilePath

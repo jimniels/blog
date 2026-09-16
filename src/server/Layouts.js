@@ -24,8 +24,12 @@ https://www.github.com/jimniels/blog/
 export function Page(props, children) {
   const {
     site: { origin, tags, name },
-    page: { head = "", path, title },
+    page: { head = "", path, title, description },
   } = props;
+
+  const metaDescription =
+    description ||
+    "Writing about the big beautiful mess that is making things for the world wide web.";
 
   return (
     "<!DOCTYPE html>" +
@@ -44,10 +48,7 @@ export function Page(props, children) {
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="author" content="Jim Nielsen" />
-          <meta
-            name="description"
-            content="Writing about the big beautiful mess that is making things for the world wide web."
-          />
+          <meta name="description" content="${metaDescription}" />
           <link rel="me" href="https://github.com/jimniels" />
           <link rel="me" href="https://twitter.com/jimniels" />
           <link rel="me" href="https://mastodon.social/@jimniels" />
