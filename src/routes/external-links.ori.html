@@ -1,7 +1,7 @@
 ---
 (site) => {
   page = {
-    title: "External Links",
+    title: "Links",
     path: "/external-links/",
     head: `<style>
       .archive-chart {
@@ -48,8 +48,8 @@
 }.return
 ---
 
-<main class="copy">
-  <h1>${page.title}</h1>
+<main class="wrapper">
+  ${<server/LinksToggle.js>("external")}
 
   <p>
     I thought it would be interesting to
