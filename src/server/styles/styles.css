@@ -729,3 +729,81 @@ h1 {
 .kv-list a:hover svg:last-child {
   color: var(--c-theme);
 }
+
+/* ==========================================================================
+  * Ranked domain list (dotted leaders)
+  * ========================================================================== */
+
+.list-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-16);
+  margin: var(--s-40) 0 var(--s-8);
+}
+.list-heading h2 {
+  margin: 0;
+}
+.list-heading p {
+  margin: 0;
+  color: var(--c-text-light);
+  font-size: 0.777rem;
+  white-space: nowrap;
+}
+
+.domain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.domain-list li a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-8);
+  padding: var(--s-6) 0;
+  text-decoration: none;
+  color: inherit;
+}
+.domain-list li a:hover,
+.domain-list li a:active {
+  text-decoration: none;
+  filter: none;
+}
+.domain-list li a:hover .domain {
+  color: var(--c-theme);
+  text-decoration: underline;
+}
+.domain-list img {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  align-self: center;
+}
+.domain-list .domain {
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.domain-list .leader {
+  flex: 1 1 auto;
+  min-width: var(--s-16);
+  height: 0;
+  border-bottom: 1px dotted var(--c-text-light);
+  opacity: 0.5;
+}
+.domain-list .count {
+  flex-shrink: 0;
+  color: var(--c-text-light);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.77777rem;
+}
+
+.domain-list-more {
+  font-size: 0.875rem;
+}
+.domain-list-more summary {
+  cursor: pointer;
+  padding: var(--s-16) 0;
+}
