@@ -1,4 +1,4 @@
-#tips #myBlog
+#myBlog
 
 # Twitter Cards and Visually Representing That I’ve Got Stuff To Say
 

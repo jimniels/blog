@@ -1,5 +1,3 @@
-#tips
-
 # Freebie Resources - Don’t Assume, Double Check
 
 Seemingly high-quality freebies, who doesn't love them? They save lots of time. However, be careful to double check and properly adjust any small details that may be misaligned. As they say, design is in the details, and sometimes you can't always rely on someone else having invested in those details.

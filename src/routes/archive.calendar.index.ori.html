@@ -1,0 +1,210 @@
+---
+(site) => {
+  page = {
+    title: "Calendar",
+    path: "/archive/calendar/",
+    head: `
+      <style>
+        .calendar-year {
+          scroll-margin-top: var(--s-16);
+        }
+        .calendar-year + .calendar-year {
+          margin-top: var(--s-64);
+        }
+        .calendar-months {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--s-32) var(--s-12);
+        }
+        .calendar-month h3 {
+          font-size: 0.888rem;
+          margin: 0 0 var(--s-8) 0;
+        }
+        .calendar-month--future,
+        .calendar-day--future {
+          color: var(--c-text-light);
+        }
+        .calendar-grid {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          font-size: 0.65rem;
+          font-variant-numeric: tabular-nums;
+          line-height: 1;
+        }
+        .calendar-day {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 1.6em;
+        }
+        .calendar-day--has-post {
+          position: relative;
+        }
+        .calendar-month:has(.is-open),
+        .calendar-year:has(.is-open) {
+          z-index: 2;
+          position: relative;
+        }
+        .calendar-day--post {
+          --dot: var(--c-theme);
+          display: block;
+          width: 1.35em;
+          height: 1.35em;
+          min-width: 1.35em;
+          min-height: 1.35em;
+          aspect-ratio: 1;
+          border-radius: 50%;
+          background: var(--dot);
+          flex-shrink: 0;
+        }
+        .calendar-day--post-hn {
+          --dot: #ff6600;
+          border-radius: 0;
+        }
+        .calendar-day--post:hover {
+          opacity: 0.75;
+          text-decoration: none;
+          filter: none;
+        }
+        .calendar-day--post:focus-visible,
+        .calendar-day.is-open .calendar-day--post {
+          outline: 2px solid var(--dot);
+          outline-offset: 3px;
+          opacity: 1;
+        }
+        .calendar-popover {
+          --popover-shift: 0px;
+          display: none;
+          position: absolute;
+          top: calc(100% + 0.4em);
+          left: 50%;
+          translate: calc(-50% + var(--popover-shift)) 0;
+          z-index: 5;
+          width: max-content;
+          max-width: min(12rem, calc(100vw - 2rem));
+          padding: 0;
+          background: var(--c-bg);
+          border: 1px solid var(--c-fg);
+          border-radius: var(--border-radius);
+          box-shadow: 0 8px 24px hsl(var(--c-theme-h) var(--c-theme-s) 0% / 0.18);
+          color: inherit;
+          font-size: 0.75rem;
+          line-height: 1.3;
+          text-align: left;
+        }
+        .calendar-popover a {
+          display: flex;
+          flex-direction: column;
+          padding: var(--s-8) var(--s-12);
+          color: inherit;
+          text-decoration: none;
+        }
+        .calendar-popover a + a {
+          border-top: 1px solid var(--c-fg);
+        }
+        .calendar-popover-hn {
+          color: var(--c-text-light);
+          font-size: 0.7rem;
+        }
+        .calendar-day.is-open .calendar-popover {
+          display: block;
+        }
+        /* Left-hand months grow right; right-hand months grow left */
+        .calendar-month:nth-child(3n + 1) .calendar-popover {
+          left: 0;
+          translate: var(--popover-shift) 0;
+        }
+        .calendar-month:nth-child(3n) .calendar-popover {
+          left: auto;
+          right: 0;
+          translate: var(--popover-shift) 0;
+        }
+        /* Sunday / Saturday columns pin to the inward side */
+        .calendar-day:nth-child(7n + 1) .calendar-popover {
+          left: 0;
+          right: auto;
+          translate: var(--popover-shift) 0;
+        }
+        .calendar-day:nth-child(7n) .calendar-popover {
+          left: auto;
+          right: 0;
+          translate: var(--popover-shift) 0;
+        }
+        .calendar-popover a:hover {
+          text-decoration: none;
+          filter: none;
+        }
+        .calendar-popover a:hover span:first-child {
+          text-decoration: underline;
+        }
+      </style>
+    `
+  }
+
+  return = <server/Layouts.js>.Page({ site, page }, _template())
+}.return
+---
+
+<main class="wrapper">
+  ${<server/ArchiveToggle.js>("calendar", site)}
+  ${<server/PostsCalendar.js>(Tree.plain(site.posts))}
+</main>
+<script>
+  (function () {
+    function closeAll() {
+      document
+        .querySelectorAll(".calendar-day.is-open")
+        .forEach(function (day) {
+          day.classList.remove("is-open");
+          var trigger = day.querySelector(".calendar-day--post");
+          if (trigger) trigger.setAttribute("aria-expanded", "false");
+        });
+    }
+
+    function shiftPopoverIntoView(day) {
+      var pop = day.querySelector(".calendar-popover");
+      if (!pop) return;
+      pop.style.setProperty("--popover-shift", "0px");
+      requestAnimationFrame(function () {
+        var rect = pop.getBoundingClientRect();
+        var pad = 16;
+        var dx = 0;
+        if (rect.left < pad) dx += pad - rect.left;
+        if (rect.right + dx > window.innerWidth - pad) {
+          dx -= rect.right + dx - (window.innerWidth - pad);
+        }
+        pop.style.setProperty("--popover-shift", Math.round(dx) + "px");
+      });
+    }
+
+    document.querySelectorAll(".calendar-day--post").forEach(function (link) {
+      link.setAttribute("aria-expanded", "false");
+    });
+
+    document.addEventListener("click", function (event) {
+      var trigger = event.target.closest(".calendar-day--post");
+      if (trigger) {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+          return;
+        }
+        event.preventDefault();
+        var day = trigger.closest(".calendar-day");
+        var wasOpen = day.classList.contains("is-open");
+        closeAll();
+        if (!wasOpen) {
+          day.classList.add("is-open");
+          trigger.setAttribute("aria-expanded", "true");
+          shiftPopoverIntoView(day);
+        }
+        return;
+      }
+      if (!event.target.closest(".calendar-popover")) {
+        closeAll();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeAll();
+    });
+  })();
+</script>

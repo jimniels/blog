@@ -278,7 +278,7 @@ pre {
   font-size: 0.88888rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  background: var(--c-bg-opaque);
+  background: var(--c-bg-opaque) !important;
   /* border: 2px solid var(--c-border); */
 }
 
@@ -653,6 +653,41 @@ h1 {
   font-weight: 900;
   letter-spacing: -0.02rem;
   margin: 0 0 var(--s-16) 0;
+}
+
+/* =============================================================================
+   Page heading + view toggle
+   ========================================================================== */
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-16);
+  margin-bottom: var(--s-16);
+}
+.page-heading h1 {
+  margin: 0;
+}
+.page-toggle {
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.777rem;
+}
+.page-toggle a {
+  text-decoration: none;
+  padding: var(--s-4) var(--s-12);
+  border-radius: calc(var(--border-radius) - var(--s-2));
+}
+.page-toggle a:hover,
+.page-toggle a:active {
+  text-decoration: underline;
+}
+.page-toggle a[aria-current="page"] {
+  background: var(--c-fg);
+  color: var(--c-text);
+  pointer-events: none;
+  text-decoration: none;
 }
 
 /* ==========================================================================

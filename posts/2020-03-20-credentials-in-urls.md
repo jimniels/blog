@@ -1,5 +1,3 @@
-#theMoreYouKnow
-
 # Credentials in URLs
 
 I recently finished reading [“The History of the URL”](https://blog.cloudflare.com/the-history-of-the-url/) over on Cloudflare’s blog. It was a good read, full of interesting details—some that I understood, some that I did not.
@@ -60,5 +58,4 @@ Again, I’ve worked on the web for a long time, and I never knew this. I always
 
 > While encoding the user name and password with the Base64 algorithm typically makes them unreadable by the naked eye, they are as easily decoded as they are encoded. Security is not the intent of the encoding step. Rather, the intent of the encoding is to encode non-HTTP-compatible characters that may be in the user name or password into those that are HTTP-compatible.
 
-Well look at that: you learn something new every day huh? 
-I’m going to start a new tag on my blog to document things like this—things that I probably should’ve learned a long time ago and am embarrassed to admit that I’ve only learned just now. I’ll call it: #[theMoreYouKnow](https://blog.jim-nielsen.com/tags/#theMoreYouKnow).
+Well look at that: you learn something new every day huh?

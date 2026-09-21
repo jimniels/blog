@@ -1,4 +1,4 @@
-#designProcess #tips #jobPostlight
+#designProcess #jobPostlight
 
 # Going the Extra Mile with Tasks and Feature Requests
 

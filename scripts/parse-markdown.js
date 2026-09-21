@@ -1,4 +1,3 @@
-import hljs from "highlight.js";
 import { marked } from "marked";
 import psl from "psl";
 
@@ -178,12 +177,6 @@ const renderer = {
 
 marked.use({
   renderer,
-  highlight: (code, language) => {
-    // https://github.com/markedjs/marked/blob/master/docs/USING_ADVANCED.md
-    return hljs.highlight(code, {
-      language: hljs.getLanguage(language) ? language : "plaintext",
-    }).value;
-  },
   gfm: true,
   smartLists: true,
   langPrefix: "language language-",

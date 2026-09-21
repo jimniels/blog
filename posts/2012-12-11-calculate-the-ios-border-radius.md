@@ -1,4 +1,4 @@
-#tips #engineering #iconGalleries
+#engineering #iconGalleries
 
 # Calculate the Border Radius for iOS-Style Icons Using a Simple Ratio
 

@@ -1,4 +1,4 @@
-#tips #css
+#css
 
 # Seemly Selectors
 

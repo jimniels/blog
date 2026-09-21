@@ -5,13 +5,50 @@
     path: "/subscribe/",
     head: `
       <style>
-        details summary {
-        
-          cursor: default;
+      /* One-offs for nested <details> in kv-list just this page */
+        .kv-list details summary {
+          padding: var(--s-16) 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: var(--s-16);
+          color: var(--c-theme);
+          cursor: pointer;
+          list-style: none;
         }
-        details[open] summary {
-        
+        .kv-list details summary::-webkit-details-marker {
+          display: none;
         }
+        .kv-list details summary svg:last-child {
+          transition: transform 0.15s ease, color 0.15s ease;
+        }
+        .kv-list details summary:hover svg:last-child {
+          color: var(--c-theme);
+        }
+        .kv-list details[open] summary svg:last-child {
+          transform: rotate(90deg);
+          color: var(--c-theme);
+        }
+        .kv-list details p {
+          margin: 0;
+          padding-bottom: var(--s-16);
+          color: var(--c-text);
+        }
+        /* Nested links shouldn't inherit .kv-list li a layout */
+        .kv-list details p a {
+          display: inline;
+          padding: 0;
+          text-decoration: underline;
+        }
+        .what-feed {
+          margin-top: var(--s-24);
+          color: var(--c-text-light);
+        }
+        .what-feed[open] {
+          color: var(--c-text);
+        }
+
+
       </style>
     `,
   },
@@ -21,6 +58,13 @@
 
 <main class="wrapper">
   <h1>Subscribe</h1>
+  <p>
+    Simply copy/paste this page’s URL into your feed reader for
+    <a href="/2021/automatically-discoverable-rss-feeds/">
+      automatic feed discovery.
+    </a>
+    Or, pick your poison below:
+  </p>
   <ul class="kv-list">
     <li>
       <a href="/feed.xml">
@@ -34,16 +78,28 @@
         ${server/Heroicons.ori/chevron-right}
       </a>
     </li>
+    <li>
+      <details class="kv-list-item">
+        <summary>
+          ${server/Heroicons.ori/email} Email
+          ${server/Heroicons.ori/chevron-right}
+        </summary>
+        <p>
+          Why email over a feed reader? What life choices have led you to this
+          point? Lol, I jest.
+        </p>
+        <p>
+          I do have email delivery, but I don’t know if I’ll keep it forever.
+          With that caveat, here’s the link to
+          <a href="https://buttondown.com/jimniels">
+            subscribe via Buttondown.
+          </a>
+        </p>
+      </details>
+    </li>
   </ul>
 
-  <p>
-    Or simply copy/paste this page’s URL into your feed reader for
-    <a href="/2021/automatically-discoverable-rss-feeds/">
-      automatic feed discovery.
-    </a>
-  </p>
-
-  <details>
+  <details class="what-feed">
     <summary>What’s a feed?</summary>
     <div>
       <p>
@@ -59,43 +115,4 @@
       </p>
     </div>
   </details>
-
-  <p>Feeds not your thing? [Insert shaming joke here.] Subscribe via email.</p>
-
-  <form
-    action="
-          https://buttondown.com/api/emails/embed-subscribe/jimniels
-         "
-    method="post"
-    class="embeddable-buttondown-form"
-  >
-    <input type="email" name="email" placeholder="you@example.com" />
-    <input type="hidden" value="1" name="embed" />
-    <button
-      type="submit"
-      style="
-        appearance: none;
-        background: none;
-        color: var(--c-theme);
-        border: none;
-        padding: 0;
-        margin: 0;
-        font-size: 1em;
-        font-weight: normal;
-        cursor: pointer;
-        margin-left: 0.5em;
-      "
-    >
-      Subscribe
-    </button>
-    <p style="font-size: 0.8em">
-      <a
-        href="https://buttondown.com"
-        target="_blank"
-        style="color: var(--c-text-light); text-decoration: underline"
-      >
-        Powered by Buttondown.
-      </a>
-    </p>
-  </form>
 </main>

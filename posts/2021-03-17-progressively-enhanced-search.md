@@ -1,4 +1,4 @@
-#progressiveEnhancement #theMoreYouKnow
+#progressiveEnhancement
 
 # A Simple Tactic For Progressively-Enhanced Search
 
