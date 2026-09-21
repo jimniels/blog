@@ -1,6 +1,7 @@
 import fs from "fs";
 import { html, readFile } from "./utils.js";
 import { Icon } from "./Icon.js";
+import SiteNav from "./SiteNav.js";
 
 const comment = `
 <!--
@@ -98,7 +99,6 @@ export function Page(props, children) {
           </script>
 
           <!-- Prefetch navigational pages -->
-          <link rel="prefetch" href="/menu/" />
           <link rel="prefetch" href="/search/" />
 
           <!-- GA (testing) -->
@@ -121,46 +121,29 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          <nav class="navv wrapper" hidden>
+          <header class="header wrapper">
             <a
               href="/"
               title="Jim Nielsen’s Blog"
               aria-label="Jim Nielsen’s Blog"
               ${path === "/" && "aria-current='page'"}
-              ${path === "/" || path === "/menu/" ? "hidden" : ""}
+              ${path === "/" ? "hidden" : ""}
             >
               Jim’s Blog
             </a>
-
-            ${path === "/menu/"
-              ? html`<a
-                  href="/"
-                  onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
-                  title="Close menu (back)"
-                  aria-label="Close menu (back)"
-                  >${Icon("heroicon-close")}</a
-                >`
-              : html`
-                  <a
-                    href="/search/"
-                    aria-label="Search"
-                    title="Search"
-                    ${path === "/search/" && "aria-current='page'"}
-                    >${Icon("heroicon-search")}</a
-                  >
-                  <a
-                    href="/subscribe/"
-                    aria-label="Subscribe"
-                    title="Subscribe"
-                    ${path === "/subscribe/" && "aria-current='page'"}
-                    >${Icon("heroicon-rss")}</a
-                  >
-                  <a href="/menu/" aria-label="Menu" title="Menu"
-                    >${Icon("heroicon-menu")}</a
-                  >
-                `}
-          </nav>
+            <a
+              href="/search/"
+              aria-label="Search"
+              title="Search"
+              ${path === "/search/" && "aria-current='page'"}
+              >${Icon("heroicon-search")}</a
+            >
+            <a href="#site-nav" aria-label="Menu" title="Menu"
+              >${Icon("heroicon-menu")}</a
+            >
+          </header>
           ${children}
+          ${SiteNav({ path, name })}
         </body>
       </html>
     `
