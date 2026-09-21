@@ -1,48 +1,16 @@
 ---
-(site) => {
+(site, postsByTag, sort) => {
   page = {
     title: "Tags",
-    path: "/tags/",
-    head: `
-      <style>
-        .tags-list {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          font-size: 0.88888rem;
-        }
-        .tags-list li {
-          display: flex;
-          align-items: center;
-          gap: 2px;
-        }
-        .tags-list a {
-        }
-        .tags-list small {
-          color: var(--c-text-light);
-        }
-      </style>
-    `
+    path: sort == "count" ? "/tags/by-count/" : "/tags/",
   }
-
-  postsByTag = site.posts
-    -> (posts) => Tree.filter(posts, (post) => !post.tags.includes("rssClub"))
-    -> (posts) => Tree.groupBy(posts, (post) => post.tags)
-    -> Tree.sort
 
   return = <server/Layouts.js>.Page({ site, page }, _template())
 }.return
 ---
 
 <main class="wrapper">
-  <h1>Tags</h1>
-  <p>
-    ${Tree.size(postsByTag)} tags — most of which are for me to keep track of
-    posts I continually write about, so I retroactively apply tags.
-  </p>
+  ${<server/TagsToggle.js>(sort, Tree.size(postsByTag))}
   <ul class="kv-list">
     ${Tree.map(postsByTag, (posts, tag) => `
     <li>

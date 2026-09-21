@@ -56,17 +56,22 @@
   styles.css = Origami.unpack(<routes/styles.css.ori>)
   subscribe = { index.html = <routes/subscribe.ori.html>(data) }  
   tags: {
-    index.html: <routes/tags.index.ori.html>(data)
     (_postsByTag) = data.posts
       -> (posts) => Tree.filter(posts, (post) => !post.tags.includes("rssClub"))
       -> (posts) => Tree.groupBy(posts, (post) => post.tags)
       -> Tree.sort
+    (_postsByCount) = _postsByTag
+      -> (tree) => Tree.sort(tree, (posts) => posts.length)
+      -> Tree.reverse
+    index.html: <routes/tags.index.ori.html>(data, _postsByTag, "az")
     ...Tree.map(_postsByTag, {
       key: (posts, tag) => tag,
       value: (posts, tag) => {
         index.html: <routes/tags.$id.ori.html>(data, tag, posts)
       }
     })
+    // Defined last so this view wins if a tag is ever named "by-count"
+    by-count = { index.html = <routes/tags.index.ori.html>(data, _postsByCount, "count") }
   }
 
   // These path to `/well-known/...` in the build output and then we do a
