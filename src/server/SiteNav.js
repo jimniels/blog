@@ -8,6 +8,7 @@ import { Icon } from "./Icon.js";
  */
 export default function SiteNav({ path, name }) {
   const items = [
+    { href: "/search/", label: "Search", current: path === "/search/" },
     {
       href: "/archive/",
       label: "Archive",
@@ -19,7 +20,8 @@ export default function SiteNav({ path, name }) {
       current: path === "/external-links/" || path === "/internal-links/",
     },
     { href: "/tags/", label: "Tags", current: path.startsWith("/tags/") },
-    { href: "/about/", label: "Stats", current: false },
+    // { href: "/about/", label: "Stats", current: false },
+
     { href: "/about/", label: "About", current: path.startsWith("/about/") },
   ];
 
@@ -36,8 +38,7 @@ export default function SiteNav({ path, name }) {
         class="site-nav__subscribe"
         ${path === "/subscribe/" ? `aria-current="page"` : ""}
       >
-        ${Icon("heroicon-rss")}
-        Subscribe
+        ${Icon("heroicon-rss")} Subscribe
       </a>
       <ul class="site-nav__links">
         ${items.map(
@@ -52,6 +53,13 @@ export default function SiteNav({ path, name }) {
           `
         )}
       </ul>
+      <a
+        hidden
+        href="/search/"
+        class="site-nav__search"
+        ${path === "/search/" ? `aria-current="page"` : ""}
+        >Search...</a
+      >
     </nav>
   `;
 }

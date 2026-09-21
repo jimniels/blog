@@ -640,7 +640,7 @@ footer ol li {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--s-8);
+  width: 100%;
   max-width: var(--max-width);
   margin-top: var(--s-80);
   margin-left: var(--s-16);
@@ -661,24 +661,23 @@ footer ol li {
 }
 
 .site-nav__subscribe {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: var(--s-6);
-  padding: var(--s-4) var(--s-12);
-  border-radius: var(--border-radius);
-  background: var(--c-fg);
-  text-decoration: none;
+
+  color: var(--c-theme);
 }
 
 .site-nav__subscribe svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .site-nav__links {
   list-style: none;
   padding: 0;
-  margin: var(--s-8) 0 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -688,12 +687,43 @@ footer ol li {
 .site-nav__links a {
   display: block;
   padding: var(--s-2) 0;
+  color: var(--c-text-light);
+}
+
+.site-nav__links a:hover {
+  color: var(--c-theme);
+}
+
+.site-nav__search {
+  align-self: stretch;
+  padding: var(--s-8) var(--s-16);
+  background: var(--c-bg-opaque);
+  color: var(--c-text-light);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+}
+
+.site-nav__search:hover,
+.site-nav__search:active {
+  text-decoration: none;
+  filter: none;
+  color: var(--c-text);
 }
 
 .site-nav a[aria-current="page"] {
   pointer-events: none;
   cursor: default;
   text-decoration: none;
+  /* color: var(--c-text); */
+  position: relative;
+}
+.site-nav a[aria-current="page"]:not(.site-nav__search)::before {
+  content: "•";
+  /* position: absolute;
+  right: -0.875rem;
+  top: 0; */
+  /* color: var(--c-text); */
+  margin-right: var(--s-6);
 }
 
 @media screen and (min-width: 42rem) {
@@ -717,6 +747,7 @@ footer ol li {
   body > :not(.header, .site-nav) {
     grid-column: 1 / -1;
     grid-row: 1;
+    width: 100%;
   }
 
   .site-nav {
@@ -732,10 +763,19 @@ footer ol li {
     padding: var(--s-16) var(--s-64) var(--s-24) var(--s-16);
     text-align: right;
     border-top: none;
+    gap: var(--s-16);
+  }
+
+  .site-nav__subscribe {
+    justify-content: flex-end;
   }
 
   .site-nav__links {
     align-items: flex-end;
+  }
+
+  .site-nav__search {
+    text-align: left;
   }
 }
 
