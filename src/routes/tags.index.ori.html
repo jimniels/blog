@@ -1,8 +1,49 @@
 ---
-(site, postsByTag, sort) => {
+(site, postsByTag) => {
   page = {
     title: "Tags",
-    path: sort == "count" ? "/tags/by-count/" : "/tags/",
+    path: "/tags/",
+    head: `
+      <script>
+        /**
+         * Apply a saved "count" sort before first paint so the list doesn't
+         * flash in A–Z order. CSS uses [data-tags-sort="count"] + --count.
+         */
+        try {
+          if (localStorage.getItem("tags-sort") === "count") {
+            document.documentElement.setAttribute("data-tags-sort", "count");
+          }
+        } catch (e) {}
+      </script>
+      <style>
+        html[data-tags-sort="count"] .kv-list li {
+          order: var(--count);
+        }
+        .tags-sort {
+          display: flex;
+          align-items: center;
+          gap: var(--s-2);
+          margin-bottom: var(--s-16);
+          font-size: .875rem;
+        }
+        .tags-sort input[type="radio"] {
+          display: none;
+        }
+        .tags-sort label {
+          padding: var(--s-4) var(--s-8);
+          border-radius: var(--border-radius);
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+        }
+        .tags-sort label:hover {
+          background-color: var(--c-bg-lighter);
+        }
+        .tags-sort input[type="radio"]:checked + label {
+          background-color: var(--c-fg);
+        }
+        
+      </style>
+    `
   }
 
   return = <server/Layouts.js>.Page({ site, page }, _template())
@@ -10,10 +51,25 @@
 ---
 
 <main class="wrapper">
-  ${<server/TagsToggle.js>(sort, Tree.size(postsByTag))}
+  <h1>Tags</h1>
+  <p>
+    ${Tree.size(postsByTag)} tags — most of which are for me to keep track of
+    topics I continuously write about (so they’re more for me, not you—sorry).
+  </p>
+  <form class="tags-sort">
+    Sort:
+    <input type="radio" name="tags-sort" value="az" checked id="tags-sort-az" />
+    <label for="tags-sort-az">A-Z</label>
+    <input type="radio" name="tags-sort" value="count" id="tags-sort-count" />
+    <label for="tags-sort-count">9–0</label>
+  </form>
   <ul class="kv-list">
     ${Tree.map(postsByTag, (posts, tag) => `
-    <li>
+    <li
+      data-tag="${tag}"
+      data-count="${posts.length}"
+      style="--count: -${posts.length}"
+    >
       <a id="${tag}" href="/tags/${tag}" class="tag">
         <span>#${tag}</span>
         <span
@@ -32,3 +88,61 @@
     ` )}
   </ul>
 </main>
+<script>
+  /**
+   * Client-side tag sorting. HTML is A–Z; this reorders the list, syncs the
+   * radios, and persists the choice in localStorage under "tags-sort".
+   * @typedef {"az" | "count"} TagsSort
+   */
+  document.addEventListener("DOMContentLoaded", function () {
+    let radios = document.querySelectorAll('input[name="tags-sort"]');
+    if (!radios.length) return;
+
+    /**
+     * @param {TagsSort} sort
+     */
+    function apply(sort) {
+      if (sort === "count") {
+        document.documentElement.setAttribute("data-tags-sort", "count");
+      } else {
+        document.documentElement.removeAttribute("data-tags-sort");
+        sort = "az";
+      }
+      try {
+        localStorage.setItem("tags-sort", sort);
+      } catch (e) {}
+      let list = document.querySelector(".kv-list");
+      Array.prototype.slice
+        .call(list.children)
+        .sort(function (a, b) {
+          if (sort === "count") {
+            let diff =
+              Number(b.getAttribute("data-count")) -
+              Number(a.getAttribute("data-count"));
+            if (diff) return diff;
+          }
+          return a
+            .getAttribute("data-tag")
+            .localeCompare(b.getAttribute("data-tag"));
+        })
+        .forEach(function (item) {
+          list.appendChild(item);
+        });
+      radios.forEach(function (radio) {
+        radio.checked = radio.value === sort;
+      });
+    }
+
+    /** @type {TagsSort} */
+    let stored = "az";
+    try {
+      stored = localStorage.getItem("tags-sort") || "az";
+    } catch (e) {}
+    apply(stored);
+    radios.forEach(function (radio) {
+      radio.addEventListener("change", function () {
+        if (radio.checked) apply(radio.value);
+      });
+    });
+  });
+</script>
