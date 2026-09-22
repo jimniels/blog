@@ -1,0 +1,21 @@
+// Ranked list of domains with favicon, dotted leader, and count.
+(items, start) => `
+<ol class="domain-list"${start > 1 ? ` start="${start}"` : ""}>
+  ${Tree.map(items, (item) => `
+    <li>
+      <a href="https://${item.domain}">
+        <img
+          src="https://www.google.com/s2/favicons?domain=${item.domain}&sz=32"
+          width="16"
+          height="16"
+          alt=""
+          loading="lazy"
+        />
+        <span class="domain">${item.domain}</span>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="count">${item.count}</span>
+      </a>
+    </li>
+  `)}
+</ol>
+`
