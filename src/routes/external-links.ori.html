@@ -3,46 +3,66 @@
   page = {
     title: "Links",
     path: "/external-links/",
-    head: `<style>
-      .archive-chart {
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        gap: var(--s-2);
-      }
+    head: `
+    <style>
+    .domain-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .domain-list li {
+      display: flex;
+      align-items: baseline;
+      gap: var(--s-8);
+      padding: var(--s-6) 0;
+      text-decoration: none;
+      color: inherit;
+    }
+    .domain-list img {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      align-self: center;
+    }
+    .domain-list .domain {
+      flex-shrink: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .domain-list .leader {
+      flex: 1 1 auto;
+      min-width: var(--s-16);
+      height: 0;
+      border-bottom: 1px dotted var(--c-text-light);
+      opacity: 0.5;
+    }
+    .domain-list .count {
+      flex-shrink: 0;
+      color: var(--c-text-light);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.77777rem;
+    }
 
-      .archive-chart li {
-        position: relative;
-      }
-
-      .archive-chart li div {
-        display: flex;
-        gap: var(--s-8);
-        align-items: center;
-        padding: var(--s-6) var(--s-6);
-        position: relative;
-        z-index: 2;
-        text-decoration: none;
-        font-size: 0.875rem;
-      }
-      .archive-chart li div span:last-child {
-        color: var(--c-text-light);
-        font-size: 0.77777rem;
-      }
-
-      .archive-chart-bar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background: var(--c-fg);
-        pointer-events: none;
-        z-index: 1;
-      }
-    </style>`
+    .domain-list-more {
+      font-size: 0.875rem;
+    }
+    .domain-list-more summary {
+      cursor: pointer;
+      padding: var(--s-16) 0;
+    }
+    </style>
+    `
   }
+
+  domains = site.externalLinks
+    -> (links) => Tree.filter(links, (item) => item.count >= 2)
+    -> Tree.values
+    -> Tree.plain
+  topCount = Math.min(25, domains.length)
+  topLinks = domains.slice(0, topCount)
+  restLinks = domains.slice(topCount)
 
   return = <server/Layouts.js>.Page({ site, page }, _template())
 }.return
@@ -59,36 +79,30 @@
     and keep it as a running list.
   </p>
 
-  <p>
-    This is available as raw data at
-    <a href="/.well-known/links"><code>/.well-known/links</code></a>
-    . You can also read my post about the
-    <a href="/2022/well-known-links-resource/">
-      the idea of public, raw link data
-    </a>
-    .
-  </p>
+  <h2>Top ${topCount} Sites I’ve Linked to Most</h2>
 
-  <ol class="archive-chart">
-    ${Tree.map(Tree.filter(site.externalLinks, (item) => item.count >= 2),
-    (item) => `
+  <ol class="domain-list">
+    ${Tree.map(topLinks, (item) => `
     <li>
-      <div>
-        <img
-          src="https://www.google.com/s2/favicons?domain=${item.domain}&sz=32"
-          width="16"
-          height="16"
-          alt="Favicon for ${item.domain}"
-          loading="lazy"
-        />
-        <span class="domain">${item.domain}</span>
-        <span class="count" style="margin-left: auto">${item.count}</span>
-      </div>
-      <span
-        class="archive-chart-bar"
-        style="width: ${(item.count / site.externalLinks[0].count) * 100}%"
-      ></span>
+      <img
+        src="https://www.google.com/s2/favicons?domain=${item.domain}&sz=32"
+        width="16"
+        height="16"
+        alt=""
+        loading="lazy"
+      />
+      <span class="domain">${item.domain}</span>
+      <span class="leader" aria-hidden="true"></span>
+      <span class="count">${item.count}</span>
     </li>
-    ` )}
+    `)}
   </ol>
+  <p>
+    The comprehensive link data is available as JSON at
+    <a href="/.well-known/links"><code>/.well-known/links</code></a>
+    — and you can read my post about the
+    <a href="/2022/well-known-links-resource/">
+      the idea of public, raw link data.
+    </a>
+  </p>
 </main>
