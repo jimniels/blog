@@ -9,7 +9,7 @@ He talks about how YouTube is going to start shipping this new feature where mak
 Which immediately begs a lot of questions. Brownlee voices his:
 
 - If I’m watching a video, do I know if it’s part of one of these A/B tests?
-- If I’m reading the comments of a video, how do I saw the same thing as another commentor?
+- If I’m reading the comments of a video, how do I know I saw the same thing as another commenter?
 - How do linked timestamps work?
 
 It’s pretty wild when you think about it. I mean, imagine sending someone a link, “Check out this cool video!” And at that point you’re basically crossing your fingers, “I hope they see the same thing I did…”
