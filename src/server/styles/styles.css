@@ -520,10 +520,11 @@ footer ol li {
   text-decoration: none;
 }
 
+/* For 2026-09-12 style
 .posts-list time {
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-}
+} */
 
 @media screen and (min-width: 520px) {
   .posts-list li {
