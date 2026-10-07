@@ -6,6 +6,10 @@
     -> Tree.reverse
     -> Tree.values
     -> Tree.plain
+  pointsTotal = posts.reduce((acc, post) => acc + post.hackerNews.points, 0)
+  pointsAverage = Math.round(pointsTotal / posts.length)
+  commentsTotal = posts.reduce((acc, post) => acc + post.hackerNews.comments, 0)
+  commentsAverage = Math.round(commentsTotal / posts.length)
   
   page: {
     title: "Hacker News Hits",
@@ -19,6 +23,26 @@
 <main class="wrapper">
   <h1 style="view-transition-name: h1-heading-hacker-news">Hacker News Hits</h1>
   <p>
+    Here be posts I’ve written that’ve hit Hacker News and garnered 100+ points
+    or comments. Stats:
+  </p>
+  <ul>
+    <li>${posts.length} total posts</li>
+    <li>
+      ${pointsTotal.toLocaleString()} total points (average:
+      ${pointsAverage.toLocaleString()})
+    </li>
+    <li>
+      ${commentsTotal.toLocaleString()} total comments (average:
+      ${commentsAverage.toLocaleString()} )
+    </li>
+  </ul>
+
+  ${<server/PostsList.js>(posts, (post) =>
+  `${post.hackerNews.points.toLocaleString()} points,
+  ${post.hackerNews.comments.toLocaleString()} comments` )}
+
+  <p style="margin-top: 2rem">
     “If you don’t get thrashed on whatever the HackerNews of the era is, you
     haven’t blogged enough.” —
     <a
@@ -28,7 +52,4 @@
       Dave Rupert
     </a>
   </p>
-  ${<server/PostsList.js>(posts, (post) =>
-  `${post.hackerNews.points.toLocaleString()} points,
-  ${post.hackerNews.comments.toLocaleString()} comments` )}
 </main>
