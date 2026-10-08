@@ -4,7 +4,7 @@
 
 I came across Brian Baking’s [“Cool Things People Do With Their Blogs”](https://brainbaking.com/post/2022/04/cool-things-people-do-with-their-blogs/) which led me to [Luke Harris’ stats page](https://www.lkhrs.com/stats/) which motivated me to finally make something similar of my own.
 
-I’ve written previously about enumerating the [external](https://blog.jim-nielsen.com/2020/indexing-my-blogs-links/) and [internal](https://blog.jim-nielsen.com/2022/visualizing-my-blogs-links/) links on my blog. I’ve also written previously about [graphing my blogging goals](https://blog.jim-nielsen.com/2021/graphing-blog-post-goals/). All of these are different forms of representing stats about my blog, so really this was an exercise in making all these disparate statistical representations accessible in one central place: [my `/about` page](https://blog.jim-nielsen.com/about/).
+I’ve written previously about enumerating the [external](https://blog.jim-nielsen.com/2020/indexing-my-blogs-links/) and [internal](https://blog.jim-nielsen.com/2022/visualizing-my-blogs-links/) links on my blog. I’ve also written previously about [graphing my blogging goals](https://blog.jim-nielsen.com/2021/graphing-blog-post-goals/). All of these are different forms of representing stats about my blog, so really this was an exercise in making all these disparate statistical representations accessible in one central place: [my `/stats` page](https://blog.jim-nielsen.com/stats/).
 
 First, I created a general overview of stats surrounding my blogging over time. At the time of authoring this post, I have 11 years of blogging which has yielded 385 posts consisting of 364,601 words. A build-time generated chart from quickchart.io breaks down these stats over time.
 
@@ -32,4 +32,4 @@ As well as themed versions that can dynamically re-paint to match my blog’s ac
 
 <img src="https://cdn.jim-nielsen.com/blog/2022/stats-themed-dark.png" width="1447" height="525" alt="Two identical bar charts side by side in dark mode, one colored yellow the other green." />
 
-I’ll probably do more with this page in the future, but for now I’m satisfied. You can check it out [here](https://blog.jim-nielsen.com/about/).
+I’ll probably do more with this page in the future, but for now I’m satisfied. You can check it out [here](https://blog.jim-nielsen.com/stats/).

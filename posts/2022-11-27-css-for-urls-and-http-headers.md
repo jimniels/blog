@@ -48,7 +48,7 @@ Turns out, there is/was [a `@document` at-rule](https://www.quackit.com/css/at-r
 
 ```css
 /* Only apply these to the specified URL */
-@document url("https://blog.jim-nielsen.com/about/") {
+@document url("https://blog.jim-nielsen.com/foo/") {
   body {…}
 }
 ```

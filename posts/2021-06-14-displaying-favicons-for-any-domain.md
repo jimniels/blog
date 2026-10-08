@@ -95,7 +95,7 @@ It’s pretty neat that this functionality of displaying a favicon for any site 
 
 However, as mentioned, I can’t find any official API documentation or terms of service for usage of these URLs. It’s definitely a “use at your own risk” kind of deal.
 
-I’ve implemented displaying favicons for all the links I index on my blog. You can see that [here](https://blog.jim-nielsen.com/about/).
+I’ve implemented displaying favicons for all the links I index on my blog. You can see that [here](https://blog.jim-nielsen.com/external-links/).
 
 
 [^1]: One of the things I consistently see in my analytics (via Netlify) is how many requests come in for `/favicon.ico`, regardless of whether I specify its location using the `<link>` tag. Lesson? Unless you have a really good reason not to, just stick the favicon at the root of your domain.
