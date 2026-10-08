@@ -1,7 +1,7 @@
 ---
 (site) => {
   posts = site.posts
-    -> (posts) => Tree.filter(posts, (post) => post.hackerNews && post.hackerNews.points > 100)
+    -> (posts) => Tree.filter(posts, (post) => post.hackerNews)
     -> (posts) => Tree.sort(posts, (post) => (post.hackerNews.points))
     -> Tree.reverse
     -> Tree.values
@@ -23,8 +23,8 @@
 <main class="wrapper">
   <h1 style="view-transition-name: h1-heading-hacker-news">Hacker News Hits</h1>
   <p>
-    Here be posts I’ve written that’ve hit Hacker News and garnered 100+ points
-    or comments. Stats:
+    Here be posts I wrote that hit Hacker News and garnered 100+ points or 50+
+    comments. Stats:
   </p>
   <ul>
     <li>${posts.length} total posts</li>

@@ -118,6 +118,7 @@ async function getSiteData() {
     const { html, externalLinks, internalLinks, footnotes, ogImageUrl } =
       parseMarkdown(markdownSansTagsAndTitle);
     post.wordCount = markdownSansTagsAndTitle.split(" ").length;
+    post.characterCount = markdownSansTagsAndTitle.length;
     post.contents = html;
     post.footnotes = footnotes;
     if (ogImageUrl) {
@@ -165,8 +166,10 @@ async function getSiteData() {
       post.pageviews = trendingPost.count;
     }
 
-    const hackerNewsPost = hackerNewsPosts.find(({ url }) =>
-      url.includes(post.path)
+    // Determine if the post is a Hacker News hit
+    const hackerNewsPost = hackerNewsPosts.find(
+      ({ url, points, num_comments }) =>
+        (points >= 100 || num_comments >= 50) && url.includes(post.path)
     );
     if (hackerNewsPost) {
       post.hackerNews = {
