@@ -520,6 +520,63 @@ footer ol li {
   text-decoration: none;
 }
 
+.leader-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.leader-list > li:not([hidden]) {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-8);
+  padding: var(--s-6) 0;
+  color: inherit;
+}
+
+.leader-list > li > a {
+  display: flex;
+  align-items: baseline;
+  flex: 1;
+  gap: inherit;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.leader-list a:hover .leader-list__primary {
+  text-decoration: underline;
+}
+
+.leader-list img {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.leader-list__primary {
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leader-list__leader {
+  flex: 1 1 auto;
+  min-width: var(--s-16);
+  height: 0;
+  border-bottom: 1px dotted var(--c-text-light);
+  opacity: 0.5;
+}
+
+.leader-list__secondary {
+  flex-shrink: 0;
+  color: var(--c-text-light);
+  font-variant-numeric: tabular-nums;
+  /* font-size: 0.77777rem; */
+}
+
 /* For 2026-09-12 style
 .posts-list time {
   font-variant-numeric: tabular-nums;

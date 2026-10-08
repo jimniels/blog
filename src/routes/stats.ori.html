@@ -1,0 +1,255 @@
+---
+(site) => {
+  // Helper functions
+  number = (n) => n.toLocaleString("en-US")
+  compact = (n) => new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(n).replace("K", "k")
+
+  // Intermediate values
+  postCount = site.posts.length
+  totalWords = site.posts.reduce((acc, post) => acc + post.wordCount, 0)
+  totalCharacters = site.posts.reduce((acc, post) => acc + post.characterCount, 0)
+  yearCounts = site.posts.reduce((acc, post) => Object.assign(acc, { [post.date.slice(0, 4)]: (acc[post.date.slice(0, 4)] || 0) + 1 }), {})
+  today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Denver", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date())
+  daysSince = Math.max(0, Math.round((Date.parse(today) - Date.parse(site.posts[0].date.slice(0, 10))) / 86400000))
+  external = site.externalLinks.reduce((acc, item) => acc + item.count, 0)
+  internal = Tree.values(site.internalLinksByPath).reduce((acc, arr) => acc + arr.length, 0)
+  structure = site.posts.reduce((acc, post) => {
+    html = post.contents.toString().toLowerCase()
+    return = {
+      images: acc.images + html.split("<img").length - 1
+      lists: acc.lists + html.split("<ul").length - 1 + html.split("<ol").length - 1
+      tables: acc.tables + html.split("<table").length - 1
+      codeBlocks: acc.codeBlocks + html.split("<pre").length - 1
+      blockquotes: acc.blockquotes + html.split("<blockquote").length - 1
+      headings: acc.headings + html.split("<h1").length + html.split("<h2").length + html.split("<h3").length + html.split("<h4").length + html.split("<h5").length + html.split("<h6").length - 6
+      paragraphs: acc.paragraphs + html.split("<p>").length + html.split("<p ").length - 2
+      rules: acc.rules + html.split("<hr").length - 1
+    }
+  }.return, { images: 0, lists: 0, tables: 0, codeBlocks: 0, blockquotes: 0, headings: 0, paragraphs: 0, rules: 0 })
+
+  // Display values
+  stats: {
+    published: number(postCount)
+    years: number(Object.keys(yearCounts).length)
+    yearNote: `${site.posts[site.posts.length - 1].date.slice(0, 4)}–${site.posts[0].date.slice(0, 4)}`
+    words: compact(totalWords)
+    wordsExact: number(totalWords)
+    characters: compact(totalCharacters)
+    charactersExact: number(totalCharacters)
+    avgCharacters: number(Math.round(totalCharacters / postCount))
+    daysSince: number(daysSince)
+    lastPostDate: site.posts[0].date.slice(0, 10)
+    hnPosts: number(Tree.size(Tree.filter(site.posts, (post) => post.hackerNews)))
+    tags: number(site.tags.length)
+    external: number(external)
+    internal: number(internal)
+    avgPostsPerYear: number(Math.round(Object.values(yearCounts).reduce((acc, n) => acc + n, 0) / Object.keys(yearCounts).length))
+    avgWords: number(Math.round(totalWords / postCount))
+    avgTitleWords: number(Math.round(site.posts.reduce((acc, post) => acc + post.title.split(" ").length, 0) / postCount))
+    avgTitleCharacters: number(Math.round(site.posts.reduce((acc, post) => acc + post.title.length, 0) / postCount))
+    images: number(structure.images)
+    lists: number(structure.lists)
+    tables: number(structure.tables)
+    codeBlocks: number(structure.codeBlocks)
+    blockquotes: number(structure.blockquotes)
+    headings: number(structure.headings)
+    paragraphs: number(structure.paragraphs)
+    rules: number(structure.rules)
+  }
+
+  page: {
+    title: "Stats"
+    path: "/stats/"
+    head: `<style>
+      .stats .numbers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem 2rem; margin: 0; }
+      .stats .numbers div { min-width: 0; }
+      .stats dl div { display: flex; flex-direction: column; }
+      .stats dt { line-height: 1.3; order: 2; font-size: .7rem; color: var(--c-text-light); margin-bottom: .3rem; }
+      .stats dd { order: 1; margin: 0; font-size: 1.5rem; line-height: 1.3; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+      @media (max-width: 360px) { .stats dd { font-size: 1.2rem; } .stats .numbers { gap: 1.5rem 1rem; } }
+      .days-since {
+        margin: -8px;
+        padding: 8px;
+        --yellow: 255, 215, 0;
+        background: rgba(var(--yellow), 0.2);
+        border: 2px solid;
+        border-image: repeating-linear-gradient(45deg, black, black 2px, rgb(var(--yellow)) 4px, rgb(var(--yellow)) 8px) 5;
+      }
+      /* Styles for our embedded SVGs */
+      .chart {
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+      }
+      .chart svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      /* Change line graph line color */
+      .chart svg path[style*="stroke-opacity:1"] {
+        stroke: var(--c-theme) !important;
+      }
+      .chart svg path[style*="stroke-opacity:1"][style*="stroke-width:1"] {
+        fill: var(--c-theme) !important;
+        fill-opacity: 0.666;
+      }
+      /* Change bar graph bar fill */
+      .chart svg path[style*="fill-opacity:1"]:not([style*="fill:rgb(40%"]) {
+        fill: var(--c-theme) !important;
+        fill-opacity: 0.666 !important;
+      }
+      /* Line graph key box outline */
+      .chart
+        svg
+        path[style*="stroke-opacity:1"][style*="stroke-width:3"][style*="fill:rgb("] {
+        fill: none !important;
+      }
+    </style>`
+  }
+
+  return = <server/Layouts.js>.Page({ site, page }, _template())
+}.return
+---
+
+<main class="wrapper stats">
+  <h1>Stats</h1>
+  <p>
+    Read into these stats what you will. As
+    <a href="https://www.youtube.com/watch?v=CpmDIP3Fn2Y">
+      Homer Simpson once said
+    </a>
+    , “People can come up with statistics to prove anything. Forfty percent of
+    all people know that.”
+  </p>
+  <br />
+  <dl class="numbers">
+    <div class="days-since">
+      <dt>Day(s) Since Last Post</dt>
+      <dd data-last-post="${stats.lastPostDate}">${stats.daysSince}</dd>
+    </div>
+    <div>
+      <dt>Posts Published</dt>
+      <dd><a href="/archive/">${stats.published}</a></dd>
+    </div>
+    <div>
+      <dt>Years Blogged</dt>
+      <dd title="${stats.yearNote}">
+        <a href="/archive/calendar/">${stats.years}</a>
+      </dd>
+    </div>
+    <div>
+      <dt>Hits on Hacker News</dt>
+      <dd><a href="/posts/hacker-news/">${stats.hnPosts}</a></dd>
+    </div>
+    <div>
+      <dt>Tags</dt>
+      <dd><a href="/tags/">${stats.tags}</a></dd>
+    </div>
+    <div>
+      <dt>External Links</dt>
+      <dd><a href="/external-links/">${stats.external}</a></dd>
+    </div>
+    <div>
+      <dt>Internal Links</dt>
+      <dd><a href="/internal-links/">${stats.internal}</a></dd>
+    </div>
+    <div>
+      <dt>AI-Generated Posts</dt>
+      <dd>0</dd>
+    </div>
+  </dl>
+
+  <div class="chart">${<cache/posts-per-year.svg>}</div>
+
+  <h2>Nerdy Details</h2>
+  <dl class="numbers">
+    <div>
+      <dt>Words</dt>
+      <dd title="${stats.wordsExact}">${stats.words}</dd>
+    </div>
+    <div>
+      <dt>Characters</dt>
+      <dd title="${stats.charactersExact}">${stats.characters}</dd>
+    </div>
+    <div>
+      <dt>Paragraphs</dt>
+      <dd>${stats.paragraphs}</dd>
+    </div>
+    <div>
+      <dt>Images</dt>
+      <dd>${stats.images}</dd>
+    </div>
+    <div>
+      <dt>Lists</dt>
+      <dd>${stats.lists}</dd>
+    </div>
+    <div>
+      <dt>Tables</dt>
+      <dd>${stats.tables}</dd>
+    </div>
+    <div>
+      <dt>Code blocks</dt>
+      <dd>${stats.codeBlocks}</dd>
+    </div>
+    <div>
+      <dt>Blockquotes</dt>
+      <dd>${stats.blockquotes}</dd>
+    </div>
+    <div>
+      <dt>Headings</dt>
+      <dd>${stats.headings}</dd>
+    </div>
+
+    <div>
+      <dt>Horizontal rules</dt>
+      <dd>${stats.rules}</dd>
+    </div>
+  </dl>
+
+  <h2>Averages</h2>
+  <dl class="numbers">
+    <div>
+      <dt>Posts Per Year</dt>
+      <dd>${stats.avgPostsPerYear}</dd>
+    </div>
+    <div>
+      <dt>Words Per Post</dt>
+      <dd>${stats.avgWords}</dd>
+    </div>
+    <div>
+      <dt>Characters Per Post</dt>
+      <dd>${stats.avgCharacters}</dd>
+    </div>
+    <div>
+      <dt>Words Per Title</dt>
+      <dd>${stats.avgTitleWords}</dd>
+    </div>
+    <div>
+      <dt>Characters Per Title</dt>
+      <dd>${stats.avgTitleCharacters}</dd>
+    </div>
+  </dl>
+</main>
+<script>
+  // Update the server-rendered "Days since..." value
+  document.addEventListener("DOMContentLoaded", () => {
+    var el = document.querySelector(".days-since [data-last-post]");
+    if (!el) return;
+    var last = el.getAttribute("data-last-post");
+    // en-CA yields YYYY-MM-DD, which Date.parse treats as a UTC calendar date.
+    var today = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Denver",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(new Date());
+    var days = Math.max(
+      0,
+      Math.round((Date.parse(today) - Date.parse(last)) / 86400000)
+    );
+    el.textContent = days.toLocaleString("en-US");
+  });
+</script>

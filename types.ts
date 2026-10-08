@@ -30,6 +30,7 @@ export type Post = {
   contents: string; // Originally the markdown, converted to HTML in metalsmith
   tags: Array<string>;
   wordCount: number;
+  characterCount: number;
   pageviews?: number; // Pageviews according to netlify analytics
   hackerNews?: {
     url: string;

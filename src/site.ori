@@ -52,6 +52,8 @@
     hacker-news = { index.html = <routes/posts.hacker-news.index.ori.html>(data) }
     trending = { index.html = <routes/posts.trending.index.ori.html>(data) }
   }
+  
+  stats = { index.html = <routes/stats.ori.html>(data) }
   search = { index.html = <routes/search.ori.html>(data) }
   styles.css = Origami.unpack(<routes/styles.css.ori>)
   subscribe = { index.html = <routes/subscribe.ori.html>(data) }  
