@@ -1,6 +1,6 @@
 # Understanding Comes in Stages
 
-In a radio series from the 1940’s, author E.M. Forster [stated](http://www.rzim.org/a-slice-of-infinity/two-staged-miracles/) that the books which truly influence us are the ones we are prepared to read, namely those “which have gone a little further down our particular path than we have yet got ourselves.” Hence a truly moving reading experience is the culmination of not just *what* you read but *when* you read it.
+In a radio series from the 1940’s, author E.M. Forster said that the books which truly influence us are the ones we are prepared to read, namely those “which have gone a little further down our particular path than we have yet got ourselves.” Hence a truly moving reading experience is the culmination of not just *what* you read but *when* you read it.
 
 Personally, I love reading with a pen or highlighter on hand. I’m sure I share this sentiment with many others. Navigating books I’ve annotated reminds me of what I learned while reading. Yet there have been countless times I’ve returned to a previously-read passage only to wonder why in the world I highlighted sentence seven and completely left all of paragraph four unmarked. However, now I realize that as I experience more of life (getting to know myself, my neighbors, my career, my friends, my world) I come to see and understand aspects of life very differently.
 
