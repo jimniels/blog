@@ -12,6 +12,9 @@
   topCount = Math.min(25, domains.length)
   topLinks = domains.slice(0, topCount)
   restLinks = domains.slice(topCount)
+  totalLinks = site.externalLinks.reduce((acc, item) => acc + item.count, 0)
+  uniqueDomains = site.externalLinks.length
+  twoPlusLinks = Tree.size(Tree.filter(site.externalLinks, (item) => item.count >= 10))
 
   return = <server/Layouts.js>.Page({ site, page }, _template())
 }.return
@@ -21,14 +24,20 @@
   ${<server/LinksToggle.js>("external")}
 
   <p>
-    I thought it would be interesting to
+    I thought it would be fun to
     <a href="/2020/indexing-my-blogs-links/">
       index all the external links on my blog
     </a>
-    and keep it as a running list.
+    . Here’s what I found:
   </p>
 
-  <h2>Top ${topCount} Sites I’ve Linked to Most</h2>
+  <ul>
+    <li>${totalLinks.toLocaleString("en-US")} external links</li>
+    <li>${uniqueDomains.toLocaleString("en-US")} unique sites</li>
+    <li>${twoPlusLinks.toLocaleString("en-US")} sites have 2+ links</li>
+  </ul>
+
+  <p>Here are the top ${topCount} sites I’ve linked to most:</p>
 
   <ol class="leader-list">
     ${Tree.map(topLinks, (item) => `

@@ -16,6 +16,7 @@
   structure = site.posts.reduce((acc, post) => {
     html = post.contents.toString().toLowerCase()
     return = {
+      links: acc.links + html.split("<a").length - 1
       images: acc.images + html.split("<img").length - 1
       lists: acc.lists + html.split("<ul").length - 1 + html.split("<ol").length - 1
       tables: acc.tables + html.split("<table").length - 1
@@ -25,7 +26,7 @@
       paragraphs: acc.paragraphs + html.split("<p>").length + html.split("<p ").length - 2
       rules: acc.rules + html.split("<hr").length - 1
     }
-  }.return, { images: 0, lists: 0, tables: 0, codeBlocks: 0, blockquotes: 0, headings: 0, paragraphs: 0, rules: 0 })
+  }.return, { links: 0, images: 0, lists: 0, tables: 0, codeBlocks: 0, blockquotes: 0, headings: 0, paragraphs: 0, rules: 0 })
 
   // Display values
   stats: {
@@ -36,6 +37,8 @@
     wordsExact: number(totalWords)
     characters: compact(totalCharacters)
     charactersExact: number(totalCharacters)
+    links: compact(structure.links)
+    linksExact: number(structure.links)
     avgCharacters: number(Math.round(totalCharacters / postCount))
     daysSince: number(daysSince)
     lastPostDate: site.posts[0].date.slice(0, 10)
@@ -47,6 +50,7 @@
     avgWords: number(Math.round(totalWords / postCount))
     avgTitleWords: number(Math.round(site.posts.reduce((acc, post) => acc + post.title.split(" ").length, 0) / postCount))
     avgTitleCharacters: number(Math.round(site.posts.reduce((acc, post) => acc + post.title.length, 0) / postCount))
+    avgLinks: number(Math.round(structure.links / postCount))
     images: number(structure.images)
     lists: number(structure.lists)
     tables: number(structure.tables)
@@ -175,6 +179,10 @@
       <dd title="${stats.charactersExact}">${stats.characters}</dd>
     </div>
     <div>
+      <dt>Links</dt>
+      <dd title="${stats.linksExact}">${stats.links}</dd>
+    </div>
+    <div>
       <dt>Paragraphs</dt>
       <dd>${stats.paragraphs}</dd>
     </div>
@@ -218,6 +226,10 @@
     <div>
       <dt>Words Per Post</dt>
       <dd>${stats.avgWords}</dd>
+    </div>
+    <div>
+      <dt>Links Per Post</dt>
+      <dd>${stats.avgLinks}</dd>
     </div>
     <div>
       <dt>Characters Per Post</dt>
