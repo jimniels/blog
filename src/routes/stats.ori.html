@@ -37,7 +37,7 @@
     wordsExact: number(totalWords)
     characters: compact(totalCharacters)
     charactersExact: number(totalCharacters)
-    links: compact(structure.links)
+    links: number(structure.links)
     linksExact: number(structure.links)
     avgCharacters: number(Math.round(totalCharacters / postCount))
     daysSince: number(daysSince)
@@ -180,7 +180,7 @@
     </div>
     <div>
       <dt>Links</dt>
-      <dd title="${stats.linksExact}">${stats.links}</dd>
+      <dd>${stats.links}</dd>
     </div>
     <div>
       <dt>Paragraphs</dt>
