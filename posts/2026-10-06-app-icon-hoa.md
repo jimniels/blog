@@ -6,7 +6,7 @@
 
 His post reads like a history. If you’re wondering, “How did we get to a place where all app icons are becoming squircles?” Mantia’s post answers that question by starting at the beginning.
 
-<img src="https://cdn.jim-nielsen.com/blog/2026/apples-hoa-icons.png" width="596" height="328" alt="Eight app icons in two rows: a pink monitor with a tool, a teal clock with a reverse arrow, a yellow diamond, and a blue magnifying glass with a pencil, each shown as a circle and a rounded square." />
+<img src="https://cdn.jim-nielsen.com/blog/2026/apples-hoa-icons.png" width="600" height="450" alt="Eight app icons in two rows: a pink monitor with a tool, a teal clock with a reverse arrow, a yellow diamond, and a blue magnifying glass with a pencil, each shown as a circle and a rounded square." />
 
 It’s hard to walk away from Mantia’s article without a sense of empathy for Apple’s position, like “Oh ok, I get why they’re doing what they’re doing. It makes sense.”
 
@@ -36,6 +36,6 @@ It keeps the dumpy things out, yet nobody _stands out_.
 
 That’s kinda what macOS feels like right now with regard to app icons.
 
-<img src="https://cdn.jim-nielsen.com/blog/2026/apples-hoa-homes.png" width="601" height="450" alt="Four app icons floating over a suburban neighborhood." data-og-image />
+<img src="https://cdn.jim-nielsen.com/blog/2026/apples-hoa-homes.jpg" width="600" height="450" alt="Four app icons floating over a suburban neighborhood." data-og-image />
 
 For better or worse, squircle app icons are Apple’s HOA and we’re all just living in it.
