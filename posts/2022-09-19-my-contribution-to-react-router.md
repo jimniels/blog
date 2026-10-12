@@ -24,31 +24,27 @@ MVP for the new design was pretty standard website stuff:
 
 There were also, as you might guess, components — elements re-used enough to merit an abstraction, like popovers.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/rr-popovers.png" width="540" height="432" alt="A screenshot of two different popover element designs from the new reactrotuer.com site design: one is a theme switcher, the other is a branch picker." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/rr-popovers.png" width="800" height="450" alt="A screenshot of two different popover element designs from the new reactrotuer.com site design: one is a theme switcher, the other is a branch picker." />
 
 Docs callouts:
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/rr-callouts.png" width="1042" height="264" alt="Screenshot of callout components used in doc pages to call attention to specific details." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/rr-callouts.png" width="800" height="450" alt="Screenshot of callout components used in doc pages to call attention to specific details." />
 
 And code samples:
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/rr-code-sample.png" width="819" height="537" alt="Screenshot of code blocks in various states, like being prefixed with a file name, being labeled as “Bad code”, or having individual lines highlighted as bad code." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/rr-code-sample.png" width="800" height="600" alt="Screenshot of code blocks in various states, like being prefixed with a file name, being labeled as “Bad code”, or having individual lines highlighted as bad code." />
 
 The summation of these individual details and elements resulted in the new reactrouter.com.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/rr-new-page-dark.png" width="1292" height="957" alt="Screenshot of the new design for reactrouter.com in dark mode." />
-
-<img src="https://cdn.jim-nielsen.com/blog/2022/rr-new-page-light.png" width="1292" height="957" alt="Screenshot of the  new design for reactrouter.com in light mode." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/rr-new-page.png" width="800" height="800" alt="React Router website showing navigation, feature cards, and stats in dark and light modes." />
 
 For the home page, the idea was to have it function as a kind of “switchboard” for people arriving to the site, e.g. “Welcome to React Router, what would you like to do?” 
 
 It was particularly fun to create and code the supporting imagery of each option. The little blobs were meant to encapsulate the textually-communicated idea in a graphic, abstract form while also providing visual weight and interesting-ness.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/rr-blobs.png" width="829" height="538" alt="Screenshot of four callouts, each with a heading, descriptive text, and an abstract collection of shapes which communicate the shorthand idea behind each callout." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/rr-blobs.png" width="800" height="600" alt="Screenshot of four callouts, each with a heading, descriptive text, and an abstract collection of shapes which communicate the shorthand idea behind each callout." />
 
 The little blobs were drawn with the pen tool in Figma then implemented as SVGs in the code, drawing on dynamic colors which allowed them to support light/dark mode variations as well as simple hover effects to help communicate interactivity.
-
-<img src="https://cdn.jim-nielsen.com/blog/2022/rr-hover-effect.gif" width="412" height="256" alt="Animated gif of one of the callouts being hovered by a cursor and showing the callout border and SVG background changed color interactively." />
 
 ### Brand Assets
 
@@ -64,9 +60,7 @@ Ryan created the tutorial and, in the process, created a “Contacts” demo app
 
 He asked me for an afternoon to style the thing. So I jumped into the code with my templating/styling nunchucks and shortly had something looking a bit more refined.
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/rr-demo-app-profile.png" width="1083" height="752" alt="Screenshot of the profile page in the “Contacts” demo app for React Router." />
-
-<img src="https://cdn.jim-nielsen.com/blog/2022/rr-demo-app-new.png" width="1083" height="752" alt="Screenshot of the new contact page in the “Contacts” demo app for React Router." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/rr-demo-app-new.png" width="800" height="450" alt="Screenshot of the new contact page in the “Contacts” demo app for React Router." />
 
 
 ## The Code
@@ -77,7 +71,7 @@ As part of the home page design, I also carved out some space for designing a bi
 
 After shifting around different layouts and configuration of numbers, I eventually landed on a design in Figma that looked like this:
 
-<img src="https://cdn.jim-nielsen.com/blog/2022/rr-statistics.png" width="752" height="350" alt="Screenshot of a design for the “Stats” section on the React Router home page, showing stats for npm downloads and GitHub stars, contributors, and dependents." />
+<img src="https://cdn.jim-nielsen.com/blog/2022/rr-statistics.png" width="800" height="450" alt="Screenshot of a design for the “Stats” section on the React Router home page, showing stats for npm downloads and GitHub stars, contributors, and dependents." />
 
 That felt good enough to jump into the browser. But then came the big question: how and where to pull those statistics?
 
