@@ -647,64 +647,50 @@ footer ol li {
 .navv {
   display: flex;
   align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: var(--s-8);
+  column-gap: var(--s-32);
   padding-top: var(--s-24);
   padding-bottom: var(--s-24);
-  position: relative;
+}
+
+@media screen and (max-width: 42rem) {
+  .navv.wrapper {
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: var(--s-16);
+    padding-right: var(--s-16);
+  }
 }
 
 .navv a {
-  position: relative;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
-}
-
-.navv a[aria-current="page"] {
-  background-color: var(--c-bg-opaque);
-  pointer-events: none;
-  cursor: default;
-}
-
-.navv a:first-child {
-  margin-right: auto;
-  display: flex;
-  align-items: center;
-  gap: var(--s-8);
-}
-
-.navv a:not(:first-child) {
-  width: 40px;
+  gap: var(--s-6);
   height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius);
+  white-space: nowrap;
 }
-.navv a:not(:first-child):hover {
-  background: var(--c-bg-opaque);
-}
+
 .navv a svg {
-  width: 24px;
-  height: 24px;
-}
-.navv a:first-child[hidden] {
-  opacity: 0;
-  visibility: hidden;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
-/*@media (min-width: 42rem) {
-  .navv a:not(:first-child) {
-    width: 32px;
-    height: 32px;
-  }
+.navv a.navv__back {
+  gap: var(--s-4);
+}
 
-  .navv a:not(:first-child) svg {
-    width: 20px;
-    height: 20px;
+.navv__back svg {
+  stroke-width: 2;
+}
+
+@media screen and (min-width: 42rem) {
+  .navv a.navv__back {
+    margin-left: calc((20px + var(--s-4)) * -1);
   }
-}*/
+}
 
 h1 {
   font-size: 2rem;

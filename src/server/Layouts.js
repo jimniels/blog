@@ -1,6 +1,7 @@
 import fs from "fs";
 import { html, readFile } from "./utils.js";
 import { Icon } from "./Icon.js";
+import FooterTheme from "./FooterTheme.js";
 
 const comment = `
 <!--
@@ -98,7 +99,6 @@ export function Page(props, children) {
           </script>
 
           <!-- Prefetch navigational pages -->
-          <link rel="prefetch" href="/menu/" />
           <link rel="prefetch" href="/search/" />
 
           <!-- GA (testing) -->
@@ -121,46 +121,31 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          <nav class="navv wrapper" hidden>
-            <a
-              href="/"
-              title="Jim Nielsen’s Blog"
-              aria-label="Jim Nielsen’s Blog"
-              ${path === "/" && "aria-current='page'"}
-              ${path === "/" || path === "/menu/" ? "hidden" : ""}
-            >
-              Jim’s Blog
-            </a>
-
-            ${path === "/menu/"
-              ? html`<a
-                  href="/"
-                  onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
-                  title="Close menu (back)"
-                  aria-label="Close menu (back)"
-                  >${Icon("heroicon-close")}</a
-                >`
+          <nav class="navv wrapper">
+            ${path === "/"
+              ? html`
+                  <a href="/subscribe/">${Icon("heroicon-rss")} Subscribe</a>
+                  <a href="/search/">${Icon("heroicon-search")} Search</a>
+                  <a href="/stats/">${Icon("heroicon-trending")} Stats</a>
+                  <a href="/tags/">${Icon("heroicon-hashtag")} Tags</a>
+                  <a href="/external-links/">${Icon("heroicon-link")} Links</a>
+                `
               : html`
-                  <a
-                    href="/search/"
-                    aria-label="Search"
-                    title="Search"
-                    ${path === "/search/" && "aria-current='page'"}
-                    >${Icon("heroicon-search")}</a
-                  >
-                  <a
-                    href="/subscribe/"
-                    aria-label="Subscribe"
-                    title="Subscribe"
-                    ${path === "/subscribe/" && "aria-current='page'"}
-                    >${Icon("heroicon-rss")}</a
-                  >
-                  <a href="/menu/" aria-label="Menu" title="Menu"
-                    >${Icon("heroicon-menu")}</a
-                  >
+                  <a href="/" class="navv__back">
+                    ${Icon("heroicon-chevron-left")} Jim Nielsen’s Blog
+                  </a>
                 `}
           </nav>
           ${children}
+          <footer>
+            <p>This is <a href="/">a blog by Jim Nielsen</a></p>
+            <p hidden>
+              <a href="/">Go home</a> | <a href="/subscribe/">Subscribe</a> |
+              <a href="/">Contact me</a>
+            </p>
+
+            ${FooterTheme()}
+          </footer>
         </body>
       </html>
     `

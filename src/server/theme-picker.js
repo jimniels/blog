@@ -14,6 +14,20 @@ class ThemePicker extends HTMLElement {
   }
 
   connectedCallback() {
+    this.onThemeChange = () => {
+      const appearance = window.theme.appearance.get();
+      const color = window.theme.color.get();
+      const appearanceInput = this.querySelector(
+        `input[name=appearance][value="${appearance}"]`
+      );
+      const colorInput = this.querySelector(
+        `input[name=color][value="${color}"]`
+      );
+      if (appearanceInput) appearanceInput.checked = true;
+      if (colorInput) colorInput.checked = true;
+    };
+    window.addEventListener("themechange", this.onThemeChange);
+
     // Handle expanding/collapsing the color picker through the <form>
     this.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -32,6 +46,10 @@ class ThemePicker extends HTMLElement {
         }
       }
     });
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener("themechange", this.onThemeChange);
   }
 }
 
