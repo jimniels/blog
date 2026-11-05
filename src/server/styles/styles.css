@@ -647,7 +647,7 @@ footer ol li {
 .navv {
   display: flex;
   align-items: center;
-  column-gap: var(--s-32);
+  column-gap: var(--s-24);
   padding-top: var(--s-24);
   padding-bottom: var(--s-24);
 }
@@ -667,8 +667,22 @@ footer ol li {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  height: 40px;
+  height: 36px;
   white-space: nowrap;
+}
+
+.navv a:has(svg) {
+  width: 36px;
+  justify-content: center;
+}
+
+.navv a:first-child:has(svg) {
+  margin-left: -6px;
+}
+
+.navv a[href="/search/"] {
+  margin-left: calc(var(--s-8) * -1);
+  margin-right: var(--s-24);
 }
 
 .navv a svg {
