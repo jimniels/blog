@@ -124,17 +124,17 @@ export function Page(props, children) {
           <nav class="navv wrapper">
             ${path === "/"
               ? html`
-                  <a href="/subscribe/">${Icon("heroicon-rss")} Subscribe</a>
-                  <a href="/search/">${Icon("heroicon-search")} Search</a>
-                  <a href="/stats/">${Icon("heroicon-trending")} Stats</a>
-                  <a href="/tags/">${Icon("heroicon-hashtag")} Tags</a>
-                  <a href="/external-links/">${Icon("heroicon-link")} Links</a>
+                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
+                    >${Icon("heroicon-rss")}</a
+                  >
+                  <a href="/search/" aria-label="Search" title="Search"
+                    >${Icon("heroicon-search")}</a
+                  >
+                  <a href="/stats/">Stats</a>
+                  <a href="/tags/">Tags</a>
+                  <a href="/external-links/">Links</a>
                 `
-              : html`
-                  <a href="/" class="navv__back">
-                    ${Icon("heroicon-chevron-left")} Jim Nielsen’s Blog
-                  </a>
-                `}
+              : html`<a href="/">Jim Nielsen’s Blog</a>`}
           </nav>
           ${children}
           <footer>
