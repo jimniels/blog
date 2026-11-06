@@ -1,37 +1,50 @@
 ---
-(site) => {
+(site, postsByTag) => {
   page = {
     title: "Tags",
     path: "/tags/",
     head: `
+      <script>
+        /**
+         * Apply a saved "count" sort before first paint so the list doesn't
+         * flash in A–Z order. CSS uses [data-tags-sort="count"] + --count.
+         */
+        try {
+          if (localStorage.getItem("tags-sort") === "count") {
+            document.documentElement.setAttribute("data-tags-sort", "count");
+          }
+        } catch (e) {}
+      </script>
       <style>
-        .tags-list {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          font-size: 0.88888rem;
+        html[data-tags-sort="count"] .kv-list li {
+          order: var(--count);
         }
-        .tags-list li {
+        .tags-sort {
           display: flex;
           align-items: center;
-          gap: 2px;
+          gap: var(--s-2);
+          margin-bottom: var(--s-16);
+          font-size: .875rem;
         }
-        .tags-list a {
+        .tags-sort input[type="radio"] {
+          display: none;
         }
-        .tags-list small {
-          color: var(--c-text-light);
+        .tags-sort label {
+          padding: var(--s-4) var(--s-8);
+          border-radius: var(--border-radius);
+          cursor: pointer;
+          transition: background-color 0.2s ease;
         }
+        .tags-sort label:hover {
+          background-color: var(--c-bg-lighter);
+        }
+        .tags-sort input[type="radio"]:checked + label {
+          background-color: var(--c-fg);
+        }
+        
       </style>
     `
   }
-
-  postsByTag = site.posts
-    -> (posts) => Tree.filter(posts, (post) => !post.tags.includes("rssClub"))
-    -> (posts) => Tree.groupBy(posts, (post) => post.tags)
-    -> Tree.sort
 
   return = <server/Layouts.js>.Page({ site, page }, _template())
 }.return
@@ -39,26 +52,97 @@
 
 <main class="wrapper">
   <h1>Tags</h1>
-  <ul class="tags-list">
+  <p>
+    ${Tree.size(postsByTag)} tags — most of which are for me to keep track of
+    topics I continuously write about (so they’re more for me, not you—sorry).
+  </p>
+  <form class="tags-sort">
+    Sort:
+    <input type="radio" name="tags-sort" value="az" checked id="tags-sort-az" />
+    <label for="tags-sort-az">A-Z</label>
+    <input type="radio" name="tags-sort" value="count" id="tags-sort-count" />
+    <label for="tags-sort-count">9–0</label>
+  </form>
+  <ul class="kv-list">
     ${Tree.map(postsByTag, (posts, tag) => `
-    <li>
-      <a href="#${tag}" class="tag">#${tag}</a>
-      <small>(${posts.length})</small>
+    <li
+      data-tag="${tag}"
+      data-count="${posts.length}"
+      style="--count: -${posts.length}"
+    >
+      <a id="${tag}" href="/tags/${tag}" class="tag">
+        <span>#${tag}</span>
+        <span
+          style="
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--c-text-light);
+          "
+        >
+          <small>${posts.length}</small>
+          ${server/Heroicons.ori/chevron-right}
+        </span>
+      </a>
     </li>
     ` )}
   </ul>
-
-  ${Tree.map(postsByTag, (posts, tag) => `
-  <h2 id="${tag}" style="margin: 2rem 0 0.5rem">
-    <a href="#${tag}" style="color: inherit">
-      #${tag}
-      <small
-        style="font-weight: 300; font-size: 1rem; color: var(--c-text-light)"
-      >
-        (${posts.length})
-      </small>
-    </a>
-  </h2>
-
-  ${<server/PostsList.js>(Tree.plain(Tree.values(posts)))} `)}
 </main>
+<script>
+  /**
+   * Client-side tag sorting. HTML is A–Z; this reorders the list, syncs the
+   * radios, and persists the choice in localStorage under "tags-sort".
+   * @typedef {"az" | "count"} TagsSort
+   */
+  document.addEventListener("DOMContentLoaded", function () {
+    let radios = document.querySelectorAll('input[name="tags-sort"]');
+    if (!radios.length) return;
+
+    /**
+     * @param {TagsSort} sort
+     */
+    function apply(sort) {
+      if (sort === "count") {
+        document.documentElement.setAttribute("data-tags-sort", "count");
+      } else {
+        document.documentElement.removeAttribute("data-tags-sort");
+        sort = "az";
+      }
+      try {
+        localStorage.setItem("tags-sort", sort);
+      } catch (e) {}
+      let list = document.querySelector(".kv-list");
+      Array.prototype.slice
+        .call(list.children)
+        .sort(function (a, b) {
+          if (sort === "count") {
+            let diff =
+              Number(b.getAttribute("data-count")) -
+              Number(a.getAttribute("data-count"));
+            if (diff) return diff;
+          }
+          return a
+            .getAttribute("data-tag")
+            .localeCompare(b.getAttribute("data-tag"));
+        })
+        .forEach(function (item) {
+          list.appendChild(item);
+        });
+      radios.forEach(function (radio) {
+        radio.checked = radio.value === sort;
+      });
+    }
+
+    /** @type {TagsSort} */
+    let stored = "az";
+    try {
+      stored = localStorage.getItem("tags-sort") || "az";
+    } catch (e) {}
+    apply(stored);
+    radios.forEach(function (radio) {
+      radio.addEventListener("change", function () {
+        if (radio.checked) apply(radio.value);
+      });
+    });
+  });
+</script>
