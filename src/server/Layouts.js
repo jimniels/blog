@@ -1,6 +1,7 @@
 import fs from "fs";
 import { html, readFile } from "./utils.js";
 import { Icon } from "./Icon.js";
+import ThemePicker from "./ThemePicker.js";
 
 const comment = `
 <!--
@@ -98,7 +99,6 @@ export function Page(props, children) {
           </script>
 
           <!-- Prefetch navigational pages -->
-          <link rel="prefetch" href="/menu/" />
           <link rel="prefetch" href="/search/" />
 
           <!-- GA (testing) -->
@@ -121,45 +121,23 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          <nav class="navv wrapper" hidden>
-            <a
-              href="/"
-              title="Jim Nielsen’s Blog"
-              aria-label="Jim Nielsen’s Blog"
-              ${path === "/" && "aria-current='page'"}
-              ${path === "/" || path === "/menu/" ? "hidden" : ""}
-            >
-              Jim’s Blog
-            </a>
-
-            ${path === "/menu/"
-              ? html`<a
-                  href="/"
-                  onclick="document.referrer ? history.back() : window.location.href = '/'; return false;"
-                  title="Close menu (back)"
-                  aria-label="Close menu (back)"
-                  >${Icon("heroicon-close")}</a
-                >`
-              : html`
-                  <a
-                    href="/search/"
-                    aria-label="Search"
-                    title="Search"
-                    ${path === "/search/" && "aria-current='page'"}
+          ${path === "/"
+            ? html`
+                <nav class="navv wrapper" style="justify-content: flex-end">
+                  ${ThemePicker()}
+                  <a href="/search/" aria-label="Search" title="Search"
                     >${Icon("heroicon-search")}</a
                   >
-                  <a
-                    href="/subscribe/"
-                    aria-label="Subscribe"
-                    title="Subscribe"
-                    ${path === "/subscribe/" && "aria-current='page'"}
+                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
                     >${Icon("heroicon-rss")}</a
                   >
-                  <a href="/menu/" aria-label="Menu" title="Menu"
-                    >${Icon("heroicon-menu")}</a
-                  >
-                `}
-          </nav>
+                </nav>
+              `
+            : html`
+                <nav class="navv wrapper">
+                  <a href="/">Jim’s Blog</a>
+                </nav>
+              `}
           ${children}
         </body>
       </html>

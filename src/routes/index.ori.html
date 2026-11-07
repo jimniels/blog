@@ -20,6 +20,11 @@
     -> Tree.values
     -> Tree.plain
   
+  yearsBlogged = Tree.size(Tree.groupBy(site.posts, (post) => post.date.slice(0, 4)))
+  linkCount = site.externalLinks.reduce((total, item) => total + item.count, 0)
+  topTags = Tree.plain(Tree.map(Tree.take(site.tags, 3), (tag) => `#${tag.name}`)).join(", ")
+  topDomains = Tree.plain(Tree.map(Tree.take(site.externalLinks, 3), (item) => item.domain)).join(", ")
+
   page: {
     title: "",
     path: "/",
@@ -36,7 +41,6 @@
   <p style="margin-top: calc(var(--s-8) * -1)">
     Opinions with a shelf life. Made by <a href="https://www.jim-nielsen.com">me</a>.
   </p>
-
   <h2 style="margin-top: var(--s-40)">Latest</h2>
   ${server/PostsList.js(posts)}
   <p style="font-size: 0.875rem; text-align: right">
@@ -62,6 +66,28 @@
   <p style="font-size: 0.875rem; text-align: right">
     <a href="/posts/hacker-news/">View all →</a>
   </p>
+
+  <h2>Pages</h2>
+  <ul class="posts-list">
+    <li>
+      <a href="/stats/">
+        <span>Stats</span>
+        <span style="white-space: normal">${site.posts.length.toLocaleString("en-US")} posts, ${yearsBlogged} years blogged, ${linkCount.toLocaleString("en-US")} links…</span>
+      </a>
+    </li>
+    <li>
+      <a href="/tags/">
+        <span>Tags</span>
+        <span style="white-space: normal">${topTags}…</span>
+      </a>
+    </li>
+    <li>
+      <a href="/external-links/">
+        <span>Links</span>
+        <span style="white-space: normal">${topDomains}…</span>
+      </a>
+    </li>
+  </ul>
 
   <!-- <h2 style="view-transition-name: h1-heading-hacker-news">
     Popular in the Blogosphere
