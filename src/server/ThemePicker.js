@@ -1,127 +1,101 @@
 import { Icon } from "./Icon.js";
 import { html, readFile } from "./utils.js";
 
-// Pulled from the CSS theme variables
-const colors = [
-  "red",
-  "blue",
-  "green",
-  "yellow",
-  // "pink",
-  "purple",
-  // "none",
-  // "orange",
-  // not supported as UI themes—yet
-  // "mint",
-  // "teal",
-  // "cyan",
-  // "brown",
-  // "indigo",
-];
+// Available accent colors from the CSS theme variables.
+const colors = ["red", "blue", "green", "yellow", "purple"];
 
 export default function ThemePicker() {
   return html`
     <style>
-      .theme-picker {
-        position: relative;
-        display: grid;
-        gap: var(--s-16);
+      theme-pickers {
+        display: flex;
+        gap: var(--s-8);
+        justify-content: end;
+        padding-right: var(--s-16);
+        margin-right: var(--s-8);
+        border-right: 1px solid var(--c-border);
       }
 
-      @media (min-width: 35rem) {
-        .theme-picker {
-          grid-template-columns: 0.6fr 0.4fr;
+      theme-pickers button {
+        appearance: none;
+        margin: 0;
+        border: none;
+        background: transparent;
+        color: var(--c-text);
+        border-radius: var(--border-radius);
+        width: var(--s-40);
+        height: var(--s-40);
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        theme-pickers button:hover {
+          background: var(--c-bg-opaque);
         }
       }
 
-      .theme-picker fieldset {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: var(--border-radius);
-        border: 1px solid var(--c-fg);
-        padding: var(--s-2);
-        margin: 0;
+      theme-pickers svg {
+        width: 24px;
+        height: 24px;
+        display: block;
       }
 
-      .theme-picker input {
-        position: absolute;
+      theme-pickers [data-toggle="appearance"] {
+        display: grid;
+        place-items: center;
+      }
+      theme-pickers .theme-sun,
+      theme-pickers .theme-moon {
+        grid-area: 1 / 1;
+        transform-origin: center;
+      }
+      theme-pickers .theme-moon {
+        opacity: 0;
+        transform: rotate(-35deg) scale(0.65);
+      }
+      theme-pickers[data-appearance="dark"] .theme-sun {
+        opacity: 0;
+        transform: rotate(35deg) scale(0.65);
+      }
+      theme-pickers[data-appearance="dark"] .theme-moon {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      }
+      theme-pickers[data-ready] .theme-sun,
+      theme-pickers[data-ready] .theme-moon {
+        transition: transform 350ms ease-out, opacity 250ms ease-out;
+      }
+      theme-pickers [data-ink] {
+        fill: var(--c-theme);
         opacity: 0;
       }
-      .theme-picker input:checked + label {
-        background: var(--c-fg);
-        border-radius: calc(var(--border-radius) - var(--s-2));
+      theme-pickers [data-cycle="color"] svg {
+        transform-origin: center;
       }
-      .theme-picker label {
-        height: 100%;
-        text-indent: -9999px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: var(--s-40);
-      }
-      .theme-picker input:focus-visible + label {
-        outline: 2px solid var(--c-theme);
-      }
-      .theme-picker label[for^="appearance"] svg {
-        width: 20px;
-        height: 20px;
-      }
-
-      .theme-picker label[for^="appearance"] {
-        width: 33.33333%;
-      }
-      .theme-picker label[for^="appearance"] > span:first-child {
-        display: none;
-      }
-
-      .theme-picker label[for^="color"] {
-        width: 20%;
-      }
-      .theme-picker label[for^="color"] span {
-        width: 16px;
-        height: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
+      @media (prefers-reduced-motion: reduce) {
+        theme-pickers[data-ready] .theme-sun,
+        theme-pickers[data-ready] .theme-moon {
+          transition: none;
+        }
       }
     </style>
-
-    <theme-picker>
-      <form class="theme-picker">
-        <fieldset>
-          <!-- <legend>Accent</legend> -->
-
-          ${colors
-            .map(
-              (color) => /*html*/ `
-              <input type="radio" name="color" value="${color}" id="color-${color}"  />
-              <label for="color-${color}">
-                ${color} <span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"></span>
-              </label> 
-            `
-            )
-            .join("")}
-        </fieldset>
-        <fieldset>
-          <!-- <legend>Appearance</legend> -->
-
-          ${["system", "light", "dark"]
-            .map((theme) => {
-              const label = theme.charAt(0).toUpperCase() + theme.slice(1);
-              return /*html*/ `
-                <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}"  />
-                <label for="appearance-${theme}" title="${label}"><span>${label}</span>
-                  ${Icon(`heroicon-${theme}`)}
-                </label>
-              `;
-            })
-            .join("")}
-        </fieldset>
-      </form>
-    </theme-picker>
-    <script>
+    <theme-pickers data-colors="${colors.join(" ")}">
+      <button type="button" data-cycle="color" aria-label="Color">
+        ${Icon("water-drop").replace(
+          "<path",
+          '<path data-ink d="M12 4.65C9.03 7.38 6 10.5 6 13.8C6 17.4 8.4 20 12 20S18 17.4 18 13.8C18 10.5 14.98 7.38 12 4.65Z"/><path'
+        )}
+      </button>
+      <button type="button" data-toggle="appearance" aria-label="Appearance">
+        <span class="theme-sun" aria-hidden="true">${Icon("heroicon-light")}</span>
+        <span class="theme-moon" aria-hidden="true">${Icon("heroicon-dark")}</span>
+      </button>
+    </theme-pickers>
+    <script type="module">
       ${readFile("./theme-picker.js")};
     </script>
   `;

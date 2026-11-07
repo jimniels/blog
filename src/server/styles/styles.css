@@ -157,6 +157,7 @@ html {
   background: var(--c-bg);
   color: var(--c-text);
   padding-bottom: 15vh;
+  transition: background-color 1s ease;
 }
 
 :focus-visible {
@@ -170,6 +171,14 @@ html {
 a {
   text-decoration: none;
   color: var(--c-theme);
+  transition: color 1s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  a {
+    transition: none;
+  }
 }
 
 a:hover {
@@ -647,7 +656,7 @@ footer ol li {
 .navv {
   display: flex;
   align-items: center;
-  column-gap: var(--s-24);
+  gap: var(--s-8);
   padding-top: var(--s-24);
   padding-bottom: var(--s-24);
 }
@@ -672,17 +681,16 @@ footer ol li {
 }
 
 .navv a:has(svg) {
-  width: 36px;
+  width: var(--s-40);
+  height: var(--s-40);
   justify-content: center;
+  border-radius: var(--border-radius);
 }
 
-.navv a:first-child:has(svg) {
-  margin-left: -6px;
-}
-
-.navv a[href="/search/"] {
-  margin-left: calc(var(--s-8) * -1);
-  margin-right: var(--s-24);
+@media (hover: hover) and (pointer: fine) {
+  .navv a:has(svg):hover {
+    background: var(--c-bg-opaque);
+  }
 }
 
 .navv a svg {

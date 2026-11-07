@@ -1,7 +1,7 @@
 import fs from "fs";
 import { html, readFile } from "./utils.js";
 import { Icon } from "./Icon.js";
-import FooterTheme from "./FooterTheme.js";
+import ThemePicker from "./ThemePicker.js";
 
 const comment = `
 <!--
@@ -121,31 +121,24 @@ export function Page(props, children) {
           ${head}
         </head>
         <body>
-          <nav class="navv wrapper">
-            ${path === "/"
-              ? html`
-                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
-                    >${Icon("heroicon-rss")}</a
-                  >
+          ${path === "/"
+            ? html`
+                <nav class="navv wrapper" style="justify-content: flex-end">
+                  ${ThemePicker()}
                   <a href="/search/" aria-label="Search" title="Search"
                     >${Icon("heroicon-search")}</a
                   >
-                  <a href="/stats/">Stats</a>
-                  <a href="/tags/">Tags</a>
-                  <a href="/external-links/">Links</a>
-                `
-              : html`<a href="/">Jim Nielsen’s Blog</a>`}
-          </nav>
+                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
+                    >${Icon("heroicon-rss")}</a
+                  >
+                </nav>
+              `
+            : html`
+                <nav class="navv wrapper">
+                  <a href="/">Jim’s Blog</a>
+                </nav>
+              `}
           ${children}
-          <footer>
-            <p>This is <a href="/">a blog by Jim Nielsen</a></p>
-            <p hidden>
-              <a href="/">Go home</a> | <a href="/subscribe/">Subscribe</a> |
-              <a href="/">Contact me</a>
-            </p>
-
-            ${FooterTheme()}
-          </footer>
         </body>
       </html>
     `
