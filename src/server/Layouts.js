@@ -123,14 +123,9 @@ export function Page(props, children) {
         <body>
           ${path === "/"
             ? html`
-                <nav class="navv wrapper" style="justify-content: flex-end">
+                <nav class="navv wrapper home-nav">
+                  <a href="/subscribe/">${Icon("heroicon-rss")}<span>Subscribe</span></a>
                   ${ThemePicker()}
-                  <a href="/search/" aria-label="Search" title="Search"
-                    >${Icon("heroicon-search")}</a
-                  >
-                  <a href="/subscribe/" aria-label="Subscribe" title="Subscribe"
-                    >${Icon("heroicon-rss")}</a
-                  >
                 </nav>
               `
             : html`

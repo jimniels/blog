@@ -28,19 +28,25 @@
   page: {
     title: "",
     path: "/",
+    head: `<link rel="stylesheet" href="/home.css" />
+      <script src="/home-search.js" defer></script>`,
   },
   
   return = <server/Layouts.js>.Page({ site, page }, _template())
 }.return
 ---
 
-<main class="wrapper">
+<main class="wrapper home">
   <h1>Jim’s Blog</h1>
 
   <!-- prettier-ignore -->
   <p style="margin-top: calc(var(--s-8) * -1)">
     Opinions with a shelf life. Made by <a href="https://www.jim-nielsen.com">me</a>.
   </p>
+  ${<server/HomeSearch.ori.html>()}
+  <p class="home-search-status" role="status" aria-live="polite" hidden></p>
+  <div id="home-search-results" hidden></div>
+  <div id="home-content">
   <h2 style="margin-top: var(--s-40)">Latest</h2>
   ${server/PostsList.js(posts)}
   <p style="font-size: 0.875rem; text-align: right">
@@ -97,4 +103,5 @@
   <p style="font-size: 0.875rem; text-align: right">
     <a href="/posts/hacker-news/">View all →</a>
   </p> -->
+  </div>
 </main>

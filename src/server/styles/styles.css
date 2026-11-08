@@ -14,7 +14,7 @@
   color-scheme: light;
 
   /* Theme colors */
-  --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
+  --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99.5%);
   --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 40%) 91%);
   --c-bg-opaque: hsl(
     var(--c-theme-h) calc(var(--c-theme-s) - 40%) var(--c-theme-l) / 0.05
@@ -157,12 +157,19 @@ html {
   background: var(--c-bg);
   color: var(--c-text);
   padding-bottom: 15vh;
-  transition: background-color 1s ease;
 }
 
 :focus-visible {
   outline: 2px solid var(--c-theme);
   box-shadow: 0 0 0 4px hsl(var(--c-theme) / 0.15);
+}
+
+html,
+a {
+  transition: .333s ease all;
+}
+.home-search input {
+  transition: .666s ease border-color;
 }
 
 /* Links
@@ -171,7 +178,6 @@ html {
 a {
   text-decoration: none;
   color: var(--c-theme);
-  transition: color 1s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
