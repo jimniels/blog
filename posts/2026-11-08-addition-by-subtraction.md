@@ -33,7 +33,7 @@ When it comes to choice, what I really wanted was:
 
 So I removed the big 512 option. If I want to study an icon at that size and detail, I click through to the icon’s detail page.
 
-Now there’s three options for list views: 56, 128, and 256. Small (great on mobile), 128 (great by default), and big (let me see more detail).
+Now there are three options for list views: 56, 128, and 256. Small (great on mobile), 128 (great by default), and big (let me see more detail).
 
 It’s simple to think about:
 
@@ -45,6 +45,6 @@ You don’t need to think about it anymore than that.
 
 I mean you _can_, but I’ve found I don’t need to. So I’ve taken that off your plate. Less cognitive overhead.
 
-<img src="https://cdn.jim-nielsen.com/blog/2026/icon-size-options.png" width="600" height="338" alt="Three panels showing rows of colorful app icons, including a duck, owl, lightbulb, piano keys, and hot air balloon." />
+<img src="https://cdn.jim-nielsen.com/blog/2026/icon-size-options.png" width="600" height="338" alt="Three panels showing rows of colorful app icons, including a duck, owl, lightbulb, piano keys, and hot air balloon." data-og-image />
 
 Maybe one day I’ll add a slider and make it all dynamic. But for now, I like this small addition by subtraction.
