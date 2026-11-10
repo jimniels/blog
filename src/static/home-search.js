@@ -7,6 +7,7 @@
   const content = document.querySelector("#home-content");
   const status = document.querySelector(".home-search-status");
   const spinner = form.querySelector(".home-search-spinner");
+  const clear = form.querySelector(".home-search-clear");
   let loading;
   let ui;
   let failed = false;
@@ -52,6 +53,7 @@
 
   async function search() {
     const hasQuery = !!input.value.trim();
+    clear.hidden = !input.value;
     content.hidden = hasQuery;
     results.hidden = !hasQuery;
     if (!hasQuery) {
@@ -90,6 +92,11 @@
   }
 
   input.addEventListener("input", search);
+  clear.addEventListener("click", () => {
+    input.value = "";
+    search();
+    input.focus();
+  });
   // Native search-field clear buttons also emit "search" in some browsers.
   input.addEventListener("search", search);
   form.addEventListener("submit", (event) => {

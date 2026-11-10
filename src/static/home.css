@@ -31,6 +31,40 @@
   font: inherit;
   transition: 0.3s ease border-color;
 }
+.home-search input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+.home-search-clear {
+  position: absolute;
+  right: var(--s-4);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--s-32);
+  height: var(--s-32);
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--border-radius);
+  background: transparent;
+  color: var(--c-text-light);
+  cursor: pointer;
+}
+.home-search-clear[hidden] {
+  display: none;
+}
+.home-search-clear svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-search-clear:hover {
+    color: var(--c-text);
+  }
+}
 .home-search input::placeholder {
   color: var(--c-text-light);
 }
