@@ -71,28 +71,41 @@ export default function ThemePicker() {
         transition: transform 350ms ease-out, opacity 250ms ease-out;
       }
 
-      /* Toggle sits on the right, swatches grow out to its left */
+      /* Swatches grow out to the left of the toggle, overlaying whatever
+         is there (e.g. the Subscribe link) so they fit on narrow screens */
       theme-pickers .theme-colors {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
+        position: relative;
       }
       theme-pickers .theme-swatches {
-        display: grid;
-        grid-template-columns: 0fr;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 100%;
+        width: max-content;
+        background: var(--c-bg);
+        clip-path: inset(0 0 0 100%);
         opacity: 0;
       }
+      theme-pickers .theme-swatches::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 100%;
+        width: var(--s-24);
+        background: linear-gradient(to right, transparent, var(--c-bg));
+        pointer-events: none;
+      }
       theme-pickers[data-colors-open] .theme-swatches {
-        grid-template-columns: 1fr;
+        clip-path: inset(0 0 0 calc(var(--s-24) * -1));
         opacity: 1;
       }
       theme-pickers[data-ready] .theme-swatches {
-        transition: grid-template-columns 300ms ease-out, opacity 250ms ease-out;
+        transition: clip-path 300ms ease-out, opacity 250ms ease-out;
       }
       theme-pickers .theme-swatches > div {
         display: flex;
-        min-width: 0;
-        overflow: hidden;
+        height: 100%;
       }
       theme-pickers button[data-color] {
         flex-shrink: 0;
