@@ -33,7 +33,6 @@
   function load() {
     loading ||= Promise.all([
       loadAsset("link", "/pagefind/pagefind-ui.css"),
-      loadAsset("link", "/home-search-results.css"),
       loadAsset("script", "/pagefind/pagefind-ui.js"),
     ]).then(() => {
       ui = new window.PagefindUI({
@@ -82,9 +81,11 @@
     } catch {
       failed = true;
       results.hidden = true;
-      message(input.value.trim()
-        ? "Search couldn’t load. Press Enter to search with DuckDuckGo."
-        : "");
+      message(
+        input.value.trim()
+          ? "Search couldn’t load. Press Enter to search with DuckDuckGo."
+          : ""
+      );
     } finally {
       spinner.hidden = true;
       results.removeAttribute("aria-busy");
