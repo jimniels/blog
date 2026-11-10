@@ -30,8 +30,8 @@
   page: {
     title: "",
     path: "/",
-    head: `<link rel="stylesheet" href="/home.css" />
-      <script src="/home-search.js" defer></script>`,
+    head: `<style>${<index.css>}</style>
+      <script type="module">${<index.js>}</script>`,
   }
   
   return = <server/Layouts.js>.Page({ site, page }, _template())
