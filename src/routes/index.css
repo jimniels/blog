@@ -28,9 +28,9 @@
   align-items: center;
   justify-content: center;
   gap: var(--s-4);
-  padding: var(--s-16) var(--s-8);
+  padding: var(--s-12) var(--s-8);
   border: 1px solid var(--c-fg);
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 .home-pages svg {
   flex-shrink: 0;
@@ -41,7 +41,7 @@
   .home-pages a {
     flex-direction: row;
     gap: var(--s-8);
-    padding: var(--s-12) var(--s-8);
+    padding: var(--s-8) var(--s-8);
   }
 }
 .home-search {
