@@ -44,52 +44,112 @@ export default function ThemePicker() {
         display: block;
       }
 
-      theme-pickers [data-toggle="appearance"] {
+      theme-pickers [data-toggle] {
         display: grid;
         place-items: center;
       }
-      theme-pickers .theme-sun,
-      theme-pickers .theme-moon {
+      theme-pickers [data-toggle] > span {
         grid-area: 1 / 1;
         transform-origin: center;
       }
-      theme-pickers .theme-moon {
+      theme-pickers .theme-moon,
+      theme-pickers .theme-close {
         opacity: 0;
         transform: rotate(-35deg) scale(0.65);
       }
-      theme-pickers[data-appearance="dark"] .theme-sun {
+      theme-pickers[data-appearance="dark"] .theme-sun,
+      theme-pickers[data-colors-open] .theme-eyedropper {
         opacity: 0;
         transform: rotate(35deg) scale(0.65);
       }
-      theme-pickers[data-appearance="dark"] .theme-moon {
+      theme-pickers[data-appearance="dark"] .theme-moon,
+      theme-pickers[data-colors-open] .theme-close {
         opacity: 1;
         transform: rotate(0deg) scale(1);
       }
-      theme-pickers[data-ready] .theme-sun,
-      theme-pickers[data-ready] .theme-moon {
+      theme-pickers[data-ready] [data-toggle] > span {
         transition: transform 350ms ease-out, opacity 250ms ease-out;
       }
-      theme-pickers [data-ink] {
-        fill: var(--c-theme);
+
+      /* Toggle sits on the right, swatches grow out to its left */
+      theme-pickers .theme-colors {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+      }
+      theme-pickers .theme-swatches {
+        display: grid;
+        grid-template-columns: 0fr;
         opacity: 0;
       }
-      theme-pickers [data-cycle="color"] svg {
-        transform-origin: center;
+      theme-pickers[data-colors-open] .theme-swatches {
+        grid-template-columns: 1fr;
+        opacity: 1;
       }
+      theme-pickers[data-ready] .theme-swatches {
+        transition: grid-template-columns 300ms ease-out, opacity 250ms ease-out;
+      }
+      theme-pickers .theme-swatches > div {
+        display: flex;
+        min-width: 0;
+        overflow: hidden;
+      }
+      theme-pickers button[data-color] {
+        flex-shrink: 0;
+        width: var(--s-32);
+      }
+      theme-pickers button[data-color]:focus-visible {
+        outline-offset: -2px;
+      }
+      theme-pickers button[data-color] span {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--swatch);
+      }
+      theme-pickers button[data-color][aria-pressed="true"] span {
+        box-shadow: 0 0 0 2px var(--c-bg), 0 0 0 4px var(--swatch);
+      }
+
       @media (prefers-reduced-motion: reduce) {
-        theme-pickers[data-ready] .theme-sun,
-        theme-pickers[data-ready] .theme-moon {
+        theme-pickers[data-ready] [data-toggle] > span,
+        theme-pickers[data-ready] .theme-swatches {
           transition: none;
         }
       }
     </style>
-    <theme-pickers data-colors="${colors.join(" ")}">
-      <button type="button" data-cycle="color" aria-label="Color">
-        ${Icon("water-drop").replace(
-          "<path",
-          '<path data-ink d="M12 4.65C9.03 7.38 6 10.5 6 13.8C6 17.4 8.4 20 12 20S18 17.4 18 13.8C18 10.5 14.98 7.38 12 4.65Z"/><path'
-        )}
-      </button>
+    <theme-pickers>
+      <div class="theme-colors">
+        <button
+          type="button"
+          data-toggle="colors"
+          aria-expanded="false"
+          aria-controls="theme-swatches"
+          aria-label="Change color"
+          title="Change color"
+        >
+          <span class="theme-eyedropper" aria-hidden="true">${Icon("heroicon-eyedropper")}</span>
+          <span class="theme-close" aria-hidden="true">${Icon("heroicon-close")}</span>
+        </button>
+        <div class="theme-swatches" id="theme-swatches" inert>
+          <div>
+            ${colors.map(
+              (color) => html`
+                <button
+                  type="button"
+                  data-color="${color}"
+                  aria-pressed="false"
+                  aria-label="${labelFor(color)}"
+                  title="${labelFor(color)}"
+                  style="--swatch: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"
+                >
+                  <span></span>
+                </button>
+              `
+            )}
+          </div>
+        </div>
+      </div>
       <button type="button" data-toggle="appearance" aria-label="Appearance">
         <span class="theme-sun" aria-hidden="true">${Icon("heroicon-light")}</span>
         <span class="theme-moon" aria-hidden="true">${Icon("heroicon-dark")}</span>
@@ -99,4 +159,11 @@ export default function ThemePicker() {
       ${readFile("./theme-picker.js")};
     </script>
   `;
+}
+
+/**
+ * @param {string} value
+ */
+function labelFor(value) {
+  return value.charAt(0).toUpperCase() + value.slice(1);
 }
