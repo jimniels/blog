@@ -26,18 +26,13 @@
     "Learning more, knowing less.",
   ]
   taglineRandom = taglines[Math.floor(Math.random() * taglines.length)]
-  
-  yearsBlogged = Tree.size(Tree.groupBy(site.posts, (post) => post.date.slice(0, 4)))
-  linkCount = site.externalLinks.reduce((total, item) => total + item.count, 0)
-  topTags = Tree.plain(Tree.map(Tree.take(site.tags, 3), (tag) => `#${tag.name}`)).join(", ")
-  topDomains = Tree.plain(Tree.map(Tree.take(site.externalLinks, 3), (item) => item.domain)).join(", ")
 
   page: {
     title: "",
     path: "/",
     head: `<link rel="stylesheet" href="/home.css" />
       <script src="/home-search.js" defer></script>`,
-  },
+  }
   
   return = <server/Layouts.js>.Page({ site, page }, _template())
 }.return
@@ -83,26 +78,23 @@
     </p>
 
     <h2>Pages</h2>
-    <ul class="posts-list">
+    <ul class="home-pages">
       <li>
         <a href="/stats/">
+          ${server/Heroicons.ori/stats}
           <span>Stats</span>
-          <span style="white-space: normal">
-            ${site.posts.length.toLocaleString("en-US")} posts, ${yearsBlogged}
-            years blogged, ${linkCount.toLocaleString("en-US")} links…
-          </span>
         </a>
       </li>
       <li>
         <a href="/tags/">
+          ${server/Heroicons.ori/tag}
           <span>Tags</span>
-          <span style="white-space: normal">${topTags}…</span>
         </a>
       </li>
       <li>
         <a href="/external-links/">
+          ${server/Heroicons.ori/link}
           <span>Links</span>
-          <span style="white-space: normal">${topDomains}…</span>
         </a>
       </li>
     </ul>

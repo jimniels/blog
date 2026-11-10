@@ -14,6 +14,36 @@
   margin: 0;
   padding: 0;
 }
+.home-pages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-12);
+}
+.home-pages a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-4);
+  padding: var(--s-16) var(--s-8);
+  border: 1px solid var(--c-fg);
+  border-radius: 8px;
+}
+.home-pages svg {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+@media screen and (min-width: 520px) {
+  .home-pages a {
+    flex-direction: row;
+    gap: var(--s-8);
+    padding: var(--s-12) var(--s-8);
+  }
+}
 .home-search {
   position: relative;
   min-width: 0;
