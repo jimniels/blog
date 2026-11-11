@@ -39,7 +39,7 @@
 ---
 
 <main class="wrapper home">
-  <h1>Jim’s Blog</h1>
+  <h1><span class="site-title">Jim’s Blog</span></h1>
 
   <!-- prettier-ignore -->
   <p style="margin-top: calc(var(--s-8) * -1)">
@@ -55,7 +55,7 @@
       <a href="/archive/">View all →</a>
     </p>
 
-    <h2 style="view-transition-name: h1-heading-trending">Trending</h2>
+    <h2>Trending</h2>
     <!-- prettier-ignore -->
     ${server/PostsList.js( trendingPosts, (post) =>
     `${post.pageviews > 1000
@@ -66,9 +66,7 @@
       <a href="/posts/trending/">View all →</a>
     </p>
 
-    <h2 style="view-transition-name: h1-heading-hacker-news">
-      Hacker News Hits
-    </h2>
+    <h2>Hacker News Hits</h2>
     <!-- prettier-ignore -->
     ${server/PostsList.js( hackerNewsPosts, (post) =>
     `${post.hackerNews.points.toLocaleString()} points, ${post.hackerNews.comments.toLocaleString()} comments`
@@ -99,7 +97,7 @@
       </li>
     </ul>
 
-    <!-- <h2 style="view-transition-name: h1-heading-hacker-news">
+    <!-- <h2>
     Popular in the Blogosphere
   </h2>
   

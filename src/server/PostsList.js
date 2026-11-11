@@ -17,10 +17,7 @@ export async function PostsList(
         posts.map(
           async (post) => html`
             <li>
-              <a
-                href="${post.path}"
-                style="view-transition-name: post-title-${post.id}"
-              >
+              <a href="${post.path}">
                 <span>${post.title}</span>
                 <span>${await fn(post)}</span>
               </a>

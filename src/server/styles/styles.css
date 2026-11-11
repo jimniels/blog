@@ -5,6 +5,39 @@
   navigation: auto;
 }
 
+/* "Jim’s Blog" morphs between the home page h1 and the nav link elsewhere */
+.site-title {
+  display: inline-block;
+  view-transition-name: site-title;
+}
+
+/* Drop the name while it’s scrolled off screen, otherwise it slides in from off
+   the page. The timeline lives on the parent because the mobile nav is its own
+   (horizontal) scroll container and would always count the link as visible.
+   The base value stays named because the incoming page is captured on its
+   first render, before its scroll timelines resolve. */
+@supports (animation-timeline: view()) {
+  :has(> .site-title) {
+    view-timeline-name: --site-title;
+  }
+  .site-title {
+    animation-name: site-title-off-screen;
+    animation-duration: auto;
+    animation-fill-mode: both;
+    animation-timeline: --site-title;
+  }
+  @keyframes site-title-off-screen {
+    0%,
+    100% {
+      view-transition-name: none;
+    }
+    1%,
+    99% {
+      view-transition-name: site-title;
+    }
+  }
+}
+
 /* =============================================================================
    Theme / appearance
    ========================================================================== */

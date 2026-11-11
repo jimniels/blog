@@ -130,7 +130,7 @@ export function Page(props, children) {
               `
             : html`
                 <nav class="navv wrapper">
-                  <a href="/">Jim’s Blog</a>
+                  <a href="/" class="site-title">Jim’s Blog</a>
                 </nav>
               `}
           ${children}
