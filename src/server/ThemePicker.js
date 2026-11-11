@@ -58,12 +58,12 @@ export default function ThemePicker() {
         transform: rotate(-35deg) scale(0.65);
       }
       theme-pickers[data-appearance="dark"] .theme-sun,
-      theme-pickers[data-colors-open] .theme-eyedropper {
+      theme-pickers[data-open] .theme-cog {
         opacity: 0;
         transform: rotate(35deg) scale(0.65);
       }
       theme-pickers[data-appearance="dark"] .theme-moon,
-      theme-pickers[data-colors-open] .theme-close {
+      theme-pickers[data-open] .theme-close {
         opacity: 1;
         transform: rotate(0deg) scale(1);
       }
@@ -71,12 +71,12 @@ export default function ThemePicker() {
         transition: transform 350ms ease-out, opacity 250ms ease-out;
       }
 
-      /* Swatches grow out to the left of the toggle, overlaying whatever
-         is there (e.g. the Subscribe link) so they fit on narrow screens */
-      theme-pickers .theme-colors {
+      /* The panel grows out to the left of the toggle, overlaying whatever
+         is there (e.g. the Subscribe link) so it fits on narrow screens */
+      theme-pickers .theme-settings {
         position: relative;
       }
-      theme-pickers .theme-swatches {
+      theme-pickers .theme-panel {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -86,26 +86,39 @@ export default function ThemePicker() {
         clip-path: inset(0 0 0 100%);
         opacity: 0;
       }
-      theme-pickers .theme-swatches::before {
+      theme-pickers .theme-panel::before {
         content: "";
         position: absolute;
         top: 0;
         bottom: 0;
         right: 100%;
         width: var(--s-24);
-        background: linear-gradient(to right, transparent, var(--c-bg));
+        background: var(--c-bg);
+        mask-image: linear-gradient(to right, transparent, black);
         pointer-events: none;
       }
-      theme-pickers[data-colors-open] .theme-swatches {
+      theme-pickers[data-open] .theme-panel {
         clip-path: inset(0 0 0 calc(var(--s-24) * -1));
         opacity: 1;
       }
-      theme-pickers[data-ready] .theme-swatches {
-        transition: clip-path 300ms ease-out, opacity 250ms ease-out;
+      /* Background timing matches the root html transition in styles.css */
+      theme-pickers[data-ready] .theme-panel,
+      theme-pickers[data-ready] .theme-panel::before {
+        transition: clip-path 300ms ease-out, opacity 250ms ease-out,
+          background-color 333ms ease;
       }
-      theme-pickers .theme-swatches > div {
+      theme-pickers .theme-panel > div {
         display: flex;
+        align-items: center;
         height: 100%;
+        padding-left: var(--s-8);
+      }
+      theme-pickers .theme-divider {
+        flex-shrink: 0;
+        width: 1px;
+        height: var(--s-24);
+        margin: 0 var(--s-8);
+        background: var(--c-fg);
       }
       theme-pickers button[data-color] {
         flex-shrink: 0;
@@ -126,25 +139,26 @@ export default function ThemePicker() {
 
       @media (prefers-reduced-motion: reduce) {
         theme-pickers[data-ready] [data-toggle] > span,
-        theme-pickers[data-ready] .theme-swatches {
+        theme-pickers[data-ready] .theme-panel,
+        theme-pickers[data-ready] .theme-panel::before {
           transition: none;
         }
       }
     </style>
     <theme-pickers>
-      <div class="theme-colors">
+      <div class="theme-settings">
         <button
           type="button"
-          data-toggle="colors"
+          data-toggle="settings"
           aria-expanded="false"
-          aria-controls="theme-swatches"
-          aria-label="Change color"
-          title="Change color"
+          aria-controls="theme-panel"
+          aria-label="Theme settings"
+          title="Theme settings"
         >
-          <span class="theme-eyedropper" aria-hidden="true">${Icon("heroicon-eyedropper")}</span>
+          <span class="theme-cog" aria-hidden="true">${Icon("heroicon-cog")}</span>
           <span class="theme-close" aria-hidden="true">${Icon("heroicon-close")}</span>
         </button>
-        <div class="theme-swatches" id="theme-swatches" inert>
+        <div class="theme-panel" id="theme-panel" inert>
           <div>
             ${colors.map(
               (color) => html`
@@ -160,13 +174,15 @@ export default function ThemePicker() {
                 </button>
               `
             )}
+            <span class="theme-divider" aria-hidden="true"></span>
+            <button type="button" data-toggle="appearance" aria-label="Appearance">
+              <span class="theme-sun" aria-hidden="true">${Icon("heroicon-light")}</span>
+              <span class="theme-moon" aria-hidden="true">${Icon("heroicon-dark")}</span>
+            </button>
+            <span class="theme-divider" aria-hidden="true"></span>
           </div>
         </div>
       </div>
-      <button type="button" data-toggle="appearance" aria-label="Appearance">
-        <span class="theme-sun" aria-hidden="true">${Icon("heroicon-light")}</span>
-        <span class="theme-moon" aria-hidden="true">${Icon("heroicon-dark")}</span>
-      </button>
     </theme-pickers>
     <script type="module">
       ${readFile("./theme-picker.js")};
