@@ -32,6 +32,12 @@
   border: 1px solid var(--c-fg);
   border-radius: var(--border-radius);
 }
+.home-pages a:hover {
+  filter: none;
+}
+.home-pages a:hover > * {
+  filter: brightness(115%) saturate(1.15);
+}
 .home-pages svg {
   flex-shrink: 0;
   width: 24px;
