@@ -18,12 +18,11 @@ memory.
 | --- | --- |
 | `npm start` | Dev server (`ori debug2`) |
 | `npm run build` | Full build into `build/` |
-| `npm run snapshot` | Record the current output as the comparison baseline |
-| `npm run verify` | Diff the current source against that baseline |
+| `npm run verify` | Diff a clean build of `main` against your working changes |
 | `npm run validate` | `html-validate` over `build/` |
 
 `npm start` and `npm run build` are preceded by `npm run pre`, which regenerates
-`cache/site.json`. `snapshot` and `verify` deliberately skip it — see below.
+`cache/site.json`. `verify` deliberately skips it — see below.
 
 ## Layout
 
@@ -47,28 +46,59 @@ templates, not JS modules. JS is still the right answer for two things: browser
 code (`client/`) and logic that Origami can't express well (`lib/`) — see the
 async-lambda note below.
 
-**Verify every refactor.** Anything that claims not to change the output must
-prove it:
+**Verify every refactor.** `npm run verify` diffs a clean build of what's live
+against your working changes:
 
 ```sh
-npm run snapshot      # before your change
-# ...make the change...
-npm run verify        # silence means byte-for-byte identical
+npm run verify                   # vs. main
+npm run verify -- origin/main    # vs. what's actually pushed
+npm run verify -- --all          # list every changed file, not just a count
+npm run verify -- --fresh        # refresh cache/site.json from posts/ first
 ```
 
-`verify` compares against a snapshot on disk, so it only means something if the
-snapshot was taken from the state you intend to compare against. Two traps:
+Exit codes: 0 identical, 1 differences, 2 bad ref. A refactor that claims to
+change nothing should exit 0.
 
-- **A stale `cache/site.json` invalidates the comparison.** If anything runs
-  `npm run pre` (or you add a post) between snapshot and verify, new content
-  shows up as `changed`/`added` files and buries the real signal. If you see
-  posts appear that you didn't touch, re-snapshot before trusting the result.
-- **To compare against committed code**, build a detached worktree rather than
-  stashing: `git worktree add /tmp/ref --detach HEAD`, symlink `node_modules`,
-  copy `cache/`, build it, then `ori changes /tmp/ref-build, src/site.ori`.
+`scripts/verify.js` builds the reference side in a throwaway git worktree, so
+your working tree is never touched — no stash, no checkout, nothing to restore
+if it's interrupted. Don't "improve" this by stashing and checking out `main`
+in place; that risks real work for no benefit.
 
-One pagefind index shard varies between runs of identical source, so `verify`
-filters the `pagefind:` block out. Don't be alarmed by it, and don't "fix" it.
+There is also deliberately no stored baseline. An earlier version used a
+`snapshot` command, and re-running it after making changes folded those changes
+into the baseline, so `verify` cheerfully reported "no changes" for work that
+plainly changed things. If you reintroduce a cached baseline, make sure it
+can't go stale that way.
+
+Three things it does on purpose:
+
+- **Shares one `cache/site.json` between both sides** so the diff isolates
+  source changes. Post content therefore never shows up as a difference —
+  that's what `--fresh` is for.
+- **Excludes the `pagefind/` subtree**, because one index shard varies between
+  runs of byte-identical source and would otherwise report a change every time.
+  Don't "fix" that variance; to exclude something else for the same reason, add
+  it to `IGNORED_TOP_LEVEL_KEYS` and say why.
+- **Collapses the changed list past 20 entries.** One line changed in
+  `includes/Page.ori.html` changes every page, and burying four deletions under
+  849 paths is how you miss them.
+
+It symlinks the current `node_modules` into the worktree rather than installing
+the reference commit's dependencies, so a diff that depends on a dependency
+version bump won't show up correctly.
+
+`npm run diff-changes` predates this and does the same job by checking out
+`main` in place. It's superseded.
+
+Note that `ori changes` parses its arguments as Origami expressions, so paths
+passed to it must be repo-relative — an absolute path is a syntax error.
+
+**When output is meant to change, prove the change is only what you intended.**
+A one-line edit to `includes/Page.ori.html` changes all ~850 pages, so the
+count tells you nothing. Build both sides to scratch directories and assert the
+difference programmatically — e.g. strip the snippet you removed from each old
+file and check the result equals the new one. That turns "849 changed" into
+"849 changed, all explained".
 
 **Separate mechanical changes from behavioural ones into different commits**,
 and verify each. A rename that touches 20 files should verify clean on its own;
@@ -134,7 +164,12 @@ will fail, since no local copies remain.
   exists only to reproduce the whitespace of the JS templates they replaced.
   It can be deleted in favour of natural indentation — that's a deliberate
   output change, so do it on its own and read the diff.
-- `styles/basic.css` is referenced by nothing.
+- `static/assets/img/` holds files nothing references (`logo-black.png`,
+  `logo-white.png`, `jimniels.jpg`, `twitter-card.png`, `preferences.svg`,
+  `fidelity-{low,med,high}.svg`). They're published URLs that may be hotlinked
+  from old posts or elsewhere, so they were left alone deliberately.
+- `posts/2024-01-19-rss-in-html-follow-up.md` links to `/feed.html`, which no
+  longer exists.
 - `PostsList.ori.html` takes a `grid` param that no caller passes, and
   `.posts-list--grid` has ~43 lines of CSS behind it.
 - `npm run build-minify` is not in the deploy path.

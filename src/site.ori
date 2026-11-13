@@ -43,18 +43,15 @@
     calendar = { index.html = <routes/archive.calendar.ori.html>(data) }
   }
   // TODO: use origami's feed generator rather than `feed.*` routes
-  feed.html = <routes/feed.html.ori.html>(data)
   feed.json = <routes/feed.json.ori>(data)
   feed.xml = <routes/feed.xml.ori>(data)
   index.html = <routes/index.ori.html>(data)
-  menu = { index.html = <routes/menu.ori.html>(data) }
   posts = { 
     hacker-news = { index.html = <routes/posts.hacker-news.ori.html>(data) }
     trending = { index.html = <routes/posts.trending.ori.html>(data) }
   }
   
   stats = { index.html = <routes/stats.ori.html>(data) }
-  search = { index.html = <routes/search.ori.html>(data) }
   // Interpolations stay at column 0 so no indentation is added to the CSS
   styles.css = `
 ${<styles/modern-normalize.css>}
