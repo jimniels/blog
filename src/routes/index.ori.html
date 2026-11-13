@@ -30,11 +30,204 @@
   page: {
     title: "",
     path: "/",
-    head: `<style>${<index.css>}</style>
-      <script type="module">${<index.js>}</script>`,
+    head: `<style>
+.home-nav {
+  justify-content: space-between;
+}
+.home-nav > a:has(svg) {
+  width: auto;
+  gap: var(--s-8);
+}
+.home-nav > a:has(svg):hover {
+  background: transparent;
+}
+.home-nav > theme-pickers {
+  flex-shrink: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.home-pages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-12);
+}
+.home-pages a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-4);
+  padding: var(--s-12) var(--s-8);
+  border: 1px solid var(--c-fg);
+  border-radius: var(--border-radius);
+}
+.home-pages a:hover {
+  filter: none;
+}
+.home-pages a:hover > * {
+  filter: brightness(115%) saturate(1.15);
+}
+.home-pages svg {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+@media screen and (min-width: 520px) {
+  .home-pages a {
+    flex-direction: row;
+    gap: var(--s-8);
+    padding: var(--s-8) var(--s-8);
+  }
+}
+.home-search {
+  position: relative;
+  min-width: 0;
+}
+.home-search input[type="search"] {
+  appearance: none;
+  width: 100%;
+  min-width: 0;
+  height: var(--s-40);
+  border: 1px solid var(--c-fg);
+  border-radius: var(--border-radius);
+  padding: 0 var(--s-40);
+  background: transparent;
+  color: var(--c-text);
+  font: inherit;
+  transition: 0.3s ease border-color;
+}
+.home-search input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+.home-search-clear {
+  position: absolute;
+  right: var(--s-4);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--s-32);
+  height: var(--s-32);
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--border-radius);
+  background: transparent;
+  color: var(--c-text-light);
+  cursor: pointer;
+}
+.home-search-clear[hidden] {
+  display: none;
+}
+.home-search-clear svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-search-clear:hover {
+    color: var(--c-text);
+  }
+}
+.home-search input::placeholder {
+  color: var(--c-text-light);
+}
+.home-search-icon {
+  position: absolute;
+  left: var(--s-12);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-text-light);
+  pointer-events: none;
+}
+.home-search-icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+.home-search-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.home-search-spinner {
+  position: absolute;
+  left: calc(var(--s-12) + 3px);
+  top: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--c-fg);
+  border-top-color: var(--c-text-light);
+  border-radius: 50%;
+  animation: home-search-spin 700ms linear infinite;
+}
+.home-search-spinner[hidden] {
+  display: none;
+}
+.home-search:has(.home-search-spinner:not([hidden])) .home-search-icon {
+  visibility: hidden;
+}
+.home-search-status {
+  color: var(--c-text-light);
+  font-size: 0.7777778rem;
+  margin: var(--s-8) 0 0;
+}
+@keyframes home-search-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-search-spinner {
+    animation: none;
+  }
+}
+
+/* Search results */
+#home-search-results {
+  --pagefind-ui-primary: var(--c-theme);
+  --pagefind-ui-text: var(--c-text);
+  --pagefind-ui-background: var(--c-bg);
+  --pagefind-ui-border: var(--c-border);
+  --pagefind-ui-tag: var(--c-border);
+  --pagefind-ui-font: inherit;
+  --pagefind-ui-border-radius: var(--border-radius);
+  margin-top: var(--s-24);
+}
+#home-search-results .pagefind-ui__search-input,
+#home-search-results .pagefind-ui__search-clear,
+#home-search-results .pagefind-ui__form::before {
+  display: none;
+}
+#home-search-results .pagefind-ui__result-title,
+#home-search-results .pagefind-ui__result-link {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--c-theme);
+}
+#home-search-results .pagefind-ui__message,
+#home-search-results .pagefind-ui__result-excerpt {
+  color: var(--c-text-light);
+  font-weight: 400;
+}
+#home-search-results mark {
+  background: transparent;
+  color: var(--c-text);
+  font-weight: 600;
+}
+</style>`,
   }
   
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <includes/Page.ori.html>({ site, page }, _template())
 }.return
 ---
 
@@ -45,19 +238,19 @@
   <p style="margin-top: calc(var(--s-8) * -1)">
     ${taglineRandom} Written by <a href="https://www.jim-nielsen.com">me</a>.
   </p>
-  ${<server/HomeSearch.ori.html>()}
+  ${<includes/HomeSearch.ori.html>()}
   <p class="home-search-status" role="status" aria-live="polite" hidden></p>
   <div id="home-search-results" hidden></div>
   <div id="home-content">
     <h2 style="margin-top: var(--s-40)">Latest</h2>
-    ${server/PostsList.js(posts)}
+    ${<includes/PostsList.ori.html>(posts)}
     <p style="font-size: 0.875rem; text-align: right">
       <a href="/archive/">View all →</a>
     </p>
 
     <h2>Trending</h2>
     <!-- prettier-ignore -->
-    ${server/PostsList.js( trendingPosts, (post) =>
+    ${<includes/PostsList.ori.html>( trendingPosts, (post) =>
     `${post.pageviews > 1000
       ? Math.round((post.pageviews / 1000) * 10) / 10 + "k"
       : post.pageviews} pageviews`
@@ -68,7 +261,7 @@
 
     <h2>Hacker News Hits</h2>
     <!-- prettier-ignore -->
-    ${server/PostsList.js( hackerNewsPosts, (post) =>
+    ${<includes/PostsList.ori.html>( hackerNewsPosts, (post) =>
     `${post.hackerNews.points.toLocaleString()} points, ${post.hackerNews.comments.toLocaleString()} comments`
   )}
     <p style="font-size: 0.875rem; text-align: right">
@@ -79,19 +272,19 @@
     <ul class="home-pages">
       <li>
         <a href="/stats/">
-          ${server/Heroicons.ori/stats}
+          ${icons/Heroicons.ori/stats}
           <span>Stats</span>
         </a>
       </li>
       <li>
         <a href="/tags/">
-          ${server/Heroicons.ori/tag}
+          ${icons/Heroicons.ori/tag}
           <span>Tags</span>
         </a>
       </li>
       <li>
         <a href="/external-links/">
-          ${server/Heroicons.ori/link}
+          ${icons/Heroicons.ori/link}
           <span>Links</span>
         </a>
       </li>
@@ -101,9 +294,121 @@
     Popular in the Blogosphere
   </h2>
   
-  ${server/PostsList.js( [{ title: "Sanding UI", path: "/test/", date: "2026-01-01" }], () => `daringfireball.net, unsung.aresluna.org, 3 others` )}
+  ${<includes/PostsList.ori.html>( [{ title: "Sanding UI", path: "/test/", date: "2026-01-01" }], () => `daringfireball.net, unsung.aresluna.org, 3 others` )}
   <p style="font-size: 0.875rem; text-align: right">
     <a href="/posts/hacker-news/">View all →</a>
   </p> -->
   </div>
 </main>
+
+<script type="module">
+// Only this small loader runs initially. Pagefind and its styles wait for input.
+(() => {
+  const form = document.querySelector(".home-search");
+  if (!form) return;
+  const input = form.querySelector("[name=q]");
+  const results = document.querySelector("#home-search-results");
+  const content = document.querySelector("#home-content");
+  const status = document.querySelector(".home-search-status");
+  const spinner = form.querySelector(".home-search-spinner");
+  const clear = form.querySelector(".home-search-clear");
+  let loading;
+  let ui;
+  let failed = false;
+
+  function loadAsset(tag, url) {
+    return new Promise((resolve, reject) => {
+      const asset = document.createElement(tag);
+      if (tag === "link") {
+        asset.rel = "stylesheet";
+        asset.href = url;
+      } else {
+        asset.src = url;
+      }
+      asset.onload = resolve;
+      asset.onerror = () => {
+        asset.remove();
+        reject(new Error(`Could not load \${url}`));
+      };
+      document.head.append(asset);
+    });
+  }
+
+  function load() {
+    loading ||= Promise.all([
+      loadAsset("link", "/pagefind/pagefind-ui.css"),
+      loadAsset("script", "/pagefind/pagefind-ui.js"),
+    ]).then(() => {
+      ui = new window.PagefindUI({
+        element: "#home-search-results",
+        pageSize: 10,
+        showImages: false,
+        showSubResults: false,
+      });
+    });
+    return loading;
+  }
+
+  function message(text) {
+    status.textContent = text;
+    status.hidden = !text;
+  }
+
+  async function search() {
+    const hasQuery = !!input.value.trim();
+    clear.hidden = !input.value;
+    content.hidden = hasQuery;
+    results.hidden = !hasQuery;
+    if (!hasQuery) {
+      message("");
+      spinner.hidden = true;
+      results.removeAttribute("aria-busy");
+      ui?.triggerSearch("");
+      return;
+    }
+    if (failed) {
+      message("Search couldn’t load. Press Enter to search with DuckDuckGo.");
+      return;
+    }
+    if (!ui) {
+      spinner.hidden = false;
+      results.setAttribute("aria-busy", "true");
+      message("Loading search…");
+    }
+    try {
+      await load();
+      // Read the latest value: the user may have typed or cleared while loading.
+      const query = input.value.trim();
+      results.hidden = !query;
+      ui.triggerSearch(query);
+      message("");
+    } catch {
+      failed = true;
+      results.hidden = true;
+      message(
+        input.value.trim()
+          ? "Search couldn’t load. Press Enter to search with DuckDuckGo."
+          : ""
+      );
+    } finally {
+      spinner.hidden = true;
+      results.removeAttribute("aria-busy");
+    }
+  }
+
+  input.addEventListener("input", search);
+  clear.addEventListener("click", () => {
+    input.value = "";
+    search();
+    input.focus();
+  });
+  // Native search-field clear buttons also emit "search" in some browsers.
+  input.addEventListener("search", search);
+  form.addEventListener("submit", (event) => {
+    if (!failed) {
+      event.preventDefault();
+      search();
+    }
+  });
+})();
+</script>

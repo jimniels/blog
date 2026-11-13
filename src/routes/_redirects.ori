@@ -1,0 +1,53 @@
+// Netlify _redirects file.
+// Note: Tree.filter and Tree.plain, never Array#filter/#map on their own —
+// Origami lambdas are async, so a native filter tests a promise and keeps
+// every post.
+(site) => {
+  // Every post from `2015-06-29-a-web-of-people.md` on back needs this redirect
+  // rule. These used to live on every post as `redirect_from` but we can apply
+  // in batch here.
+  // Previous pattern: `/posts/:slug/`  New pattern: `/:year/:slug/`
+  oldRedirects: Tree.filter(site.posts, (post) => post.date.slice(0, 10) <= "2015-06-29")
+    -> Tree.values
+    -> Tree.plain
+    -> (posts) => Tree.plain(posts.map((post) =>
+         `/posts/${post.slug}/ /${post.date.slice(0, 4)}/${post.slug}/ 301`
+       ))
+    -> (lines) => lines.join("\n")
+
+  // One-off redirects for old posts. These were misspelled or didn’t match the
+  // pattern of the initial redirects transformation, so they have to be
+  // manually hard-coded here (rather than in the individual file).
+  oneOffOldRedirects: [
+    "/2026/collective-speed-isnt-the-sum-of%20individual-speed/ /2026/collective-speed-isnt-the-sum-of-individual-speed/ 301"
+    "/2019/thuoghts-on-jeremy-keiths-split/ /2019/thoughts-on-jeremy-keiths-split/ 301"
+    // Technically, these ones are replacements for the "oldRedirects" above,
+    // as they got fixed when we did this set of redirects. But we'll just add
+    // them here for convenience's sake.
+    "/posts/evoluation-of-creativity/ /2013/evolution-of-creativity/ 301"
+    "/posts/preserving-CSS-comments-during-compression/ /2013/preserving-css-comments-during-compression/ 301"
+    "/posts/scriptogram-posts-in-JSON-with-php/ /2013/scriptogram-posts-in-json-with-php/ 301"
+    "/posts/an-analysis-of-infinite-scrolling/ /2013/an-analysis-of-infinite-scroll/ 301"
+    "/posts/ios-border-radius/ /2012/calculate-the-ios-border-radius/ 301"
+  ].join("\n")
+
+  // Redirects for years, 2012 through the current year
+  yearsRedirects: Tree.plain(
+      Array.from({ length: new Date().getFullYear() - 2012 + 1 }, (_, i) => `/${2012 + i}/ /archive/#${2012 + i} 301`)
+    )
+    -> (lines) => lines.join("\n")
+
+  return = [
+    oneOffOldRedirects
+    oldRedirects
+    yearsRedirects
+    "/about/outbound-links/ /about/external-links/ 301"
+    "/about/internal-links/ /internal-links/ 301"
+    "/about/external-links/ /external-links/ 301"
+
+    // No hidden files in the build, or you get problems
+    // https://answers.netlify.com/t/hidden-files-removed-in-zip-deploy/8997
+    "/.well-known/links domain=:domain /well-known/links/:domain.json 200"
+    "/.well-known/links /well-known/links/index.json 200"
+  ].join("\n")
+}.return

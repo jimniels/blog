@@ -1,0 +1,76 @@
+---
+/**
+ * @param {{ site: import("types").Site, post: import("types").Post }} props
+ */
+(props) => {
+  site: props.site,
+  post: props.post,
+  description: <lib/utils.js>.excerptForMeta(post.contents.toString()),
+  page: {
+    title: post.title,
+    path: post.path,
+    description,
+    head: `
+      <link rel="canonical" href="${post.permalink}" />
+      <meta property="og:title" content="${post.title}" />
+      <meta property="og:description" content="${description}" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="${post.permalink}" />
+      <meta
+        property="fediverse:creator"
+        content="@jimniels@mastodon.social"
+      />
+      ${post.ogImageUrl ? `<meta property="og:image" content="${post.ogImageUrl}" />` : ""}
+    `
+  }
+
+  includeInSearch: !(
+    post.tags &&
+    (post.tags.includes("rssClub") || post.tags.includes("readingNotes"))
+  )
+
+  return = <includes/Page.ori.html>({ site, page }, _template())
+}.return
+---
+
+<!-- prettier fails on the data-pagefind-body attribute -->
+<article class="h-entry" ${includeInSearch ? 'data-pagefind-body' : ''}>
+  <header class="wrapper" data-pagefind-ignore>
+    <h1 class="p-name">${post.title}</h1>
+    <ul>
+      <li>
+        <time class="dt-published" datetime="${post.date}">
+          ${<lib/utils.js>.toDateUI( post.date )}
+        </time>
+      </li>
+      ${ post.tags.length ? `
+      <li>
+        ${Tree.map(post.tags, (tag) => `<a href="/tags/#${tag}">#${tag}</a> `)}
+      </li>
+      ` : "" }
+      ${ post.hackerNews ? `
+      <li>
+        <a
+          href="${post.hackerNews.url}"
+          style="display: flex; align-items: center; gap: 4px"
+        >
+          <!-- <img
+                         src="https://news.ycombinator.com/favicon.ico"
+                         width="16"
+                         height="16"
+                         alt="Hacker News"
+                       /> -->
+          ${post.hackerNews.points.toLocaleString()} points,
+          ${post.hackerNews.comments} comments on Hacker News
+        </a>
+      </li>
+      ` : "" }
+    </ul>
+  </header>
+  <div class="copy e-content">
+    ${post.tags.includes("rssClub") ? <includes/RssClub.ori.html>() : ""}
+<!-- Keep this unindented for code blocks to work --> 
+${post.contents.toString()}
+  </div>
+  <footer class="wrapper">${<includes/ReplyHtml.ori.html>({ post, site })}</footer>
+</article>

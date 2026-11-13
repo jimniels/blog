@@ -16,7 +16,7 @@
       
     </style>`,
   },
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <includes/Page.ori.html>({ site, page }, _template())
 }.return
 ---
 
@@ -25,57 +25,57 @@
   <ul class="kv-list">
     <li>
       <a href="/">
-        ${server/Heroicons.ori/home}
+        ${icons/Heroicons.ori/home}
         <span>Home</span>
-        ${server/Heroicons.ori/chevron-right}
+        ${icons/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
       <a href="/posts/trending/">
-        ${server/Heroicons.ori/trending}
+        ${icons/Heroicons.ori/trending}
         <span>Trending</span>
-        ${server/Heroicons.ori/chevron-right}
+        ${icons/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
       <a href="/posts/hacker-news/">
-        ${server/Heroicons.ori/hacker-news}
+        ${icons/Heroicons.ori/hacker-news}
         <span>Hacker News Hits</span>
-        ${server/Heroicons.ori/chevron-right}
+        ${icons/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
       <a href="/archive/">
-        ${server/Heroicons.ori/archive}
+        ${icons/Heroicons.ori/archive}
         <span>Archive</span>
-        ${server/Heroicons.ori/chevron-right}
+        ${icons/Heroicons.ori/chevron-right}
       </a>
     </li>
   </ul>
   <ul class="kv-list" style="margin-top: var(--s-24)">
     <li>
       <a href="/stats/">
-        ${server/Heroicons.ori/stats}
+        ${icons/Heroicons.ori/stats}
         <span>Stats</span>
-        ${server/Heroicons.ori/chevron-right}
+        ${icons/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
       <a href="/tags/">
-        ${server/Heroicons.ori/tag}
+        ${icons/Heroicons.ori/tag}
         <span>Tags</span>
-        ${server/Heroicons.ori/chevron-right}
+        ${icons/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
       <a href="/external-links/">
-        ${server/Heroicons.ori/link}
+        ${icons/Heroicons.ori/link}
         <span>Links</span>
-        ${server/Heroicons.ori/chevron-right}
+        ${icons/Heroicons.ori/chevron-right}
       </a>
     </li>
   </ul>
 
   <br />
-  ${<server/ThemePicker.js>()}
+  ${<includes/ThemePicker.ori.html>()}
 </main>

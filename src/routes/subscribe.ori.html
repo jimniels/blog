@@ -52,7 +52,7 @@
       </style>
     `,
   },
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <includes/Page.ori.html>({ site, page }, _template())
 }.return
 ---
 
@@ -68,21 +68,21 @@
   <ul class="kv-list">
     <li>
       <a href="/feed.xml">
-        ${server/Heroicons.ori/rss} RSS feed
-        ${server/Heroicons.ori/chevron-right}
+        ${icons/Heroicons.ori/rss} RSS feed
+        ${icons/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
       <a href="/feed.json">
-        ${server/Heroicons.ori/json-feed} JSON feed
-        ${server/Heroicons.ori/chevron-right}
+        ${icons/Heroicons.ori/json-feed} JSON feed
+        ${icons/Heroicons.ori/chevron-right}
       </a>
     </li>
     <li>
       <details class="kv-list-item">
         <summary>
-          ${server/Heroicons.ori/email} Email
-          ${server/Heroicons.ori/chevron-right}
+          ${icons/Heroicons.ori/email} Email
+          ${icons/Heroicons.ori/chevron-right}
         </summary>
         <p>
           Why email over a feed reader? What life choices have led you to this

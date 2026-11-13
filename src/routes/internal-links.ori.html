@@ -89,13 +89,13 @@
     -> Tree.values
     -> values => values.join("\n")
   
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <includes/Page.ori.html>({ site, page }, _template())
 }.return
 ---
 
 <main>
   <div class="wrapper">
-    ${<server/LinksToggle.js>("internal")}
+    ${<includes/LinksToggle.ori.html>("internal")}
     <p>
       A visual representation of the relationship between posts on my blog. It
       uses viz.js to draw the graph. You can learn more about how I did this in

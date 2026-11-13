@@ -1,0 +1,127 @@
+---
+// Children do: <Page.ori.html>({ site, page }, html`<main ...>...</main>`)
+// Interpolations sit at column 0 and prepend their own indent on purpose:
+// Origami indents every line of a multi-line interpolation, the old JS `html`
+// helper indented only the first. This keeps byte-for-byte output parity.
+({ site, page }, children) => {
+  metaDescription: page.description
+    ? page.description
+    : "Writing about the big beautiful mess that is making things for the world wide web."
+  return = _template()
+}.return
+---
+<!DOCTYPE html>
+<!--
+
+
+
+👋
+Want to read the code behind this code?
+It’s available on GitHub.
+https://www.github.com/jimniels/blog/
+
+
+
+-->
+
+      <html
+        lang="en-us"
+        id="top"
+        data-path="${page.path}"
+        data-syntax-theme="dracula"
+      >
+        <head>
+          <title>${page.title ? `${page.title} - ` : ""}${site.name}</title>
+
+          <link rel="stylesheet" href="/styles.css" />
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="author" content="Jim Nielsen" />
+          <meta name="description" content="${metaDescription}" />
+          <link rel="me" href="https://github.com/jimniels" />
+          <link rel="me" href="https://twitter.com/jimniels" />
+          <link rel="me" href="https://mastodon.social/@jimniels" />
+          <link rel="me" href="https://dribbble.com/jimniels" />
+          <link rel="preconnect" href="https://cdn.jim-nielsen.com" />
+
+          <!-- Feeds -->
+          <link
+            rel="alternate"
+            type="application/json"
+            title="RSS: JSON Feed"
+            href="/feed.json"
+          />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS: XML Feed"
+            href="/feed.xml"
+          />
+          <link
+            rel="alternate"
+            type="application/mf2+html"
+            title="RSS: HTML Feed"
+            href="/feed.html"
+          />
+
+          <script>
+${"            " + `${<../client/theme.js>}`};
+          </script>
+          <script type="module">
+            // If URL is /YYYY/* _and_ it has a code block, load syntax highlighting
+            const firstPathSegment = window.location.pathname.split("/")[1];
+            if (
+              firstPathSegment &&
+              firstPathSegment.length === 4 &&
+              document.querySelector("pre > code")
+            ) {
+              const link = document.createElement("link");
+              link.rel = "stylesheet";
+              link.href =
+                "https://cdn.jsdelivr.net/npm/microlighter@2/dist/themes/dracula.css";
+              document.head.appendChild(link);
+              import(
+                "https://cdn.jsdelivr.net/npm/microlighter@2/dist/microlighter.min.js"
+              );
+            }
+          </script>
+
+          <!-- Prefetch navigational pages -->
+          <link rel="prefetch" href="/search/" />
+
+          <!-- GA (testing) -->
+          <!-- Google tag (gtag.js) -->
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-CP7ZEPS11G"
+          ></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-CP7ZEPS11G");
+          </script>
+
+          <!-- Dynamic <head> content where applicable -->
+${"          " + (page.head ? page.head : "") + "\n"}
+        </head>
+        <body>
+${"          " + (page.path === "/"
+            ? `
+                <nav class="navv wrapper home-nav">
+                  <a href="/subscribe/">${../icons/Heroicons.ori/rss}<span>Subscribe</span></a>
+                  ${<ThemePicker.ori.html>()}
+                </nav>
+              `
+            : `
+                <nav class="navv wrapper">
+                  <a href="/" class="site-title">Jim’s Blog</a>
+                </nav>
+              ` ) + "\n"}
+${"          " + children + "\n"}
+        </body>
+      </html>
+    

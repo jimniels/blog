@@ -1,0 +1,19 @@
+---
+// Page title with a compact tab switcher, shared by Archive and Links.
+// Column-0 interpolations prepend their own indent and trailing newline to
+// match the JS `html` helper, which indented only an interpolation's first line.
+({ title, navLabel, active, tabs }) => _template()
+---
+${"\n"}    <div class="page-heading">
+      <h1>${title}</h1>
+      <nav class="page-toggle" aria-label="${navLabel}">
+${"        " + `${Tree.map(tabs, (tab) => `
+            <a
+              href="${tab.href}"
+              ${tab.id === active ? `aria-current="page"` : ""}
+              >${tab.label}</a
+            >
+          `)}` + "\n"}
+      </nav>
+    </div>
+  

@@ -1,0 +1,36 @@
+---
+// Year-at-a-glance calendars with a dot on each day that has a post.
+(posts) => _template()
+---
+${Tree.map(<../lib/calendarData.js>.calendarYears(posts), (year) => `
+    <section class="calendar-year" id="${year.year}">
+      <h2 class="archive-year">${year.year}</h2>
+      <div class="calendar-months">${Tree.map(year.months, (month) => `
+    <div
+      class="calendar-month${month.future ? " calendar-month--future" : ""}"
+    >
+      <h3>${month.name}</h3>
+      <div class="calendar-grid">${Tree.map(month.cells, (cell) => cell.blank ? `<span class="calendar-day"></span>` : cell.hasPost ? `
+    <span class="calendar-day calendar-day--has-post${cell.future ? " calendar-day--future" : ""}">
+      <a
+        href="${cell.href}"
+        class="calendar-day--post${cell.hn ? " calendar-day--post-hn" : ""}"
+        aria-label="${cell.label}"
+        aria-controls="${cell.id}-popover"
+      ></a>
+      <div id="${cell.id}-popover" class="calendar-popover">
+        ` + `${Tree.map(cell.posts, (post) => `
+            <a href="${post.path}">
+              <span>${post.title}</span>
+              ${post.hn ? `<span class="calendar-popover-hn"
+                    >→ Hit Hacker News</span
+                  >` : ""}
+            </a>
+          `)}` + `
+      </div>
+    </span>
+  ` : `<span class="calendar-day${cell.future ? " calendar-day--future" : ""}">${cell.day}</span>`)}</div>
+    </div>
+  `)}</div>
+    </section>
+  `)}

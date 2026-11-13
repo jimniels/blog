@@ -117,7 +117,7 @@
       <!-- Our custom pagefind override script -->
       <script src="/pagefind.js" defer></script>`,
   }
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <includes/Page.ori.html>({ site, page }, _template())
 }.return
 ---
 
@@ -132,9 +132,9 @@
       autofocus
       id="search-input"
     />
-    <button type="reset">${server/Heroicons.ori/x-circle}</button>
+    <button type="reset">${icons/Heroicons.ori/x-circle}</button>
     <input type="hidden" name="sites" value="blog.jim-nielsen.com" />
-    ${server/Heroicons.ori/search}
+    ${icons/Heroicons.ori/search}
   </form>
   <output id="js-search-root"></output>
 </main>

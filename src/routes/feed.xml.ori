@@ -1,0 +1,21 @@
+// RSS 2.0 feed. Note: Tree.map, not Array#map — Origami lambdas are async.
+(site) => `<?xml version="1.0" encoding="UTF-8"?>
+  <rss version="2.0" 
+    xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>${site.name}</title>
+      <description></description>
+      <link>${site.origin}</link>
+      <atom:link href="${site.origin}/feed.xml" rel="self" type="application/rss+xml" />
+      ${Tree.map(site.posts.slice(0, 10), (post) => `
+        <item>
+            <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+            <link>${post.permalink}</link>
+            <title>${<lib/utils.js>.escapeXml(post.title)}</title>
+            <guid isPermaLink="true">${post.permalink}</guid>
+            <description>${<lib/utils.js>.escapeXml((post.tags.includes("rssClub") ? <includes/RssClub.ori.html>() : "") + post.contents.toString() + <includes/ReplyHtml.ori.html>({ post, site }))}</description>
+        </item>
+      `)}
+    </channel>
+  </rss>
+  `

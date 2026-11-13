@@ -1,0 +1,22 @@
+// JSON Feed. Tree.plain resolves the promises Array#map leaves behind.
+(site) => JSON.stringify(Tree.plain({
+  version: "https://jsonfeed.org/version/1"
+  title: site.name
+  home_page_url: site.origin
+  feed_url: `${site.origin}/feed.json`
+  author: {
+    name: "Jim Nielsen"
+    url: "https://jim-nielsen.com/"
+  }
+  items: site.posts.slice(0, 10).map((post) => ({
+    id: post.path
+    date_published: post.date
+    title: post.title
+    url: post.permalink
+    tags: post.tags
+    content_html:
+      (post.tags.includes("rssClub") ? <includes/RssClub.ori.html>() : "") +
+      post.contents.toString() +
+      <includes/ReplyHtml.ori.html>({ post, site })
+  }))
+}))

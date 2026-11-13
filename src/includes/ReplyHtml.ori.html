@@ -1,0 +1,34 @@
+---
+// Appears at the bottom of each post, both on the site and in the feeds.
+// Multi-line interpolations sit at column 0 and prepend their own indent plus
+// a trailing newline: Origami indents every line of an indented interpolation
+// and swallows the newline after a column-0 one. This preserves byte parity
+// with the JS `html` helper this replaced.
+({ post, site }) => {
+  related = <../lib/utils.js>.relatedPosts(post, site)
+  return = _template()
+}.return
+---
+${"\n"}    <hr />
+${"    " + (post.footnotes?.length > 0 ? ` ${post.footnotes} ` : "") + "\n"}
+
+    <p>
+      Reply via:
+      
+
+      <a
+        href="mailto:jimniels%2Bblog@gmail.com?subject=Re:%20blog.jim-nielsen.com${post.path}"
+        >Email</a
+      >
+      · <a href="https://mastodon.social/@jimniels">Mastodon</a> ·
+
+      <a href="https://bsky.app/profile/jim-nielsen.com">Bluesky</a>
+    </p>
+
+${"    " + (related.length > 0 ? `
+      <p>
+        Related posts linking here:
+        ${Tree.plain(related.map((p) => `<a href="${p.path}">(${p.date.slice(0, 4)}) ${p.title}</a>`)).join(" · ")}
+      </p>
+    ` : "") + "\n"}
+  

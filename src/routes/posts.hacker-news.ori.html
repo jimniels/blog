@@ -1,0 +1,55 @@
+---
+(site) => {
+  posts = site.posts
+    -> (posts) => Tree.filter(posts, (post) => post.hackerNews)
+    -> (posts) => Tree.sort(posts, (post) => (post.hackerNews.points))
+    -> Tree.reverse
+    -> Tree.values
+    -> Tree.plain
+  pointsTotal = posts.reduce((acc, post) => acc + post.hackerNews.points, 0)
+  pointsAverage = Math.round(pointsTotal / posts.length)
+  commentsTotal = posts.reduce((acc, post) => acc + post.hackerNews.comments, 0)
+  commentsAverage = Math.round(commentsTotal / posts.length)
+  
+  page: {
+    title: "Hacker News Hits",
+    path: "/posts/hacker-news/",
+  },
+  
+  return = <includes/Page.ori.html>({ site, page }, _template())
+}.return
+---
+
+<main class="wrapper">
+  <h1>Hacker News Hits</h1>
+  <p>
+    Here be posts I wrote that hit Hacker News and garnered 100+ points or 50+
+    comments. Stats:
+  </p>
+  <ul>
+    <li>${posts.length} total posts</li>
+    <li>
+      ${pointsTotal.toLocaleString()} total points (average:
+      ${pointsAverage.toLocaleString()})
+    </li>
+    <li>
+      ${commentsTotal.toLocaleString()} total comments (average:
+      ${commentsAverage.toLocaleString()} )
+    </li>
+  </ul>
+
+  ${<includes/PostsList.ori.html>(posts, (post) =>
+  `${post.hackerNews.points.toLocaleString()} points,
+  ${post.hackerNews.comments.toLocaleString()} comments` )}
+
+  <p style="margin-top: 2rem">
+    “If you don’t get thrashed on whatever the HackerNews of the era is, you
+    haven’t blogged enough.” —
+    <a
+      href="https://notes.jim-nielsen.com/#2025-02-12T0852"
+      style="color: inherit; text-decoration: underline"
+    >
+      Dave Rupert
+    </a>
+  </p>
+</main>

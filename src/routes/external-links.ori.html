@@ -16,12 +16,12 @@
   uniqueDomains = site.externalLinks.length
   twoPlusLinks = Tree.size(Tree.filter(site.externalLinks, (item) => item.count >= 10))
 
-  return = <server/Layouts.js>.Page({ site, page }, _template())
+  return = <includes/Page.ori.html>({ site, page }, _template())
 }.return
 ---
 
 <main class="wrapper">
-  ${<server/LinksToggle.js>("external")}
+  ${<includes/LinksToggle.ori.html>("external")}
 
   <p>
     I thought it would be fun to
