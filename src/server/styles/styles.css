@@ -5,6 +5,39 @@
   navigation: auto;
 }
 
+/* "Jim’s Blog" morphs between the home page h1 and the nav link elsewhere */
+.site-title {
+  display: inline-block;
+  view-transition-name: site-title;
+}
+
+/* Drop the name while it’s scrolled off screen, otherwise it slides in from off
+   the page. The timeline lives on the parent because the mobile nav is its own
+   (horizontal) scroll container and would always count the link as visible.
+   The base value stays named because the incoming page is captured on its
+   first render, before its scroll timelines resolve. */
+@supports (animation-timeline: view()) {
+  :has(> .site-title) {
+    view-timeline-name: --site-title;
+  }
+  .site-title {
+    animation-name: site-title-off-screen;
+    animation-duration: auto;
+    animation-fill-mode: both;
+    animation-timeline: --site-title;
+  }
+  @keyframes site-title-off-screen {
+    0%,
+    100% {
+      view-transition-name: none;
+    }
+    1%,
+    99% {
+      view-transition-name: site-title;
+    }
+  }
+}
+
 /* =============================================================================
    Theme / appearance
    ========================================================================== */
@@ -14,7 +47,7 @@
   color-scheme: light;
 
   /* Theme colors */
-  --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99%);
+  --c-bg: hsl(var(--c-theme-h) var(--c-theme-s) 99.5%);
   --c-fg: hsl(var(--c-theme-h) calc(var(--c-theme-s) - 40%) 91%);
   --c-bg-opaque: hsl(
     var(--c-theme-h) calc(var(--c-theme-s) - 40%) var(--c-theme-l) / 0.05
@@ -164,12 +197,27 @@ html {
   box-shadow: 0 0 0 4px hsl(var(--c-theme) / 0.15);
 }
 
+html,
+a {
+  transition: .333s ease all;
+}
+.home-search input {
+  transition: .666s ease border-color;
+}
+
 /* Links
    ========================================================================== */
 
 a {
   text-decoration: none;
   color: var(--c-theme);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  a {
+    transition: none;
+  }
 }
 
 a:hover {
@@ -647,65 +695,47 @@ footer ol li {
 .navv {
   display: flex;
   align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
   gap: var(--s-8);
   padding-top: var(--s-24);
   padding-bottom: var(--s-24);
-  position: relative;
+}
+
+@media screen and (max-width: 42rem) {
+  .navv.wrapper {
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: var(--s-16);
+    padding-right: var(--s-16);
+  }
 }
 
 .navv a {
-  position: relative;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
+  height: 36px;
+  white-space: nowrap;
 }
 
-.navv a[aria-current="page"] {
-  background-color: var(--c-bg-opaque);
-  pointer-events: none;
-  cursor: default;
-}
-
-.navv a:first-child {
-  margin-right: auto;
-  display: flex;
-  align-items: center;
-  gap: var(--s-8);
-}
-
-.navv a:not(:first-child) {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
+.navv a:has(svg) {
+  width: var(--s-40);
+  height: var(--s-40);
   justify-content: center;
   border-radius: var(--border-radius);
 }
-.navv a:not(:first-child):hover {
-  background: var(--c-bg-opaque);
+
+@media (hover: hover) and (pointer: fine) {
+  .navv a:has(svg):hover {
+    background: var(--c-bg-opaque);
+  }
 }
+
 .navv a svg {
   width: 24px;
   height: 24px;
 }
-.navv a:first-child[hidden] {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/*@media (min-width: 42rem) {
-  .navv a:not(:first-child) {
-    width: 32px;
-    height: 32px;
-  }
-
-  .navv a:not(:first-child) svg {
-    width: 20px;
-    height: 20px;
-  }
-}*/
-
 h1 {
   font-size: 2rem;
   font-weight: 900;

@@ -12,24 +12,28 @@ window.theme = {
       return appearance;
     },
     /**
+     * Light or dark value actually painted, resolving "system" against the OS.
+     * @returns {"light" | "dark"}
+     */
+    resolved: () => {
+      const appearance = window.theme.appearance.get();
+      if (appearance === "light" || appearance === "dark") return appearance;
+      return systemAppearance();
+    },
+    /**
+     * Flip whatever is on screen. If that matches the OS, drop the override
+     * and follow the system again. That comparison happens only on click.
+     */
+    toggle: () => {
+      const next = window.theme.appearance.resolved() === "dark" ? "light" : "dark";
+      window.theme.appearance.set(next === systemAppearance() ? "system" : next);
+    },
+    /**
      * @param {string} value
      */
     set: (value) => {
       localStorage.setItem("theme-appearance", value);
-      if (value === "system") {
-        // TODO remove
-
-        document.documentElement.setAttribute(
-          "data-theme-appearance",
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light"
-        );
-      } else {
-        document.documentElement.setAttribute("data-theme-appearance", value);
-      }
-
-      updateMeta();
+      applyAppearance(value);
     },
   },
   color: {
@@ -58,9 +62,33 @@ window.theme = {
         `var(--c-${color}-l)`
       );
       updateMeta();
+      emitThemeChange();
     },
   },
 };
+
+function emitThemeChange() {
+  window.dispatchEvent(new Event("themechange"));
+}
+
+/** @returns {"light" | "dark"} */
+function systemAppearance() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+/**
+ * @param {string} value
+ */
+function applyAppearance(value) {
+  document.documentElement.setAttribute(
+    "data-theme-appearance",
+    value === "system" ? systemAppearance() : value
+  );
+  updateMeta();
+  emitThemeChange();
+}
 
 // create this <meta name="theme-color" content="#4285f4" />
 function updateMeta() {
@@ -92,12 +120,11 @@ window.theme.color.set(window.theme.color.get());
 // Watch for system changes
 window
   .matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", (e) => {
+  .addEventListener("change", () => {
+    // An explicit light/dark choice stays put when the OS changes,
+    // even if it now matches the system.
     if (window.theme.appearance.get() === "system") {
-      document.documentElement.setAttribute(
-        "data-theme-appearance",
-        e.matches ? "dark" : "light"
-      );
+      applyAppearance("system");
     }
   });
 

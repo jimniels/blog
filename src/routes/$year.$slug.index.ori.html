@@ -35,10 +35,7 @@
 
 <!-- prettier fails on the data-pagefind-body attribute -->
 <article class="h-entry" ${includeInSearch ? 'data-pagefind-body' : ''}>
-  <header
-    class="wrapper" style="view-transition-name: post-title-${post.id}"
-    data-pagefind-ignore
-  >
+  <header class="wrapper" data-pagefind-ignore>
     <h1 class="p-name">${post.title}</h1>
     <ul>
       <li>

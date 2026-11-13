@@ -19,51 +19,85 @@
     -> (posts) => Tree.take(posts, 3)
     -> Tree.values
     -> Tree.plain
-  
+
+  taglines = [
+    "Opinions with a shelf life.",
+    // "High-minded bullshit.",
+    // "Learning more, knowing less.","
+  ]
+  taglineRandom = taglines[Math.floor(Math.random() * taglines.length)]
+
   page: {
     title: "",
     path: "/",
-  },
+    head: `<style>${<index.css>}</style>
+      <script type="module">${<index.js>}</script>`,
+  }
   
   return = <server/Layouts.js>.Page({ site, page }, _template())
 }.return
 ---
 
-<main class="wrapper">
-  <h1>Jim’s Blog</h1>
+<main class="wrapper home">
+  <h1><span class="site-title">Jim’s Blog</span></h1>
 
   <!-- prettier-ignore -->
   <p style="margin-top: calc(var(--s-8) * -1)">
-    Opinions with a shelf life. Made by <a href="https://www.jim-nielsen.com">me</a>.
+    ${taglineRandom} Written by <a href="https://www.jim-nielsen.com">me</a>.
   </p>
+  ${<server/HomeSearch.ori.html>()}
+  <p class="home-search-status" role="status" aria-live="polite" hidden></p>
+  <div id="home-search-results" hidden></div>
+  <div id="home-content">
+    <h2 style="margin-top: var(--s-40)">Latest</h2>
+    ${server/PostsList.js(posts)}
+    <p style="font-size: 0.875rem; text-align: right">
+      <a href="/archive/">View all →</a>
+    </p>
 
-  <h2 style="margin-top: var(--s-40)">Latest</h2>
-  ${server/PostsList.js(posts)}
-  <p style="font-size: 0.875rem; text-align: right">
-    <a href="/archive/">View all →</a>
-  </p>
-
-  <h2 style="view-transition-name: h1-heading-trending">Trending</h2>
-  <!-- prettier-ignore -->
-  ${server/PostsList.js( trendingPosts, (post) =>
+    <h2>Trending</h2>
+    <!-- prettier-ignore -->
+    ${server/PostsList.js( trendingPosts, (post) =>
     `${post.pageviews > 1000
       ? Math.round((post.pageviews / 1000) * 10) / 10 + "k"
       : post.pageviews} pageviews`
   )}
-  <p style="font-size: 0.875rem; text-align: right">
-    <a href="/posts/trending/">View all →</a>
-  </p>
+    <p style="font-size: 0.875rem; text-align: right">
+      <a href="/posts/trending/">View all →</a>
+    </p>
 
-  <h2 style="view-transition-name: h1-heading-hacker-news">Hacker News Hits</h2>
-  <!-- prettier-ignore -->
-  ${server/PostsList.js( hackerNewsPosts, (post) =>
+    <h2>Hacker News Hits</h2>
+    <!-- prettier-ignore -->
+    ${server/PostsList.js( hackerNewsPosts, (post) =>
     `${post.hackerNews.points.toLocaleString()} points, ${post.hackerNews.comments.toLocaleString()} comments`
   )}
-  <p style="font-size: 0.875rem; text-align: right">
-    <a href="/posts/hacker-news/">View all →</a>
-  </p>
+    <p style="font-size: 0.875rem; text-align: right">
+      <a href="/posts/hacker-news/">View all →</a>
+    </p>
 
-  <!-- <h2 style="view-transition-name: h1-heading-hacker-news">
+    <h2>Pages</h2>
+    <ul class="home-pages">
+      <li>
+        <a href="/stats/">
+          ${server/Heroicons.ori/stats}
+          <span>Stats</span>
+        </a>
+      </li>
+      <li>
+        <a href="/tags/">
+          ${server/Heroicons.ori/tag}
+          <span>Tags</span>
+        </a>
+      </li>
+      <li>
+        <a href="/external-links/">
+          ${server/Heroicons.ori/link}
+          <span>Links</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- <h2>
     Popular in the Blogosphere
   </h2>
   
@@ -71,4 +105,5 @@
   <p style="font-size: 0.875rem; text-align: right">
     <a href="/posts/hacker-news/">View all →</a>
   </p> -->
+  </div>
 </main>

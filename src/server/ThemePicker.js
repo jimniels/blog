@@ -1,128 +1,198 @@
 import { Icon } from "./Icon.js";
 import { html, readFile } from "./utils.js";
 
-// Pulled from the CSS theme variables
-const colors = [
-  "red",
-  "blue",
-  "green",
-  "yellow",
-  // "pink",
-  "purple",
-  // "none",
-  // "orange",
-  // not supported as UI themes—yet
-  // "mint",
-  // "teal",
-  // "cyan",
-  // "brown",
-  // "indigo",
-];
+// Available accent colors from the CSS theme variables.
+const colors = ["red", "blue", "green", "yellow", "purple"];
 
 export default function ThemePicker() {
   return html`
     <style>
-      .theme-picker {
-        position: relative;
-        display: grid;
-        gap: var(--s-16);
+      theme-pickers {
+        display: flex;
+        gap: var(--s-8);
+        justify-content: end;
+        padding-right: var(--s-16);
+        margin-right: var(--s-8);
+        border-right: 1px solid var(--c-border);
       }
 
-      @media (min-width: 35rem) {
-        .theme-picker {
-          grid-template-columns: 0.6fr 0.4fr;
+      theme-pickers button {
+        appearance: none;
+        margin: 0;
+        border: none;
+        background: transparent;
+        color: var(--c-text);
+        border-radius: var(--border-radius);
+        width: var(--s-40);
+        height: var(--s-40);
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        theme-pickers button:hover {
+          background: var(--c-bg-opaque);
         }
       }
 
-      .theme-picker fieldset {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: var(--border-radius);
-        border: 1px solid var(--c-fg);
-        padding: var(--s-2);
-        margin: 0;
+      theme-pickers svg {
+        width: 24px;
+        height: 24px;
+        display: block;
       }
 
-      .theme-picker input {
+      theme-pickers [data-toggle] {
+        display: grid;
+        place-items: center;
+      }
+      theme-pickers [data-toggle] > span {
+        grid-area: 1 / 1;
+        transform-origin: center;
+      }
+      theme-pickers .theme-moon,
+      theme-pickers .theme-close {
+        opacity: 0;
+        transform: rotate(-35deg) scale(0.65);
+      }
+      theme-pickers[data-appearance="dark"] .theme-sun,
+      theme-pickers[data-open] .theme-cog {
+        opacity: 0;
+        transform: rotate(35deg) scale(0.65);
+      }
+      theme-pickers[data-appearance="dark"] .theme-moon,
+      theme-pickers[data-open] .theme-close {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      }
+      theme-pickers[data-ready] [data-toggle] > span {
+        transition: transform 350ms ease-out, opacity 250ms ease-out;
+      }
+
+      /* The panel grows out to the left of the toggle, overlaying whatever
+         is there (e.g. the Subscribe link) so it fits on narrow screens */
+      theme-pickers .theme-settings {
+        position: relative;
+      }
+      theme-pickers .theme-panel {
         position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 100%;
+        width: max-content;
+        background: var(--c-bg);
+        clip-path: inset(0 0 0 100%);
         opacity: 0;
       }
-      .theme-picker input:checked + label {
-        background: var(--c-fg);
-        border-radius: calc(var(--border-radius) - var(--s-2));
+      theme-pickers .theme-panel::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 100%;
+        width: var(--s-24);
+        background: var(--c-bg);
+        mask-image: linear-gradient(to right, transparent, black);
+        pointer-events: none;
       }
-      .theme-picker label {
+      theme-pickers[data-open] .theme-panel {
+        clip-path: inset(0 0 0 calc(var(--s-24) * -1));
+        opacity: 1;
+      }
+      /* Background timing matches the root html transition in styles.css */
+      theme-pickers[data-ready] .theme-panel,
+      theme-pickers[data-ready] .theme-panel::before {
+        transition: clip-path 300ms ease-out, opacity 250ms ease-out,
+          background-color 333ms ease;
+      }
+      theme-pickers .theme-panel > div {
+        display: flex;
+        align-items: center;
         height: 100%;
-        text-indent: -9999px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: var(--s-40);
+        padding-left: var(--s-8);
       }
-      .theme-picker input:focus-visible + label {
-        outline: 2px solid var(--c-theme);
+      theme-pickers .theme-divider {
+        flex-shrink: 0;
+        width: 1px;
+        height: var(--s-24);
+        margin: 0 var(--s-8);
+        background: var(--c-fg);
       }
-      .theme-picker label[for^="appearance"] svg {
-        width: 20px;
-        height: 20px;
+      theme-pickers button[data-color] {
+        flex-shrink: 0;
+        width: var(--s-32);
       }
-
-      .theme-picker label[for^="appearance"] {
-        width: 33.33333%;
+      theme-pickers button[data-color]:focus-visible {
+        outline-offset: -2px;
       }
-      .theme-picker label[for^="appearance"] > span:first-child {
-        display: none;
-      }
-
-      .theme-picker label[for^="color"] {
-        width: 20%;
-      }
-      .theme-picker label[for^="color"] span {
-        width: 16px;
-        height: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      theme-pickers button[data-color] span {
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
+        background: var(--swatch);
+      }
+      theme-pickers button[data-color][aria-pressed="true"] span {
+        box-shadow: 0 0 0 2px var(--c-bg), 0 0 0 4px var(--swatch);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        theme-pickers[data-ready] [data-toggle] > span,
+        theme-pickers[data-ready] .theme-panel,
+        theme-pickers[data-ready] .theme-panel::before {
+          transition: none;
+        }
       }
     </style>
-
-    <theme-picker>
-      <form class="theme-picker">
-        <fieldset>
-          <!-- <legend>Accent</legend> -->
-
-          ${colors
-            .map(
-              (color) => /*html*/ `
-              <input type="radio" name="color" value="${color}" id="color-${color}"  />
-              <label for="color-${color}">
-                ${color} <span style="background-color: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"></span>
-              </label> 
-            `
-            )
-            .join("")}
-        </fieldset>
-        <fieldset>
-          <!-- <legend>Appearance</legend> -->
-
-          ${["system", "light", "dark"]
-            .map((theme) => {
-              const label = theme.charAt(0).toUpperCase() + theme.slice(1);
-              return /*html*/ `
-                <input type="radio" name="appearance" value="${theme}" id="appearance-${theme}"  />
-                <label for="appearance-${theme}" title="${label}"><span>${label}</span>
-                  ${Icon(`heroicon-${theme}`)}
-                </label>
-              `;
-            })
-            .join("")}
-        </fieldset>
-      </form>
-    </theme-picker>
-    <script>
+    <theme-pickers>
+      <div class="theme-settings">
+        <button
+          type="button"
+          data-toggle="settings"
+          aria-expanded="false"
+          aria-controls="theme-panel"
+          aria-label="Theme settings"
+          title="Theme settings"
+        >
+          <span class="theme-cog" aria-hidden="true">${Icon("heroicon-cog")}</span>
+          <span class="theme-close" aria-hidden="true">${Icon("heroicon-close")}</span>
+        </button>
+        <div class="theme-panel" id="theme-panel" inert>
+          <div>
+            ${colors.map(
+              (color) => html`
+                <button
+                  type="button"
+                  data-color="${color}"
+                  aria-pressed="false"
+                  aria-label="${labelFor(color)}"
+                  title="${labelFor(color)}"
+                  style="--swatch: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"
+                >
+                  <span></span>
+                </button>
+              `
+            )}
+            <span class="theme-divider" aria-hidden="true"></span>
+            <button type="button" data-toggle="appearance" aria-label="Appearance">
+              <span class="theme-sun" aria-hidden="true">${Icon("heroicon-light")}</span>
+              <span class="theme-moon" aria-hidden="true">${Icon("heroicon-dark")}</span>
+            </button>
+            <span class="theme-divider" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </theme-pickers>
+    <script type="module">
       ${readFile("./theme-picker.js")};
     </script>
   `;
+}
+
+/**
+ * @param {string} value
+ */
+function labelFor(value) {
+  return value.charAt(0).toUpperCase() + value.slice(1);
 }

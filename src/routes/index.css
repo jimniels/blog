@@ -1,0 +1,193 @@
+.home-nav {
+  justify-content: space-between;
+}
+.home-nav > a:has(svg) {
+  width: auto;
+  gap: var(--s-8);
+}
+.home-nav > a:has(svg):hover {
+  background: transparent;
+}
+.home-nav > theme-pickers {
+  flex-shrink: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.home-pages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-12);
+}
+.home-pages a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-4);
+  padding: var(--s-12) var(--s-8);
+  border: 1px solid var(--c-fg);
+  border-radius: var(--border-radius);
+}
+.home-pages a:hover {
+  filter: none;
+}
+.home-pages a:hover > * {
+  filter: brightness(115%) saturate(1.15);
+}
+.home-pages svg {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+@media screen and (min-width: 520px) {
+  .home-pages a {
+    flex-direction: row;
+    gap: var(--s-8);
+    padding: var(--s-8) var(--s-8);
+  }
+}
+.home-search {
+  position: relative;
+  min-width: 0;
+}
+.home-search input[type="search"] {
+  appearance: none;
+  width: 100%;
+  min-width: 0;
+  height: var(--s-40);
+  border: 1px solid var(--c-fg);
+  border-radius: var(--border-radius);
+  padding: 0 var(--s-40);
+  background: transparent;
+  color: var(--c-text);
+  font: inherit;
+  transition: 0.3s ease border-color;
+}
+.home-search input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+.home-search-clear {
+  position: absolute;
+  right: var(--s-4);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--s-32);
+  height: var(--s-32);
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--border-radius);
+  background: transparent;
+  color: var(--c-text-light);
+  cursor: pointer;
+}
+.home-search-clear[hidden] {
+  display: none;
+}
+.home-search-clear svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-search-clear:hover {
+    color: var(--c-text);
+  }
+}
+.home-search input::placeholder {
+  color: var(--c-text-light);
+}
+.home-search-icon {
+  position: absolute;
+  left: var(--s-12);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-text-light);
+  pointer-events: none;
+}
+.home-search-icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+.home-search-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.home-search-spinner {
+  position: absolute;
+  left: calc(var(--s-12) + 3px);
+  top: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--c-fg);
+  border-top-color: var(--c-text-light);
+  border-radius: 50%;
+  animation: home-search-spin 700ms linear infinite;
+}
+.home-search-spinner[hidden] {
+  display: none;
+}
+.home-search:has(.home-search-spinner:not([hidden])) .home-search-icon {
+  visibility: hidden;
+}
+.home-search-status {
+  color: var(--c-text-light);
+  font-size: 0.7777778rem;
+  margin: var(--s-8) 0 0;
+}
+@keyframes home-search-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-search-spinner {
+    animation: none;
+  }
+}
+
+/* Search results */
+#home-search-results {
+  --pagefind-ui-primary: var(--c-theme);
+  --pagefind-ui-text: var(--c-text);
+  --pagefind-ui-background: var(--c-bg);
+  --pagefind-ui-border: var(--c-border);
+  --pagefind-ui-tag: var(--c-border);
+  --pagefind-ui-font: inherit;
+  --pagefind-ui-border-radius: var(--border-radius);
+  margin-top: var(--s-24);
+}
+#home-search-results .pagefind-ui__search-input,
+#home-search-results .pagefind-ui__search-clear,
+#home-search-results .pagefind-ui__form::before {
+  display: none;
+}
+#home-search-results .pagefind-ui__result-title,
+#home-search-results .pagefind-ui__result-link {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--c-theme);
+}
+#home-search-results .pagefind-ui__message,
+#home-search-results .pagefind-ui__result-excerpt {
+  color: var(--c-text-light);
+  font-weight: 400;
+}
+#home-search-results mark {
+  background: transparent;
+  color: var(--c-text);
+  font-weight: 600;
+}
