@@ -3,14 +3,13 @@
 // and defaults to the post's date.
 (posts, fn, grid) => _template()
 ---
-${"\n"}    <ul class="posts-list ${grid ? "posts-list--grid" : ""}">
-${"      " + `${Tree.map(posts, (post) => `
-            <li>
-              <a href="${post.path}">
-                <span>${post.title}</span>
-                <span>${fn ? fn(post) : `<time datetime="${post.date}">${<../lib/utils.js>.toDateUI(post.date)}</time>`}</span>
-              </a>
-            </li>
-          `)}` + "\n"}
-    </ul>
-  
+<ul class="posts-list ${grid ? "posts-list--grid" : ""}">
+  ${Tree.map(posts, (post) => `
+    <li>
+      <a href="${post.path}">
+        <span>${post.title}</span>
+        <span>${fn ? fn(post) : `<time datetime="${post.date}">${<../lib/utils.js>.toDateUI(post.date)}</time>`}</span>
+      </a>
+    </li>
+  `)}
+</ul>

@@ -134,6 +134,19 @@ which is why there's no icon helper function.
 Inside a backtick **string literal** none of that applies — interpolations are
 substituted verbatim. That difference is load-bearing in several files.
 
+Two consequences worth knowing:
+
+- **Never indent an interpolation holding post content.** Indenting adds
+  leading spaces to every line, including the inside of `<pre>`, which is
+  rendered. `children` in `includes/Page.ori.html` and `post.contents` in
+  `routes/$year.$slug.ori.html` sit at column 0 for exactly this reason. Put a
+  **blank line** after them to restore the newline a column-0 interpolation
+  swallows — that's the idiom, not string concatenation.
+- **An indented interpolation stacks its indent on top of the literal's own.**
+  If you interpolate a multi-line backtick string at indent 10 and the string's
+  lines are already indented 14, the output lands at 24. Keep such literals
+  flush left and let the interpolation supply the indentation.
+
 **Escaping differs by context too.** In a template body, backticks are literal
 and only `${` needs escaping as `\${`. Inside a front-matter backtick string,
 both `` ` `` and `${` need escaping. This matters whenever browser JS gets
@@ -160,10 +173,6 @@ will fail, since no local copies remain.
 
 ## Known rough edges
 
-- Several files in `includes/` carry `${"      " + ... + "\n"}` scaffolding that
-  exists only to reproduce the whitespace of the JS templates they replaced.
-  It can be deleted in favour of natural indentation — that's a deliberate
-  output change, so do it on its own and read the diff.
 - `static/assets/img/` holds files nothing references (`logo-black.png`,
   `logo-white.png`, `jimniels.jpg`, `twitter-card.png`, `preferences.svg`,
   `fidelity-{low,med,high}.svg`). They're published URLs that may be hotlinked
