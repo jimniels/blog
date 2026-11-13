@@ -5,6 +5,7 @@
   return = _template()
 }.return
 ---
+
 <style>
   theme-pickers {
     display: flex;
@@ -121,7 +122,7 @@
   }
   theme-pickers button[data-color] {
     flex-shrink: 0;
-    width: var(--s-32);
+    width: var(--s-40);
   }
   theme-pickers button[data-color]:focus-visible {
     outline-offset: -2px;
@@ -154,27 +155,39 @@
       aria-label="Theme settings"
       title="Theme settings"
     >
-      <span class="theme-cog" aria-hidden="true">${../icons/Heroicons.ori/cog}</span>
-      <span class="theme-close" aria-hidden="true">${../icons/Heroicons.ori/x-mark}</span>
+      <span class="theme-cog" aria-hidden="true">
+        ${../icons/Heroicons.ori/cog}
+      </span>
+      <span class="theme-close" aria-hidden="true">
+        ${../icons/Heroicons.ori/x-mark}
+      </span>
     </button>
     <div class="theme-panel" id="theme-panel" inert>
       <div>
         ${Tree.map(colors, (color) => `
-          <button
-            type="button"
-            data-color="${color}"
-            aria-pressed="false"
-            aria-label="${color[0].toUpperCase() + color.slice(1)}"
-            title="${color[0].toUpperCase() + color.slice(1)}"
-            style="--swatch: hsl(var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l))"
-          >
-            <span></span>
-          </button>
+        <button
+          type="button"
+          data-color="${color}"
+          aria-pressed="false"
+          aria-label="${color[0].toUpperCase() + color.slice(1)}"
+          title="${color[0].toUpperCase() + color.slice(1)}"
+          style="
+            --swatch: hsl(
+              var(--c-${color}-h) var(--c-${color}-s) var(--c-${color}-l)
+            );
+          "
+        >
+          <span></span>
+        </button>
         `)}
         <span class="theme-divider" aria-hidden="true"></span>
         <button type="button" data-toggle="appearance" aria-label="Appearance">
-          <span class="theme-sun" aria-hidden="true">${../icons/Heroicons.ori/sun}</span>
-          <span class="theme-moon" aria-hidden="true">${../icons/Heroicons.ori/moon}</span>
+          <span class="theme-sun" aria-hidden="true">
+            ${../icons/Heroicons.ori/sun}
+          </span>
+          <span class="theme-moon" aria-hidden="true">
+            ${../icons/Heroicons.ori/moon}
+          </span>
         </button>
         <span class="theme-divider" aria-hidden="true"></span>
       </div>
@@ -182,6 +195,5 @@
   </div>
 </theme-pickers>
 <script type="module">
-    ${<../client/theme-picker.js>};
+  ${<../client/theme-picker.js>};
 </script>
-  
