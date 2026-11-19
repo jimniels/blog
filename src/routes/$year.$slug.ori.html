@@ -12,15 +12,20 @@
     description,
     head: `
       <link rel="canonical" href="${post.permalink}" />
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="${site.name}" />
       <meta property="og:title" content="${post.title}" />
       <meta property="og:description" content="${description}" />
-      <meta property="og:type" content="article" />
       <meta property="og:url" content="${post.permalink}" />
       <meta
         property="fediverse:creator"
         content="@jimniels@mastodon.social"
       />
-      ${post.ogImageUrl ? `<meta property="og:image" content="${post.ogImageUrl}" />` : ""}
+      <meta name="twitter:site" content="@jimniels" />
+      ${post.ogImageUrl
+        ? `<meta property="og:image" content="${post.ogImageUrl}" />
+           <meta name="twitter:card" content="summary_large_image" />`
+        : ""}
     `
   }
 
